@@ -1,0 +1,474 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "listing_full_response.h"
+
+
+
+static listing_full_response_t *listing_full_response_create_internal(
+    long id,
+    char *name,
+    char *description,
+    long start,
+    long end,
+    char *location_name,
+    char *location_description,
+    int private_listing,
+    int active,
+    list_t *participants,
+    account_short_response_t *owner,
+    list_t *filters
+    ) {
+    listing_full_response_t *listing_full_response_local_var = malloc(sizeof(listing_full_response_t));
+    if (!listing_full_response_local_var) {
+        return NULL;
+    }
+    listing_full_response_local_var->id = id;
+    listing_full_response_local_var->name = name;
+    listing_full_response_local_var->description = description;
+    listing_full_response_local_var->start = start;
+    listing_full_response_local_var->end = end;
+    listing_full_response_local_var->location_name = location_name;
+    listing_full_response_local_var->location_description = location_description;
+    listing_full_response_local_var->private_listing = private_listing;
+    listing_full_response_local_var->active = active;
+    listing_full_response_local_var->participants = participants;
+    listing_full_response_local_var->owner = owner;
+    listing_full_response_local_var->filters = filters;
+
+    listing_full_response_local_var->_library_owned = 1;
+    return listing_full_response_local_var;
+}
+
+__attribute__((deprecated)) listing_full_response_t *listing_full_response_create(
+    long id,
+    char *name,
+    char *description,
+    long start,
+    long end,
+    char *location_name,
+    char *location_description,
+    int private_listing,
+    int active,
+    list_t *participants,
+    account_short_response_t *owner,
+    list_t *filters
+    ) {
+    return listing_full_response_create_internal (
+        id,
+        name,
+        description,
+        start,
+        end,
+        location_name,
+        location_description,
+        private_listing,
+        active,
+        participants,
+        owner,
+        filters
+        );
+}
+
+void listing_full_response_free(listing_full_response_t *listing_full_response) {
+    if(NULL == listing_full_response){
+        return ;
+    }
+    if(listing_full_response->_library_owned != 1){
+        fprintf(stderr, "WARNING: %s() does NOT free objects allocated by the user\n", "listing_full_response_free");
+        return ;
+    }
+    listEntry_t *listEntry;
+    if (listing_full_response->name) {
+        free(listing_full_response->name);
+        listing_full_response->name = NULL;
+    }
+    if (listing_full_response->description) {
+        free(listing_full_response->description);
+        listing_full_response->description = NULL;
+    }
+    if (listing_full_response->location_name) {
+        free(listing_full_response->location_name);
+        listing_full_response->location_name = NULL;
+    }
+    if (listing_full_response->location_description) {
+        free(listing_full_response->location_description);
+        listing_full_response->location_description = NULL;
+    }
+    if (listing_full_response->participants) {
+        list_ForEach(listEntry, listing_full_response->participants) {
+            participant_response_free(listEntry->data);
+        }
+        list_freeList(listing_full_response->participants);
+        listing_full_response->participants = NULL;
+    }
+    if (listing_full_response->owner) {
+        account_short_response_free(listing_full_response->owner);
+        listing_full_response->owner = NULL;
+    }
+    if (listing_full_response->filters) {
+        list_ForEach(listEntry, listing_full_response->filters) {
+            filter_response_free(listEntry->data);
+        }
+        list_freeList(listing_full_response->filters);
+        listing_full_response->filters = NULL;
+    }
+    free(listing_full_response);
+}
+
+cJSON *listing_full_response_convertToJSON(listing_full_response_t *listing_full_response) {
+    cJSON *item = cJSON_CreateObject();
+
+    // listing_full_response->id
+    if(listing_full_response->id) {
+    if(cJSON_AddNumberToObject(item, "id", listing_full_response->id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // listing_full_response->name
+    if(listing_full_response->name) {
+    if(cJSON_AddStringToObject(item, "name", listing_full_response->name) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // listing_full_response->description
+    if(listing_full_response->description) {
+    if(cJSON_AddStringToObject(item, "description", listing_full_response->description) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // listing_full_response->start
+    if(listing_full_response->start) {
+    if(cJSON_AddNumberToObject(item, "start", listing_full_response->start) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // listing_full_response->end
+    if(listing_full_response->end) {
+    if(cJSON_AddNumberToObject(item, "end", listing_full_response->end) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // listing_full_response->location_name
+    if(listing_full_response->location_name) {
+    if(cJSON_AddStringToObject(item, "locationName", listing_full_response->location_name) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // listing_full_response->location_description
+    if(listing_full_response->location_description) {
+    if(cJSON_AddStringToObject(item, "locationDescription", listing_full_response->location_description) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // listing_full_response->private_listing
+    if(listing_full_response->private_listing) {
+    if(cJSON_AddBoolToObject(item, "privateListing", listing_full_response->private_listing) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // listing_full_response->active
+    if(listing_full_response->active) {
+    if(cJSON_AddBoolToObject(item, "active", listing_full_response->active) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // listing_full_response->participants
+    if(listing_full_response->participants) {
+    cJSON *participants = cJSON_AddArrayToObject(item, "participants");
+    if(participants == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *participantsListEntry;
+    if (listing_full_response->participants) {
+    list_ForEach(participantsListEntry, listing_full_response->participants) {
+    cJSON *itemLocal = participant_response_convertToJSON(participantsListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(participants, itemLocal);
+    }
+    }
+    }
+
+
+    // listing_full_response->owner
+    if(listing_full_response->owner) {
+    cJSON *owner_local_JSON = account_short_response_convertToJSON(listing_full_response->owner);
+    if(owner_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "owner", owner_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // listing_full_response->filters
+    if(listing_full_response->filters) {
+    cJSON *filters = cJSON_AddArrayToObject(item, "filters");
+    if(filters == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *filtersListEntry;
+    if (listing_full_response->filters) {
+    list_ForEach(filtersListEntry, listing_full_response->filters) {
+    cJSON *itemLocal = filter_response_convertToJSON(filtersListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(filters, itemLocal);
+    }
+    }
+    }
+
+    return item;
+fail:
+    if (item) {
+        cJSON_Delete(item);
+    }
+    return NULL;
+}
+
+listing_full_response_t *listing_full_response_parseFromJSON(cJSON *listing_full_responseJSON){
+
+    listing_full_response_t *listing_full_response_local_var = NULL;
+
+    // define the local list for listing_full_response->participants
+    list_t *participantsList = NULL;
+
+    // define the local variable for listing_full_response->owner
+    account_short_response_t *owner_local_nonprim = NULL;
+
+    // define the local list for listing_full_response->filters
+    list_t *filtersList = NULL;
+
+    // listing_full_response->id
+    cJSON *id = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "id");
+    if (cJSON_IsNull(id)) {
+        id = NULL;
+    }
+    if (id) { 
+    if(!cJSON_IsNumber(id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // listing_full_response->name
+    cJSON *name = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "name");
+    if (cJSON_IsNull(name)) {
+        name = NULL;
+    }
+    if (name) { 
+    if(!cJSON_IsString(name) && !cJSON_IsNull(name))
+    {
+    goto end; //String
+    }
+    }
+
+    // listing_full_response->description
+    cJSON *description = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "description");
+    if (cJSON_IsNull(description)) {
+        description = NULL;
+    }
+    if (description) { 
+    if(!cJSON_IsString(description) && !cJSON_IsNull(description))
+    {
+    goto end; //String
+    }
+    }
+
+    // listing_full_response->start
+    cJSON *start = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "start");
+    if (cJSON_IsNull(start)) {
+        start = NULL;
+    }
+    if (start) { 
+    if(!cJSON_IsNumber(start))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // listing_full_response->end
+    cJSON *end = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "end");
+    if (cJSON_IsNull(end)) {
+        end = NULL;
+    }
+    if (end) { 
+    if(!cJSON_IsNumber(end))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // listing_full_response->location_name
+    cJSON *location_name = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "locationName");
+    if (cJSON_IsNull(location_name)) {
+        location_name = NULL;
+    }
+    if (location_name) { 
+    if(!cJSON_IsString(location_name) && !cJSON_IsNull(location_name))
+    {
+    goto end; //String
+    }
+    }
+
+    // listing_full_response->location_description
+    cJSON *location_description = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "locationDescription");
+    if (cJSON_IsNull(location_description)) {
+        location_description = NULL;
+    }
+    if (location_description) { 
+    if(!cJSON_IsString(location_description) && !cJSON_IsNull(location_description))
+    {
+    goto end; //String
+    }
+    }
+
+    // listing_full_response->private_listing
+    cJSON *private_listing = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "privateListing");
+    if (cJSON_IsNull(private_listing)) {
+        private_listing = NULL;
+    }
+    if (private_listing) { 
+    if(!cJSON_IsBool(private_listing))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // listing_full_response->active
+    cJSON *active = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "active");
+    if (cJSON_IsNull(active)) {
+        active = NULL;
+    }
+    if (active) { 
+    if(!cJSON_IsBool(active))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // listing_full_response->participants
+    cJSON *participants = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "participants");
+    if (cJSON_IsNull(participants)) {
+        participants = NULL;
+    }
+    if (participants) { 
+    cJSON *participants_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(participants)){
+        goto end; //nonprimitive container
+    }
+
+    participantsList = list_createList();
+
+    cJSON_ArrayForEach(participants_local_nonprimitive,participants )
+    {
+        if(!cJSON_IsObject(participants_local_nonprimitive)){
+            goto end;
+        }
+        participant_response_t *participantsItem = participant_response_parseFromJSON(participants_local_nonprimitive);
+
+        list_addElement(participantsList, participantsItem);
+    }
+    }
+
+    // listing_full_response->owner
+    cJSON *owner = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "owner");
+    if (cJSON_IsNull(owner)) {
+        owner = NULL;
+    }
+    if (owner) { 
+    owner_local_nonprim = account_short_response_parseFromJSON(owner); //nonprimitive
+    }
+
+    // listing_full_response->filters
+    cJSON *filters = cJSON_GetObjectItemCaseSensitive(listing_full_responseJSON, "filters");
+    if (cJSON_IsNull(filters)) {
+        filters = NULL;
+    }
+    if (filters) { 
+    cJSON *filters_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(filters)){
+        goto end; //nonprimitive container
+    }
+
+    filtersList = list_createList();
+
+    cJSON_ArrayForEach(filters_local_nonprimitive,filters )
+    {
+        if(!cJSON_IsObject(filters_local_nonprimitive)){
+            goto end;
+        }
+        filter_response_t *filtersItem = filter_response_parseFromJSON(filters_local_nonprimitive);
+
+        list_addElement(filtersList, filtersItem);
+    }
+    }
+
+
+    listing_full_response_local_var = listing_full_response_create_internal (
+        id ? id->valuedouble : 0,
+        name && !cJSON_IsNull(name) ? strdup(name->valuestring) : NULL,
+        description && !cJSON_IsNull(description) ? strdup(description->valuestring) : NULL,
+        start ? start->valuedouble : 0,
+        end ? end->valuedouble : 0,
+        location_name && !cJSON_IsNull(location_name) ? strdup(location_name->valuestring) : NULL,
+        location_description && !cJSON_IsNull(location_description) ? strdup(location_description->valuestring) : NULL,
+        private_listing ? private_listing->valueint : 0,
+        active ? active->valueint : 0,
+        participants ? participantsList : NULL,
+        owner ? owner_local_nonprim : NULL,
+        filters ? filtersList : NULL
+        );
+
+    return listing_full_response_local_var;
+end:
+    if (participantsList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, participantsList) {
+            participant_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(participantsList);
+        participantsList = NULL;
+    }
+    if (owner_local_nonprim) {
+        account_short_response_free(owner_local_nonprim);
+        owner_local_nonprim = NULL;
+    }
+    if (filtersList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, filtersList) {
+            filter_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(filtersList);
+        filtersList = NULL;
+    }
+    return NULL;
+
+}

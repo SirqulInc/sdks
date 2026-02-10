@@ -1,0 +1,402 @@
+#' Create a new ProfileShortResponse
+#'
+#' @description
+#' ProfileShortResponse Class
+#'
+#' @docType class
+#' @title ProfileShortResponse
+#' @description ProfileShortResponse Class
+#' @format An \code{R6Class} generator object
+#' @field valid  character [optional]
+#' @field message  character [optional]
+#' @field version  numeric [optional]
+#' @field serializeNulls  character [optional]
+#' @field startTimeLog  integer [optional]
+#' @field errorCode  character [optional]
+#' @field request  list(\link{NameStringValueResponse}) [optional]
+#' @field accountId  integer [optional]
+#' @field locationDisplay  character [optional]
+#' @field display  character [optional]
+#' @field username  character [optional]
+#' @field profileImage  character [optional]
+#' @field profileAvatar  \link{AssetShortResponse} [optional]
+#' @field returning  character [optional]
+#' @importFrom R6 R6Class
+#' @importFrom jsonlite fromJSON toJSON
+#' @export
+ProfileShortResponse <- R6::R6Class(
+  "ProfileShortResponse",
+  public = list(
+    `valid` = NULL,
+    `message` = NULL,
+    `version` = NULL,
+    `serializeNulls` = NULL,
+    `startTimeLog` = NULL,
+    `errorCode` = NULL,
+    `request` = NULL,
+    `accountId` = NULL,
+    `locationDisplay` = NULL,
+    `display` = NULL,
+    `username` = NULL,
+    `profileImage` = NULL,
+    `profileAvatar` = NULL,
+    `returning` = NULL,
+
+    #' @description
+    #' Initialize a new ProfileShortResponse class.
+    #'
+    #' @param valid valid
+    #' @param message message
+    #' @param version version
+    #' @param serializeNulls serializeNulls
+    #' @param startTimeLog startTimeLog
+    #' @param errorCode errorCode
+    #' @param request request
+    #' @param accountId accountId
+    #' @param locationDisplay locationDisplay
+    #' @param display display
+    #' @param username username
+    #' @param profileImage profileImage
+    #' @param profileAvatar profileAvatar
+    #' @param returning returning
+    #' @param ... Other optional arguments.
+    initialize = function(`valid` = NULL, `message` = NULL, `version` = NULL, `serializeNulls` = NULL, `startTimeLog` = NULL, `errorCode` = NULL, `request` = NULL, `accountId` = NULL, `locationDisplay` = NULL, `display` = NULL, `username` = NULL, `profileImage` = NULL, `profileAvatar` = NULL, `returning` = NULL, ...) {
+      if (!is.null(`valid`)) {
+        if (!(is.logical(`valid`) && length(`valid`) == 1)) {
+          stop(paste("Error! Invalid data for `valid`. Must be a boolean:", `valid`))
+        }
+        self$`valid` <- `valid`
+      }
+      if (!is.null(`message`)) {
+        if (!(is.character(`message`) && length(`message`) == 1)) {
+          stop(paste("Error! Invalid data for `message`. Must be a string:", `message`))
+        }
+        self$`message` <- `message`
+      }
+      if (!is.null(`version`)) {
+        if (!(is.numeric(`version`) && length(`version`) == 1)) {
+          stop(paste("Error! Invalid data for `version`. Must be a number:", `version`))
+        }
+        self$`version` <- `version`
+      }
+      if (!is.null(`serializeNulls`)) {
+        if (!(is.logical(`serializeNulls`) && length(`serializeNulls`) == 1)) {
+          stop(paste("Error! Invalid data for `serializeNulls`. Must be a boolean:", `serializeNulls`))
+        }
+        self$`serializeNulls` <- `serializeNulls`
+      }
+      if (!is.null(`startTimeLog`)) {
+        if (!(is.numeric(`startTimeLog`) && length(`startTimeLog`) == 1)) {
+          stop(paste("Error! Invalid data for `startTimeLog`. Must be an integer:", `startTimeLog`))
+        }
+        self$`startTimeLog` <- `startTimeLog`
+      }
+      if (!is.null(`errorCode`)) {
+        if (!(is.character(`errorCode`) && length(`errorCode`) == 1)) {
+          stop(paste("Error! Invalid data for `errorCode`. Must be a string:", `errorCode`))
+        }
+        self$`errorCode` <- `errorCode`
+      }
+      if (!is.null(`request`)) {
+        stopifnot(is.vector(`request`), length(`request`) != 0)
+        sapply(`request`, function(x) stopifnot(R6::is.R6(x)))
+        self$`request` <- `request`
+      }
+      if (!is.null(`accountId`)) {
+        if (!(is.numeric(`accountId`) && length(`accountId`) == 1)) {
+          stop(paste("Error! Invalid data for `accountId`. Must be an integer:", `accountId`))
+        }
+        self$`accountId` <- `accountId`
+      }
+      if (!is.null(`locationDisplay`)) {
+        if (!(is.character(`locationDisplay`) && length(`locationDisplay`) == 1)) {
+          stop(paste("Error! Invalid data for `locationDisplay`. Must be a string:", `locationDisplay`))
+        }
+        self$`locationDisplay` <- `locationDisplay`
+      }
+      if (!is.null(`display`)) {
+        if (!(is.character(`display`) && length(`display`) == 1)) {
+          stop(paste("Error! Invalid data for `display`. Must be a string:", `display`))
+        }
+        self$`display` <- `display`
+      }
+      if (!is.null(`username`)) {
+        if (!(is.character(`username`) && length(`username`) == 1)) {
+          stop(paste("Error! Invalid data for `username`. Must be a string:", `username`))
+        }
+        self$`username` <- `username`
+      }
+      if (!is.null(`profileImage`)) {
+        if (!(is.character(`profileImage`) && length(`profileImage`) == 1)) {
+          stop(paste("Error! Invalid data for `profileImage`. Must be a string:", `profileImage`))
+        }
+        self$`profileImage` <- `profileImage`
+      }
+      if (!is.null(`profileAvatar`)) {
+        stopifnot(R6::is.R6(`profileAvatar`))
+        self$`profileAvatar` <- `profileAvatar`
+      }
+      if (!is.null(`returning`)) {
+        if (!(is.character(`returning`) && length(`returning`) == 1)) {
+          stop(paste("Error! Invalid data for `returning`. Must be a string:", `returning`))
+        }
+        self$`returning` <- `returning`
+      }
+    },
+
+    #' @description
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
+    toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return ProfileShortResponse as a base R list.
+    #' @examples
+    #' # convert array of ProfileShortResponse (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert ProfileShortResponse to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
+      ProfileShortResponseObject <- list()
+      if (!is.null(self$`valid`)) {
+        ProfileShortResponseObject[["valid"]] <-
+          self$`valid`
+      }
+      if (!is.null(self$`message`)) {
+        ProfileShortResponseObject[["message"]] <-
+          self$`message`
+      }
+      if (!is.null(self$`version`)) {
+        ProfileShortResponseObject[["version"]] <-
+          self$`version`
+      }
+      if (!is.null(self$`serializeNulls`)) {
+        ProfileShortResponseObject[["serializeNulls"]] <-
+          self$`serializeNulls`
+      }
+      if (!is.null(self$`startTimeLog`)) {
+        ProfileShortResponseObject[["startTimeLog"]] <-
+          self$`startTimeLog`
+      }
+      if (!is.null(self$`errorCode`)) {
+        ProfileShortResponseObject[["errorCode"]] <-
+          self$`errorCode`
+      }
+      if (!is.null(self$`request`)) {
+        ProfileShortResponseObject[["request"]] <-
+          self$extractSimpleType(self$`request`)
+      }
+      if (!is.null(self$`accountId`)) {
+        ProfileShortResponseObject[["accountId"]] <-
+          self$`accountId`
+      }
+      if (!is.null(self$`locationDisplay`)) {
+        ProfileShortResponseObject[["locationDisplay"]] <-
+          self$`locationDisplay`
+      }
+      if (!is.null(self$`display`)) {
+        ProfileShortResponseObject[["display"]] <-
+          self$`display`
+      }
+      if (!is.null(self$`username`)) {
+        ProfileShortResponseObject[["username"]] <-
+          self$`username`
+      }
+      if (!is.null(self$`profileImage`)) {
+        ProfileShortResponseObject[["profileImage"]] <-
+          self$`profileImage`
+      }
+      if (!is.null(self$`profileAvatar`)) {
+        ProfileShortResponseObject[["profileAvatar"]] <-
+          self$extractSimpleType(self$`profileAvatar`)
+      }
+      if (!is.null(self$`returning`)) {
+        ProfileShortResponseObject[["returning"]] <-
+          self$`returning`
+      }
+      return(ProfileShortResponseObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of ProfileShortResponse
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of ProfileShortResponse
+    fromJSON = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`valid`)) {
+        self$`valid` <- this_object$`valid`
+      }
+      if (!is.null(this_object$`message`)) {
+        self$`message` <- this_object$`message`
+      }
+      if (!is.null(this_object$`version`)) {
+        self$`version` <- this_object$`version`
+      }
+      if (!is.null(this_object$`serializeNulls`)) {
+        self$`serializeNulls` <- this_object$`serializeNulls`
+      }
+      if (!is.null(this_object$`startTimeLog`)) {
+        self$`startTimeLog` <- this_object$`startTimeLog`
+      }
+      if (!is.null(this_object$`errorCode`)) {
+        self$`errorCode` <- this_object$`errorCode`
+      }
+      if (!is.null(this_object$`request`)) {
+        self$`request` <- ApiClient$new()$deserializeObj(this_object$`request`, "array[NameStringValueResponse]", loadNamespace("openapi"))
+      }
+      if (!is.null(this_object$`accountId`)) {
+        self$`accountId` <- this_object$`accountId`
+      }
+      if (!is.null(this_object$`locationDisplay`)) {
+        self$`locationDisplay` <- this_object$`locationDisplay`
+      }
+      if (!is.null(this_object$`display`)) {
+        self$`display` <- this_object$`display`
+      }
+      if (!is.null(this_object$`username`)) {
+        self$`username` <- this_object$`username`
+      }
+      if (!is.null(this_object$`profileImage`)) {
+        self$`profileImage` <- this_object$`profileImage`
+      }
+      if (!is.null(this_object$`profileAvatar`)) {
+        `profileavatar_object` <- AssetShortResponse$new()
+        `profileavatar_object`$fromJSON(jsonlite::toJSON(this_object$`profileAvatar`, auto_unbox = TRUE, digits = NA))
+        self$`profileAvatar` <- `profileavatar_object`
+      }
+      if (!is.null(this_object$`returning`)) {
+        self$`returning` <- this_object$`returning`
+      }
+      self
+    },
+
+    #' @description
+    #' To JSON String
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
+    #' @return ProfileShortResponse in JSON format
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of ProfileShortResponse
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of ProfileShortResponse
+    fromJSONString = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      self$`valid` <- this_object$`valid`
+      self$`message` <- this_object$`message`
+      self$`version` <- this_object$`version`
+      self$`serializeNulls` <- this_object$`serializeNulls`
+      self$`startTimeLog` <- this_object$`startTimeLog`
+      self$`errorCode` <- this_object$`errorCode`
+      self$`request` <- ApiClient$new()$deserializeObj(this_object$`request`, "array[NameStringValueResponse]", loadNamespace("openapi"))
+      self$`accountId` <- this_object$`accountId`
+      self$`locationDisplay` <- this_object$`locationDisplay`
+      self$`display` <- this_object$`display`
+      self$`username` <- this_object$`username`
+      self$`profileImage` <- this_object$`profileImage`
+      self$`profileAvatar` <- AssetShortResponse$new()$fromJSON(jsonlite::toJSON(this_object$`profileAvatar`, auto_unbox = TRUE, digits = NA))
+      self$`returning` <- this_object$`returning`
+      self
+    },
+
+    #' @description
+    #' Validate JSON input with respect to ProfileShortResponse and throw an exception if invalid
+    #'
+    #' @param input the JSON input
+    validateJSON = function(input) {
+      input_json <- jsonlite::fromJSON(input)
+    },
+
+    #' @description
+    #' To string (JSON format)
+    #'
+    #' @return String representation of ProfileShortResponse
+    toString = function() {
+      self$toJSONString()
+    },
+
+    #' @description
+    #' Return true if the values in all fields are valid.
+    #'
+    #' @return true if the values in all fields are valid.
+    isValid = function() {
+      TRUE
+    },
+
+    #' @description
+    #' Return a list of invalid fields (if any).
+    #'
+    #' @return A list of invalid fields (if any).
+    getInvalidFields = function() {
+      invalid_fields <- list()
+      invalid_fields
+    },
+
+    #' @description
+    #' Print the object
+    print = function() {
+      print(jsonlite::prettify(self$toJSONString()))
+      invisible(self)
+    }
+  ),
+  # Lock the class to prevent modifications to the method or field
+  lock_class = TRUE
+)
+## Uncomment below to unlock the class to allow modifications of the method or field
+# ProfileShortResponse$unlock()
+#
+## Below is an example to define the print function
+# ProfileShortResponse$set("public", "print", function(...) {
+#   print(jsonlite::prettify(self$toJSONString()))
+#   invisible(self)
+# })
+## Uncomment below to lock the class to prevent modifications to the method or field
+# ProfileShortResponse$lock()
+

@@ -1,0 +1,2970 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "offer_response.h"
+
+
+char* offer_response_barcode_type_ToString(sirqul_iot_platform_offer_response_BARCODETYPE_e barcode_type) {
+    char* barcode_typeArray[] =  { "NULL", "NONE", "UPC", "CODE_128", "QR", "CUSTOM_MEDIA" };
+    return barcode_typeArray[barcode_type];
+}
+
+sirqul_iot_platform_offer_response_BARCODETYPE_e offer_response_barcode_type_FromString(char* barcode_type){
+    int stringToReturn = 0;
+    char *barcode_typeArray[] =  { "NULL", "NONE", "UPC", "CODE_128", "QR", "CUSTOM_MEDIA" };
+    size_t sizeofArray = sizeof(barcode_typeArray) / sizeof(barcode_typeArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(barcode_type, barcode_typeArray[stringToReturn]) == 0) {
+            return stringToReturn;
+        }
+        stringToReturn++;
+    }
+    return 0;
+}
+char* offer_response_special_offer_type_ToString(sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_e special_offer_type) {
+    char* special_offer_typeArray[] =  { "NULL", "ALL", "RESERVABLE", "REGULAR_OFFER", "ACT_NOW", "GET_THERE_NOW", "SQOOT", "TICKETS", "YIPIT" };
+    return special_offer_typeArray[special_offer_type];
+}
+
+sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_e offer_response_special_offer_type_FromString(char* special_offer_type){
+    int stringToReturn = 0;
+    char *special_offer_typeArray[] =  { "NULL", "ALL", "RESERVABLE", "REGULAR_OFFER", "ACT_NOW", "GET_THERE_NOW", "SQOOT", "TICKETS", "YIPIT" };
+    size_t sizeofArray = sizeof(special_offer_typeArray) / sizeof(special_offer_typeArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(special_offer_type, special_offer_typeArray[stringToReturn]) == 0) {
+            return stringToReturn;
+        }
+        stringToReturn++;
+    }
+    return 0;
+}
+
+static offer_response_t *offer_response_create_internal(
+    int valid,
+    char *message,
+    double version,
+    int serialize_nulls,
+    long start_time_log,
+    char *error_code,
+    list_t *request,
+    long offer_location_id,
+    long offer_id,
+    long retailer_id,
+    long transaction_id,
+    long favorite_id,
+    char *offer_name,
+    char *sub_title,
+    char *location_name,
+    char *starts,
+    char *expires,
+    long activated,
+    long expiration,
+    long redeemable_start,
+    long redeemable_end,
+    double distance,
+    char *offer_type,
+    double longitude,
+    double latitude,
+    int favorite,
+    double full_price,
+    double discount_price,
+    double estimated_value,
+    double voucher_discount_price,
+    mission_list_response_t *mission_list_response,
+    char *image,
+    char *image1,
+    char *image2,
+    char *image3,
+    char *image4,
+    char *image5,
+    list_t *images,
+    char *barcode,
+    char *external_url,
+    char *sqoot_url,
+    int active,
+    retailer_location_response_t *location,
+    char *sub_details,
+    int external_redeem_auth,
+    char *external_redeem_options,
+    char *publisher,
+    product_response_t *product,
+    event_response_t *event,
+    media_response_t *media,
+    int viewed_count,
+    int clicked_count,
+    int added_limit,
+    int added_count,
+    int used_count,
+    int removed_count,
+    int location_added_count,
+    char *barcode_entry,
+    sirqul_iot_platform_offer_response_BARCODETYPE_e barcode_type,
+    long tickets_reward,
+    char *tickets_reward_type,
+    sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_e special_offer_type,
+    long like_count,
+    long dislike_count,
+    long favorite_count,
+    long note_count,
+    long log_id,
+    long billable_entity_id,
+    long responsible_account_id,
+    char *availability_summary,
+    char *external_id,
+    offer_short_response_t *parent_offer,
+    char *address,
+    char *details,
+    char *fine_print,
+    char *retailer_phone_number,
+    char *ticket_price_type,
+    long ticket_price,
+    double discount_percentage,
+    double payment_fees,
+    double voucher_price,
+    int purchases_remaining,
+    int redemptions_remaining,
+    int redemption_status,
+    char *redemption_code,
+    list_t *audiences,
+    int audience_count,
+    int wallet_count,
+    char *qr_code_url,
+    int show_remaining,
+    int show_redeemed,
+    int purchase_limit,
+    int purchase_limit_per_user,
+    int redemption_limit,
+    int user_redemption_limit,
+    list_t *categories,
+    list_t *filters,
+    char *returning
+    ) {
+    offer_response_t *offer_response_local_var = malloc(sizeof(offer_response_t));
+    if (!offer_response_local_var) {
+        return NULL;
+    }
+    offer_response_local_var->valid = valid;
+    offer_response_local_var->message = message;
+    offer_response_local_var->version = version;
+    offer_response_local_var->serialize_nulls = serialize_nulls;
+    offer_response_local_var->start_time_log = start_time_log;
+    offer_response_local_var->error_code = error_code;
+    offer_response_local_var->request = request;
+    offer_response_local_var->offer_location_id = offer_location_id;
+    offer_response_local_var->offer_id = offer_id;
+    offer_response_local_var->retailer_id = retailer_id;
+    offer_response_local_var->transaction_id = transaction_id;
+    offer_response_local_var->favorite_id = favorite_id;
+    offer_response_local_var->offer_name = offer_name;
+    offer_response_local_var->sub_title = sub_title;
+    offer_response_local_var->location_name = location_name;
+    offer_response_local_var->starts = starts;
+    offer_response_local_var->expires = expires;
+    offer_response_local_var->activated = activated;
+    offer_response_local_var->expiration = expiration;
+    offer_response_local_var->redeemable_start = redeemable_start;
+    offer_response_local_var->redeemable_end = redeemable_end;
+    offer_response_local_var->distance = distance;
+    offer_response_local_var->offer_type = offer_type;
+    offer_response_local_var->longitude = longitude;
+    offer_response_local_var->latitude = latitude;
+    offer_response_local_var->favorite = favorite;
+    offer_response_local_var->full_price = full_price;
+    offer_response_local_var->discount_price = discount_price;
+    offer_response_local_var->estimated_value = estimated_value;
+    offer_response_local_var->voucher_discount_price = voucher_discount_price;
+    offer_response_local_var->mission_list_response = mission_list_response;
+    offer_response_local_var->image = image;
+    offer_response_local_var->image1 = image1;
+    offer_response_local_var->image2 = image2;
+    offer_response_local_var->image3 = image3;
+    offer_response_local_var->image4 = image4;
+    offer_response_local_var->image5 = image5;
+    offer_response_local_var->images = images;
+    offer_response_local_var->barcode = barcode;
+    offer_response_local_var->external_url = external_url;
+    offer_response_local_var->sqoot_url = sqoot_url;
+    offer_response_local_var->active = active;
+    offer_response_local_var->location = location;
+    offer_response_local_var->sub_details = sub_details;
+    offer_response_local_var->external_redeem_auth = external_redeem_auth;
+    offer_response_local_var->external_redeem_options = external_redeem_options;
+    offer_response_local_var->publisher = publisher;
+    offer_response_local_var->product = product;
+    offer_response_local_var->event = event;
+    offer_response_local_var->media = media;
+    offer_response_local_var->viewed_count = viewed_count;
+    offer_response_local_var->clicked_count = clicked_count;
+    offer_response_local_var->added_limit = added_limit;
+    offer_response_local_var->added_count = added_count;
+    offer_response_local_var->used_count = used_count;
+    offer_response_local_var->removed_count = removed_count;
+    offer_response_local_var->location_added_count = location_added_count;
+    offer_response_local_var->barcode_entry = barcode_entry;
+    offer_response_local_var->barcode_type = barcode_type;
+    offer_response_local_var->tickets_reward = tickets_reward;
+    offer_response_local_var->tickets_reward_type = tickets_reward_type;
+    offer_response_local_var->special_offer_type = special_offer_type;
+    offer_response_local_var->like_count = like_count;
+    offer_response_local_var->dislike_count = dislike_count;
+    offer_response_local_var->favorite_count = favorite_count;
+    offer_response_local_var->note_count = note_count;
+    offer_response_local_var->log_id = log_id;
+    offer_response_local_var->billable_entity_id = billable_entity_id;
+    offer_response_local_var->responsible_account_id = responsible_account_id;
+    offer_response_local_var->availability_summary = availability_summary;
+    offer_response_local_var->external_id = external_id;
+    offer_response_local_var->parent_offer = parent_offer;
+    offer_response_local_var->address = address;
+    offer_response_local_var->details = details;
+    offer_response_local_var->fine_print = fine_print;
+    offer_response_local_var->retailer_phone_number = retailer_phone_number;
+    offer_response_local_var->ticket_price_type = ticket_price_type;
+    offer_response_local_var->ticket_price = ticket_price;
+    offer_response_local_var->discount_percentage = discount_percentage;
+    offer_response_local_var->payment_fees = payment_fees;
+    offer_response_local_var->voucher_price = voucher_price;
+    offer_response_local_var->purchases_remaining = purchases_remaining;
+    offer_response_local_var->redemptions_remaining = redemptions_remaining;
+    offer_response_local_var->redemption_status = redemption_status;
+    offer_response_local_var->redemption_code = redemption_code;
+    offer_response_local_var->audiences = audiences;
+    offer_response_local_var->audience_count = audience_count;
+    offer_response_local_var->wallet_count = wallet_count;
+    offer_response_local_var->qr_code_url = qr_code_url;
+    offer_response_local_var->show_remaining = show_remaining;
+    offer_response_local_var->show_redeemed = show_redeemed;
+    offer_response_local_var->purchase_limit = purchase_limit;
+    offer_response_local_var->purchase_limit_per_user = purchase_limit_per_user;
+    offer_response_local_var->redemption_limit = redemption_limit;
+    offer_response_local_var->user_redemption_limit = user_redemption_limit;
+    offer_response_local_var->categories = categories;
+    offer_response_local_var->filters = filters;
+    offer_response_local_var->returning = returning;
+
+    offer_response_local_var->_library_owned = 1;
+    return offer_response_local_var;
+}
+
+__attribute__((deprecated)) offer_response_t *offer_response_create(
+    int valid,
+    char *message,
+    double version,
+    int serialize_nulls,
+    long start_time_log,
+    char *error_code,
+    list_t *request,
+    long offer_location_id,
+    long offer_id,
+    long retailer_id,
+    long transaction_id,
+    long favorite_id,
+    char *offer_name,
+    char *sub_title,
+    char *location_name,
+    char *starts,
+    char *expires,
+    long activated,
+    long expiration,
+    long redeemable_start,
+    long redeemable_end,
+    double distance,
+    char *offer_type,
+    double longitude,
+    double latitude,
+    int favorite,
+    double full_price,
+    double discount_price,
+    double estimated_value,
+    double voucher_discount_price,
+    mission_list_response_t *mission_list_response,
+    char *image,
+    char *image1,
+    char *image2,
+    char *image3,
+    char *image4,
+    char *image5,
+    list_t *images,
+    char *barcode,
+    char *external_url,
+    char *sqoot_url,
+    int active,
+    retailer_location_response_t *location,
+    char *sub_details,
+    int external_redeem_auth,
+    char *external_redeem_options,
+    char *publisher,
+    product_response_t *product,
+    event_response_t *event,
+    media_response_t *media,
+    int viewed_count,
+    int clicked_count,
+    int added_limit,
+    int added_count,
+    int used_count,
+    int removed_count,
+    int location_added_count,
+    char *barcode_entry,
+    sirqul_iot_platform_offer_response_BARCODETYPE_e barcode_type,
+    long tickets_reward,
+    char *tickets_reward_type,
+    sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_e special_offer_type,
+    long like_count,
+    long dislike_count,
+    long favorite_count,
+    long note_count,
+    long log_id,
+    long billable_entity_id,
+    long responsible_account_id,
+    char *availability_summary,
+    char *external_id,
+    offer_short_response_t *parent_offer,
+    char *address,
+    char *details,
+    char *fine_print,
+    char *retailer_phone_number,
+    char *ticket_price_type,
+    long ticket_price,
+    double discount_percentage,
+    double payment_fees,
+    double voucher_price,
+    int purchases_remaining,
+    int redemptions_remaining,
+    int redemption_status,
+    char *redemption_code,
+    list_t *audiences,
+    int audience_count,
+    int wallet_count,
+    char *qr_code_url,
+    int show_remaining,
+    int show_redeemed,
+    int purchase_limit,
+    int purchase_limit_per_user,
+    int redemption_limit,
+    int user_redemption_limit,
+    list_t *categories,
+    list_t *filters,
+    char *returning
+    ) {
+    return offer_response_create_internal (
+        valid,
+        message,
+        version,
+        serialize_nulls,
+        start_time_log,
+        error_code,
+        request,
+        offer_location_id,
+        offer_id,
+        retailer_id,
+        transaction_id,
+        favorite_id,
+        offer_name,
+        sub_title,
+        location_name,
+        starts,
+        expires,
+        activated,
+        expiration,
+        redeemable_start,
+        redeemable_end,
+        distance,
+        offer_type,
+        longitude,
+        latitude,
+        favorite,
+        full_price,
+        discount_price,
+        estimated_value,
+        voucher_discount_price,
+        mission_list_response,
+        image,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
+        images,
+        barcode,
+        external_url,
+        sqoot_url,
+        active,
+        location,
+        sub_details,
+        external_redeem_auth,
+        external_redeem_options,
+        publisher,
+        product,
+        event,
+        media,
+        viewed_count,
+        clicked_count,
+        added_limit,
+        added_count,
+        used_count,
+        removed_count,
+        location_added_count,
+        barcode_entry,
+        barcode_type,
+        tickets_reward,
+        tickets_reward_type,
+        special_offer_type,
+        like_count,
+        dislike_count,
+        favorite_count,
+        note_count,
+        log_id,
+        billable_entity_id,
+        responsible_account_id,
+        availability_summary,
+        external_id,
+        parent_offer,
+        address,
+        details,
+        fine_print,
+        retailer_phone_number,
+        ticket_price_type,
+        ticket_price,
+        discount_percentage,
+        payment_fees,
+        voucher_price,
+        purchases_remaining,
+        redemptions_remaining,
+        redemption_status,
+        redemption_code,
+        audiences,
+        audience_count,
+        wallet_count,
+        qr_code_url,
+        show_remaining,
+        show_redeemed,
+        purchase_limit,
+        purchase_limit_per_user,
+        redemption_limit,
+        user_redemption_limit,
+        categories,
+        filters,
+        returning
+        );
+}
+
+void offer_response_free(offer_response_t *offer_response) {
+    if(NULL == offer_response){
+        return ;
+    }
+    if(offer_response->_library_owned != 1){
+        fprintf(stderr, "WARNING: %s() does NOT free objects allocated by the user\n", "offer_response_free");
+        return ;
+    }
+    listEntry_t *listEntry;
+    if (offer_response->message) {
+        free(offer_response->message);
+        offer_response->message = NULL;
+    }
+    if (offer_response->error_code) {
+        free(offer_response->error_code);
+        offer_response->error_code = NULL;
+    }
+    if (offer_response->request) {
+        list_ForEach(listEntry, offer_response->request) {
+            name_string_value_response_free(listEntry->data);
+        }
+        list_freeList(offer_response->request);
+        offer_response->request = NULL;
+    }
+    if (offer_response->offer_name) {
+        free(offer_response->offer_name);
+        offer_response->offer_name = NULL;
+    }
+    if (offer_response->sub_title) {
+        free(offer_response->sub_title);
+        offer_response->sub_title = NULL;
+    }
+    if (offer_response->location_name) {
+        free(offer_response->location_name);
+        offer_response->location_name = NULL;
+    }
+    if (offer_response->starts) {
+        free(offer_response->starts);
+        offer_response->starts = NULL;
+    }
+    if (offer_response->expires) {
+        free(offer_response->expires);
+        offer_response->expires = NULL;
+    }
+    if (offer_response->offer_type) {
+        free(offer_response->offer_type);
+        offer_response->offer_type = NULL;
+    }
+    if (offer_response->mission_list_response) {
+        mission_list_response_free(offer_response->mission_list_response);
+        offer_response->mission_list_response = NULL;
+    }
+    if (offer_response->image) {
+        free(offer_response->image);
+        offer_response->image = NULL;
+    }
+    if (offer_response->image1) {
+        free(offer_response->image1);
+        offer_response->image1 = NULL;
+    }
+    if (offer_response->image2) {
+        free(offer_response->image2);
+        offer_response->image2 = NULL;
+    }
+    if (offer_response->image3) {
+        free(offer_response->image3);
+        offer_response->image3 = NULL;
+    }
+    if (offer_response->image4) {
+        free(offer_response->image4);
+        offer_response->image4 = NULL;
+    }
+    if (offer_response->image5) {
+        free(offer_response->image5);
+        offer_response->image5 = NULL;
+    }
+    if (offer_response->images) {
+        list_ForEach(listEntry, offer_response->images) {
+            asset_response_free(listEntry->data);
+        }
+        list_freeList(offer_response->images);
+        offer_response->images = NULL;
+    }
+    if (offer_response->barcode) {
+        free(offer_response->barcode);
+        offer_response->barcode = NULL;
+    }
+    if (offer_response->external_url) {
+        free(offer_response->external_url);
+        offer_response->external_url = NULL;
+    }
+    if (offer_response->sqoot_url) {
+        free(offer_response->sqoot_url);
+        offer_response->sqoot_url = NULL;
+    }
+    if (offer_response->location) {
+        retailer_location_response_free(offer_response->location);
+        offer_response->location = NULL;
+    }
+    if (offer_response->sub_details) {
+        free(offer_response->sub_details);
+        offer_response->sub_details = NULL;
+    }
+    if (offer_response->external_redeem_options) {
+        free(offer_response->external_redeem_options);
+        offer_response->external_redeem_options = NULL;
+    }
+    if (offer_response->publisher) {
+        free(offer_response->publisher);
+        offer_response->publisher = NULL;
+    }
+    if (offer_response->product) {
+        product_response_free(offer_response->product);
+        offer_response->product = NULL;
+    }
+    if (offer_response->event) {
+        event_response_free(offer_response->event);
+        offer_response->event = NULL;
+    }
+    if (offer_response->media) {
+        media_response_free(offer_response->media);
+        offer_response->media = NULL;
+    }
+    if (offer_response->barcode_entry) {
+        free(offer_response->barcode_entry);
+        offer_response->barcode_entry = NULL;
+    }
+    if (offer_response->tickets_reward_type) {
+        free(offer_response->tickets_reward_type);
+        offer_response->tickets_reward_type = NULL;
+    }
+    if (offer_response->availability_summary) {
+        free(offer_response->availability_summary);
+        offer_response->availability_summary = NULL;
+    }
+    if (offer_response->external_id) {
+        free(offer_response->external_id);
+        offer_response->external_id = NULL;
+    }
+    if (offer_response->parent_offer) {
+        offer_short_response_free(offer_response->parent_offer);
+        offer_response->parent_offer = NULL;
+    }
+    if (offer_response->address) {
+        free(offer_response->address);
+        offer_response->address = NULL;
+    }
+    if (offer_response->details) {
+        free(offer_response->details);
+        offer_response->details = NULL;
+    }
+    if (offer_response->fine_print) {
+        free(offer_response->fine_print);
+        offer_response->fine_print = NULL;
+    }
+    if (offer_response->retailer_phone_number) {
+        free(offer_response->retailer_phone_number);
+        offer_response->retailer_phone_number = NULL;
+    }
+    if (offer_response->ticket_price_type) {
+        free(offer_response->ticket_price_type);
+        offer_response->ticket_price_type = NULL;
+    }
+    if (offer_response->redemption_code) {
+        free(offer_response->redemption_code);
+        offer_response->redemption_code = NULL;
+    }
+    if (offer_response->audiences) {
+        list_ForEach(listEntry, offer_response->audiences) {
+            audience_response_free(listEntry->data);
+        }
+        list_freeList(offer_response->audiences);
+        offer_response->audiences = NULL;
+    }
+    if (offer_response->qr_code_url) {
+        free(offer_response->qr_code_url);
+        offer_response->qr_code_url = NULL;
+    }
+    if (offer_response->categories) {
+        list_ForEach(listEntry, offer_response->categories) {
+            category_response_free(listEntry->data);
+        }
+        list_freeList(offer_response->categories);
+        offer_response->categories = NULL;
+    }
+    if (offer_response->filters) {
+        list_ForEach(listEntry, offer_response->filters) {
+            filter_response_free(listEntry->data);
+        }
+        list_freeList(offer_response->filters);
+        offer_response->filters = NULL;
+    }
+    if (offer_response->returning) {
+        free(offer_response->returning);
+        offer_response->returning = NULL;
+    }
+    free(offer_response);
+}
+
+cJSON *offer_response_convertToJSON(offer_response_t *offer_response) {
+    cJSON *item = cJSON_CreateObject();
+
+    // offer_response->valid
+    if(offer_response->valid) {
+    if(cJSON_AddBoolToObject(item, "valid", offer_response->valid) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->message
+    if(offer_response->message) {
+    if(cJSON_AddStringToObject(item, "message", offer_response->message) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->version
+    if(offer_response->version) {
+    if(cJSON_AddNumberToObject(item, "version", offer_response->version) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->serialize_nulls
+    if(offer_response->serialize_nulls) {
+    if(cJSON_AddBoolToObject(item, "serializeNulls", offer_response->serialize_nulls) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->start_time_log
+    if(offer_response->start_time_log) {
+    if(cJSON_AddNumberToObject(item, "startTimeLog", offer_response->start_time_log) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->error_code
+    if(offer_response->error_code) {
+    if(cJSON_AddStringToObject(item, "errorCode", offer_response->error_code) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->request
+    if(offer_response->request) {
+    cJSON *request = cJSON_AddArrayToObject(item, "request");
+    if(request == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *requestListEntry;
+    if (offer_response->request) {
+    list_ForEach(requestListEntry, offer_response->request) {
+    cJSON *itemLocal = name_string_value_response_convertToJSON(requestListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(request, itemLocal);
+    }
+    }
+    }
+
+
+    // offer_response->offer_location_id
+    if(offer_response->offer_location_id) {
+    if(cJSON_AddNumberToObject(item, "offerLocationId", offer_response->offer_location_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->offer_id
+    if(offer_response->offer_id) {
+    if(cJSON_AddNumberToObject(item, "offerId", offer_response->offer_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->retailer_id
+    if(offer_response->retailer_id) {
+    if(cJSON_AddNumberToObject(item, "retailerId", offer_response->retailer_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->transaction_id
+    if(offer_response->transaction_id) {
+    if(cJSON_AddNumberToObject(item, "transactionId", offer_response->transaction_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->favorite_id
+    if(offer_response->favorite_id) {
+    if(cJSON_AddNumberToObject(item, "favoriteId", offer_response->favorite_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->offer_name
+    if(offer_response->offer_name) {
+    if(cJSON_AddStringToObject(item, "offerName", offer_response->offer_name) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->sub_title
+    if(offer_response->sub_title) {
+    if(cJSON_AddStringToObject(item, "subTitle", offer_response->sub_title) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->location_name
+    if(offer_response->location_name) {
+    if(cJSON_AddStringToObject(item, "locationName", offer_response->location_name) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->starts
+    if(offer_response->starts) {
+    if(cJSON_AddStringToObject(item, "starts", offer_response->starts) == NULL) {
+    goto fail; //Date-Time
+    }
+    }
+
+
+    // offer_response->expires
+    if(offer_response->expires) {
+    if(cJSON_AddStringToObject(item, "expires", offer_response->expires) == NULL) {
+    goto fail; //Date-Time
+    }
+    }
+
+
+    // offer_response->activated
+    if(offer_response->activated) {
+    if(cJSON_AddNumberToObject(item, "activated", offer_response->activated) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->expiration
+    if(offer_response->expiration) {
+    if(cJSON_AddNumberToObject(item, "expiration", offer_response->expiration) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redeemable_start
+    if(offer_response->redeemable_start) {
+    if(cJSON_AddNumberToObject(item, "redeemableStart", offer_response->redeemable_start) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redeemable_end
+    if(offer_response->redeemable_end) {
+    if(cJSON_AddNumberToObject(item, "redeemableEnd", offer_response->redeemable_end) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->distance
+    if(offer_response->distance) {
+    if(cJSON_AddNumberToObject(item, "distance", offer_response->distance) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->offer_type
+    if(offer_response->offer_type) {
+    if(cJSON_AddStringToObject(item, "offerType", offer_response->offer_type) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->longitude
+    if(offer_response->longitude) {
+    if(cJSON_AddNumberToObject(item, "longitude", offer_response->longitude) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->latitude
+    if(offer_response->latitude) {
+    if(cJSON_AddNumberToObject(item, "latitude", offer_response->latitude) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->favorite
+    if(offer_response->favorite) {
+    if(cJSON_AddBoolToObject(item, "favorite", offer_response->favorite) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->full_price
+    if(offer_response->full_price) {
+    if(cJSON_AddNumberToObject(item, "fullPrice", offer_response->full_price) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->discount_price
+    if(offer_response->discount_price) {
+    if(cJSON_AddNumberToObject(item, "discountPrice", offer_response->discount_price) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->estimated_value
+    if(offer_response->estimated_value) {
+    if(cJSON_AddNumberToObject(item, "estimatedValue", offer_response->estimated_value) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->voucher_discount_price
+    if(offer_response->voucher_discount_price) {
+    if(cJSON_AddNumberToObject(item, "voucherDiscountPrice", offer_response->voucher_discount_price) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->mission_list_response
+    if(offer_response->mission_list_response) {
+    cJSON *mission_list_response_local_JSON = mission_list_response_convertToJSON(offer_response->mission_list_response);
+    if(mission_list_response_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "missionListResponse", mission_list_response_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->image
+    if(offer_response->image) {
+    if(cJSON_AddStringToObject(item, "image", offer_response->image) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->image1
+    if(offer_response->image1) {
+    if(cJSON_AddStringToObject(item, "image1", offer_response->image1) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->image2
+    if(offer_response->image2) {
+    if(cJSON_AddStringToObject(item, "image2", offer_response->image2) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->image3
+    if(offer_response->image3) {
+    if(cJSON_AddStringToObject(item, "image3", offer_response->image3) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->image4
+    if(offer_response->image4) {
+    if(cJSON_AddStringToObject(item, "image4", offer_response->image4) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->image5
+    if(offer_response->image5) {
+    if(cJSON_AddStringToObject(item, "image5", offer_response->image5) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->images
+    if(offer_response->images) {
+    cJSON *images = cJSON_AddArrayToObject(item, "images");
+    if(images == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *imagesListEntry;
+    if (offer_response->images) {
+    list_ForEach(imagesListEntry, offer_response->images) {
+    cJSON *itemLocal = asset_response_convertToJSON(imagesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(images, itemLocal);
+    }
+    }
+    }
+
+
+    // offer_response->barcode
+    if(offer_response->barcode) {
+    if(cJSON_AddStringToObject(item, "barcode", offer_response->barcode) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->external_url
+    if(offer_response->external_url) {
+    if(cJSON_AddStringToObject(item, "externalUrl", offer_response->external_url) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->sqoot_url
+    if(offer_response->sqoot_url) {
+    if(cJSON_AddStringToObject(item, "sqootUrl", offer_response->sqoot_url) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->active
+    if(offer_response->active) {
+    if(cJSON_AddBoolToObject(item, "active", offer_response->active) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->location
+    if(offer_response->location) {
+    cJSON *location_local_JSON = retailer_location_response_convertToJSON(offer_response->location);
+    if(location_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "location", location_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->sub_details
+    if(offer_response->sub_details) {
+    if(cJSON_AddStringToObject(item, "subDetails", offer_response->sub_details) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->external_redeem_auth
+    if(offer_response->external_redeem_auth) {
+    if(cJSON_AddNumberToObject(item, "externalRedeemAuth", offer_response->external_redeem_auth) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->external_redeem_options
+    if(offer_response->external_redeem_options) {
+    if(cJSON_AddStringToObject(item, "externalRedeemOptions", offer_response->external_redeem_options) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->publisher
+    if(offer_response->publisher) {
+    if(cJSON_AddStringToObject(item, "publisher", offer_response->publisher) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->product
+    if(offer_response->product) {
+    cJSON *product_local_JSON = product_response_convertToJSON(offer_response->product);
+    if(product_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "product", product_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->event
+    if(offer_response->event) {
+    cJSON *event_local_JSON = event_response_convertToJSON(offer_response->event);
+    if(event_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "event", event_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->media
+    if(offer_response->media) {
+    cJSON *media_local_JSON = media_response_convertToJSON(offer_response->media);
+    if(media_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "media", media_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->viewed_count
+    if(offer_response->viewed_count) {
+    if(cJSON_AddNumberToObject(item, "viewedCount", offer_response->viewed_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->clicked_count
+    if(offer_response->clicked_count) {
+    if(cJSON_AddNumberToObject(item, "clickedCount", offer_response->clicked_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->added_limit
+    if(offer_response->added_limit) {
+    if(cJSON_AddNumberToObject(item, "addedLimit", offer_response->added_limit) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->added_count
+    if(offer_response->added_count) {
+    if(cJSON_AddNumberToObject(item, "addedCount", offer_response->added_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->used_count
+    if(offer_response->used_count) {
+    if(cJSON_AddNumberToObject(item, "usedCount", offer_response->used_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->removed_count
+    if(offer_response->removed_count) {
+    if(cJSON_AddNumberToObject(item, "removedCount", offer_response->removed_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->location_added_count
+    if(offer_response->location_added_count) {
+    if(cJSON_AddNumberToObject(item, "locationAddedCount", offer_response->location_added_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->barcode_entry
+    if(offer_response->barcode_entry) {
+    if(cJSON_AddStringToObject(item, "barcodeEntry", offer_response->barcode_entry) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->barcode_type
+    if(offer_response->barcode_type != sirqul_iot_platform_offer_response_BARCODETYPE_NULL) {
+    if(cJSON_AddStringToObject(item, "barcodeType", offer_response_barcode_type_ToString(offer_response->barcode_type)) == NULL)
+    {
+    goto fail; //Enum
+    }
+    }
+
+
+    // offer_response->tickets_reward
+    if(offer_response->tickets_reward) {
+    if(cJSON_AddNumberToObject(item, "ticketsReward", offer_response->tickets_reward) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->tickets_reward_type
+    if(offer_response->tickets_reward_type) {
+    if(cJSON_AddStringToObject(item, "ticketsRewardType", offer_response->tickets_reward_type) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->special_offer_type
+    if(offer_response->special_offer_type != sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_NULL) {
+    if(cJSON_AddStringToObject(item, "specialOfferType", offer_response_special_offer_type_ToString(offer_response->special_offer_type)) == NULL)
+    {
+    goto fail; //Enum
+    }
+    }
+
+
+    // offer_response->like_count
+    if(offer_response->like_count) {
+    if(cJSON_AddNumberToObject(item, "likeCount", offer_response->like_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->dislike_count
+    if(offer_response->dislike_count) {
+    if(cJSON_AddNumberToObject(item, "dislikeCount", offer_response->dislike_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->favorite_count
+    if(offer_response->favorite_count) {
+    if(cJSON_AddNumberToObject(item, "favoriteCount", offer_response->favorite_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->note_count
+    if(offer_response->note_count) {
+    if(cJSON_AddNumberToObject(item, "noteCount", offer_response->note_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->log_id
+    if(offer_response->log_id) {
+    if(cJSON_AddNumberToObject(item, "logId", offer_response->log_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->billable_entity_id
+    if(offer_response->billable_entity_id) {
+    if(cJSON_AddNumberToObject(item, "billableEntityId", offer_response->billable_entity_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->responsible_account_id
+    if(offer_response->responsible_account_id) {
+    if(cJSON_AddNumberToObject(item, "responsibleAccountId", offer_response->responsible_account_id) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->availability_summary
+    if(offer_response->availability_summary) {
+    if(cJSON_AddStringToObject(item, "availabilitySummary", offer_response->availability_summary) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->external_id
+    if(offer_response->external_id) {
+    if(cJSON_AddStringToObject(item, "externalId", offer_response->external_id) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->parent_offer
+    if(offer_response->parent_offer) {
+    cJSON *parent_offer_local_JSON = offer_short_response_convertToJSON(offer_response->parent_offer);
+    if(parent_offer_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "parentOffer", parent_offer_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+    }
+
+
+    // offer_response->address
+    if(offer_response->address) {
+    if(cJSON_AddStringToObject(item, "address", offer_response->address) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->details
+    if(offer_response->details) {
+    if(cJSON_AddStringToObject(item, "details", offer_response->details) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->fine_print
+    if(offer_response->fine_print) {
+    if(cJSON_AddStringToObject(item, "finePrint", offer_response->fine_print) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->retailer_phone_number
+    if(offer_response->retailer_phone_number) {
+    if(cJSON_AddStringToObject(item, "retailerPhoneNumber", offer_response->retailer_phone_number) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->ticket_price_type
+    if(offer_response->ticket_price_type) {
+    if(cJSON_AddStringToObject(item, "ticketPriceType", offer_response->ticket_price_type) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->ticket_price
+    if(offer_response->ticket_price) {
+    if(cJSON_AddNumberToObject(item, "ticketPrice", offer_response->ticket_price) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->discount_percentage
+    if(offer_response->discount_percentage) {
+    if(cJSON_AddNumberToObject(item, "discountPercentage", offer_response->discount_percentage) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->payment_fees
+    if(offer_response->payment_fees) {
+    if(cJSON_AddNumberToObject(item, "paymentFees", offer_response->payment_fees) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->voucher_price
+    if(offer_response->voucher_price) {
+    if(cJSON_AddNumberToObject(item, "voucherPrice", offer_response->voucher_price) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->purchases_remaining
+    if(offer_response->purchases_remaining) {
+    if(cJSON_AddNumberToObject(item, "purchasesRemaining", offer_response->purchases_remaining) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redemptions_remaining
+    if(offer_response->redemptions_remaining) {
+    if(cJSON_AddNumberToObject(item, "redemptionsRemaining", offer_response->redemptions_remaining) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redemption_status
+    if(offer_response->redemption_status) {
+    if(cJSON_AddNumberToObject(item, "redemptionStatus", offer_response->redemption_status) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redemption_code
+    if(offer_response->redemption_code) {
+    if(cJSON_AddStringToObject(item, "redemptionCode", offer_response->redemption_code) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->audiences
+    if(offer_response->audiences) {
+    cJSON *audiences = cJSON_AddArrayToObject(item, "audiences");
+    if(audiences == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *audiencesListEntry;
+    if (offer_response->audiences) {
+    list_ForEach(audiencesListEntry, offer_response->audiences) {
+    cJSON *itemLocal = audience_response_convertToJSON(audiencesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(audiences, itemLocal);
+    }
+    }
+    }
+
+
+    // offer_response->audience_count
+    if(offer_response->audience_count) {
+    if(cJSON_AddNumberToObject(item, "audienceCount", offer_response->audience_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->wallet_count
+    if(offer_response->wallet_count) {
+    if(cJSON_AddNumberToObject(item, "walletCount", offer_response->wallet_count) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->qr_code_url
+    if(offer_response->qr_code_url) {
+    if(cJSON_AddStringToObject(item, "qrCodeUrl", offer_response->qr_code_url) == NULL) {
+    goto fail; //String
+    }
+    }
+
+
+    // offer_response->show_remaining
+    if(offer_response->show_remaining) {
+    if(cJSON_AddBoolToObject(item, "showRemaining", offer_response->show_remaining) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->show_redeemed
+    if(offer_response->show_redeemed) {
+    if(cJSON_AddBoolToObject(item, "showRedeemed", offer_response->show_redeemed) == NULL) {
+    goto fail; //Bool
+    }
+    }
+
+
+    // offer_response->purchase_limit
+    if(offer_response->purchase_limit) {
+    if(cJSON_AddNumberToObject(item, "purchaseLimit", offer_response->purchase_limit) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->purchase_limit_per_user
+    if(offer_response->purchase_limit_per_user) {
+    if(cJSON_AddNumberToObject(item, "purchaseLimitPerUser", offer_response->purchase_limit_per_user) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->redemption_limit
+    if(offer_response->redemption_limit) {
+    if(cJSON_AddNumberToObject(item, "redemptionLimit", offer_response->redemption_limit) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->user_redemption_limit
+    if(offer_response->user_redemption_limit) {
+    if(cJSON_AddNumberToObject(item, "userRedemptionLimit", offer_response->user_redemption_limit) == NULL) {
+    goto fail; //Numeric
+    }
+    }
+
+
+    // offer_response->categories
+    if(offer_response->categories) {
+    cJSON *categories = cJSON_AddArrayToObject(item, "categories");
+    if(categories == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *categoriesListEntry;
+    if (offer_response->categories) {
+    list_ForEach(categoriesListEntry, offer_response->categories) {
+    cJSON *itemLocal = category_response_convertToJSON(categoriesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(categories, itemLocal);
+    }
+    }
+    }
+
+
+    // offer_response->filters
+    if(offer_response->filters) {
+    cJSON *filters = cJSON_AddArrayToObject(item, "filters");
+    if(filters == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *filtersListEntry;
+    if (offer_response->filters) {
+    list_ForEach(filtersListEntry, offer_response->filters) {
+    cJSON *itemLocal = filter_response_convertToJSON(filtersListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(filters, itemLocal);
+    }
+    }
+    }
+
+
+    // offer_response->returning
+    if(offer_response->returning) {
+    if(cJSON_AddStringToObject(item, "returning", offer_response->returning) == NULL) {
+    goto fail; //String
+    }
+    }
+
+    return item;
+fail:
+    if (item) {
+        cJSON_Delete(item);
+    }
+    return NULL;
+}
+
+offer_response_t *offer_response_parseFromJSON(cJSON *offer_responseJSON){
+
+    offer_response_t *offer_response_local_var = NULL;
+
+    // define the local list for offer_response->request
+    list_t *requestList = NULL;
+
+    // define the local variable for offer_response->mission_list_response
+    mission_list_response_t *mission_list_response_local_nonprim = NULL;
+
+    // define the local list for offer_response->images
+    list_t *imagesList = NULL;
+
+    // define the local variable for offer_response->location
+    retailer_location_response_t *location_local_nonprim = NULL;
+
+    // define the local variable for offer_response->product
+    product_response_t *product_local_nonprim = NULL;
+
+    // define the local variable for offer_response->event
+    event_response_t *event_local_nonprim = NULL;
+
+    // define the local variable for offer_response->media
+    media_response_t *media_local_nonprim = NULL;
+
+    // define the local variable for offer_response->parent_offer
+    offer_short_response_t *parent_offer_local_nonprim = NULL;
+
+    // define the local list for offer_response->audiences
+    list_t *audiencesList = NULL;
+
+    // define the local list for offer_response->categories
+    list_t *categoriesList = NULL;
+
+    // define the local list for offer_response->filters
+    list_t *filtersList = NULL;
+
+    // offer_response->valid
+    cJSON *valid = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "valid");
+    if (cJSON_IsNull(valid)) {
+        valid = NULL;
+    }
+    if (valid) { 
+    if(!cJSON_IsBool(valid))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->message
+    cJSON *message = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "message");
+    if (cJSON_IsNull(message)) {
+        message = NULL;
+    }
+    if (message) { 
+    if(!cJSON_IsString(message) && !cJSON_IsNull(message))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->version
+    cJSON *version = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "version");
+    if (cJSON_IsNull(version)) {
+        version = NULL;
+    }
+    if (version) { 
+    if(!cJSON_IsNumber(version))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->serialize_nulls
+    cJSON *serialize_nulls = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "serializeNulls");
+    if (cJSON_IsNull(serialize_nulls)) {
+        serialize_nulls = NULL;
+    }
+    if (serialize_nulls) { 
+    if(!cJSON_IsBool(serialize_nulls))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->start_time_log
+    cJSON *start_time_log = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "startTimeLog");
+    if (cJSON_IsNull(start_time_log)) {
+        start_time_log = NULL;
+    }
+    if (start_time_log) { 
+    if(!cJSON_IsNumber(start_time_log))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->error_code
+    cJSON *error_code = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "errorCode");
+    if (cJSON_IsNull(error_code)) {
+        error_code = NULL;
+    }
+    if (error_code) { 
+    if(!cJSON_IsString(error_code) && !cJSON_IsNull(error_code))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->request
+    cJSON *request = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "request");
+    if (cJSON_IsNull(request)) {
+        request = NULL;
+    }
+    if (request) { 
+    cJSON *request_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(request)){
+        goto end; //nonprimitive container
+    }
+
+    requestList = list_createList();
+
+    cJSON_ArrayForEach(request_local_nonprimitive,request )
+    {
+        if(!cJSON_IsObject(request_local_nonprimitive)){
+            goto end;
+        }
+        name_string_value_response_t *requestItem = name_string_value_response_parseFromJSON(request_local_nonprimitive);
+
+        list_addElement(requestList, requestItem);
+    }
+    }
+
+    // offer_response->offer_location_id
+    cJSON *offer_location_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "offerLocationId");
+    if (cJSON_IsNull(offer_location_id)) {
+        offer_location_id = NULL;
+    }
+    if (offer_location_id) { 
+    if(!cJSON_IsNumber(offer_location_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->offer_id
+    cJSON *offer_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "offerId");
+    if (cJSON_IsNull(offer_id)) {
+        offer_id = NULL;
+    }
+    if (offer_id) { 
+    if(!cJSON_IsNumber(offer_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->retailer_id
+    cJSON *retailer_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "retailerId");
+    if (cJSON_IsNull(retailer_id)) {
+        retailer_id = NULL;
+    }
+    if (retailer_id) { 
+    if(!cJSON_IsNumber(retailer_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->transaction_id
+    cJSON *transaction_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "transactionId");
+    if (cJSON_IsNull(transaction_id)) {
+        transaction_id = NULL;
+    }
+    if (transaction_id) { 
+    if(!cJSON_IsNumber(transaction_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->favorite_id
+    cJSON *favorite_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "favoriteId");
+    if (cJSON_IsNull(favorite_id)) {
+        favorite_id = NULL;
+    }
+    if (favorite_id) { 
+    if(!cJSON_IsNumber(favorite_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->offer_name
+    cJSON *offer_name = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "offerName");
+    if (cJSON_IsNull(offer_name)) {
+        offer_name = NULL;
+    }
+    if (offer_name) { 
+    if(!cJSON_IsString(offer_name) && !cJSON_IsNull(offer_name))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->sub_title
+    cJSON *sub_title = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "subTitle");
+    if (cJSON_IsNull(sub_title)) {
+        sub_title = NULL;
+    }
+    if (sub_title) { 
+    if(!cJSON_IsString(sub_title) && !cJSON_IsNull(sub_title))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->location_name
+    cJSON *location_name = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "locationName");
+    if (cJSON_IsNull(location_name)) {
+        location_name = NULL;
+    }
+    if (location_name) { 
+    if(!cJSON_IsString(location_name) && !cJSON_IsNull(location_name))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->starts
+    cJSON *starts = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "starts");
+    if (cJSON_IsNull(starts)) {
+        starts = NULL;
+    }
+    if (starts) { 
+    if(!cJSON_IsString(starts) && !cJSON_IsNull(starts))
+    {
+    goto end; //DateTime
+    }
+    }
+
+    // offer_response->expires
+    cJSON *expires = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "expires");
+    if (cJSON_IsNull(expires)) {
+        expires = NULL;
+    }
+    if (expires) { 
+    if(!cJSON_IsString(expires) && !cJSON_IsNull(expires))
+    {
+    goto end; //DateTime
+    }
+    }
+
+    // offer_response->activated
+    cJSON *activated = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "activated");
+    if (cJSON_IsNull(activated)) {
+        activated = NULL;
+    }
+    if (activated) { 
+    if(!cJSON_IsNumber(activated))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->expiration
+    cJSON *expiration = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "expiration");
+    if (cJSON_IsNull(expiration)) {
+        expiration = NULL;
+    }
+    if (expiration) { 
+    if(!cJSON_IsNumber(expiration))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redeemable_start
+    cJSON *redeemable_start = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redeemableStart");
+    if (cJSON_IsNull(redeemable_start)) {
+        redeemable_start = NULL;
+    }
+    if (redeemable_start) { 
+    if(!cJSON_IsNumber(redeemable_start))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redeemable_end
+    cJSON *redeemable_end = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redeemableEnd");
+    if (cJSON_IsNull(redeemable_end)) {
+        redeemable_end = NULL;
+    }
+    if (redeemable_end) { 
+    if(!cJSON_IsNumber(redeemable_end))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->distance
+    cJSON *distance = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "distance");
+    if (cJSON_IsNull(distance)) {
+        distance = NULL;
+    }
+    if (distance) { 
+    if(!cJSON_IsNumber(distance))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->offer_type
+    cJSON *offer_type = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "offerType");
+    if (cJSON_IsNull(offer_type)) {
+        offer_type = NULL;
+    }
+    if (offer_type) { 
+    if(!cJSON_IsString(offer_type) && !cJSON_IsNull(offer_type))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->longitude
+    cJSON *longitude = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "longitude");
+    if (cJSON_IsNull(longitude)) {
+        longitude = NULL;
+    }
+    if (longitude) { 
+    if(!cJSON_IsNumber(longitude))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->latitude
+    cJSON *latitude = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "latitude");
+    if (cJSON_IsNull(latitude)) {
+        latitude = NULL;
+    }
+    if (latitude) { 
+    if(!cJSON_IsNumber(latitude))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->favorite
+    cJSON *favorite = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "favorite");
+    if (cJSON_IsNull(favorite)) {
+        favorite = NULL;
+    }
+    if (favorite) { 
+    if(!cJSON_IsBool(favorite))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->full_price
+    cJSON *full_price = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "fullPrice");
+    if (cJSON_IsNull(full_price)) {
+        full_price = NULL;
+    }
+    if (full_price) { 
+    if(!cJSON_IsNumber(full_price))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->discount_price
+    cJSON *discount_price = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "discountPrice");
+    if (cJSON_IsNull(discount_price)) {
+        discount_price = NULL;
+    }
+    if (discount_price) { 
+    if(!cJSON_IsNumber(discount_price))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->estimated_value
+    cJSON *estimated_value = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "estimatedValue");
+    if (cJSON_IsNull(estimated_value)) {
+        estimated_value = NULL;
+    }
+    if (estimated_value) { 
+    if(!cJSON_IsNumber(estimated_value))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->voucher_discount_price
+    cJSON *voucher_discount_price = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "voucherDiscountPrice");
+    if (cJSON_IsNull(voucher_discount_price)) {
+        voucher_discount_price = NULL;
+    }
+    if (voucher_discount_price) { 
+    if(!cJSON_IsNumber(voucher_discount_price))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->mission_list_response
+    cJSON *mission_list_response = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "missionListResponse");
+    if (cJSON_IsNull(mission_list_response)) {
+        mission_list_response = NULL;
+    }
+    if (mission_list_response) { 
+    mission_list_response_local_nonprim = mission_list_response_parseFromJSON(mission_list_response); //nonprimitive
+    }
+
+    // offer_response->image
+    cJSON *image = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image");
+    if (cJSON_IsNull(image)) {
+        image = NULL;
+    }
+    if (image) { 
+    if(!cJSON_IsString(image) && !cJSON_IsNull(image))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->image1
+    cJSON *image1 = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image1");
+    if (cJSON_IsNull(image1)) {
+        image1 = NULL;
+    }
+    if (image1) { 
+    if(!cJSON_IsString(image1) && !cJSON_IsNull(image1))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->image2
+    cJSON *image2 = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image2");
+    if (cJSON_IsNull(image2)) {
+        image2 = NULL;
+    }
+    if (image2) { 
+    if(!cJSON_IsString(image2) && !cJSON_IsNull(image2))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->image3
+    cJSON *image3 = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image3");
+    if (cJSON_IsNull(image3)) {
+        image3 = NULL;
+    }
+    if (image3) { 
+    if(!cJSON_IsString(image3) && !cJSON_IsNull(image3))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->image4
+    cJSON *image4 = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image4");
+    if (cJSON_IsNull(image4)) {
+        image4 = NULL;
+    }
+    if (image4) { 
+    if(!cJSON_IsString(image4) && !cJSON_IsNull(image4))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->image5
+    cJSON *image5 = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "image5");
+    if (cJSON_IsNull(image5)) {
+        image5 = NULL;
+    }
+    if (image5) { 
+    if(!cJSON_IsString(image5) && !cJSON_IsNull(image5))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->images
+    cJSON *images = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "images");
+    if (cJSON_IsNull(images)) {
+        images = NULL;
+    }
+    if (images) { 
+    cJSON *images_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(images)){
+        goto end; //nonprimitive container
+    }
+
+    imagesList = list_createList();
+
+    cJSON_ArrayForEach(images_local_nonprimitive,images )
+    {
+        if(!cJSON_IsObject(images_local_nonprimitive)){
+            goto end;
+        }
+        asset_response_t *imagesItem = asset_response_parseFromJSON(images_local_nonprimitive);
+
+        list_addElement(imagesList, imagesItem);
+    }
+    }
+
+    // offer_response->barcode
+    cJSON *barcode = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "barcode");
+    if (cJSON_IsNull(barcode)) {
+        barcode = NULL;
+    }
+    if (barcode) { 
+    if(!cJSON_IsString(barcode) && !cJSON_IsNull(barcode))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->external_url
+    cJSON *external_url = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "externalUrl");
+    if (cJSON_IsNull(external_url)) {
+        external_url = NULL;
+    }
+    if (external_url) { 
+    if(!cJSON_IsString(external_url) && !cJSON_IsNull(external_url))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->sqoot_url
+    cJSON *sqoot_url = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "sqootUrl");
+    if (cJSON_IsNull(sqoot_url)) {
+        sqoot_url = NULL;
+    }
+    if (sqoot_url) { 
+    if(!cJSON_IsString(sqoot_url) && !cJSON_IsNull(sqoot_url))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->active
+    cJSON *active = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "active");
+    if (cJSON_IsNull(active)) {
+        active = NULL;
+    }
+    if (active) { 
+    if(!cJSON_IsBool(active))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->location
+    cJSON *location = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "location");
+    if (cJSON_IsNull(location)) {
+        location = NULL;
+    }
+    if (location) { 
+    location_local_nonprim = retailer_location_response_parseFromJSON(location); //nonprimitive
+    }
+
+    // offer_response->sub_details
+    cJSON *sub_details = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "subDetails");
+    if (cJSON_IsNull(sub_details)) {
+        sub_details = NULL;
+    }
+    if (sub_details) { 
+    if(!cJSON_IsString(sub_details) && !cJSON_IsNull(sub_details))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->external_redeem_auth
+    cJSON *external_redeem_auth = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "externalRedeemAuth");
+    if (cJSON_IsNull(external_redeem_auth)) {
+        external_redeem_auth = NULL;
+    }
+    if (external_redeem_auth) { 
+    if(!cJSON_IsNumber(external_redeem_auth))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->external_redeem_options
+    cJSON *external_redeem_options = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "externalRedeemOptions");
+    if (cJSON_IsNull(external_redeem_options)) {
+        external_redeem_options = NULL;
+    }
+    if (external_redeem_options) { 
+    if(!cJSON_IsString(external_redeem_options) && !cJSON_IsNull(external_redeem_options))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->publisher
+    cJSON *publisher = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "publisher");
+    if (cJSON_IsNull(publisher)) {
+        publisher = NULL;
+    }
+    if (publisher) { 
+    if(!cJSON_IsString(publisher) && !cJSON_IsNull(publisher))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->product
+    cJSON *product = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "product");
+    if (cJSON_IsNull(product)) {
+        product = NULL;
+    }
+    if (product) { 
+    product_local_nonprim = product_response_parseFromJSON(product); //nonprimitive
+    }
+
+    // offer_response->event
+    cJSON *event = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "event");
+    if (cJSON_IsNull(event)) {
+        event = NULL;
+    }
+    if (event) { 
+    event_local_nonprim = event_response_parseFromJSON(event); //nonprimitive
+    }
+
+    // offer_response->media
+    cJSON *media = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "media");
+    if (cJSON_IsNull(media)) {
+        media = NULL;
+    }
+    if (media) { 
+    media_local_nonprim = media_response_parseFromJSON(media); //nonprimitive
+    }
+
+    // offer_response->viewed_count
+    cJSON *viewed_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "viewedCount");
+    if (cJSON_IsNull(viewed_count)) {
+        viewed_count = NULL;
+    }
+    if (viewed_count) { 
+    if(!cJSON_IsNumber(viewed_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->clicked_count
+    cJSON *clicked_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "clickedCount");
+    if (cJSON_IsNull(clicked_count)) {
+        clicked_count = NULL;
+    }
+    if (clicked_count) { 
+    if(!cJSON_IsNumber(clicked_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->added_limit
+    cJSON *added_limit = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "addedLimit");
+    if (cJSON_IsNull(added_limit)) {
+        added_limit = NULL;
+    }
+    if (added_limit) { 
+    if(!cJSON_IsNumber(added_limit))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->added_count
+    cJSON *added_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "addedCount");
+    if (cJSON_IsNull(added_count)) {
+        added_count = NULL;
+    }
+    if (added_count) { 
+    if(!cJSON_IsNumber(added_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->used_count
+    cJSON *used_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "usedCount");
+    if (cJSON_IsNull(used_count)) {
+        used_count = NULL;
+    }
+    if (used_count) { 
+    if(!cJSON_IsNumber(used_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->removed_count
+    cJSON *removed_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "removedCount");
+    if (cJSON_IsNull(removed_count)) {
+        removed_count = NULL;
+    }
+    if (removed_count) { 
+    if(!cJSON_IsNumber(removed_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->location_added_count
+    cJSON *location_added_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "locationAddedCount");
+    if (cJSON_IsNull(location_added_count)) {
+        location_added_count = NULL;
+    }
+    if (location_added_count) { 
+    if(!cJSON_IsNumber(location_added_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->barcode_entry
+    cJSON *barcode_entry = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "barcodeEntry");
+    if (cJSON_IsNull(barcode_entry)) {
+        barcode_entry = NULL;
+    }
+    if (barcode_entry) { 
+    if(!cJSON_IsString(barcode_entry) && !cJSON_IsNull(barcode_entry))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->barcode_type
+    cJSON *barcode_type = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "barcodeType");
+    if (cJSON_IsNull(barcode_type)) {
+        barcode_type = NULL;
+    }
+    sirqul_iot_platform_offer_response_BARCODETYPE_e barcode_typeVariable;
+    if (barcode_type) { 
+    if(!cJSON_IsString(barcode_type))
+    {
+    goto end; //Enum
+    }
+    barcode_typeVariable = offer_response_barcode_type_FromString(barcode_type->valuestring);
+    }
+
+    // offer_response->tickets_reward
+    cJSON *tickets_reward = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "ticketsReward");
+    if (cJSON_IsNull(tickets_reward)) {
+        tickets_reward = NULL;
+    }
+    if (tickets_reward) { 
+    if(!cJSON_IsNumber(tickets_reward))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->tickets_reward_type
+    cJSON *tickets_reward_type = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "ticketsRewardType");
+    if (cJSON_IsNull(tickets_reward_type)) {
+        tickets_reward_type = NULL;
+    }
+    if (tickets_reward_type) { 
+    if(!cJSON_IsString(tickets_reward_type) && !cJSON_IsNull(tickets_reward_type))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->special_offer_type
+    cJSON *special_offer_type = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "specialOfferType");
+    if (cJSON_IsNull(special_offer_type)) {
+        special_offer_type = NULL;
+    }
+    sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_e special_offer_typeVariable;
+    if (special_offer_type) { 
+    if(!cJSON_IsString(special_offer_type))
+    {
+    goto end; //Enum
+    }
+    special_offer_typeVariable = offer_response_special_offer_type_FromString(special_offer_type->valuestring);
+    }
+
+    // offer_response->like_count
+    cJSON *like_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "likeCount");
+    if (cJSON_IsNull(like_count)) {
+        like_count = NULL;
+    }
+    if (like_count) { 
+    if(!cJSON_IsNumber(like_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->dislike_count
+    cJSON *dislike_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "dislikeCount");
+    if (cJSON_IsNull(dislike_count)) {
+        dislike_count = NULL;
+    }
+    if (dislike_count) { 
+    if(!cJSON_IsNumber(dislike_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->favorite_count
+    cJSON *favorite_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "favoriteCount");
+    if (cJSON_IsNull(favorite_count)) {
+        favorite_count = NULL;
+    }
+    if (favorite_count) { 
+    if(!cJSON_IsNumber(favorite_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->note_count
+    cJSON *note_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "noteCount");
+    if (cJSON_IsNull(note_count)) {
+        note_count = NULL;
+    }
+    if (note_count) { 
+    if(!cJSON_IsNumber(note_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->log_id
+    cJSON *log_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "logId");
+    if (cJSON_IsNull(log_id)) {
+        log_id = NULL;
+    }
+    if (log_id) { 
+    if(!cJSON_IsNumber(log_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->billable_entity_id
+    cJSON *billable_entity_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "billableEntityId");
+    if (cJSON_IsNull(billable_entity_id)) {
+        billable_entity_id = NULL;
+    }
+    if (billable_entity_id) { 
+    if(!cJSON_IsNumber(billable_entity_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->responsible_account_id
+    cJSON *responsible_account_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "responsibleAccountId");
+    if (cJSON_IsNull(responsible_account_id)) {
+        responsible_account_id = NULL;
+    }
+    if (responsible_account_id) { 
+    if(!cJSON_IsNumber(responsible_account_id))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->availability_summary
+    cJSON *availability_summary = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "availabilitySummary");
+    if (cJSON_IsNull(availability_summary)) {
+        availability_summary = NULL;
+    }
+    if (availability_summary) { 
+    if(!cJSON_IsString(availability_summary) && !cJSON_IsNull(availability_summary))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->external_id
+    cJSON *external_id = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "externalId");
+    if (cJSON_IsNull(external_id)) {
+        external_id = NULL;
+    }
+    if (external_id) { 
+    if(!cJSON_IsString(external_id) && !cJSON_IsNull(external_id))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->parent_offer
+    cJSON *parent_offer = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "parentOffer");
+    if (cJSON_IsNull(parent_offer)) {
+        parent_offer = NULL;
+    }
+    if (parent_offer) { 
+    parent_offer_local_nonprim = offer_short_response_parseFromJSON(parent_offer); //nonprimitive
+    }
+
+    // offer_response->address
+    cJSON *address = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "address");
+    if (cJSON_IsNull(address)) {
+        address = NULL;
+    }
+    if (address) { 
+    if(!cJSON_IsString(address) && !cJSON_IsNull(address))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->details
+    cJSON *details = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "details");
+    if (cJSON_IsNull(details)) {
+        details = NULL;
+    }
+    if (details) { 
+    if(!cJSON_IsString(details) && !cJSON_IsNull(details))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->fine_print
+    cJSON *fine_print = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "finePrint");
+    if (cJSON_IsNull(fine_print)) {
+        fine_print = NULL;
+    }
+    if (fine_print) { 
+    if(!cJSON_IsString(fine_print) && !cJSON_IsNull(fine_print))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->retailer_phone_number
+    cJSON *retailer_phone_number = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "retailerPhoneNumber");
+    if (cJSON_IsNull(retailer_phone_number)) {
+        retailer_phone_number = NULL;
+    }
+    if (retailer_phone_number) { 
+    if(!cJSON_IsString(retailer_phone_number) && !cJSON_IsNull(retailer_phone_number))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->ticket_price_type
+    cJSON *ticket_price_type = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "ticketPriceType");
+    if (cJSON_IsNull(ticket_price_type)) {
+        ticket_price_type = NULL;
+    }
+    if (ticket_price_type) { 
+    if(!cJSON_IsString(ticket_price_type) && !cJSON_IsNull(ticket_price_type))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->ticket_price
+    cJSON *ticket_price = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "ticketPrice");
+    if (cJSON_IsNull(ticket_price)) {
+        ticket_price = NULL;
+    }
+    if (ticket_price) { 
+    if(!cJSON_IsNumber(ticket_price))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->discount_percentage
+    cJSON *discount_percentage = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "discountPercentage");
+    if (cJSON_IsNull(discount_percentage)) {
+        discount_percentage = NULL;
+    }
+    if (discount_percentage) { 
+    if(!cJSON_IsNumber(discount_percentage))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->payment_fees
+    cJSON *payment_fees = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "paymentFees");
+    if (cJSON_IsNull(payment_fees)) {
+        payment_fees = NULL;
+    }
+    if (payment_fees) { 
+    if(!cJSON_IsNumber(payment_fees))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->voucher_price
+    cJSON *voucher_price = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "voucherPrice");
+    if (cJSON_IsNull(voucher_price)) {
+        voucher_price = NULL;
+    }
+    if (voucher_price) { 
+    if(!cJSON_IsNumber(voucher_price))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->purchases_remaining
+    cJSON *purchases_remaining = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "purchasesRemaining");
+    if (cJSON_IsNull(purchases_remaining)) {
+        purchases_remaining = NULL;
+    }
+    if (purchases_remaining) { 
+    if(!cJSON_IsNumber(purchases_remaining))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redemptions_remaining
+    cJSON *redemptions_remaining = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redemptionsRemaining");
+    if (cJSON_IsNull(redemptions_remaining)) {
+        redemptions_remaining = NULL;
+    }
+    if (redemptions_remaining) { 
+    if(!cJSON_IsNumber(redemptions_remaining))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redemption_status
+    cJSON *redemption_status = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redemptionStatus");
+    if (cJSON_IsNull(redemption_status)) {
+        redemption_status = NULL;
+    }
+    if (redemption_status) { 
+    if(!cJSON_IsNumber(redemption_status))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redemption_code
+    cJSON *redemption_code = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redemptionCode");
+    if (cJSON_IsNull(redemption_code)) {
+        redemption_code = NULL;
+    }
+    if (redemption_code) { 
+    if(!cJSON_IsString(redemption_code) && !cJSON_IsNull(redemption_code))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->audiences
+    cJSON *audiences = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "audiences");
+    if (cJSON_IsNull(audiences)) {
+        audiences = NULL;
+    }
+    if (audiences) { 
+    cJSON *audiences_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(audiences)){
+        goto end; //nonprimitive container
+    }
+
+    audiencesList = list_createList();
+
+    cJSON_ArrayForEach(audiences_local_nonprimitive,audiences )
+    {
+        if(!cJSON_IsObject(audiences_local_nonprimitive)){
+            goto end;
+        }
+        audience_response_t *audiencesItem = audience_response_parseFromJSON(audiences_local_nonprimitive);
+
+        list_addElement(audiencesList, audiencesItem);
+    }
+    }
+
+    // offer_response->audience_count
+    cJSON *audience_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "audienceCount");
+    if (cJSON_IsNull(audience_count)) {
+        audience_count = NULL;
+    }
+    if (audience_count) { 
+    if(!cJSON_IsNumber(audience_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->wallet_count
+    cJSON *wallet_count = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "walletCount");
+    if (cJSON_IsNull(wallet_count)) {
+        wallet_count = NULL;
+    }
+    if (wallet_count) { 
+    if(!cJSON_IsNumber(wallet_count))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->qr_code_url
+    cJSON *qr_code_url = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "qrCodeUrl");
+    if (cJSON_IsNull(qr_code_url)) {
+        qr_code_url = NULL;
+    }
+    if (qr_code_url) { 
+    if(!cJSON_IsString(qr_code_url) && !cJSON_IsNull(qr_code_url))
+    {
+    goto end; //String
+    }
+    }
+
+    // offer_response->show_remaining
+    cJSON *show_remaining = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "showRemaining");
+    if (cJSON_IsNull(show_remaining)) {
+        show_remaining = NULL;
+    }
+    if (show_remaining) { 
+    if(!cJSON_IsBool(show_remaining))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->show_redeemed
+    cJSON *show_redeemed = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "showRedeemed");
+    if (cJSON_IsNull(show_redeemed)) {
+        show_redeemed = NULL;
+    }
+    if (show_redeemed) { 
+    if(!cJSON_IsBool(show_redeemed))
+    {
+    goto end; //Bool
+    }
+    }
+
+    // offer_response->purchase_limit
+    cJSON *purchase_limit = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "purchaseLimit");
+    if (cJSON_IsNull(purchase_limit)) {
+        purchase_limit = NULL;
+    }
+    if (purchase_limit) { 
+    if(!cJSON_IsNumber(purchase_limit))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->purchase_limit_per_user
+    cJSON *purchase_limit_per_user = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "purchaseLimitPerUser");
+    if (cJSON_IsNull(purchase_limit_per_user)) {
+        purchase_limit_per_user = NULL;
+    }
+    if (purchase_limit_per_user) { 
+    if(!cJSON_IsNumber(purchase_limit_per_user))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->redemption_limit
+    cJSON *redemption_limit = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "redemptionLimit");
+    if (cJSON_IsNull(redemption_limit)) {
+        redemption_limit = NULL;
+    }
+    if (redemption_limit) { 
+    if(!cJSON_IsNumber(redemption_limit))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->user_redemption_limit
+    cJSON *user_redemption_limit = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "userRedemptionLimit");
+    if (cJSON_IsNull(user_redemption_limit)) {
+        user_redemption_limit = NULL;
+    }
+    if (user_redemption_limit) { 
+    if(!cJSON_IsNumber(user_redemption_limit))
+    {
+    goto end; //Numeric
+    }
+    }
+
+    // offer_response->categories
+    cJSON *categories = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "categories");
+    if (cJSON_IsNull(categories)) {
+        categories = NULL;
+    }
+    if (categories) { 
+    cJSON *categories_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(categories)){
+        goto end; //nonprimitive container
+    }
+
+    categoriesList = list_createList();
+
+    cJSON_ArrayForEach(categories_local_nonprimitive,categories )
+    {
+        if(!cJSON_IsObject(categories_local_nonprimitive)){
+            goto end;
+        }
+        category_response_t *categoriesItem = category_response_parseFromJSON(categories_local_nonprimitive);
+
+        list_addElement(categoriesList, categoriesItem);
+    }
+    }
+
+    // offer_response->filters
+    cJSON *filters = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "filters");
+    if (cJSON_IsNull(filters)) {
+        filters = NULL;
+    }
+    if (filters) { 
+    cJSON *filters_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(filters)){
+        goto end; //nonprimitive container
+    }
+
+    filtersList = list_createList();
+
+    cJSON_ArrayForEach(filters_local_nonprimitive,filters )
+    {
+        if(!cJSON_IsObject(filters_local_nonprimitive)){
+            goto end;
+        }
+        filter_response_t *filtersItem = filter_response_parseFromJSON(filters_local_nonprimitive);
+
+        list_addElement(filtersList, filtersItem);
+    }
+    }
+
+    // offer_response->returning
+    cJSON *returning = cJSON_GetObjectItemCaseSensitive(offer_responseJSON, "returning");
+    if (cJSON_IsNull(returning)) {
+        returning = NULL;
+    }
+    if (returning) { 
+    if(!cJSON_IsString(returning) && !cJSON_IsNull(returning))
+    {
+    goto end; //String
+    }
+    }
+
+
+    offer_response_local_var = offer_response_create_internal (
+        valid ? valid->valueint : 0,
+        message && !cJSON_IsNull(message) ? strdup(message->valuestring) : NULL,
+        version ? version->valuedouble : 0,
+        serialize_nulls ? serialize_nulls->valueint : 0,
+        start_time_log ? start_time_log->valuedouble : 0,
+        error_code && !cJSON_IsNull(error_code) ? strdup(error_code->valuestring) : NULL,
+        request ? requestList : NULL,
+        offer_location_id ? offer_location_id->valuedouble : 0,
+        offer_id ? offer_id->valuedouble : 0,
+        retailer_id ? retailer_id->valuedouble : 0,
+        transaction_id ? transaction_id->valuedouble : 0,
+        favorite_id ? favorite_id->valuedouble : 0,
+        offer_name && !cJSON_IsNull(offer_name) ? strdup(offer_name->valuestring) : NULL,
+        sub_title && !cJSON_IsNull(sub_title) ? strdup(sub_title->valuestring) : NULL,
+        location_name && !cJSON_IsNull(location_name) ? strdup(location_name->valuestring) : NULL,
+        starts && !cJSON_IsNull(starts) ? strdup(starts->valuestring) : NULL,
+        expires && !cJSON_IsNull(expires) ? strdup(expires->valuestring) : NULL,
+        activated ? activated->valuedouble : 0,
+        expiration ? expiration->valuedouble : 0,
+        redeemable_start ? redeemable_start->valuedouble : 0,
+        redeemable_end ? redeemable_end->valuedouble : 0,
+        distance ? distance->valuedouble : 0,
+        offer_type && !cJSON_IsNull(offer_type) ? strdup(offer_type->valuestring) : NULL,
+        longitude ? longitude->valuedouble : 0,
+        latitude ? latitude->valuedouble : 0,
+        favorite ? favorite->valueint : 0,
+        full_price ? full_price->valuedouble : 0,
+        discount_price ? discount_price->valuedouble : 0,
+        estimated_value ? estimated_value->valuedouble : 0,
+        voucher_discount_price ? voucher_discount_price->valuedouble : 0,
+        mission_list_response ? mission_list_response_local_nonprim : NULL,
+        image && !cJSON_IsNull(image) ? strdup(image->valuestring) : NULL,
+        image1 && !cJSON_IsNull(image1) ? strdup(image1->valuestring) : NULL,
+        image2 && !cJSON_IsNull(image2) ? strdup(image2->valuestring) : NULL,
+        image3 && !cJSON_IsNull(image3) ? strdup(image3->valuestring) : NULL,
+        image4 && !cJSON_IsNull(image4) ? strdup(image4->valuestring) : NULL,
+        image5 && !cJSON_IsNull(image5) ? strdup(image5->valuestring) : NULL,
+        images ? imagesList : NULL,
+        barcode && !cJSON_IsNull(barcode) ? strdup(barcode->valuestring) : NULL,
+        external_url && !cJSON_IsNull(external_url) ? strdup(external_url->valuestring) : NULL,
+        sqoot_url && !cJSON_IsNull(sqoot_url) ? strdup(sqoot_url->valuestring) : NULL,
+        active ? active->valueint : 0,
+        location ? location_local_nonprim : NULL,
+        sub_details && !cJSON_IsNull(sub_details) ? strdup(sub_details->valuestring) : NULL,
+        external_redeem_auth ? external_redeem_auth->valuedouble : 0,
+        external_redeem_options && !cJSON_IsNull(external_redeem_options) ? strdup(external_redeem_options->valuestring) : NULL,
+        publisher && !cJSON_IsNull(publisher) ? strdup(publisher->valuestring) : NULL,
+        product ? product_local_nonprim : NULL,
+        event ? event_local_nonprim : NULL,
+        media ? media_local_nonprim : NULL,
+        viewed_count ? viewed_count->valuedouble : 0,
+        clicked_count ? clicked_count->valuedouble : 0,
+        added_limit ? added_limit->valuedouble : 0,
+        added_count ? added_count->valuedouble : 0,
+        used_count ? used_count->valuedouble : 0,
+        removed_count ? removed_count->valuedouble : 0,
+        location_added_count ? location_added_count->valuedouble : 0,
+        barcode_entry && !cJSON_IsNull(barcode_entry) ? strdup(barcode_entry->valuestring) : NULL,
+        barcode_type ? barcode_typeVariable : sirqul_iot_platform_offer_response_BARCODETYPE_NULL,
+        tickets_reward ? tickets_reward->valuedouble : 0,
+        tickets_reward_type && !cJSON_IsNull(tickets_reward_type) ? strdup(tickets_reward_type->valuestring) : NULL,
+        special_offer_type ? special_offer_typeVariable : sirqul_iot_platform_offer_response_SPECIALOFFERTYPE_NULL,
+        like_count ? like_count->valuedouble : 0,
+        dislike_count ? dislike_count->valuedouble : 0,
+        favorite_count ? favorite_count->valuedouble : 0,
+        note_count ? note_count->valuedouble : 0,
+        log_id ? log_id->valuedouble : 0,
+        billable_entity_id ? billable_entity_id->valuedouble : 0,
+        responsible_account_id ? responsible_account_id->valuedouble : 0,
+        availability_summary && !cJSON_IsNull(availability_summary) ? strdup(availability_summary->valuestring) : NULL,
+        external_id && !cJSON_IsNull(external_id) ? strdup(external_id->valuestring) : NULL,
+        parent_offer ? parent_offer_local_nonprim : NULL,
+        address && !cJSON_IsNull(address) ? strdup(address->valuestring) : NULL,
+        details && !cJSON_IsNull(details) ? strdup(details->valuestring) : NULL,
+        fine_print && !cJSON_IsNull(fine_print) ? strdup(fine_print->valuestring) : NULL,
+        retailer_phone_number && !cJSON_IsNull(retailer_phone_number) ? strdup(retailer_phone_number->valuestring) : NULL,
+        ticket_price_type && !cJSON_IsNull(ticket_price_type) ? strdup(ticket_price_type->valuestring) : NULL,
+        ticket_price ? ticket_price->valuedouble : 0,
+        discount_percentage ? discount_percentage->valuedouble : 0,
+        payment_fees ? payment_fees->valuedouble : 0,
+        voucher_price ? voucher_price->valuedouble : 0,
+        purchases_remaining ? purchases_remaining->valuedouble : 0,
+        redemptions_remaining ? redemptions_remaining->valuedouble : 0,
+        redemption_status ? redemption_status->valuedouble : 0,
+        redemption_code && !cJSON_IsNull(redemption_code) ? strdup(redemption_code->valuestring) : NULL,
+        audiences ? audiencesList : NULL,
+        audience_count ? audience_count->valuedouble : 0,
+        wallet_count ? wallet_count->valuedouble : 0,
+        qr_code_url && !cJSON_IsNull(qr_code_url) ? strdup(qr_code_url->valuestring) : NULL,
+        show_remaining ? show_remaining->valueint : 0,
+        show_redeemed ? show_redeemed->valueint : 0,
+        purchase_limit ? purchase_limit->valuedouble : 0,
+        purchase_limit_per_user ? purchase_limit_per_user->valuedouble : 0,
+        redemption_limit ? redemption_limit->valuedouble : 0,
+        user_redemption_limit ? user_redemption_limit->valuedouble : 0,
+        categories ? categoriesList : NULL,
+        filters ? filtersList : NULL,
+        returning && !cJSON_IsNull(returning) ? strdup(returning->valuestring) : NULL
+        );
+
+    return offer_response_local_var;
+end:
+    if (requestList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, requestList) {
+            name_string_value_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(requestList);
+        requestList = NULL;
+    }
+    if (mission_list_response_local_nonprim) {
+        mission_list_response_free(mission_list_response_local_nonprim);
+        mission_list_response_local_nonprim = NULL;
+    }
+    if (imagesList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, imagesList) {
+            asset_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(imagesList);
+        imagesList = NULL;
+    }
+    if (location_local_nonprim) {
+        retailer_location_response_free(location_local_nonprim);
+        location_local_nonprim = NULL;
+    }
+    if (product_local_nonprim) {
+        product_response_free(product_local_nonprim);
+        product_local_nonprim = NULL;
+    }
+    if (event_local_nonprim) {
+        event_response_free(event_local_nonprim);
+        event_local_nonprim = NULL;
+    }
+    if (media_local_nonprim) {
+        media_response_free(media_local_nonprim);
+        media_local_nonprim = NULL;
+    }
+    if (parent_offer_local_nonprim) {
+        offer_short_response_free(parent_offer_local_nonprim);
+        parent_offer_local_nonprim = NULL;
+    }
+    if (audiencesList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, audiencesList) {
+            audience_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(audiencesList);
+        audiencesList = NULL;
+    }
+    if (categoriesList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, categoriesList) {
+            category_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(categoriesList);
+        categoriesList = NULL;
+    }
+    if (filtersList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, filtersList) {
+            filter_response_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(filtersList);
+        filtersList = NULL;
+    }
+    return NULL;
+
+}

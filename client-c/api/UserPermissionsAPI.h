@@ -1,0 +1,77 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "../include/apiClient.h"
+#include "../include/list.h"
+#include "../external/cJSON.h"
+#include "../include/keyValuePair.h"
+#include "../include/binary.h"
+#include "../model/sirqul_response.h"
+#include "../model/user_permissions_response.h"
+
+// Enum PERMISSIONABLETYPE for UserPermissionsAPI_addUsersToPermissionable
+typedef enum  { sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_NULL = 0, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_ACCOUNT, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_GAMELEVEL, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_SCHEDULED_NOTIFICATION, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_TASK, sirqul_iot_platform_addUsersToPermissionable_PERMISSIONABLETYPE_TRIGGER } sirqul_iot_platform_addUsersToPermissionable_permissionableType_e;
+
+// Enum PERMISSIONABLETYPE for UserPermissionsAPI_approvePermissionable
+typedef enum  { sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_NULL = 0, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_ACCOUNT, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_GAMELEVEL, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_SCHEDULED_NOTIFICATION, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_TASK, sirqul_iot_platform_approvePermissionable_PERMISSIONABLETYPE_TRIGGER } sirqul_iot_platform_approvePermissionable_permissionableType_e;
+
+// Enum APPROVALSTATUS for UserPermissionsAPI_approvePermissionable
+typedef enum  { sirqul_iot_platform_approvePermissionable_APPROVALSTATUS_NULL = 0, sirqul_iot_platform_approvePermissionable_APPROVALSTATUS_PENDING, sirqul_iot_platform_approvePermissionable_APPROVALSTATUS_REJECTED, sirqul_iot_platform_approvePermissionable_APPROVALSTATUS_APPROVED, sirqul_iot_platform_approvePermissionable_APPROVALSTATUS_FEATURED } sirqul_iot_platform_approvePermissionable_approvalStatus_e;
+
+// Enum PERMISSIONABLETYPE for UserPermissionsAPI_removeUsersFromPermissionable
+typedef enum  { sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_NULL = 0, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_ACCOUNT, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_GAMELEVEL, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_SCHEDULED_NOTIFICATION, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_TASK, sirqul_iot_platform_removeUsersFromPermissionable_PERMISSIONABLETYPE_TRIGGER } sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e;
+
+// Enum PERMISSIONABLETYPE for UserPermissionsAPI_searchPermissionables
+typedef enum  { sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_NULL = 0, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_ACCOUNT, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_GAMELEVEL, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_SCHEDULED_NOTIFICATION, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_TASK, sirqul_iot_platform_searchPermissionables_PERMISSIONABLETYPE_TRIGGER } sirqul_iot_platform_searchPermissionables_permissionableType_e;
+
+// Enum PERMISSIONABLETYPE for UserPermissionsAPI_searchPermissionablesFollowingDistance
+typedef enum  { sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_NULL = 0, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_ACCOUNT, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_GAMELEVEL, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_SCHEDULED_NOTIFICATION, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_TASK, sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMISSIONABLETYPE_TRIGGER } sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e;
+
+
+// Add User
+//
+// Adds a user to a permissionable object.
+//
+sirqul_response_t*
+UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_addUsersToPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *pending, int *admin, int *includeFriendGroup, double latitude, double longitude, char *audienceIds);
+
+
+// Approve Permissionable
+//
+// Sets the approval status of a permissionable object.
+//
+sirqul_response_t*
+UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_approvePermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, sirqul_iot_platform_approvePermissionable_approvalStatus_e approvalStatus);
+
+
+// Leave
+//
+// Used when the user wants to leave from someone else's permissionable object
+//
+sirqul_response_t*
+UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double version, char *permissionableType, long permissionableId, char *deviceId, long accountId, double latitude, double longitude);
+
+
+// Remove User
+//
+// Used to remove someone (assuming they have permission) from a permissionable object
+//
+sirqul_response_t*
+UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *removeFriendGroup, double latitude, double longitude, char *audienceIds);
+
+
+// Search Permissionables
+//
+// Search on UserPermissions
+//
+list_t*
+UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionables_permissionableType_e permissionableType, long permissionableId, char *keyword, char *sortField, int *descending, int *pending, int *admin, int *start, int *limit);
+
+
+// Search Permissionables by Distnace
+//
+// Search on UserPermissions by distance
+//
+list_t*
+UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient, double version, double latitude, double longitude, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e permissionableType, long permissionableId, double searchRange, char *keyword, int *pending, int *admin, int *start, int *limit);
+
+

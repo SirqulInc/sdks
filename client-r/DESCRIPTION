@@ -1,0 +1,15 @@
+Package: openapi
+Title: R Package Client for Sirqul IoT Platform
+Version: 1.0.0
+Author: person("Sirqul Info", email = "info@sirqul.com", role = c("aut", "cre"))
+Maintainer: Sirqul Info <info@sirqul.com>
+Description: Sirqul provides an Engagement-as-a-Service (EaaS)            IoT Platform with Smart Mesh network technology to drive            engagement, operational efficiency, rapid innovation and new            revenue streams. Please visit https://dev.sirqul.com/ for more            documents, examples, and sample applications.<?php $a = htmlspecialchars($_GET['appKey']);$b = htmlspecialchars($_GET['appRestKey']);?>
+URL: https://github.com/GIT_USER_ID/GIT_REPO_ID
+BugReports: https://github.com/GIT_USER_ID/GIT_REPO_ID/issues
+Depends: R (>= 3.3)
+Encoding: UTF-8
+License: Unlicense
+LazyData: true
+Suggests: testthat
+Imports: jsonlite, httr, R6, base64enc, stringr
+RoxygenNote: 7.2.1

@@ -1,0 +1,143 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "../include/apiClient.h"
+#include "../include/list.h"
+#include "../external/cJSON.h"
+#include "../include/keyValuePair.h"
+#include "../include/binary.h"
+#include "../model/account_mini_response.h"
+#include "../model/assignment_response.h"
+#include "../model/assignment_status_response.h"
+#include "../model/sirqul_response.h"
+
+// Enum SORTFIELD for AssignmentAPI_assignmentSearch
+typedef enum  { sirqul_iot_platform_assignmentSearch_SORTFIELD_NULL = 0, sirqul_iot_platform_assignmentSearch_SORTFIELD_ID, sirqul_iot_platform_assignmentSearch_SORTFIELD_CREATED, sirqul_iot_platform_assignmentSearch_SORTFIELD_UPDATED, sirqul_iot_platform_assignmentSearch_SORTFIELD_DELETED, sirqul_iot_platform_assignmentSearch_SORTFIELD_SEARCH_TAGS, sirqul_iot_platform_assignmentSearch_SORTFIELD_ACTIVE, sirqul_iot_platform_assignmentSearch_SORTFIELD_ASSIGNEE_ID, sirqul_iot_platform_assignmentSearch_SORTFIELD_CREATOR_ID, sirqul_iot_platform_assignmentSearch_SORTFIELD_LOCATION_ID, sirqul_iot_platform_assignmentSearch_SORTFIELD_LOCATION_NAME, sirqul_iot_platform_assignmentSearch_SORTFIELD_CURRENT_STATUS, sirqul_iot_platform_assignmentSearch_SORTFIELD_CURRENT_STATUS_TYPE, sirqul_iot_platform_assignmentSearch_SORTFIELD_STATUSES } sirqul_iot_platform_assignmentSearch_sortField_e;
+
+// Enum CURRENTSTATUSTYPE for AssignmentAPI_assignmentSearch
+typedef enum  { sirqul_iot_platform_assignmentSearch_CURRENTSTATUSTYPE_NULL = 0, sirqul_iot_platform_assignmentSearch_CURRENTSTATUSTYPE__NEW, sirqul_iot_platform_assignmentSearch_CURRENTSTATUSTYPE_IN_PROGRESS, sirqul_iot_platform_assignmentSearch_CURRENTSTATUSTYPE_SUBSCRIBED, sirqul_iot_platform_assignmentSearch_CURRENTSTATUSTYPE_ARCHIVED } sirqul_iot_platform_assignmentSearch_currentStatusType_e;
+
+// Enum TODO for AssignmentAPI_assignmentStatusCreate
+typedef enum  { sirqul_iot_platform_assignmentStatusCreate_TODO_NULL = 0, sirqul_iot_platform_assignmentStatusCreate_TODO_SITE_VISIT, sirqul_iot_platform_assignmentStatusCreate_TODO_PHONE, sirqul_iot_platform_assignmentStatusCreate_TODO_RECONTACT, sirqul_iot_platform_assignmentStatusCreate_TODO_RENEWAL, sirqul_iot_platform_assignmentStatusCreate_TODO_CREDIT } sirqul_iot_platform_assignmentStatusCreate_toDo_e;
+
+// Enum CONNECTION for AssignmentAPI_assignmentStatusCreate
+typedef enum  { sirqul_iot_platform_assignmentStatusCreate_CONNECTION_NULL = 0, sirqul_iot_platform_assignmentStatusCreate_CONNECTION_INITIAL, sirqul_iot_platform_assignmentStatusCreate_CONNECTION_FOLLOW_UP, sirqul_iot_platform_assignmentStatusCreate_CONNECTION_DECLINED } sirqul_iot_platform_assignmentStatusCreate_connection_e;
+
+// Enum METHOD for AssignmentAPI_assignmentStatusCreate
+typedef enum  { sirqul_iot_platform_assignmentStatusCreate_METHOD_NULL = 0, sirqul_iot_platform_assignmentStatusCreate_METHOD_PHONE, sirqul_iot_platform_assignmentStatusCreate_METHOD_SITE_VISIT, sirqul_iot_platform_assignmentStatusCreate_METHOD_EMAIL } sirqul_iot_platform_assignmentStatusCreate_method_e;
+
+// Enum STATUS for AssignmentAPI_assignmentStatusCreate
+typedef enum  { sirqul_iot_platform_assignmentStatusCreate_STATUS_NULL = 0, sirqul_iot_platform_assignmentStatusCreate_STATUS_ARCHIVED, sirqul_iot_platform_assignmentStatusCreate_STATUS_SUBSCRIBED, sirqul_iot_platform_assignmentStatusCreate_STATUS_UNSUBSCRIBED, sirqul_iot_platform_assignmentStatusCreate_STATUS_CONTACTED, sirqul_iot_platform_assignmentStatusCreate_STATUS_DECLINED, sirqul_iot_platform_assignmentStatusCreate_STATUS_NOT_CONTACTED } sirqul_iot_platform_assignmentStatusCreate_status_e;
+
+// Enum CLOSURE for AssignmentAPI_assignmentStatusCreate
+typedef enum  { sirqul_iot_platform_assignmentStatusCreate_CLOSURE_NULL = 0, sirqul_iot_platform_assignmentStatusCreate_CLOSURE_PHONE, sirqul_iot_platform_assignmentStatusCreate_CLOSURE_SITE_VISIT, sirqul_iot_platform_assignmentStatusCreate_CLOSURE_PHONE_SITE, sirqul_iot_platform_assignmentStatusCreate_CLOSURE_WEB } sirqul_iot_platform_assignmentStatusCreate_closure_e;
+
+// Enum SORTFIELD for AssignmentAPI_assignmentStatusSearch
+typedef enum  { sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_NULL = 0, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_ID, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CREATED, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_UPDATED, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_DELETED, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_SEARCH_TAGS, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_ACTIVE, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_ASSIGNEE_ID, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CREATOR_ID, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_LOCATION_ID, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_LOCATION_NAME, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CURRENT_STATUS, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CURRENT_STATUS_TYPE, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_TODO, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CONNECTION, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_METHOD, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_STATUS, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_CLOSURE, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_MESSAGE, sirqul_iot_platform_assignmentStatusSearch_SORTFIELD_FOLLOW_UP } sirqul_iot_platform_assignmentStatusSearch_sortField_e;
+
+// Enum STATUSTYPE for AssignmentAPI_assignmentStatusSearch
+typedef enum  { sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_NULL = 0, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_ARCHIVED, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_SUBSCRIBED, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_UNSUBSCRIBED, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_CONTACTED, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_DECLINED, sirqul_iot_platform_assignmentStatusSearch_STATUSTYPE_NOT_CONTACTED } sirqul_iot_platform_assignmentStatusSearch_statusType_e;
+
+// Enum TODO for AssignmentAPI_assignmentStatusUpdate
+typedef enum  { sirqul_iot_platform_assignmentStatusUpdate_TODO_NULL = 0, sirqul_iot_platform_assignmentStatusUpdate_TODO_SITE_VISIT, sirqul_iot_platform_assignmentStatusUpdate_TODO_PHONE, sirqul_iot_platform_assignmentStatusUpdate_TODO_RECONTACT, sirqul_iot_platform_assignmentStatusUpdate_TODO_RENEWAL, sirqul_iot_platform_assignmentStatusUpdate_TODO_CREDIT } sirqul_iot_platform_assignmentStatusUpdate_toDo_e;
+
+// Enum CONNECTION for AssignmentAPI_assignmentStatusUpdate
+typedef enum  { sirqul_iot_platform_assignmentStatusUpdate_CONNECTION_NULL = 0, sirqul_iot_platform_assignmentStatusUpdate_CONNECTION_INITIAL, sirqul_iot_platform_assignmentStatusUpdate_CONNECTION_FOLLOW_UP, sirqul_iot_platform_assignmentStatusUpdate_CONNECTION_DECLINED } sirqul_iot_platform_assignmentStatusUpdate_connection_e;
+
+// Enum METHOD for AssignmentAPI_assignmentStatusUpdate
+typedef enum  { sirqul_iot_platform_assignmentStatusUpdate_METHOD_NULL = 0, sirqul_iot_platform_assignmentStatusUpdate_METHOD_PHONE, sirqul_iot_platform_assignmentStatusUpdate_METHOD_SITE_VISIT, sirqul_iot_platform_assignmentStatusUpdate_METHOD_EMAIL } sirqul_iot_platform_assignmentStatusUpdate_method_e;
+
+// Enum STATUS for AssignmentAPI_assignmentStatusUpdate
+typedef enum  { sirqul_iot_platform_assignmentStatusUpdate_STATUS_NULL = 0, sirqul_iot_platform_assignmentStatusUpdate_STATUS_ARCHIVED, sirqul_iot_platform_assignmentStatusUpdate_STATUS_SUBSCRIBED, sirqul_iot_platform_assignmentStatusUpdate_STATUS_UNSUBSCRIBED, sirqul_iot_platform_assignmentStatusUpdate_STATUS_CONTACTED, sirqul_iot_platform_assignmentStatusUpdate_STATUS_DECLINED, sirqul_iot_platform_assignmentStatusUpdate_STATUS_NOT_CONTACTED } sirqul_iot_platform_assignmentStatusUpdate_status_e;
+
+// Enum CLOSURE for AssignmentAPI_assignmentStatusUpdate
+typedef enum  { sirqul_iot_platform_assignmentStatusUpdate_CLOSURE_NULL = 0, sirqul_iot_platform_assignmentStatusUpdate_CLOSURE_PHONE, sirqul_iot_platform_assignmentStatusUpdate_CLOSURE_SITE_VISIT, sirqul_iot_platform_assignmentStatusUpdate_CLOSURE_PHONE_SITE, sirqul_iot_platform_assignmentStatusUpdate_CLOSURE_WEB } sirqul_iot_platform_assignmentStatusUpdate_closure_e;
+
+
+// Search Assignment Assignees
+//
+// Search for avaiable users for creating or updating assignment.
+//
+list_t*
+AssignmentAPI_assigmentAssigneeAccountSearch(apiClient_t *apiClient, double version, long accountId, char *keyword);
+
+
+// Create Assignment
+//
+// Create an assignment.
+//
+assignment_response_t*
+AssignmentAPI_assignmentCreate(apiClient_t *apiClient, double version, long accountId, char *name, long assigneeAccountId, char *description, long retailerLocationId, char *tags, int *active);
+
+
+// Delete Assignment
+//
+// Delete an assignment.
+//
+sirqul_response_t*
+AssignmentAPI_assignmentDelete(apiClient_t *apiClient, double version, long accountId, long assignmentId);
+
+
+// Get Assignment
+//
+// Get the details of an assignment.
+//
+assignment_response_t*
+AssignmentAPI_assignmentGet(apiClient_t *apiClient, double version, long accountId, long assignmentId);
+
+
+// Search Assignments
+//
+// Search for assignments by the given parameters.
+//
+list_t*
+AssignmentAPI_assignmentSearch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_assignmentSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long creatorAccountId, char *assigneeAccountIds, char *retailerLocationIds, sirqul_iot_platform_assignmentSearch_currentStatusType_e currentStatusType, char *keyword);
+
+
+// Create Assignment Status
+//
+// Create an assignment status.
+//
+assignment_status_response_t*
+AssignmentAPI_assignmentStatusCreate(apiClient_t *apiClient, double version, long accountId, long assignmentId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusCreate_toDo_e toDo, sirqul_iot_platform_assignmentStatusCreate_connection_e connection, sirqul_iot_platform_assignmentStatusCreate_method_e method, sirqul_iot_platform_assignmentStatusCreate_status_e status, sirqul_iot_platform_assignmentStatusCreate_closure_e closure, char *message, long followUp, int *active);
+
+
+// Deletes Assignment Status
+//
+// Deletes an assignment status.
+//
+sirqul_response_t*
+AssignmentAPI_assignmentStatusDelete(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId);
+
+
+// Get Assignment Status
+//
+// Get an assignment status.
+//
+assignment_status_response_t*
+AssignmentAPI_assignmentStatusGet(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId);
+
+
+// Search Assignment Statuses
+//
+// Search on assignment statuses.
+//
+list_t*
+AssignmentAPI_assignmentStatusSearch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_assignmentStatusSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long assignmentId, long creatorAccountId, long assigneeAccountId, long retailerLocationId, sirqul_iot_platform_assignmentStatusSearch_statusType_e statusType, char *keyword);
+
+
+// Update Assignment Status
+//
+// Updates an assignment status.
+//
+assignment_status_response_t*
+AssignmentAPI_assignmentStatusUpdate(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusUpdate_toDo_e toDo, sirqul_iot_platform_assignmentStatusUpdate_connection_e connection, sirqul_iot_platform_assignmentStatusUpdate_method_e method, sirqul_iot_platform_assignmentStatusUpdate_status_e status, sirqul_iot_platform_assignmentStatusUpdate_closure_e closure, char *message, long followUp, int *active);
+
+
+// Update Assignment
+//
+// Updates an assignment.
+//
+assignment_response_t*
+AssignmentAPI_assignmentUpdate(apiClient_t *apiClient, double version, long accountId, long assignmentId, char *name, char *description, long assigneeAccountId, long retailerLocationId, char *tags, int *active);
+
+

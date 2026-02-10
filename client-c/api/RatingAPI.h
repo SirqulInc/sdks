@@ -1,0 +1,75 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "../include/apiClient.h"
+#include "../include/list.h"
+#include "../external/cJSON.h"
+#include "../include/keyValuePair.h"
+#include "../include/binary.h"
+#include "../model/rating_index_response.h"
+#include "../model/rating_response.h"
+#include "../model/sirqul_response.h"
+
+// Enum SORTFIELD for RatingAPI_searchLocationRatingIndexes
+typedef enum  { sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_NULL = 0, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_ID, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_CREATED, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_UPDATED, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_DELETED, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_SEARCH_TAGS, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_ACTIVE, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_RATABLE_TYPE, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_RATABLE_ID, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_RATABLE_DISPLAY, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_CATEGORY_ID, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_CATEGORY_NAME, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_CATEGORY_SHORT_NAME, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_CATEGORY_DISPLAY, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_COUNT, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_SUMMATION, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_AVERAGE, sirqul_iot_platform_searchLocationRatingIndexes_SORTFIELD_VALUE } sirqul_iot_platform_searchLocationRatingIndexes_sortField_e;
+
+// Enum DISTANCEUNIT for RatingAPI_searchLocationRatingIndexes
+typedef enum  { sirqul_iot_platform_searchLocationRatingIndexes_DISTANCEUNIT_NULL = 0, sirqul_iot_platform_searchLocationRatingIndexes_DISTANCEUNIT_MILES, sirqul_iot_platform_searchLocationRatingIndexes_DISTANCEUNIT_KILOMETERS } sirqul_iot_platform_searchLocationRatingIndexes_distanceUnit_e;
+
+// Enum RATABLETYPE for RatingAPI_searchRatingIndexes
+typedef enum  { sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_NULL = 0, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_LOCATABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_RESERVABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_PERMISSIONABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_NOTABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ASSETABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_LIKABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_FLAGABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_FAVORITABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_RATABLE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ALBUM, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_COLLECTION, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_APPLICATION, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_APPLICATION_SETTING, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_APPLICATION_CERT, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_APPLICATION_PLACEMENT, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ACCOUNT, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ACCOUNT_SETTING, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_GAME_LEVEL, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_PACK, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_MISSION, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_TOURNAMENT, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ASSET, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ALBUM_CONTEST, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_THEME_DESCRIPTOR, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_OFFER, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_OFFER_LOCATION, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_EVENT, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_RETAILER, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_RETAILER_LOCATION, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_NOTE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_CREATIVE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_FAVORITE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_LIKE, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_RATING, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_ANALYTIC, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_THIRD_PARTY_CREDENTIAL, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_THIRD_PARTY_NETWORK, sirqul_iot_platform_searchRatingIndexes_RATABLETYPE_REGION } sirqul_iot_platform_searchRatingIndexes_ratableType_e;
+
+// Enum SORTFIELD for RatingAPI_searchRatingIndexes
+typedef enum  { sirqul_iot_platform_searchRatingIndexes_SORTFIELD_NULL = 0, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_ID, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_CREATED, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_UPDATED, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_DELETED, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_SEARCH_TAGS, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_ACTIVE, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_RATABLE_TYPE, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_RATABLE_ID, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_RATABLE_DISPLAY, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_CATEGORY_ID, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_CATEGORY_NAME, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_CATEGORY_SHORT_NAME, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_CATEGORY_DISPLAY, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_COUNT, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_SUMMATION, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_AVERAGE, sirqul_iot_platform_searchRatingIndexes_SORTFIELD_VALUE } sirqul_iot_platform_searchRatingIndexes_sortField_e;
+
+// Enum SORTFIELD for RatingAPI_searchRatings
+typedef enum  { sirqul_iot_platform_searchRatings_SORTFIELD_NULL = 0, sirqul_iot_platform_searchRatings_SORTFIELD_ID, sirqul_iot_platform_searchRatings_SORTFIELD_CREATED, sirqul_iot_platform_searchRatings_SORTFIELD_UPDATED, sirqul_iot_platform_searchRatings_SORTFIELD_DELETED, sirqul_iot_platform_searchRatings_SORTFIELD_SEARCH_TAGS, sirqul_iot_platform_searchRatings_SORTFIELD_ACTIVE, sirqul_iot_platform_searchRatings_SORTFIELD_OWNER_DISPLAY, sirqul_iot_platform_searchRatings_SORTFIELD_RATABLE_TYPE, sirqul_iot_platform_searchRatings_SORTFIELD_RATABLE_ID, sirqul_iot_platform_searchRatings_SORTFIELD_RATABLE_DISPLAY, sirqul_iot_platform_searchRatings_SORTFIELD_CATEGORY_ID, sirqul_iot_platform_searchRatings_SORTFIELD_CATEGORY_NAME, sirqul_iot_platform_searchRatings_SORTFIELD_CATEGORY_SHORT_NAME, sirqul_iot_platform_searchRatings_SORTFIELD_CATEGORY_DISPLAY, sirqul_iot_platform_searchRatings_SORTFIELD_VALUE } sirqul_iot_platform_searchRatings_sortField_e;
+
+
+// Create Rating
+//
+// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
+//
+rating_response_t*
+RatingAPI_createRating(apiClient_t *apiClient, double version, char *ratableType, long ratableId, int *ratingValue, char *deviceId, long accountId, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
+
+
+// Delete Rating
+//
+// Sets a rating as deleted.
+//
+sirqul_response_t*
+RatingAPI_deleteRating(apiClient_t *apiClient, double version, long ratingId, char *deviceId, long accountId);
+
+
+// Search Location Rating Indexes
+//
+// Search for retailer locations by averages near you.
+//
+list_t*
+RatingAPI_searchLocationRatingIndexes(apiClient_t *apiClient, double version, char *categoryIds, char *keyword, char *locationType, sirqul_iot_platform_searchLocationRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double searchRange, double latitude, double longitude, int *returnOverallRating, sirqul_iot_platform_searchLocationRatingIndexes_distanceUnit_e distanceUnit, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters);
+
+
+// Search Rating Indexes
+//
+// Search for ratable items by averages.
+//
+list_t*
+RatingAPI_searchRatingIndexes(apiClient_t *apiClient, double version, sirqul_iot_platform_searchRatingIndexes_ratableType_e ratableType, char *ratableIds, char *categoryIds, char *secondaryType, char *keyword, sirqul_iot_platform_searchRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double latitude, double longitude, int *returnRatable, int *returnOverallRating);
+
+
+// Search Ratings
+//
+// Search for ratings on a ratable object.
+//
+list_t*
+RatingAPI_searchRatings(apiClient_t *apiClient, double version, char *deviceId, long accountId, long filterAccountId, char *ratableType, long ratableId, char *categoryIds, char *keyword, sirqul_iot_platform_searchRatings_sortField_e sortField, int *descending, int *start, int *limit);
+
+
+// Update Rating
+//
+// Update an existing rating. Only the creator of the rating have permission to update.
+//
+rating_response_t*
+RatingAPI_updateRating(apiClient_t *apiClient, double version, long ratingId, char *deviceId, long accountId, int *ratingValue, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
+
+
