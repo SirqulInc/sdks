@@ -38,20 +38,16 @@ export class ProgramService extends BaseService {
     /**
      * Create Program
      * Create a new program
-     * @endpoint post /api/{version}/program
-     * @param version 
+     * @endpoint post /program
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createProgram(version: number, body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
-    public createProgram(version: number, body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
-    public createProgram(version: number, body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
-    public createProgram(version: number, body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createProgram.');
-        }
+    public createProgram(body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
+    public createProgram(body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
+    public createProgram(body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
+    public createProgram(body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -86,7 +82,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program`;
+        let localVarPath = `/program`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Program>('post', `${basePath}${localVarPath}`,
             {
@@ -105,20 +101,16 @@ export class ProgramService extends BaseService {
     /**
      * Delete Program
      * Delete an existing program
-     * @endpoint delete /api/{version}/program/{id}
-     * @param version 
+     * @endpoint delete /program/{id}
      * @param id the id of the program
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteProgram(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteProgram(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteProgram(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteProgram(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteProgram.');
-        }
+    public deleteProgram(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteProgram(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteProgram(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteProgram(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteProgram.');
         }
@@ -147,7 +139,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -165,20 +157,16 @@ export class ProgramService extends BaseService {
     /**
      * Get Program
      * Get an existing program
-     * @endpoint get /api/{version}/program/{id}
-     * @param version 
+     * @endpoint get /program/{id}
      * @param id the id of the program
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getProgram(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
-    public getProgram(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
-    public getProgram(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
-    public getProgram(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getProgram.');
-        }
+    public getProgram(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
+    public getProgram(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
+    public getProgram(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
+    public getProgram(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getProgram.');
         }
@@ -208,7 +196,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Program>('get', `${basePath}${localVarPath}`,
             {
@@ -226,21 +214,17 @@ export class ProgramService extends BaseService {
     /**
      * Update Program
      * Update an existing program
-     * @endpoint post /api/{version}/program/{id}
-     * @param version 
+     * @endpoint post /program/{id}
      * @param id the id of the program
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public postProgram(version: number, id: number, body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
-    public postProgram(version: number, id: number, body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
-    public postProgram(version: number, id: number, body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
-    public postProgram(version: number, id: number, body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling postProgram.');
-        }
+    public postProgram(id: number, body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
+    public postProgram(id: number, body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
+    public postProgram(id: number, body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
+    public postProgram(id: number, body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling postProgram.');
         }
@@ -278,7 +262,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Program>('post', `${basePath}${localVarPath}`,
             {
@@ -297,21 +281,17 @@ export class ProgramService extends BaseService {
     /**
      * Update Program
      * Update an existing program
-     * @endpoint put /api/{version}/program/{id}
-     * @param version 
+     * @endpoint put /program/{id}
      * @param id the id of the program
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public putProgram(version: number, id: number, body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
-    public putProgram(version: number, id: number, body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
-    public putProgram(version: number, id: number, body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
-    public putProgram(version: number, id: number, body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling putProgram.');
-        }
+    public putProgram(id: number, body?: Program, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Program>;
+    public putProgram(id: number, body?: Program, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Program>>;
+    public putProgram(id: number, body?: Program, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Program>>;
+    public putProgram(id: number, body?: Program, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling putProgram.');
         }
@@ -349,7 +329,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/program/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Program>('put', `${basePath}${localVarPath}`,
             {
@@ -368,8 +348,7 @@ export class ProgramService extends BaseService {
     /**
      * Search Programs
      * Search for programs
-     * @endpoint get /api/{version}/program
-     * @param version 
+     * @endpoint get /program
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -380,13 +359,10 @@ export class ProgramService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPrograms(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Program>>;
-    public searchPrograms(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Program>>>;
-    public searchPrograms(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Program>>>;
-    public searchPrograms(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPrograms.');
-        }
+    public searchPrograms(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Program>>;
+    public searchPrograms(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Program>>>;
+    public searchPrograms(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Program>>>;
+    public searchPrograms(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchPrograms.');
         }
@@ -484,7 +460,7 @@ export class ProgramService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/program`;
+        let localVarPath = `/program`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Program>>('get', `${basePath}${localVarPath}`,
             {

@@ -42,8 +42,7 @@ export class InviteService extends BaseService {
     /**
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter\&#39;s friend.
-     * @endpoint post /api/{version}/invite/accept
-     * @param version 
+     * @endpoint post /invite/accept
      * @param token the invite token
      * @param accountId the accountId of the user who is accepting the invite
      * @param albumId the album id associated with this invite (if applicable)
@@ -62,13 +61,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public acceptInvite(version: number, token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConsumerInviteResponse>;
-    public acceptInvite(version: number, token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConsumerInviteResponse>>;
-    public acceptInvite(version: number, token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConsumerInviteResponse>>;
-    public acceptInvite(version: number, token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling acceptInvite.');
-        }
+    public acceptInvite(token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConsumerInviteResponse>;
+    public acceptInvite(token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConsumerInviteResponse>>;
+    public acceptInvite(token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConsumerInviteResponse>>;
+    public acceptInvite(token: string, accountId: number, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, autoFriend?: boolean, autoAttendEvent?: boolean, autoFavoriteOffer?: boolean, autoFavoriteOfferLocation?: boolean, autoFavoriteRetailerLocation?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling acceptInvite.');
         }
@@ -229,7 +225,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/accept`;
+        let localVarPath = `/invite/accept`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConsumerInviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -248,8 +244,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @endpoint post /api/{version}/invite/albumContest
-     * @param version 
+     * @endpoint post /invite/albumContest
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
      * @param appId This parameter is deprecated.
@@ -261,13 +256,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public albumContestInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public albumContestInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public albumContestInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public albumContestInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling albumContestInvite.');
-        }
+    public albumContestInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public albumContestInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public albumContestInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public albumContestInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumContestId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -359,7 +351,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/albumContest`;
+        let localVarPath = `/invite/albumContest`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -378,8 +370,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @endpoint post /api/{version}/invite/album
-     * @param version 
+     * @endpoint post /invite/album
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
      * @param appId This parameter is deprecated.
@@ -391,13 +382,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public albumInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public albumInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public albumInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public albumInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling albumInvite.');
-        }
+    public albumInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public albumInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public albumInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public albumInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, albumId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -489,7 +477,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/album`;
+        let localVarPath = `/invite/album`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -508,8 +496,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @endpoint post /api/{version}/invite/event
-     * @param version 
+     * @endpoint post /invite/event
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param listingId The ID of the event listing
@@ -519,13 +506,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public eventInvite(version: number, accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public eventInvite(version: number, accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public eventInvite(version: number, accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public eventInvite(version: number, accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling eventInvite.');
-        }
+    public eventInvite(accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public eventInvite(accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public eventInvite(accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public eventInvite(accountId: number, appKey: string, listingId: number, receiverAccountIds?: string, retailerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling eventInvite.');
         }
@@ -608,7 +592,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/event`;
+        let localVarPath = `/invite/event`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -627,8 +611,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @endpoint post /api/{version}/invite/gameLevel
-     * @param version 
+     * @endpoint post /invite/gameLevel
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
      * @param appId This parameter is deprecated.
@@ -640,13 +623,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public gameInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public gameInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public gameInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public gameInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling gameInvite.');
-        }
+    public gameInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public gameInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public gameInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public gameInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, gameLevelId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -738,7 +718,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/gameLevel`;
+        let localVarPath = `/invite/gameLevel`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -757,8 +737,7 @@ export class InviteService extends BaseService {
     /**
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @endpoint get /api/{version}/invite/get
-     * @param version 
+     * @endpoint get /invite/get
      * @param accountId Account ID of the user if they are logged in
      * @param token the invite token
      * @param albumId album id to match the invite against (if applicable)
@@ -772,13 +751,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getInvite(version: number, accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getInvite(version: number, accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getInvite(version: number, accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getInvite(version: number, accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getInvite.');
-        }
+    public getInvite(accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getInvite(accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getInvite(accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getInvite(accountId?: number, token?: string, albumId?: number, missionId?: number, albumContestId?: number, offerId?: number, offerLocationId?: number, retailerLocationId?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -888,7 +864,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/get`;
+        let localVarPath = `/invite/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -907,8 +883,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @endpoint post /api/{version}/invite/mission
-     * @param version 
+     * @endpoint post /invite/mission
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
      * @param appId This parameter is deprecated.
@@ -920,13 +895,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public missionInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public missionInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public missionInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public missionInvite(version: number, deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling missionInvite.');
-        }
+    public missionInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public missionInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public missionInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public missionInvite(deviceId?: string, accountId?: number, appId?: number, appKey?: string, missionId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1018,7 +990,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/mission`;
+        let localVarPath = `/invite/mission`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1037,8 +1009,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite\&#39;s list.
-     * @endpoint post /api/{version}/invite/offer
-     * @param version 
+     * @endpoint post /invite/offer
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerId the ID of the offer used to invite to favorite
@@ -1046,13 +1017,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public offerInvite(version: number, accountId: number, appKey: string, offerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public offerInvite(version: number, accountId: number, appKey: string, offerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public offerInvite(version: number, accountId: number, appKey: string, offerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public offerInvite(version: number, accountId: number, appKey: string, offerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling offerInvite.');
-        }
+    public offerInvite(accountId: number, appKey: string, offerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public offerInvite(accountId: number, appKey: string, offerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public offerInvite(accountId: number, appKey: string, offerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public offerInvite(accountId: number, appKey: string, offerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling offerInvite.');
         }
@@ -1117,7 +1085,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/offer`;
+        let localVarPath = `/invite/offer`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1136,8 +1104,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite\&#39;s list.
-     * @endpoint post /api/{version}/invite/offerLocation
-     * @param version 
+     * @endpoint post /invite/offerLocation
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param offerLocationId the id of the offer location to share
@@ -1145,13 +1112,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public offerLocationInvite(version: number, accountId: number, appKey: string, offerLocationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public offerLocationInvite(version: number, accountId: number, appKey: string, offerLocationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public offerLocationInvite(version: number, accountId: number, appKey: string, offerLocationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public offerLocationInvite(version: number, accountId: number, appKey: string, offerLocationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling offerLocationInvite.');
-        }
+    public offerLocationInvite(accountId: number, appKey: string, offerLocationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public offerLocationInvite(accountId: number, appKey: string, offerLocationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public offerLocationInvite(accountId: number, appKey: string, offerLocationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public offerLocationInvite(accountId: number, appKey: string, offerLocationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling offerLocationInvite.');
         }
@@ -1216,7 +1180,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/offerLocation`;
+        let localVarPath = `/invite/offerLocation`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1235,8 +1199,7 @@ export class InviteService extends BaseService {
     /**
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite\&#39;s list.
-     * @endpoint post /api/{version}/invite/retailerLocation
-     * @param version 
+     * @endpoint post /invite/retailerLocation
      * @param accountId the account ID of the user making the share
      * @param appKey the application key
      * @param retailerLocationId The retailer location id of where the event will take place
@@ -1245,13 +1208,10 @@ export class InviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public retailerLocationInvite(version: number, accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
-    public retailerLocationInvite(version: number, accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
-    public retailerLocationInvite(version: number, accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
-    public retailerLocationInvite(version: number, accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling retailerLocationInvite.');
-        }
+    public retailerLocationInvite(accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<InviteResponse>;
+    public retailerLocationInvite(accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InviteResponse>>;
+    public retailerLocationInvite(accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InviteResponse>>;
+    public retailerLocationInvite(accountId: number, appKey: string, retailerLocationId: number, albumId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling retailerLocationInvite.');
         }
@@ -1325,7 +1285,7 @@ export class InviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/invite/retailerLocation`;
+        let localVarPath = `/invite/retailerLocation`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<InviteResponse>('post', `${basePath}${localVarPath}`,
             {

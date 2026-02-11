@@ -38,20 +38,16 @@ export class StopService extends BaseService {
     /**
      * Get Stop
      * Get an existing stop
-     * @endpoint get /api/{version}/stop/{id}
-     * @param version 
+     * @endpoint get /stop/{id}
      * @param id the id of the stop to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getStop(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
-    public getStop(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
-    public getStop(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
-    public getStop(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getStop.');
-        }
+    public getStop(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
+    public getStop(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
+    public getStop(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
+    public getStop(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getStop.');
         }
@@ -81,7 +77,7 @@ export class StopService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/stop/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/stop/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Stop>('get', `${basePath}${localVarPath}`,
             {
@@ -99,21 +95,17 @@ export class StopService extends BaseService {
     /**
      * Update Stop
      * Update an existing stop
-     * @endpoint put /api/{version}/stop/{id}
-     * @param version 
+     * @endpoint put /stop/{id}
      * @param id the id of the stop to update
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateStop(version: number, id: number, body?: Stop, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
-    public updateStop(version: number, id: number, body?: Stop, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
-    public updateStop(version: number, id: number, body?: Stop, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
-    public updateStop(version: number, id: number, body?: Stop, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateStop.');
-        }
+    public updateStop(id: number, body?: Stop, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
+    public updateStop(id: number, body?: Stop, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
+    public updateStop(id: number, body?: Stop, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
+    public updateStop(id: number, body?: Stop, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateStop.');
         }
@@ -151,7 +143,7 @@ export class StopService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/stop/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/stop/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Stop>('put', `${basePath}${localVarPath}`,
             {

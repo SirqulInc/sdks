@@ -46,8 +46,7 @@ export class AchievementService extends BaseService {
     /**
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/tier/search
-     * @param version 
+     * @endpoint post /achievement/tier/search
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param appKey the application key
@@ -63,13 +62,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiVersionAchievementTierSearchPost(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
-    public apiVersionAchievementTierSearchPost(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
-    public apiVersionAchievementTierSearchPost(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
-    public apiVersionAchievementTierSearchPost(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling apiVersionAchievementTierSearchPost.');
-        }
+    public achievementTierSearchPost(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
+    public achievementTierSearchPost(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
+    public achievementTierSearchPost(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
+    public achievementTierSearchPost(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: number, rankType?: string, sortField?: string, descending?: boolean, descendingGoal?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -197,7 +193,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tier/search`;
+        let localVarPath = `/achievement/tier/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementTierResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -216,8 +212,7 @@ export class AchievementService extends BaseService {
     /**
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/create
-     * @param version 
+     * @endpoint post /achievement/create
      * @param appKey the application key the achievement is for
      * @param title the title of the achievement (255 character limit)
      * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -235,13 +230,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createAchievement(version: number, appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementResponse>;
-    public createAchievement(version: number, appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementResponse>>;
-    public createAchievement(version: number, appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementResponse>>;
-    public createAchievement(version: number, appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createAchievement.');
-        }
+    public createAchievement(appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementResponse>;
+    public createAchievement(appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementResponse>>;
+    public createAchievement(appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementResponse>>;
+    public createAchievement(appKey: string, title: string, deviceId?: string, accountId?: number, analyticsTag?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, maxIncrement?: number, validate?: boolean, active?: boolean, triggerDefinition?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createAchievement.');
         }
@@ -393,7 +385,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/create`;
+        let localVarPath = `/achievement/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -412,8 +404,7 @@ export class AchievementService extends BaseService {
     /**
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/tier/create
-     * @param version 
+     * @endpoint post /achievement/tier/create
      * @param achievementId the achievement id for adding a new tier
      * @param scoreAllInstances score all instances
      * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -432,13 +423,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createAchievementTier(version: number, achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
-    public createAchievementTier(version: number, achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
-    public createAchievementTier(version: number, achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
-    public createAchievementTier(version: number, achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createAchievementTier.');
-        }
+    public createAchievementTier(achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
+    public createAchievementTier(achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
+    public createAchievementTier(achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
+    public createAchievementTier(achievementId: number, scoreAllInstances: boolean, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (achievementId === null || achievementId === undefined) {
             throw new Error('Required parameter achievementId was null or undefined when calling createAchievementTier.');
         }
@@ -599,7 +587,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tier/create`;
+        let localVarPath = `/achievement/tier/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementTierResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -618,21 +606,17 @@ export class AchievementService extends BaseService {
     /**
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @endpoint post /api/{version}/achievement/delete
-     * @param version 
+     * @endpoint post /achievement/delete
      * @param achievementId The ID of the achievement
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteAchievement(version: number, achievementId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteAchievement(version: number, achievementId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteAchievement(version: number, achievementId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteAchievement(version: number, achievementId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteAchievement.');
-        }
+    public deleteAchievement(achievementId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteAchievement(achievementId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteAchievement(achievementId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteAchievement(achievementId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (achievementId === null || achievementId === undefined) {
             throw new Error('Required parameter achievementId was null or undefined when calling deleteAchievement.');
         }
@@ -682,7 +666,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/delete`;
+        let localVarPath = `/achievement/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -701,21 +685,17 @@ export class AchievementService extends BaseService {
     /**
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @endpoint post /api/{version}/achievement/tier/delete
-     * @param version 
+     * @endpoint post /achievement/tier/delete
      * @param achievementTierId the achievement id for deletion
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteAchievementTier(version: number, achievementTierId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteAchievementTier(version: number, achievementTierId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteAchievementTier(version: number, achievementTierId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteAchievementTier(version: number, achievementTierId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteAchievementTier.');
-        }
+    public deleteAchievementTier(achievementTierId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteAchievementTier(achievementTierId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteAchievementTier(achievementTierId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteAchievementTier(achievementTierId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (achievementTierId === null || achievementTierId === undefined) {
             throw new Error('Required parameter achievementTierId was null or undefined when calling deleteAchievementTier.');
         }
@@ -765,7 +745,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tier/delete`;
+        let localVarPath = `/achievement/tier/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -784,8 +764,7 @@ export class AchievementService extends BaseService {
     /**
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint get /api/{version}/achievement/get
-     * @param version 
+     * @endpoint get /achievement/get
      * @param achievementId The ID of the achievement
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -794,13 +773,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAchievement(version: number, achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
-    public getAchievement(version: number, achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
-    public getAchievement(version: number, achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
-    public getAchievement(version: number, achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAchievement.');
-        }
+    public getAchievement(achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
+    public getAchievement(achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
+    public getAchievement(achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
+    public getAchievement(achievementId: number, deviceId?: string, accountId?: number, achievementType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (achievementId === null || achievementId === undefined) {
             throw new Error('Required parameter achievementId was null or undefined when calling getAchievement.');
         }
@@ -868,7 +844,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/get`;
+        let localVarPath = `/achievement/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementTierResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -887,21 +863,17 @@ export class AchievementService extends BaseService {
     /**
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/tier/get
-     * @param version 
+     * @endpoint post /achievement/tier/get
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param achievementTierId the achievement tier id that is being retrieved
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAchievementTier(version: number, accountId: number, achievementTierId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
-    public getAchievementTier(version: number, accountId: number, achievementTierId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
-    public getAchievementTier(version: number, accountId: number, achievementTierId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
-    public getAchievementTier(version: number, accountId: number, achievementTierId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAchievementTier.');
-        }
+    public getAchievementTier(accountId: number, achievementTierId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
+    public getAchievementTier(accountId: number, achievementTierId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
+    public getAchievementTier(accountId: number, achievementTierId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
+    public getAchievementTier(accountId: number, achievementTierId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getAchievementTier.');
         }
@@ -954,7 +926,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tier/get`;
+        let localVarPath = `/achievement/tier/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementTierResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -973,8 +945,7 @@ export class AchievementService extends BaseService {
     /**
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @endpoint get /api/{version}/achievement/progress/get
-     * @param version 
+     * @endpoint get /achievement/progress/get
      * @param returnNulls determines whether to return null fields in the response
      * @param appKey the application key for filtering results by application
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet
@@ -990,13 +961,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserAchievements(version: number, returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementProgressResponse>>;
-    public getUserAchievements(version: number, returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementProgressResponse>>>;
-    public getUserAchievements(version: number, returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementProgressResponse>>>;
-    public getUserAchievements(version: number, returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserAchievements.');
-        }
+    public getUserAchievements(returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementProgressResponse>>;
+    public getUserAchievements(returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementProgressResponse>>>;
+    public getUserAchievements(returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementProgressResponse>>>;
+    public getUserAchievements(returnNulls: boolean, appKey: string, includeUndiscovered: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, rankType?: string, achievementType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling getUserAchievements.');
         }
@@ -1133,7 +1101,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/progress/get`;
+        let localVarPath = `/achievement/progress/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AchievementProgressResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1152,20 +1120,16 @@ export class AchievementService extends BaseService {
     /**
      * List Achievement Tags
      * List achievement tags by application
-     * @endpoint get /api/{version}/achievement/tag/list
-     * @param version 
+     * @endpoint get /achievement/tag/list
      * @param appKey filter results by application key
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listAchievementTags(version: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public listAchievementTags(version: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public listAchievementTags(version: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public listAchievementTags(version: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listAchievementTags.');
-        }
+    public listAchievementTags(appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public listAchievementTags(appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public listAchievementTags(appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public listAchievementTags(appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1203,7 +1167,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tag/list`;
+        let localVarPath = `/achievement/tag/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1222,8 +1186,7 @@ export class AchievementService extends BaseService {
     /**
      * List Achievements
      * List achievements by billable.
-     * @endpoint get /api/{version}/achievement/list
-     * @param version 
+     * @endpoint get /achievement/list
      * @param sortField the field to sort by. See AchievementApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param start the start index for pagination
@@ -1239,13 +1202,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listAchievements(version: number, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementShortResponse>>;
-    public listAchievements(version: number, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementShortResponse>>>;
-    public listAchievements(version: number, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementShortResponse>>>;
-    public listAchievements(version: number, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listAchievements.');
-        }
+    public listAchievements(sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementShortResponse>>;
+    public listAchievements(sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementShortResponse>>>;
+    public listAchievements(sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementShortResponse>>>;
+    public listAchievements(sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, achievementType?: string, rankType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling listAchievements.');
         }
@@ -1388,7 +1348,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/list`;
+        let localVarPath = `/achievement/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AchievementShortResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1407,8 +1367,7 @@ export class AchievementService extends BaseService {
     /**
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @endpoint get /api/{version}/achievement/search
-     * @param version 
+     * @endpoint get /achievement/search
      * @param appKey the application key
      * @param sortField the field to sort by. See AchievementApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -1425,13 +1384,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchAchievements(version: number, appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementShortResponse>>;
-    public searchAchievements(version: number, appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementShortResponse>>>;
-    public searchAchievements(version: number, appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementShortResponse>>>;
-    public searchAchievements(version: number, appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchAchievements.');
-        }
+    public searchAchievements(appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AchievementShortResponse>>;
+    public searchAchievements(appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AchievementShortResponse>>>;
+    public searchAchievements(appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AchievementShortResponse>>>;
+    public searchAchievements(appKey: string, sortField: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'RANK_TYPE' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'BILLABLE_ID', descending: boolean, includeTiers: boolean, includeInactiveTiers: boolean, start: number, limit: number, deviceId?: string, accountId?: number, keyword?: string, achievementType?: string, rankType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling searchAchievements.');
         }
@@ -1589,7 +1545,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/search`;
+        let localVarPath = `/achievement/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AchievementShortResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1608,8 +1564,7 @@ export class AchievementService extends BaseService {
     /**
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/update
-     * @param version 
+     * @endpoint post /achievement/update
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param achievementId the achievement ID for updating an existing achievement
@@ -1629,13 +1584,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateAchievement(version: number, deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementResponse>;
-    public updateAchievement(version: number, deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementResponse>>;
-    public updateAchievement(version: number, deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementResponse>>;
-    public updateAchievement(version: number, deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateAchievement.');
-        }
+    public updateAchievement(deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementResponse>;
+    public updateAchievement(deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementResponse>>;
+    public updateAchievement(deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementResponse>>;
+    public updateAchievement(deviceId?: string, accountId?: number, achievementId?: number, analyticsTag?: string, title?: string, description?: string, rankType?: string, rankIncrement?: number, minIncrement?: number, nullMinIncrement?: boolean, maxIncrement?: number, nullMaxIncrement?: boolean, validate?: boolean, active?: boolean, triggerDefinition?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1799,7 +1751,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/update`;
+        let localVarPath = `/achievement/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1818,8 +1770,7 @@ export class AchievementService extends BaseService {
     /**
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @endpoint post /api/{version}/achievement/tier/update
-     * @param version 
+     * @endpoint post /achievement/tier/update
      * @param achievementTierId the achievement tier id for updating
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -1838,13 +1789,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateAchievementTier(version: number, achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
-    public updateAchievementTier(version: number, achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
-    public updateAchievementTier(version: number, achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
-    public updateAchievementTier(version: number, achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateAchievementTier.');
-        }
+    public updateAchievementTier(achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AchievementTierResponse>;
+    public updateAchievementTier(achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AchievementTierResponse>>;
+    public updateAchievementTier(achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AchievementTierResponse>>;
+    public updateAchievementTier(achievementTierId: number, deviceId?: string, accountId?: number, icon?: Blob, iconAssetId?: number, title?: string, description?: string, goalCount?: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreAllInstances?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (achievementTierId === null || achievementTierId === undefined) {
             throw new Error('Required parameter achievementTierId was null or undefined when calling updateAchievementTier.');
         }
@@ -2002,7 +1950,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/tier/update`;
+        let localVarPath = `/achievement/tier/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AchievementTierResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2021,8 +1969,7 @@ export class AchievementService extends BaseService {
     /**
      * Update Achievement Progress
      * Update user achievement progress.
-     * @endpoint post /api/{version}/achievement/progress/update
-     * @param version 
+     * @endpoint post /achievement/progress/update
      * @param accountId the account id of the user
      * @param achievementId the achievement id (achievementId or tag required)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required)
@@ -2035,13 +1982,10 @@ export class AchievementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateUserAchievement(version: number, accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateUserAchievement(version: number, accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateUserAchievement(version: number, accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateUserAchievement(version: number, accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateUserAchievement.');
-        }
+    public updateUserAchievement(accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateUserAchievement(accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateUserAchievement(accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateUserAchievement(accountId: number, achievementId?: number, tag?: string, customId?: number, increment?: number, startDate?: number, endDate?: number, returnProgress?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateUserAchievement.');
         }
@@ -2145,7 +2089,7 @@ export class AchievementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/achievement/progress/update`;
+        let localVarPath = `/achievement/progress/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

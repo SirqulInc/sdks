@@ -42,8 +42,7 @@ export class MissionService extends BaseService {
     /**
      * Create Mission
      * Create a user defined mission.
-     * @endpoint post /api/{version}/mission/create
-     * @param version 
+     * @endpoint post /mission/create
      * @param accountId The logged in user.
      * @param title The title of the mission
      * @param description The description of the mission
@@ -74,13 +73,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createMission(version: number, accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public createMission(version: number, accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public createMission(version: number, accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public createMission(version: number, accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createMission.');
-        }
+    public createMission(accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public createMission(accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public createMission(accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public createMission(accountId: number, title: string, description?: string, subType?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, missionTask?: string, formatType?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, metaData?: string, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createMission.');
         }
@@ -349,7 +345,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/create`;
+        let localVarPath = `/mission/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -368,21 +364,17 @@ export class MissionService extends BaseService {
     /**
      * Delete Mission
      * Delete a mission.
-     * @endpoint post /api/{version}/mission/delete
-     * @param version 
+     * @endpoint post /mission/delete
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteMission(version: number, accountId: number, missionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteMission(version: number, accountId: number, missionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteMission(version: number, accountId: number, missionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteMission(version: number, accountId: number, missionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteMission.');
-        }
+    public deleteMission(accountId: number, missionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteMission(accountId: number, missionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteMission(accountId: number, missionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteMission(accountId: number, missionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteMission.');
         }
@@ -435,7 +427,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/delete`;
+        let localVarPath = `/mission/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -454,8 +446,7 @@ export class MissionService extends BaseService {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @endpoint get /api/{version}/mission/find
-     * @param version 
+     * @endpoint get /mission/find
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.
@@ -479,13 +470,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public findMissions(version: number, appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public findMissions(version: number, appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public findMissions(version: number, appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public findMissions(version: number, appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling findMissions.');
-        }
+    public findMissions(appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public findMissions(appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public findMissions(appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public findMissions(appKey: string, suffix?: string, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, allocatesTickets?: boolean, randomize?: boolean, targetedAdsOnly?: boolean, missionIds?: string, audienceOperator?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling findMissions.');
         }
@@ -688,7 +676,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/find`;
+        let localVarPath = `/mission/find`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -707,8 +695,7 @@ export class MissionService extends BaseService {
     /**
      * Get Mission
      * Get a mission.
-     * @endpoint get /api/{version}/mission/get
-     * @param version 
+     * @endpoint get /mission/get
      * @param accountId The logged in user.
      * @param missionId The id of the mission to return.
      * @param returnCreative Return creatives associated with the mission when true
@@ -716,13 +703,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getMission(version: number, accountId: number, missionId: number, returnCreative?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public getMission(version: number, accountId: number, missionId: number, returnCreative?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public getMission(version: number, accountId: number, missionId: number, returnCreative?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public getMission(version: number, accountId: number, missionId: number, returnCreative?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getMission.');
-        }
+    public getMission(accountId: number, missionId: number, returnCreative?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public getMission(accountId: number, missionId: number, returnCreative?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public getMission(accountId: number, missionId: number, returnCreative?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public getMission(accountId: number, missionId: number, returnCreative?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getMission.');
         }
@@ -784,7 +768,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/get`;
+        let localVarPath = `/mission/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -803,8 +787,7 @@ export class MissionService extends BaseService {
     /**
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @endpoint post /api/{version}/mission/import
-     * @param version 
+     * @endpoint post /mission/import
      * @param accountId The logged in user.
      * @param latitude The current location of the requesting device
      * @param longitude The current location of the requesting device
@@ -817,13 +800,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public importMission(version: number, accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public importMission(version: number, accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public importMission(version: number, accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public importMission(version: number, accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling importMission.');
-        }
+    public importMission(accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public importMission(accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public importMission(accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public importMission(accountId: number, latitude: number, longitude: number, appKey: string, keyword?: string, start?: number, limit?: number, adSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling importMission.');
         }
@@ -936,7 +916,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/import`;
+        let localVarPath = `/mission/import`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -955,8 +935,7 @@ export class MissionService extends BaseService {
     /**
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @endpoint get /api/{version}/mission/format/search
-     * @param version 
+     * @endpoint get /mission/format/search
      * @param start The starting index in the result set to return. Default is 0.
      * @param limit The total number of records to return. Default is 20.
      * @param activeOnly Determines whether to return only active results. Default is false.
@@ -964,13 +943,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchMissionFormats(version: number, start: number, limit: number, activeOnly: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionFormatResponse>>;
-    public searchMissionFormats(version: number, start: number, limit: number, activeOnly: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionFormatResponse>>>;
-    public searchMissionFormats(version: number, start: number, limit: number, activeOnly: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionFormatResponse>>>;
-    public searchMissionFormats(version: number, start: number, limit: number, activeOnly: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchMissionFormats.');
-        }
+    public searchMissionFormats(start: number, limit: number, activeOnly: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionFormatResponse>>;
+    public searchMissionFormats(start: number, limit: number, activeOnly: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionFormatResponse>>>;
+    public searchMissionFormats(start: number, limit: number, activeOnly: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionFormatResponse>>>;
+    public searchMissionFormats(start: number, limit: number, activeOnly: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (start === null || start === undefined) {
             throw new Error('Required parameter start was null or undefined when calling searchMissionFormats.');
         }
@@ -1035,7 +1011,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/format/search`;
+        let localVarPath = `/mission/format/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<MissionFormatResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1054,8 +1030,7 @@ export class MissionService extends BaseService {
     /**
      * Search Missions
      * Get the list missions available to the account.  
-     * @endpoint get /api/{version}/mission/search
-     * @param version 
+     * @endpoint get /mission/search
      * @param accountId The logged in user.
      * @param keyword Filter by keyword
      * @param subType Custom string client apps can use for searching/filtering missions
@@ -1071,13 +1046,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchMissions(version: number, accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
-    public searchMissions(version: number, accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
-    public searchMissions(version: number, accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
-    public searchMissions(version: number, accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchMissions.');
-        }
+    public searchMissions(accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
+    public searchMissions(accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
+    public searchMissions(accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
+    public searchMissions(accountId: number, keyword?: string, subType?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchMissions.');
         }
@@ -1208,7 +1180,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/search`;
+        let localVarPath = `/mission/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<MissionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1227,8 +1199,7 @@ export class MissionService extends BaseService {
     /**
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @endpoint get /api/{version}/mission/searchByBillableEntity
-     * @param version 
+     * @endpoint get /mission/searchByBillableEntity
      * @param accountId The logged in user.
      * @param keyword Filter by keyword
      * @param start The index into the record set to start with. Default is 0.
@@ -1243,13 +1214,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchMissionsByBillableEntity(version: number, accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
-    public searchMissionsByBillableEntity(version: number, accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
-    public searchMissionsByBillableEntity(version: number, accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
-    public searchMissionsByBillableEntity(version: number, accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchMissionsByBillableEntity.');
-        }
+    public searchMissionsByBillableEntity(accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
+    public searchMissionsByBillableEntity(accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
+    public searchMissionsByBillableEntity(accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
+    public searchMissionsByBillableEntity(accountId: number, keyword?: string, start?: number, limit?: number, includeGameData?: boolean, includeAudiences?: boolean, includeInactive?: boolean, suffix?: string, sortField?: string, descending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchMissionsByBillableEntity.');
         }
@@ -1371,7 +1339,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/searchByBillableEntity`;
+        let localVarPath = `/mission/searchByBillableEntity`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<MissionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1390,8 +1358,7 @@ export class MissionService extends BaseService {
     /**
      * Update Mission
      * Update a mission.
-     * @endpoint post /api/{version}/mission/update
-     * @param version 
+     * @endpoint post /mission/update
      * @param accountId The logged in user.
      * @param missionId The id of the mission to update.
      * @param title The title of the mission
@@ -1421,13 +1388,10 @@ export class MissionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateMission(version: number, accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public updateMission(version: number, accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public updateMission(version: number, accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public updateMission(version: number, accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateMission.');
-        }
+    public updateMission(accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public updateMission(accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public updateMission(accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public updateMission(accountId: number, missionId: number, title?: string, description?: string, subType?: string, metaData?: string, startDate?: number, endDate?: number, active?: boolean, gameLevelIds?: string, creativeIds?: string, audienceIds?: string, offerId?: number, balance?: number, advancedReporting?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, applicationIds?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateMission.');
         }
@@ -1687,7 +1651,7 @@ export class MissionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/update`;
+        let localVarPath = `/mission/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('post', `${basePath}${localVarPath}`,
             {

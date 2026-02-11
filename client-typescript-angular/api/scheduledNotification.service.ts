@@ -40,8 +40,7 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @endpoint post /api/{version}/notification/schedule/create
-     * @param version 
+     * @endpoint post /notification/schedule/create
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -80,13 +79,10 @@ export class ScheduledNotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createScheduledNotification(version: number, accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
-    public createScheduledNotification(version: number, accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
-    public createScheduledNotification(version: number, accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
-    public createScheduledNotification(version: number, accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createScheduledNotification.');
-        }
+    public createScheduledNotification(accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
+    public createScheduledNotification(accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
+    public createScheduledNotification(accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
+    public createScheduledNotification(accountId: number, name: string, type: string, message: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createScheduledNotification.');
         }
@@ -433,7 +429,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/create`;
+        let localVarPath = `/notification/schedule/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScheduledNotificationFullResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -452,8 +448,7 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @endpoint post /api/{version}/notification/schedule/delete
-     * @param version 
+     * @endpoint post /notification/schedule/delete
      * @param accountId the id of the logged in user
      * @param scheduledNotificationId the id of the scheduled notification to delete
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
@@ -461,13 +456,10 @@ export class ScheduledNotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
-    public deleteScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
-    public deleteScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
-    public deleteScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteScheduledNotification.');
-        }
+    public deleteScheduledNotification(accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
+    public deleteScheduledNotification(accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
+    public deleteScheduledNotification(accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
+    public deleteScheduledNotification(accountId: number, scheduledNotificationId: number, deleteByGroupingId?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteScheduledNotification.');
         }
@@ -529,7 +521,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/delete`;
+        let localVarPath = `/notification/schedule/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScheduledNotificationFullResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -548,21 +540,17 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @endpoint get /api/{version}/notification/schedule/get
-     * @param version 
+     * @endpoint get /notification/schedule/get
      * @param accountId the id of the account logged in
      * @param scheduledNotificationId the id of the scheduled notification to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
-    public getScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
-    public getScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
-    public getScheduledNotification(version: number, accountId: number, scheduledNotificationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getScheduledNotification.');
-        }
+    public getScheduledNotification(accountId: number, scheduledNotificationId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
+    public getScheduledNotification(accountId: number, scheduledNotificationId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
+    public getScheduledNotification(accountId: number, scheduledNotificationId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
+    public getScheduledNotification(accountId: number, scheduledNotificationId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getScheduledNotification.');
         }
@@ -615,7 +603,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/get`;
+        let localVarPath = `/notification/schedule/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScheduledNotificationFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -634,8 +622,7 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @endpoint post /api/{version}/notification/schedule/generate
-     * @param version 
+     * @endpoint post /notification/schedule/generate
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -648,13 +635,10 @@ export class ScheduledNotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public scheduleNotificationListings(version: number, accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public scheduleNotificationListings(version: number, accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public scheduleNotificationListings(version: number, accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public scheduleNotificationListings(version: number, accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling scheduleNotificationListings.');
-        }
+    public scheduleNotificationListings(accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public scheduleNotificationListings(accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public scheduleNotificationListings(accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public scheduleNotificationListings(accountId: number, appKey: string, reportName: string, message: string, offset: number, recipientReportId: number, reportParams?: string, type?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling scheduleNotificationListings.');
         }
@@ -773,7 +757,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/generate`;
+        let localVarPath = `/notification/schedule/generate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -792,8 +776,7 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @endpoint get /api/{version}/notification/schedule/search
-     * @param version 
+     * @endpoint get /notification/schedule/search
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client
      * @param audienceId Filter results by audience
@@ -818,13 +801,10 @@ export class ScheduledNotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchScheduledNotifications(version: number, accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
-    public searchScheduledNotifications(version: number, accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
-    public searchScheduledNotifications(version: number, accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
-    public searchScheduledNotifications(version: number, accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchScheduledNotifications.');
-        }
+    public searchScheduledNotifications(accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
+    public searchScheduledNotifications(accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
+    public searchScheduledNotifications(accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
+    public searchScheduledNotifications(accountId: number, groupingId?: string, audienceId?: number, filter?: string, types?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, groupByGroupingId?: boolean, returnAudienceAccountCount?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchScheduledNotifications.');
         }
@@ -1036,7 +1016,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/search`;
+        let localVarPath = `/notification/schedule/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScheduledNotificationFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1055,8 +1035,7 @@ export class ScheduledNotificationService extends BaseService {
     /**
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @endpoint post /api/{version}/notification/schedule/update
-     * @param version 
+     * @endpoint post /notification/schedule/update
      * @param scheduledNotificationId The id of scheduled notification to update
      * @param accountId The logged in user.
      * @param name The name of the scheduled notification
@@ -1099,13 +1078,10 @@ export class ScheduledNotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateScheduledNotification(version: number, scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
-    public updateScheduledNotification(version: number, scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
-    public updateScheduledNotification(version: number, scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
-    public updateScheduledNotification(version: number, scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateScheduledNotification.');
-        }
+    public updateScheduledNotification(scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScheduledNotificationFullResponse>;
+    public updateScheduledNotification(scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScheduledNotificationFullResponse>>;
+    public updateScheduledNotification(scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScheduledNotificationFullResponse>>;
+    public updateScheduledNotification(scheduledNotificationId: number, accountId: number, name?: string, type?: string, message?: string, payload?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, appKey?: string, groupingId?: string, connectionGroupIds?: string, connectionAccountIds?: string, audienceId?: number, audienceIds?: string, albumIds?: string, reportId?: number, reportParams?: string, endpointURL?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, cronType?: string, metaData?: string, conditionalInput?: string, templateType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, errorMessage?: string, status?: string, updateByGroupingId?: boolean, sendNow?: boolean, eventType?: string, deepLinkURI?: string, sendToAll?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (scheduledNotificationId === null || scheduledNotificationId === undefined) {
             throw new Error('Required parameter scheduledNotificationId was null or undefined when calling updateScheduledNotification.');
         }
@@ -1482,7 +1458,7 @@ export class ScheduledNotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/schedule/update`;
+        let localVarPath = `/notification/schedule/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScheduledNotificationFullResponse>('post', `${basePath}${localVarPath}`,
             {

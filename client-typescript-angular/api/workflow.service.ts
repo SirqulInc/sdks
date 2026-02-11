@@ -38,8 +38,7 @@ export class WorkflowService extends BaseService {
     /**
      * Run Workflow
      * Runs a published executable workflow
-     * @endpoint post /api/{version}/workflow/run
-     * @param version 
+     * @endpoint post /workflow/run
      * @param accountId the account ID of the user
      * @param workflowId the workflow to run
      * @param skuId this runs a particular sku on the workflow
@@ -49,13 +48,10 @@ export class WorkflowService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public runWorkflow(version: number, accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public runWorkflow(version: number, accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public runWorkflow(version: number, accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public runWorkflow(version: number, accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling runWorkflow.');
-        }
+    public runWorkflow(accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public runWorkflow(accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public runWorkflow(accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public runWorkflow(accountId: number, workflowId: number, skuId?: number, versionCode?: number, parameters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling runWorkflow.');
         }
@@ -135,7 +131,7 @@ export class WorkflowService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/workflow/run`;
+        let localVarPath = `/workflow/run`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

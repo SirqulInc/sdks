@@ -38,8 +38,7 @@ export class CarrierService extends BaseService {
     /**
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @endpoint get /api/{version}/carrier/search
-     * @param version 
+     * @endpoint get /carrier/search
      * @param keyword The keyword to search on
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -49,13 +48,10 @@ export class CarrierService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchCarriers(version: number, keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CellCarrierResponse>>;
-    public searchCarriers(version: number, keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CellCarrierResponse>>>;
-    public searchCarriers(version: number, keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CellCarrierResponse>>>;
-    public searchCarriers(version: number, keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchCarriers.');
-        }
+    public searchCarriers(keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CellCarrierResponse>>;
+    public searchCarriers(keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CellCarrierResponse>>>;
+    public searchCarriers(keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CellCarrierResponse>>>;
+    public searchCarriers(keyword?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -129,7 +125,7 @@ export class CarrierService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/carrier/search`;
+        let localVarPath = `/carrier/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<CellCarrierResponse>>('get', `${basePath}${localVarPath}`,
             {

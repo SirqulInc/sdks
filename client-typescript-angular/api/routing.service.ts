@@ -38,20 +38,16 @@ export class RoutingService extends BaseService {
     /**
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @endpoint post /api/{version}/routing/compute
-     * @param version 
+     * @endpoint post /routing/compute
      * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public computeRouting(version: number, data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RoutingListResponse>;
-    public computeRouting(version: number, data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RoutingListResponse>>;
-    public computeRouting(version: number, data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RoutingListResponse>>;
-    public computeRouting(version: number, data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling computeRouting.');
-        }
+    public computeRouting(data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RoutingListResponse>;
+    public computeRouting(data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RoutingListResponse>>;
+    public computeRouting(data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RoutingListResponse>>;
+    public computeRouting(data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (data === null || data === undefined) {
             throw new Error('Required parameter data was null or undefined when calling computeRouting.');
         }
@@ -92,7 +88,7 @@ export class RoutingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/routing/compute`;
+        let localVarPath = `/routing/compute`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RoutingListResponse>('post', `${basePath}${localVarPath}`,
             {

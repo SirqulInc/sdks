@@ -44,8 +44,7 @@ export class AlbumService extends BaseService {
     /**
      * Create Album
      * Create an Album.
-     * @endpoint post /api/{version}/album/create
-     * @param version 
+     * @endpoint post /album/create
      * @param title the title of the album
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user\&#39;s profile picture as the cover image
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -96,13 +95,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addAlbumCollection(version: number, title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
-    public addAlbumCollection(version: number, title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
-    public addAlbumCollection(version: number, title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
-    public addAlbumCollection(version: number, title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addAlbumCollection.');
-        }
+    public addAlbumCollection(title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
+    public addAlbumCollection(title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
+    public addAlbumCollection(title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
+    public addAlbumCollection(title: string, coverAssetNullable: boolean, includeCoverInAssetList: boolean, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, anonymous: boolean, deviceId?: string, accountId?: number, assetsToAdd?: string, media?: Blob, mediaURL?: string, assetId?: number, attachedMedia?: Blob, attachedMediaURL?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', gameType?: string, appKey?: string, cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', linkedObjectType?: string, linkedObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (title === null || title === undefined) {
             throw new Error('Required parameter title was null or undefined when calling addAlbumCollection.');
         }
@@ -569,7 +565,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/create`;
+        let localVarPath = `/album/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SearchResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -588,8 +584,7 @@ export class AlbumService extends BaseService {
     /**
      * Add Album Users
      * Add users to an album as participants.
-     * @endpoint post /api/{version}/album/user/add
-     * @param version 
+     * @endpoint post /album/user/add
      * @param albumId the album ID
      * @param includeFriendGroup determines whether to include all friends as participants
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -604,13 +599,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addAlbumUsers(version: number, albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public addAlbumUsers(version: number, albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public addAlbumUsers(version: number, albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public addAlbumUsers(version: number, albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addAlbumUsers.');
-        }
+    public addAlbumUsers(albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public addAlbumUsers(albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public addAlbumUsers(albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public addAlbumUsers(albumId: number, includeFriendGroup: boolean, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connections?: string, connectionGroups?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling addAlbumUsers.');
         }
@@ -735,7 +727,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/user/add`;
+        let localVarPath = `/album/user/add`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -754,8 +746,7 @@ export class AlbumService extends BaseService {
     /**
      * Approve Album
      * Sets the approval status of an Album.
-     * @endpoint post /api/{version}/album/approve
-     * @param version 
+     * @endpoint post /album/approve
      * @param albumId The ID of the album
      * @param deviceId A unique ID given by the device (deviceId or accountId required)
      * @param accountId The account ID of the user (deviceId or accountId required)
@@ -765,13 +756,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public approveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public approveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public approveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public approveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling approveAlbum.');
-        }
+    public approveAlbum(albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public approveAlbum(albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public approveAlbum(albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public approveAlbum(albumId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', verified?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling approveAlbum.');
         }
@@ -848,7 +836,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/approve`;
+        let localVarPath = `/album/approve`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -867,8 +855,7 @@ export class AlbumService extends BaseService {
     /**
      *  Get Album
      * Get an Album.
-     * @endpoint get /api/{version}/album/get
-     * @param version 
+     * @endpoint get /album/get
      * @param returnNulls This parameter is deprecated.
      * @param albumId the album to look up
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -882,13 +869,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAlbumCollection(version: number, returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumFullResponse>;
-    public getAlbumCollection(version: number, returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumFullResponse>>;
-    public getAlbumCollection(version: number, returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumFullResponse>>;
-    public getAlbumCollection(version: number, returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAlbumCollection.');
-        }
+    public getAlbumCollection(returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumFullResponse>;
+    public getAlbumCollection(returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumFullResponse>>;
+    public getAlbumCollection(returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumFullResponse>>;
+    public getAlbumCollection(returnNulls: boolean, albumId: number, deviceId?: string, accountId?: number, likePreviewSize?: number, assetPreviewSize?: number, notePreviewSize?: number, connectionPreviewSize?: number, audiencePreviewSize?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling getAlbumCollection.');
         }
@@ -1004,7 +988,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/get`;
+        let localVarPath = `/album/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1023,8 +1007,7 @@ export class AlbumService extends BaseService {
     /**
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @endpoint post /api/{version}/album/user/leave
-     * @param version 
+     * @endpoint post /album/user/leave
      * @param albumId the album ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -1032,13 +1015,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public leaveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public leaveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public leaveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public leaveAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling leaveAlbum.');
-        }
+    public leaveAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public leaveAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public leaveAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public leaveAlbum(albumId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling leaveAlbum.');
         }
@@ -1097,7 +1077,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/user/leave`;
+        let localVarPath = `/album/user/leave`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1116,8 +1096,7 @@ export class AlbumService extends BaseService {
     /**
      * Delete Album
      * Deletes an Album
-     * @endpoint post /api/{version}/album/delete
-     * @param version 
+     * @endpoint post /album/delete
      * @param albumId the album ID to delete
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -1125,13 +1104,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeAlbum(version: number, albumId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeAlbum.');
-        }
+    public removeAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeAlbum(albumId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeAlbum(albumId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling removeAlbum.');
         }
@@ -1190,7 +1166,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/delete`;
+        let localVarPath = `/album/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1209,8 +1185,7 @@ export class AlbumService extends BaseService {
     /**
      * Remove Album Users
      * Remove participants of an album.
-     * @endpoint post /api/{version}/album/user/delete
-     * @param version 
+     * @endpoint post /album/user/delete
      * @param albumId the album ID
      * @param removeFriendGroup remove friend group
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -1221,13 +1196,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeAlbumUsers(version: number, albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeAlbumUsers(version: number, albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeAlbumUsers(version: number, albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeAlbumUsers(version: number, albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeAlbumUsers.');
-        }
+    public removeAlbumUsers(albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeAlbumUsers(albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeAlbumUsers(albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeAlbumUsers(albumId: number, removeFriendGroup: boolean, deviceId?: string, accountId?: number, connections?: string, connectionGroups?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling removeAlbumUsers.');
         }
@@ -1316,7 +1288,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/user/delete`;
+        let localVarPath = `/album/user/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1335,8 +1307,7 @@ export class AlbumService extends BaseService {
     /**
      * Search Albums
      * Searches on Albums.
-     * @endpoint get /api/{version}/album/search
-     * @param version 
+     * @endpoint get /album/search
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user\&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
      * @param albumTypeId id of custom albumType
      * @param subType filter albums with this album sub type
@@ -1401,13 +1372,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchAlbums(version: number, filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AlbumFullResponse>>;
-    public searchAlbums(version: number, filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AlbumFullResponse>>>;
-    public searchAlbums(version: number, filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AlbumFullResponse>>>;
-    public searchAlbums(version: number, filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchAlbums.');
-        }
+    public searchAlbums(filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AlbumFullResponse>>;
+    public searchAlbums(filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AlbumFullResponse>>>;
+    public searchAlbums(filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AlbumFullResponse>>>;
+    public searchAlbums(filter: string, albumTypeId: number, subType: string, includeInactive: boolean, sortField: string, descending: boolean, start: number, limit: number, range: number, includeLiked: boolean, includeFavorited: boolean, includePermissions: boolean, likePreviewSize: number, assetPreviewSize: number, notePreviewSize: number, connectionPreviewSize: number, audiencePreviewSize: number, deviceId?: string, accountId?: number, connectionAccountId?: number, ownerId?: number, albumIds?: string, excludeAlbumIds?: string, mediaId?: number, keyword?: string, albumType?: string, limitPerAlbumType?: number, dateCreated?: number, updatedSince?: number, updatedBefore?: number, createdSince?: number, createdBefore?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, latitude?: number, longitude?: number, appKey?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, excludeAudienceIds?: string, includeCompletable?: boolean, includeRating?: boolean, searchMode?: string, stackSearch?: boolean, stackWindowSize?: number, minStackPerPage?: number, stackPaginationIdentifier?: string, stackDetails?: boolean, flagCountMinimum?: number, removeFlaggedContent?: boolean, verifiedFilter?: boolean, linkedObjectType?: string, linkedObjectId?: number, orderAudienceId?: number, ignoreDefaultAppFilter?: boolean, searchExpression?: string, generateAlbums?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling searchAlbums.');
         }
@@ -2027,7 +1995,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/search`;
+        let localVarPath = `/album/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AlbumFullResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -2046,8 +2014,7 @@ export class AlbumService extends BaseService {
     /**
      * Update Album
      * Update an Album.
-     * @endpoint post /api/{version}/album/update
-     * @param version 
+     * @endpoint post /album/update
      * @param albumId the ID of the album to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -2097,13 +2064,10 @@ export class AlbumService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateAlbumCollection(version: number, albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumResponse>;
-    public updateAlbumCollection(version: number, albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumResponse>>;
-    public updateAlbumCollection(version: number, albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumResponse>>;
-    public updateAlbumCollection(version: number, albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateAlbumCollection.');
-        }
+    public updateAlbumCollection(albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumResponse>;
+    public updateAlbumCollection(albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumResponse>>;
+    public updateAlbumCollection(albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumResponse>>;
+    public updateAlbumCollection(albumId: number, deviceId?: string, accountId?: number, assetsToAdd?: string, assetsToRemove?: string, assetId?: number, media?: Blob, mediaURL?: string, active?: boolean, title?: string, startDate?: number, endDate?: number, tags?: string, description?: string, albumType?: string, albumTypeId?: number, subType?: string, publicRead?: boolean, publicWrite?: boolean, publicDelete?: boolean, publicAdd?: boolean, latitude?: number, longitude?: number, locationDescription?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', cellPhone?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, fullAddress?: string, anonymous?: boolean, metaData?: string, categoryIds?: string, categoryFilterIds?: string, audienceIds?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, includeAllAppUsersAsMembers?: boolean, includeAudiencesAsMembers?: boolean, audienceOperator?: string, linkedObjectType?: string, linkedObjectId?: number, indexNow?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumId === null || albumId === undefined) {
             throw new Error('Required parameter albumId was null or undefined when calling updateAlbumCollection.');
         }
@@ -2540,7 +2504,7 @@ export class AlbumService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/album/update`;
+        let localVarPath = `/album/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumResponse>('post', `${basePath}${localVarPath}`,
             {

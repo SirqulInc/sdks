@@ -46,8 +46,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user\&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @endpoint post /api/{version}/thirdparty/credential/create
-     * @param version 
+     * @endpoint post /thirdparty/credential/create
      * @param thirdPartyId the third party user account id
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
      * @param networkUID the access provider to authenticate against
@@ -69,13 +68,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createCredential(version: number, thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public createCredential(version: number, thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public createCredential(version: number, thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public createCredential(version: number, thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createCredential.');
-        }
+    public createCredential(thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public createCredential(thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public createCredential(thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public createCredential(thirdPartyId: string, thirdPartyToken: string, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyName?: string, emailAddress?: string, signinOnlyMode?: boolean, responseFilters?: string, latitude?: number, longitude?: number, metaData?: string, thirdPartyRefreshToken?: string, audienceIdsToAdd?: string, audienceIdsToRemove?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (thirdPartyId === null || thirdPartyId === undefined) {
             throw new Error('Required parameter thirdPartyId was null or undefined when calling createCredential.');
         }
@@ -269,7 +265,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/create`;
+        let localVarPath = `/thirdparty/credential/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -288,8 +284,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Create Network
      * Creates a custom third party network.
-     * @endpoint post /api/{version}/thirdparty/network/create
-     * @param version 
+     * @endpoint post /thirdparty/network/create
      * @param accountId The account id making the request
      * @param name The name of the network
      * @param enableIntrospection Whether the network uses introspection calls
@@ -311,13 +306,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createNetwork(version: number, accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
-    public createNetwork(version: number, accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
-    public createNetwork(version: number, accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
-    public createNetwork(version: number, accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createNetwork.');
-        }
+    public createNetwork(accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
+    public createNetwork(accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
+    public createNetwork(accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
+    public createNetwork(accountId: number, name: string, enableIntrospection: boolean, description?: string, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createNetwork.');
         }
@@ -507,7 +499,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/network/create`;
+        let localVarPath = `/thirdparty/network/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ThirdPartyNetworkResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -527,8 +519,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @endpoint post /api/{version}/thirdparty/credential/delete
-     * @param version 
+     * @endpoint post /thirdparty/credential/delete
      * @param accountId The account id of the user
      * @param networkUID The third party network identifier
      * @param thirdPartyId The third party user id
@@ -537,13 +528,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteCredential(version: number, accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteCredential(version: number, accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteCredential(version: number, accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteCredential(version: number, accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteCredential.');
-        }
+    public deleteCredential(accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteCredential(accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteCredential(accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteCredential(accountId: number, networkUID: string, thirdPartyId: string, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteCredential.');
         }
@@ -620,7 +608,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/delete`;
+        let localVarPath = `/thirdparty/credential/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -639,21 +627,17 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @endpoint post /api/{version}/thirdparty/network/delete
-     * @param version 
+     * @endpoint post /thirdparty/network/delete
      * @param accountId the id of the logged in user
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteNetwork(version: number, accountId: number, networkUID: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteNetwork(version: number, accountId: number, networkUID: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteNetwork(version: number, accountId: number, networkUID: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteNetwork(version: number, accountId: number, networkUID: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteNetwork.');
-        }
+    public deleteNetwork(accountId: number, networkUID: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteNetwork(accountId: number, networkUID: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteNetwork(accountId: number, networkUID: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteNetwork(accountId: number, networkUID: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteNetwork.');
         }
@@ -706,7 +690,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/network/delete`;
+        let localVarPath = `/thirdparty/network/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -725,8 +709,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Get Credential
      * Gets the account information given a third party token.
-     * @endpoint post /api/{version}/thirdparty/credential/get
-     * @param version 
+     * @endpoint post /thirdparty/credential/get
      * @param networkUID the access provider to authenticate against
      * @param appKey the application key
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials
@@ -746,13 +729,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCredential(version: number, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public getCredential(version: number, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public getCredential(version: number, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public getCredential(version: number, networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCredential.');
-        }
+    public getCredential(networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public getCredential(networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public getCredential(networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public getCredential(networkUID: string, appKey: string, accountId?: number, deviceId?: string, sessionId?: string, thirdPartyCredentialId?: number, thirdPartyToken?: string, thirdPartySecret?: string, createNewAccount?: boolean, responseFilters?: string, latitude?: number, longitude?: number, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (networkUID === null || networkUID === undefined) {
             throw new Error('Required parameter networkUID was null or undefined when calling getCredential.');
         }
@@ -922,7 +902,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/get`;
+        let localVarPath = `/thirdparty/credential/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -941,21 +921,17 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @endpoint get /api/{version}/thirdparty/network/get
-     * @param version 
+     * @endpoint get /thirdparty/network/get
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getNetwork(version: number, accountId: number, networkUID: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
-    public getNetwork(version: number, accountId: number, networkUID: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
-    public getNetwork(version: number, accountId: number, networkUID: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
-    public getNetwork(version: number, accountId: number, networkUID: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getNetwork.');
-        }
+    public getNetwork(accountId: number, networkUID: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
+    public getNetwork(accountId: number, networkUID: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
+    public getNetwork(accountId: number, networkUID: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
+    public getNetwork(accountId: number, networkUID: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getNetwork.');
         }
@@ -1008,7 +984,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/network/get`;
+        let localVarPath = `/thirdparty/network/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ThirdPartyNetworkResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1027,8 +1003,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Search Credentials
      * Search on a user\&#39;s linked third party networks.
-     * @endpoint get /api/{version}/thirdparty/credential/search
-     * @param version 
+     * @endpoint get /thirdparty/credential/search
      * @param accountId The account id of the user
      * @param keyword The keyword used to search on the third party name and network string
      * @param networkUID The network UID to filter results with
@@ -1039,13 +1014,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchCredentials(version: number, accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ThirdPartyCredentialResponse>>;
-    public searchCredentials(version: number, accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ThirdPartyCredentialResponse>>>;
-    public searchCredentials(version: number, accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ThirdPartyCredentialResponse>>>;
-    public searchCredentials(version: number, accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchCredentials.');
-        }
+    public searchCredentials(accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ThirdPartyCredentialResponse>>;
+    public searchCredentials(accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ThirdPartyCredentialResponse>>>;
+    public searchCredentials(accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ThirdPartyCredentialResponse>>>;
+    public searchCredentials(accountId: number, keyword?: string, networkUID?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchCredentials.');
         }
@@ -1131,7 +1103,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/search`;
+        let localVarPath = `/thirdparty/credential/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ThirdPartyCredentialResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1150,8 +1122,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @endpoint get /api/{version}/thirdparty/network/search
-     * @param version 
+     * @endpoint get /thirdparty/network/search
      * @param accountId The account id making the request
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
      * @param descending The order to return the search results
@@ -1164,13 +1135,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchNetworks(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ThirdPartyNetworkShortResponse>>;
-    public searchNetworks(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ThirdPartyNetworkShortResponse>>>;
-    public searchNetworks(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ThirdPartyNetworkShortResponse>>>;
-    public searchNetworks(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchNetworks.');
-        }
+    public searchNetworks(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ThirdPartyNetworkShortResponse>>;
+    public searchNetworks(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ThirdPartyNetworkShortResponse>>>;
+    public searchNetworks(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ThirdPartyNetworkShortResponse>>>;
+    public searchNetworks(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'NAME' | 'DESCRIPTION', descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, filterBillable?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchNetworks.');
         }
@@ -1289,7 +1257,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/network/search`;
+        let localVarPath = `/thirdparty/network/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ThirdPartyNetworkShortResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1308,8 +1276,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @endpoint post /api/{version}/thirdparty/credential/mfa/send
-     * @param version 
+     * @endpoint post /thirdparty/credential/mfa/send
      * @param networkUID the third party network provider that has MFA enabled
      * @param appKey the application key
      * @param thirdPartyToken the access token to authenticate with
@@ -1319,13 +1286,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public sendMFAChallenge(version: number, networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public sendMFAChallenge(version: number, networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public sendMFAChallenge(version: number, networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public sendMFAChallenge(version: number, networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling sendMFAChallenge.');
-        }
+    public sendMFAChallenge(networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public sendMFAChallenge(networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public sendMFAChallenge(networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public sendMFAChallenge(networkUID: string, appKey: string, thirdPartyToken?: string, thirdPartyCredentialId?: number, deviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (networkUID === null || networkUID === undefined) {
             throw new Error('Required parameter networkUID was null or undefined when calling sendMFAChallenge.');
         }
@@ -1405,7 +1369,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/mfa/send`;
+        let localVarPath = `/thirdparty/credential/mfa/send`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1424,8 +1388,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Update Credential
      * Updates a third-party login for an account.
-     * @endpoint post /api/{version}/thirdparty/credential/update
-     * @param version 
+     * @endpoint post /thirdparty/credential/update
      * @param networkUID the access provider to authenticate against
      * @param thirdPartyId the third party user account id
      * @param appKey the application key
@@ -1439,13 +1402,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateCredential(version: number, networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public updateCredential(version: number, networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public updateCredential(version: number, networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public updateCredential(version: number, networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateCredential.');
-        }
+    public updateCredential(networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public updateCredential(networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public updateCredential(networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public updateCredential(networkUID: string, thirdPartyId: string, appKey: string, deviceId?: string, thirdPartyName?: string, thirdPartyToken?: string, responseFilters?: string, metaData?: string, thirdPartyRefreshToken?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (networkUID === null || networkUID === undefined) {
             throw new Error('Required parameter networkUID was null or undefined when calling updateCredential.');
         }
@@ -1564,7 +1524,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/credential/update`;
+        let localVarPath = `/thirdparty/credential/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1583,8 +1543,7 @@ export class ThirdPartyCredentialsService extends BaseService {
     /**
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @endpoint post /api/{version}/thirdparty/network/update
-     * @param version 
+     * @endpoint post /thirdparty/network/update
      * @param accountId The account id making the request
      * @param networkUID The unique identifier for the third party network defined by Sirqul
      * @param name The name of the network
@@ -1607,13 +1566,10 @@ export class ThirdPartyCredentialsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateNetwork(version: number, accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
-    public updateNetwork(version: number, accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
-    public updateNetwork(version: number, accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
-    public updateNetwork(version: number, accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateNetwork.');
-        }
+    public updateNetwork(accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThirdPartyNetworkResponse>;
+    public updateNetwork(accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThirdPartyNetworkResponse>>;
+    public updateNetwork(accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThirdPartyNetworkResponse>>;
+    public updateNetwork(accountId: number, networkUID: string, name?: string, description?: string, enableIntrospection?: boolean, introspectionMethod?: string, introspectionURL?: string, introspectionParams?: string, requiredRootField?: string, enableMFA?: boolean, sizeMFA?: number, shelfLifeMFA?: number, oauthTokenURL?: string, oauthPrivateKey?: Blob, oauthPublicKey?: Blob, oauthClientId?: string, oauthSecretKey?: string, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateNetwork.');
         }
@@ -1809,7 +1765,7 @@ export class ThirdPartyCredentialsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/thirdparty/network/update`;
+        let localVarPath = `/thirdparty/network/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ThirdPartyNetworkResponse>('post', `${basePath}${localVarPath}`,
             {

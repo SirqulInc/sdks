@@ -44,8 +44,7 @@ export class RetailerService extends BaseService {
     /**
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @endpoint post /api/{version}/retailer/create
-     * @param version 
+     * @endpoint post /retailer/create
      * @param name The name of the retailer
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -83,13 +82,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRetailer(version: number, name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
-    public createRetailer(version: number, name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
-    public createRetailer(version: number, name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
-    public createRetailer(version: number, name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRetailer.');
-        }
+    public createRetailer(name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
+    public createRetailer(name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
+    public createRetailer(name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
+    public createRetailer(name: string, deviceId?: string, accountId?: number, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, categoryIdsToAdd?: string, categoryIdsToRemove?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', createDefaultLocation?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling createRetailer.');
         }
@@ -418,7 +414,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/create`;
+        let localVarPath = `/retailer/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RetailerFullResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -437,8 +433,7 @@ export class RetailerService extends BaseService {
     /**
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @endpoint post /api/{version}/retailer/delete
-     * @param version 
+     * @endpoint post /retailer/delete
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer.
      * @param retailerId The ID of the retailer to be deleted
@@ -446,13 +441,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteRetailer(version: number, deviceId?: string, accountId?: number, retailerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteRetailer(version: number, deviceId?: string, accountId?: number, retailerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteRetailer(version: number, deviceId?: string, accountId?: number, retailerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteRetailer(version: number, deviceId?: string, accountId?: number, retailerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteRetailer.');
-        }
+    public deleteRetailer(deviceId?: string, accountId?: number, retailerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteRetailer(deviceId?: string, accountId?: number, retailerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteRetailer(deviceId?: string, accountId?: number, retailerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteRetailer(deviceId?: string, accountId?: number, retailerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -508,7 +500,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/delete`;
+        let localVarPath = `/retailer/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -527,8 +519,7 @@ export class RetailerService extends BaseService {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @endpoint get /api/{version}/retailer/get
-     * @param version 
+     * @endpoint get /retailer/get
      * @param retailerId the ID of the retailer
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -537,13 +528,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
-    public getRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
-    public getRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
-    public getRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRetailer.');
-        }
+    public getRetailer(retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
+    public getRetailer(retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
+    public getRetailer(retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
+    public getRetailer(retailerId: number, deviceId?: string, accountId?: number, includeCounts?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (retailerId === null || retailerId === undefined) {
             throw new Error('Required parameter retailerId was null or undefined when calling getRetailer.');
         }
@@ -611,7 +599,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/get`;
+        let localVarPath = `/retailer/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RetailerFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -630,8 +618,7 @@ export class RetailerService extends BaseService {
     /**
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @endpoint get /api/{version}/retailer/search
-     * @param version 
+     * @endpoint get /retailer/search
      * @param visibility 
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -650,13 +637,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRetailers(version: number, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RetailerResponse>>;
-    public getRetailers(version: number, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RetailerResponse>>>;
-    public getRetailers(version: number, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RetailerResponse>>>;
-    public getRetailers(version: number, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRetailers.');
-        }
+    public getRetailers(visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RetailerResponse>>;
+    public getRetailers(visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RetailerResponse>>>;
+    public getRetailers(visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RetailerResponse>>>;
+    public getRetailers(visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'ADDRESS_STREET' | 'ADDRESS_CITY' | 'ADDRESS_STATE' | 'ADDRESS_POSTAL_CODE' | 'ADDRESS_COUNTRY' | 'FILTERS' | 'CATEGORIES' | 'VISIBILITY' | 'NAME', descending: boolean, start: number, limit: number, activeOnly: boolean, deviceId?: string, accountId?: number, q?: string, keyword?: string, categoryIds?: string, filterIds?: string, i?: number, l?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (visibility === null || visibility === undefined) {
             throw new Error('Required parameter visibility was null or undefined when calling getRetailers.');
         }
@@ -829,7 +813,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/search`;
+        let localVarPath = `/retailer/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<RetailerResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -848,8 +832,7 @@ export class RetailerService extends BaseService {
     /**
      * Login Retailer
      * Retailer login check.
-     * @endpoint post /api/{version}/retailer/login
-     * @param version 
+     * @endpoint post /retailer/login
      * @param username the user\&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id (optional)
@@ -860,13 +843,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public retailerLoginCheck(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
-    public retailerLoginCheck(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
-    public retailerLoginCheck(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
-    public retailerLoginCheck(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling retailerLoginCheck.');
-        }
+    public retailerLoginCheck(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
+    public retailerLoginCheck(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
+    public retailerLoginCheck(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
+    public retailerLoginCheck(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling retailerLoginCheck.');
         }
@@ -955,7 +935,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/login`;
+        let localVarPath = `/retailer/login`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AccountLoginResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -974,8 +954,7 @@ export class RetailerService extends BaseService {
     /**
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @endpoint post /api/{version}/retailer/update
-     * @param version 
+     * @endpoint post /retailer/update
      * @param retailerId The ID of the retailer to update
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -1012,13 +991,10 @@ export class RetailerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
-    public updateRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
-    public updateRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
-    public updateRetailer(version: number, retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRetailer.');
-        }
+    public updateRetailer(retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RetailerFullResponse>;
+    public updateRetailer(retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RetailerFullResponse>>;
+    public updateRetailer(retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RetailerFullResponse>>;
+    public updateRetailer(retailerId: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, country?: string, businessPhone?: string, businessPhoneExt?: string, website?: string, email?: string, facebookUrl?: string, twitterUrl?: string, logo?: Blob, logoAssetId?: number, picture1?: Blob, picture1AssetId?: number, picture2?: Blob, picture2AssetId?: number, categoryIds?: string, filterIds?: string, latitude?: number, longitude?: number, metaData?: string, searchTags?: string, retailerType?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (retailerId === null || retailerId === undefined) {
             throw new Error('Required parameter retailerId was null or undefined when calling updateRetailer.');
         }
@@ -1338,7 +1314,7 @@ export class RetailerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer/update`;
+        let localVarPath = `/retailer/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RetailerFullResponse>('post', `${basePath}${localVarPath}`,
             {

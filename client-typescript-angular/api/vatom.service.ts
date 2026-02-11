@@ -36,8 +36,7 @@ export class VatomService extends BaseService {
     /**
      * Create following
      * Create following.
-     * @endpoint post /api/{version}/vatom/me/rels/following/create
-     * @param version 
+     * @endpoint post /vatom/me/rels/following/create
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -45,13 +44,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createFollowing(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public createFollowing(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public createFollowing(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public createFollowing(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createFollowing.');
-        }
+    public createFollowing(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public createFollowing(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public createFollowing(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public createFollowing(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createFollowing.');
         }
@@ -112,7 +108,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/rels/following/create`;
+        let localVarPath = `/vatom/me/rels/following/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -131,8 +127,7 @@ export class VatomService extends BaseService {
     /**
      * Create Vatom Space
      * Create a Vatom space.
-     * @endpoint post /api/{version}/vatom/b/spaces/create
-     * @param version 
+     * @endpoint post /vatom/b/spaces/create
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -141,13 +136,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createSpace(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public createSpace(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public createSpace(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public createSpace(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createSpace.');
-        }
+    public createSpace(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public createSpace(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public createSpace(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public createSpace(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createSpace.');
         }
@@ -220,7 +212,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/spaces/create`;
+        let localVarPath = `/vatom/b/spaces/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -239,8 +231,7 @@ export class VatomService extends BaseService {
     /**
      * Create Vatom Event
      * Create a Vatom event.
-     * @endpoint post /api/{version}/vatom/b/events/create
-     * @param version 
+     * @endpoint post /vatom/b/events/create
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -249,13 +240,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createVatomEvent(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public createVatomEvent(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public createVatomEvent(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public createVatomEvent(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createVatomEvent.');
-        }
+    public createVatomEvent(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public createVatomEvent(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public createVatomEvent(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public createVatomEvent(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createVatomEvent.');
         }
@@ -328,7 +316,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/create`;
+        let localVarPath = `/vatom/b/events/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -347,8 +335,7 @@ export class VatomService extends BaseService {
     /**
      * Delete following
      * Delete following.
-     * @endpoint post /api/{version}/vatom/me/rels/following/delete
-     * @param version 
+     * @endpoint post /vatom/me/rels/following/delete
      * @param accountId Sirqul Account Id
      * @param vatomRelsKey Vatom Rels Key
      * @param returnRawResponse Return raw response
@@ -356,13 +343,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteFollowing(version: number, accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteFollowing(version: number, accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteFollowing(version: number, accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteFollowing(version: number, accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteFollowing.');
-        }
+    public deleteFollowing(accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteFollowing(accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteFollowing(accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteFollowing(accountId: number, vatomRelsKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteFollowing.');
         }
@@ -423,7 +407,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/rels/following/delete`;
+        let localVarPath = `/vatom/me/rels/following/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -442,8 +426,7 @@ export class VatomService extends BaseService {
     /**
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @endpoint post /api/{version}/vatom/b/campaign/points/delete
-     * @param version 
+     * @endpoint post /vatom/b/campaign/points/delete
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -452,13 +435,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deletePointsBalance(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deletePointsBalance(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deletePointsBalance(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deletePointsBalance(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deletePointsBalance.');
-        }
+    public deletePointsBalance(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deletePointsBalance(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deletePointsBalance(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deletePointsBalance(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deletePointsBalance.');
         }
@@ -531,7 +511,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign/points/delete`;
+        let localVarPath = `/vatom/b/campaign/points/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -550,8 +530,7 @@ export class VatomService extends BaseService {
     /**
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @endpoint post /api/{version}/vatom/b/spaces/delete
-     * @param version 
+     * @endpoint post /vatom/b/spaces/delete
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -560,13 +539,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteSpace.');
-        }
+    public deleteSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteSpace.');
         }
@@ -639,7 +615,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/spaces/delete`;
+        let localVarPath = `/vatom/b/spaces/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -658,8 +634,7 @@ export class VatomService extends BaseService {
     /**
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @endpoint post /api/{version}/vatom/b/events/delete
-     * @param version 
+     * @endpoint post /vatom/b/events/delete
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -668,13 +643,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteVatomEvent.');
-        }
+    public deleteVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteVatomEvent.');
         }
@@ -747,7 +719,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/delete`;
+        let localVarPath = `/vatom/b/events/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -766,8 +738,7 @@ export class VatomService extends BaseService {
     /**
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @endpoint post /api/{version}/vatom/vatoms/delete
-     * @param version 
+     * @endpoint post /vatom/vatoms/delete
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response
@@ -775,13 +746,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteVatomNFT.');
-        }
+    public deleteVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteVatomNFT.');
         }
@@ -842,7 +810,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/vatoms/delete`;
+        let localVarPath = `/vatom/vatoms/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -861,8 +829,7 @@ export class VatomService extends BaseService {
     /**
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @endpoint post /api/{version}/vatom/vatoms/execute-action
-     * @param version 
+     * @endpoint post /vatom/vatoms/execute-action
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomParameters Vatom Parameters
@@ -871,13 +838,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public executeActionOnNFT(version: number, accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public executeActionOnNFT(version: number, accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public executeActionOnNFT(version: number, accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public executeActionOnNFT(version: number, accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling executeActionOnNFT.');
-        }
+    public executeActionOnNFT(accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public executeActionOnNFT(accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public executeActionOnNFT(accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public executeActionOnNFT(accountId: number, vatomId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling executeActionOnNFT.');
         }
@@ -950,7 +914,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/vatoms/execute-action`;
+        let localVarPath = `/vatom/vatoms/execute-action`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -969,8 +933,7 @@ export class VatomService extends BaseService {
     /**
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @endpoint get /api/{version}/vatom/vatoms/geo-map/search
-     * @param version 
+     * @endpoint get /vatom/vatoms/geo-map/search
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -978,13 +941,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public geomapSearch(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public geomapSearch(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public geomapSearch(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public geomapSearch(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling geomapSearch.');
-        }
+    public geomapSearch(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public geomapSearch(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public geomapSearch(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public geomapSearch(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling geomapSearch.');
         }
@@ -1045,7 +1005,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/vatoms/geo-map/search`;
+        let localVarPath = `/vatom/vatoms/geo-map/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1064,8 +1024,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @endpoint get /api/{version}/vatom/b/behaviors
-     * @param version 
+     * @endpoint get /vatom/b/behaviors
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response
@@ -1073,13 +1032,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBusinessBehaviors(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getBusinessBehaviors(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getBusinessBehaviors(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getBusinessBehaviors(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBusinessBehaviors.');
-        }
+    public getBusinessBehaviors(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getBusinessBehaviors(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getBusinessBehaviors(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getBusinessBehaviors(accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getBusinessBehaviors.');
         }
@@ -1140,7 +1096,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/behaviors`;
+        let localVarPath = `/vatom/b/behaviors`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1159,8 +1115,7 @@ export class VatomService extends BaseService {
     /**
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @endpoint get /api/{version}/vatom/b/coins/get
-     * @param version 
+     * @endpoint get /vatom/b/coins/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response
@@ -1168,13 +1123,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBusinessCoinsBalance(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getBusinessCoinsBalance(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getBusinessCoinsBalance(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getBusinessCoinsBalance(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBusinessCoinsBalance.');
-        }
+    public getBusinessCoinsBalance(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getBusinessCoinsBalance(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getBusinessCoinsBalance(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getBusinessCoinsBalance(accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getBusinessCoinsBalance.');
         }
@@ -1235,7 +1187,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/coins/get`;
+        let localVarPath = `/vatom/b/coins/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1254,21 +1206,17 @@ export class VatomService extends BaseService {
     /**
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @endpoint get /api/{version}/vatom/me/businesses
-     * @param version 
+     * @endpoint get /vatom/me/businesses
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBusinessIds(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getBusinessIds(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getBusinessIds(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getBusinessIds(version: number, accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBusinessIds.');
-        }
+    public getBusinessIds(accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getBusinessIds(accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getBusinessIds(accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getBusinessIds(accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getBusinessIds.');
         }
@@ -1317,7 +1265,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/businesses`;
+        let localVarPath = `/vatom/me/businesses`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1336,8 +1284,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @endpoint get /api/{version}/vatom/b/get
-     * @param version 
+     * @endpoint get /vatom/b/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -1346,13 +1293,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBusinessInfo(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getBusinessInfo(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getBusinessInfo(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getBusinessInfo(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBusinessInfo.');
-        }
+    public getBusinessInfo(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getBusinessInfo(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getBusinessInfo(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getBusinessInfo(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getBusinessInfo.');
         }
@@ -1422,7 +1366,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/get`;
+        let localVarPath = `/vatom/b/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1441,8 +1385,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @endpoint get /api/{version}/vatom/b/users
-     * @param version 
+     * @endpoint get /vatom/b/users
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response
@@ -1450,13 +1393,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBusinessUsers(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getBusinessUsers(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getBusinessUsers(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getBusinessUsers(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBusinessUsers.');
-        }
+    public getBusinessUsers(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getBusinessUsers(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getBusinessUsers(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getBusinessUsers(accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getBusinessUsers.');
         }
@@ -1517,7 +1457,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/users`;
+        let localVarPath = `/vatom/b/users`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1536,8 +1476,7 @@ export class VatomService extends BaseService {
     /**
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @endpoint get /api/{version}/vatom/b/campaign-groups/entities
-     * @param version 
+     * @endpoint get /vatom/b/campaign-groups/entities
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1546,13 +1485,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCampaignGroupEntities(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getCampaignGroupEntities(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getCampaignGroupEntities(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getCampaignGroupEntities(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCampaignGroupEntities.');
-        }
+    public getCampaignGroupEntities(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getCampaignGroupEntities(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getCampaignGroupEntities(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getCampaignGroupEntities(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCampaignGroupEntities.');
         }
@@ -1625,7 +1561,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign-groups/entities`;
+        let localVarPath = `/vatom/b/campaign-groups/entities`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1644,8 +1580,7 @@ export class VatomService extends BaseService {
     /**
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @endpoint get /api/{version}/vatom/b/campaign-groups/rules
-     * @param version 
+     * @endpoint get /vatom/b/campaign-groups/rules
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1654,13 +1589,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCampaignGroupRules(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getCampaignGroupRules(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getCampaignGroupRules(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getCampaignGroupRules(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCampaignGroupRules.');
-        }
+    public getCampaignGroupRules(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getCampaignGroupRules(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getCampaignGroupRules(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getCampaignGroupRules(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCampaignGroupRules.');
         }
@@ -1733,7 +1665,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign-groups/rules`;
+        let localVarPath = `/vatom/b/campaign-groups/rules`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1752,8 +1684,7 @@ export class VatomService extends BaseService {
     /**
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @endpoint get /api/{version}/vatom/b/campaign-groups/stats
-     * @param version 
+     * @endpoint get /vatom/b/campaign-groups/stats
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1762,13 +1693,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCampaignGroupStats(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getCampaignGroupStats(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getCampaignGroupStats(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getCampaignGroupStats(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCampaignGroupStats.');
-        }
+    public getCampaignGroupStats(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getCampaignGroupStats(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getCampaignGroupStats(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getCampaignGroupStats(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCampaignGroupStats.');
         }
@@ -1841,7 +1769,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign-groups/stats`;
+        let localVarPath = `/vatom/b/campaign-groups/stats`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1860,8 +1788,7 @@ export class VatomService extends BaseService {
     /**
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @endpoint get /api/{version}/vatom/b/campaign-groups/get
-     * @param version 
+     * @endpoint get /vatom/b/campaign-groups/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -1870,13 +1797,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCampaignInfo(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getCampaignInfo(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getCampaignInfo(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getCampaignInfo(version: number, accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCampaignInfo.');
-        }
+    public getCampaignInfo(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getCampaignInfo(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getCampaignInfo(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getCampaignInfo(accountId: number, appKey: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCampaignInfo.');
         }
@@ -1949,7 +1873,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign-groups/get`;
+        let localVarPath = `/vatom/b/campaign-groups/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -1968,8 +1892,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @endpoint get /api/{version}/vatom/b/events/guests/get
-     * @param version 
+     * @endpoint get /vatom/b/events/guests/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -1978,13 +1901,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getEventGuestList.');
-        }
+    public getEventGuestList(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getEventGuestList(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getEventGuestList(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getEventGuestList(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getEventGuestList.');
         }
@@ -2057,7 +1977,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/guests/get`;
+        let localVarPath = `/vatom/b/events/guests/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2076,8 +1996,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom User\&#39;s Inventory
      * Gets the logged in user\&#39;s Vatom Inventory.
-     * @endpoint get /api/{version}/vatom/me/inventory
-     * @param version 
+     * @endpoint get /vatom/me/inventory
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -2085,13 +2004,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getInventory(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getInventory(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getInventory(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getInventory(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getInventory.');
-        }
+    public getInventory(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getInventory(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getInventory(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getInventory(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getInventory.');
         }
@@ -2152,7 +2068,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/inventory`;
+        let localVarPath = `/vatom/me/inventory`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2171,21 +2087,17 @@ export class VatomService extends BaseService {
     /**
      * Get following
      * Get following.
-     * @endpoint get /api/{version}/vatom/me/rels/following
-     * @param version 
+     * @endpoint get /vatom/me/rels/following
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getMyFollowing(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getMyFollowing(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getMyFollowing(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getMyFollowing(version: number, accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getMyFollowing.');
-        }
+    public getMyFollowing(accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getMyFollowing(accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getMyFollowing(accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getMyFollowing(accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getMyFollowing.');
         }
@@ -2234,7 +2146,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/rels/following`;
+        let localVarPath = `/vatom/me/rels/following`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2253,8 +2165,7 @@ export class VatomService extends BaseService {
     /**
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @endpoint get /api/{version}/vatom/u/campaign/points/get
-     * @param version 
+     * @endpoint get /vatom/u/campaign/points/get
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomCampaignId Vatom Campaign Id
@@ -2263,13 +2174,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPointsBalance(version: number, accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getPointsBalance(version: number, accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getPointsBalance(version: number, accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getPointsBalance(version: number, accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPointsBalance.');
-        }
+    public getPointsBalance(accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getPointsBalance(accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getPointsBalance(accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getPointsBalance(accountId: number, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPointsBalance.');
         }
@@ -2342,7 +2250,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/u/campaign/points/get`;
+        let localVarPath = `/vatom/u/campaign/points/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2361,8 +2269,7 @@ export class VatomService extends BaseService {
     /**
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @endpoint get /api/{version}/vatom/b/campaign/u/points/get
-     * @param version 
+     * @endpoint get /vatom/b/campaign/u/points/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -2372,13 +2279,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPointsBalanceAsBusiness.');
-        }
+    public getPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPointsBalanceAsBusiness.');
         }
@@ -2463,7 +2367,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign/u/points/get`;
+        let localVarPath = `/vatom/b/campaign/u/points/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2482,8 +2386,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Space
      * Gets the details of a space.
-     * @endpoint get /api/{version}/vatom/b/spaces/get
-     * @param version 
+     * @endpoint get /vatom/b/spaces/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -2492,13 +2395,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSpace.');
-        }
+    public getSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getSpace(accountId: number, appKey: string, vatomSpaceId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getSpace.');
         }
@@ -2571,7 +2471,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/spaces/get`;
+        let localVarPath = `/vatom/b/spaces/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2590,8 +2490,7 @@ export class VatomService extends BaseService {
     /**
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @endpoint get /api/{version}/vatom/b/users/coins/get
-     * @param version 
+     * @endpoint get /vatom/b/users/coins/get
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -2600,13 +2499,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserCoinsAsBusiness.');
-        }
+    public getUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserCoinsAsBusiness.');
         }
@@ -2679,7 +2575,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/users/coins/get`;
+        let localVarPath = `/vatom/b/users/coins/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2698,8 +2594,7 @@ export class VatomService extends BaseService {
     /**
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @endpoint get /api/{version}/vatom/u/coins/get
-     * @param version 
+     * @endpoint get /vatom/u/coins/get
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
@@ -2708,13 +2603,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserCoinsBalance(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserCoinsBalance(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserCoinsBalance(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserCoinsBalance(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserCoinsBalance.');
-        }
+    public getUserCoinsBalance(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserCoinsBalance(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserCoinsBalance(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserCoinsBalance(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserCoinsBalance.');
         }
@@ -2784,7 +2676,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/u/coins/get`;
+        let localVarPath = `/vatom/u/coins/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2803,8 +2695,7 @@ export class VatomService extends BaseService {
     /**
      * Get user followers
      * Get user followers.
-     * @endpoint get /api/{version}/vatom/users/rels/followers
-     * @param version 
+     * @endpoint get /vatom/users/rels/followers
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response
@@ -2812,13 +2703,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserFollowers(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserFollowers(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserFollowers(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserFollowers(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserFollowers.');
-        }
+    public getUserFollowers(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserFollowers(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserFollowers(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserFollowers(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserFollowers.');
         }
@@ -2879,7 +2767,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/users/rels/followers`;
+        let localVarPath = `/vatom/users/rels/followers`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2898,8 +2786,7 @@ export class VatomService extends BaseService {
     /**
      * Get user following
      * Get user following.
-     * @endpoint get /api/{version}/vatom/users/rels/following
-     * @param version 
+     * @endpoint get /vatom/users/rels/following
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response
@@ -2907,13 +2794,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserFollowing(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserFollowing(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserFollowing(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserFollowing(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserFollowing.');
-        }
+    public getUserFollowing(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserFollowing(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserFollowing(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserFollowing(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserFollowing.');
         }
@@ -2974,7 +2858,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/users/rels/following`;
+        let localVarPath = `/vatom/users/rels/following`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2993,8 +2877,7 @@ export class VatomService extends BaseService {
     /**
      * Get User Info
      * Get a User\&#39;s Info.
-     * @endpoint get /api/{version}/vatom/user/get
-     * @param version 
+     * @endpoint get /vatom/user/get
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param returnRawResponse Return raw response
@@ -3002,13 +2885,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserInfo(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserInfo(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserInfo(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserInfo(version: number, accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserInfo.');
-        }
+    public getUserInfo(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserInfo(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserInfo(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserInfo(accountId: number, vatomUserId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserInfo.');
         }
@@ -3069,7 +2949,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/user/get`;
+        let localVarPath = `/vatom/user/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3088,21 +2968,17 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom User Profile
      * Gets the logged in user\&#39;s profile in Vatom.
-     * @endpoint get /api/{version}/vatom/me/get
-     * @param version 
+     * @endpoint get /vatom/me/get
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserProfile(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getUserProfile(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getUserProfile(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getUserProfile(version: number, accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserProfile.');
-        }
+    public getUserProfile(accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getUserProfile(accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getUserProfile(accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getUserProfile(accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getUserProfile.');
         }
@@ -3151,7 +3027,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/get`;
+        let localVarPath = `/vatom/me/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3170,8 +3046,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom Event
      * Gets the details of a event.
-     * @endpoint get /api/{version}/vatom/b/events/get
-     * @param version 
+     * @endpoint get /vatom/b/events/get
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -3180,13 +3055,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getVatomEvent.');
-        }
+    public getVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getVatomEvent(accountId: number, appKey: string, vatomEventId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getVatomEvent.');
         }
@@ -3259,7 +3131,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/get`;
+        let localVarPath = `/vatom/b/events/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3278,8 +3150,7 @@ export class VatomService extends BaseService {
     /**
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @endpoint get /api/{version}/vatom/vatoms/get
-     * @param version 
+     * @endpoint get /vatom/vatoms/get
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param returnRawResponse Return raw response
@@ -3287,13 +3158,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getVatomNFT(version: number, accountId: number, vatomId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getVatomNFT.');
-        }
+    public getVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getVatomNFT(accountId: number, vatomId: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getVatomNFT.');
         }
@@ -3354,7 +3222,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/vatoms/get`;
+        let localVarPath = `/vatom/vatoms/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3373,8 +3241,7 @@ export class VatomService extends BaseService {
     /**
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @endpoint get /api/{version}/vatom/b/communities/search
-     * @param version 
+     * @endpoint get /vatom/b/communities/search
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -3383,13 +3250,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listCommunities(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public listCommunities(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public listCommunities(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public listCommunities(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listCommunities.');
-        }
+    public listCommunities(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public listCommunities(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public listCommunities(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public listCommunities(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listCommunities.');
         }
@@ -3459,7 +3323,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/communities/search`;
+        let localVarPath = `/vatom/b/communities/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3478,8 +3342,7 @@ export class VatomService extends BaseService {
     /**
      * List Vatom Events
      * Gets the events tied to a business.
-     * @endpoint get /api/{version}/vatom/b/events/search
-     * @param version 
+     * @endpoint get /vatom/b/events/search
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -3488,13 +3351,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listEvents(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public listEvents(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public listEvents(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public listEvents(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listEvents.');
-        }
+    public listEvents(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public listEvents(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public listEvents(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public listEvents(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listEvents.');
         }
@@ -3564,7 +3424,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/search`;
+        let localVarPath = `/vatom/b/events/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3583,8 +3443,7 @@ export class VatomService extends BaseService {
     /**
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @endpoint get /api/{version}/vatom/b/spaces/search
-     * @param version 
+     * @endpoint get /vatom/b/spaces/search
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -3593,13 +3452,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listSpaces(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public listSpaces(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public listSpaces(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public listSpaces(version: number, accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listSpaces.');
-        }
+    public listSpaces(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public listSpaces(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public listSpaces(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public listSpaces(accountId: number, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listSpaces.');
         }
@@ -3669,7 +3525,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/spaces/search`;
+        let localVarPath = `/vatom/b/spaces/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3688,8 +3544,7 @@ export class VatomService extends BaseService {
     /**
      * List Coin Transactions for a Vatom User
      * Gets the logged in user\&#39;s Vatom coin transactions.
-     * @endpoint get /api/{version}/vatom/u/coins/txns/search
-     * @param version 
+     * @endpoint get /vatom/u/coins/txns/search
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
@@ -3698,13 +3553,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listUserCoinTransactions(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public listUserCoinTransactions(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public listUserCoinTransactions(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public listUserCoinTransactions(version: number, accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listUserCoinTransactions.');
-        }
+    public listUserCoinTransactions(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public listUserCoinTransactions(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public listUserCoinTransactions(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public listUserCoinTransactions(accountId: number, vatomUserId: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listUserCoinTransactions.');
         }
@@ -3774,7 +3626,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/u/coins/txns/search`;
+        let localVarPath = `/vatom/u/coins/txns/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3793,8 +3645,7 @@ export class VatomService extends BaseService {
     /**
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @endpoint get /api/{version}/vatom/b/users/coins/txns/search
-     * @param version 
+     * @endpoint get /vatom/b/users/coins/txns/search
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -3804,13 +3655,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listUserCoinTransactionsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public listUserCoinTransactionsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public listUserCoinTransactionsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public listUserCoinTransactionsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listUserCoinTransactionsAsBusiness.');
-        }
+    public listUserCoinTransactionsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public listUserCoinTransactionsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public listUserCoinTransactionsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public listUserCoinTransactionsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listUserCoinTransactionsAsBusiness.');
         }
@@ -3892,7 +3740,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/users/coins/txns/search`;
+        let localVarPath = `/vatom/b/users/coins/txns/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -3911,8 +3759,7 @@ export class VatomService extends BaseService {
     /**
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @endpoint post /api/{version}/vatom/me/vatoms/actions
-     * @param version 
+     * @endpoint post /vatom/me/vatoms/actions
      * @param accountId Sirqul Account Id
      * @param vatomId Vatom NFT Id
      * @param vatomAction Vatom Action
@@ -3922,13 +3769,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public performActionOnNFT(version: number, accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public performActionOnNFT(version: number, accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public performActionOnNFT(version: number, accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public performActionOnNFT(version: number, accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling performActionOnNFT.');
-        }
+    public performActionOnNFT(accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public performActionOnNFT(accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public performActionOnNFT(accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public performActionOnNFT(accountId: number, vatomId: string, vatomAction: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling performActionOnNFT.');
         }
@@ -4013,7 +3857,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/vatoms/actions`;
+        let localVarPath = `/vatom/me/vatoms/actions`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4032,8 +3876,7 @@ export class VatomService extends BaseService {
     /**
      * Redeem NFT
      * Redeem an NFT.
-     * @endpoint post /api/{version}/vatom/b/redemptions
-     * @param version 
+     * @endpoint post /vatom/b/redemptions
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -4042,13 +3885,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public redeemNFT(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public redeemNFT(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public redeemNFT(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public redeemNFT(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling redeemNFT.');
-        }
+    public redeemNFT(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public redeemNFT(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public redeemNFT(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public redeemNFT(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling redeemNFT.');
         }
@@ -4121,7 +3961,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/redemptions`;
+        let localVarPath = `/vatom/b/redemptions`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4140,8 +3980,7 @@ export class VatomService extends BaseService {
     /**
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @endpoint post /api/{version}/vatom/b/users/coins/redeem
-     * @param version 
+     * @endpoint post /vatom/b/users/coins/redeem
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -4151,13 +3990,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public redeemUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public redeemUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public redeemUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public redeemUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling redeemUserCoinsAsBusiness.');
-        }
+    public redeemUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public redeemUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public redeemUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public redeemUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling redeemUserCoinsAsBusiness.');
         }
@@ -4242,7 +4078,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/users/coins/redeem`;
+        let localVarPath = `/vatom/b/users/coins/redeem`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4261,8 +4097,7 @@ export class VatomService extends BaseService {
     /**
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @endpoint get /api/{version}/vatom/b/search
-     * @param version 
+     * @endpoint get /vatom/b/search
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -4270,13 +4105,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchBusinesses(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public searchBusinesses(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public searchBusinesses(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public searchBusinesses(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchBusinesses.');
-        }
+    public searchBusinesses(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public searchBusinesses(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public searchBusinesses(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public searchBusinesses(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchBusinesses.');
         }
@@ -4334,7 +4166,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/search`;
+        let localVarPath = `/vatom/b/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -4353,8 +4185,7 @@ export class VatomService extends BaseService {
     /**
      * Search Campaign Groups
      * Search campaign groups.
-     * @endpoint get /api/{version}/vatom/b/campaign-groups/search
-     * @param version 
+     * @endpoint get /vatom/b/campaign-groups/search
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param returnRawResponse Return raw response
@@ -4362,13 +4193,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchCampaignGroups(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public searchCampaignGroups(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public searchCampaignGroups(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public searchCampaignGroups(version: number, accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchCampaignGroups.');
-        }
+    public searchCampaignGroups(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public searchCampaignGroups(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public searchCampaignGroups(accountId: number, appKey: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public searchCampaignGroups(accountId: number, appKey: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchCampaignGroups.');
         }
@@ -4429,7 +4257,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign-groups/search`;
+        let localVarPath = `/vatom/b/campaign-groups/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -4448,21 +4276,17 @@ export class VatomService extends BaseService {
     /**
      * Search User Identities
      * Search User Identities.
-     * @endpoint get /api/{version}/vatom/me/identities/search
-     * @param version 
+     * @endpoint get /vatom/me/identities/search
      * @param accountId Sirqul Account Id
      * @param returnRawResponse Return raw response
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchIdentities(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public searchIdentities(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public searchIdentities(version: number, accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public searchIdentities(version: number, accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchIdentities.');
-        }
+    public searchIdentities(accountId: number, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public searchIdentities(accountId: number, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public searchIdentities(accountId: number, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public searchIdentities(accountId: number, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchIdentities.');
         }
@@ -4511,7 +4335,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/identities/search`;
+        let localVarPath = `/vatom/me/identities/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -4530,8 +4354,7 @@ export class VatomService extends BaseService {
     /**
      * Search Vatom User\&#39;s Inventory
      * Searches the logged in user\&#39;s Vatom Inventory.
-     * @endpoint get /api/{version}/vatom/user-inventory/search
-     * @param version 
+     * @endpoint get /vatom/user-inventory/search
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -4539,13 +4362,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchInventory(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public searchInventory(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public searchInventory(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public searchInventory(version: number, accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchInventory.');
-        }
+    public searchInventory(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public searchInventory(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public searchInventory(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public searchInventory(accountId: number, vatomParameters?: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchInventory.');
         }
@@ -4603,7 +4423,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/user-inventory/search`;
+        let localVarPath = `/vatom/user-inventory/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -4622,8 +4442,7 @@ export class VatomService extends BaseService {
     /**
      * Send NFT
      * Send an NFT.
-     * @endpoint post /api/{version}/vatom/b/campaigns/send
-     * @param version 
+     * @endpoint post /vatom/b/campaigns/send
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomCampaignId Vatom Campaign Id
@@ -4633,13 +4452,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public sendNFT(version: number, accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public sendNFT(version: number, accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public sendNFT(version: number, accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public sendNFT(version: number, accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling sendNFT.');
-        }
+    public sendNFT(accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public sendNFT(accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public sendNFT(accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public sendNFT(accountId: number, appKey: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling sendNFT.');
         }
@@ -4724,7 +4540,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaigns/send`;
+        let localVarPath = `/vatom/b/campaigns/send`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4743,8 +4559,7 @@ export class VatomService extends BaseService {
     /**
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @endpoint post /api/{version}/vatom/b/campaign/u/points/update
-     * @param version 
+     * @endpoint post /vatom/b/campaign/u/points/update
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomUserId Vatom User Id
@@ -4755,13 +4570,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public setPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public setPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public setPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public setPointsBalanceAsBusiness(version: number, accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling setPointsBalanceAsBusiness.');
-        }
+    public setPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public setPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public setPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public setPointsBalanceAsBusiness(accountId: number, appKey: string, vatomUserId: string, vatomCampaignId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling setPointsBalanceAsBusiness.');
         }
@@ -4858,7 +4670,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/campaign/u/points/update`;
+        let localVarPath = `/vatom/b/campaign/u/points/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4877,8 +4689,7 @@ export class VatomService extends BaseService {
     /**
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @endpoint post /api/{version}/vatom/u/coins/transfer
-     * @param version 
+     * @endpoint post /vatom/u/coins/transfer
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param vatomParameters Vatom Parameters
@@ -4887,13 +4698,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public transferUserCoins(version: number, accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public transferUserCoins(version: number, accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public transferUserCoins(version: number, accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public transferUserCoins(version: number, accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling transferUserCoins.');
-        }
+    public transferUserCoins(accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public transferUserCoins(accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public transferUserCoins(accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public transferUserCoins(accountId: number, vatomUserId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling transferUserCoins.');
         }
@@ -4966,7 +4774,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/u/coins/transfer`;
+        let localVarPath = `/vatom/u/coins/transfer`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -4985,8 +4793,7 @@ export class VatomService extends BaseService {
     /**
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @endpoint post /api/{version}/vatom/b/coins/update
-     * @param version 
+     * @endpoint post /vatom/b/coins/update
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomParameters Vatom Parameters
@@ -4995,13 +4802,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateBusinessCoins(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateBusinessCoins(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateBusinessCoins(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateBusinessCoins(version: number, accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateBusinessCoins.');
-        }
+    public updateBusinessCoins(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateBusinessCoins(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateBusinessCoins(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateBusinessCoins(accountId: number, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateBusinessCoins.');
         }
@@ -5074,7 +4878,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/coins/update`;
+        let localVarPath = `/vatom/b/coins/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -5093,8 +4897,7 @@ export class VatomService extends BaseService {
     /**
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @endpoint post /api/{version}/vatom/b/events/guests/update
-     * @param version 
+     * @endpoint post /vatom/b/events/guests/update
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -5104,13 +4907,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateEventGuestList(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateEventGuestList.');
-        }
+    public updateEventGuestList(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateEventGuestList(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateEventGuestList(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateEventGuestList(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateEventGuestList.');
         }
@@ -5195,7 +4995,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/guests/update`;
+        let localVarPath = `/vatom/b/events/guests/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -5214,8 +5014,7 @@ export class VatomService extends BaseService {
     /**
      * Update Vatom Space
      * Update a Vatom space.
-     * @endpoint post /api/{version}/vatom/b/spaces/update
-     * @param version 
+     * @endpoint post /vatom/b/spaces/update
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomSpaceId Vatom Space Id
@@ -5225,13 +5024,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateSpace(version: number, accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateSpace.');
-        }
+    public updateSpace(accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateSpace(accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateSpace(accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateSpace(accountId: number, appKey: string, vatomSpaceId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateSpace.');
         }
@@ -5316,7 +5112,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/spaces/update`;
+        let localVarPath = `/vatom/b/spaces/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -5335,8 +5131,7 @@ export class VatomService extends BaseService {
     /**
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @endpoint post /api/{version}/vatom/b/users/coins/update
-     * @param version 
+     * @endpoint post /vatom/b/users/coins/update
      * @param accountId Sirqul Account Id
      * @param vatomUserId Vatom User Id
      * @param appKey Sirqul Application Key
@@ -5346,13 +5141,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateUserCoinsAsBusiness(version: number, accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateUserCoinsAsBusiness.');
-        }
+    public updateUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateUserCoinsAsBusiness(accountId: number, vatomUserId: string, appKey: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateUserCoinsAsBusiness.');
         }
@@ -5437,7 +5229,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/users/coins/update`;
+        let localVarPath = `/vatom/b/users/coins/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -5456,8 +5248,7 @@ export class VatomService extends BaseService {
     /**
      * Update Vatom User Profile
      * Gets the logged in user\&#39;s profile in Vatom.
-     * @endpoint post /api/{version}/vatom/me/update
-     * @param version 
+     * @endpoint post /vatom/me/update
      * @param accountId Sirqul Account Id
      * @param vatomParameters Vatom Parameters
      * @param returnRawResponse Return raw response
@@ -5465,13 +5256,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateUserProfile(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateUserProfile(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateUserProfile(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateUserProfile(version: number, accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateUserProfile.');
-        }
+    public updateUserProfile(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateUserProfile(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateUserProfile(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateUserProfile(accountId: number, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateUserProfile.');
         }
@@ -5532,7 +5320,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/me/update`;
+        let localVarPath = `/vatom/me/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -5551,8 +5339,7 @@ export class VatomService extends BaseService {
     /**
      * Update Vatom Event
      * Update a Vatom event.
-     * @endpoint post /api/{version}/vatom/b/events/update
-     * @param version 
+     * @endpoint post /vatom/b/events/update
      * @param accountId Sirqul Account Id
      * @param appKey Sirqul Application Key
      * @param vatomEventId Vatom Event Id
@@ -5562,13 +5349,10 @@ export class VatomService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateVatomEvent(version: number, accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateVatomEvent.');
-        }
+    public updateVatomEvent(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateVatomEvent(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateVatomEvent(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateVatomEvent(accountId: number, appKey: string, vatomEventId: string, vatomParameters: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateVatomEvent.');
         }
@@ -5653,7 +5437,7 @@ export class VatomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vatom/b/events/update`;
+        let localVarPath = `/vatom/b/events/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {

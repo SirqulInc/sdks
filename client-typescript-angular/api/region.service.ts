@@ -38,8 +38,7 @@ export class RegionService extends BaseService {
     /**
      * Create Region
      * Create a region.
-     * @endpoint post /api/{version}/region/create
-     * @param version 
+     * @endpoint post /region/create
      * @param accountId The id of the account sending the request
      * @param regionClass RegionClass of this region
      * @param shortName Short name of the region. This is optimized for search
@@ -65,13 +64,10 @@ export class RegionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRegion(version: number, accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
-    public createRegion(version: number, accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
-    public createRegion(version: number, accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
-    public createRegion(version: number, accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRegion.');
-        }
+    public createRegion(accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
+    public createRegion(accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
+    public createRegion(accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
+    public createRegion(accountId: number, regionClass: string, shortName: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createRegion.');
         }
@@ -298,7 +294,7 @@ export class RegionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/region/create`;
+        let localVarPath = `/region/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RegionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -317,21 +313,17 @@ export class RegionService extends BaseService {
     /**
      * Delete Region
      * Delete a region.
-     * @endpoint post /api/{version}/region/delete
-     * @param version 
+     * @endpoint post /region/delete
      * @param accountId the id of the account logged in
      * @param regionId the id of the region
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteRegion(version: number, accountId: number, regionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
-    public deleteRegion(version: number, accountId: number, regionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
-    public deleteRegion(version: number, accountId: number, regionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
-    public deleteRegion(version: number, accountId: number, regionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteRegion.');
-        }
+    public deleteRegion(accountId: number, regionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
+    public deleteRegion(accountId: number, regionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
+    public deleteRegion(accountId: number, regionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
+    public deleteRegion(accountId: number, regionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteRegion.');
         }
@@ -384,7 +376,7 @@ export class RegionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/region/delete`;
+        let localVarPath = `/region/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RegionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -403,21 +395,17 @@ export class RegionService extends BaseService {
     /**
      * Get Region
      * Get a region.
-     * @endpoint get /api/{version}/region/get
-     * @param version 
+     * @endpoint get /region/get
      * @param regionId the id of the region to get
      * @param accountId the id of the logged in user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRegion(version: number, regionId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
-    public getRegion(version: number, regionId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
-    public getRegion(version: number, regionId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
-    public getRegion(version: number, regionId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRegion.');
-        }
+    public getRegion(regionId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
+    public getRegion(regionId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
+    public getRegion(regionId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
+    public getRegion(regionId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (regionId === null || regionId === undefined) {
             throw new Error('Required parameter regionId was null or undefined when calling getRegion.');
         }
@@ -467,7 +455,7 @@ export class RegionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/region/get`;
+        let localVarPath = `/region/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RegionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -486,8 +474,7 @@ export class RegionService extends BaseService {
     /**
      * Search Regions
      * Get the list of regions.
-     * @endpoint get /api/{version}/region/search
-     * @param version 
+     * @endpoint get /region/search
      * @param accountId the owner account id of the region to be created
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;
      * @param keyword the keyword to filter results on
@@ -514,13 +501,10 @@ export class RegionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRegions(version: number, accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RegionResponse>>;
-    public searchRegions(version: number, accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RegionResponse>>>;
-    public searchRegions(version: number, accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RegionResponse>>>;
-    public searchRegions(version: number, accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRegions.');
-        }
+    public searchRegions(accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RegionResponse>>;
+    public searchRegions(accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RegionResponse>>>;
+    public searchRegions(accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RegionResponse>>>;
+    public searchRegions(accountId?: number, query?: string, keyword?: string, latitude?: number, longitude?: number, range?: number, regionClass?: 'NATIONAL' | 'STATE' | 'COUNTY' | 'METRO_AREA' | 'CITY' | 'NEIGHBORHOOD' | 'TERRITORY' | 'CUSTOM' | 'ZONE', visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', searchMode?: 'RDS' | 'LUCENE' | 'CLOUDINDEX', sortField?: 'ID' | 'UPDATED' | 'NAME' | 'DISTANCE', descending?: boolean, includeParent?: boolean, includeChildren?: boolean, includePostalCodes?: boolean, categoryIds?: string, filterIds?: string, versionCode?: number, activeOnly?: boolean, showDeleted?: boolean, lastUpdatedSince?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -747,7 +731,7 @@ export class RegionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/region/search`;
+        let localVarPath = `/region/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<RegionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -766,8 +750,7 @@ export class RegionService extends BaseService {
     /**
      * Update Region
      * Update a region.
-     * @endpoint post /api/{version}/region/update
-     * @param version 
+     * @endpoint post /region/update
      * @param accountId The id of the account sending the request
      * @param regionId The id of the region to be updated
      * @param regionClass RegionClass of this region
@@ -795,13 +778,10 @@ export class RegionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRegion(version: number, accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
-    public updateRegion(version: number, accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
-    public updateRegion(version: number, accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
-    public updateRegion(version: number, accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRegion.');
-        }
+    public updateRegion(accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RegionResponse>;
+    public updateRegion(accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RegionResponse>>;
+    public updateRegion(accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RegionResponse>>;
+    public updateRegion(accountId: number, regionId: number, regionClass?: string, shortName?: string, fullName?: string, parentIds?: string, childrenIds?: string, postalCodeIds?: string, locations?: string, retailerLocationId?: number, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', categoryIds?: string, filterIds?: string, start?: number, end?: number, polygon?: string, metaData?: string, latitude?: number, longitude?: number, versionCode?: number, root?: boolean, active?: boolean, clearLists?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateRegion.');
         }
@@ -1043,7 +1023,7 @@ export class RegionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/region/update`;
+        let localVarPath = `/region/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RegionResponse>('post', `${basePath}${localVarPath}`,
             {

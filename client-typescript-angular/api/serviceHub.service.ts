@@ -38,20 +38,16 @@ export class ServiceHubService extends BaseService {
     /**
      * Create Service Hub
      * Create new service hub
-     * @endpoint post /api/{version}/hub
-     * @param version 
+     * @endpoint post /hub
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createServiceHub(version: number, body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
-    public createServiceHub(version: number, body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
-    public createServiceHub(version: number, body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
-    public createServiceHub(version: number, body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createServiceHub.');
-        }
+    public createServiceHub(body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
+    public createServiceHub(body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
+    public createServiceHub(body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
+    public createServiceHub(body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -86,7 +82,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub`;
+        let localVarPath = `/hub`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ServiceHub>('post', `${basePath}${localVarPath}`,
             {
@@ -105,20 +101,16 @@ export class ServiceHubService extends BaseService {
     /**
      * Delete Service Hub
      * Delete an existing service hub
-     * @endpoint delete /api/{version}/hub/{id}
-     * @param version 
+     * @endpoint delete /hub/{id}
      * @param id the id of the service hub to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteServiceHub(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteServiceHub(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteServiceHub(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteServiceHub(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteServiceHub.');
-        }
+    public deleteServiceHub(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteServiceHub(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteServiceHub(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteServiceHub(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteServiceHub.');
         }
@@ -147,7 +139,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -165,20 +157,16 @@ export class ServiceHubService extends BaseService {
     /**
      * Get Service Hub
      * Get an existing service hub
-     * @endpoint get /api/{version}/hub/{id}
-     * @param version 
+     * @endpoint get /hub/{id}
      * @param id the id of the service hub to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getServiceHub(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public getServiceHub(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public getServiceHub(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public getServiceHub(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getServiceHub.');
-        }
+    public getServiceHub(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public getServiceHub(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public getServiceHub(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public getServiceHub(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getServiceHub.');
         }
@@ -208,7 +196,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<object>('get', `${basePath}${localVarPath}`,
             {
@@ -226,21 +214,17 @@ export class ServiceHubService extends BaseService {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @endpoint post /api/{version}/hub/{id}
-     * @param version 
+     * @endpoint post /hub/{id}
      * @param id the id of the service hub
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public postServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
-    public postServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
-    public postServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
-    public postServiceHub(version: number, id: number, body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling postServiceHub.');
-        }
+    public postServiceHub(id: number, body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
+    public postServiceHub(id: number, body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
+    public postServiceHub(id: number, body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
+    public postServiceHub(id: number, body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling postServiceHub.');
         }
@@ -278,7 +262,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ServiceHub>('post', `${basePath}${localVarPath}`,
             {
@@ -297,21 +281,17 @@ export class ServiceHubService extends BaseService {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @endpoint put /api/{version}/hub/{id}
-     * @param version 
+     * @endpoint put /hub/{id}
      * @param id the id of the service hub
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public putServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
-    public putServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
-    public putServiceHub(version: number, id: number, body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
-    public putServiceHub(version: number, id: number, body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling putServiceHub.');
-        }
+    public putServiceHub(id: number, body?: ServiceHub, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ServiceHub>;
+    public putServiceHub(id: number, body?: ServiceHub, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ServiceHub>>;
+    public putServiceHub(id: number, body?: ServiceHub, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ServiceHub>>;
+    public putServiceHub(id: number, body?: ServiceHub, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling putServiceHub.');
         }
@@ -349,7 +329,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/hub/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ServiceHub>('put', `${basePath}${localVarPath}`,
             {
@@ -368,8 +348,7 @@ export class ServiceHubService extends BaseService {
     /**
      * Search Service Hubs
      * Search for service hubs.
-     * @endpoint get /api/{version}/hub
-     * @param version 
+     * @endpoint get /hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -381,13 +360,10 @@ export class ServiceHubService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchServiceHubs(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ServiceHub>>;
-    public searchServiceHubs(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ServiceHub>>>;
-    public searchServiceHubs(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ServiceHub>>>;
-    public searchServiceHubs(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchServiceHubs.');
-        }
+    public searchServiceHubs(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ServiceHub>>;
+    public searchServiceHubs(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ServiceHub>>>;
+    public searchServiceHubs(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ServiceHub>>>;
+    public searchServiceHubs(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, retailerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchServiceHubs.');
         }
@@ -494,7 +470,7 @@ export class ServiceHubService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/hub`;
+        let localVarPath = `/hub`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ServiceHub>>('get', `${basePath}${localVarPath}`,
             {

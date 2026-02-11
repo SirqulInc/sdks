@@ -40,8 +40,7 @@ export class AMQPService extends BaseService {
     /**
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @endpoint post /api/{version}/queue/consumer/create
-     * @param version 
+     * @endpoint post /queue/consumer/create
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param name The name of the queue to connect to
      * @param hostname The hostname of the server the queue is hosted on
@@ -60,13 +59,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public consumerCreate(version: number, appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public consumerCreate(version: number, appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public consumerCreate(version: number, appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public consumerCreate(version: number, appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling consumerCreate.');
-        }
+    public consumerCreate(appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public consumerCreate(appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public consumerCreate(appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public consumerCreate(appKey: string, name: string, hostname: string, username: string, password: string, dataMapping: string, deviceId?: string, accountId?: number, port?: number, virtualHost?: string, exchanger?: string, exchangerType?: string, workers?: number, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling consumerCreate.');
         }
@@ -239,7 +235,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/consumer/create`;
+        let localVarPath = `/queue/consumer/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -258,8 +254,7 @@ export class AMQPService extends BaseService {
     /**
      * Update Consumer
      * Update an existing amqp queue\&#39;s data mapping.
-     * @endpoint post /api/{version}/queue/consumer/update
-     * @param version 
+     * @endpoint post /queue/consumer/update
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param queueId The queue to update
      * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -270,13 +265,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public consumerUpdate(version: number, appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public consumerUpdate(version: number, appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public consumerUpdate(version: number, appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public consumerUpdate(version: number, appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling consumerUpdate.');
-        }
+    public consumerUpdate(appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public consumerUpdate(appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public consumerUpdate(appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public consumerUpdate(appKey: string, queueId: number, dataMapping: string, deviceId?: string, accountId?: number, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling consumerUpdate.');
         }
@@ -368,7 +360,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/consumer/update`;
+        let localVarPath = `/queue/consumer/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -387,8 +379,7 @@ export class AMQPService extends BaseService {
     /**
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @endpoint post /api/{version}/queue/create
-     * @param version 
+     * @endpoint post /queue/create
      * @param appKey The application key unique to each application.
      * @param name The name of the queue to create
      * @param deviceId The client deviceID
@@ -405,13 +396,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queueCreate(version: number, appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public queueCreate(version: number, appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public queueCreate(version: number, appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public queueCreate(version: number, appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queueCreate.');
-        }
+    public queueCreate(appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public queueCreate(appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public queueCreate(appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public queueCreate(appKey: string, name: string, deviceId?: string, accountId?: number, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling queueCreate.');
         }
@@ -554,7 +542,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/create`;
+        let localVarPath = `/queue/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -573,8 +561,7 @@ export class AMQPService extends BaseService {
     /**
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @endpoint post /api/{version}/queue/delete
-     * @param version 
+     * @endpoint post /queue/delete
      * @param queueId The id of the queue to find
      * @param deviceId The client device ID
      * @param accountId The logged in user ID
@@ -582,13 +569,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queueDelete(version: number, queueId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public queueDelete(version: number, queueId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public queueDelete(version: number, queueId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public queueDelete(version: number, queueId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queueDelete.');
-        }
+    public queueDelete(queueId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public queueDelete(queueId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public queueDelete(queueId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public queueDelete(queueId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (queueId === null || queueId === undefined) {
             throw new Error('Required parameter queueId was null or undefined when calling queueDelete.');
         }
@@ -647,7 +631,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/delete`;
+        let localVarPath = `/queue/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -666,8 +650,7 @@ export class AMQPService extends BaseService {
     /**
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @endpoint get /api/{version}/queue/get
-     * @param version 
+     * @endpoint get /queue/get
      * @param deviceId The client device ID
      * @param accountId The logged in user ID
      * @param queueId The id of the queue to find
@@ -679,13 +662,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queueGet(version: number, deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public queueGet(version: number, deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public queueGet(version: number, deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public queueGet(version: number, deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queueGet.');
-        }
+    public queueGet(deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public queueGet(deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public queueGet(deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public queueGet(deviceId?: string, accountId?: number, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -777,7 +757,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/get`;
+        let localVarPath = `/queue/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -796,8 +776,7 @@ export class AMQPService extends BaseService {
     /**
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @endpoint post /api/{version}/queue/publish
-     * @param version 
+     * @endpoint post /queue/publish
      * @param message The payload to send to the queue
      * @param queueId The id of the queue to publish to
      * @param appKey The application key the queue was assigned to
@@ -808,13 +787,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queuePublish(version: number, message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public queuePublish(version: number, message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public queuePublish(version: number, message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public queuePublish(version: number, message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queuePublish.');
-        }
+    public queuePublish(message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public queuePublish(message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public queuePublish(message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public queuePublish(message: string, queueId?: number, appKey?: string, name?: string, hostname?: string, virtualHost?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (message === null || message === undefined) {
             throw new Error('Required parameter message was null or undefined when calling queuePublish.');
         }
@@ -900,7 +876,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/publish`;
+        let localVarPath = `/queue/publish`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -919,8 +895,7 @@ export class AMQPService extends BaseService {
     /**
      * Search Queue
      * Get the queues setup for the BillableEntity\&#39;s applications.
-     * @endpoint get /api/{version}/queue/search
-     * @param version 
+     * @endpoint get /queue/search
      * @param queueId The id of the queue to find
      * @param deviceId The client device ID
      * @param accountId The logged in user ID
@@ -931,13 +906,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queueSearch(version: number, queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public queueSearch(version: number, queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public queueSearch(version: number, queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public queueSearch(version: number, queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queueSearch.');
-        }
+    public queueSearch(queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public queueSearch(queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public queueSearch(queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public queueSearch(queueId?: number, deviceId?: string, accountId?: number, name?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1020,7 +992,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/search`;
+        let localVarPath = `/queue/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1039,8 +1011,7 @@ export class AMQPService extends BaseService {
     /**
      * Update Queue
      * Update the basic AMQP queue.
-     * @endpoint post /api/{version}/queue/update
-     * @param version 
+     * @endpoint post /queue/update
      * @param queueId The id of the queue to update
      * @param deviceId The client deviceID
      * @param accountId The logged in user ID
@@ -1057,13 +1028,10 @@ export class AMQPService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public queueUpdate(version: number, queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
-    public queueUpdate(version: number, queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
-    public queueUpdate(version: number, queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
-    public queueUpdate(version: number, queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling queueUpdate.');
-        }
+    public queueUpdate(queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QueueResponse>;
+    public queueUpdate(queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QueueResponse>>;
+    public queueUpdate(queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QueueResponse>>;
+    public queueUpdate(queueId: number, deviceId?: string, accountId?: number, appKey?: string, workers?: number, analyticTags?: string, hostname?: string, port?: number, username?: string, password?: string, virtualHost?: string, useSSL?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (queueId === null || queueId === undefined) {
             throw new Error('Required parameter queueId was null or undefined when calling queueUpdate.');
         }
@@ -1203,7 +1171,7 @@ export class AMQPService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/queue/update`;
+        let localVarPath = `/queue/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QueueResponse>('post', `${basePath}${localVarPath}`,
             {

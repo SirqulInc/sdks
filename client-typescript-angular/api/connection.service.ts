@@ -46,8 +46,7 @@ export class ConnectionService extends BaseService {
     /**
      * Add Connection
      * Adds a connection to a group.
-     * @endpoint post /api/{version}/consumer/connection/group/addConnection
-     * @param version 
+     * @endpoint post /consumer/connection/group/addConnection
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required)
@@ -61,13 +60,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addConnectionToGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public addConnectionToGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public addConnectionToGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public addConnectionToGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addConnectionToGroup.');
-        }
+    public addConnectionToGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public addConnectionToGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public addConnectionToGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public addConnectionToGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling addConnectionToGroup.');
         }
@@ -183,7 +179,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/addConnection`;
+        let localVarPath = `/consumer/connection/group/addConnection`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -202,8 +198,7 @@ export class ConnectionService extends BaseService {
     /**
      * Add Connections
      * Adds a list of connections to a group.
-     * @endpoint post /api/{version}/connection/group/addConnections
-     * @param version 
+     * @endpoint post /connection/group/addConnections
      * @param connectionGroupId the connection group ID
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -215,13 +210,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addConnectionsToGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public addConnectionsToGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public addConnectionsToGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public addConnectionsToGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addConnectionsToGroup.');
-        }
+    public addConnectionsToGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public addConnectionsToGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public addConnectionsToGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public addConnectionsToGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (connectionGroupId === null || connectionGroupId === undefined) {
             throw new Error('Required parameter connectionGroupId was null or undefined when calling addConnectionsToGroup.');
         }
@@ -316,7 +308,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/connection/group/addConnections`;
+        let localVarPath = `/connection/group/addConnections`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -335,8 +327,7 @@ export class ConnectionService extends BaseService {
     /**
      * Add Connection Groups
      * Add sub groups to a group.
-     * @endpoint post /api/{version}/consumer/connection/group/addSubGroup
-     * @param version 
+     * @endpoint post /consumer/connection/group/addSubGroup
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -348,13 +339,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionGroupResponse>;
-    public addSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionGroupResponse>>;
-    public addSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionGroupResponse>>;
-    public addSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addSubGroups.');
-        }
+    public addSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionGroupResponse>;
+    public addSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionGroupResponse>>;
+    public addSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionGroupResponse>>;
+    public addSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling addSubGroups.');
         }
@@ -455,7 +443,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/addSubGroup`;
+        let localVarPath = `/consumer/connection/group/addSubGroup`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionGroupResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -474,8 +462,7 @@ export class ConnectionService extends BaseService {
     /**
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @endpoint post /api/{version}/consumer/connection/add
-     * @param version 
+     * @endpoint post /consumer/connection/add
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionId the connection id for editing
@@ -494,13 +481,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOrUpdateConnection(version: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionResponse>;
-    public createOrUpdateConnection(version: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionResponse>>;
-    public createOrUpdateConnection(version: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionResponse>>;
-    public createOrUpdateConnection(version: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOrUpdateConnection.');
-        }
+    public createOrUpdateConnection(deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionResponse>;
+    public createOrUpdateConnection(deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionResponse>>;
+    public createOrUpdateConnection(deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionResponse>>;
+    public createOrUpdateConnection(deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, groupId?: number, gameType?: string, appKey?: string, isTrusted?: boolean, ignoreFriendRequest?: boolean, isContact?: boolean, isBlocked?: boolean, isFollowing?: boolean, connectionResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -655,7 +639,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/add`;
+        let localVarPath = `/consumer/connection/add`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -674,8 +658,7 @@ export class ConnectionService extends BaseService {
     /**
      * Create or Update Connection Group
      * Creates a new private group.
-     * @endpoint post /api/{version}/consumer/connection/group
-     * @param version 
+     * @endpoint post /consumer/connection/group
      * @param returnNulls whether to return nulls or not
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -694,13 +677,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOrUpdateGroup(version: number, returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public createOrUpdateGroup(version: number, returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public createOrUpdateGroup(version: number, returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public createOrUpdateGroup(version: number, returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOrUpdateGroup.');
-        }
+    public createOrUpdateGroup(returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public createOrUpdateGroup(returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public createOrUpdateGroup(returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public createOrUpdateGroup(returnNulls: boolean, deviceId?: string, accountId?: number, name?: string, groupId?: number, assetId?: number, connections?: string, description?: string, canViewProfileInfo?: boolean, canViewGameInfo?: boolean, canViewFriendInfo?: boolean, active?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling createOrUpdateGroup.');
         }
@@ -858,7 +838,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group`;
+        let localVarPath = `/consumer/connection/group`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -877,8 +857,7 @@ export class ConnectionService extends BaseService {
     /**
      * Accept Follow Request
      * Accept someone\&#39;s follow request.
-     * @endpoint post /api/{version}/consumer/follow/accept
-     * @param version 
+     * @endpoint post /consumer/follow/accept
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -886,13 +865,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public followAccept(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public followAccept(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public followAccept(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public followAccept(version: number, accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling followAccept.');
-        }
+    public followAccept(accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public followAccept(accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public followAccept(accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public followAccept(accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling followAccept.');
         }
@@ -957,7 +933,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/follow/accept`;
+        let localVarPath = `/consumer/follow/accept`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -976,8 +952,7 @@ export class ConnectionService extends BaseService {
     /**
      * Reject Follow Request
      * Reject someone\&#39;s follow request or remove them as a follower.
-     * @endpoint post /api/{version}/consumer/follow/reject
-     * @param version 
+     * @endpoint post /consumer/follow/reject
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who initiated the follow
      * @param appKey the application key for sending notifications
@@ -985,13 +960,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public followReject(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public followReject(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public followReject(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public followReject(version: number, accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling followReject.');
-        }
+    public followReject(accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public followReject(accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public followReject(accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public followReject(accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling followReject.');
         }
@@ -1056,7 +1028,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/follow/reject`;
+        let localVarPath = `/consumer/follow/reject`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1075,8 +1047,7 @@ export class ConnectionService extends BaseService {
     /**
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @endpoint post /api/{version}/consumer/follow/remove
-     * @param version 
+     * @endpoint post /consumer/follow/remove
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to unfollow
      * @param appKey the application key for sending notifications
@@ -1084,13 +1055,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public followRemove(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public followRemove(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public followRemove(version: number, accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public followRemove(version: number, accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling followRemove.');
-        }
+    public followRemove(accountId: number, connectionAccountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public followRemove(accountId: number, connectionAccountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public followRemove(accountId: number, connectionAccountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public followRemove(accountId: number, connectionAccountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling followRemove.');
         }
@@ -1155,7 +1123,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/follow/remove`;
+        let localVarPath = `/consumer/follow/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1174,8 +1142,7 @@ export class ConnectionService extends BaseService {
     /**
      * Send Follow Request
      * Send a request to follow someone.
-     * @endpoint post /api/{version}/consumer/follow/request
-     * @param version 
+     * @endpoint post /consumer/follow/request
      * @param accountId the account id of the user
      * @param connectionAccountId the account ID of the user who you want to follow
      * @param appKey the application key for sending notifications
@@ -1184,13 +1151,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public followRequest(version: number, accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public followRequest(version: number, accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public followRequest(version: number, accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public followRequest(version: number, accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling followRequest.');
-        }
+    public followRequest(accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public followRequest(accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public followRequest(accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public followRequest(accountId: number, connectionAccountId: number, appKey: string, approvalNeeded?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling followRequest.');
         }
@@ -1264,7 +1228,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/follow/request`;
+        let localVarPath = `/consumer/follow/request`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1283,8 +1247,7 @@ export class ConnectionService extends BaseService {
     /**
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @endpoint post /api/{version}/consumer/friend/accept
-     * @param version 
+     * @endpoint post /consumer/friend/accept
      * @param friendAccountId the friend\&#39;s account id
      * @param notifyFriend determines whether to send a notification to the afflicting party
      * @param deviceId the device id (deviceId or accountId required)
@@ -1296,13 +1259,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public friendAccept(version: number, friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public friendAccept(version: number, friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public friendAccept(version: number, friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public friendAccept(version: number, friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling friendAccept.');
-        }
+    public friendAccept(friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public friendAccept(friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public friendAccept(friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public friendAccept(friendAccountId: number, notifyFriend: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (friendAccountId === null || friendAccountId === undefined) {
             throw new Error('Required parameter friendAccountId was null or undefined when calling friendAccept.');
         }
@@ -1400,7 +1360,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/friend/accept`;
+        let localVarPath = `/consumer/friend/accept`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1419,8 +1379,7 @@ export class ConnectionService extends BaseService {
     /**
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @endpoint post /api/{version}/consumer/friend/reject
-     * @param version 
+     * @endpoint post /consumer/friend/reject
      * @param friendAccountId the friend\&#39;s account id
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -1432,13 +1391,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public friendReject(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public friendReject(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public friendReject(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public friendReject(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling friendReject.');
-        }
+    public friendReject(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public friendReject(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public friendReject(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public friendReject(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notifyFriend?: boolean, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (friendAccountId === null || friendAccountId === undefined) {
             throw new Error('Required parameter friendAccountId was null or undefined when calling friendReject.');
         }
@@ -1533,7 +1489,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/friend/reject`;
+        let localVarPath = `/consumer/friend/reject`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1552,8 +1508,7 @@ export class ConnectionService extends BaseService {
     /**
      * Delete Friend
      * Removes a friend from the user\&#39;s friends list.
-     * @endpoint post /api/{version}/consumer/friend/remove
-     * @param version 
+     * @endpoint post /consumer/friend/remove
      * @param friendAccountId the account ID of the friend to remove
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -1563,13 +1518,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public friendRemove(version: number, friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public friendRemove(version: number, friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public friendRemove(version: number, friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public friendRemove(version: number, friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling friendRemove.');
-        }
+    public friendRemove(friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public friendRemove(friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public friendRemove(friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public friendRemove(friendAccountId: number, deviceId?: string, accountId?: number, notifyFriend?: boolean, removeFromGroups?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (friendAccountId === null || friendAccountId === undefined) {
             throw new Error('Required parameter friendAccountId was null or undefined when calling friendRemove.');
         }
@@ -1646,7 +1598,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/friend/remove`;
+        let localVarPath = `/consumer/friend/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1665,8 +1617,7 @@ export class ConnectionService extends BaseService {
     /**
      * Request Friend
      * Sends a friend request notification to another user.
-     * @endpoint post /api/{version}/consumer/friend/request
-     * @param version 
+     * @endpoint post /consumer/friend/request
      * @param friendAccountId the friend\&#39;s account id
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -1677,13 +1628,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public friendRequest(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public friendRequest(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public friendRequest(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public friendRequest(version: number, friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling friendRequest.');
-        }
+    public friendRequest(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public friendRequest(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public friendRequest(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public friendRequest(friendAccountId: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, notificationMessage?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (friendAccountId === null || friendAccountId === undefined) {
             throw new Error('Required parameter friendAccountId was null or undefined when calling friendRequest.');
         }
@@ -1769,7 +1717,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/friend/request`;
+        let localVarPath = `/consumer/friend/request`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1788,21 +1736,17 @@ export class ConnectionService extends BaseService {
     /**
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @endpoint get /api/{version}/consumer/connection/getRequested
-     * @param version 
+     * @endpoint get /consumer/connection/getRequested
      * @param deviceId the ID of the device
      * @param accountId the id of the account
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getConnectionSentFriendRequests(version: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
-    public getConnectionSentFriendRequests(version: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
-    public getConnectionSentFriendRequests(version: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
-    public getConnectionSentFriendRequests(version: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getConnectionSentFriendRequests.');
-        }
+    public getConnectionSentFriendRequests(deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
+    public getConnectionSentFriendRequests(deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
+    public getConnectionSentFriendRequests(deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
+    public getConnectionSentFriendRequests(deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1849,7 +1793,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/getRequested`;
+        let localVarPath = `/consumer/connection/getRequested`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1868,8 +1812,7 @@ export class ConnectionService extends BaseService {
     /**
      * Search Connections
      * Gets the connections.
-     * @endpoint get /api/{version}/consumer/connection/get
-     * @param version 
+     * @endpoint get /consumer/connection/get
      * @param returnNulls whether to return nulls or not
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
      * @param sortField sorts the response list by ConnectionApiMap
@@ -1889,13 +1832,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getConnections(version: number, returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
-    public getConnections(version: number, returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
-    public getConnections(version: number, returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
-    public getConnections(version: number, returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getConnections.');
-        }
+    public getConnections(returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
+    public getConnections(returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
+    public getConnections(returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
+    public getConnections(returnNulls: boolean, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, connectionAccountId?: number, q?: string, keyword?: string, i?: number, l?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling getConnections.');
         }
@@ -2077,7 +2017,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/get`;
+        let localVarPath = `/consumer/connection/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2095,8 +2035,7 @@ export class ConnectionService extends BaseService {
 
     /**
      * Get Connection Group
-     * @endpoint get /api/{version}/consumer/connection/group/details/get
-     * @param version 
+     * @endpoint get /consumer/connection/group/details/get
      * @param combineConnections whether to combine connections or not
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -2107,13 +2046,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGroupDetails(version: number, combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionGroupResponse>;
-    public getGroupDetails(version: number, combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionGroupResponse>>;
-    public getGroupDetails(version: number, combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionGroupResponse>>;
-    public getGroupDetails(version: number, combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGroupDetails.');
-        }
+    public getGroupDetails(combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionGroupResponse>;
+    public getGroupDetails(combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionGroupResponse>>;
+    public getGroupDetails(combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionGroupResponse>>;
+    public getGroupDetails(combineConnections: boolean, deviceId?: string, accountId?: number, groupId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (combineConnections === null || combineConnections === undefined) {
             throw new Error('Required parameter combineConnections was null or undefined when calling getGroupDetails.');
         }
@@ -2199,7 +2135,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/details/get`;
+        let localVarPath = `/consumer/connection/group/details/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionGroupResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2218,8 +2154,7 @@ export class ConnectionService extends BaseService {
     /**
      * Search Connection Groups
      * Gets a user\&#39;s private groups and default groups.
-     * @endpoint get /api/{version}/connection/group/search
-     * @param version 
+     * @endpoint get /connection/group/search
      * @param sortField the field to sort by
      * @param descending whether to return results in descending or ascending order
      * @param activeOnly to search on active only or not
@@ -2234,13 +2169,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public groupSearch(version: number, sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ConnectionInfoResponse>>;
-    public groupSearch(version: number, sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ConnectionInfoResponse>>>;
-    public groupSearch(version: number, sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ConnectionInfoResponse>>>;
-    public groupSearch(version: number, sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling groupSearch.');
-        }
+    public groupSearch(sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ConnectionInfoResponse>>;
+    public groupSearch(sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ConnectionInfoResponse>>>;
+    public groupSearch(sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ConnectionInfoResponse>>>;
+    public groupSearch(sortField: 'CREATED' | 'UPDATED' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CAN_VIEW_PROFILE_INFO' | 'CAN_VIEW_GAME_INFO' | 'CAN_VIEW_FRIEND_INFO' | 'INVITE_CODE' | 'OWNER_DISPLAY' | 'OWNER_USERNAME', descending: boolean, activeOnly: boolean, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling groupSearch.');
         }
@@ -2374,7 +2306,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/connection/group/search`;
+        let localVarPath = `/connection/group/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ConnectionInfoResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -2393,8 +2325,7 @@ export class ConnectionService extends BaseService {
     /**
      * Delete Connection
      * Removes the connection from group.
-     * @endpoint post /api/{version}/consumer/connection/group/removeConnection
-     * @param version 
+     * @endpoint post /consumer/connection/group/removeConnection
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required)
@@ -2408,13 +2339,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeConnectionFromGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeConnectionFromGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeConnectionFromGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeConnectionFromGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeConnectionFromGroup.');
-        }
+    public removeConnectionFromGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeConnectionFromGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeConnectionFromGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeConnectionFromGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, connectionId?: number, connectionAccountId?: number, pendingId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling removeConnectionFromGroup.');
         }
@@ -2530,7 +2458,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/removeConnection`;
+        let localVarPath = `/consumer/connection/group/removeConnection`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2549,8 +2477,7 @@ export class ConnectionService extends BaseService {
     /**
      * Remove Connections
      * Remove a list of connections from a group.
-     * @endpoint post /api/{version}/connection/group/removeConnections
-     * @param version 
+     * @endpoint post /connection/group/removeConnections
      * @param connectionGroupId connection group id
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -2562,13 +2489,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeConnectionsFromGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeConnectionsFromGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeConnectionsFromGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeConnectionsFromGroup(version: number, connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeConnectionsFromGroup.');
-        }
+    public removeConnectionsFromGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeConnectionsFromGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeConnectionsFromGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeConnectionsFromGroup(connectionGroupId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (connectionGroupId === null || connectionGroupId === undefined) {
             throw new Error('Required parameter connectionGroupId was null or undefined when calling removeConnectionsFromGroup.');
         }
@@ -2663,7 +2587,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/connection/group/removeConnections`;
+        let localVarPath = `/connection/group/removeConnections`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2682,8 +2606,7 @@ export class ConnectionService extends BaseService {
     /**
      * Delete Connection Group
      * Remove a user\&#39;s group.
-     * @endpoint post /api/{version}/consumer/connection/group/remove
-     * @param version 
+     * @endpoint post /consumer/connection/group/remove
      * @param returnNulls whether to return nulls or not
      * @param groupId the group id
      * @param deviceId the device id (deviceId or accountId required)
@@ -2694,13 +2617,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeGroup(version: number, returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeGroup.');
-        }
+    public removeGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeGroup(returnNulls: boolean, groupId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling removeGroup.');
         }
@@ -2789,7 +2709,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/remove`;
+        let localVarPath = `/consumer/connection/group/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2808,8 +2728,7 @@ export class ConnectionService extends BaseService {
     /**
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @endpoint post /api/{version}/consumer/connection/group/removeSubGroup
-     * @param version 
+     * @endpoint post /consumer/connection/group/removeSubGroup
      * @param returnNulls whether to return nulls or not
      * @param groupId the parent group id
      * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -2821,13 +2740,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeSubGroups(version: number, returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeSubGroups.');
-        }
+    public removeSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeSubGroups(returnNulls: boolean, groupId: number, subGroupIds: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling removeSubGroups.');
         }
@@ -2928,7 +2844,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/connection/group/removeSubGroup`;
+        let localVarPath = `/consumer/connection/group/removeSubGroup`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2947,8 +2863,7 @@ export class ConnectionService extends BaseService {
     /**
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @endpoint get /api/{version}/connection/search
-     * @param version 
+     * @endpoint get /connection/search
      * @param returnNulls return all json attributes if true. defualt is true.
      * @param start start index of the pagination
      * @param limit limit of the pagination
@@ -2968,13 +2883,10 @@ export class ConnectionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchConnections(version: number, returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
-    public searchConnections(version: number, returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
-    public searchConnections(version: number, returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
-    public searchConnections(version: number, returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchConnections.');
-        }
+    public searchConnections(returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ConnectionListResponse>;
+    public searchConnections(returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectionListResponse>>;
+    public searchConnections(returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectionListResponse>>;
+    public searchConnections(returnNulls: boolean, start: number, limit: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, latitude?: number, longitude?: number, gameType?: string, appKey?: string, i?: number, l?: number, sortField?: string, hasLocation?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (returnNulls === null || returnNulls === undefined) {
             throw new Error('Required parameter returnNulls was null or undefined when calling searchConnections.');
         }
@@ -3147,7 +3059,7 @@ export class ConnectionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/connection/search`;
+        let localVarPath = `/connection/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ConnectionListResponse>('get', `${basePath}${localVarPath}`,
             {

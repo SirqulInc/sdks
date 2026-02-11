@@ -50,8 +50,7 @@ export class TrackingService extends BaseService {
     /**
      * Create Batch Tracking
      * Batch create tracking legs
-     * @endpoint post /api/{version}/tracking/batch/create
-     * @param version 
+     * @endpoint post /tracking/batch/create
      * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -63,13 +62,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public batchSaveTracking(version: number, data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Leg>>;
-    public batchSaveTracking(version: number, data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Leg>>>;
-    public batchSaveTracking(version: number, data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Leg>>>;
-    public batchSaveTracking(version: number, data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling batchSaveTracking.');
-        }
+    public batchSaveTracking(data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Leg>>;
+    public batchSaveTracking(data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Leg>>>;
+    public batchSaveTracking(data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Leg>>>;
+    public batchSaveTracking(data: string, deviceId?: string, accountId?: number, generateAccounts?: boolean, updateAccountLocations?: boolean, defaultTag?: string, slaveUID?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (data === null || data === undefined) {
             throw new Error('Required parameter data was null or undefined when calling batchSaveTracking.');
         }
@@ -164,7 +160,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/batch/create`;
+        let localVarPath = `/tracking/batch/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Leg>>('post', `${basePath}${localVarPath}`,
             {
@@ -183,8 +179,7 @@ export class TrackingService extends BaseService {
     /**
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @endpoint get /api/{version}/tracking/predicted/get
-     * @param version 
+     * @endpoint get /tracking/predicted/get
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user\&#39;s current location
      * @param longitude longitude to return a more likely result set based on the user\&#39;s current location
@@ -198,13 +193,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPredictedLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PredictedLocationResponse>;
-    public getPredictedLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PredictedLocationResponse>>;
-    public getPredictedLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PredictedLocationResponse>>;
-    public getPredictedLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPredictedLocations.');
-        }
+    public getPredictedLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PredictedLocationResponse>;
+    public getPredictedLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PredictedLocationResponse>>;
+    public getPredictedLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PredictedLocationResponse>>;
+    public getPredictedLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, threshold?: number, distanceUnit?: 'MILES' | 'KILOMETERS', searchRange?: number, sortOrder?: 'MATCHES' | 'DISTANCE' | 'WEIGHTED', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPredictedLocations.');
         }
@@ -317,7 +309,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/predicted/get`;
+        let localVarPath = `/tracking/predicted/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PredictedLocationResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -336,8 +328,7 @@ export class TrackingService extends BaseService {
     /**
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @endpoint get /api/{version}/tracking/path/get
-     * @param version 
+     * @endpoint get /tracking/path/get
      * @param accountId The account id of the customer
      * @param startStepId The stepId to begin from
      * @param endStepId The stepId to end with
@@ -345,13 +336,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPredictedPath(version: number, accountId: number, startStepId: number, endStepId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<StepResponse>>;
-    public getPredictedPath(version: number, accountId: number, startStepId: number, endStepId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<StepResponse>>>;
-    public getPredictedPath(version: number, accountId: number, startStepId: number, endStepId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<StepResponse>>>;
-    public getPredictedPath(version: number, accountId: number, startStepId: number, endStepId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPredictedPath.');
-        }
+    public getPredictedPath(accountId: number, startStepId: number, endStepId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<StepResponse>>;
+    public getPredictedPath(accountId: number, startStepId: number, endStepId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<StepResponse>>>;
+    public getPredictedPath(accountId: number, startStepId: number, endStepId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<StepResponse>>>;
+    public getPredictedPath(accountId: number, startStepId: number, endStepId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPredictedPath.');
         }
@@ -416,7 +404,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/path/get`;
+        let localVarPath = `/tracking/path/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<StepResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -435,8 +423,7 @@ export class TrackingService extends BaseService {
     /**
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @endpoint get /api/{version}/tracking/preferred/search
-     * @param version 
+     * @endpoint get /tracking/preferred/search
      * @param accountId The account id of the customer
      * @param latitude latitude to return a more likely result set based on the user\&#39;s current location
      * @param longitude longitude to return a more likely result set based on the user\&#39;s current location
@@ -452,13 +439,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPreferredLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PreferredLocationResponse>>;
-    public getPreferredLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PreferredLocationResponse>>>;
-    public getPreferredLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PreferredLocationResponse>>>;
-    public getPreferredLocations(version: number, accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPreferredLocations.');
-        }
+    public getPreferredLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PreferredLocationResponse>>;
+    public getPreferredLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PreferredLocationResponse>>>;
+    public getPreferredLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PreferredLocationResponse>>>;
+    public getPreferredLocations(accountId: number, latitude?: number, longitude?: number, dateCheck?: number, hourCheck?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, searchRange?: number, distanceUnit?: 'MILES' | 'KILOMETERS', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPreferredLocations.');
         }
@@ -589,7 +573,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/preferred/search`;
+        let localVarPath = `/tracking/preferred/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<PreferredLocationResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -608,8 +592,7 @@ export class TrackingService extends BaseService {
     /**
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @endpoint get /api/{version}/tracking/search
-     * @param version 
+     * @endpoint get /tracking/search
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param ownerId the account id of the person the user wants to tracking data for
@@ -622,13 +605,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTrackingLegs(version: number, deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<LegResponse>>;
-    public getTrackingLegs(version: number, deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<LegResponse>>>;
-    public getTrackingLegs(version: number, deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<LegResponse>>>;
-    public getTrackingLegs(version: number, deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTrackingLegs.');
-        }
+    public getTrackingLegs(deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<LegResponse>>;
+    public getTrackingLegs(deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<LegResponse>>>;
+    public getTrackingLegs(deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<LegResponse>>>;
+    public getTrackingLegs(deviceId?: string, accountId?: number, ownerId?: number, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, getLastPoint?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -729,7 +709,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/search`;
+        let localVarPath = `/tracking/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<LegResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -748,8 +728,7 @@ export class TrackingService extends BaseService {
     /**
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @endpoint post /api/{version}/tracking/leg/create
-     * @param version 
+     * @endpoint post /tracking/leg/create
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
      * @param startDate the start date (in UTC milliseconds) of the first point
@@ -766,13 +745,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public saveTrackingLeg(version: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public saveTrackingLeg(version: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public saveTrackingLeg(version: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public saveTrackingLeg(version: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling saveTrackingLeg.');
-        }
+    public saveTrackingLeg(startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public saveTrackingLeg(startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public saveTrackingLeg(startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public saveTrackingLeg(startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, steps?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (startLat === null || startLat === undefined) {
             throw new Error('Required parameter startLat was null or undefined when calling saveTrackingLeg.');
         }
@@ -927,7 +903,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/leg/create`;
+        let localVarPath = `/tracking/leg/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -946,8 +922,7 @@ export class TrackingService extends BaseService {
     /**
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @endpoint post /api/{version}/tracking/step/create
-     * @param version 
+     * @endpoint post /tracking/step/create
      * @param legId the leg to add the step to
      * @param startLat the latitude of the first point
      * @param startLng the longitude of the first point
@@ -963,13 +938,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public saveTrackingStep(version: number, legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public saveTrackingStep(version: number, legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public saveTrackingStep(version: number, legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public saveTrackingStep(version: number, legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling saveTrackingStep.');
-        }
+    public saveTrackingStep(legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public saveTrackingStep(legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public saveTrackingStep(legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public saveTrackingStep(legId: number, startLat: number, startLng: number, startDate: number, endLat: number, endLng: number, endDate: number, deviceId?: string, accountId?: number, distance?: number, duration?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (legId === null || legId === undefined) {
             throw new Error('Required parameter legId was null or undefined when calling saveTrackingStep.');
         }
@@ -1118,7 +1090,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/step/create`;
+        let localVarPath = `/tracking/step/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1137,8 +1109,7 @@ export class TrackingService extends BaseService {
     /**
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @endpoint get /api/{version}/tracking/list
-     * @param version 
+     * @endpoint get /tracking/list
      * @param accountId The account id of the user
      * @param keyword Used for LIKE search of first or last name on the acocunt
      * @param startDate Range to begin in UTC milliseconds
@@ -1157,13 +1128,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchAccountsWithTrackingLegs(version: number, accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountMiniResponse>>;
-    public searchAccountsWithTrackingLegs(version: number, accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountMiniResponse>>>;
-    public searchAccountsWithTrackingLegs(version: number, accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountMiniResponse>>>;
-    public searchAccountsWithTrackingLegs(version: number, accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchAccountsWithTrackingLegs.');
-        }
+    public searchAccountsWithTrackingLegs(accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountMiniResponse>>;
+    public searchAccountsWithTrackingLegs(accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountMiniResponse>>>;
+    public searchAccountsWithTrackingLegs(accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountMiniResponse>>>;
+    public searchAccountsWithTrackingLegs(accountId: number, keyword?: string, startDate?: number, endDate?: number, tags?: string, audienceIds?: string, latitude?: number, longitude?: number, range?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchAccountsWithTrackingLegs.');
         }
@@ -1321,7 +1289,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/list`;
+        let localVarPath = `/tracking/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AccountMiniResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1340,8 +1308,7 @@ export class TrackingService extends BaseService {
     /**
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @endpoint get /api/{version}/tracking/searchByBillable
-     * @param version 
+     * @endpoint get /tracking/searchByBillable
      * @param accountId The account id to search tracking for
      * @param appKey The application key
      * @param trackingDeviceId The id of the tracking device
@@ -1354,13 +1321,10 @@ export class TrackingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTrackingLegs(version: number, accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<LegResponse>>;
-    public searchTrackingLegs(version: number, accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<LegResponse>>>;
-    public searchTrackingLegs(version: number, accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<LegResponse>>>;
-    public searchTrackingLegs(version: number, accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTrackingLegs.');
-        }
+    public searchTrackingLegs(accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<LegResponse>>;
+    public searchTrackingLegs(accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<LegResponse>>>;
+    public searchTrackingLegs(accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<LegResponse>>>;
+    public searchTrackingLegs(accountId: number, appKey: string, trackingDeviceId?: string, startDate?: number, endDate?: number, tags?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchTrackingLegs.');
         }
@@ -1467,7 +1431,7 @@ export class TrackingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tracking/searchByBillable`;
+        let localVarPath = `/tracking/searchByBillable`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<LegResponse>>('get', `${basePath}${localVarPath}`,
             {

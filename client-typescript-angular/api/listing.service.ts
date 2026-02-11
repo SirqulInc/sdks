@@ -44,8 +44,7 @@ export class ListingService extends BaseService {
     /**
      * Create Listing
      * Creates a listing.
-     * @endpoint post /api/{version}/listing/create
-     * @param version 
+     * @endpoint post /listing/create
      * @param accountId the user\&#39;s account ID
      * @param name the name of the listing
      * @param filterIds comma separated list of filter IDs
@@ -64,13 +63,10 @@ export class ListingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createListing(version: number, accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
-    public createListing(version: number, accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
-    public createListing(version: number, accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
-    public createListing(version: number, accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createListing.');
-        }
+    public createListing(accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
+    public createListing(accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
+    public createListing(accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
+    public createListing(accountId: number, name: string, filterIds?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createListing.');
         }
@@ -231,7 +227,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/create`;
+        let localVarPath = `/listing/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ListingFullResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -250,21 +246,17 @@ export class ListingService extends BaseService {
     /**
      * Delete Listing
      * Delete a listing.
-     * @endpoint post /api/{version}/listing/delete
-     * @param version 
+     * @endpoint post /listing/delete
      * @param accountId the id of the logged in user
      * @param listingId the id of the listing to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteListing(version: number, accountId: number, listingId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteListing(version: number, accountId: number, listingId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteListing(version: number, accountId: number, listingId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteListing(version: number, accountId: number, listingId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteListing.');
-        }
+    public deleteListing(accountId: number, listingId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteListing(accountId: number, listingId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteListing(accountId: number, listingId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteListing(accountId: number, listingId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteListing.');
         }
@@ -317,7 +309,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/delete`;
+        let localVarPath = `/listing/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -336,20 +328,16 @@ export class ListingService extends BaseService {
     /**
      * Get Listing
      * Get a listing by id.
-     * @endpoint get /api/{version}/listing/get
-     * @param version 
+     * @endpoint get /listing/get
      * @param listingId the id of the listing to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getListing(version: number, listingId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
-    public getListing(version: number, listingId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
-    public getListing(version: number, listingId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
-    public getListing(version: number, listingId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getListing.');
-        }
+    public getListing(listingId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
+    public getListing(listingId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
+    public getListing(listingId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
+    public getListing(listingId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (listingId === null || listingId === undefined) {
             throw new Error('Required parameter listingId was null or undefined when calling getListing.');
         }
@@ -390,7 +378,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/get`;
+        let localVarPath = `/listing/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ListingFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -409,8 +397,7 @@ export class ListingService extends BaseService {
     /**
      * Search Listings
      * Search for event listings from the start time to end time
-     * @endpoint get /api/{version}/listing/search
-     * @param version 
+     * @endpoint get /listing/search
      * @param accountId the account id of the user
      * @param keyword search the event name and description for this keyword
      * @param start the record to begin the return set on
@@ -430,13 +417,10 @@ export class ListingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchListing(version: number, accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ListingResponse>>;
-    public searchListing(version: number, accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ListingResponse>>>;
-    public searchListing(version: number, accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ListingResponse>>>;
-    public searchListing(version: number, accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchListing.');
-        }
+    public searchListing(accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ListingResponse>>;
+    public searchListing(accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ListingResponse>>>;
+    public searchListing(accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ListingResponse>>>;
+    public searchListing(accountId?: number, keyword?: string, start?: number, limit?: number, activeOnly?: boolean, latitude?: number, longitude?: number, startDate?: number, endDate?: number, categoryIds?: string, filterIds?: string, useListingOrderIds?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -600,7 +584,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/search`;
+        let localVarPath = `/listing/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ListingResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -619,8 +603,7 @@ export class ListingService extends BaseService {
     /**
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @endpoint get /api/{version}/listing/summary
-     * @param version 
+     * @endpoint get /listing/summary
      * @param accountId the account id of the user
      * @param startDate the start date to search from
      * @param categoryIds the list of categories to search on
@@ -630,13 +613,10 @@ export class ListingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public summaryListing(version: number, accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ListingGroupResponse>>;
-    public summaryListing(version: number, accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ListingGroupResponse>>>;
-    public summaryListing(version: number, accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ListingGroupResponse>>>;
-    public summaryListing(version: number, accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling summaryListing.');
-        }
+    public summaryListing(accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ListingGroupResponse>>;
+    public summaryListing(accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ListingGroupResponse>>>;
+    public summaryListing(accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ListingGroupResponse>>>;
+    public summaryListing(accountId?: number, startDate?: number, categoryIds?: string, daysToInclude?: number, useListingOrderIds?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -710,7 +690,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/summary`;
+        let localVarPath = `/listing/summary`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ListingGroupResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -729,8 +709,7 @@ export class ListingService extends BaseService {
     /**
      * Update Listing
      * Updates a listing.
-     * @endpoint post /api/{version}/listing/update
-     * @param version 
+     * @endpoint post /listing/update
      * @param accountId the user\&#39;s account ID
      * @param listingId the listing to update
      * @param filterIds comma separated list of filter IDs
@@ -750,13 +729,10 @@ export class ListingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateListing(version: number, accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
-    public updateListing(version: number, accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
-    public updateListing(version: number, accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
-    public updateListing(version: number, accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateListing.');
-        }
+    public updateListing(accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ListingFullResponse>;
+    public updateListing(accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ListingFullResponse>>;
+    public updateListing(accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ListingFullResponse>>;
+    public updateListing(accountId: number, listingId: number, filterIds?: string, name?: string, description?: string, start?: number, end?: number, locationName?: string, locationDescription?: string, isPrivate?: boolean, externalId?: string, externalId2?: string, externalGroupId?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateListing.');
         }
@@ -926,7 +902,7 @@ export class ListingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/listing/update`;
+        let localVarPath = `/listing/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ListingFullResponse>('post', `${basePath}${localVarPath}`,
             {

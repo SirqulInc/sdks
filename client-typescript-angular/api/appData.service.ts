@@ -40,8 +40,7 @@ export class AppDataService extends BaseService {
     /**
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user\&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user\&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @endpoint get /api/{version}/app/get
-     * @param version 
+     * @endpoint get /app/get
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
      * @param deviceId the device id (deviceId or accountId required).
@@ -71,13 +70,10 @@ export class AppDataService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAppData(version: number, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AppResponse>;
-    public getAppData(version: number, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppResponse>>;
-    public getAppData(version: number, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppResponse>>;
-    public getAppData(version: number, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAppData.');
-        }
+    public getAppData(start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AppResponse>;
+    public getAppData(start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppResponse>>;
+    public getAppData(start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppResponse>>;
+    public getAppData(start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (start === null || start === undefined) {
             throw new Error('Required parameter start was null or undefined when calling getAppData.');
         }
@@ -337,7 +333,7 @@ export class AppDataService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/app/get`;
+        let localVarPath = `/app/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AppResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -356,8 +352,7 @@ export class AppDataService extends BaseService {
     /**
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user\&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user\&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @endpoint post /api/{version}/app/post
-     * @param version 
+     * @endpoint post /app/post
      * @param gameType the game to retrieve the data for, use your application key.
      * @param start start the search results at a record.
      * @param limit limit the search results to some number.
@@ -388,13 +383,10 @@ export class AppDataService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public postAppData(version: number, gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AppResponse>;
-    public postAppData(version: number, gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppResponse>>;
-    public postAppData(version: number, gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppResponse>>;
-    public postAppData(version: number, gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling postAppData.');
-        }
+    public postAppData(gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AppResponse>;
+    public postAppData(gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppResponse>>;
+    public postAppData(gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppResponse>>;
+    public postAppData(gameType: string, start: number, limit: number, data: string, deviceId?: string, accountId?: number, includeGameData?: boolean, q?: string, keyword?: string, sortField?: string, descending?: boolean, i?: number, l?: number, gameObjectCount?: boolean, filter?: string, dateCreated?: number, ownerId?: number, missionIds?: string, gameIds?: string, packIds?: string, gameLevelIds?: string, appVersion?: string, includeHigherVersionPacks?: boolean, includeHigherVersionLevels?: boolean, responseGroups?: string, purchaseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (gameType === null || gameType === undefined) {
             throw new Error('Required parameter gameType was null or undefined when calling postAppData.');
         }
@@ -669,7 +661,7 @@ export class AppDataService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/app/post`;
+        let localVarPath = `/app/post`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AppResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -688,8 +680,7 @@ export class AppDataService extends BaseService {
     /**
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @endpoint post /api/{version}/app/regen
-     * @param version 
+     * @endpoint post /app/regen
      * @param accountId the account id of the user
      * @param appKey process a specific application, if null process all apps with caches
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all
@@ -698,13 +689,10 @@ export class AppDataService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public regenAppData(version: number, accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public regenAppData(version: number, accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public regenAppData(version: number, accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public regenAppData(version: number, accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling regenAppData.');
-        }
+    public regenAppData(accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public regenAppData(accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public regenAppData(accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public regenAppData(accountId?: number, appKey?: string, buildVersion?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -769,7 +757,7 @@ export class AppDataService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/app/regen`;
+        let localVarPath = `/app/regen`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

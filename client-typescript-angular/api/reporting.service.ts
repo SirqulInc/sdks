@@ -46,8 +46,7 @@ export class ReportingService extends BaseService {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @endpoint post /api/{version}/report/batch/create
-     * @param version 
+     * @endpoint post /report/batch/create
      * @param accountId The account id of the user for passing account related params
      * @param status the status of the report
      * @param previewLimit the limit on how much you can preview of the batch report
@@ -63,13 +62,10 @@ export class ReportingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createBatch(version: number, accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportBatchResponse>;
-    public createBatch(version: number, accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportBatchResponse>>;
-    public createBatch(version: number, accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportBatchResponse>>;
-    public createBatch(version: number, accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createBatch.');
-        }
+    public createBatch(accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportBatchResponse>;
+    public createBatch(accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportBatchResponse>>;
+    public createBatch(accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportBatchResponse>>;
+    public createBatch(accountId: number, status: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', previewLimit: number, appKey?: string, endpoint?: string, parameters?: string, name?: string, startDate?: number, endDate?: number, description?: string, pageUrl?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createBatch.');
         }
@@ -206,7 +202,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/batch/create`;
+        let localVarPath = `/report/batch/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ReportBatchResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -225,20 +221,16 @@ export class ReportingService extends BaseService {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @endpoint post /api/{version}/report/region/summary/batch
-     * @param version 
+     * @endpoint post /report/region/summary/batch
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRegionLegSummaryBatch(version: number, body?: Array<RegionLegSummary>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportRegionLegSummaryBatchResponse>;
-    public createRegionLegSummaryBatch(version: number, body?: Array<RegionLegSummary>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportRegionLegSummaryBatchResponse>>;
-    public createRegionLegSummaryBatch(version: number, body?: Array<RegionLegSummary>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportRegionLegSummaryBatchResponse>>;
-    public createRegionLegSummaryBatch(version: number, body?: Array<RegionLegSummary>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRegionLegSummaryBatch.');
-        }
+    public createRegionLegSummaryBatch(body?: Array<RegionLegSummary>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportRegionLegSummaryBatchResponse>;
+    public createRegionLegSummaryBatch(body?: Array<RegionLegSummary>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportRegionLegSummaryBatchResponse>>;
+    public createRegionLegSummaryBatch(body?: Array<RegionLegSummary>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportRegionLegSummaryBatchResponse>>;
+    public createRegionLegSummaryBatch(body?: Array<RegionLegSummary>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -273,7 +265,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/region/summary/batch`;
+        let localVarPath = `/report/region/summary/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ReportRegionLegSummaryBatchResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -292,21 +284,17 @@ export class ReportingService extends BaseService {
     /**
      * Delete Offline Report
      * Deletes a batch report.
-     * @endpoint post /api/{version}/report/batch/delete
-     * @param version 
+     * @endpoint post /report/batch/delete
      * @param accountId the id of the account
      * @param batchId the id of the batch to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteBatch(version: number, accountId: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteBatch(version: number, accountId: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteBatch(version: number, accountId: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteBatch(version: number, accountId: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteBatch.');
-        }
+    public deleteBatch(accountId: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteBatch(accountId: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteBatch(accountId: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteBatch(accountId: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteBatch.');
         }
@@ -359,7 +347,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/batch/delete`;
+        let localVarPath = `/report/batch/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -378,8 +366,7 @@ export class ReportingService extends BaseService {
     /**
      * Get Offline Report
      * Checks status of batch report.
-     * @endpoint get /api/{version}/report/batch/get
-     * @param version 
+     * @endpoint get /report/batch/get
      * @param accountId the id of the logged in user
      * @param batchId returned by /report/batch/create
      * @param allResults whether to return all batch results or not
@@ -387,13 +374,10 @@ export class ReportingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getReportBatch(version: number, accountId: number, batchId: number, allResults: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportBatchResponse>;
-    public getReportBatch(version: number, accountId: number, batchId: number, allResults: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportBatchResponse>>;
-    public getReportBatch(version: number, accountId: number, batchId: number, allResults: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportBatchResponse>>;
-    public getReportBatch(version: number, accountId: number, batchId: number, allResults: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getReportBatch.');
-        }
+    public getReportBatch(accountId: number, batchId: number, allResults: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportBatchResponse>;
+    public getReportBatch(accountId: number, batchId: number, allResults: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportBatchResponse>>;
+    public getReportBatch(accountId: number, batchId: number, allResults: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportBatchResponse>>;
+    public getReportBatch(accountId: number, batchId: number, allResults: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getReportBatch.');
         }
@@ -458,7 +442,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/batch/get`;
+        let localVarPath = `/report/batch/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ReportBatchResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -477,8 +461,7 @@ export class ReportingService extends BaseService {
     /**
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users\&#39; behavior as well as trends within your application.
-     * @endpoint post /api/{version}/report/run
-     * @param version 
+     * @endpoint post /report/run
      * @param desc If true then descending order, false is ascending
      * @param accountId The account id of the user for passing account related params
      * @param query The named identifier of the query
@@ -491,13 +474,10 @@ export class ReportingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public runReport(version: number, desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportResponse>;
-    public runReport(version: number, desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportResponse>>;
-    public runReport(version: number, desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportResponse>>;
-    public runReport(version: number, desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling runReport.');
-        }
+    public runReport(desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ReportResponse>;
+    public runReport(desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ReportResponse>>;
+    public runReport(desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ReportResponse>>;
+    public runReport(desc: boolean, accountId?: number, query?: string, parameters?: string, order?: string, start?: number, limit?: number, responseFormat?: 'HTML' | 'XML' | 'JSON' | 'CSV', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (desc === null || desc === undefined) {
             throw new Error('Required parameter desc was null or undefined when calling runReport.');
         }
@@ -601,7 +581,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/run`;
+        let localVarPath = `/report/run`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ReportResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -620,8 +600,7 @@ export class ReportingService extends BaseService {
     /**
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @endpoint get /api/{version}/report/batch/search
-     * @param version 
+     * @endpoint get /report/batch/search
      * @param accountId the id of the account logged in
      * @param start the start of the index and/or pagination
      * @param limit the limit of the index and/or pagination
@@ -635,13 +614,10 @@ export class ReportingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchBatch(version: number, accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ReportBatchResponse>>;
-    public searchBatch(version: number, accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ReportBatchResponse>>>;
-    public searchBatch(version: number, accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ReportBatchResponse>>>;
-    public searchBatch(version: number, accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchBatch.');
-        }
+    public searchBatch(accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ReportBatchResponse>>;
+    public searchBatch(accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ReportBatchResponse>>>;
+    public searchBatch(accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ReportBatchResponse>>>;
+    public searchBatch(accountId: number, start: number, limit: number, names?: string, appKey?: string, status?: 'NEW' | 'ERROR' | 'COMPLETE' | 'PARSE_ERROR' | 'PROCESSING' | 'DUPLICATE' | 'SAVEONLY', globalAppSearch?: boolean, startDate?: number, endDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchBatch.');
         }
@@ -760,7 +736,7 @@ export class ReportingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/report/batch/search`;
+        let localVarPath = `/report/batch/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ReportBatchResponse>>('get', `${basePath}${localVarPath}`,
             {

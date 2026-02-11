@@ -42,8 +42,7 @@ export class OptimizeService extends BaseService {
     /**
      * Get Optimization Result
      * Get the results of the import batch.
-     * @endpoint get /api/{version}/optimize/result/{batchID}
-     * @param version 
+     * @endpoint get /optimize/result/{batchID}
      * @param batchID The batchID for getting the import status of.
      * @param start The start index for pagination
      * @param limit The limit for pagination
@@ -51,13 +50,10 @@ export class OptimizeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getOptimizationResult(version: number, batchID: string, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<{ [key: string]: ShipmentOrder; }>;
-    public getOptimizationResult(version: number, batchID: string, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<{ [key: string]: ShipmentOrder; }>>;
-    public getOptimizationResult(version: number, batchID: string, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<{ [key: string]: ShipmentOrder; }>>;
-    public getOptimizationResult(version: number, batchID: string, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getOptimizationResult.');
-        }
+    public getOptimizationResult(batchID: string, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<{ [key: string]: ShipmentOrder; }>;
+    public getOptimizationResult(batchID: string, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<{ [key: string]: ShipmentOrder; }>>;
+    public getOptimizationResult(batchID: string, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<{ [key: string]: ShipmentOrder; }>>;
+    public getOptimizationResult(batchID: string, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (batchID === null || batchID === undefined) {
             throw new Error('Required parameter batchID was null or undefined when calling getOptimizationResult.');
         }
@@ -113,7 +109,7 @@ export class OptimizeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/optimize/result/${this.configuration.encodeParam({name: "batchID", value: batchID, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/optimize/result/${this.configuration.encodeParam({name: "batchID", value: batchID, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<{ [key: string]: ShipmentOrder; }>('get', `${basePath}${localVarPath}`,
             {
@@ -132,20 +128,16 @@ export class OptimizeService extends BaseService {
     /**
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @endpoint post /api/{version}/optimize/request
-     * @param version 
+     * @endpoint post /optimize/request
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public requestOptimization(version: number, body?: Orders, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ImportStatuses>;
-    public requestOptimization(version: number, body?: Orders, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ImportStatuses>>;
-    public requestOptimization(version: number, body?: Orders, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ImportStatuses>>;
-    public requestOptimization(version: number, body?: Orders, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling requestOptimization.');
-        }
+    public requestOptimization(body?: Orders, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ImportStatuses>;
+    public requestOptimization(body?: Orders, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ImportStatuses>>;
+    public requestOptimization(body?: Orders, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ImportStatuses>>;
+    public requestOptimization(body?: Orders, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -180,7 +172,7 @@ export class OptimizeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/optimize/request`;
+        let localVarPath = `/optimize/request`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ImportStatuses>('post', `${basePath}${localVarPath}`,
             {

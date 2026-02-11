@@ -44,8 +44,7 @@ export class FavoriteService extends BaseService {
     /**
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @endpoint post /api/{version}/favorite/create
-     * @param version 
+     * @endpoint post /favorite/create
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
      * @param deviceId The unique ID given by the device (deviceId or accountId required)
@@ -56,13 +55,10 @@ export class FavoriteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addFavorite(version: number, favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedResponse>;
-    public addFavorite(version: number, favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedResponse>>;
-    public addFavorite(version: number, favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedResponse>>;
-    public addFavorite(version: number, favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addFavorite.');
-        }
+    public addFavorite(favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedResponse>;
+    public addFavorite(favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedResponse>>;
+    public addFavorite(favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedResponse>>;
+    public addFavorite(favoritableId: number, favoritableType: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (favoritableId === null || favoritableId === undefined) {
             throw new Error('Required parameter favoritableId was null or undefined when calling addFavorite.');
         }
@@ -151,7 +147,7 @@ export class FavoriteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/favorite/create`;
+        let localVarPath = `/favorite/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WrappedResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -170,8 +166,7 @@ export class FavoriteService extends BaseService {
     /**
      * Delete Favorite
      * Removes a favorited item from the user\&#39;s favorites list.
-     * @endpoint post /api/{version}/favorite/delete
-     * @param version 
+     * @endpoint post /favorite/delete
      * @param deviceId The unique ID given by the device (deviceId or accountId required)
      * @param accountId The account ID of the user (deviceId or accountId required)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead)
@@ -181,13 +176,10 @@ export class FavoriteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteFavorite(version: number, deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteFavorite(version: number, deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteFavorite(version: number, deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteFavorite(version: number, deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteFavorite.');
-        }
+    public deleteFavorite(deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteFavorite(deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteFavorite(deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteFavorite(deviceId?: string, accountId?: number, favoriteId?: number, favoritableId?: number, favoritableType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -261,7 +253,7 @@ export class FavoriteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/favorite/delete`;
+        let localVarPath = `/favorite/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -280,8 +272,7 @@ export class FavoriteService extends BaseService {
     /**
      * Get Favorite
      * Retrieves a single favorited item.
-     * @endpoint get /api/{version}/favorite/get
-     * @param version 
+     * @endpoint get /favorite/get
      * @param favoriteId The ID of the favorite reference record
      * @param deviceId The unique ID given by the device (deviceId or accountId required)
      * @param accountId The account ID of the user (deviceId or accountId required)
@@ -291,13 +282,10 @@ export class FavoriteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getFavorite(version: number, favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedResponse>;
-    public getFavorite(version: number, favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedResponse>>;
-    public getFavorite(version: number, favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedResponse>>;
-    public getFavorite(version: number, favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getFavorite.');
-        }
+    public getFavorite(favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedResponse>;
+    public getFavorite(favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedResponse>>;
+    public getFavorite(favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedResponse>>;
+    public getFavorite(favoriteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (favoriteId === null || favoriteId === undefined) {
             throw new Error('Required parameter favoriteId was null or undefined when calling getFavorite.');
         }
@@ -374,7 +362,7 @@ export class FavoriteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/favorite/get`;
+        let localVarPath = `/favorite/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WrappedResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -393,8 +381,7 @@ export class FavoriteService extends BaseService {
     /**
      * Search Favorites
      * Searches on the user\&#39;s favorites.
-     * @endpoint get /api/{version}/favorite/search
-     * @param version 
+     * @endpoint get /favorite/search
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
      * @param descending Determines whether the results are in descending order
@@ -413,13 +400,10 @@ export class FavoriteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchFavorites(version: number, favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
-    public searchFavorites(version: number, favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
-    public searchFavorites(version: number, favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
-    public searchFavorites(version: number, favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchFavorites.');
-        }
+    public searchFavorites(favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
+    public searchFavorites(favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
+    public searchFavorites(favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
+    public searchFavorites(favoritableType: string, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'DISPLAY', descending: boolean, start: number, limit: number, activeOnly: boolean, returnFullResponse: boolean, deviceId?: string, accountId?: number, connectionAccountId?: number, secondaryType?: string, keyword?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (favoritableType === null || favoritableType === undefined) {
             throw new Error('Required parameter favoritableType was null or undefined when calling searchFavorites.');
         }
@@ -595,7 +579,7 @@ export class FavoriteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/favorite/search`;
+        let localVarPath = `/favorite/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SearchResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -614,8 +598,7 @@ export class FavoriteService extends BaseService {
     /**
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @endpoint get /api/{version}/favorite/whois
-     * @param version 
+     * @endpoint get /favorite/whois
      * @param favoritableId The ID of the favoritableType to search on
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param start The start index for pagination
@@ -629,13 +612,10 @@ export class FavoriteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public whoHasFavorited(version: number, favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountResponse>>;
-    public whoHasFavorited(version: number, favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountResponse>>>;
-    public whoHasFavorited(version: number, favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountResponse>>>;
-    public whoHasFavorited(version: number, favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling whoHasFavorited.');
-        }
+    public whoHasFavorited(favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountResponse>>;
+    public whoHasFavorited(favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountResponse>>>;
+    public whoHasFavorited(favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountResponse>>>;
+    public whoHasFavorited(favoritableId: number, favoritableType: string, start: number, limit: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (favoritableId === null || favoritableId === undefined) {
             throw new Error('Required parameter favoritableId was null or undefined when calling whoHasFavorited.');
         }
@@ -757,7 +737,7 @@ export class FavoriteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/favorite/whois`;
+        let localVarPath = `/favorite/whois`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AccountResponse>>('get', `${basePath}${localVarPath}`,
             {

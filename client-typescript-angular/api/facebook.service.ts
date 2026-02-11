@@ -40,8 +40,7 @@ export class FacebookService extends BaseService {
     /**
      * Get Facebook Token
      * Gets a user\&#39;s Facebook token.
-     * @endpoint get /api/{version}/facebook/getfbtoken
-     * @param version 
+     * @endpoint get /facebook/getfbtoken
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param latitude used to update the user\&#39;s current location
@@ -50,13 +49,10 @@ export class FacebookService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getToken(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TokenResponse>;
-    public getToken(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TokenResponse>>;
-    public getToken(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TokenResponse>>;
-    public getToken(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getToken.');
-        }
+    public getToken(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TokenResponse>;
+    public getToken(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TokenResponse>>;
+    public getToken(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TokenResponse>>;
+    public getToken(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -121,7 +117,7 @@ export class FacebookService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/facebook/getfbtoken`;
+        let localVarPath = `/facebook/getfbtoken`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TokenResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -140,8 +136,7 @@ export class FacebookService extends BaseService {
     /**
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @endpoint post /api/{version}/facebook/graph
-     * @param version 
+     * @endpoint post /facebook/graph
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -156,13 +151,10 @@ export class FacebookService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public graphInterface(version: number, event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public graphInterface(version: number, event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public graphInterface(version: number, event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public graphInterface(version: number, event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling graphInterface.');
-        }
+    public graphInterface(event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public graphInterface(event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public graphInterface(event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public graphInterface(event: string, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, assetId?: number, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (event === null || event === undefined) {
             throw new Error('Required parameter event was null or undefined when calling graphInterface.');
         }
@@ -284,7 +276,7 @@ export class FacebookService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/facebook/graph`;
+        let localVarPath = `/facebook/graph`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

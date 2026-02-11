@@ -40,8 +40,7 @@ export class WalletService extends BaseService {
     /**
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @endpoint post /api/{version}/wallet/create
-     * @param version 
+     * @endpoint post /wallet/create
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -57,13 +56,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
-    public createOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
-    public createOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
-    public createOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOfferTransaction.');
-        }
+    public createOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
+    public createOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
+    public createOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
+    public createOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, status?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -191,7 +187,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/create`;
+        let localVarPath = `/wallet/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OfferTransactionResponse>>('post', `${basePath}${localVarPath}`,
             {
@@ -210,8 +206,7 @@ export class WalletService extends BaseService {
     /**
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @endpoint post /api/{version}/wallet/delete
-     * @param version 
+     * @endpoint post /wallet/delete
      * @param transactionId The offer transaction id to remove
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -219,13 +214,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteOfferTransaction.');
-        }
+    public deleteOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (transactionId === null || transactionId === undefined) {
             throw new Error('Required parameter transactionId was null or undefined when calling deleteOfferTransaction.');
         }
@@ -284,7 +276,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/delete`;
+        let localVarPath = `/wallet/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -302,8 +294,7 @@ export class WalletService extends BaseService {
 
     /**
      * Get Wallet Offer
-     * @endpoint get /api/{version}/wallet/get
-     * @param version 
+     * @endpoint get /wallet/get
      * @param transactionId The offer transaction id to get details of
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -315,13 +306,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionResponse>;
-    public getOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionResponse>>;
-    public getOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionResponse>>;
-    public getOfferTransaction(version: number, transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getOfferTransaction.');
-        }
+    public getOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionResponse>;
+    public getOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionResponse>>;
+    public getOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionResponse>>;
+    public getOfferTransaction(transactionId: number, deviceId?: string, accountId?: number, includeMission?: boolean, latitude?: number, longitude?: number, returnFullResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (transactionId === null || transactionId === undefined) {
             throw new Error('Required parameter transactionId was null or undefined when calling getOfferTransaction.');
         }
@@ -416,7 +404,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/get`;
+        let localVarPath = `/wallet/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferTransactionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -435,8 +423,7 @@ export class WalletService extends BaseService {
     /**
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @endpoint post /api/{version}/wallet/preview
-     * @param version 
+     * @endpoint post /wallet/preview
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -451,13 +438,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public previewOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
-    public previewOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
-    public previewOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
-    public previewOfferTransaction(version: number, deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling previewOfferTransaction.');
-        }
+    public previewOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
+    public previewOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
+    public previewOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
+    public previewOfferTransaction(deviceId?: string, accountId?: number, offerId?: number, offerLocationId?: number, offerCart?: string, promoCode?: string, currencyType?: string, usePoints?: boolean, metaData?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -576,7 +560,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/preview`;
+        let localVarPath = `/wallet/preview`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OfferTransactionResponse>>('post', `${basePath}${localVarPath}`,
             {
@@ -595,8 +579,7 @@ export class WalletService extends BaseService {
     /**
      * Search Wallet Offers
      * Search on active offers currently in the user\&#39;s wallet, or past offers the user has already redeemed.
-     * @endpoint get /api/{version}/wallet/search
-     * @param version 
+     * @endpoint get /wallet/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param keyword The keyword to search for
@@ -642,13 +625,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchOfferTransactions(version: number, deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
-    public searchOfferTransactions(version: number, deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
-    public searchOfferTransactions(version: number, deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
-    public searchOfferTransactions(version: number, deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchOfferTransactions.');
-        }
+    public searchOfferTransactions(deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionResponse>>;
+    public searchOfferTransactions(deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionResponse>>>;
+    public searchOfferTransactions(deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionResponse>>>;
+    public searchOfferTransactions(deviceId?: string, accountId?: number, keyword?: string, retailerId?: number, retailerIds?: string, retailerLocationId?: number, retailerLocationIds?: string, excludeRetailerLocationIds?: string, offerId?: number, offerIds?: string, offerLocationId?: number, offerLocationIds?: string, offerType?: 'VOUCHER' | 'COUPON' | 'PRODUCT' | 'MEDIA' | 'EVENT' | 'DEVICE', offerTypes?: string, specialOfferType?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, redeemableStartDate?: number, redeemableEndDate?: number, filterByParentOffer?: boolean, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, redeemed?: boolean, statuses?: string, reservationsOnly?: boolean, activeOnly?: boolean, returnFullResponse?: boolean, recurringStartedSince?: number, recurringStartedBefore?: number, recurringExpirationSince?: number, recurringExpirationBefore?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1046,7 +1026,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/search`;
+        let localVarPath = `/wallet/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OfferTransactionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1065,8 +1045,7 @@ export class WalletService extends BaseService {
     /**
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @endpoint post /api/{version}/wallet/update
-     * @param version 
+     * @endpoint post /wallet/update
      * @param transactionId The offer transaction id to remove
      * @param status The status value to change to (0 or 1)
      * @param deviceId The device id (deviceId or accountId required)
@@ -1084,13 +1063,10 @@ export class WalletService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateOfferTransaction(version: number, transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionResponse>;
-    public updateOfferTransaction(version: number, transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionResponse>>;
-    public updateOfferTransaction(version: number, transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionResponse>>;
-    public updateOfferTransaction(version: number, transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateOfferTransaction.');
-        }
+    public updateOfferTransaction(transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionResponse>;
+    public updateOfferTransaction(transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionResponse>>;
+    public updateOfferTransaction(transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionResponse>>;
+    public updateOfferTransaction(transactionId: number, status: number, deviceId?: string, accountId?: number, offerLocationId?: number, currencyType?: string, usePoints?: boolean, appKey?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, exceptionMembershipOfferIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (transactionId === null || transactionId === undefined) {
             throw new Error('Required parameter transactionId was null or undefined when calling updateOfferTransaction.');
         }
@@ -1242,7 +1218,7 @@ export class WalletService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/wallet/update`;
+        let localVarPath = `/wallet/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferTransactionResponse>('post', `${basePath}${localVarPath}`,
             {

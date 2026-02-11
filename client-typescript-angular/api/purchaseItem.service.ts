@@ -42,8 +42,7 @@ export class PurchaseItemService extends BaseService {
     /**
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @endpoint post /api/{version}/purchase/create
-     * @param version 
+     * @endpoint post /purchase/create
      * @param appKey The application key that the purchase can be used in
      * @param name The name of the purchase item
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -68,13 +67,10 @@ export class PurchaseItemService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createPurchaseItem(version: number, appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
-    public createPurchaseItem(version: number, appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
-    public createPurchaseItem(version: number, appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
-    public createPurchaseItem(version: number, appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createPurchaseItem.');
-        }
+    public createPurchaseItem(appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
+    public createPurchaseItem(appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
+    public createPurchaseItem(appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
+    public createPurchaseItem(appKey: string, name: string, purchaseType: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', deviceId?: string, accountId?: number, description?: string, tickets?: number, price?: number, purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createPurchaseItem.');
         }
@@ -292,7 +288,7 @@ export class PurchaseItemService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/create`;
+        let localVarPath = `/purchase/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PurchaseItemFullResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -311,8 +307,7 @@ export class PurchaseItemService extends BaseService {
     /**
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @endpoint post /api/{version}/purchase/delete
-     * @param version 
+     * @endpoint post /purchase/delete
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -320,13 +315,10 @@ export class PurchaseItemService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deletePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deletePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deletePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deletePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deletePurchaseItem.');
-        }
+    public deletePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deletePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deletePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deletePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (purchaseItemId === null || purchaseItemId === undefined) {
             throw new Error('Required parameter purchaseItemId was null or undefined when calling deletePurchaseItem.');
         }
@@ -385,7 +377,7 @@ export class PurchaseItemService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/delete`;
+        let localVarPath = `/purchase/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -404,8 +396,7 @@ export class PurchaseItemService extends BaseService {
     /**
      * Get Purchase
      * Get detailed information about a purchase item
-     * @endpoint get /api/{version}/purchase/get
-     * @param version 
+     * @endpoint get /purchase/get
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -413,13 +404,10 @@ export class PurchaseItemService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
-    public getPurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
-    public getPurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
-    public getPurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPurchaseItem.');
-        }
+    public getPurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
+    public getPurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
+    public getPurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
+    public getPurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (purchaseItemId === null || purchaseItemId === undefined) {
             throw new Error('Required parameter purchaseItemId was null or undefined when calling getPurchaseItem.');
         }
@@ -478,7 +466,7 @@ export class PurchaseItemService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/get`;
+        let localVarPath = `/purchase/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PurchaseItemFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -497,8 +485,7 @@ export class PurchaseItemService extends BaseService {
     /**
      * Search Purchases
      * Search for purchasable items from the system
-     * @endpoint get /api/{version}/purchase/search
-     * @param version 
+     * @endpoint get /purchase/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param appKey The application key to filter results by application
@@ -515,13 +502,10 @@ export class PurchaseItemService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPurchaseItems(version: number, deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PurchaseItemResponse>>;
-    public searchPurchaseItems(version: number, deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PurchaseItemResponse>>>;
-    public searchPurchaseItems(version: number, deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PurchaseItemResponse>>>;
-    public searchPurchaseItems(version: number, deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPurchaseItems.');
-        }
+    public searchPurchaseItems(deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PurchaseItemResponse>>;
+    public searchPurchaseItems(deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PurchaseItemResponse>>>;
+    public searchPurchaseItems(deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PurchaseItemResponse>>>;
+    public searchPurchaseItems(deviceId?: string, accountId?: number, appKey?: string, filterByBillable?: boolean, purchaseType?: string, serviceAction?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'TICKETS' | 'PRICE' | 'PURCHASE_TYPE' | 'PURCHASE_CODE' | 'PURCHASE_LIMIT' | 'SERIVCE_ACTION' | 'GIFTABLE' | 'ASSETABLE' | 'APPLICATION_ID' | 'APPLICATION_NAME', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -658,7 +642,7 @@ export class PurchaseItemService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/search`;
+        let localVarPath = `/purchase/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<PurchaseItemResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -677,8 +661,7 @@ export class PurchaseItemService extends BaseService {
     /**
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @endpoint post /api/{version}/purchase/update
-     * @param version 
+     * @endpoint post /purchase/update
      * @param purchaseItemId The purchase item id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -704,13 +687,10 @@ export class PurchaseItemService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updatePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
-    public updatePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
-    public updatePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
-    public updatePurchaseItem(version: number, purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updatePurchaseItem.');
-        }
+    public updatePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemFullResponse>;
+    public updatePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemFullResponse>>;
+    public updatePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemFullResponse>>;
+    public updatePurchaseItem(purchaseItemId: number, deviceId?: string, accountId?: number, name?: string, description?: string, tickets?: number, price?: number, purchaseType?: 'SIRQUL' | 'IOS' | 'GOOGLE' | 'AMAZON' | 'MAC' | 'WP8' | 'FREE', purchaseCode?: string, secretKey?: string, purchaseLimit?: number, serviceAction?: 'DAY_PREMIUM' | 'WEEK_PREMIUM' | 'MONTH_PREMIUM' | 'YEAR_PREMIUM' | 'LIFETIME_PREMIUM' | 'ADD_TICKET' | 'ADD_GIFT' | 'ADD_POINTS', coverAssetId?: number, promoAssetId?: number, giftable?: boolean, assetable?: boolean, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, offerLocationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (purchaseItemId === null || purchaseItemId === undefined) {
             throw new Error('Required parameter purchaseItemId was null or undefined when calling updatePurchaseItem.');
         }
@@ -931,7 +911,7 @@ export class PurchaseItemService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/update`;
+        let localVarPath = `/purchase/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PurchaseItemFullResponse>('post', `${basePath}${localVarPath}`,
             {

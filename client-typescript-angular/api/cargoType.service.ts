@@ -38,20 +38,16 @@ export class CargoTypeService extends BaseService {
     /**
      * Create Cargo Type
      * Create new cargo type
-     * @endpoint post /api/{version}/cargo/type
-     * @param version 
+     * @endpoint post /cargo/type
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createCargoType(version: number, body?: CargoType, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
-    public createCargoType(version: number, body?: CargoType, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
-    public createCargoType(version: number, body?: CargoType, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
-    public createCargoType(version: number, body?: CargoType, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createCargoType.');
-        }
+    public createCargoType(body?: CargoType, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
+    public createCargoType(body?: CargoType, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
+    public createCargoType(body?: CargoType, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
+    public createCargoType(body?: CargoType, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -86,7 +82,7 @@ export class CargoTypeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/cargo/type`;
+        let localVarPath = `/cargo/type`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CargoType>('post', `${basePath}${localVarPath}`,
             {
@@ -105,20 +101,16 @@ export class CargoTypeService extends BaseService {
     /**
      * Delete Cargo Type
      * Delete a type of cargo
-     * @endpoint delete /api/{version}/cargo/type/{cargoTypeId}
-     * @param version 
+     * @endpoint delete /cargo/type/{cargoTypeId}
      * @param cargoTypeId the ID of the cargo type
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteCargoType(version: number, cargoTypeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteCargoType(version: number, cargoTypeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteCargoType(version: number, cargoTypeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteCargoType(version: number, cargoTypeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteCargoType.');
-        }
+    public deleteCargoType(cargoTypeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteCargoType(cargoTypeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteCargoType(cargoTypeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteCargoType(cargoTypeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (cargoTypeId === null || cargoTypeId === undefined) {
             throw new Error('Required parameter cargoTypeId was null or undefined when calling deleteCargoType.');
         }
@@ -147,7 +139,7 @@ export class CargoTypeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -165,20 +157,16 @@ export class CargoTypeService extends BaseService {
     /**
      * Get Cargo Type
      * Get an existing cargo type
-     * @endpoint get /api/{version}/cargo/type/{cargoTypeId}
-     * @param version 
+     * @endpoint get /cargo/type/{cargoTypeId}
      * @param cargoTypeId the cargo type ID
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCargoType(version: number, cargoTypeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
-    public getCargoType(version: number, cargoTypeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
-    public getCargoType(version: number, cargoTypeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
-    public getCargoType(version: number, cargoTypeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCargoType.');
-        }
+    public getCargoType(cargoTypeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
+    public getCargoType(cargoTypeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
+    public getCargoType(cargoTypeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
+    public getCargoType(cargoTypeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (cargoTypeId === null || cargoTypeId === undefined) {
             throw new Error('Required parameter cargoTypeId was null or undefined when calling getCargoType.');
         }
@@ -208,7 +196,7 @@ export class CargoTypeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CargoType>('get', `${basePath}${localVarPath}`,
             {
@@ -226,8 +214,7 @@ export class CargoTypeService extends BaseService {
     /**
      * Search Cargo Type
      * Search for types of cargo
-     * @endpoint get /api/{version}/cargo/type
-     * @param version 
+     * @endpoint get /cargo/type
      * @param sortField the sort field to use for the cargo type
      * @param descending if the cargo type should be should be in descending order
      * @param start the start of the search
@@ -239,13 +226,10 @@ export class CargoTypeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchCargoTypes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CargoType>>;
-    public searchCargoTypes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CargoType>>>;
-    public searchCargoTypes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CargoType>>>;
-    public searchCargoTypes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchCargoTypes.');
-        }
+    public searchCargoTypes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CargoType>>;
+    public searchCargoTypes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CargoType>>>;
+    public searchCargoTypes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CargoType>>>;
+    public searchCargoTypes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, retailerId?: number, hubId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchCargoTypes.');
         }
@@ -352,7 +336,7 @@ export class CargoTypeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/cargo/type`;
+        let localVarPath = `/cargo/type`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<CargoType>>('get', `${basePath}${localVarPath}`,
             {
@@ -371,21 +355,17 @@ export class CargoTypeService extends BaseService {
     /**
      * Update Cargo Type
      * Update an existing cargo type
-     * @endpoint put /api/{version}/cargo/type/{cargoTypeId}
-     * @param version 
+     * @endpoint put /cargo/type/{cargoTypeId}
      * @param cargoTypeId the ID of the cargo type
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateCargoType(version: number, cargoTypeId: number, body?: CargoType, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
-    public updateCargoType(version: number, cargoTypeId: number, body?: CargoType, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
-    public updateCargoType(version: number, cargoTypeId: number, body?: CargoType, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
-    public updateCargoType(version: number, cargoTypeId: number, body?: CargoType, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateCargoType.');
-        }
+    public updateCargoType(cargoTypeId: number, body?: CargoType, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CargoType>;
+    public updateCargoType(cargoTypeId: number, body?: CargoType, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CargoType>>;
+    public updateCargoType(cargoTypeId: number, body?: CargoType, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CargoType>>;
+    public updateCargoType(cargoTypeId: number, body?: CargoType, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (cargoTypeId === null || cargoTypeId === undefined) {
             throw new Error('Required parameter cargoTypeId was null or undefined when calling updateCargoType.');
         }
@@ -423,7 +403,7 @@ export class CargoTypeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/cargo/type/${this.configuration.encodeParam({name: "cargoTypeId", value: cargoTypeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CargoType>('put', `${basePath}${localVarPath}`,
             {

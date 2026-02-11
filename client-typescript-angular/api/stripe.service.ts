@@ -38,21 +38,17 @@ export class StripeService extends BaseService {
     /**
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @endpoint post /api/{version}/stripe/checkout/session/create
-     * @param version 
+     * @endpoint post /stripe/checkout/session/create
      * @param appKey Sirqul Application Key
      * @param stripeParameters Stripe Parameters
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createStripeCheckoutSession(version: number, appKey: string, stripeParameters: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public createStripeCheckoutSession(version: number, appKey: string, stripeParameters: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public createStripeCheckoutSession(version: number, appKey: string, stripeParameters: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public createStripeCheckoutSession(version: number, appKey: string, stripeParameters: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createStripeCheckoutSession.');
-        }
+    public createStripeCheckoutSession(appKey: string, stripeParameters: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public createStripeCheckoutSession(appKey: string, stripeParameters: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public createStripeCheckoutSession(appKey: string, stripeParameters: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public createStripeCheckoutSession(appKey: string, stripeParameters: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createStripeCheckoutSession.');
         }
@@ -105,7 +101,7 @@ export class StripeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/stripe/checkout/session/create`;
+        let localVarPath = `/stripe/checkout/session/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

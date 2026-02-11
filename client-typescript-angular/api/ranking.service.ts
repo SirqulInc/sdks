@@ -40,8 +40,7 @@ export class RankingService extends BaseService {
     /**
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @endpoint get /api/{version}/ranking/historical/search
-     * @param version 
+     * @endpoint get /ranking/historical/search
      * @param appKey the application key for filtering results by application
      * @param rankType the rank type to return
      * @param startDate timestamp in milliseconds to filter results with
@@ -56,13 +55,10 @@ export class RankingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getHistoricalRankings(version: number, appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RankFullResponse>;
-    public getHistoricalRankings(version: number, appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RankFullResponse>>;
-    public getHistoricalRankings(version: number, appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RankFullResponse>>;
-    public getHistoricalRankings(version: number, appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getHistoricalRankings.');
-        }
+    public getHistoricalRankings(appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RankFullResponse>;
+    public getHistoricalRankings(appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RankFullResponse>>;
+    public getHistoricalRankings(appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RankFullResponse>>;
+    public getHistoricalRankings(appKey: string, rankType: string, startDate: number, endDate: number, deviceId?: string, accountId?: number, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling getHistoricalRankings.');
         }
@@ -193,7 +189,7 @@ export class RankingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ranking/historical/search`;
+        let localVarPath = `/ranking/historical/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RankFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -212,8 +208,7 @@ export class RankingService extends BaseService {
     /**
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @endpoint get /api/{version}/ranking/search
-     * @param version 
+     * @endpoint get /ranking/search
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param gameType This parameter is deprecated.
@@ -236,13 +231,10 @@ export class RankingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRankings(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RankFullResponse>;
-    public getRankings(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RankFullResponse>>;
-    public getRankings(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RankFullResponse>>;
-    public getRankings(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRankings.');
-        }
+    public getRankings(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RankFullResponse>;
+    public getRankings(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RankFullResponse>>;
+    public getRankings(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RankFullResponse>>;
+    public getRankings(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, q?: string, keyword?: string, rankType?: string, leaderboardMode?: string, withinAccountIds?: string, returnUserRank?: boolean, albumId?: number, audienceId?: number, sortField?: string, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -433,7 +425,7 @@ export class RankingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ranking/search`;
+        let localVarPath = `/ranking/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RankFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -452,8 +444,7 @@ export class RankingService extends BaseService {
     /**
      * Get Personal Rankings
      * Returns the user\&#39;s ranks for one or more rank types and modes.
-     * @endpoint post /api/{version}/ranking/personal/ranks
-     * @param version 
+     * @endpoint post /ranking/personal/ranks
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user
      * @param appKey the application key for filtering results by application (required)
@@ -469,13 +460,10 @@ export class RankingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUserRank(version: number, deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public getUserRank(version: number, deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public getUserRank(version: number, deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public getUserRank(version: number, deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUserRank.');
-        }
+    public getUserRank(deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public getUserRank(deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public getUserRank(deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public getUserRank(deviceId?: string, accountId?: number, appKey?: string, rankType?: string, returnUserRank?: boolean, leaderboardMode?: string, sortField?: string, keyword?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -603,7 +591,7 @@ export class RankingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ranking/personal/ranks`;
+        let localVarPath = `/ranking/personal/ranks`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<object>('post', `${basePath}${localVarPath}`,
             {
@@ -622,8 +610,7 @@ export class RankingService extends BaseService {
     /**
      * Override User Rank
      * Allows an admin of an application to override a user\&#39;s scores for a leaderboard.
-     * @endpoint post /api/{version}/ranking/override
-     * @param version 
+     * @endpoint post /ranking/override
      * @param accountId the logged in user\&#39;s account id (must have permissions to manage data for the application)
      * @param ownerAccountId the end user\&#39;s account id to override
      * @param appKey the application key the leaderboard is for
@@ -650,13 +637,10 @@ export class RankingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public overrideUserRank(version: number, accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public overrideUserRank(version: number, accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public overrideUserRank(version: number, accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public overrideUserRank(version: number, accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling overrideUserRank.');
-        }
+    public overrideUserRank(accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public overrideUserRank(accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public overrideUserRank(accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public overrideUserRank(accountId: number, ownerAccountId: number, appKey: string, rankType: string, totalScore?: number, totalCount?: number, totalTime?: number, dailyScore?: number, dailyCount?: number, dailyTime?: number, weeklyScore?: number, weeklyCount?: number, weeklyTime?: number, monthlyScore?: number, monthlyCount?: number, monthlyTime?: number, topScore?: number, lowestScore?: number, streakCount?: number, streakBestCount?: number, startDate?: number, endDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling overrideUserRank.');
         }
@@ -895,7 +879,7 @@ export class RankingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ranking/override`;
+        let localVarPath = `/ranking/override`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -914,8 +898,7 @@ export class RankingService extends BaseService {
     /**
      * Update Ranking
      * Update the rank value 
-     * @endpoint post /api/{version}/ranking/update
-     * @param version 
+     * @endpoint post /ranking/update
      * @param accountId the account id of the user
      * @param appKey the application key for filtering results by application
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -930,13 +913,10 @@ export class RankingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRankings(version: number, accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateRankings(version: number, accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateRankings(version: number, accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateRankings(version: number, accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRankings.');
-        }
+    public updateRankings(accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateRankings(accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateRankings(accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateRankings(accountId: number, appKey: string, rankType: string, increment?: number, timeIncrement?: number, tag?: string, startDate?: number, endDate?: number, updateGlobal?: boolean, createLeaderboard?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateRankings.');
         }
@@ -1064,7 +1044,7 @@ export class RankingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ranking/update`;
+        let localVarPath = `/ranking/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -40,8 +40,7 @@ export class PreviewPersonaService extends BaseService {
     /**
      * Create Persona
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @endpoint post /api/{version}/persona/create
-     * @param version 
+     * @endpoint post /persona/create
      * @param accountId the account ID of the user
      * @param title the title of the persona
      * @param previewAccounts the accounts that are able to preview from this persona
@@ -55,13 +54,10 @@ export class PreviewPersonaService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createPersona(version: number, accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
-    public createPersona(version: number, accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
-    public createPersona(version: number, accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
-    public createPersona(version: number, accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createPersona.');
-        }
+    public createPersona(accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
+    public createPersona(accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
+    public createPersona(accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
+    public createPersona(accountId: number, title: string, previewAccounts?: string, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createPersona.');
         }
@@ -177,7 +173,7 @@ export class PreviewPersonaService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/persona/create`;
+        let localVarPath = `/persona/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PreviewPersonaResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -196,21 +192,17 @@ export class PreviewPersonaService extends BaseService {
     /**
      * Delete Persona
      * Mark the persona for deletion.
-     * @endpoint post /api/{version}/persona/delete
-     * @param version 
+     * @endpoint post /persona/delete
      * @param accountId the account id of the user
      * @param personaId the id of the persona to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deletePersona(version: number, accountId: number, personaId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deletePersona(version: number, accountId: number, personaId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deletePersona(version: number, accountId: number, personaId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deletePersona(version: number, accountId: number, personaId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deletePersona.');
-        }
+    public deletePersona(accountId: number, personaId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deletePersona(accountId: number, personaId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deletePersona(accountId: number, personaId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deletePersona(accountId: number, personaId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deletePersona.');
         }
@@ -263,7 +255,7 @@ export class PreviewPersonaService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/persona/delete`;
+        let localVarPath = `/persona/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -282,21 +274,17 @@ export class PreviewPersonaService extends BaseService {
     /**
      * Get Persona
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @endpoint get /api/{version}/persona/get
-     * @param version 
+     * @endpoint get /persona/get
      * @param accountId the account ID of the user
      * @param personaId the persona ID of the persona
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPersonaList(version: number, accountId: number, personaId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
-    public getPersonaList(version: number, accountId: number, personaId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
-    public getPersonaList(version: number, accountId: number, personaId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
-    public getPersonaList(version: number, accountId: number, personaId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPersonaList.');
-        }
+    public getPersonaList(accountId: number, personaId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
+    public getPersonaList(accountId: number, personaId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
+    public getPersonaList(accountId: number, personaId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
+    public getPersonaList(accountId: number, personaId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPersonaList.');
         }
@@ -349,7 +337,7 @@ export class PreviewPersonaService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/persona/get`;
+        let localVarPath = `/persona/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PreviewPersonaResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -368,8 +356,7 @@ export class PreviewPersonaService extends BaseService {
     /**
      * Search Personas
      * Search for persona that the account owns by the given account ID.
-     * @endpoint get /api/{version}/persona/search
-     * @param version 
+     * @endpoint get /persona/search
      * @param accountId the account ID of the user
      * @param start the start index for pagination
      * @param limit the limit for pagination (There is a hard limit of 100)
@@ -377,13 +364,10 @@ export class PreviewPersonaService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPersona(version: number, accountId: number, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
-    public searchPersona(version: number, accountId: number, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
-    public searchPersona(version: number, accountId: number, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
-    public searchPersona(version: number, accountId: number, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPersona.');
-        }
+    public searchPersona(accountId: number, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
+    public searchPersona(accountId: number, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
+    public searchPersona(accountId: number, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
+    public searchPersona(accountId: number, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchPersona.');
         }
@@ -448,7 +432,7 @@ export class PreviewPersonaService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/persona/search`;
+        let localVarPath = `/persona/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PreviewPersonaResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -467,8 +451,7 @@ export class PreviewPersonaService extends BaseService {
     /**
      * Update Persona
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @endpoint post /api/{version}/persona/update
-     * @param version 
+     * @endpoint post /persona/update
      * @param accountId the account ID of the user
      * @param personaId the persona ID of the persona to update
      * @param title the title of the persona
@@ -484,13 +467,10 @@ export class PreviewPersonaService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updatePersona(version: number, accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
-    public updatePersona(version: number, accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
-    public updatePersona(version: number, accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
-    public updatePersona(version: number, accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updatePersona.');
-        }
+    public updatePersona(accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PreviewPersonaResponse>;
+    public updatePersona(accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PreviewPersonaResponse>>;
+    public updatePersona(accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PreviewPersonaResponse>>;
+    public updatePersona(accountId: number, personaId: number, title?: string, previewAccounts?: string, active?: boolean, date?: number, age?: number, gender?: string, gameExperienceLevel?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updatePersona.');
         }
@@ -624,7 +604,7 @@ export class PreviewPersonaService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/persona/update`;
+        let localVarPath = `/persona/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PreviewPersonaResponse>('post', `${basePath}${localVarPath}`,
             {

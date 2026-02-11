@@ -44,20 +44,16 @@ export class RouteService extends BaseService {
     /**
      * Approve Route
      * Approve a route
-     * @endpoint post /api/{version}/route/{routeId}/approve
-     * @param version 
+     * @endpoint post /route/{routeId}/approve
      * @param routeId the id of the route to approve
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public approveRoute(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public approveRoute(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public approveRoute(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public approveRoute(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling approveRoute.');
-        }
+    public approveRoute(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public approveRoute(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public approveRoute(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public approveRoute(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling approveRoute.');
         }
@@ -87,7 +83,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/approve`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/approve`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('post', `${basePath}${localVarPath}`,
             {
@@ -105,21 +101,17 @@ export class RouteService extends BaseService {
     /**
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @endpoint post /api/{version}/route/{routeId}/copy
-     * @param version 
+     * @endpoint post /route/{routeId}/copy
      * @param routeId the id of the route to duplicate
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public copyRoute(version: number, routeId: number, body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public copyRoute(version: number, routeId: number, body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public copyRoute(version: number, routeId: number, body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public copyRoute(version: number, routeId: number, body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling copyRoute.');
-        }
+    public copyRoute(routeId: number, body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public copyRoute(routeId: number, body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public copyRoute(routeId: number, body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public copyRoute(routeId: number, body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling copyRoute.');
         }
@@ -157,7 +149,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/copy`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/copy`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('post', `${basePath}${localVarPath}`,
             {
@@ -176,20 +168,16 @@ export class RouteService extends BaseService {
     /**
      * Create Route
      * Create new route
-     * @endpoint post /api/{version}/route
-     * @param version 
+     * @endpoint post /route
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRoute(version: number, body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public createRoute(version: number, body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public createRoute(version: number, body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public createRoute(version: number, body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRoute.');
-        }
+    public createRoute(body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public createRoute(body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public createRoute(body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public createRoute(body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -224,7 +212,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route`;
+        let localVarPath = `/route`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('post', `${basePath}${localVarPath}`,
             {
@@ -243,20 +231,16 @@ export class RouteService extends BaseService {
     /**
      * Update Route Directions
      * Regenerate the directions of a route
-     * @endpoint put /api/{version}/route/{routeId}/directions
-     * @param version 
+     * @endpoint put /route/{routeId}/directions
      * @param routeId the id of the route to update directions for
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRouteDirections(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Direction>>;
-    public createRouteDirections(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Direction>>>;
-    public createRouteDirections(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Direction>>>;
-    public createRouteDirections(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRouteDirections.');
-        }
+    public createRouteDirections(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Direction>>;
+    public createRouteDirections(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Direction>>>;
+    public createRouteDirections(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Direction>>>;
+    public createRouteDirections(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling createRouteDirections.');
         }
@@ -286,7 +270,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/directions`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/directions`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Direction>>('put', `${basePath}${localVarPath}`,
             {
@@ -304,20 +288,16 @@ export class RouteService extends BaseService {
     /**
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @endpoint put /api/{version}/route/{routeId}/polyline
-     * @param version 
+     * @endpoint put /route/{routeId}/polyline
      * @param routeId the id of the route to create a polyline for
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRoutePolyline(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public createRoutePolyline(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public createRoutePolyline(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public createRoutePolyline(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRoutePolyline.');
-        }
+    public createRoutePolyline(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public createRoutePolyline(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public createRoutePolyline(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public createRoutePolyline(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling createRoutePolyline.');
         }
@@ -347,7 +327,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/polyline`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/polyline`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('put', `${basePath}${localVarPath}`,
             {
@@ -365,20 +345,16 @@ export class RouteService extends BaseService {
     /**
      * Delete Route
      * Delete an existing route
-     * @endpoint delete /api/{version}/route/{routeId}
-     * @param version 
+     * @endpoint delete /route/{routeId}
      * @param routeId the id of the route
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteRoute(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteRoute(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteRoute(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteRoute(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteRoute.');
-        }
+    public deleteRoute(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteRoute(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteRoute(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteRoute(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling deleteRoute.');
         }
@@ -407,7 +383,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -425,20 +401,16 @@ export class RouteService extends BaseService {
     /**
      * Disapprove Route
      * Disapprove a route
-     * @endpoint post /api/{version}/route/{routeId}/disapprove
-     * @param version 
+     * @endpoint post /route/{routeId}/disapprove
      * @param routeId the id of the route to reject
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public disapproveRoute(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public disapproveRoute(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public disapproveRoute(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public disapproveRoute(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling disapproveRoute.');
-        }
+    public disapproveRoute(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public disapproveRoute(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public disapproveRoute(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public disapproveRoute(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling disapproveRoute.');
         }
@@ -468,7 +440,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/disapprove`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/disapprove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('post', `${basePath}${localVarPath}`,
             {
@@ -486,21 +458,17 @@ export class RouteService extends BaseService {
     /**
      * Get Route
      * Get an existing route
-     * @endpoint get /api/{version}/route/{routeId}
-     * @param version 
+     * @endpoint get /route/{routeId}
      * @param routeId the id of the route to get
      * @param showInheritedProperties return inherited properties from parent or not
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRoute(version: number, routeId: number, showInheritedProperties: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public getRoute(version: number, routeId: number, showInheritedProperties: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public getRoute(version: number, routeId: number, showInheritedProperties: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public getRoute(version: number, routeId: number, showInheritedProperties: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRoute.');
-        }
+    public getRoute(routeId: number, showInheritedProperties: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public getRoute(routeId: number, showInheritedProperties: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public getRoute(routeId: number, showInheritedProperties: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public getRoute(routeId: number, showInheritedProperties: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getRoute.');
         }
@@ -544,7 +512,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('get', `${basePath}${localVarPath}`,
             {
@@ -563,20 +531,16 @@ export class RouteService extends BaseService {
     /**
      * Get Route Directions
      * Get the directions of a route
-     * @endpoint get /api/{version}/route/{routeId}/directions
-     * @param version 
+     * @endpoint get /route/{routeId}/directions
      * @param routeId the id of the route to get directions for
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRouteDirections(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Direction>>;
-    public getRouteDirections(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Direction>>>;
-    public getRouteDirections(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Direction>>>;
-    public getRouteDirections(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRouteDirections.');
-        }
+    public getRouteDirections(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Direction>>;
+    public getRouteDirections(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Direction>>>;
+    public getRouteDirections(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Direction>>>;
+    public getRouteDirections(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getRouteDirections.');
         }
@@ -606,7 +570,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/directions`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/directions`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Direction>>('get', `${basePath}${localVarPath}`,
             {
@@ -624,20 +588,16 @@ export class RouteService extends BaseService {
     /**
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @endpoint get /api/{version}/route/{routeId}/shipments
-     * @param version 
+     * @endpoint get /route/{routeId}/shipments
      * @param routeId the id of the route to get shipments for
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRouteShipments(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Shipment>>;
-    public getRouteShipments(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Shipment>>>;
-    public getRouteShipments(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Shipment>>>;
-    public getRouteShipments(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRouteShipments.');
-        }
+    public getRouteShipments(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Shipment>>;
+    public getRouteShipments(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Shipment>>>;
+    public getRouteShipments(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Shipment>>>;
+    public getRouteShipments(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getRouteShipments.');
         }
@@ -667,7 +627,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Shipment>>('get', `${basePath}${localVarPath}`,
             {
@@ -685,21 +645,17 @@ export class RouteService extends BaseService {
     /**
      * Get Route Stop
      * Get the specific stop on a route
-     * @endpoint get /api/{version}/route/{routeId}/stop/{stopId}
-     * @param version 
+     * @endpoint get /route/{routeId}/stop/{stopId}
      * @param routeId the id of the route to get stops for
      * @param stopId the id of the specific stop on the route
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRouteStop(version: number, routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
-    public getRouteStop(version: number, routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
-    public getRouteStop(version: number, routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
-    public getRouteStop(version: number, routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRouteStop.');
-        }
+    public getRouteStop(routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Stop>;
+    public getRouteStop(routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Stop>>;
+    public getRouteStop(routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Stop>>;
+    public getRouteStop(routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getRouteStop.');
         }
@@ -732,7 +688,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Stop>('get', `${basePath}${localVarPath}`,
             {
@@ -750,21 +706,17 @@ export class RouteService extends BaseService {
     /**
      * Get Route Stops
      * The stops of the route requested
-     * @endpoint get /api/{version}/route/{routeId}/stops
-     * @param version 
+     * @endpoint get /route/{routeId}/stops
      * @param routeId the id of the route
      * @param confirmedOnly only get stops that have been confirmed or not
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRouteStops(version: number, routeId: number, confirmedOnly: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
-    public getRouteStops(version: number, routeId: number, confirmedOnly: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
-    public getRouteStops(version: number, routeId: number, confirmedOnly: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
-    public getRouteStops(version: number, routeId: number, confirmedOnly: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRouteStops.');
-        }
+    public getRouteStops(routeId: number, confirmedOnly: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
+    public getRouteStops(routeId: number, confirmedOnly: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
+    public getRouteStops(routeId: number, confirmedOnly: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
+    public getRouteStops(routeId: number, confirmedOnly: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getRouteStops.');
         }
@@ -808,7 +760,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Stop>>('get', `${basePath}${localVarPath}`,
             {
@@ -827,21 +779,17 @@ export class RouteService extends BaseService {
     /**
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @endpoint get /api/{version}/route/{routeId}/stop/{stopId}/shipments
-     * @param version 
+     * @endpoint get /route/{routeId}/stop/{stopId}/shipments
      * @param routeId the id of the route
      * @param stopId the id of the stop to get shipments on
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getShipmentsAtStop(version: number, routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Shipment>>;
-    public getShipmentsAtStop(version: number, routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Shipment>>>;
-    public getShipmentsAtStop(version: number, routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Shipment>>>;
-    public getShipmentsAtStop(version: number, routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getShipmentsAtStop.');
-        }
+    public getShipmentsAtStop(routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Shipment>>;
+    public getShipmentsAtStop(routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Shipment>>>;
+    public getShipmentsAtStop(routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Shipment>>>;
+    public getShipmentsAtStop(routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling getShipmentsAtStop.');
         }
@@ -874,7 +822,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Shipment>>('get', `${basePath}${localVarPath}`,
             {
@@ -892,20 +840,16 @@ export class RouteService extends BaseService {
     /**
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @endpoint post /api/{version}/route/{routeId}/optimize
-     * @param version 
+     * @endpoint post /route/{routeId}/optimize
      * @param routeId the id of the route to optimize
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public optimizeRoute(version: number, routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public optimizeRoute(version: number, routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public optimizeRoute(version: number, routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public optimizeRoute(version: number, routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling optimizeRoute.');
-        }
+    public optimizeRoute(routeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public optimizeRoute(routeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public optimizeRoute(routeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public optimizeRoute(routeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling optimizeRoute.');
         }
@@ -934,7 +878,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/optimize`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/optimize`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -952,21 +896,17 @@ export class RouteService extends BaseService {
     /**
      * Delete Stop
      * Delete a stop on a route
-     * @endpoint delete /api/{version}/route/{routeId}/stop/{stopId}
-     * @param version 
+     * @endpoint delete /route/{routeId}/stop/{stopId}
      * @param routeId the id of the route
      * @param stopId the id of the specific stop to delete on the route
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeStop(version: number, routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public removeStop(version: number, routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public removeStop(version: number, routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public removeStop(version: number, routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeStop.');
-        }
+    public removeStop(routeId: number, stopId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public removeStop(routeId: number, stopId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public removeStop(routeId: number, stopId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public removeStop(routeId: number, stopId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling removeStop.');
         }
@@ -998,7 +938,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -1016,21 +956,17 @@ export class RouteService extends BaseService {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @endpoint patch /api/{version}/route/{routeId}/stops/reorder
-     * @param version 
+     * @endpoint patch /route/{routeId}/stops/reorder
      * @param routeId the id of the route
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public reorderRouteStopsPatch(version: number, routeId: number, body?: Array<Stop>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
-    public reorderRouteStopsPatch(version: number, routeId: number, body?: Array<Stop>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
-    public reorderRouteStopsPatch(version: number, routeId: number, body?: Array<Stop>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
-    public reorderRouteStopsPatch(version: number, routeId: number, body?: Array<Stop>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling reorderRouteStopsPatch.');
-        }
+    public reorderRouteStopsPatch(routeId: number, body?: Array<Stop>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
+    public reorderRouteStopsPatch(routeId: number, body?: Array<Stop>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
+    public reorderRouteStopsPatch(routeId: number, body?: Array<Stop>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
+    public reorderRouteStopsPatch(routeId: number, body?: Array<Stop>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling reorderRouteStopsPatch.');
         }
@@ -1068,7 +1004,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops/reorder`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops/reorder`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Stop>>('patch', `${basePath}${localVarPath}`,
             {
@@ -1087,21 +1023,17 @@ export class RouteService extends BaseService {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @endpoint post /api/{version}/route/{routeId}/stops/reorder
-     * @param version 
+     * @endpoint post /route/{routeId}/stops/reorder
      * @param routeId the id of the route
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public reorderRouteStopsPost(version: number, routeId: number, body?: Array<Stop>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
-    public reorderRouteStopsPost(version: number, routeId: number, body?: Array<Stop>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
-    public reorderRouteStopsPost(version: number, routeId: number, body?: Array<Stop>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
-    public reorderRouteStopsPost(version: number, routeId: number, body?: Array<Stop>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling reorderRouteStopsPost.');
-        }
+    public reorderRouteStopsPost(routeId: number, body?: Array<Stop>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Stop>>;
+    public reorderRouteStopsPost(routeId: number, body?: Array<Stop>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Stop>>>;
+    public reorderRouteStopsPost(routeId: number, body?: Array<Stop>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Stop>>>;
+    public reorderRouteStopsPost(routeId: number, body?: Array<Stop>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling reorderRouteStopsPost.');
         }
@@ -1139,7 +1071,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops/reorder`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stops/reorder`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Stop>>('post', `${basePath}${localVarPath}`,
             {
@@ -1158,8 +1090,7 @@ export class RouteService extends BaseService {
     /**
      * Search Routes
      * Search for routes.
-     * @endpoint get /api/{version}/route
-     * @param version 
+     * @endpoint get /route
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
      * @param start The start index for pagination
@@ -1185,13 +1116,10 @@ export class RouteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRoutes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Route>>;
-    public searchRoutes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Route>>>;
-    public searchRoutes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Route>>>;
-    public searchRoutes(version: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRoutes.');
-        }
+    public searchRoutes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Route>>;
+    public searchRoutes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Route>>>;
+    public searchRoutes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Route>>>;
+    public searchRoutes(sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, includesEmpty: boolean, rootOnly: boolean, showInheritedProperties: boolean, hubId?: number, programId?: number, scheduledStart?: number, scheduledEnd?: number, updatedStart?: number, updatedEnd?: number, featured?: boolean, seatCount?: number, approved?: boolean, started?: boolean, completed?: boolean, valid?: boolean, parentId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchRoutes.');
         }
@@ -1433,7 +1361,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route`;
+        let localVarPath = `/route`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Route>>('get', `${basePath}${localVarPath}`,
             {
@@ -1452,21 +1380,17 @@ export class RouteService extends BaseService {
     /**
      * Set Driver
      * Update the driver of the route.
-     * @endpoint post /api/{version}/route/{id}/driver/{driverId}
-     * @param version 
+     * @endpoint post /route/{id}/driver/{driverId}
      * @param id the id of the route
      * @param driverId the id of the driver
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public setDriver(version: number, id: number, driverId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public setDriver(version: number, id: number, driverId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public setDriver(version: number, id: number, driverId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public setDriver(version: number, id: number, driverId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling setDriver.');
-        }
+    public setDriver(id: number, driverId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public setDriver(id: number, driverId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public setDriver(id: number, driverId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public setDriver(id: number, driverId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling setDriver.');
         }
@@ -1498,7 +1422,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/driver/${this.configuration.encodeParam({name: "driverId", value: driverId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/driver/${this.configuration.encodeParam({name: "driverId", value: driverId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -1516,21 +1440,17 @@ export class RouteService extends BaseService {
     /**
      * Update Route
      * Update an existing route
-     * @endpoint put /api/{version}/route/{routeId}
-     * @param version 
+     * @endpoint put /route/{routeId}
      * @param routeId the id of the route
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRoute(version: number, routeId: number, body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
-    public updateRoute(version: number, routeId: number, body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
-    public updateRoute(version: number, routeId: number, body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
-    public updateRoute(version: number, routeId: number, body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRoute.');
-        }
+    public updateRoute(routeId: number, body?: Route, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Route>;
+    public updateRoute(routeId: number, body?: Route, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Route>>;
+    public updateRoute(routeId: number, body?: Route, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Route>>;
+    public updateRoute(routeId: number, body?: Route, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling updateRoute.');
         }
@@ -1568,7 +1488,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Route>('put', `${basePath}${localVarPath}`,
             {
@@ -1587,8 +1507,7 @@ export class RouteService extends BaseService {
     /**
      * Update Route Stop
      * Update a stop on a specified route
-     * @endpoint put /api/{version}/route/{routeId}/stop/{stopId}
-     * @param version 
+     * @endpoint put /route/{routeId}/stop/{stopId}
      * @param routeId the id of the route to update stops for
      * @param stopId the id of the specific stop to update on the route
      * @param body 
@@ -1596,13 +1515,10 @@ export class RouteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRouteStop(version: number, routeId: number, stopId: number, body?: Stop, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public updateRouteStop(version: number, routeId: number, stopId: number, body?: Stop, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public updateRouteStop(version: number, routeId: number, stopId: number, body?: Stop, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public updateRouteStop(version: number, routeId: number, stopId: number, body?: Stop, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRouteStop.');
-        }
+    public updateRouteStop(routeId: number, stopId: number, body?: Stop, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public updateRouteStop(routeId: number, stopId: number, body?: Stop, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public updateRouteStop(routeId: number, stopId: number, body?: Stop, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public updateRouteStop(routeId: number, stopId: number, body?: Stop, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (routeId === null || routeId === undefined) {
             throw new Error('Required parameter routeId was null or undefined when calling updateRouteStop.');
         }
@@ -1642,7 +1558,7 @@ export class RouteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/route/${this.configuration.encodeParam({name: "routeId", value: routeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/stop/${this.configuration.encodeParam({name: "stopId", value: stopId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('put', `${basePath}${localVarPath}`,
             {

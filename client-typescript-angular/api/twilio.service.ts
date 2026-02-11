@@ -38,8 +38,7 @@ export class TwilioService extends BaseService {
     /**
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @endpoint post /api/{version}/sms/buyoffer/{appKey}
-     * @param version 
+     * @endpoint post /sms/buyoffer/{appKey}
      * @param appKey the application key
      * @param body the message of the text
      * @param from the sender of the sms
@@ -48,13 +47,10 @@ export class TwilioService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public smsBuyOffer(version: number, appKey: string, body: string, from: string, currencyType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<TwiMLResponse>;
-    public smsBuyOffer(version: number, appKey: string, body: string, from: string, currencyType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TwiMLResponse>>;
-    public smsBuyOffer(version: number, appKey: string, body: string, from: string, currencyType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TwiMLResponse>>;
-    public smsBuyOffer(version: number, appKey: string, body: string, from: string, currencyType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling smsBuyOffer.');
-        }
+    public smsBuyOffer(appKey: string, body: string, from: string, currencyType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<TwiMLResponse>;
+    public smsBuyOffer(appKey: string, body: string, from: string, currencyType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TwiMLResponse>>;
+    public smsBuyOffer(appKey: string, body: string, from: string, currencyType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TwiMLResponse>>;
+    public smsBuyOffer(appKey: string, body: string, from: string, currencyType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/xml', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling smsBuyOffer.');
         }
@@ -122,7 +118,7 @@ export class TwilioService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/sms/buyoffer/${this.configuration.encodeParam({name: "appKey", value: appKey, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/sms/buyoffer/${this.configuration.encodeParam({name: "appKey", value: appKey, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TwiMLResponse>('post', `${basePath}${localVarPath}`,
             {

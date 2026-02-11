@@ -38,8 +38,7 @@ export class PathingService extends BaseService {
     /**
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @endpoint get /api/{version}/pathing/compute
-     * @param version 
+     * @endpoint get /pathing/compute
      * @param data the data to with start, end point and exclusion points
      * @param units the system of measurement for directions: {METRIC, IMPERIAL}
      * @param reducePath determines whether to reduce the path to go in diagonal lines
@@ -48,13 +47,10 @@ export class PathingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public computePath(version: number, data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PathingResponse>;
-    public computePath(version: number, data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PathingResponse>>;
-    public computePath(version: number, data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PathingResponse>>;
-    public computePath(version: number, data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling computePath.');
-        }
+    public computePath(data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PathingResponse>;
+    public computePath(data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PathingResponse>>;
+    public computePath(data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PathingResponse>>;
+    public computePath(data: string, units: 'METRIC' | 'IMPERIAL', reducePath: boolean, directions: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (data === null || data === undefined) {
             throw new Error('Required parameter data was null or undefined when calling computePath.');
         }
@@ -131,7 +127,7 @@ export class PathingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pathing/compute`;
+        let localVarPath = `/pathing/compute`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PathingResponse>('get', `${basePath}${localVarPath}`,
             {

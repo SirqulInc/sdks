@@ -40,8 +40,7 @@ export class WordService extends BaseService {
     /**
      * Create Word
      * Create a word by the given params.
-     * @endpoint post /api/{version}/game/word/create
-     * @param version 
+     * @endpoint post /game/word/create
      * @param accountId The logged in user.
      * @param word The text of the word.
      * @param definition The definition of the word.
@@ -55,13 +54,10 @@ export class WordService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createWord(version: number, accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
-    public createWord(version: number, accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
-    public createWord(version: number, accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
-    public createWord(version: number, accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createWord.');
-        }
+    public createWord(accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
+    public createWord(accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
+    public createWord(accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
+    public createWord(accountId: number, word: string, definition: string, active: boolean, allocateTickets: boolean, ticketCount: number, assetId?: number, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createWord.');
         }
@@ -189,7 +185,7 @@ export class WordService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/word/create`;
+        let localVarPath = `/game/word/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WordzWordResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -208,21 +204,17 @@ export class WordService extends BaseService {
     /**
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @endpoint delete /api/{version}/game/word/delete
-     * @param version 
+     * @endpoint delete /game/word/delete
      * @param wordId The id of the word to delete.
      * @param accountId The account vor validating permission
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteWord(version: number, wordId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteWord(version: number, wordId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteWord(version: number, wordId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteWord(version: number, wordId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteWord.');
-        }
+    public deleteWord(wordId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteWord(wordId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteWord(wordId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteWord(wordId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (wordId === null || wordId === undefined) {
             throw new Error('Required parameter wordId was null or undefined when calling deleteWord.');
         }
@@ -275,7 +267,7 @@ export class WordService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/word/delete`;
+        let localVarPath = `/game/word/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('delete', `${basePath}${localVarPath}`,
             {
@@ -294,21 +286,17 @@ export class WordService extends BaseService {
     /**
      * Get Word
      * Get a word by the given id.
-     * @endpoint get /api/{version}/game/word/get
-     * @param version 
+     * @endpoint get /game/word/get
      * @param wordId The id of the word to get.
      * @param accountId The logged in user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getWord(version: number, wordId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
-    public getWord(version: number, wordId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
-    public getWord(version: number, wordId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
-    public getWord(version: number, wordId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getWord.');
-        }
+    public getWord(wordId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
+    public getWord(wordId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
+    public getWord(wordId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
+    public getWord(wordId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (wordId === null || wordId === undefined) {
             throw new Error('Required parameter wordId was null or undefined when calling getWord.');
         }
@@ -361,7 +349,7 @@ export class WordService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/word/get`;
+        let localVarPath = `/game/word/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WordzWordResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -380,8 +368,7 @@ export class WordService extends BaseService {
     /**
      * Search Words
      * Search for words by the given params.
-     * @endpoint get /api/{version}/game/word/search
-     * @param version 
+     * @endpoint get /game/word/search
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -393,13 +380,10 @@ export class WordService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getWords(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<WordzWordResponse>>;
-    public getWords(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<WordzWordResponse>>>;
-    public getWords(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<WordzWordResponse>>>;
-    public getWords(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getWords.');
-        }
+    public getWords(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<WordzWordResponse>>;
+    public getWords(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<WordzWordResponse>>>;
+    public getWords(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<WordzWordResponse>>>;
+    public getWords(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getWords.');
         }
@@ -509,7 +493,7 @@ export class WordService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/word/search`;
+        let localVarPath = `/game/word/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<WordzWordResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -528,8 +512,7 @@ export class WordService extends BaseService {
     /**
      * Update Word
      * Update a word by the given params.
-     * @endpoint post /api/{version}/game/word/update
-     * @param version 
+     * @endpoint post /game/word/update
      * @param wordId The id of the word to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward
@@ -544,13 +527,10 @@ export class WordService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateWord(version: number, wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
-    public updateWord(version: number, wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
-    public updateWord(version: number, wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
-    public updateWord(version: number, wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateWord.');
-        }
+    public updateWord(wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
+    public updateWord(wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
+    public updateWord(wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
+    public updateWord(wordId: number, accountId: number, ticketCount: number, wordText?: string, definition?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (wordId === null || wordId === undefined) {
             throw new Error('Required parameter wordId was null or undefined when calling updateWord.');
         }
@@ -678,7 +658,7 @@ export class WordService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/word/update`;
+        let localVarPath = `/game/word/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WordzWordResponse>('post', `${basePath}${localVarPath}`,
             {

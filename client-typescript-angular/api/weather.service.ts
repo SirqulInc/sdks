@@ -38,8 +38,7 @@ export class WeatherService extends BaseService {
     /**
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @endpoint get /api/{version}/weather/search
-     * @param version 
+     * @endpoint get /weather/search
      * @param regionId Region Id
      * @param latitude Latitude
      * @param longitude Longitude
@@ -48,13 +47,10 @@ export class WeatherService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchWeather(version: number, regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WeatherResponse>;
-    public searchWeather(version: number, regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WeatherResponse>>;
-    public searchWeather(version: number, regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WeatherResponse>>;
-    public searchWeather(version: number, regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchWeather.');
-        }
+    public searchWeather(regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WeatherResponse>;
+    public searchWeather(regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WeatherResponse>>;
+    public searchWeather(regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WeatherResponse>>;
+    public searchWeather(regionId?: number, latitude?: number, longitude?: number, timezoneOffset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -119,7 +115,7 @@ export class WeatherService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/weather/search`;
+        let localVarPath = `/weather/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WeatherResponse>('get', `${basePath}${localVarPath}`,
             {

@@ -40,8 +40,7 @@ export class GameService extends BaseService {
     /**
      * Create a Game
      * Create a Game.
-     * @endpoint post /api/{version}/game/create
-     * @param version 
+     * @endpoint post /game/create
      * @param accountId The logged in user.
      * @param appKey The game application key to save the level for.
      * @param title Title of the game.
@@ -53,13 +52,10 @@ export class GameService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createGame(version: number, accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
-    public createGame(version: number, accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
-    public createGame(version: number, accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
-    public createGame(version: number, accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createGame.');
-        }
+    public createGame(accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
+    public createGame(accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
+    public createGame(accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
+    public createGame(accountId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -151,7 +147,7 @@ export class GameService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/create`;
+        let localVarPath = `/game/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -170,21 +166,17 @@ export class GameService extends BaseService {
     /**
      * Delete a Game
      * Delete a game.
-     * @endpoint post /api/{version}/game/delete
-     * @param version 
+     * @endpoint post /game/delete
      * @param accountId The logged in user.
      * @param gameId the updating game\&#39;s id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteGame(version: number, accountId: number, gameId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteGame(version: number, accountId: number, gameId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteGame(version: number, accountId: number, gameId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteGame(version: number, accountId: number, gameId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteGame.');
-        }
+    public deleteGame(accountId: number, gameId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteGame(accountId: number, gameId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteGame(accountId: number, gameId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteGame(accountId: number, gameId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteGame.');
         }
@@ -237,7 +229,7 @@ export class GameService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/delete`;
+        let localVarPath = `/game/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -256,8 +248,7 @@ export class GameService extends BaseService {
     /**
      * Get a Game by id
      * Get a Game by id.
-     * @endpoint get /api/{version}/game/get
-     * @param version 
+     * @endpoint get /game/get
      * @param accountId The logged in user.
      * @param gameId the updating game\&#39;s id.
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false.
@@ -265,13 +256,10 @@ export class GameService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGame(version: number, accountId: number, gameId: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
-    public getGame(version: number, accountId: number, gameId: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
-    public getGame(version: number, accountId: number, gameId: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
-    public getGame(version: number, accountId: number, gameId: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGame.');
-        }
+    public getGame(accountId: number, gameId: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
+    public getGame(accountId: number, gameId: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
+    public getGame(accountId: number, gameId: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
+    public getGame(accountId: number, gameId: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getGame.');
         }
@@ -333,7 +321,7 @@ export class GameService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/get`;
+        let localVarPath = `/game/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -352,8 +340,7 @@ export class GameService extends BaseService {
     /**
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @endpoint get /api/{version}/game/search
-     * @param version 
+     * @endpoint get /game/search
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -366,13 +353,10 @@ export class GameService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchGames(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
-    public searchGames(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
-    public searchGames(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
-    public searchGames(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchGames.');
-        }
+    public searchGames(accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
+    public searchGames(accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
+    public searchGames(accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
+    public searchGames(accountId: number, appKey: string, start: number, limit: number, keyword?: string, appVersion?: string, includeGameData?: boolean, includeInactive?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchGames.');
         }
@@ -485,7 +469,7 @@ export class GameService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/search`;
+        let localVarPath = `/game/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -504,8 +488,7 @@ export class GameService extends BaseService {
     /**
      * Update a Game
      * Update a Game
-     * @endpoint post /api/{version}/game/update
-     * @param version 
+     * @endpoint post /game/update
      * @param accountId The logged in user.
      * @param gameId the updating game\&#39;s id
      * @param appKey The game application key to save the level for.
@@ -518,13 +501,10 @@ export class GameService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateGame(version: number, accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
-    public updateGame(version: number, accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
-    public updateGame(version: number, accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
-    public updateGame(version: number, accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateGame.');
-        }
+    public updateGame(accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameResponse>;
+    public updateGame(accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameResponse>>;
+    public updateGame(accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameResponse>>;
+    public updateGame(accountId?: number, gameId?: number, appKey?: string, title?: string, description?: string, metaData?: string, packIds?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -625,7 +605,7 @@ export class GameService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/update`;
+        let localVarPath = `/game/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameResponse>('post', `${basePath}${localVarPath}`,
             {

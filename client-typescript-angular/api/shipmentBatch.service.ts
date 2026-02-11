@@ -40,20 +40,16 @@ export class ShipmentBatchService extends BaseService {
     /**
      * Create Shipment Batch
      * Create a new shipment batch
-     * @endpoint post /api/{version}/shipment/batch
-     * @param version 
+     * @endpoint post /shipment/batch
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createShipmentBatch(version: number, body?: ShipmentBatch, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ShipmentBatch>;
-    public createShipmentBatch(version: number, body?: ShipmentBatch, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ShipmentBatch>>;
-    public createShipmentBatch(version: number, body?: ShipmentBatch, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ShipmentBatch>>;
-    public createShipmentBatch(version: number, body?: ShipmentBatch, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createShipmentBatch.');
-        }
+    public createShipmentBatch(body?: ShipmentBatch, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ShipmentBatch>;
+    public createShipmentBatch(body?: ShipmentBatch, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ShipmentBatch>>;
+    public createShipmentBatch(body?: ShipmentBatch, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ShipmentBatch>>;
+    public createShipmentBatch(body?: ShipmentBatch, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -88,7 +84,7 @@ export class ShipmentBatchService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/shipment/batch`;
+        let localVarPath = `/shipment/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ShipmentBatch>('post', `${basePath}${localVarPath}`,
             {
@@ -107,20 +103,16 @@ export class ShipmentBatchService extends BaseService {
     /**
      * Delete Shipment Batch
      * Search for shipment batches
-     * @endpoint delete /api/{version}/shipment/batch/{batchId}
-     * @param version 
+     * @endpoint delete /shipment/batch/{batchId}
      * @param batchId the id of the shipment batch to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteShipmentBatch(version: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteShipmentBatch(version: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteShipmentBatch(version: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteShipmentBatch(version: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteShipmentBatch.');
-        }
+    public deleteShipmentBatch(batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteShipmentBatch(batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteShipmentBatch(batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteShipmentBatch(batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (batchId === null || batchId === undefined) {
             throw new Error('Required parameter batchId was null or undefined when calling deleteShipmentBatch.');
         }
@@ -149,7 +141,7 @@ export class ShipmentBatchService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -167,20 +159,16 @@ export class ShipmentBatchService extends BaseService {
     /**
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @endpoint get /api/{version}/shipment/batch/{batchId}
-     * @param version 
+     * @endpoint get /shipment/batch/{batchId}
      * @param batchId the id of the shipment batch to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getShipmentBatch(version: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ShipmentBatch>;
-    public getShipmentBatch(version: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ShipmentBatch>>;
-    public getShipmentBatch(version: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ShipmentBatch>>;
-    public getShipmentBatch(version: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getShipmentBatch.');
-        }
+    public getShipmentBatch(batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ShipmentBatch>;
+    public getShipmentBatch(batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ShipmentBatch>>;
+    public getShipmentBatch(batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ShipmentBatch>>;
+    public getShipmentBatch(batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (batchId === null || batchId === undefined) {
             throw new Error('Required parameter batchId was null or undefined when calling getShipmentBatch.');
         }
@@ -210,7 +198,7 @@ export class ShipmentBatchService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ShipmentBatch>('get', `${basePath}${localVarPath}`,
             {
@@ -228,8 +216,7 @@ export class ShipmentBatchService extends BaseService {
     /**
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @endpoint get /api/{version}/shipment/batch/{batchId}/status
-     * @param version 
+     * @endpoint get /shipment/batch/{batchId}/status
      * @param batchId The id of the requested shipment batch
      * @param accountId the id of the logged in user
      * @param sortField The field to sort by
@@ -246,13 +233,10 @@ export class ShipmentBatchService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getShipmentBatchStatus(version: number, batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ShipmentImportStatus>>;
-    public getShipmentBatchStatus(version: number, batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ShipmentImportStatus>>>;
-    public getShipmentBatchStatus(version: number, batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ShipmentImportStatus>>>;
-    public getShipmentBatchStatus(version: number, batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getShipmentBatchStatus.');
-        }
+    public getShipmentBatchStatus(batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ShipmentImportStatus>>;
+    public getShipmentBatchStatus(batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ShipmentImportStatus>>>;
+    public getShipmentBatchStatus(batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ShipmentImportStatus>>>;
+    public getShipmentBatchStatus(batchId: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, valid?: boolean, started?: boolean, completed?: boolean, hasShipment?: boolean, hasRoute?: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (batchId === null || batchId === undefined) {
             throw new Error('Required parameter batchId was null or undefined when calling getShipmentBatchStatus.');
         }
@@ -398,7 +382,7 @@ export class ShipmentBatchService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/status`;
+        let localVarPath = `/shipment/batch/${this.configuration.encodeParam({name: "batchId", value: batchId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/status`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ShipmentImportStatus>>('get', `${basePath}${localVarPath}`,
             {
@@ -417,8 +401,7 @@ export class ShipmentBatchService extends BaseService {
     /**
      * Search Shipment Batch
      * Search for shipment batches
-     * @endpoint get /api/{version}/shipment/batch
-     * @param version 
+     * @endpoint get /shipment/batch
      * @param hubId The associated service hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -428,13 +411,10 @@ export class ShipmentBatchService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchShipmentBatch(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ShipmentBatch>>;
-    public searchShipmentBatch(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ShipmentBatch>>>;
-    public searchShipmentBatch(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ShipmentBatch>>>;
-    public searchShipmentBatch(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchShipmentBatch.');
-        }
+    public searchShipmentBatch(hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ShipmentBatch>>;
+    public searchShipmentBatch(hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ShipmentBatch>>>;
+    public searchShipmentBatch(hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ShipmentBatch>>>;
+    public searchShipmentBatch(hubId: number, sortField: string, descending: boolean, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (hubId === null || hubId === undefined) {
             throw new Error('Required parameter hubId was null or undefined when calling searchShipmentBatch.');
         }
@@ -523,7 +503,7 @@ export class ShipmentBatchService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/shipment/batch`;
+        let localVarPath = `/shipment/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ShipmentBatch>>('get', `${basePath}${localVarPath}`,
             {

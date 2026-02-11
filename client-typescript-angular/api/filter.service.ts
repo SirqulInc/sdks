@@ -42,8 +42,7 @@ export class FilterService extends BaseService {
     /**
      * Create Filter
      * Create a filter
-     * @endpoint post /api/{version}/filter/create
-     * @param version 
+     * @endpoint post /filter/create
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the filter
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)
@@ -57,13 +56,10 @@ export class FilterService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createFilter(version: number, accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
-    public createFilter(version: number, accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
-    public createFilter(version: number, accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
-    public createFilter(version: number, accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createFilter.');
-        }
+    public createFilter(accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
+    public createFilter(accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
+    public createFilter(accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
+    public createFilter(accountId: number, name: string, appKey?: string, parentFilterId?: number, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createFilter.');
         }
@@ -179,7 +175,7 @@ export class FilterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/filter/create`;
+        let localVarPath = `/filter/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<FilterTreeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -198,21 +194,17 @@ export class FilterService extends BaseService {
     /**
      * Delete Filter
      * Delete a filter.
-     * @endpoint post /api/{version}/filter/delete
-     * @param version 
+     * @endpoint post /filter/delete
      * @param accountId The account id of the user (must have permissions to the filter\&#39;s assigned application)
      * @param filterId The ID of the filter to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteFilter(version: number, accountId: number, filterId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteFilter(version: number, accountId: number, filterId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteFilter(version: number, accountId: number, filterId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteFilter(version: number, accountId: number, filterId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteFilter.');
-        }
+    public deleteFilter(accountId: number, filterId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteFilter(accountId: number, filterId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteFilter(accountId: number, filterId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteFilter(accountId: number, filterId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteFilter.');
         }
@@ -265,7 +257,7 @@ export class FilterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/filter/delete`;
+        let localVarPath = `/filter/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -284,20 +276,16 @@ export class FilterService extends BaseService {
     /**
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @endpoint get /api/{version}/filter/get
-     * @param version 
+     * @endpoint get /filter/get
      * @param filterId the id of the filter to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getFilter(version: number, filterId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
-    public getFilter(version: number, filterId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
-    public getFilter(version: number, filterId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
-    public getFilter(version: number, filterId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getFilter.');
-        }
+    public getFilter(filterId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
+    public getFilter(filterId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
+    public getFilter(filterId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
+    public getFilter(filterId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (filterId === null || filterId === undefined) {
             throw new Error('Required parameter filterId was null or undefined when calling getFilter.');
         }
@@ -338,7 +326,7 @@ export class FilterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/filter/get`;
+        let localVarPath = `/filter/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<FilterTreeResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -357,8 +345,7 @@ export class FilterService extends BaseService {
     /**
      * Search Filters
      * Search for filters.
-     * @endpoint get /api/{version}/filter/search
-     * @param version 
+     * @endpoint get /filter/search
      * @param accountId The account id of the user
      * @param keyword The string to search on
      * @param appKey the appKey of the application to retrieve filters for
@@ -373,13 +360,10 @@ export class FilterService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchFilters(version: number, accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<FilterResponse>>;
-    public searchFilters(version: number, accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<FilterResponse>>>;
-    public searchFilters(version: number, accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<FilterResponse>>>;
-    public searchFilters(version: number, accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchFilters.');
-        }
+    public searchFilters(accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<FilterResponse>>;
+    public searchFilters(accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<FilterResponse>>>;
+    public searchFilters(accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<FilterResponse>>>;
+    public searchFilters(accountId?: number, keyword?: string, appKey?: string, responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -498,7 +482,7 @@ export class FilterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/filter/search`;
+        let localVarPath = `/filter/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<FilterResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -517,8 +501,7 @@ export class FilterService extends BaseService {
     /**
      * Update Filter
      * Update a filter.
-     * @endpoint post /api/{version}/filter/update
-     * @param version 
+     * @endpoint post /filter/update
      * @param accountId The account id of the user
      * @param filterId The ID of the filter to edit
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null
@@ -532,13 +515,10 @@ export class FilterService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateFilter(version: number, accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
-    public updateFilter(version: number, accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
-    public updateFilter(version: number, accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
-    public updateFilter(version: number, accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateFilter.');
-        }
+    public updateFilter(accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FilterTreeResponse>;
+    public updateFilter(accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FilterTreeResponse>>;
+    public updateFilter(accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FilterTreeResponse>>;
+    public updateFilter(accountId: number, filterId: number, parentFilterId?: number, name?: string, description?: string, externalId?: string, externalType?: string, active?: boolean, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateFilter.');
         }
@@ -654,7 +634,7 @@ export class FilterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/filter/update`;
+        let localVarPath = `/filter/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<FilterTreeResponse>('post', `${basePath}${localVarPath}`,
             {

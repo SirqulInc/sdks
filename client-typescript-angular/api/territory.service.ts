@@ -40,8 +40,7 @@ export class TerritoryService extends BaseService {
     /**
      * Create Territory
      * Creates a territory.
-     * @endpoint post /api/{version}/territory/create
-     * @param version 
+     * @endpoint post /territory/create
      * @param accountId The logged in user.
      * @param name The name of the territory
      * @param active If true set the game level as active. Default is true.
@@ -49,13 +48,10 @@ export class TerritoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createTerritory(version: number, accountId: number, name: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
-    public createTerritory(version: number, accountId: number, name: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
-    public createTerritory(version: number, accountId: number, name: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
-    public createTerritory(version: number, accountId: number, name: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createTerritory.');
-        }
+    public createTerritory(accountId: number, name: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
+    public createTerritory(accountId: number, name: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
+    public createTerritory(accountId: number, name: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
+    public createTerritory(accountId: number, name: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createTerritory.');
         }
@@ -117,7 +113,7 @@ export class TerritoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/territory/create`;
+        let localVarPath = `/territory/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TerritoryResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -136,21 +132,17 @@ export class TerritoryService extends BaseService {
     /**
      * Delete Territory
      * Deletes a territory.
-     * @endpoint post /api/{version}/territory/delete
-     * @param version 
+     * @endpoint post /territory/delete
      * @param accountId the id of the logged in user
      * @param territoryId the id of the territory to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteTerritory(version: number, accountId: number, territoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteTerritory(version: number, accountId: number, territoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteTerritory(version: number, accountId: number, territoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteTerritory(version: number, accountId: number, territoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteTerritory.');
-        }
+    public deleteTerritory(accountId: number, territoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteTerritory(accountId: number, territoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteTerritory(accountId: number, territoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteTerritory(accountId: number, territoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteTerritory.');
         }
@@ -203,7 +195,7 @@ export class TerritoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/territory/delete`;
+        let localVarPath = `/territory/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -222,20 +214,16 @@ export class TerritoryService extends BaseService {
     /**
      * Get Territory
      * Get a territory.
-     * @endpoint get /api/{version}/territory/get
-     * @param version 
+     * @endpoint get /territory/get
      * @param territoryId the id of the territory to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTerritory(version: number, territoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
-    public getTerritory(version: number, territoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
-    public getTerritory(version: number, territoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
-    public getTerritory(version: number, territoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTerritory.');
-        }
+    public getTerritory(territoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
+    public getTerritory(territoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
+    public getTerritory(territoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
+    public getTerritory(territoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (territoryId === null || territoryId === undefined) {
             throw new Error('Required parameter territoryId was null or undefined when calling getTerritory.');
         }
@@ -276,7 +264,7 @@ export class TerritoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/territory/get`;
+        let localVarPath = `/territory/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TerritoryResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -295,8 +283,7 @@ export class TerritoryService extends BaseService {
     /**
      * Search Territories
      * Searches on territories.
-     * @endpoint get /api/{version}/territory/search
-     * @param version 
+     * @endpoint get /territory/search
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
      * @param descending determines whether the sorted list is in descending or ascending order
      * @param keyword Return results that match this keyword.
@@ -306,13 +293,10 @@ export class TerritoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTerritories(version: number, sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TerritoryResponse>>;
-    public searchTerritories(version: number, sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TerritoryResponse>>>;
-    public searchTerritories(version: number, sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TerritoryResponse>>>;
-    public searchTerritories(version: number, sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTerritories.');
-        }
+    public searchTerritories(sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TerritoryResponse>>;
+    public searchTerritories(sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TerritoryResponse>>>;
+    public searchTerritories(sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TerritoryResponse>>>;
+    public searchTerritories(sortField: 'ID' | 'UPDATED' | 'CREATED' | 'NAME', descending: boolean, keyword?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchTerritories.');
         }
@@ -392,7 +376,7 @@ export class TerritoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/territory/search`;
+        let localVarPath = `/territory/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<TerritoryResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -411,8 +395,7 @@ export class TerritoryService extends BaseService {
     /**
      * Update Territory
      * Updates a territory.
-     * @endpoint post /api/{version}/territory/update
-     * @param version 
+     * @endpoint post /territory/update
      * @param accountId The logged in user.
      * @param territoryId the id of the territory to update
      * @param name The name of the territory
@@ -421,13 +404,10 @@ export class TerritoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTerritory(version: number, accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
-    public updateTerritory(version: number, accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
-    public updateTerritory(version: number, accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
-    public updateTerritory(version: number, accountId: number, territoryId: number, name?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTerritory.');
-        }
+    public updateTerritory(accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TerritoryResponse>;
+    public updateTerritory(accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TerritoryResponse>>;
+    public updateTerritory(accountId: number, territoryId: number, name?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TerritoryResponse>>;
+    public updateTerritory(accountId: number, territoryId: number, name?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateTerritory.');
         }
@@ -498,7 +478,7 @@ export class TerritoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/territory/update`;
+        let localVarPath = `/territory/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TerritoryResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -50,8 +50,7 @@ export class AccountService extends BaseService {
     /**
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @endpoint get /api/{version}/account/search
-     * @param version 
+     * @endpoint get /account/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param q Deprecated - legacy query parameter
@@ -90,13 +89,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public accountLocationSearch(version: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserLocationSearchResponse>;
-    public accountLocationSearch(version: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserLocationSearchResponse>>;
-    public accountLocationSearch(version: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserLocationSearchResponse>>;
-    public accountLocationSearch(version: number, deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling accountLocationSearch.');
-        }
+    public accountLocationSearch(deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserLocationSearchResponse>;
+    public accountLocationSearch(deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserLocationSearchResponse>>;
+    public accountLocationSearch(deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserLocationSearchResponse>>;
+    public accountLocationSearch(deviceId?: string, accountId?: number, q?: string, keyword?: string, postalCode?: string, latitude?: number, longitude?: number, appKey?: string, range?: number, locationLastUpdated?: number, gender?: string, minAge?: number, maxAge?: number, companionshipIndex?: number, i?: number, start?: number, l?: number, limit?: number, searchMode?: string, sortField?: string, descending?: boolean, roles?: string, tags?: string, experience?: string, categoryIds?: string, audienceIds?: string, audienceOperator?: string, updateCurrentLocation?: boolean, updatePreferredSettings?: boolean, showExactLocations?: boolean, showConnectionToSearcher?: boolean, flagCountMinimum?: number, verifiedUserOnly?: boolean, contentAdminOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -431,7 +427,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/search`;
+        let localVarPath = `/account/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<UserLocationSearchResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -450,8 +446,7 @@ export class AccountService extends BaseService {
     /**
      * Block Account
      * Moves or removes an account into the user\&#39;s blocked group.
-     * @endpoint post /api/{version}/account/block
-     * @param version 
+     * @endpoint post /account/block
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -463,13 +458,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public blockAccount(version: number, accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public blockAccount(version: number, accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public blockAccount(version: number, accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public blockAccount(version: number, accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling blockAccount.');
-        }
+    public blockAccount(accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public blockAccount(accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public blockAccount(accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public blockAccount(accountIdBeingBlocked: number, deviceId?: string, accountId?: number, blockFlagValue?: boolean, removeFromGroupsIfBlocked?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountIdBeingBlocked === null || accountIdBeingBlocked === undefined) {
             throw new Error('Required parameter accountIdBeingBlocked was null or undefined when calling blockAccount.');
         }
@@ -564,7 +556,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/block`;
+        let localVarPath = `/account/block`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -583,8 +575,7 @@ export class AccountService extends BaseService {
     /**
      * Create Account
      * Create a new account by role.
-     * @endpoint post /api/{version}/account/create
-     * @param version 
+     * @endpoint post /account/create
      * @param username The access token to authenticate with (ex: username)
      * @param password The secret to authenticate with (ex: password)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName
@@ -661,13 +652,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createAccount(version: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
-    public createAccount(version: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
-    public createAccount(version: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
-    public createAccount(version: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createAccount.');
-        }
+    public createAccount(username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
+    public createAccount(username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
+    public createAccount(username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
+    public createAccount(username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceId?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, streetAddress?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, inviteToken?: string, referralAccountId?: number, sendValidation?: boolean, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, audienceIdsToAdd?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, locationVisibility?: string, homeLatitude?: number, homeLongitude?: number, appNickname?: string, personalAudienceId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling createAccount.');
         }
@@ -1350,7 +1338,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/create`;
+        let localVarPath = `/account/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AccountLoginResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1369,8 +1357,7 @@ export class AccountService extends BaseService {
     /**
      * Update Account
      * Edit the user\&#39;s profile information
-     * @endpoint post /api/{version}/account/profile/update
-     * @param version 
+     * @endpoint post /account/profile/update
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id used to edit another person\&#39;s account
@@ -1457,13 +1444,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public editAccount(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileInfoResponse>;
-    public editAccount(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileInfoResponse>>;
-    public editAccount(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileInfoResponse>>;
-    public editAccount(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling editAccount.');
-        }
+    public editAccount(deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileInfoResponse>;
+    public editAccount(deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileInfoResponse>>;
+    public editAccount(deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileInfoResponse>>;
+    public editAccount(deviceId?: string, accountId?: number, connectionAccountId?: number, role?: string, assetId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, gender?: string, age?: number, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, makeProfileInfoPublic?: boolean, makeGameInfoPublic?: boolean, makeFriendsInfoPublic?: boolean, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, platforms?: string, tags?: string, aboutUs?: string, matchToken?: string, gameExperience?: string, categories?: string, categoryIds?: string, responseFilters?: string, showAsZipcode?: boolean, showExactLocation?: boolean, showOthersExactLocation?: boolean, acceptedTerms?: boolean, locationVisibility?: string, appBlob?: string, appEnablePush?: boolean, appEnableSMS?: boolean, appEnableEmail?: boolean, gameType?: string, appKey?: string, latitude?: number, longitude?: number, returnProfile?: boolean, audienceIdsToAdd?: string, audienceIdsToRemove?: string, referralAccountId?: number, appNickname?: string, personalAudienceId?: number, nonGuestUsername?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2230,7 +2214,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/profile/update`;
+        let localVarPath = `/account/profile/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileInfoResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2249,8 +2233,7 @@ export class AccountService extends BaseService {
     /**
      * Update Username and Email
      * Update account\&#39;s own username and/or emailAddress
-     * @endpoint post /api/{version}/account/username/update
-     * @param version 
+     * @endpoint post /account/username/update
      * @param deviceId The device id
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param emailAddress the user\&#39;s contact email address (NOT the username) which is also used for email validation
@@ -2259,13 +2242,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public editUsername(version: number, deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public editUsername(version: number, deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public editUsername(version: number, deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public editUsername(version: number, deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling editUsername.');
-        }
+    public editUsername(deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public editUsername(deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public editUsername(deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public editUsername(deviceId?: string, accountId?: number, emailAddress?: string, username?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2330,7 +2310,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/username/update`;
+        let localVarPath = `/account/username/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2349,8 +2329,7 @@ export class AccountService extends BaseService {
     /**
      * Get Account
      * Gets a user\&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @endpoint get /api/{version}/account/profile/get
-     * @param version 
+     * @endpoint get /account/profile/get
      * @param returnNulls Return Nulls
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -2367,13 +2346,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAccount(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public getAccount(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public getAccount(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public getAccount(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAccount.');
-        }
+    public getAccount(returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public getAccount(returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public getAccount(returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public getAccount(returnNulls?: boolean, deviceId?: string, accountId?: number, connectionAccountEmail?: string, connectionAccountId?: number, responseFilters?: string, gameType?: string, appKey?: string, purchaseType?: string, updateViewedDate?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2510,7 +2486,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/profile/get`;
+        let localVarPath = `/account/profile/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2529,8 +2505,7 @@ export class AccountService extends BaseService {
     /**
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @endpoint get /api/{version}/account/profile/assets
-     * @param version 
+     * @endpoint get /account/profile/assets
      * @param returnNulls Determines whether to return null fields in the response
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -2549,13 +2524,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getProfileAssets(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetListResponse>;
-    public getProfileAssets(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetListResponse>>;
-    public getProfileAssets(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetListResponse>>;
-    public getProfileAssets(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getProfileAssets.');
-        }
+    public getProfileAssets(returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetListResponse>;
+    public getProfileAssets(returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetListResponse>>;
+    public getProfileAssets(returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetListResponse>>;
+    public getProfileAssets(returnNulls?: boolean, deviceId?: string, accountId?: number, ownerId?: number, mediaTypes?: string, mimeTypes?: string, sortField?: string, descending?: boolean, latitude?: number, longitude?: number, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2710,7 +2682,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/profile/assets`;
+        let localVarPath = `/account/profile/assets`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssetListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2729,8 +2701,7 @@ export class AccountService extends BaseService {
     /**
      * Search Accounts
      * Gets a user\&#39;s account profile and their referral List.
-     * @endpoint get /api/{version}/account/referral/list
-     * @param version 
+     * @endpoint get /account/referral/list
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param appKey The application key
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it\&#39;s parents, recursively - GET_ALL will get all of the above
@@ -2746,13 +2717,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getReferralList(version: number, accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public getReferralList(version: number, accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public getReferralList(version: number, accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public getReferralList(version: number, accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getReferralList.');
-        }
+    public getReferralList(accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public getReferralList(accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public getReferralList(accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public getReferralList(accountId?: number, appKey?: string, retrieveType?: string, levelLimit?: number, ancestorLevelLimit?: number, childrenLevelLimit?: number, ancestorListStart?: number, ancestorListLimit?: number, childrenListStart?: number, childrenListLimit?: number, childrenChildren?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2879,7 +2847,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/referral/list`;
+        let localVarPath = `/account/referral/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('get', `${basePath}${localVarPath}`,
             {
@@ -2898,8 +2866,7 @@ export class AccountService extends BaseService {
     /**
      * Get Account Settings
      * Get the account settings for a user
-     * @endpoint get /api/{version}/account/settings/get
-     * @param version 
+     * @endpoint get /account/settings/get
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param latitude The current latitude of the user
@@ -2908,13 +2875,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSettings(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserSettingsResponse>;
-    public getSettings(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserSettingsResponse>>;
-    public getSettings(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserSettingsResponse>>;
-    public getSettings(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSettings.');
-        }
+    public getSettings(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserSettingsResponse>;
+    public getSettings(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserSettingsResponse>>;
+    public getSettings(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserSettingsResponse>>;
+    public getSettings(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2979,7 +2943,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/settings/get`;
+        let localVarPath = `/account/settings/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<UserSettingsResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2998,8 +2962,7 @@ export class AccountService extends BaseService {
     /**
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @endpoint post /api/{version}/account/login/delegate
-     * @param version 
+     * @endpoint post /account/login/delegate
      * @param accessToken 
      * @param appKey 
      * @param deviceId 
@@ -3015,13 +2978,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public loginDelegate(version: number, accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public loginDelegate(version: number, accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public loginDelegate(version: number, accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public loginDelegate(version: number, accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling loginDelegate.');
-        }
+    public loginDelegate(accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public loginDelegate(accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public loginDelegate(accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public loginDelegate(accessToken: string, appKey: string, deviceId?: string, accessTokenSecret?: string, delegatedAccountId?: number, delegatedUsername?: string, networkUID?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accessToken === null || accessToken === undefined) {
             throw new Error('Required parameter accessToken was null or undefined when calling loginDelegate.');
         }
@@ -3155,7 +3115,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/login/delegate`;
+        let localVarPath = `/account/login/delegate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3174,8 +3134,7 @@ export class AccountService extends BaseService {
     /**
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @endpoint post /api/{version}/account/login
-     * @param version 
+     * @endpoint post /account/login
      * @param accessToken The access token to authenticate with (ex: username or fb token)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
      * @param appKey The application key
@@ -3193,13 +3152,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public loginGeneral(version: number, accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public loginGeneral(version: number, accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public loginGeneral(version: number, accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public loginGeneral(version: number, accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling loginGeneral.');
-        }
+    public loginGeneral(accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public loginGeneral(accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public loginGeneral(accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public loginGeneral(accessToken: string, networkUID: string, appKey: string, deviceId?: string, deviceIdType?: string, accessTokenSecret?: string, ageRestriction?: number, responseFilters?: string, latitude?: number, longitude?: number, emailMatch?: boolean, chosenAccountId?: number, thirdPartyCredentialId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accessToken === null || accessToken === undefined) {
             throw new Error('Required parameter accessToken was null or undefined when calling loginGeneral.');
         }
@@ -3354,7 +3310,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/login`;
+        let localVarPath = `/account/login`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3373,8 +3329,7 @@ export class AccountService extends BaseService {
     /**
      * Login Account (Username)
      * Login to system with an account
-     * @endpoint post /api/{version}/account/get
-     * @param version 
+     * @endpoint post /account/get
      * @param username the user\&#39;s email address they used to sign-up
      * @param password the password
      * @param deviceId the device id
@@ -3389,13 +3344,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public loginUsername(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public loginUsername(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public loginUsername(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public loginUsername(version: number, username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling loginUsername.');
-        }
+    public loginUsername(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public loginUsername(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public loginUsername(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public loginUsername(username: string, password: string, deviceId?: string, latitude?: number, longitude?: number, app?: string, gameType?: string, appKey?: string, returnProfile?: boolean, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling loginUsername.');
         }
@@ -3520,7 +3472,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/get`;
+        let localVarPath = `/account/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3539,8 +3491,7 @@ export class AccountService extends BaseService {
     /**
      * Logout Account
      * Cleans up the users data for logging out.
-     * @endpoint post /api/{version}/account/logout
-     * @param version 
+     * @endpoint post /account/logout
      * @param deviceId The device id (deviceId or accountId required)
      * @param deviceIdType Device Id Type
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -3550,13 +3501,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public logout(version: number, deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public logout(version: number, deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public logout(version: number, deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public logout(version: number, deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling logout.');
-        }
+    public logout(deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public logout(deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public logout(deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public logout(deviceId?: string, deviceIdType?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -3630,7 +3578,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/logout`;
+        let localVarPath = `/account/logout`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3649,8 +3597,7 @@ export class AccountService extends BaseService {
     /**
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @endpoint post /api/{version}/account/merge
-     * @param version 
+     * @endpoint post /account/merge
      * @param mergeAccountId The id of the account to being merged
      * @param appKey The application key
      * @param deviceId The device id (deviceId or accountId required)
@@ -3659,13 +3606,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public mergeAccount(version: number, mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public mergeAccount(version: number, mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public mergeAccount(version: number, mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public mergeAccount(version: number, mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling mergeAccount.');
-        }
+    public mergeAccount(mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public mergeAccount(mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public mergeAccount(mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public mergeAccount(mergeAccountId: number, appKey: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (mergeAccountId === null || mergeAccountId === undefined) {
             throw new Error('Required parameter mergeAccountId was null or undefined when calling mergeAccount.');
         }
@@ -3736,7 +3680,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/merge`;
+        let localVarPath = `/account/merge`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3755,8 +3699,7 @@ export class AccountService extends BaseService {
     /**
      * Update Password
      * Update the account password.
-     * @endpoint post /api/{version}/account/passwordchange
-     * @param version 
+     * @endpoint post /account/passwordchange
      * @param accountId The account to update
      * @param oldPassword The current password, used to validate access
      * @param newPassword The new password to set, cannot be empty
@@ -3765,13 +3708,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public passwordChange(version: number, accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public passwordChange(version: number, accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public passwordChange(version: number, accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public passwordChange(version: number, accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling passwordChange.');
-        }
+    public passwordChange(accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public passwordChange(accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public passwordChange(accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public passwordChange(accountId: number, oldPassword: string, newPassword: string, confirmPassword: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling passwordChange.');
         }
@@ -3848,7 +3788,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/passwordchange`;
+        let localVarPath = `/account/passwordchange`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3867,8 +3807,7 @@ export class AccountService extends BaseService {
     /**
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @endpoint post /api/{version}/account/passwordreset
-     * @param version 
+     * @endpoint post /account/passwordreset
      * @param token The token associated with the account to update, good for 24 hours
      * @param password The new password to set, cannot be empty
      * @param confirm The new password to confirm, must match newPassword
@@ -3876,13 +3815,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public passwordReset(version: number, token: string, password: string, confirm: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public passwordReset(version: number, token: string, password: string, confirm: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public passwordReset(version: number, token: string, password: string, confirm: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public passwordReset(version: number, token: string, password: string, confirm: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling passwordReset.');
-        }
+    public passwordReset(token: string, password: string, confirm: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public passwordReset(token: string, password: string, confirm: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public passwordReset(token: string, password: string, confirm: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public passwordReset(token: string, password: string, confirm: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling passwordReset.');
         }
@@ -3947,7 +3883,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/passwordreset`;
+        let localVarPath = `/account/passwordreset`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3966,8 +3902,7 @@ export class AccountService extends BaseService {
     /**
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @endpoint post /api/{version}/account/requestpasswordreset
-     * @param version 
+     * @endpoint post /account/requestpasswordreset
      * @param email The email/username of the account
      * @param from this is the sender email
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link
@@ -3977,13 +3912,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public requestPasswordReset(version: number, email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public requestPasswordReset(version: number, email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public requestPasswordReset(version: number, email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public requestPasswordReset(version: number, email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling requestPasswordReset.');
-        }
+    public requestPasswordReset(email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public requestPasswordReset(email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public requestPasswordReset(email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public requestPasswordReset(email: string, from?: string, domain?: string, subUrl?: string, referer?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (email === null || email === undefined) {
             throw new Error('Required parameter email was null or undefined when calling requestPasswordReset.');
         }
@@ -4060,7 +3992,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/requestpasswordreset`;
+        let localVarPath = `/account/requestpasswordreset`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -4079,20 +4011,16 @@ export class AccountService extends BaseService {
     /**
      * Send Validation Request
      * Send an email to validate a user\&#39;s account.
-     * @endpoint post /api/{version}/account/requestValidateAccount
-     * @param version 
+     * @endpoint post /account/requestValidateAccount
      * @param accountId The account id of the user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public requestValidateAccount(version: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public requestValidateAccount(version: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public requestValidateAccount(version: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public requestValidateAccount(version: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling requestValidateAccount.');
-        }
+    public requestValidateAccount(accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public requestValidateAccount(accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public requestValidateAccount(accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public requestValidateAccount(accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling requestValidateAccount.');
         }
@@ -4133,7 +4061,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/requestValidateAccount`;
+        let localVarPath = `/account/requestValidateAccount`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -4152,8 +4080,7 @@ export class AccountService extends BaseService {
     /**
      * Search Accounts
      * Search for account profiles.
-     * @endpoint get /api/{version}/account/profile/search
-     * @param version 
+     * @endpoint get /account/profile/search
      * @param accountId The id of the account requesting
      * @param appKey The application key
      * @param keyword The keyword for for querying the account
@@ -4176,13 +4103,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchAccounts(version: number, accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ProfileResponse>>;
-    public searchAccounts(version: number, accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ProfileResponse>>>;
-    public searchAccounts(version: number, accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ProfileResponse>>>;
-    public searchAccounts(version: number, accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchAccounts.');
-        }
+    public searchAccounts(accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ProfileResponse>>;
+    public searchAccounts(accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ProfileResponse>>>;
+    public searchAccounts(accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ProfileResponse>>>;
+    public searchAccounts(accountId: number, appKey: string, keyword?: string, latitude?: number, longitude?: number, radius?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', gameExperience?: 'ANY' | 'NEW' | 'BEGINNER' | 'INTERMEDIATE' | 'EXPERT', age?: number, categoryIds?: string, returnNulls?: boolean, responseFilters?: string, purchaseType?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchAccounts.');
         }
@@ -4379,7 +4303,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/profile/search`;
+        let localVarPath = `/account/profile/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ProfileResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -4398,8 +4322,7 @@ export class AccountService extends BaseService {
     /**
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @endpoint post /api/{version}/account/login/validate
-     * @param version 
+     * @endpoint post /account/login/validate
      * @param username The user\&#39;s encrypted email address they used to sign-up
      * @param password The encrypted password
      * @param gameType The application key
@@ -4413,13 +4336,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public secureLogin(version: number, username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public secureLogin(version: number, username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public secureLogin(version: number, username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public secureLogin(version: number, username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling secureLogin.');
-        }
+    public secureLogin(username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public secureLogin(username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public secureLogin(username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public secureLogin(username: string, password: string, gameType: string, deviceId?: string, charsetName?: string, latitude?: number, longitude?: number, returnProfile?: boolean, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling secureLogin.');
         }
@@ -4538,7 +4458,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/login/validate`;
+        let localVarPath = `/account/login/validate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -4557,8 +4477,7 @@ export class AccountService extends BaseService {
     /**
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @endpoint post /api/{version}/account/create/validate
-     * @param version 
+     * @endpoint post /account/create/validate
      * @param deviceId The device id
      * @param username The encrypted email of the user, this is what will be used when they login
      * @param password The encrypted password of the user
@@ -4624,13 +4543,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public secureSignup(version: number, deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileInfoResponse>;
-    public secureSignup(version: number, deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileInfoResponse>>;
-    public secureSignup(version: number, deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileInfoResponse>>;
-    public secureSignup(version: number, deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling secureSignup.');
-        }
+    public secureSignup(deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileInfoResponse>;
+    public secureSignup(deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileInfoResponse>>;
+    public secureSignup(deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileInfoResponse>>;
+    public secureSignup(deviceId: string, username: string, password: string, name?: string, inviteToken?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, deviceIdType?: string, emailAddress?: string, assetId?: number, address?: string, zipcode?: string, gender?: string, birthday?: number, homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, role?: string, platforms?: string, tags?: string, aboutUs?: string, gameExperience?: string, categoryIds?: string, hometown?: string, height?: string, heightIndex?: number, ethnicity?: string, bodyType?: string, maritalStatus?: string, children?: string, religion?: string, education?: string, educationIndex?: number, smoke?: string, drink?: string, companionship?: string, companionshipIndex?: number, preferredMinAge?: number, preferredMaxAge?: number, preferredMinHeight?: number, preferredMaxHeight?: number, preferredGender?: string, preferredEducation?: string, preferredEducationIndex?: number, preferredBodyType?: string, preferredEthnicity?: string, preferredLocation?: string, preferredLocationRange?: number, latitude?: number, longitude?: number, acceptedTerms?: boolean, charsetName?: string, gameType?: string, appKey?: string, appVersion?: string, responseType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (deviceId === null || deviceId === undefined) {
             throw new Error('Required parameter deviceId was null or undefined when calling secureSignup.');
         }
@@ -5217,7 +5133,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/create/validate`;
+        let localVarPath = `/account/create/validate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileInfoResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5236,8 +5152,7 @@ export class AccountService extends BaseService {
     /**
      * Save Match Token
      * Save user\&#39;s match token to be used for profile match making
-     * @endpoint post /api/{version}/consumer/profile/matchToken
-     * @param version 
+     * @endpoint post /consumer/profile/matchToken
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param matchToken A string of numbers
@@ -5249,13 +5164,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public setMatchToken(version: number, deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public setMatchToken(version: number, deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public setMatchToken(version: number, deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public setMatchToken(version: number, deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling setMatchToken.');
-        }
+    public setMatchToken(deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public setMatchToken(deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public setMatchToken(deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public setMatchToken(deviceId?: string, accountId?: number, matchToken?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -5347,7 +5259,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/profile/matchToken`;
+        let localVarPath = `/consumer/profile/matchToken`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5366,8 +5278,7 @@ export class AccountService extends BaseService {
     /**
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @endpoint post /api/{version}/account/active/update
-     * @param version 
+     * @endpoint post /account/active/update
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
      * @param active true will activate the user and false will deactivate
@@ -5377,13 +5288,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateActveStatus(version: number, accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateActveStatus(version: number, accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateActveStatus(version: number, accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateActveStatus(version: number, accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateActveStatus.');
-        }
+    public updateActveStatus(accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateActveStatus(accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateActveStatus(accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateActveStatus(accountId: number, connectionAccountId: number, active: boolean, deviceId?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateActveStatus.');
         }
@@ -5466,7 +5374,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/active/update`;
+        let localVarPath = `/account/active/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5485,8 +5393,7 @@ export class AccountService extends BaseService {
     /**
      * Update Location
      * Update the account location
-     * @endpoint post /api/{version}/account/location/update
-     * @param version 
+     * @endpoint post /account/location/update
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param latitude The current latitude of the user
@@ -5496,13 +5403,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateLocation(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateLocation(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateLocation(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateLocation(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateLocation.');
-        }
+    public updateLocation(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateLocation(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateLocation(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateLocation(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, clientTime?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -5576,7 +5480,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/location/update`;
+        let localVarPath = `/account/location/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5595,8 +5499,7 @@ export class AccountService extends BaseService {
     /**
      * Update Account Settings
      * Update the account settings for a user
-     * @endpoint post /api/{version}/account/settings/update
-     * @param version 
+     * @endpoint post /account/settings/update
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param blockedNotifications The notifications to be blocked
@@ -5613,13 +5516,10 @@ export class AccountService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateSettings(version: number, deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserSettingsResponse>;
-    public updateSettings(version: number, deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserSettingsResponse>>;
-    public updateSettings(version: number, deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserSettingsResponse>>;
-    public updateSettings(version: number, deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateSettings.');
-        }
+    public updateSettings(deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UserSettingsResponse>;
+    public updateSettings(deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UserSettingsResponse>>;
+    public updateSettings(deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UserSettingsResponse>>;
+    public updateSettings(deviceId?: string, accountId?: number, blockedNotifications?: string, suggestionMethod?: string, suggestionCount?: number, suggestionTimeFrame?: number, showOthersExactLocation?: boolean, showAsZipcode?: boolean, showExactLocation?: boolean, favoriteVisibility?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -5756,7 +5656,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/settings/update`;
+        let localVarPath = `/account/settings/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<UserSettingsResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5775,20 +5675,16 @@ export class AccountService extends BaseService {
     /**
      * Save Validation Status
      * Validate the account\&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @endpoint post /api/{version}/account/validateAccountSignup
-     * @param version 
+     * @endpoint post /account/validateAccountSignup
      * @param token The token associated with the account to update, good for 24 hours
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public validateAccountSignup(version: number, token: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
-    public validateAccountSignup(version: number, token: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
-    public validateAccountSignup(version: number, token: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
-    public validateAccountSignup(version: number, token: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling validateAccountSignup.');
-        }
+    public validateAccountSignup(token: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountLoginResponse>;
+    public validateAccountSignup(token: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountLoginResponse>>;
+    public validateAccountSignup(token: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountLoginResponse>>;
+    public validateAccountSignup(token: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling validateAccountSignup.');
         }
@@ -5829,7 +5725,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/validateAccountSignup`;
+        let localVarPath = `/account/validateAccountSignup`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AccountLoginResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -5848,20 +5744,16 @@ export class AccountService extends BaseService {
     /**
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @endpoint post /api/{version}/account/validatepasswordreset
-     * @param version 
+     * @endpoint post /account/validatepasswordreset
      * @param token The token associated with the account to update, good for 24 hours
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public validatePasswordReset(version: number, token: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public validatePasswordReset(version: number, token: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public validatePasswordReset(version: number, token: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public validatePasswordReset(version: number, token: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling validatePasswordReset.');
-        }
+    public validatePasswordReset(token: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public validatePasswordReset(token: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public validatePasswordReset(token: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public validatePasswordReset(token: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling validatePasswordReset.');
         }
@@ -5902,7 +5794,7 @@ export class AccountService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/validatepasswordreset`;
+        let localVarPath = `/account/validatepasswordreset`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -39,8 +39,7 @@ export class CSVImportService extends BaseService {
 
     /**
      * Detail Status
-     * @endpoint get /api/{version}/csvimport/batch/status/details
-     * @param version 
+     * @endpoint get /csvimport/batch/status/details
      * @param accountId the id of the logged in user
      * @param batchId the id of the batch
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -50,13 +49,10 @@ export class CSVImportService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getStatusCSV(version: number, accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getStatusCSV(version: number, accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getStatusCSV(version: number, accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getStatusCSV(version: number, accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getStatusCSV.');
-        }
+    public getStatusCSV(accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getStatusCSV(accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getStatusCSV(accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getStatusCSV(accountId: number, batchId: number, responseGroup: 'SUMMARY' | 'DETAILS' | 'ERRORS' | 'ALL', start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getStatusCSV.');
         }
@@ -145,7 +141,7 @@ export class CSVImportService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/csvimport/batch/status/details`;
+        let localVarPath = `/csvimport/batch/status/details`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -164,8 +160,7 @@ export class CSVImportService extends BaseService {
     /**
      * Search Status
      * Retrieves batches for a user.
-     * @endpoint get /api/{version}/csvimport/batch/list
-     * @param version 
+     * @endpoint get /csvimport/batch/list
      * @param accountId the id of the account
      * @param start the start of the pagination
      * @param limit the limit of the pagination
@@ -173,13 +168,10 @@ export class CSVImportService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listStatusCSV(version: number, accountId: number, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
-    public listStatusCSV(version: number, accountId: number, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
-    public listStatusCSV(version: number, accountId: number, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
-    public listStatusCSV(version: number, accountId: number, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listStatusCSV.');
-        }
+    public listStatusCSV(accountId: number, start: number, limit: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
+    public listStatusCSV(accountId: number, start: number, limit: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
+    public listStatusCSV(accountId: number, start: number, limit: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
+    public listStatusCSV(accountId: number, start: number, limit: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listStatusCSV.');
         }
@@ -244,7 +236,7 @@ export class CSVImportService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/csvimport/batch/list`;
+        let localVarPath = `/csvimport/batch/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CsvImportResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -263,21 +255,17 @@ export class CSVImportService extends BaseService {
     /**
      * Batch Status
      * Checks status of batch upload.
-     * @endpoint get /api/{version}/csvimport/batch/status
-     * @param version 
+     * @endpoint get /csvimport/batch/status
      * @param accountId the id of the account
      * @param batchId the id of the batch to get its status
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public statusCSV(version: number, accountId: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
-    public statusCSV(version: number, accountId: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
-    public statusCSV(version: number, accountId: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
-    public statusCSV(version: number, accountId: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling statusCSV.');
-        }
+    public statusCSV(accountId: number, batchId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
+    public statusCSV(accountId: number, batchId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
+    public statusCSV(accountId: number, batchId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
+    public statusCSV(accountId: number, batchId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling statusCSV.');
         }
@@ -330,7 +318,7 @@ export class CSVImportService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/csvimport/batch/status`;
+        let localVarPath = `/csvimport/batch/status`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CsvImportResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -349,8 +337,7 @@ export class CSVImportService extends BaseService {
     /**
      * Upload CSV
      * Uploads a CSV import file.
-     * @endpoint post /api/{version}/csvimport/upload
-     * @param version 
+     * @endpoint post /csvimport/upload
      * @param accountId the id of the account
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
      * @param importFile the import file to reference
@@ -360,13 +347,10 @@ export class CSVImportService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public uploadCSV(version: number, accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
-    public uploadCSV(version: number, accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
-    public uploadCSV(version: number, accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
-    public uploadCSV(version: number, accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling uploadCSV.');
-        }
+    public uploadCSV(accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CsvImportResponse>;
+    public uploadCSV(accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CsvImportResponse>>;
+    public uploadCSV(accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CsvImportResponse>>;
+    public uploadCSV(accountId: number, uploadType: 'OFFERS' | 'RETAILERS' | 'RETAILERLOCATIONS' | 'CATEGORIES' | 'FILTERS', importFile: Blob, fileFormat: 'EXCEL' | 'MYSQL' | 'RFC4180' | 'TDF', appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling uploadCSV.');
         }
@@ -452,7 +436,7 @@ export class CSVImportService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/csvimport/upload`;
+        let localVarPath = `/csvimport/upload`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CsvImportResponse>('post', `${basePath}${localVarPath}`,
             {

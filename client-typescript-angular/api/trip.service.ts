@@ -38,20 +38,16 @@ export class TripService extends BaseService {
     /**
      * Delete Trip
      * Delete an existing trip
-     * @endpoint delete /api/{version}/trip/{id}
-     * @param version 
+     * @endpoint delete /trip/{id}
      * @param id the id of the trip to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public _delete(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public _delete(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public _delete(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public _delete(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling _delete.');
-        }
+    public _delete(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public _delete(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public _delete(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public _delete(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
         }
@@ -80,7 +76,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -98,20 +94,16 @@ export class TripService extends BaseService {
     /**
      * Create Trip
      * Create a new trip
-     * @endpoint post /api/{version}/trip
-     * @param version 
+     * @endpoint post /trip
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createTrip(version: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public createTrip(version: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public createTrip(version: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public createTrip(version: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createTrip.');
-        }
+    public createTrip(body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public createTrip(body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public createTrip(body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public createTrip(body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -146,7 +138,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip`;
+        let localVarPath = `/trip`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -165,21 +157,17 @@ export class TripService extends BaseService {
     /**
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @endpoint post /api/{version}/trip/{id}/drive
-     * @param version 
+     * @endpoint post /trip/{id}/drive
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public driveTrip(version: number, id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public driveTrip(version: number, id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public driveTrip(version: number, id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public driveTrip(version: number, id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling driveTrip.');
-        }
+    public driveTrip(id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public driveTrip(id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public driveTrip(id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public driveTrip(id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling driveTrip.');
         }
@@ -223,7 +211,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/drive`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/drive`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -242,21 +230,17 @@ export class TripService extends BaseService {
     /**
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @endpoint post /api/{version}/trip/{id}/flexible
-     * @param version 
+     * @endpoint post /trip/{id}/flexible
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public flexibleTrip(version: number, id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public flexibleTrip(version: number, id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public flexibleTrip(version: number, id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public flexibleTrip(version: number, id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling flexibleTrip.');
-        }
+    public flexibleTrip(id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public flexibleTrip(id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public flexibleTrip(id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public flexibleTrip(id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling flexibleTrip.');
         }
@@ -300,7 +284,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/flexible`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/flexible`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -319,20 +303,16 @@ export class TripService extends BaseService {
     /**
      * Get Trip
      * Get an existing trip
-     * @endpoint get /api/{version}/trip/{id}
-     * @param version 
+     * @endpoint get /trip/{id}
      * @param id the id of the trip to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTrip(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public getTrip(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public getTrip(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public getTrip(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTrip.');
-        }
+    public getTrip(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public getTrip(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public getTrip(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public getTrip(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getTrip.');
         }
@@ -362,7 +342,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('get', `${basePath}${localVarPath}`,
             {
@@ -380,8 +360,7 @@ export class TripService extends BaseService {
     /**
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @endpoint get /api/{version}/trip/{id}/match
-     * @param version 
+     * @endpoint get /trip/{id}/match
      * @param id The id The id of the trip to search for matches for
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -394,13 +373,10 @@ export class TripService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTripMatches(version: number, id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public getTripMatches(version: number, id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public getTripMatches(version: number, id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public getTripMatches(version: number, id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTripMatches.');
-        }
+    public getTripMatches(id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public getTripMatches(id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public getTripMatches(id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public getTripMatches(id: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getTripMatches.');
         }
@@ -510,7 +486,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/match`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/match`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('get', `${basePath}${localVarPath}`,
             {
@@ -529,8 +505,7 @@ export class TripService extends BaseService {
     /**
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @endpoint post /api/{version}/trip/match/process
-     * @param version 
+     * @endpoint post /trip/match/process
      * @param startDate The lower bound date to process matchings
      * @param endDate The upper bound date to process matchings
      * @param tripId the id of the trip to process
@@ -538,13 +513,10 @@ export class TripService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public processTripMatches(version: number, startDate?: number, endDate?: number, tripId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public processTripMatches(version: number, startDate?: number, endDate?: number, tripId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public processTripMatches(version: number, startDate?: number, endDate?: number, tripId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public processTripMatches(version: number, startDate?: number, endDate?: number, tripId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling processTripMatches.');
-        }
+    public processTripMatches(startDate?: number, endDate?: number, tripId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public processTripMatches(startDate?: number, endDate?: number, tripId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public processTripMatches(startDate?: number, endDate?: number, tripId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public processTripMatches(startDate?: number, endDate?: number, tripId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -600,7 +572,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/match/process`;
+        let localVarPath = `/trip/match/process`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('post', `${basePath}${localVarPath}`,
             {
@@ -619,21 +591,17 @@ export class TripService extends BaseService {
     /**
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @endpoint post /api/{version}/trip/{id}/ride
-     * @param version 
+     * @endpoint post /trip/{id}/ride
      * @param id the id of the trip
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public ride(version: number, id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public ride(version: number, id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public ride(version: number, id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public ride(version: number, id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling ride.');
-        }
+    public ride(id: number, recurrence: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public ride(id: number, recurrence: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public ride(id: number, recurrence: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public ride(id: number, recurrence: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling ride.');
         }
@@ -677,7 +645,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/ride`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/ride`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -696,8 +664,7 @@ export class TripService extends BaseService {
     /**
      * Search Trips
      * Search for trips
-     * @endpoint get /api/{version}/trip
-     * @param version 
+     * @endpoint get /trip
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -711,13 +678,10 @@ export class TripService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public search(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public search(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public search(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public search(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling search.');
-        }
+    public search(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public search(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public search(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public search(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, hasNotifications?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling search.');
         }
@@ -845,7 +809,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip`;
+        let localVarPath = `/trip`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('get', `${basePath}${localVarPath}`,
             {
@@ -864,8 +828,7 @@ export class TripService extends BaseService {
     /**
      * Search Trips
      * Search for trips with matching information.
-     * @endpoint get /api/{version}/trip/match
-     * @param version 
+     * @endpoint get /trip/match
      * @param accountId The owner of the trips
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -880,13 +843,10 @@ export class TripService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTrips(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public searchTrips(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public searchTrips(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public searchTrips(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTrips.');
-        }
+    public searchTrips(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public searchTrips(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public searchTrips(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public searchTrips(accountId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, startDate?: number, endDate?: number, matchedHasRoute?: boolean, matchedHasDriver?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchTrips.');
         }
@@ -1023,7 +983,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/match`;
+        let localVarPath = `/trip/match`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('get', `${basePath}${localVarPath}`,
             {
@@ -1041,21 +1001,17 @@ export class TripService extends BaseService {
 
     /**
      * Update Trip Locations
-     * @endpoint post /api/{version}/trip/{id}/locations
-     * @param version 
+     * @endpoint post /trip/{id}/locations
      * @param id the id of the trip to update locations for
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateLocations(version: number, id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public updateLocations(version: number, id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public updateLocations(version: number, id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public updateLocations(version: number, id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateLocations.');
-        }
+    public updateLocations(id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public updateLocations(id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public updateLocations(id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public updateLocations(id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateLocations.');
         }
@@ -1093,7 +1049,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/locations`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/locations`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -1111,21 +1067,17 @@ export class TripService extends BaseService {
 
     /**
      * Update Recurrence Locations
-     * @endpoint post /api/{version}/trip/{id}/locations/recurrence
-     * @param version 
+     * @endpoint post /trip/{id}/locations/recurrence
      * @param id the id of the trip
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRecurrenceLocations(version: number, id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public updateRecurrenceLocations(version: number, id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public updateRecurrenceLocations(version: number, id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public updateRecurrenceLocations(version: number, id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRecurrenceLocations.');
-        }
+    public updateRecurrenceLocations(id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public updateRecurrenceLocations(id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public updateRecurrenceLocations(id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public updateRecurrenceLocations(id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateRecurrenceLocations.');
         }
@@ -1163,7 +1115,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/locations/recurrence`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/locations/recurrence`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('post', `${basePath}${localVarPath}`,
             {
@@ -1181,21 +1133,17 @@ export class TripService extends BaseService {
 
     /**
      * Update Recurrence Shipments
-     * @endpoint post /api/{version}/trip/{id}/shipments/recurrence
-     * @param version 
+     * @endpoint post /trip/{id}/shipments/recurrence
      * @param id the id of the trip
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRecurrenceShipments(version: number, id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
-    public updateRecurrenceShipments(version: number, id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
-    public updateRecurrenceShipments(version: number, id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
-    public updateRecurrenceShipments(version: number, id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRecurrenceShipments.');
-        }
+    public updateRecurrenceShipments(id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Trip>>;
+    public updateRecurrenceShipments(id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Trip>>>;
+    public updateRecurrenceShipments(id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Trip>>>;
+    public updateRecurrenceShipments(id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateRecurrenceShipments.');
         }
@@ -1233,7 +1181,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments/recurrence`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments/recurrence`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Trip>>('post', `${basePath}${localVarPath}`,
             {
@@ -1251,21 +1199,17 @@ export class TripService extends BaseService {
 
     /**
      * Update Trip Shipments
-     * @endpoint post /api/{version}/trip/{id}/shipments
-     * @param version 
+     * @endpoint post /trip/{id}/shipments
      * @param id the id of the trip shipments to update
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateShipments(version: number, id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public updateShipments(version: number, id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public updateShipments(version: number, id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public updateShipments(version: number, id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateShipments.');
-        }
+    public updateShipments(id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public updateShipments(id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public updateShipments(id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public updateShipments(id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateShipments.');
         }
@@ -1303,7 +1247,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/shipments`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {
@@ -1322,21 +1266,17 @@ export class TripService extends BaseService {
     /**
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @endpoint put /api/{version}/trip/{id}
-     * @param version 
+     * @endpoint put /trip/{id}
      * @param id the id of the trip to update
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTrip(version: number, id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public updateTrip(version: number, id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public updateTrip(version: number, id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public updateTrip(version: number, id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTrip.');
-        }
+    public updateTrip(id: number, body?: Trip, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public updateTrip(id: number, body?: Trip, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public updateTrip(id: number, body?: Trip, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public updateTrip(id: number, body?: Trip, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateTrip.');
         }
@@ -1374,7 +1314,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/trip/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('put', `${basePath}${localVarPath}`,
             {
@@ -1393,21 +1333,17 @@ export class TripService extends BaseService {
     /**
      * Trip Notifications
      * Update the trip notifications
-     * @endpoint post /api/{version}/trip/notifications
-     * @param version 
+     * @endpoint post /trip/notifications
      * @param id the id of the trip
      * @param notifications the notifications to update on the trip
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTripNotifications(version: number, id: number, notifications?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
-    public updateTripNotifications(version: number, id: number, notifications?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
-    public updateTripNotifications(version: number, id: number, notifications?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
-    public updateTripNotifications(version: number, id: number, notifications?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTripNotifications.');
-        }
+    public updateTripNotifications(id: number, notifications?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Trip>;
+    public updateTripNotifications(id: number, notifications?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Trip>>;
+    public updateTripNotifications(id: number, notifications?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Trip>>;
+    public updateTripNotifications(id: number, notifications?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateTripNotifications.');
         }
@@ -1457,7 +1393,7 @@ export class TripService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trip/notifications`;
+        let localVarPath = `/trip/notifications`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Trip>('post', `${basePath}${localVarPath}`,
             {

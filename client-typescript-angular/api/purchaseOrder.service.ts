@@ -40,8 +40,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @endpoint post /api/{version}/order/create
-     * @param version 
+     * @endpoint post /order/create
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
      * @param deviceId The device id (deviceId or accountId required)
@@ -58,13 +57,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
-    public createOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
-    public createOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
-    public createOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOrder.');
-        }
+    public createOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
+    public createOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
+    public createOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
+    public createOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createOrder.');
         }
@@ -207,7 +203,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/create`;
+        let localVarPath = `/order/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrderResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -226,8 +222,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @endpoint post /api/{version}/order/delete
-     * @param version 
+     * @endpoint post /order/delete
      * @param orderId Order Id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -235,13 +230,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteOrder(version: number, orderId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteOrder(version: number, orderId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteOrder(version: number, orderId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteOrder(version: number, orderId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteOrder.');
-        }
+    public deleteOrder(orderId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteOrder(orderId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteOrder(orderId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteOrder(orderId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (orderId === null || orderId === undefined) {
             throw new Error('Required parameter orderId was null or undefined when calling deleteOrder.');
         }
@@ -300,7 +292,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/delete`;
+        let localVarPath = `/order/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -319,8 +311,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Get Order
      * Get an order record
-     * @endpoint get /api/{version}/order/get
-     * @param version 
+     * @endpoint get /order/get
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided
@@ -329,13 +320,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getOrder(version: number, deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
-    public getOrder(version: number, deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
-    public getOrder(version: number, deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
-    public getOrder(version: number, deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getOrder.');
-        }
+    public getOrder(deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
+    public getOrder(deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
+    public getOrder(deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
+    public getOrder(deviceId?: string, accountId?: number, orderId?: number, externalOrderId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -400,7 +388,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/get`;
+        let localVarPath = `/order/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrderResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -419,8 +407,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @endpoint post /api/{version}/order/preview
-     * @param version 
+     * @endpoint post /order/preview
      * @param appKey The application requesting the purchase
      * @param cart A JSON list of items to purchase
      * @param deviceId The device id (deviceId or accountId required)
@@ -437,13 +424,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public previewOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
-    public previewOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
-    public previewOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
-    public previewOrder(version: number, appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling previewOrder.');
-        }
+    public previewOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
+    public previewOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
+    public previewOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
+    public previewOrder(appKey: string, cart: string, deviceId?: string, accountId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalOrderId?: string, externalPaymentId?: string, remoteRefType?: string, externalDate?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling previewOrder.');
         }
@@ -586,7 +570,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/preview`;
+        let localVarPath = `/order/preview`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrderResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -605,8 +589,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Search Orders
      * Search on active orders by customer
-     * @endpoint get /api/{version}/order/search
-     * @param version 
+     * @endpoint get /order/search
      * @param appKey The application requesting the purchase
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -642,13 +625,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchOrders(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OrderResponse>>;
-    public searchOrders(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OrderResponse>>>;
-    public searchOrders(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OrderResponse>>>;
-    public searchOrders(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchOrders.');
-        }
+    public searchOrders(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OrderResponse>>;
+    public searchOrders(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OrderResponse>>>;
+    public searchOrders(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OrderResponse>>>;
+    public searchOrders(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, descending?: boolean, activeOnly?: boolean, ignoreCustomerFilter?: boolean, orderItemTypes?: string, orderItemIds?: string, orderCustomTypes?: string, orderCustomIds?: string, sortField?: string, offerTypes?: string, specialOfferTypes?: string, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, offerIds?: string, offerLocationIds?: string, retailerIds?: string, retailerLocationIds?: string, statuses?: string, keyword?: string, redeemableStartDate?: number, redeemableEndDate?: number, startedSince?: number, startedBefore?: number, endedSince?: number, endedBefore?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling searchOrders.');
         }
@@ -959,7 +939,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/search`;
+        let localVarPath = `/order/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OrderResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -978,8 +958,7 @@ export class PurchaseOrderService extends BaseService {
     /**
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @endpoint post /api/{version}/order/update
-     * @param version 
+     * @endpoint post /order/update
      * @param orderId The order to add the purchase to, leave null for new order.
      * @param appKey The application requesting the purchase
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -995,13 +974,10 @@ export class PurchaseOrderService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateOrder(version: number, orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
-    public updateOrder(version: number, orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
-    public updateOrder(version: number, orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
-    public updateOrder(version: number, orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateOrder.');
-        }
+    public updateOrder(orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrderResponse>;
+    public updateOrder(orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrderResponse>>;
+    public updateOrder(orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrderResponse>>;
+    public updateOrder(orderId: number, appKey: string, cart: string, deviceId?: string, accountId?: number, paymentTransactionId?: number, description?: string, currencyType?: 'VOID' | 'CASH' | 'POINTS' | 'TICKETS' | 'REFUND' | 'CREDIT' | 'RELOAD', paymentMethodId?: number, externalPaymentId?: string, externalDate?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (orderId === null || orderId === undefined) {
             throw new Error('Required parameter orderId was null or undefined when calling updateOrder.');
         }
@@ -1138,7 +1114,7 @@ export class PurchaseOrderService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/order/update`;
+        let localVarPath = `/order/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrderResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -46,8 +46,7 @@ export class GameLevelService extends BaseService {
     /**
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @endpoint post /api/{version}/level/create
-     * @param version 
+     * @endpoint post /level/create
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param gameData The game level data: xml, json, or other text based format.
@@ -78,13 +77,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createGameLevel(version: number, accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
-    public createGameLevel(version: number, accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
-    public createGameLevel(version: number, accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
-    public createGameLevel(version: number, accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createGameLevel.');
-        }
+    public createGameLevel(accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
+    public createGameLevel(accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
+    public createGameLevel(accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
+    public createGameLevel(accountId: number, name: string, gameData: string, gameDataSuffix: string, appKey?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createGameLevel.');
         }
@@ -359,7 +355,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/create`;
+        let localVarPath = `/level/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameLevelResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -378,21 +374,17 @@ export class GameLevelService extends BaseService {
     /**
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @endpoint post /api/{version}/level/delete
-     * @param version 
+     * @endpoint post /level/delete
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteGameLevel(version: number, accountId: number, levelId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteGameLevel(version: number, accountId: number, levelId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteGameLevel(version: number, accountId: number, levelId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteGameLevel(version: number, accountId: number, levelId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteGameLevel.');
-        }
+    public deleteGameLevel(accountId: number, levelId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteGameLevel(accountId: number, levelId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteGameLevel(accountId: number, levelId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteGameLevel(accountId: number, levelId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteGameLevel.');
         }
@@ -445,7 +437,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/delete`;
+        let localVarPath = `/level/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -464,8 +456,7 @@ export class GameLevelService extends BaseService {
     /**
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @endpoint get /api/{version}/level/get
-     * @param version 
+     * @endpoint get /level/get
      * @param accountId The logged in user.
      * @param levelId The id of the level to return.
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false.
@@ -473,13 +464,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGameLevel(version: number, accountId: number, levelId: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
-    public getGameLevel(version: number, accountId: number, levelId: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
-    public getGameLevel(version: number, accountId: number, levelId: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
-    public getGameLevel(version: number, accountId: number, levelId: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGameLevel.');
-        }
+    public getGameLevel(accountId: number, levelId: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
+    public getGameLevel(accountId: number, levelId: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
+    public getGameLevel(accountId: number, levelId: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
+    public getGameLevel(accountId: number, levelId: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getGameLevel.');
         }
@@ -541,7 +529,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/get`;
+        let localVarPath = `/level/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameLevelResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -560,8 +548,7 @@ export class GameLevelService extends BaseService {
     /**
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @endpoint get /api/{version}/level/search
-     * @param version 
+     * @endpoint get /level/search
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param keyword Match the keyword to the owner name or level name.
@@ -576,13 +563,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGameLevelsByApplication(version: number, accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelListResponse>;
-    public getGameLevelsByApplication(version: number, accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelListResponse>>;
-    public getGameLevelsByApplication(version: number, accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelListResponse>>;
-    public getGameLevelsByApplication(version: number, accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGameLevelsByApplication.');
-        }
+    public getGameLevelsByApplication(accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelListResponse>;
+    public getGameLevelsByApplication(accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelListResponse>>;
+    public getGameLevelsByApplication(accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelListResponse>>;
+    public getGameLevelsByApplication(accountId: number, appKey: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, appVersion?: string, includeGameData?: boolean, filters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getGameLevelsByApplication.');
         }
@@ -707,7 +691,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/search`;
+        let localVarPath = `/level/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameLevelListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -726,8 +710,7 @@ export class GameLevelService extends BaseService {
     /**
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @endpoint get /api/{version}/level/searchByBillableEntity
-     * @param version 
+     * @endpoint get /level/searchByBillableEntity
      * @param accountId The account id of the user
      * @param appKey the application key
      * @param keyword The keyword used to search
@@ -740,13 +723,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGameLevelsByBillableEntity(version: number, accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
-    public getGameLevelsByBillableEntity(version: number, accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
-    public getGameLevelsByBillableEntity(version: number, accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
-    public getGameLevelsByBillableEntity(version: number, accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGameLevelsByBillableEntity.');
-        }
+    public getGameLevelsByBillableEntity(accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
+    public getGameLevelsByBillableEntity(accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
+    public getGameLevelsByBillableEntity(accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
+    public getGameLevelsByBillableEntity(accountId: number, appKey?: string, keyword?: string, sortField?: 'LEVEL_ACTIVE' | 'LEVEL_NAME' | 'LEVEL_DESCRIPTION' | 'LEVEL_CREATED' | 'LEVEL_UPDATED' | 'LEVEL_LIKES' | 'LEVEL_DISLIKES' | 'LEVEL_NOTES' | 'LEVEL_PLAYS' | 'LEVEL_DOWNLOADS' | 'LEVEL_QUITS' | 'LEVEL_COMPLETES' | 'LEVEL_VERSION' | 'LEVEL_MISSION_TYPE' | 'LEVEL_OWNER_DISPLAY' | 'GAME_OWNER_DISPLAY' | 'GAME_TITLE' | 'GAME_DESCRIPTION' | 'GAME_LIKES' | 'GAME_DISLIKES' | 'APP_NAME' | 'APP_SCORING_TYPE', descending?: boolean, activeOnly?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getGameLevelsByBillableEntity.');
         }
@@ -850,7 +830,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/searchByBillableEntity`;
+        let localVarPath = `/level/searchByBillableEntity`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameLevelResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -869,21 +849,17 @@ export class GameLevelService extends BaseService {
     /**
      * Get Level Questions
      * Get questions within a level.
-     * @endpoint get /api/{version}/level/questions/get
-     * @param version 
+     * @endpoint get /level/questions/get
      * @param levelId the id of the level to get questions from
      * @param accountId the id of the logged in user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getQuestionsInLevel(version: number, levelId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
-    public getQuestionsInLevel(version: number, levelId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
-    public getQuestionsInLevel(version: number, levelId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
-    public getQuestionsInLevel(version: number, levelId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getQuestionsInLevel.');
-        }
+    public getQuestionsInLevel(levelId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
+    public getQuestionsInLevel(levelId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
+    public getQuestionsInLevel(levelId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
+    public getQuestionsInLevel(levelId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (levelId === null || levelId === undefined) {
             throw new Error('Required parameter levelId was null or undefined when calling getQuestionsInLevel.');
         }
@@ -936,7 +912,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/questions/get`;
+        let localVarPath = `/level/questions/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QuestionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -955,21 +931,17 @@ export class GameLevelService extends BaseService {
     /**
      * Get Level Words
      * Get words within a level.
-     * @endpoint get /api/{version}/level/words/get
-     * @param version 
+     * @endpoint get /level/words/get
      * @param levelId the id of the level to get words for
      * @param accountId the id of the logged in user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getWordsInLevel(version: number, levelId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
-    public getWordsInLevel(version: number, levelId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
-    public getWordsInLevel(version: number, levelId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
-    public getWordsInLevel(version: number, levelId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getWordsInLevel.');
-        }
+    public getWordsInLevel(levelId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WordzWordResponse>;
+    public getWordsInLevel(levelId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WordzWordResponse>>;
+    public getWordsInLevel(levelId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WordzWordResponse>>;
+    public getWordsInLevel(levelId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (levelId === null || levelId === undefined) {
             throw new Error('Required parameter levelId was null or undefined when calling getWordsInLevel.');
         }
@@ -1022,7 +994,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/words/get`;
+        let localVarPath = `/level/words/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WordzWordResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1041,8 +1013,7 @@ export class GameLevelService extends BaseService {
     /**
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @endpoint post /api/{version}/level/update
-     * @param version 
+     * @endpoint post /level/update
      * @param accountId The logged in user.
      * @param levelId If update then include the level Id.
      * @param appKey The game application key to save the level for.
@@ -1074,13 +1045,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateGameLevel(version: number, accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
-    public updateGameLevel(version: number, accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
-    public updateGameLevel(version: number, accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
-    public updateGameLevel(version: number, accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateGameLevel.');
-        }
+    public updateGameLevel(accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GameLevelResponse>;
+    public updateGameLevel(accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GameLevelResponse>>;
+    public updateGameLevel(accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GameLevelResponse>>;
+    public updateGameLevel(accountId: number, levelId: number, appKey?: string, name?: string, description?: string, difficulty?: string, appVersion?: string, assetImageId?: number, assetIconId?: number, gameData?: string, gameDataSuffix?: string, visibility?: string, friendGroup?: boolean, connectionIds?: string, connectionGroupIds?: string, balance?: number, active?: boolean, allocateTickets?: boolean, ticketCount?: number, ticketType?: string, points?: number, tutorialTitle?: string, tutorialMessage?: string, tutorialAlignment?: string, tutorialImageAssetId?: number, offerId?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateGameLevel.');
         }
@@ -1358,7 +1326,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/update`;
+        let localVarPath = `/level/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GameLevelResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1377,8 +1345,7 @@ export class GameLevelService extends BaseService {
     /**
      * Update Level Questions
      * Updates a level with question game objects.
-     * @endpoint post /api/{version}/level/questions/update
-     * @param version 
+     * @endpoint post /level/questions/update
      * @param levelId the id of the level to update questions on
      * @param accountId the id of the logged in user
      * @param questionIds the IDs of the questions to update
@@ -1386,13 +1353,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateQuestionsInLevel(version: number, levelId: number, accountId: number, questionIds: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateQuestionsInLevel(version: number, levelId: number, accountId: number, questionIds: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateQuestionsInLevel(version: number, levelId: number, accountId: number, questionIds: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateQuestionsInLevel(version: number, levelId: number, accountId: number, questionIds: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateQuestionsInLevel.');
-        }
+    public updateQuestionsInLevel(levelId: number, accountId: number, questionIds: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateQuestionsInLevel(levelId: number, accountId: number, questionIds: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateQuestionsInLevel(levelId: number, accountId: number, questionIds: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateQuestionsInLevel(levelId: number, accountId: number, questionIds: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (levelId === null || levelId === undefined) {
             throw new Error('Required parameter levelId was null or undefined when calling updateQuestionsInLevel.');
         }
@@ -1457,7 +1421,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/questions/update`;
+        let localVarPath = `/level/questions/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1476,8 +1440,7 @@ export class GameLevelService extends BaseService {
     /**
      * Update Level Words
      * Updates a level with word game objects.
-     * @endpoint post /api/{version}/level/words/update
-     * @param version 
+     * @endpoint post /level/words/update
      * @param levelId the id of the level to update words for
      * @param accountId the id of the logged in user
      * @param wordIds the ids of the words to update for the level
@@ -1485,13 +1448,10 @@ export class GameLevelService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateWordsInLevel(version: number, levelId: number, accountId: number, wordIds: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateWordsInLevel(version: number, levelId: number, accountId: number, wordIds: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateWordsInLevel(version: number, levelId: number, accountId: number, wordIds: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateWordsInLevel(version: number, levelId: number, accountId: number, wordIds: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateWordsInLevel.');
-        }
+    public updateWordsInLevel(levelId: number, accountId: number, wordIds: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateWordsInLevel(levelId: number, accountId: number, wordIds: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateWordsInLevel(levelId: number, accountId: number, wordIds: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateWordsInLevel(levelId: number, accountId: number, wordIds: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (levelId === null || levelId === undefined) {
             throw new Error('Required parameter levelId was null or undefined when calling updateWordsInLevel.');
         }
@@ -1556,7 +1516,7 @@ export class GameLevelService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/level/words/update`;
+        let localVarPath = `/level/words/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

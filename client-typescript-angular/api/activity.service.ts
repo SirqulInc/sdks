@@ -40,20 +40,16 @@ export class ActivityService extends BaseService {
     /**
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @endpoint post /api/{version}/entity/reference
-     * @param version 
+     * @endpoint post /entity/reference
      * @param body The entity reference object
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createEntityReference(version: number, body: EntityReference, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ActivityResponse>;
-    public createEntityReference(version: number, body: EntityReference, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ActivityResponse>>;
-    public createEntityReference(version: number, body: EntityReference, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ActivityResponse>>;
-    public createEntityReference(version: number, body: EntityReference, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createEntityReference.');
-        }
+    public createEntityReference(body: EntityReference, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ActivityResponse>;
+    public createEntityReference(body: EntityReference, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ActivityResponse>>;
+    public createEntityReference(body: EntityReference, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ActivityResponse>>;
+    public createEntityReference(body: EntityReference, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling createEntityReference.');
         }
@@ -92,7 +88,7 @@ export class ActivityService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/entity/reference`;
+        let localVarPath = `/entity/reference`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ActivityResponse>('post', `${basePath}${localVarPath}`,
             {

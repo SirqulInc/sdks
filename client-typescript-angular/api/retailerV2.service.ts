@@ -38,8 +38,7 @@ export class RetailerV2Service extends BaseService {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @endpoint get /api/{version}/retailer
-     * @param version 
+     * @endpoint get /retailer
      * @param retailerId the id of the retailer
      * @param activeOnly whether to return results that are active only or all
      * @param keyword the keyword to search on to get retailer
@@ -50,13 +49,10 @@ export class RetailerV2Service extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRetaokiler(version: number, retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getRetaokiler(version: number, retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getRetaokiler(version: number, retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getRetaokiler(version: number, retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRetaokiler.');
-        }
+    public getRetaokiler(retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getRetaokiler(retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getRetaokiler(retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getRetaokiler(retailerId: number, activeOnly: boolean, keyword?: string, sortField?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (retailerId === null || retailerId === undefined) {
             throw new Error('Required parameter retailerId was null or undefined when calling getRetaokiler.');
         }
@@ -145,7 +141,7 @@ export class RetailerV2Service extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/retailer`;
+        let localVarPath = `/retailer`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {

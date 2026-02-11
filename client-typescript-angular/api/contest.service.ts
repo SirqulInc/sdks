@@ -42,8 +42,7 @@ export class ContestService extends BaseService {
     /**
      * Create or Update Contest
      * Creates or updates a contest.
-     * @endpoint post /api/{version}/consumer/album/contest
-     * @param version 
+     * @endpoint post /consumer/album/contest
      * @param publicRead determines whether the contest\&#39;s participants has read permissions
      * @param publicWrite determines whether the contest\&#39;s participants has write permissions
      * @param publicDelete determines whether the contest\&#39;s participants has delete permissions
@@ -73,13 +72,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addOrUpdateAlbumContest(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
-    public addOrUpdateAlbumContest(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
-    public addOrUpdateAlbumContest(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
-    public addOrUpdateAlbumContest(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addOrUpdateAlbumContest.');
-        }
+    public addOrUpdateAlbumContest(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
+    public addOrUpdateAlbumContest(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
+    public addOrUpdateAlbumContest(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
+    public addOrUpdateAlbumContest(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, contestType?: string, albumContestId?: number, title?: string, description?: string, albumId1?: number, removeAlbum1?: boolean, albumId2?: number, removeAlbum2?: boolean, startDate?: number, endDate?: number, locationDescription?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (publicRead === null || publicRead === undefined) {
             throw new Error('Required parameter publicRead was null or undefined when calling addOrUpdateAlbumContest.');
         }
@@ -351,7 +347,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest`;
+        let localVarPath = `/consumer/album/contest`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumContestResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -370,8 +366,7 @@ export class ContestService extends BaseService {
     /**
      * Approve Contest
      * Sets the approval status of a contest.
-     * @endpoint post /api/{version}/consumer/album/contest/approve
-     * @param version 
+     * @endpoint post /consumer/album/contest/approve
      * @param albumContestId The ID of the album contest
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
      * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -380,13 +375,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public approveAlbumContest(version: number, albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public approveAlbumContest(version: number, albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public approveAlbumContest(version: number, albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public approveAlbumContest(version: number, albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling approveAlbumContest.');
-        }
+    public approveAlbumContest(albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public approveAlbumContest(albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public approveAlbumContest(albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public approveAlbumContest(albumContestId: number, approvalStatus: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumContestId === null || albumContestId === undefined) {
             throw new Error('Required parameter albumContestId was null or undefined when calling approveAlbumContest.');
         }
@@ -457,7 +449,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest/approve`;
+        let localVarPath = `/consumer/album/contest/approve`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -476,8 +468,7 @@ export class ContestService extends BaseService {
     /**
      * Delete Contest
      * Deletes a contest.
-     * @endpoint post /api/{version}/consumer/album/contest/remove
-     * @param version 
+     * @endpoint post /consumer/album/contest/remove
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -487,13 +478,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteContest.');
-        }
+    public deleteContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumContestId === null || albumContestId === undefined) {
             throw new Error('Required parameter albumContestId was null or undefined when calling deleteContest.');
         }
@@ -570,7 +558,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest/remove`;
+        let localVarPath = `/consumer/album/contest/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -589,8 +577,7 @@ export class ContestService extends BaseService {
     /**
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @endpoint get /api/{version}/consumer/album/contest/get
-     * @param version 
+     * @endpoint get /consumer/album/contest/get
      * @param albumContestId the album contest ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -600,13 +587,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAlbumContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
-    public getAlbumContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
-    public getAlbumContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
-    public getAlbumContest(version: number, albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAlbumContest.');
-        }
+    public getAlbumContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
+    public getAlbumContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
+    public getAlbumContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
+    public getAlbumContest(albumContestId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumContestId === null || albumContestId === undefined) {
             throw new Error('Required parameter albumContestId was null or undefined when calling getAlbumContest.');
         }
@@ -683,7 +667,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest/get`;
+        let localVarPath = `/consumer/album/contest/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumContestResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -702,8 +686,7 @@ export class ContestService extends BaseService {
     /**
      * Search Contests
      * Searches on contests.
-     * @endpoint get /api/{version}/consumer/album/contest/search
-     * @param version 
+     * @endpoint get /consumer/album/contest/search
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See AlbumContestApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -727,13 +710,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAlbumContests(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestListResponse>;
-    public getAlbumContests(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestListResponse>>;
-    public getAlbumContests(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestListResponse>>;
-    public getAlbumContests(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAlbumContests.');
-        }
+    public getAlbumContests(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestListResponse>;
+    public getAlbumContests(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestListResponse>>;
+    public getAlbumContests(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestListResponse>>;
+    public getAlbumContests(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, appType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling getAlbumContests.');
         }
@@ -948,7 +928,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest/search`;
+        let localVarPath = `/consumer/album/contest/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumContestListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -967,8 +947,7 @@ export class ContestService extends BaseService {
     /**
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @endpoint post /api/{version}/consumer/album/contest/vote
-     * @param version 
+     * @endpoint post /consumer/album/contest/vote
      * @param albumContestId the album contest ID
      * @param albumId the ID of the album to vote on
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -980,13 +959,10 @@ export class ContestService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public voteOnAlbumContest(version: number, albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
-    public voteOnAlbumContest(version: number, albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
-    public voteOnAlbumContest(version: number, albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
-    public voteOnAlbumContest(version: number, albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling voteOnAlbumContest.');
-        }
+    public voteOnAlbumContest(albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AlbumContestResponse>;
+    public voteOnAlbumContest(albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AlbumContestResponse>>;
+    public voteOnAlbumContest(albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AlbumContestResponse>>;
+    public voteOnAlbumContest(albumContestId: number, albumId: number, deviceId?: string, accountId?: number, contestType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (albumContestId === null || albumContestId === undefined) {
             throw new Error('Required parameter albumContestId was null or undefined when calling voteOnAlbumContest.');
         }
@@ -1084,7 +1060,7 @@ export class ContestService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/album/contest/vote`;
+        let localVarPath = `/consumer/album/contest/vote`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AlbumContestResponse>('post', `${basePath}${localVarPath}`,
             {

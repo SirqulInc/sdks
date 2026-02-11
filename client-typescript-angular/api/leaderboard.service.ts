@@ -40,8 +40,7 @@ export class LeaderboardService extends BaseService {
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @endpoint post /api/{version}/leaderboard/create
-     * @param version 
+     * @endpoint post /leaderboard/create
      * @param accountId The account id of the user creating the leaderboard.
      * @param appKey The application key
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -59,13 +58,10 @@ export class LeaderboardService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createLeaderboard(version: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
-    public createLeaderboard(version: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
-    public createLeaderboard(version: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
-    public createLeaderboard(version: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createLeaderboard.');
-        }
+    public createLeaderboard(accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
+    public createLeaderboard(accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
+    public createLeaderboard(accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
+    public createLeaderboard(accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, sortField?: string, title?: string, description?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -211,7 +207,7 @@ export class LeaderboardService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/leaderboard/create`;
+        let localVarPath = `/leaderboard/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LeaderboardResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -230,21 +226,17 @@ export class LeaderboardService extends BaseService {
     /**
      * Delete the Leader Board
      * Removes a leader board id.
-     * @endpoint post /api/{version}/leaderboard/delete
-     * @param version 
+     * @endpoint post /leaderboard/delete
      * @param leaderboardId The leaderboard id to delete.
      * @param accountId The account id of the user making the request.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteLeaderboard(version: number, leaderboardId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteLeaderboard(version: number, leaderboardId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteLeaderboard(version: number, leaderboardId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteLeaderboard(version: number, leaderboardId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteLeaderboard.');
-        }
+    public deleteLeaderboard(leaderboardId: number, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteLeaderboard(leaderboardId: number, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteLeaderboard(leaderboardId: number, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteLeaderboard(leaderboardId: number, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (leaderboardId === null || leaderboardId === undefined) {
             throw new Error('Required parameter leaderboardId was null or undefined when calling deleteLeaderboard.');
         }
@@ -294,7 +286,7 @@ export class LeaderboardService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/leaderboard/delete`;
+        let localVarPath = `/leaderboard/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -313,8 +305,7 @@ export class LeaderboardService extends BaseService {
     /**
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @endpoint get /api/{version}/leaderboard/get
-     * @param version 
+     * @endpoint get /leaderboard/get
      * @param leaderboardId The leaderboard id.
      * @param accountId A valid account.
      * @param includeFullRankingList set to true if need to return the leaderboard\&#39;s full ranking list
@@ -322,13 +313,10 @@ export class LeaderboardService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getLeaderboard(version: number, leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
-    public getLeaderboard(version: number, leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
-    public getLeaderboard(version: number, leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
-    public getLeaderboard(version: number, leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getLeaderboard.');
-        }
+    public getLeaderboard(leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
+    public getLeaderboard(leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
+    public getLeaderboard(leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
+    public getLeaderboard(leaderboardId: number, accountId?: number, includeFullRankingList?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (leaderboardId === null || leaderboardId === undefined) {
             throw new Error('Required parameter leaderboardId was null or undefined when calling getLeaderboard.');
         }
@@ -387,7 +375,7 @@ export class LeaderboardService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/leaderboard/get`;
+        let localVarPath = `/leaderboard/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LeaderboardResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -406,8 +394,7 @@ export class LeaderboardService extends BaseService {
     /**
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @endpoint get /api/{version}/leaderboard/search
-     * @param version 
+     * @endpoint get /leaderboard/search
      * @param accountId The account id of the user requesting the search.
      * @param appKey The application key.
      * @param globalOnly only include global leaderboards (this overrides the appKey filter)
@@ -424,13 +411,10 @@ export class LeaderboardService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchLeaderboards(version: number, accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
-    public searchLeaderboards(version: number, accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
-    public searchLeaderboards(version: number, accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
-    public searchLeaderboards(version: number, accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchLeaderboards.');
-        }
+    public searchLeaderboards(accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
+    public searchLeaderboards(accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
+    public searchLeaderboards(accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
+    public searchLeaderboards(accountId?: number, appKey?: string, globalOnly?: boolean, keyword?: string, leaderboardIds?: string, rankTypes?: string, sortField?: string, descending?: boolean, includeInactive?: boolean, includeAppResponse?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -567,7 +551,7 @@ export class LeaderboardService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/leaderboard/search`;
+        let localVarPath = `/leaderboard/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LeaderboardResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -586,8 +570,7 @@ export class LeaderboardService extends BaseService {
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @endpoint post /api/{version}/leaderboard/update
-     * @param version 
+     * @endpoint post /leaderboard/update
      * @param leaderboardId The leaderboard id to update.
      * @param accountId The account id of the user updating the leaderboard.
      * @param appKey The application key
@@ -607,13 +590,10 @@ export class LeaderboardService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateLeaderboard(version: number, leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
-    public updateLeaderboard(version: number, leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
-    public updateLeaderboard(version: number, leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
-    public updateLeaderboard(version: number, leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateLeaderboard.');
-        }
+    public updateLeaderboard(leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LeaderboardResponse>;
+    public updateLeaderboard(leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LeaderboardResponse>>;
+    public updateLeaderboard(leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LeaderboardResponse>>;
+    public updateLeaderboard(leaderboardId: number, accountId?: number, appKey?: string, rankType?: string, leaderboardMode?: string, sortField?: string, iconMedia?: Blob, iconAssetId?: number, bannerMedia?: Blob, bannerAssetId?: number, limitation?: number, active?: boolean, title?: string, description?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (leaderboardId === null || leaderboardId === undefined) {
             throw new Error('Required parameter leaderboardId was null or undefined when calling updateLeaderboard.');
         }
@@ -780,7 +760,7 @@ export class LeaderboardService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/leaderboard/update`;
+        let localVarPath = `/leaderboard/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LeaderboardResponse>('post', `${basePath}${localVarPath}`,
             {

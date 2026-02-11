@@ -38,21 +38,17 @@ export class VehicleService extends BaseService {
     /**
      * Create Vehicle
      * Create new vehicle
-     * @endpoint post /api/{version}/vehicle
-     * @param version 
+     * @endpoint post /vehicle
      * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createVehicle(version: number, vehicle: string, body?: Vehicle, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
-    public createVehicle(version: number, vehicle: string, body?: Vehicle, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
-    public createVehicle(version: number, vehicle: string, body?: Vehicle, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
-    public createVehicle(version: number, vehicle: string, body?: Vehicle, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createVehicle.');
-        }
+    public createVehicle(vehicle: string, body?: Vehicle, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
+    public createVehicle(vehicle: string, body?: Vehicle, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
+    public createVehicle(vehicle: string, body?: Vehicle, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
+    public createVehicle(vehicle: string, body?: Vehicle, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (vehicle === null || vehicle === undefined) {
             throw new Error('Required parameter vehicle was null or undefined when calling createVehicle.');
         }
@@ -101,7 +97,7 @@ export class VehicleService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vehicle`;
+        let localVarPath = `/vehicle`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Vehicle>('post', `${basePath}${localVarPath}`,
             {
@@ -121,20 +117,16 @@ export class VehicleService extends BaseService {
     /**
      * Delete Vehicle
      * Delete an existing vehicle
-     * @endpoint delete /api/{version}/vehicle/{id}
-     * @param version 
+     * @endpoint delete /vehicle/{id}
      * @param id The id of the vehicle to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteVehicle(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteVehicle(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteVehicle(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteVehicle(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteVehicle.');
-        }
+    public deleteVehicle(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteVehicle(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteVehicle(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteVehicle(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteVehicle.');
         }
@@ -163,7 +155,7 @@ export class VehicleService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('delete', `${basePath}${localVarPath}`,
             {
@@ -181,20 +173,16 @@ export class VehicleService extends BaseService {
     /**
      * Get Vehicle
      * Get an existing vehicle
-     * @endpoint get /api/{version}/vehicle/{id}
-     * @param version 
+     * @endpoint get /vehicle/{id}
      * @param id The id of the vehicle requested
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getVehicle(version: number, id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
-    public getVehicle(version: number, id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
-    public getVehicle(version: number, id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
-    public getVehicle(version: number, id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getVehicle.');
-        }
+    public getVehicle(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
+    public getVehicle(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
+    public getVehicle(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
+    public getVehicle(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getVehicle.');
         }
@@ -224,7 +212,7 @@ export class VehicleService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Vehicle>('get', `${basePath}${localVarPath}`,
             {
@@ -242,8 +230,7 @@ export class VehicleService extends BaseService {
     /**
      * Search Vehicle
      * Search for vehicles
-     * @endpoint get /api/{version}/vehicle
-     * @param version 
+     * @endpoint get /vehicle
      * @param hubId Filter by service hub
      * @param sortField The field to sort by
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -255,13 +242,10 @@ export class VehicleService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchVehicle(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Vehicle>>;
-    public searchVehicle(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Vehicle>>>;
-    public searchVehicle(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Vehicle>>>;
-    public searchVehicle(version: number, hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchVehicle.');
-        }
+    public searchVehicle(hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<Vehicle>>;
+    public searchVehicle(hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<Vehicle>>>;
+    public searchVehicle(hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<Vehicle>>>;
+    public searchVehicle(hubId: number, sortField: string, descending: boolean, start: number, limit: number, activeOnly: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (hubId === null || hubId === undefined) {
             throw new Error('Required parameter hubId was null or undefined when calling searchVehicle.');
         }
@@ -371,7 +355,7 @@ export class VehicleService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vehicle`;
+        let localVarPath = `/vehicle`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Vehicle>>('get', `${basePath}${localVarPath}`,
             {
@@ -390,8 +374,7 @@ export class VehicleService extends BaseService {
     /**
      * Update Vehicle
      * Update an existing vehicle
-     * @endpoint put /api/{version}/vehicle/{id}
-     * @param version 
+     * @endpoint put /vehicle/{id}
      * @param id The id of the vehicle to update
      * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
      * @param body 
@@ -399,13 +382,10 @@ export class VehicleService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateVehicle(version: number, id: number, vehicle: string, body?: Vehicle, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
-    public updateVehicle(version: number, id: number, vehicle: string, body?: Vehicle, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
-    public updateVehicle(version: number, id: number, vehicle: string, body?: Vehicle, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
-    public updateVehicle(version: number, id: number, vehicle: string, body?: Vehicle, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateVehicle.');
-        }
+    public updateVehicle(id: number, vehicle: string, body?: Vehicle, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Vehicle>;
+    public updateVehicle(id: number, vehicle: string, body?: Vehicle, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Vehicle>>;
+    public updateVehicle(id: number, vehicle: string, body?: Vehicle, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Vehicle>>;
+    public updateVehicle(id: number, vehicle: string, body?: Vehicle, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateVehicle.');
         }
@@ -457,7 +437,7 @@ export class VehicleService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        let localVarPath = `/vehicle/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Vehicle>('put', `${basePath}${localVarPath}`,
             {

@@ -38,8 +38,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Create Field
      * Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-     * @endpoint post /api/{version}/object/field/add
-     * @param version 
+     * @endpoint post /object/field/add
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to add the field to
@@ -49,13 +48,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public addField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public addField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public addField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addField.');
-        }
+    public addField(accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public addField(accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public addField(accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public addField(accountId: number, appKey: string, objectName: string, fieldName: string, fieldType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling addField.');
         }
@@ -144,7 +140,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/field/add`;
+        let localVarPath = `/object/field/add`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -163,8 +159,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Create Data
      * Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-     * @endpoint post /api/{version}/object/data/{objectName}
-     * @param version 
+     * @endpoint post /object/data/{objectName}
      * @param objectName the name of the object to create data for
      * @param accountId the account id
      * @param body 
@@ -172,13 +167,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createData(version: number, objectName: string, accountId?: number, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public createData(version: number, objectName: string, accountId?: number, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public createData(version: number, objectName: string, accountId?: number, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public createData(version: number, objectName: string, accountId?: number, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createData.');
-        }
+    public createData(objectName: string, accountId?: number, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public createData(objectName: string, accountId?: number, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public createData(objectName: string, accountId?: number, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public createData(objectName: string, accountId?: number, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (objectName === null || objectName === undefined) {
             throw new Error('Required parameter objectName was null or undefined when calling createData.');
         }
@@ -227,7 +219,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -247,8 +239,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Create Object
      * Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-     * @endpoint post /api/{version}/object/create
-     * @param version 
+     * @endpoint post /object/create
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to create
@@ -256,13 +247,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public createObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public createObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public createObject(version: number, accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createObject.');
-        }
+    public createObject(accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public createObject(accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public createObject(accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public createObject(accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createObject.');
         }
@@ -327,7 +315,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/create`;
+        let localVarPath = `/object/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -346,8 +334,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Delete Data
      * Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-     * @endpoint delete /api/{version}/object/data/{objectName}/{objectId}
-     * @param version 
+     * @endpoint delete /object/data/{objectName}/{objectId}
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user
@@ -355,13 +342,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteData(version: number, objectName: string, objectId: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public deleteData(version: number, objectName: string, objectId: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public deleteData(version: number, objectName: string, objectId: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public deleteData(version: number, objectName: string, objectId: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteData.');
-        }
+    public deleteData(objectName: string, objectId: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public deleteData(objectName: string, objectId: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public deleteData(objectName: string, objectId: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public deleteData(objectName: string, objectId: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (objectName === null || objectName === undefined) {
             throw new Error('Required parameter objectName was null or undefined when calling deleteData.');
         }
@@ -405,7 +389,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('delete', `${basePath}${localVarPath}`,
             {
@@ -424,8 +408,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Delete Field
      * Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-     * @endpoint post /api/{version}/object/field/delete
-     * @param version 
+     * @endpoint post /object/field/delete
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to remove the field from
@@ -434,13 +417,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public deleteField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public deleteField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public deleteField(version: number, accountId: number, appKey: string, objectName: string, fieldName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteField.');
-        }
+    public deleteField(accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public deleteField(accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public deleteField(accountId: number, appKey: string, objectName: string, fieldName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public deleteField(accountId: number, appKey: string, objectName: string, fieldName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteField.');
         }
@@ -517,7 +497,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/field/delete`;
+        let localVarPath = `/object/field/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -536,8 +516,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Delete Object
      * Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-     * @endpoint post /api/{version}/object/delete
-     * @param version 
+     * @endpoint post /object/delete
      * @param accountId the id of the logged in user
      * @param appKey the application key
      * @param objectName the name of the object to delete
@@ -545,13 +524,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public deleteObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public deleteObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public deleteObject(version: number, accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteObject.');
-        }
+    public deleteObject(accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public deleteObject(accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public deleteObject(accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public deleteObject(accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteObject.');
         }
@@ -616,7 +592,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/delete`;
+        let localVarPath = `/object/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -635,8 +611,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Get Data
      * Get a specific record from a specified object.
-     * @endpoint get /api/{version}/object/data/{objectName}/{objectId}
-     * @param version 
+     * @endpoint get /object/data/{objectName}/{objectId}
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user
@@ -645,13 +620,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getData(version: number, objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public getData(version: number, objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public getData(version: number, objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public getData(version: number, objectName: string, objectId: string, accountId?: number, include?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getData.');
-        }
+    public getData(objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public getData(objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public getData(objectName: string, objectId: string, accountId?: number, include?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public getData(objectName: string, objectId: string, accountId?: number, include?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (objectName === null || objectName === undefined) {
             throw new Error('Required parameter objectName was null or undefined when calling getData.');
         }
@@ -704,7 +676,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -723,8 +695,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Get Object
      * Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-     * @endpoint get /api/{version}/object/get
-     * @param version 
+     * @endpoint get /object/get
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param objectName The name of the object to get the definition for
@@ -732,13 +703,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public getObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public getObject(version: number, accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public getObject(version: number, accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getObject.');
-        }
+    public getObject(accountId: number, appKey: string, objectName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public getObject(accountId: number, appKey: string, objectName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public getObject(accountId: number, appKey: string, objectName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public getObject(accountId: number, appKey: string, objectName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getObject.');
         }
@@ -803,7 +771,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/get`;
+        let localVarPath = `/object/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -822,8 +790,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Search Data
      * Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-     * @endpoint get /api/{version}/object/data/{objectName}
-     * @param version 
+     * @endpoint get /object/data/{objectName}
      * @param objectName The name of the object to search upon
      * @param count If true just return the record count of the search. False (default) will return the actual records
      * @param start The start of the pagination
@@ -836,13 +803,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchData(version: number, objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public searchData(version: number, objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public searchData(version: number, objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public searchData(version: number, objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchData.');
-        }
+    public searchData(objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public searchData(objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public searchData(objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public searchData(objectName: string, count: boolean, start: number, limit: number, accountId?: number, criteria?: string, order?: string, include?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (objectName === null || objectName === undefined) {
             throw new Error('Required parameter objectName was null or undefined when calling searchData.');
         }
@@ -946,7 +910,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -965,8 +929,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Search Objects
      * Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-     * @endpoint get /api/{version}/object/search
-     * @param version 
+     * @endpoint get /object/search
      * @param accountId The account id of the logged in user
      * @param appKey The application key for updating an existing application
      * @param start The start of the pagination
@@ -976,13 +939,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchObject(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public searchObject(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public searchObject(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public searchObject(version: number, accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchObject.');
-        }
+    public searchObject(accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public searchObject(accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public searchObject(accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public searchObject(accountId: number, appKey: string, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchObject.');
         }
@@ -1068,7 +1028,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/search`;
+        let localVarPath = `/object/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1087,8 +1047,7 @@ export class ObjectStoreService extends BaseService {
     /**
      * Update Data
      * Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-     * @endpoint put /api/{version}/object/data/{objectName}/{objectId}
-     * @param version 
+     * @endpoint put /object/data/{objectName}/{objectId}
      * @param objectName The name of the object to search upon
      * @param objectId objectId The id of the record to return
      * @param accountId The account id of the logged in user
@@ -1097,13 +1056,10 @@ export class ObjectStoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateData(version: number, objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
-    public updateData(version: number, objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
-    public updateData(version: number, objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
-    public updateData(version: number, objectName: string, objectId: string, accountId?: number, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateData.');
-        }
+    public updateData(objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ObjectStoreResponse>;
+    public updateData(objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ObjectStoreResponse>>;
+    public updateData(objectName: string, objectId: string, accountId?: number, body?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ObjectStoreResponse>>;
+    public updateData(objectName: string, objectId: string, accountId?: number, body?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (objectName === null || objectName === undefined) {
             throw new Error('Required parameter objectName was null or undefined when calling updateData.');
         }
@@ -1155,7 +1111,7 @@ export class ObjectStoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/object/data/${this.configuration.encodeParam({name: "objectName", value: objectName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "objectId", value: objectId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ObjectStoreResponse>('put', `${basePath}${localVarPath}`,
             {

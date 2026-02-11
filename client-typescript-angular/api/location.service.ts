@@ -46,8 +46,7 @@ export class LocationService extends BaseService {
     /**
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @endpoint post /api/{version}/location/trilaterate/cache
-     * @param version 
+     * @endpoint post /location/trilaterate/cache
      * @param udid The unique identifier of the source device
      * @param sourceTime The current timestamp of the source device
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device
@@ -57,13 +56,10 @@ export class LocationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public cacheTrilaterationData(version: number, udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public cacheTrilaterationData(version: number, udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public cacheTrilaterationData(version: number, udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public cacheTrilaterationData(version: number, udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling cacheTrilaterationData.');
-        }
+    public cacheTrilaterationData(udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public cacheTrilaterationData(udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public cacheTrilaterationData(udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public cacheTrilaterationData(udid: string, sourceTime?: number, minimumSampleSize?: number, data?: string, dataFile?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (udid === null || udid === undefined) {
             throw new Error('Required parameter udid was null or undefined when calling cacheTrilaterationData.');
         }
@@ -140,7 +136,7 @@ export class LocationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/location/trilaterate/cache`;
+        let localVarPath = `/location/trilaterate/cache`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -159,20 +155,16 @@ export class LocationService extends BaseService {
     /**
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @endpoint post /api/{version}/location/trilaterate/cache/submit
-     * @param version 
+     * @endpoint post /location/trilaterate/cache/submit
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public cacheTrilaterationDataGzip(version: number, body?: TrilatCacheRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public cacheTrilaterationDataGzip(version: number, body?: TrilatCacheRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public cacheTrilaterationDataGzip(version: number, body?: TrilatCacheRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public cacheTrilaterationDataGzip(version: number, body?: TrilatCacheRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling cacheTrilaterationDataGzip.');
-        }
+    public cacheTrilaterationDataGzip(body?: TrilatCacheRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public cacheTrilaterationDataGzip(body?: TrilatCacheRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public cacheTrilaterationDataGzip(body?: TrilatCacheRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public cacheTrilaterationDataGzip(body?: TrilatCacheRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -207,7 +199,7 @@ export class LocationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/location/trilaterate/cache/submit`;
+        let localVarPath = `/location/trilaterate/cache/submit`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -226,20 +218,16 @@ export class LocationService extends BaseService {
     /**
      * Get Location by IP
      * Get location information based on an IP address.
-     * @endpoint get /api/{version}/location/ip
-     * @param version 
+     * @endpoint get /location/ip
      * @param ip the ip address of the client device
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getLocationByIp(version: number, ip?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CoordsResponse>;
-    public getLocationByIp(version: number, ip?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CoordsResponse>>;
-    public getLocationByIp(version: number, ip?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CoordsResponse>>;
-    public getLocationByIp(version: number, ip?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getLocationByIp.');
-        }
+    public getLocationByIp(ip?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CoordsResponse>;
+    public getLocationByIp(ip?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CoordsResponse>>;
+    public getLocationByIp(ip?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CoordsResponse>>;
+    public getLocationByIp(ip?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -277,7 +265,7 @@ export class LocationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/location/ip`;
+        let localVarPath = `/location/ip`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CoordsResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -296,8 +284,7 @@ export class LocationService extends BaseService {
     /**
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @endpoint get /api/{version}/account/location/trilaterate
-     * @param version 
+     * @endpoint get /account/location/trilaterate
      * @param accountId The account making the request, if provided the last know location will be updated
      * @param latitude The known GPS latitude to compare to the calculated version
      * @param longitude The known GPS longitude to compare to the calculated version
@@ -307,13 +294,10 @@ export class LocationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getLocationByTrilateration(version: number, accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GeoPointResponse>;
-    public getLocationByTrilateration(version: number, accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GeoPointResponse>>;
-    public getLocationByTrilateration(version: number, accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GeoPointResponse>>;
-    public getLocationByTrilateration(version: number, accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getLocationByTrilateration.');
-        }
+    public getLocationByTrilateration(accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GeoPointResponse>;
+    public getLocationByTrilateration(accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GeoPointResponse>>;
+    public getLocationByTrilateration(accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GeoPointResponse>>;
+    public getLocationByTrilateration(accountId?: number, latitude?: number, longitude?: number, data?: string, responseFilters?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -387,7 +371,7 @@ export class LocationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/account/location/trilaterate`;
+        let localVarPath = `/account/location/trilaterate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<GeoPointResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -406,8 +390,7 @@ export class LocationService extends BaseService {
     /**
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @endpoint get /api/{version}/location/search
-     * @param version 
+     * @endpoint get /location/search
      * @param deviceId the device id
      * @param accountId the account id
      * @param currentlatitude This parameter is deprecated.
@@ -431,13 +414,10 @@ export class LocationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getLocations(version: number, deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LocationSearchResponse>;
-    public getLocations(version: number, deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LocationSearchResponse>>;
-    public getLocations(version: number, deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LocationSearchResponse>>;
-    public getLocations(version: number, deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getLocations.');
-        }
+    public getLocations(deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LocationSearchResponse>;
+    public getLocations(deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LocationSearchResponse>>;
+    public getLocations(deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LocationSearchResponse>>;
+    public getLocations(deviceId?: string, accountId?: number, currentlatitude?: number, currentlongitude?: number, currentLatitude?: number, currentLongitude?: number, query?: string, zipcode?: string, zipCode?: string, selectedMaplatitude?: number, selectedMaplongitude?: number, selectedMapLatitude?: number, selectedMapLongitude?: number, searchRange?: number, useGeocode?: boolean, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -637,7 +617,7 @@ export class LocationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/location/search`;
+        let localVarPath = `/location/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LocationSearchResponse>('get', `${basePath}${localVarPath}`,
             {

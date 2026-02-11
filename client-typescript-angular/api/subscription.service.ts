@@ -44,8 +44,7 @@ export class SubscriptionService extends BaseService {
     /**
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @endpoint post /api/{version}/subscription/create
-     * @param version 
+     * @endpoint post /subscription/create
      * @param accountId The account used to perform the create, must be the responsible manager
      * @param planId The plan to subscribe to, if null use default plan
      * @param promoCode Set a promo code for a discount.
@@ -53,13 +52,10 @@ export class SubscriptionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createSubscription(version: number, accountId: number, planId?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
-    public createSubscription(version: number, accountId: number, planId?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
-    public createSubscription(version: number, accountId: number, planId?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
-    public createSubscription(version: number, accountId: number, planId?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createSubscription.');
-        }
+    public createSubscription(accountId: number, planId?: number, promoCode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
+    public createSubscription(accountId: number, planId?: number, promoCode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
+    public createSubscription(accountId: number, planId?: number, promoCode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
+    public createSubscription(accountId: number, planId?: number, promoCode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createSubscription.');
         }
@@ -118,7 +114,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/create`;
+        let localVarPath = `/subscription/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SubscriptionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -137,20 +133,16 @@ export class SubscriptionService extends BaseService {
     /**
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @endpoint post /api/{version}/subscription/delete
-     * @param version 
+     * @endpoint post /subscription/delete
      * @param accountId The account used to perform the delete, must be the responsible manager
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteSubscription(version: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteSubscription(version: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteSubscription(version: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteSubscription(version: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteSubscription.');
-        }
+    public deleteSubscription(accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteSubscription(accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteSubscription(accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteSubscription(accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteSubscription.');
         }
@@ -191,7 +183,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/delete`;
+        let localVarPath = `/subscription/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -210,20 +202,16 @@ export class SubscriptionService extends BaseService {
     /**
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @endpoint get /api/{version}/subscription/get
-     * @param version 
+     * @endpoint get /subscription/get
      * @param accountId The account used to perform the lookup
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSubscription(version: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
-    public getSubscription(version: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
-    public getSubscription(version: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
-    public getSubscription(version: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSubscription.');
-        }
+    public getSubscription(accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
+    public getSubscription(accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
+    public getSubscription(accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
+    public getSubscription(accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getSubscription.');
         }
@@ -264,7 +252,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/get`;
+        let localVarPath = `/subscription/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SubscriptionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -283,20 +271,16 @@ export class SubscriptionService extends BaseService {
     /**
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @endpoint get /api/{version}/subscription/plan/get
-     * @param version 
+     * @endpoint get /subscription/plan/get
      * @param planId The ID of the plan to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSubscriptionPlan(version: number, planId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionPlanResponse>;
-    public getSubscriptionPlan(version: number, planId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionPlanResponse>>;
-    public getSubscriptionPlan(version: number, planId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionPlanResponse>>;
-    public getSubscriptionPlan(version: number, planId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSubscriptionPlan.');
-        }
+    public getSubscriptionPlan(planId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionPlanResponse>;
+    public getSubscriptionPlan(planId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionPlanResponse>>;
+    public getSubscriptionPlan(planId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionPlanResponse>>;
+    public getSubscriptionPlan(planId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (planId === null || planId === undefined) {
             throw new Error('Required parameter planId was null or undefined when calling getSubscriptionPlan.');
         }
@@ -337,7 +321,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/plan/get`;
+        let localVarPath = `/subscription/plan/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SubscriptionPlanResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -356,21 +340,17 @@ export class SubscriptionService extends BaseService {
     /**
      * List Subscription Plans
      * Get the matched subscription plan
-     * @endpoint get /api/{version}/subscription/plan/list
-     * @param version 
+     * @endpoint get /subscription/plan/list
      * @param visible Include visible only (true), hidden only (false), or all (null)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSubscriptionPlans(version: number, visible?: boolean, role?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<SubscriptionPlanResponse>>;
-    public getSubscriptionPlans(version: number, visible?: boolean, role?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<SubscriptionPlanResponse>>>;
-    public getSubscriptionPlans(version: number, visible?: boolean, role?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<SubscriptionPlanResponse>>>;
-    public getSubscriptionPlans(version: number, visible?: boolean, role?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSubscriptionPlans.');
-        }
+    public getSubscriptionPlans(visible?: boolean, role?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<SubscriptionPlanResponse>>;
+    public getSubscriptionPlans(visible?: boolean, role?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<SubscriptionPlanResponse>>>;
+    public getSubscriptionPlans(visible?: boolean, role?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<SubscriptionPlanResponse>>>;
+    public getSubscriptionPlans(visible?: boolean, role?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -417,7 +397,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/plan/list`;
+        let localVarPath = `/subscription/plan/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<SubscriptionPlanResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -436,8 +416,7 @@ export class SubscriptionService extends BaseService {
     /**
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @endpoint get /api/{version}/subscription/usage/get
-     * @param version 
+     * @endpoint get /subscription/usage/get
      * @param accountId The account used to perform the lookup
      * @param applicationId Get for just 1 application instead of the BillableEntity
      * @param start The start time frame
@@ -446,13 +425,10 @@ export class SubscriptionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSubscriptionUsage(version: number, accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationUsageResponse>;
-    public getSubscriptionUsage(version: number, accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationUsageResponse>>;
-    public getSubscriptionUsage(version: number, accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationUsageResponse>>;
-    public getSubscriptionUsage(version: number, accountId: number, applicationId?: number, start?: number, end?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSubscriptionUsage.');
-        }
+    public getSubscriptionUsage(accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationUsageResponse>;
+    public getSubscriptionUsage(accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationUsageResponse>>;
+    public getSubscriptionUsage(accountId: number, applicationId?: number, start?: number, end?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationUsageResponse>>;
+    public getSubscriptionUsage(accountId: number, applicationId?: number, start?: number, end?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getSubscriptionUsage.');
         }
@@ -520,7 +496,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/usage/get`;
+        let localVarPath = `/subscription/usage/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationUsageResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -539,8 +515,7 @@ export class SubscriptionService extends BaseService {
     /**
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @endpoint post /api/{version}/subscription/update
-     * @param version 
+     * @endpoint post /subscription/update
      * @param accountId The account used to perform the update, must be the responsible manager
      * @param planId The plan to subscribe to
      * @param promoCode Set a promo code for a discount.
@@ -549,13 +524,10 @@ export class SubscriptionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateSubscription(version: number, accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
-    public updateSubscription(version: number, accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
-    public updateSubscription(version: number, accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
-    public updateSubscription(version: number, accountId: number, planId?: number, promoCode?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateSubscription.');
-        }
+    public updateSubscription(accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SubscriptionResponse>;
+    public updateSubscription(accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SubscriptionResponse>>;
+    public updateSubscription(accountId: number, planId?: number, promoCode?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SubscriptionResponse>>;
+    public updateSubscription(accountId: number, planId?: number, promoCode?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateSubscription.');
         }
@@ -623,7 +595,7 @@ export class SubscriptionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/subscription/update`;
+        let localVarPath = `/subscription/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SubscriptionResponse>('post', `${basePath}${localVarPath}`,
             {

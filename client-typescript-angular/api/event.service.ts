@@ -44,8 +44,7 @@ export class EventService extends BaseService {
     /**
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @endpoint post /api/{version}/event/attend
-     * @param version 
+     * @endpoint post /event/attend
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id (deviceId or accountId required)
      * @param appKey The application of where to send notifications about the attend action
@@ -60,13 +59,10 @@ export class EventService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public attendEvent(version: number, deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
-    public attendEvent(version: number, deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
-    public attendEvent(version: number, deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
-    public attendEvent(version: number, deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling attendEvent.');
-        }
+    public attendEvent(deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
+    public attendEvent(deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
+    public attendEvent(deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
+    public attendEvent(deviceId?: string, accountId?: number, appKey?: string, listingId?: number, retailerLocationId?: number, offerLocationId?: number, transactionId?: number, status?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -185,7 +181,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/attend`;
+        let localVarPath = `/event/attend`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -204,8 +200,7 @@ export class EventService extends BaseService {
     /**
      * Create Event
      * Create a private event to share with associates.
-     * @endpoint post /api/{version}/event/create
-     * @param version 
+     * @endpoint post /event/create
      * @param accountId The logged in user.
      * @param title The event title
      * @param retailerLocationIds The retailer location to have the event at
@@ -222,13 +217,10 @@ export class EventService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createEvent(version: number, accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
-    public createEvent(version: number, accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
-    public createEvent(version: number, accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
-    public createEvent(version: number, accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createEvent.');
-        }
+    public createEvent(accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
+    public createEvent(accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
+    public createEvent(accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
+    public createEvent(accountId: number, title: string, retailerLocationIds?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createEvent.');
         }
@@ -371,7 +363,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/create`;
+        let localVarPath = `/event/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -390,21 +382,17 @@ export class EventService extends BaseService {
     /**
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @endpoint post /api/{version}/event/delete
-     * @param version 
+     * @endpoint post /event/delete
      * @param accountId the id of the logged in user
      * @param eventId the id of the event to update
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteEvent(version: number, accountId: number, eventId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteEvent(version: number, accountId: number, eventId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteEvent(version: number, accountId: number, eventId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteEvent(version: number, accountId: number, eventId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteEvent.');
-        }
+    public deleteEvent(accountId: number, eventId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteEvent(accountId: number, eventId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteEvent(accountId: number, eventId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteEvent(accountId: number, eventId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteEvent.');
         }
@@ -457,7 +445,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/delete`;
+        let localVarPath = `/event/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -476,21 +464,17 @@ export class EventService extends BaseService {
     /**
      * Get Event
      * Get an event.
-     * @endpoint get /api/{version}/event/get
-     * @param version 
+     * @endpoint get /event/get
      * @param accountId the id of the logged in user
      * @param eventId The id of the event to return
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getEvent(version: number, accountId: number, eventId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
-    public getEvent(version: number, accountId: number, eventId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
-    public getEvent(version: number, accountId: number, eventId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
-    public getEvent(version: number, accountId: number, eventId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getEvent.');
-        }
+    public getEvent(accountId: number, eventId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
+    public getEvent(accountId: number, eventId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
+    public getEvent(accountId: number, eventId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
+    public getEvent(accountId: number, eventId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getEvent.');
         }
@@ -543,7 +527,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/get`;
+        let localVarPath = `/event/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -562,8 +546,7 @@ export class EventService extends BaseService {
     /**
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @endpoint get /api/{version}/event/attendance/search
-     * @param version 
+     * @endpoint get /event/attendance/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param appKey The application key
@@ -587,13 +570,10 @@ export class EventService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchEventTransactions(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<EventAttendanceResponse>>;
-    public searchEventTransactions(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EventAttendanceResponse>>>;
-    public searchEventTransactions(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EventAttendanceResponse>>>;
-    public searchEventTransactions(version: number, deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchEventTransactions.');
-        }
+    public searchEventTransactions(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<EventAttendanceResponse>>;
+    public searchEventTransactions(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EventAttendanceResponse>>>;
+    public searchEventTransactions(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EventAttendanceResponse>>>;
+    public searchEventTransactions(deviceId?: string, accountId?: number, appKey?: string, keyword?: string, retailerId?: number, retailerLocationId?: number, excludeRetailerLocationId?: number, listingId?: number, offerId?: number, offerLocationId?: number, customerAccountIds?: string, affiliatedCategoryIds?: string, startDate?: number, endDate?: number, statuses?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'CUSTOMER_ID' | 'CUSTOMER_DISPLAY' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -793,7 +773,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/attendance/search`;
+        let localVarPath = `/event/attendance/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<EventAttendanceResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -812,8 +792,7 @@ export class EventService extends BaseService {
     /**
      * Search Events
      * Searches on events that the account has access to.
-     * @endpoint get /api/{version}/event/search
-     * @param version 
+     * @endpoint get /event/search
      * @param accountId The logged in user.
      * @param keyword The keyword used to search
      * @param activeOnly Return only active results
@@ -831,13 +810,10 @@ export class EventService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchEvents(version: number, accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferShortResponse>>;
-    public searchEvents(version: number, accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferShortResponse>>>;
-    public searchEvents(version: number, accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferShortResponse>>>;
-    public searchEvents(version: number, accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchEvents.');
-        }
+    public searchEvents(accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferShortResponse>>;
+    public searchEvents(accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferShortResponse>>>;
+    public searchEvents(accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferShortResponse>>>;
+    public searchEvents(accountId: number, keyword?: string, activeOnly?: boolean, categoryIds?: string, filterIds?: string, offerAudienceIds?: string, transactionAudienceIds?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ACTIVATED' | 'EXPIRES' | 'REDEEMABLE_START' | 'REDEEMABLE_END' | 'TITLE' | 'SUBTITLE' | 'DETAILS' | 'OFFER_TYPE' | 'SPECIAL_OFFER_TYPE' | 'OFFER_VISIBILITY' | 'ESTIMATED_VALUE' | 'VOUCHER_PRICE' | 'VOUCHER_DISCOUNT_PRICE' | 'FULL_PRICE' | 'DICOUNT_PRICE' | 'TICKETS_REWARD' | 'AVAILABILITY_DATE' | 'RELEASE_DATE' | 'RETAILER_ID' | 'RETAILER_NAME' | 'RETAILER_LOCATION_ID' | 'RETAILER_LOCATION_NAME' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY', descending?: boolean, startDate?: number, endDate?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchEvents.');
         }
@@ -986,7 +962,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/search`;
+        let localVarPath = `/event/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OfferShortResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1005,8 +981,7 @@ export class EventService extends BaseService {
     /**
      * Update Event
      * Update a private event to share with associates.
-     * @endpoint post /api/{version}/event/update
-     * @param version 
+     * @endpoint post /event/update
      * @param accountId The logged in user.
      * @param eventId The id of the event to update
      * @param retailerLocationIds The retailer location to have the event at
@@ -1023,13 +998,10 @@ export class EventService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateEvent(version: number, accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
-    public updateEvent(version: number, accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
-    public updateEvent(version: number, accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
-    public updateEvent(version: number, accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateEvent.');
-        }
+    public updateEvent(accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferResponse>;
+    public updateEvent(accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferResponse>>;
+    public updateEvent(accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferResponse>>;
+    public updateEvent(accountId: number, eventId: number, retailerLocationIds?: string, title?: string, subTitle?: string, details?: string, categoryIds?: string, filterIds?: string, active?: boolean, imageAssetId?: number, redeemableStart?: number, redeemableEnd?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateEvent.');
         }
@@ -1172,7 +1144,7 @@ export class EventService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/event/update`;
+        let localVarPath = `/event/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferResponse>('post', `${basePath}${localVarPath}`,
             {

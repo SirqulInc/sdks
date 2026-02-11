@@ -40,8 +40,7 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won\&#39;t be created.
-     * @endpoint post /api/{version}/appconfig/create
-     * @param version 
+     * @endpoint post /appconfig/create
      * @param accountId The account ID of the user
      * @param appKey The application key that the newly created applicationConfig will be associated to
      * @param configVersion The application configuration, has to be unique within the application
@@ -53,13 +52,10 @@ export class ApplicationConfigService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createApplicationConfig(version: number, accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
-    public createApplicationConfig(version: number, accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
-    public createApplicationConfig(version: number, accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
-    public createApplicationConfig(version: number, accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createApplicationConfig.');
-        }
+    public createApplicationConfig(accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
+    public createApplicationConfig(accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
+    public createApplicationConfig(accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
+    public createApplicationConfig(accountId: number, appKey: string, configVersion: string, assetId: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createApplicationConfig.');
         }
@@ -163,7 +159,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/create`;
+        let localVarPath = `/appconfig/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationConfigResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -182,21 +178,17 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @endpoint post /api/{version}/appconfig/delete
-     * @param version 
+     * @endpoint post /appconfig/delete
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteApplicationConfig(version: number, accountId: number, configId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteApplicationConfig(version: number, accountId: number, configId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteApplicationConfig(version: number, accountId: number, configId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteApplicationConfig(version: number, accountId: number, configId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteApplicationConfig.');
-        }
+    public deleteApplicationConfig(accountId: number, configId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteApplicationConfig(accountId: number, configId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteApplicationConfig(accountId: number, configId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteApplicationConfig(accountId: number, configId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteApplicationConfig.');
         }
@@ -249,7 +241,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/delete`;
+        let localVarPath = `/appconfig/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -268,21 +260,17 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @endpoint get /api/{version}/appconfig/get
-     * @param version 
+     * @endpoint get /appconfig/get
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getApplicationConfig(version: number, accountId: number, configId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
-    public getApplicationConfig(version: number, accountId: number, configId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
-    public getApplicationConfig(version: number, accountId: number, configId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
-    public getApplicationConfig(version: number, accountId: number, configId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getApplicationConfig.');
-        }
+    public getApplicationConfig(accountId: number, configId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
+    public getApplicationConfig(accountId: number, configId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
+    public getApplicationConfig(accountId: number, configId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
+    public getApplicationConfig(accountId: number, configId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getApplicationConfig.');
         }
@@ -335,7 +323,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/get`;
+        let localVarPath = `/appconfig/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationConfigResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -354,8 +342,7 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @endpoint get /api/{version}/appconfig/getbyversion
-     * @param version 
+     * @endpoint get /appconfig/getbyversion
      * @param appKey The application key
      * @param configVersion The version of the application configuration
      * @param retailerId Only returns the config that matches the given retailer
@@ -366,13 +353,10 @@ export class ApplicationConfigService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getApplicationConfigByConfigVersion(version: number, appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
-    public getApplicationConfigByConfigVersion(version: number, appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
-    public getApplicationConfigByConfigVersion(version: number, appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
-    public getApplicationConfigByConfigVersion(version: number, appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getApplicationConfigByConfigVersion.');
-        }
+    public getApplicationConfigByConfigVersion(appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
+    public getApplicationConfigByConfigVersion(appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
+    public getApplicationConfigByConfigVersion(appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
+    public getApplicationConfigByConfigVersion(appKey: string, configVersion: string, retailerId?: number, retailerLocationId?: number, udid?: string, allowOlderVersions?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling getApplicationConfigByConfigVersion.');
         }
@@ -461,7 +445,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/getbyversion`;
+        let localVarPath = `/appconfig/getbyversion`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationConfigResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -480,8 +464,7 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @endpoint get /api/{version}/appconfig/search
-     * @param version 
+     * @endpoint get /appconfig/search
      * @param accountId The account ID of the user
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
      * @param retailerId Only returns the configs that matches the given retailer
@@ -496,13 +479,10 @@ export class ApplicationConfigService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchApplicationConfig(version: number, accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationConfigResponse>>;
-    public searchApplicationConfig(version: number, accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationConfigResponse>>>;
-    public searchApplicationConfig(version: number, accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationConfigResponse>>>;
-    public searchApplicationConfig(version: number, accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchApplicationConfig.');
-        }
+    public searchApplicationConfig(accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationConfigResponse>>;
+    public searchApplicationConfig(accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationConfigResponse>>>;
+    public searchApplicationConfig(accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationConfigResponse>>>;
+    public searchApplicationConfig(accountId: number, appKey?: string, retailerId?: number, retailerLocationId?: number, udid?: string, configVersion?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchApplicationConfig.');
         }
@@ -624,7 +604,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/search`;
+        let localVarPath = `/appconfig/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ApplicationConfigResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -643,8 +623,7 @@ export class ApplicationConfigService extends BaseService {
     /**
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won\&#39;t be updated.
-     * @endpoint post /api/{version}/appconfig/update
-     * @param version 
+     * @endpoint post /appconfig/update
      * @param accountId The account ID of the user
      * @param configId The config ID of the application configuration to update
      * @param appKey The application key that the updated applicationConfig will be associated to
@@ -657,13 +636,10 @@ export class ApplicationConfigService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateApplicationConfig(version: number, accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
-    public updateApplicationConfig(version: number, accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
-    public updateApplicationConfig(version: number, accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
-    public updateApplicationConfig(version: number, accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateApplicationConfig.');
-        }
+    public updateApplicationConfig(accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationConfigResponse>;
+    public updateApplicationConfig(accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationConfigResponse>>;
+    public updateApplicationConfig(accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationConfigResponse>>;
+    public updateApplicationConfig(accountId: number, configId: number, appKey?: string, configVersion?: string, assetId?: number, retailerId?: number, retailerLocationId?: number, udid?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateApplicationConfig.');
         }
@@ -770,7 +746,7 @@ export class ApplicationConfigService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/appconfig/update`;
+        let localVarPath = `/appconfig/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationConfigResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -38,8 +38,7 @@ export class ParticipantsService extends BaseService {
     /**
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @endpoint post /api/{version}/participant/process/all
-     * @param version 
+     * @endpoint post /participant/process/all
      * @param accountId The account id of the user
      * @param appKey The application key used to identify the application
      * @param useShortNameAsID Whether to use short name as the participant ID
@@ -47,13 +46,10 @@ export class ParticipantsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public processAllParticipants(version: number, accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public processAllParticipants(version: number, accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public processAllParticipants(version: number, accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public processAllParticipants(version: number, accountId: number, appKey?: string, useShortNameAsID?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling processAllParticipants.');
-        }
+    public processAllParticipants(accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public processAllParticipants(accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public processAllParticipants(accountId: number, appKey?: string, useShortNameAsID?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public processAllParticipants(accountId: number, appKey?: string, useShortNameAsID?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling processAllParticipants.');
         }
@@ -112,7 +108,7 @@ export class ParticipantsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/participant/process/all`;
+        let localVarPath = `/participant/process/all`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -131,8 +127,7 @@ export class ParticipantsService extends BaseService {
     /**
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @endpoint post /api/{version}/participant/process
-     * @param version 
+     * @endpoint post /participant/process
      * @param accountId The account id of the user
      * @param league The league identifier to process
      * @param appKey The application key used to identify the application
@@ -142,13 +137,10 @@ export class ParticipantsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public processParticipants(version: number, accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public processParticipants(version: number, accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public processParticipants(version: number, accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public processParticipants(version: number, accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling processParticipants.');
-        }
+    public processParticipants(accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public processParticipants(accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public processParticipants(accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public processParticipants(accountId: number, league: string, appKey?: string, useShortNameAsID?: boolean, file?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling processParticipants.');
         }
@@ -228,7 +220,7 @@ export class ParticipantsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/participant/process`;
+        let localVarPath = `/participant/process`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

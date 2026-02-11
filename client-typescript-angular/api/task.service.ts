@@ -40,8 +40,7 @@ export class TaskService extends BaseService {
     /**
      * Create Task
      * Create a Task
-     * @endpoint post /api/{version}/task/create
-     * @param version 
+     * @endpoint post /task/create
      * @param accountId The logged in user.
      * @param name The name of the task
      * @param appKey The application to target
@@ -58,13 +57,10 @@ export class TaskService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createTask(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
-    public createTask(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
-    public createTask(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
-    public createTask(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createTask.');
-        }
+    public createTask(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
+    public createTask(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
+    public createTask(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
+    public createTask(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createTask.');
         }
@@ -207,7 +203,7 @@ export class TaskService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/task/create`;
+        let localVarPath = `/task/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TaskResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -226,21 +222,17 @@ export class TaskService extends BaseService {
     /**
      * Delete Task
      * Delete a Task
-     * @endpoint post /api/{version}/task/delete
-     * @param version 
+     * @endpoint post /task/delete
      * @param accountId The logged in user.
      * @param taskId The id of the Task to delete.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteTask(version: number, accountId: number, taskId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteTask(version: number, accountId: number, taskId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteTask(version: number, accountId: number, taskId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteTask(version: number, accountId: number, taskId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteTask.');
-        }
+    public deleteTask(accountId: number, taskId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteTask(accountId: number, taskId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteTask(accountId: number, taskId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteTask(accountId: number, taskId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteTask.');
         }
@@ -293,7 +285,7 @@ export class TaskService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/task/delete`;
+        let localVarPath = `/task/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -312,21 +304,17 @@ export class TaskService extends BaseService {
     /**
      * Get Task
      * Get a Task
-     * @endpoint get /api/{version}/task/get
-     * @param version 
+     * @endpoint get /task/get
      * @param accountId The logged in user.
      * @param taskId The id of the Task to return.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTask(version: number, accountId: number, taskId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
-    public getTask(version: number, accountId: number, taskId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
-    public getTask(version: number, accountId: number, taskId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
-    public getTask(version: number, accountId: number, taskId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTask.');
-        }
+    public getTask(accountId: number, taskId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
+    public getTask(accountId: number, taskId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
+    public getTask(accountId: number, taskId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
+    public getTask(accountId: number, taskId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getTask.');
         }
@@ -379,7 +367,7 @@ export class TaskService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/task/get`;
+        let localVarPath = `/task/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TaskResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -398,8 +386,7 @@ export class TaskService extends BaseService {
     /**
      * Search Tasks
      * Search on Tasks
-     * @endpoint get /api/{version}/task/search
-     * @param version 
+     * @endpoint get /task/search
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user\&#39;\&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks 
@@ -416,13 +403,10 @@ export class TaskService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTasks(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TaskResponse>>;
-    public searchTasks(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TaskResponse>>>;
-    public searchTasks(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TaskResponse>>>;
-    public searchTasks(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTasks.');
-        }
+    public searchTasks(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TaskResponse>>;
+    public searchTasks(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TaskResponse>>>;
+    public searchTasks(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TaskResponse>>>;
+    public searchTasks(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchTasks.');
         }
@@ -562,7 +546,7 @@ export class TaskService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/task/search`;
+        let localVarPath = `/task/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<TaskResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -581,8 +565,7 @@ export class TaskService extends BaseService {
     /**
      * Update Task
      * Update a Task
-     * @endpoint post /api/{version}/task/update
-     * @param version 
+     * @endpoint post /task/update
      * @param taskId Task Id
      * @param accountId The logged in user.
      * @param name The name of the task
@@ -600,13 +583,10 @@ export class TaskService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTask(version: number, taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
-    public updateTask(version: number, taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
-    public updateTask(version: number, taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
-    public updateTask(version: number, taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTask.');
-        }
+    public updateTask(taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TaskResponse>;
+    public updateTask(taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TaskResponse>>;
+    public updateTask(taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TaskResponse>>;
+    public updateTask(taskId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (taskId === null || taskId === undefined) {
             throw new Error('Required parameter taskId was null or undefined when calling updateTask.');
         }
@@ -758,7 +738,7 @@ export class TaskService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/task/update`;
+        let localVarPath = `/task/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TaskResponse>('post', `${basePath}${localVarPath}`,
             {

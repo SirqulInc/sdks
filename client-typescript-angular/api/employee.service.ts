@@ -40,8 +40,7 @@ export class EmployeeService extends BaseService {
     /**
      * Assign Employee
      * Assign An existing account to be an employee
-     * @endpoint post /api/{version}/employee/assign
-     * @param version 
+     * @endpoint post /employee/assign
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param employeeAccountId The account id of the user to be assigned as employee
@@ -50,13 +49,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignEmployee(version: number, accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
-    public assignEmployee(version: number, accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
-    public assignEmployee(version: number, accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
-    public assignEmployee(version: number, accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignEmployee.');
-        }
+    public assignEmployee(accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
+    public assignEmployee(accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
+    public assignEmployee(accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
+    public assignEmployee(accountId: number, managerAccountId: number, employeeAccountId: number, role?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignEmployee.');
         }
@@ -130,7 +126,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/assign`;
+        let localVarPath = `/employee/assign`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<EmployeeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -149,8 +145,7 @@ export class EmployeeService extends BaseService {
     /**
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @endpoint post /api/{version}/employee/assignToLocation
-     * @param version 
+     * @endpoint post /employee/assignToLocation
      * @param accountId The account id of the logged in user
      * @param retailerLocationId The retailer location to apply the change to
      * @param employeeAccountId The account id of the user to apply the change to
@@ -159,13 +154,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignToLocationEmployee(version: number, accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public assignToLocationEmployee(version: number, accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public assignToLocationEmployee(version: number, accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public assignToLocationEmployee(version: number, accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignToLocationEmployee.');
-        }
+    public assignToLocationEmployee(accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public assignToLocationEmployee(accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public assignToLocationEmployee(accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public assignToLocationEmployee(accountId: number, retailerLocationId: number, employeeAccountId?: number, assign?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignToLocationEmployee.');
         }
@@ -236,7 +228,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/assignToLocation`;
+        let localVarPath = `/employee/assignToLocation`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -255,8 +247,7 @@ export class EmployeeService extends BaseService {
     /**
      * Create Employee
      * Create a new account record with the provided information.
-     * @endpoint post /api/{version}/employee/create
-     * @param version 
+     * @endpoint post /employee/create
      * @param accountId The account id of the logged in user
      * @param managerAccountId The account id of the manager to assign under
      * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -291,13 +282,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createEmployee(version: number, accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
-    public createEmployee(version: number, accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
-    public createEmployee(version: number, accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
-    public createEmployee(version: number, accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createEmployee.');
-        }
+    public createEmployee(accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
+    public createEmployee(accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
+    public createEmployee(accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
+    public createEmployee(accountId: number, managerAccountId: number, username: string, password: string, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, aboutUs?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createEmployee.');
         }
@@ -608,7 +596,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/create`;
+        let localVarPath = `/employee/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<EmployeeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -627,21 +615,17 @@ export class EmployeeService extends BaseService {
     /**
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @endpoint post /api/{version}/employee/delete
-     * @param version 
+     * @endpoint post /employee/delete
      * @param accountId the id of the logged in user
      * @param employeeAccountId the id of the employee to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteEmployee(version: number, accountId: number, employeeAccountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteEmployee.');
-        }
+    public deleteEmployee(accountId: number, employeeAccountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteEmployee(accountId: number, employeeAccountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteEmployee(accountId: number, employeeAccountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteEmployee(accountId: number, employeeAccountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteEmployee.');
         }
@@ -694,7 +678,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/delete`;
+        let localVarPath = `/employee/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -713,8 +697,7 @@ export class EmployeeService extends BaseService {
     /**
      * Get Employee
      * Get the account record for the account id provided.
-     * @endpoint post /api/{version}/employee/get
-     * @param version 
+     * @endpoint post /employee/get
      * @param accountId the id of logged in user
      * @param employeeAccountId the id of the employee account to get
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application
@@ -722,13 +705,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getEmployee(version: number, accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
-    public getEmployee(version: number, accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
-    public getEmployee(version: number, accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
-    public getEmployee(version: number, accountId: number, employeeAccountId: number, settingsAppKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getEmployee.');
-        }
+    public getEmployee(accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
+    public getEmployee(accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
+    public getEmployee(accountId: number, employeeAccountId: number, settingsAppKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
+    public getEmployee(accountId: number, employeeAccountId: number, settingsAppKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getEmployee.');
         }
@@ -790,7 +770,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/get`;
+        let localVarPath = `/employee/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<EmployeeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -809,8 +789,7 @@ export class EmployeeService extends BaseService {
     /**
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @endpoint post /api/{version}/employee/search
-     * @param version 
+     * @endpoint post /employee/search
      * @param accountId The account id of the logged in user
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
      * @param retailerId Filters employees by retailer
@@ -832,13 +811,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchEmployees(version: number, accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeResponse>>;
-    public searchEmployees(version: number, accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeResponse>>>;
-    public searchEmployees(version: number, accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeResponse>>>;
-    public searchEmployees(version: number, accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchEmployees.');
-        }
+    public searchEmployees(accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeResponse>>;
+    public searchEmployees(accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeResponse>>>;
+    public searchEmployees(accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeResponse>>>;
+    public searchEmployees(accountId: number, role?: string, retailerId?: number, retailerLocationId?: number, q?: string, keyword?: string, sortField?: 'ID' | 'DISPLAY' | 'CREATED' | 'UPDATED' | 'ACTIVE' | 'DELETED' | 'LAST_LOGGED_IN' | 'CONTACT_EMAIL' | 'ACCOUNT_TYPE' | 'RETAILER_LOCATION_NAME' | 'RETAILER_NAME', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, activeOnly?: boolean, managedOnly?: boolean, settingsAppKey?: string, categoryIds?: string, query?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchEmployees.');
         }
@@ -1023,7 +999,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/search`;
+        let localVarPath = `/employee/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<EmployeeResponse>>('post', `${basePath}${localVarPath}`,
             {
@@ -1042,21 +1018,17 @@ export class EmployeeService extends BaseService {
     /**
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @endpoint post /api/{version}/employee/unassign
-     * @param version 
+     * @endpoint post /employee/unassign
      * @param accountId The account id of the logged in user
      * @param employeeAccountId The account id of the user to be unassigned
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public unassignEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
-    public unassignEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
-    public unassignEmployee(version: number, accountId: number, employeeAccountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
-    public unassignEmployee(version: number, accountId: number, employeeAccountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling unassignEmployee.');
-        }
+    public unassignEmployee(accountId: number, employeeAccountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
+    public unassignEmployee(accountId: number, employeeAccountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
+    public unassignEmployee(accountId: number, employeeAccountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
+    public unassignEmployee(accountId: number, employeeAccountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling unassignEmployee.');
         }
@@ -1109,7 +1081,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/unassign`;
+        let localVarPath = `/employee/unassign`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<EmployeeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1128,8 +1100,7 @@ export class EmployeeService extends BaseService {
     /**
      * Update Employee
      * Update the account record with the provided information.
-     * @endpoint post /api/{version}/employee/update
-     * @param version 
+     * @endpoint post /employee/update
      * @param accountId The account id of the logged in user
      * @param employeeAccountId the id of the employee account
      * @param managerAccountId The account id of the manager to assign under
@@ -1164,13 +1135,10 @@ export class EmployeeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateEmployee(version: number, accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
-    public updateEmployee(version: number, accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
-    public updateEmployee(version: number, accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
-    public updateEmployee(version: number, accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateEmployee.');
-        }
+    public updateEmployee(accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeResponse>;
+    public updateEmployee(accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeResponse>>;
+    public updateEmployee(accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeResponse>>;
+    public updateEmployee(accountId: number, employeeAccountId: number, managerAccountId?: number, name?: string, prefixName?: string, firstName?: string, middleName?: string, lastName?: string, suffixName?: string, title?: string, assetId?: number, gender?: 'MALE' | 'FEMALE' | 'ANY', homePhone?: string, cellPhone?: string, cellPhoneCarrier?: string, businessPhone?: string, emailAddress?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, zipcode?: string, country?: string, role?: string, active?: boolean, password?: string, retailerLocationIds?: string, settingsAppKey?: string, appBlob?: string, assignedDeviceId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateEmployee.');
         }
@@ -1475,7 +1443,7 @@ export class EmployeeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/employee/update`;
+        let localVarPath = `/employee/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<EmployeeResponse>('post', `${basePath}${localVarPath}`,
             {

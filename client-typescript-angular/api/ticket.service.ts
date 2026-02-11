@@ -46,8 +46,7 @@ export class TicketService extends BaseService {
     /**
      * Get Ticket Count
      * Gets the ticket count.
-     * @endpoint get /api/{version}/ticket/count
-     * @param version 
+     * @endpoint get /ticket/count
      * @param deviceId the id of the device that owns the tickets
      * @param accountId the id of the account that owns the tickets
      * @param gameType this is deprecated.
@@ -57,13 +56,10 @@ export class TicketService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTicketCount(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
-    public getTicketCount(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
-    public getTicketCount(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
-    public getTicketCount(version: number, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTicketCount.');
-        }
+    public getTicketCount(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
+    public getTicketCount(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
+    public getTicketCount(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
+    public getTicketCount(deviceId?: string, accountId?: number, gameType?: string, appKey?: string, ticketType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -137,7 +133,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ticket/count`;
+        let localVarPath = `/ticket/count`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CountResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -156,8 +152,7 @@ export class TicketService extends BaseService {
     /**
      * Get Ticket List
      * Gets the list of tickets.
-     * @endpoint get /api/{version}/ticket/getList
-     * @param version 
+     * @endpoint get /ticket/getList
      * @param deviceId the id of the device that owns the tickets
      * @param accountId the id of the account that owns the tickets
      * @param ticketObjectType comma separated list of TicketObjectType
@@ -171,13 +166,10 @@ export class TicketService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTicketList(version: number, deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TicketListResponse>;
-    public getTicketList(version: number, deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TicketListResponse>>;
-    public getTicketList(version: number, deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TicketListResponse>>;
-    public getTicketList(version: number, deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTicketList.');
-        }
+    public getTicketList(deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TicketListResponse>;
+    public getTicketList(deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TicketListResponse>>;
+    public getTicketList(deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TicketListResponse>>;
+    public getTicketList(deviceId?: string, accountId?: number, ticketObjectType?: string, actionType?: string, ticketIds?: string, objectIds?: string, receiptTokens?: string, gameType?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -287,7 +279,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ticket/getList`;
+        let localVarPath = `/ticket/getList`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TicketListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -306,8 +298,7 @@ export class TicketService extends BaseService {
     /**
      * Gift Tickets
      * Gift tickets to another user.
-     * @endpoint post /api/{version}/purchase/gift
-     * @param version 
+     * @endpoint post /purchase/gift
      * @param receiverAccountId the id of the account receiving the tickets
      * @param ticketId the id of the tickets
      * @param deviceId the id of the device
@@ -320,13 +311,10 @@ export class TicketService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public giftPurchase(version: number, receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public giftPurchase(version: number, receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public giftPurchase(version: number, receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public giftPurchase(version: number, receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling giftPurchase.');
-        }
+    public giftPurchase(receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public giftPurchase(receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public giftPurchase(receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public giftPurchase(receiverAccountId: number, ticketId: number, deviceId?: string, accountId?: number, assetId?: number, customMessage?: string, gameType?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (receiverAccountId === null || receiverAccountId === undefined) {
             throw new Error('Required parameter receiverAccountId was null or undefined when calling giftPurchase.');
         }
@@ -433,7 +421,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/purchase/gift`;
+        let localVarPath = `/purchase/gift`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -452,8 +440,7 @@ export class TicketService extends BaseService {
     /**
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @endpoint post /api/{version}/ticket/save
-     * @param version 
+     * @endpoint post /ticket/save
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
      * @param returnNulls whether to return nulls or not
@@ -476,13 +463,10 @@ export class TicketService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public saveTicket(version: number, actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public saveTicket(version: number, actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public saveTicket(version: number, actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public saveTicket(version: number, actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling saveTicket.');
-        }
+    public saveTicket(actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public saveTicket(actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public saveTicket(actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public saveTicket(actionType: string, ticketObjectType: string, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, receiptData?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (actionType === null || actionType === undefined) {
             throw new Error('Required parameter actionType was null or undefined when calling saveTicket.');
         }
@@ -679,7 +663,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ticket/save`;
+        let localVarPath = `/ticket/save`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -698,8 +682,7 @@ export class TicketService extends BaseService {
     /**
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @endpoint post /api/{version}/ticket/save/fileUpload
-     * @param version 
+     * @endpoint post /ticket/save/fileUpload
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -722,13 +705,10 @@ export class TicketService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public saveTicketViaFileUpload(version: number, actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public saveTicketViaFileUpload(version: number, actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public saveTicketViaFileUpload(version: number, actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public saveTicketViaFileUpload(version: number, actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling saveTicketViaFileUpload.');
-        }
+    public saveTicketViaFileUpload(actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public saveTicketViaFileUpload(actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public saveTicketViaFileUpload(actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public saveTicketViaFileUpload(actionType: string, ticketObjectType: string, receiptData: Blob, returnNulls?: boolean, deviceId?: string, accountId?: number, gameType?: string, appKey?: string, objectId?: number, purchaseCode?: string, receiptToken?: string, count?: number, ticketType?: string, purchaseProvider?: string, purchaseType?: string, returnProfileResponse?: boolean, includeProfileResponse?: boolean, appVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (actionType === null || actionType === undefined) {
             throw new Error('Required parameter actionType was null or undefined when calling saveTicketViaFileUpload.');
         }
@@ -928,7 +908,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ticket/save/fileUpload`;
+        let localVarPath = `/ticket/save/fileUpload`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -947,19 +927,15 @@ export class TicketService extends BaseService {
     /**
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @endpoint get /api/{version}/ticket/ticketoffers
-     * @param version 
+     * @endpoint get /ticket/ticketoffers
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public ticketOffers(version: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TicketOfferResponse>;
-    public ticketOffers(version: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TicketOfferResponse>>;
-    public ticketOffers(version: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TicketOfferResponse>>;
-    public ticketOffers(version: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling ticketOffers.');
-        }
+    public ticketOffers(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TicketOfferResponse>;
+    public ticketOffers(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TicketOfferResponse>>;
+    public ticketOffers(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TicketOfferResponse>>;
+    public ticketOffers(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -986,7 +962,7 @@ export class TicketService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ticket/ticketoffers`;
+        let localVarPath = `/ticket/ticketoffers`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TicketOfferResponse>('get', `${basePath}${localVarPath}`,
             {

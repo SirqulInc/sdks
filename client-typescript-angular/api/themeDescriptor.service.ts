@@ -42,8 +42,7 @@ export class ThemeDescriptorService extends BaseService {
     /**
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @endpoint post /api/{version}/consumer/theme
-     * @param version 
+     * @endpoint post /consumer/theme
      * @param publicRead determines whether the theme\&#39;s participants have read permissions
      * @param publicWrite determines whether the theme\&#39;s participants have write permissions
      * @param publicDelete determines whether the theme\&#39;s participants have delete permissions
@@ -75,13 +74,10 @@ export class ThemeDescriptorService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addOrUpdateThemeDescriptor(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThemeDescriptorResponse>;
-    public addOrUpdateThemeDescriptor(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThemeDescriptorResponse>>;
-    public addOrUpdateThemeDescriptor(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThemeDescriptorResponse>>;
-    public addOrUpdateThemeDescriptor(version: number, publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addOrUpdateThemeDescriptor.');
-        }
+    public addOrUpdateThemeDescriptor(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ThemeDescriptorResponse>;
+    public addOrUpdateThemeDescriptor(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ThemeDescriptorResponse>>;
+    public addOrUpdateThemeDescriptor(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ThemeDescriptorResponse>>;
+    public addOrUpdateThemeDescriptor(publicRead: boolean, publicWrite: boolean, publicDelete: boolean, publicAdd: boolean, visibility: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', includeFriendGroup: boolean, completeWithDefaultValues: boolean, deviceId?: string, accountId?: number, gameType?: string, themeDescriptorId?: number, title?: string, description?: string, connectionIdsToAdd?: string, connectionGroupIdsToAdd?: string, appVersion?: string, colorValueJson?: string, stringReplacerJson?: string, customJsonObjects?: string, iconImage?: Blob, sceneAtlasImage?: Blob, bgImage?: Blob, bgSound?: Blob, musicSelection?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (publicRead === null || publicRead === undefined) {
             throw new Error('Required parameter publicRead was null or undefined when calling addOrUpdateThemeDescriptor.');
         }
@@ -374,7 +370,7 @@ export class ThemeDescriptorService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/theme`;
+        let localVarPath = `/consumer/theme`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ThemeDescriptorResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -393,8 +389,7 @@ export class ThemeDescriptorService extends BaseService {
     /**
      * Get Theme
      * Gets a theme.
-     * @endpoint get /api/{version}/consumer/theme/get
-     * @param version 
+     * @endpoint get /consumer/theme/get
      * @param themeDescriptorId the theme id
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -405,13 +400,10 @@ export class ThemeDescriptorService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemListResponse>;
-    public getThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemListResponse>>;
-    public getThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemListResponse>>;
-    public getThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getThemeDescriptor.');
-        }
+    public getThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemListResponse>;
+    public getThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemListResponse>>;
+    public getThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemListResponse>>;
+    public getThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (themeDescriptorId === null || themeDescriptorId === undefined) {
             throw new Error('Required parameter themeDescriptorId was null or undefined when calling getThemeDescriptor.');
         }
@@ -497,7 +489,7 @@ export class ThemeDescriptorService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/theme/get`;
+        let localVarPath = `/consumer/theme/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PurchaseItemListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -516,8 +508,7 @@ export class ThemeDescriptorService extends BaseService {
     /**
      * Search Themes
      * Searches for themes.
-     * @endpoint get /api/{version}/consumer/theme/search
-     * @param version 
+     * @endpoint get /consumer/theme/search
      * @param filter a comma separated list of Ownership
      * @param sortField the field to sort by. See ThemeDescriptorApiMap
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -540,13 +531,10 @@ export class ThemeDescriptorService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getThemeDescriptors(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemListResponse>;
-    public getThemeDescriptors(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemListResponse>>;
-    public getThemeDescriptors(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemListResponse>>;
-    public getThemeDescriptors(version: number, filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getThemeDescriptors.');
-        }
+    public getThemeDescriptors(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PurchaseItemListResponse>;
+    public getThemeDescriptors(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PurchaseItemListResponse>>;
+    public getThemeDescriptors(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PurchaseItemListResponse>>;
+    public getThemeDescriptors(filter: string, sortField: string, descending: boolean, start: number, limit: number, deviceId?: string, accountId?: number, gameType?: string, contestType?: string, ownerId?: number, q?: string, keyword?: string, i?: number, l?: number, dateCreated?: number, appVersion?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling getThemeDescriptors.');
         }
@@ -752,7 +740,7 @@ export class ThemeDescriptorService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/theme/search`;
+        let localVarPath = `/consumer/theme/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PurchaseItemListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -771,8 +759,7 @@ export class ThemeDescriptorService extends BaseService {
     /**
      * Delete Theme
      * Removes a theme.
-     * @endpoint post /api/{version}/consumer/theme/remove
-     * @param version 
+     * @endpoint post /consumer/theme/remove
      * @param themeDescriptorId the theme id to remove
      * @param deviceId a unique id given by the device (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -783,13 +770,10 @@ export class ThemeDescriptorService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeThemeDescriptor(version: number, themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeThemeDescriptor.');
-        }
+    public removeThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeThemeDescriptor(themeDescriptorId: number, deviceId?: string, accountId?: number, gameType?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (themeDescriptorId === null || themeDescriptorId === undefined) {
             throw new Error('Required parameter themeDescriptorId was null or undefined when calling removeThemeDescriptor.');
         }
@@ -875,7 +859,7 @@ export class ThemeDescriptorService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/theme/remove`;
+        let localVarPath = `/consumer/theme/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -42,8 +42,7 @@ export class FlagService extends BaseService {
     /**
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @endpoint post /api/{version}/flag/create
-     * @param version 
+     * @endpoint post /flag/create
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -55,13 +54,10 @@ export class FlagService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public createFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public createFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public createFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createFlag.');
-        }
+    public createFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public createFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public createFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public createFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, flagDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (flagableType === null || flagableType === undefined) {
             throw new Error('Required parameter flagableType was null or undefined when calling createFlag.');
         }
@@ -159,7 +155,7 @@ export class FlagService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/flag/create`;
+        let localVarPath = `/flag/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -178,8 +174,7 @@ export class FlagService extends BaseService {
     /**
      * Delete Flag
      * Deletes a flag.
-     * @endpoint post /api/{version}/flag/delete
-     * @param version 
+     * @endpoint post /flag/delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
      * @param itemBeingFlaggedType This parameter is deprecated.
@@ -190,13 +185,10 @@ export class FlagService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteFlag(version: number, deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteFlag(version: number, deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteFlag(version: number, deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteFlag(version: number, deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteFlag.');
-        }
+    public deleteFlag(deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteFlag(deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteFlag(deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteFlag(deviceId?: string, accountId?: number, itemBeingFlaggedType?: string, itemBeingFlaggedId?: number, flagableType?: string, flagableId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -279,7 +271,7 @@ export class FlagService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/flag/delete`;
+        let localVarPath = `/flag/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -298,8 +290,7 @@ export class FlagService extends BaseService {
     /**
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @endpoint get /api/{version}/flag/get
-     * @param version 
+     * @endpoint get /flag/get
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param flagableId The flagable object id
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -310,13 +301,10 @@ export class FlagService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FlagResponse>;
-    public getFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FlagResponse>>;
-    public getFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FlagResponse>>;
-    public getFlag(version: number, flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getFlag.');
-        }
+    public getFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<FlagResponse>;
+    public getFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<FlagResponse>>;
+    public getFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<FlagResponse>>;
+    public getFlag(flagableType: string, flagableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (flagableType === null || flagableType === undefined) {
             throw new Error('Required parameter flagableType was null or undefined when calling getFlag.');
         }
@@ -405,7 +393,7 @@ export class FlagService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/flag/get`;
+        let localVarPath = `/flag/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<FlagResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -424,21 +412,17 @@ export class FlagService extends BaseService {
     /**
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @endpoint get /api/{version}/flag/threshold/get
-     * @param version 
+     * @endpoint get /flag/threshold/get
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param appKey The application key
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getFlagThreshold(version: number, itemBeingFlaggedType: string, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
-    public getFlagThreshold(version: number, itemBeingFlaggedType: string, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
-    public getFlagThreshold(version: number, itemBeingFlaggedType: string, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
-    public getFlagThreshold(version: number, itemBeingFlaggedType: string, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getFlagThreshold.');
-        }
+    public getFlagThreshold(itemBeingFlaggedType: string, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
+    public getFlagThreshold(itemBeingFlaggedType: string, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
+    public getFlagThreshold(itemBeingFlaggedType: string, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
+    public getFlagThreshold(itemBeingFlaggedType: string, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (itemBeingFlaggedType === null || itemBeingFlaggedType === undefined) {
             throw new Error('Required parameter itemBeingFlaggedType was null or undefined when calling getFlagThreshold.');
         }
@@ -491,7 +475,7 @@ export class FlagService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/flag/threshold/get`;
+        let localVarPath = `/flag/threshold/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CountResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -510,8 +494,7 @@ export class FlagService extends BaseService {
     /**
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @endpoint post /api/{version}/flag/threshold/update
-     * @param version 
+     * @endpoint post /flag/threshold/update
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param threshold The threshold value
      * @param appKey The application key
@@ -521,13 +504,10 @@ export class FlagService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateFlagThreshold(version: number, itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
-    public updateFlagThreshold(version: number, itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
-    public updateFlagThreshold(version: number, itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
-    public updateFlagThreshold(version: number, itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateFlagThreshold.');
-        }
+    public updateFlagThreshold(itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CountResponse>;
+    public updateFlagThreshold(itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CountResponse>>;
+    public updateFlagThreshold(itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CountResponse>>;
+    public updateFlagThreshold(itemBeingFlaggedType: string, threshold: number, appKey: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (itemBeingFlaggedType === null || itemBeingFlaggedType === undefined) {
             throw new Error('Required parameter itemBeingFlaggedType was null or undefined when calling updateFlagThreshold.');
         }
@@ -610,7 +590,7 @@ export class FlagService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/flag/threshold/update`;
+        let localVarPath = `/flag/threshold/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CountResponse>('post', `${basePath}${localVarPath}`,
             {

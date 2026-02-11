@@ -42,8 +42,7 @@ export class CategoryService extends BaseService {
     /**
      * Search Categories by Distance
      * Search for categories by distance.
-     * @endpoint get /api/{version}/category/distancesearch
-     * @param version 
+     * @endpoint get /category/distancesearch
      * @param accountId The account id of the user
      * @param keyword The keyword string to search on
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -68,13 +67,10 @@ export class CategoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public categoryDistanceSearch(version: number, accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CategoryResponse>>;
-    public categoryDistanceSearch(version: number, accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CategoryResponse>>>;
-    public categoryDistanceSearch(version: number, accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CategoryResponse>>>;
-    public categoryDistanceSearch(version: number, accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling categoryDistanceSearch.');
-        }
+    public categoryDistanceSearch(accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CategoryResponse>>;
+    public categoryDistanceSearch(accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CategoryResponse>>>;
+    public categoryDistanceSearch(accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CategoryResponse>>>;
+    public categoryDistanceSearch(accountId?: number, keyword?: string, appKey?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, minOfferCount?: number, latitude?: number, longitude?: number, range?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -283,7 +279,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/distancesearch`;
+        let localVarPath = `/category/distancesearch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<CategoryResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -302,8 +298,7 @@ export class CategoryService extends BaseService {
     /**
      * Create Category
      * Create a new category.
-     * @endpoint post /api/{version}/category/create
-     * @param version 
+     * @endpoint post /category/create
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param name The name of the category
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)
@@ -322,13 +317,10 @@ export class CategoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createCategory(version: number, accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
-    public createCategory(version: number, accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
-    public createCategory(version: number, accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
-    public createCategory(version: number, accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createCategory.');
-        }
+    public createCategory(accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
+    public createCategory(accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
+    public createCategory(accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
+    public createCategory(accountId: number, name: string, appKey?: string, parentCategoryId?: number, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createCategory.');
         }
@@ -489,7 +481,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/create`;
+        let localVarPath = `/category/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CategoryTreeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -508,21 +500,17 @@ export class CategoryService extends BaseService {
     /**
      * Delete Category
      * Delete a category.
-     * @endpoint post /api/{version}/category/delete
-     * @param version 
+     * @endpoint post /category/delete
      * @param accountId the ID of the account
      * @param categoryId the ID of the category
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteCategory(version: number, accountId: number, categoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteCategory(version: number, accountId: number, categoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteCategory(version: number, accountId: number, categoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteCategory(version: number, accountId: number, categoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteCategory.');
-        }
+    public deleteCategory(accountId: number, categoryId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteCategory(accountId: number, categoryId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteCategory(accountId: number, categoryId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteCategory(accountId: number, categoryId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteCategory.');
         }
@@ -575,7 +563,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/delete`;
+        let localVarPath = `/category/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -594,8 +582,7 @@ export class CategoryService extends BaseService {
     /**
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @endpoint post /api/{version}/category/duplicate
-     * @param version 
+     * @endpoint post /category/duplicate
      * @param accountId The account id of the user (must have permissions to the target application)
      * @param categoryId The category ID to duplicate (includes all children)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to
@@ -604,13 +591,10 @@ export class CategoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public duplicateCategory(version: number, accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
-    public duplicateCategory(version: number, accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
-    public duplicateCategory(version: number, accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
-    public duplicateCategory(version: number, accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling duplicateCategory.');
-        }
+    public duplicateCategory(accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
+    public duplicateCategory(accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
+    public duplicateCategory(accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
+    public duplicateCategory(accountId: number, categoryId: number, appKey?: string, parentCategoryId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling duplicateCategory.');
         }
@@ -681,7 +665,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/duplicate`;
+        let localVarPath = `/category/duplicate`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CategoryTreeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -700,21 +684,17 @@ export class CategoryService extends BaseService {
     /**
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @endpoint get /api/{version}/category/get
-     * @param version 
+     * @endpoint get /category/get
      * @param categoryId the ID of the category
      * @param returnExternal Determines whether to return extra info about the category\&#39;s \&quot;Participant\&quot; reference
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCategory(version: number, categoryId: number, returnExternal?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
-    public getCategory(version: number, categoryId: number, returnExternal?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
-    public getCategory(version: number, categoryId: number, returnExternal?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
-    public getCategory(version: number, categoryId: number, returnExternal?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCategory.');
-        }
+    public getCategory(categoryId: number, returnExternal?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
+    public getCategory(categoryId: number, returnExternal?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
+    public getCategory(categoryId: number, returnExternal?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
+    public getCategory(categoryId: number, returnExternal?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (categoryId === null || categoryId === undefined) {
             throw new Error('Required parameter categoryId was null or undefined when calling getCategory.');
         }
@@ -764,7 +744,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/get`;
+        let localVarPath = `/category/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CategoryTreeResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -783,8 +763,7 @@ export class CategoryService extends BaseService {
     /**
      * Search Categories
      * Search for categories.
-     * @endpoint get /api/{version}/category/search
-     * @param version 
+     * @endpoint get /category/search
      * @param accountId The account id of the user
      * @param keyword The string to search on
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -810,13 +789,10 @@ export class CategoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchCategories(version: number, accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CategoryResponse>>;
-    public searchCategories(version: number, accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CategoryResponse>>>;
-    public searchCategories(version: number, accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CategoryResponse>>>;
-    public searchCategories(version: number, accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchCategories.');
-        }
+    public searchCategories(accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CategoryResponse>>;
+    public searchCategories(accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CategoryResponse>>>;
+    public searchCategories(accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CategoryResponse>>>;
+    public searchCategories(accountId?: number, keyword?: string, appKey?: string, categoryId?: string, categoryIds?: string, parentCategoryIds?: string, rootOnly?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DISPLAY', responseGroup?: 'ALL' | 'GLOBAL' | 'MINE', descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, returnExternal?: boolean, exactMatch?: boolean, type?: string, externalType?: string, excludeExternalType?: boolean, minOfferCount?: number, searchDepth?: number, searchMode?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1034,7 +1010,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/search`;
+        let localVarPath = `/category/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<CategoryResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1053,8 +1029,7 @@ export class CategoryService extends BaseService {
     /**
      * Update Category
      * Update a category.
-     * @endpoint post /api/{version}/category/update
-     * @param version 
+     * @endpoint post /category/update
      * @param accountId The account id of the user
      * @param categoryId The ID of the category to edit
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null
@@ -1073,13 +1048,10 @@ export class CategoryService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateCategory(version: number, accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
-    public updateCategory(version: number, accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
-    public updateCategory(version: number, accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
-    public updateCategory(version: number, accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateCategory.');
-        }
+    public updateCategory(accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CategoryTreeResponse>;
+    public updateCategory(accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CategoryTreeResponse>>;
+    public updateCategory(accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CategoryTreeResponse>>;
+    public updateCategory(accountId: number, categoryId: number, parentCategoryId?: number, name?: string, description?: string, type?: string, assetId?: number, externalId?: string, externalType?: string, externalCategorySlug?: string, sqootSlug?: string, active?: boolean, metaData?: string, searchTags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateCategory.');
         }
@@ -1240,7 +1212,7 @@ export class CategoryService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/category/update`;
+        let localVarPath = `/category/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CategoryTreeResponse>('post', `${basePath}${localVarPath}`,
             {

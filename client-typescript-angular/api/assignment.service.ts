@@ -44,21 +44,17 @@ export class AssignmentService extends BaseService {
     /**
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @endpoint get /api/{version}/assignment/assignee/search
-     * @param version 
+     * @endpoint get /assignment/assignee/search
      * @param accountId The account id sending the request
      * @param keyword The keyword to filter the returned results
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assigmentAssigneeAccountSearch(version: number, accountId: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountMiniResponse>>;
-    public assigmentAssigneeAccountSearch(version: number, accountId: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountMiniResponse>>>;
-    public assigmentAssigneeAccountSearch(version: number, accountId: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountMiniResponse>>>;
-    public assigmentAssigneeAccountSearch(version: number, accountId: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assigmentAssigneeAccountSearch.');
-        }
+    public assigmentAssigneeAccountSearch(accountId: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AccountMiniResponse>>;
+    public assigmentAssigneeAccountSearch(accountId: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AccountMiniResponse>>>;
+    public assigmentAssigneeAccountSearch(accountId: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AccountMiniResponse>>>;
+    public assigmentAssigneeAccountSearch(accountId: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assigmentAssigneeAccountSearch.');
         }
@@ -108,7 +104,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/assignee/search`;
+        let localVarPath = `/assignment/assignee/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AccountMiniResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -127,8 +123,7 @@ export class AssignmentService extends BaseService {
     /**
      * Create Assignment
      * Create an assignment.
-     * @endpoint post /api/{version}/assignment/create
-     * @param version 
+     * @endpoint post /assignment/create
      * @param accountId the user account id
      * @param name the name for the assignment
      * @param assigneeAccountId the account id to assign to
@@ -140,13 +135,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentCreate(version: number, accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
-    public assignmentCreate(version: number, accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
-    public assignmentCreate(version: number, accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
-    public assignmentCreate(version: number, accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentCreate.');
-        }
+    public assignmentCreate(accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
+    public assignmentCreate(accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
+    public assignmentCreate(accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
+    public assignmentCreate(accountId: number, name: string, assigneeAccountId: number, description?: string, retailerLocationId?: number, tags?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentCreate.');
         }
@@ -247,7 +239,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/create`;
+        let localVarPath = `/assignment/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -266,21 +258,17 @@ export class AssignmentService extends BaseService {
     /**
      * Delete Assignment
      * Delete an assignment.
-     * @endpoint post /api/{version}/assignment/delete
-     * @param version 
+     * @endpoint post /assignment/delete
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentDelete(version: number, accountId: number, assignmentId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public assignmentDelete(version: number, accountId: number, assignmentId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public assignmentDelete(version: number, accountId: number, assignmentId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public assignmentDelete(version: number, accountId: number, assignmentId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentDelete.');
-        }
+    public assignmentDelete(accountId: number, assignmentId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public assignmentDelete(accountId: number, assignmentId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public assignmentDelete(accountId: number, assignmentId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public assignmentDelete(accountId: number, assignmentId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentDelete.');
         }
@@ -333,7 +321,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/delete`;
+        let localVarPath = `/assignment/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -352,21 +340,17 @@ export class AssignmentService extends BaseService {
     /**
      * Get Assignment
      * Get the details of an assignment.
-     * @endpoint get /api/{version}/assignment/get
-     * @param version 
+     * @endpoint get /assignment/get
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentGet(version: number, accountId: number, assignmentId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
-    public assignmentGet(version: number, accountId: number, assignmentId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
-    public assignmentGet(version: number, accountId: number, assignmentId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
-    public assignmentGet(version: number, accountId: number, assignmentId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentGet.');
-        }
+    public assignmentGet(accountId: number, assignmentId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
+    public assignmentGet(accountId: number, assignmentId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
+    public assignmentGet(accountId: number, assignmentId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
+    public assignmentGet(accountId: number, assignmentId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentGet.');
         }
@@ -419,7 +403,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/get`;
+        let localVarPath = `/assignment/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -438,8 +422,7 @@ export class AssignmentService extends BaseService {
     /**
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @endpoint get /api/{version}/assignment/search
-     * @param version 
+     * @endpoint get /assignment/search
      * @param accountId the account sending the request
      * @param sortField sort by table field
      * @param descending return results in descending order or not
@@ -455,13 +438,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssignmentResponse>>;
-    public assignmentSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssignmentResponse>>>;
-    public assignmentSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssignmentResponse>>>;
-    public assignmentSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentSearch.');
-        }
+    public assignmentSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssignmentResponse>>;
+    public assignmentSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssignmentResponse>>>;
+    public assignmentSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssignmentResponse>>>;
+    public assignmentSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'STATUSES', descending: boolean, activeOnly: boolean, start: number, limit: number, creatorAccountId?: number, assigneeAccountIds?: string, retailerLocationIds?: string, currentStatusType?: 'NEW' | 'IN_PROGRESS' | 'SUBSCRIBED' | 'ARCHIVED', keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentSearch.');
         }
@@ -607,7 +587,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/search`;
+        let localVarPath = `/assignment/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AssignmentResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -626,8 +606,7 @@ export class AssignmentService extends BaseService {
     /**
      * Create Assignment Status
      * Create an assignment status.
-     * @endpoint post /api/{version}/assignment/status/create
-     * @param version 
+     * @endpoint post /assignment/status/create
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param scheduledNotificationId the scheduled notification id for reminders
@@ -643,13 +622,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentStatusCreate(version: number, accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
-    public assignmentStatusCreate(version: number, accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
-    public assignmentStatusCreate(version: number, accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
-    public assignmentStatusCreate(version: number, accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentStatusCreate.');
-        }
+    public assignmentStatusCreate(accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
+    public assignmentStatusCreate(accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
+    public assignmentStatusCreate(accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
+    public assignmentStatusCreate(accountId: number, assignmentId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentStatusCreate.');
         }
@@ -783,7 +759,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/status/create`;
+        let localVarPath = `/assignment/status/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentStatusResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -802,21 +778,17 @@ export class AssignmentService extends BaseService {
     /**
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @endpoint post /api/{version}/assignment/status/delete
-     * @param version 
+     * @endpoint post /assignment/status/delete
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentStatusDelete(version: number, accountId: number, assignmentStatusId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public assignmentStatusDelete(version: number, accountId: number, assignmentStatusId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public assignmentStatusDelete(version: number, accountId: number, assignmentStatusId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public assignmentStatusDelete(version: number, accountId: number, assignmentStatusId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentStatusDelete.');
-        }
+    public assignmentStatusDelete(accountId: number, assignmentStatusId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public assignmentStatusDelete(accountId: number, assignmentStatusId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public assignmentStatusDelete(accountId: number, assignmentStatusId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public assignmentStatusDelete(accountId: number, assignmentStatusId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentStatusDelete.');
         }
@@ -869,7 +841,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/status/delete`;
+        let localVarPath = `/assignment/status/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -888,21 +860,17 @@ export class AssignmentService extends BaseService {
     /**
      * Get Assignment Status
      * Get an assignment status.
-     * @endpoint get /api/{version}/assignment/status/get
-     * @param version 
+     * @endpoint get /assignment/status/get
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentStatusGet(version: number, accountId: number, assignmentStatusId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
-    public assignmentStatusGet(version: number, accountId: number, assignmentStatusId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
-    public assignmentStatusGet(version: number, accountId: number, assignmentStatusId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
-    public assignmentStatusGet(version: number, accountId: number, assignmentStatusId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentStatusGet.');
-        }
+    public assignmentStatusGet(accountId: number, assignmentStatusId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
+    public assignmentStatusGet(accountId: number, assignmentStatusId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
+    public assignmentStatusGet(accountId: number, assignmentStatusId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
+    public assignmentStatusGet(accountId: number, assignmentStatusId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentStatusGet.');
         }
@@ -955,7 +923,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/status/get`;
+        let localVarPath = `/assignment/status/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentStatusResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -974,8 +942,7 @@ export class AssignmentService extends BaseService {
     /**
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @endpoint get /api/{version}/assignment/status/search
-     * @param version 
+     * @endpoint get /assignment/status/search
      * @param accountId the user account id
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
      * @param descending determines whether the sorted list is in descending or ascending order
@@ -992,13 +959,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentStatusSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssignmentStatusResponse>>;
-    public assignmentStatusSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssignmentStatusResponse>>>;
-    public assignmentStatusSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssignmentStatusResponse>>>;
-    public assignmentStatusSearch(version: number, accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentStatusSearch.');
-        }
+    public assignmentStatusSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssignmentStatusResponse>>;
+    public assignmentStatusSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssignmentStatusResponse>>>;
+    public assignmentStatusSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssignmentStatusResponse>>>;
+    public assignmentStatusSearch(accountId: number, sortField: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'ASSIGNEE_ID' | 'CREATOR_ID' | 'LOCATION_ID' | 'LOCATION_NAME' | 'CURRENT_STATUS' | 'CURRENT_STATUS_TYPE' | 'TODO' | 'CONNECTION' | 'METHOD' | 'STATUS' | 'CLOSURE' | 'MESSAGE' | 'FOLLOW_UP', descending: boolean, activeOnly: boolean, start: number, limit: number, assignmentId?: number, creatorAccountId?: number, assigneeAccountId?: number, retailerLocationId?: number, statusType?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentStatusSearch.');
         }
@@ -1153,7 +1117,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/status/search`;
+        let localVarPath = `/assignment/status/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AssignmentStatusResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1172,8 +1136,7 @@ export class AssignmentService extends BaseService {
     /**
      * Update Assignment Status
      * Updates an assignment status.
-     * @endpoint post /api/{version}/assignment/status/update
-     * @param version 
+     * @endpoint post /assignment/status/update
      * @param accountId the user account id
      * @param assignmentStatusId the assignment status id
      * @param scheduledNotificationId the scheduled notification id for reminders
@@ -1189,13 +1152,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentStatusUpdate(version: number, accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
-    public assignmentStatusUpdate(version: number, accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
-    public assignmentStatusUpdate(version: number, accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
-    public assignmentStatusUpdate(version: number, accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentStatusUpdate.');
-        }
+    public assignmentStatusUpdate(accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentStatusResponse>;
+    public assignmentStatusUpdate(accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentStatusResponse>>;
+    public assignmentStatusUpdate(accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentStatusResponse>>;
+    public assignmentStatusUpdate(accountId: number, assignmentStatusId: number, scheduledNotificationId?: number, toDo?: 'SITE_VISIT' | 'PHONE' | 'RECONTACT' | 'RENEWAL' | 'CREDIT', connection?: 'INITIAL' | 'FOLLOW_UP' | 'DECLINED', method?: 'PHONE' | 'SITE_VISIT' | 'EMAIL', status?: 'ARCHIVED' | 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CONTACTED' | 'DECLINED' | 'NOT_CONTACTED', closure?: 'PHONE' | 'SITE_VISIT' | 'PHONE_SITE' | 'WEB', message?: string, followUp?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentStatusUpdate.');
         }
@@ -1329,7 +1289,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/status/update`;
+        let localVarPath = `/assignment/status/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentStatusResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1348,8 +1308,7 @@ export class AssignmentService extends BaseService {
     /**
      * Update Assignment
      * Updates an assignment.
-     * @endpoint post /api/{version}/assignment/update
-     * @param version 
+     * @endpoint post /assignment/update
      * @param accountId the user account id
      * @param assignmentId the assignment id
      * @param name the name of the assignment
@@ -1362,13 +1321,10 @@ export class AssignmentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assignmentUpdate(version: number, accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
-    public assignmentUpdate(version: number, accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
-    public assignmentUpdate(version: number, accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
-    public assignmentUpdate(version: number, accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assignmentUpdate.');
-        }
+    public assignmentUpdate(accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssignmentResponse>;
+    public assignmentUpdate(accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssignmentResponse>>;
+    public assignmentUpdate(accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssignmentResponse>>;
+    public assignmentUpdate(accountId: number, assignmentId: number, name?: string, description?: string, assigneeAccountId?: number, retailerLocationId?: number, tags?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling assignmentUpdate.');
         }
@@ -1475,7 +1431,7 @@ export class AssignmentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/assignment/update`;
+        let localVarPath = `/assignment/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssignmentResponse>('post', `${basePath}${localVarPath}`,
             {

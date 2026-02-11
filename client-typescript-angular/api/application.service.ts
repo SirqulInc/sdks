@@ -48,8 +48,7 @@ export class ApplicationService extends BaseService {
     /**
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @endpoint post /api/{version}/application/create
-     * @param version 
+     * @endpoint post /application/create
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -133,13 +132,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createApplication(version: number, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
-    public createApplication(version: number, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
-    public createApplication(version: number, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
-    public createApplication(version: number, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createApplication.');
-        }
+    public createApplication(appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
+    public createApplication(appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
+    public createApplication(appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
+    public createApplication(appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appName === null || appName === undefined) {
             throw new Error('Required parameter appName was null or undefined when calling createApplication.');
         }
@@ -882,7 +878,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/create`;
+        let localVarPath = `/application/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -901,8 +897,7 @@ export class ApplicationService extends BaseService {
     /**
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @endpoint post /api/{version}/application/placement/create
-     * @param version 
+     * @endpoint post /application/placement/create
      * @param appKey The appKey of the application the ad placement is for
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -918,13 +913,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createApplicationPlacement(version: number, appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
-    public createApplicationPlacement(version: number, appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
-    public createApplicationPlacement(version: number, appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
-    public createApplicationPlacement(version: number, appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createApplicationPlacement.');
-        }
+    public createApplicationPlacement(appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
+    public createApplicationPlacement(appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
+    public createApplicationPlacement(appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
+    public createApplicationPlacement(appKey: string, size: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', deviceId?: string, accountId?: number, name?: string, description?: string, height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createApplicationPlacement.');
         }
@@ -1058,7 +1050,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/placement/create`;
+        let localVarPath = `/application/placement/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PlacementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1077,21 +1069,17 @@ export class ApplicationService extends BaseService {
     /**
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @endpoint post /api/{version}/application/delete
-     * @param version 
+     * @endpoint post /application/delete
      * @param accountId The account used to perform the delete, must have rights to edit the application.
      * @param appKey The key of the application to be deleted
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteApplication(version: number, accountId?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteApplication(version: number, accountId?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteApplication(version: number, accountId?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteApplication(version: number, accountId?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteApplication.');
-        }
+    public deleteApplication(accountId?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteApplication(accountId?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteApplication(accountId?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteApplication(accountId?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1138,7 +1126,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/delete`;
+        let localVarPath = `/application/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1157,8 +1145,7 @@ export class ApplicationService extends BaseService {
     /**
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @endpoint post /api/{version}/application/placement/delete
-     * @param version 
+     * @endpoint post /application/placement/delete
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -1166,13 +1153,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
-    public deleteApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
-    public deleteApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
-    public deleteApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteApplicationPlacement.');
-        }
+    public deleteApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
+    public deleteApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
+    public deleteApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
+    public deleteApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (placementId === null || placementId === undefined) {
             throw new Error('Required parameter placementId was null or undefined when calling deleteApplicationPlacement.');
         }
@@ -1231,7 +1215,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/placement/delete`;
+        let localVarPath = `/application/placement/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PlacementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1250,21 +1234,17 @@ export class ApplicationService extends BaseService {
     /**
      * Get Application
      * Get a specific application by appKey
-     * @endpoint get /api/{version}/application/get
-     * @param version 
+     * @endpoint get /application/get
      * @param appKey The key of the application
      * @param applicationId Application Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getApplication(version: number, appKey?: string, applicationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
-    public getApplication(version: number, appKey?: string, applicationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
-    public getApplication(version: number, appKey?: string, applicationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
-    public getApplication(version: number, appKey?: string, applicationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getApplication.');
-        }
+    public getApplication(appKey?: string, applicationId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
+    public getApplication(appKey?: string, applicationId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
+    public getApplication(appKey?: string, applicationId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
+    public getApplication(appKey?: string, applicationId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1311,7 +1291,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/get`;
+        let localVarPath = `/application/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1330,8 +1310,7 @@ export class ApplicationService extends BaseService {
     /**
      * Get Ad Placement
      * Get details of an ad placement
-     * @endpoint get /api/{version}/application/placement/get
-     * @param version 
+     * @endpoint get /application/placement/get
      * @param placementId The id of the placement
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -1339,13 +1318,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
-    public getApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
-    public getApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
-    public getApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getApplicationPlacement.');
-        }
+    public getApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
+    public getApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
+    public getApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
+    public getApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (placementId === null || placementId === undefined) {
             throw new Error('Required parameter placementId was null or undefined when calling getApplicationPlacement.');
         }
@@ -1404,7 +1380,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/placement/get`;
+        let localVarPath = `/application/placement/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PlacementResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1423,19 +1399,15 @@ export class ApplicationService extends BaseService {
     /**
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @endpoint get /api/{version}/application/versions
-     * @param version 
+     * @endpoint get /application/versions
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getApplicationVersions(version: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getApplicationVersions(version: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getApplicationVersions(version: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getApplicationVersions(version: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getApplicationVersions.');
-        }
+    public getApplicationVersions(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getApplicationVersions(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getApplicationVersions(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getApplicationVersions(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1462,7 +1434,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/versions`;
+        let localVarPath = `/application/versions`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1480,8 +1452,7 @@ export class ApplicationService extends BaseService {
     /**
      * Search Application Users
      * Get a list of users per application
-     * @endpoint get /api/{version}/application/users
-     * @param version 
+     * @endpoint get /application/users
      * @param appKey The application key
      * @param q Q
      * @param keyword The keyword used to search
@@ -1494,13 +1465,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getUniqueUsersByApp(version: number, appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountListResponse>;
-    public getUniqueUsersByApp(version: number, appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountListResponse>>;
-    public getUniqueUsersByApp(version: number, appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountListResponse>>;
-    public getUniqueUsersByApp(version: number, appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getUniqueUsersByApp.');
-        }
+    public getUniqueUsersByApp(appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AccountListResponse>;
+    public getUniqueUsersByApp(appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountListResponse>>;
+    public getUniqueUsersByApp(appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountListResponse>>;
+    public getUniqueUsersByApp(appKey: string, q?: string, keyword?: string, since?: number, i?: number, start?: number, l?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling getUniqueUsersByApp.');
         }
@@ -1604,7 +1572,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/users`;
+        let localVarPath = `/application/users`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AccountListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1623,8 +1591,7 @@ export class ApplicationService extends BaseService {
     /**
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @endpoint get /api/{version}/application/list
-     * @param version 
+     * @endpoint get /application/list
      * @param accountId The account id of the application owner/manager
      * @param q Q
      * @param keyword The keyword used to search for title, about, and description fields
@@ -1649,13 +1616,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listApplications(version: number, accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationShortResponse>>;
-    public listApplications(version: number, accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationShortResponse>>>;
-    public listApplications(version: number, accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationShortResponse>>>;
-    public listApplications(version: number, accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listApplications.');
-        }
+    public listApplications(accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationShortResponse>>;
+    public listApplications(accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationShortResponse>>>;
+    public listApplications(accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationShortResponse>>>;
+    public listApplications(accountId?: number, q?: string, keyword?: string, platforms?: string, deviceIds?: string, deviceVersions?: string, categoryIds?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', hasAds?: boolean, publicNotifications?: boolean, filterBillable?: boolean, filterContentAdmin?: boolean, descending?: boolean, i?: number, start?: number, l?: number, limit?: number, applicationIds?: string, hasObjectStore?: boolean, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1864,7 +1828,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/list`;
+        let localVarPath = `/application/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ApplicationShortResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1883,8 +1847,7 @@ export class ApplicationService extends BaseService {
     /**
      * Search for Ad Placements
      * Searches placements for an application.
-     * @endpoint get /api/{version}/application/placement/search
-     * @param version 
+     * @endpoint get /application/placement/search
      * @param appKey The key of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -1894,13 +1857,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchApplicationPlacement(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PlacementResponse>>;
-    public searchApplicationPlacement(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PlacementResponse>>>;
-    public searchApplicationPlacement(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PlacementResponse>>>;
-    public searchApplicationPlacement(version: number, appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchApplicationPlacement.');
-        }
+    public searchApplicationPlacement(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PlacementResponse>>;
+    public searchApplicationPlacement(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PlacementResponse>>>;
+    public searchApplicationPlacement(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PlacementResponse>>>;
+    public searchApplicationPlacement(appKey: string, deviceId?: string, accountId?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling searchApplicationPlacement.');
         }
@@ -1977,7 +1937,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/placement/search`;
+        let localVarPath = `/application/placement/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<PlacementResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1996,8 +1956,7 @@ export class ApplicationService extends BaseService {
     /**
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @endpoint get /api/{version}/application/settings/search
-     * @param version 
+     * @endpoint get /application/settings/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param connectionAccountId The account id used to view another person\&#39;s account
@@ -2010,13 +1969,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchApplicationSettings(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationSettingsResponse>;
-    public searchApplicationSettings(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationSettingsResponse>>;
-    public searchApplicationSettings(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationSettingsResponse>>;
-    public searchApplicationSettings(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchApplicationSettings.');
-        }
+    public searchApplicationSettings(deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationSettingsResponse>;
+    public searchApplicationSettings(deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationSettingsResponse>>;
+    public searchApplicationSettings(deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationSettingsResponse>>;
+    public searchApplicationSettings(deviceId?: string, accountId?: number, connectionAccountId?: number, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2117,7 +2073,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/settings/search`;
+        let localVarPath = `/application/settings/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationSettingsResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -2136,8 +2092,7 @@ export class ApplicationService extends BaseService {
     /**
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @endpoint get /api/{version}/application/search
-     * @param version 
+     * @endpoint get /application/search
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param latitude The location of the device
@@ -2158,13 +2113,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchApplications(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationResponse>>;
-    public searchApplications(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationResponse>>>;
-    public searchApplications(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationResponse>>>;
-    public searchApplications(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchApplications.');
-        }
+    public searchApplications(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ApplicationResponse>>;
+    public searchApplications(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ApplicationResponse>>>;
+    public searchApplications(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ApplicationResponse>>>;
+    public searchApplications(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, q?: string, keyword?: string, qSearchFields?: string, sortField?: 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'HAS_ADVERTISEMENTS' | 'PUBLIC_NOTIFICATIONS' | 'PLACEMENTS' | 'BILLABLE_ENTITY_ID' | 'BILLABLE_ENTITY_NAME' | 'RESPONSIBLE_DISPLAY' | 'TITLE' | 'NAME' | 'ABOUT' | 'DESCRIPTION' | 'APPLICATION_ID' | 'APP_TYPE' | 'GAME_TYPE' | 'BUNDLE_ID' | 'SCORING_TYPE' | 'LANDING_PAGE_URL' | 'EULA_VERSION' | 'BUILD_VERSION' | 'API_VERSION', descending?: boolean, i?: number, start?: number, l?: number, limit?: number, hasAds?: boolean, publicNotifications?: boolean, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2337,7 +2289,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/search`;
+        let localVarPath = `/application/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ApplicationResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -2356,8 +2308,7 @@ export class ApplicationService extends BaseService {
     /**
      * Update Application
      * Update an application record
-     * @endpoint post /api/{version}/application/update
-     * @param version 
+     * @endpoint post /application/update
      * @param appKey The application key for updating an existing application
      * @param appName The name of the application
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -2442,13 +2393,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateApplication(version: number, appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
-    public updateApplication(version: number, appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
-    public updateApplication(version: number, appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
-    public updateApplication(version: number, appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateApplication.');
-        }
+    public updateApplication(appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ApplicationResponse>;
+    public updateApplication(appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ApplicationResponse>>;
+    public updateApplication(appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ApplicationResponse>>;
+    public updateApplication(appKey: string, appName: string, deviceId?: string, accountId?: number, about?: string, bundleId?: string, appIconAssetId?: number, appLogoAssetId?: number, facebookAppId?: string, facebookAppSecret?: string, googleApiKey?: string, updateEULADate?: boolean, eulaVersion?: string, landingPageUrl?: string, showInActivities?: boolean, activityDescription?: string, inviteWelcomeText?: string, invitePageUrl?: string, urlScheme?: string, platforms?: string, downloadUrls?: string, categoryIds?: string, scoringType?: 'GAME_LEVEL' | 'GAME_OBJECT', hintCost?: number, maxScore?: number, ticketsPerPoint?: number, hasGameData?: boolean, publicNotifications?: boolean, useMatchingAlgorithm?: boolean, globalTickets?: boolean, buildVersion?: number, apiVersion?: number, placementName?: string, placementDescription?: string, placementSize?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', placementHeight?: number, placementWidth?: number, placementRefreshInterval?: number, createObjectStore?: boolean, publicContentApproval?: boolean, productionMode?: boolean, minimumSessionLength?: number, sessionGapLength?: number, localAdsEnabled?: boolean, sqootApiKey?: string, trilatProcessingType?: 'DEFAULT' | 'FINGERPRINT' | 'FINGERPRINT_V2', maxSampleSize?: number, minRSSI?: number, modules?: string, authorizedCount?: number, authorizedServers?: string, defaultTimezone?: string, smtpPass?: string, metaData?: string, placementMetaData?: string, ipsFloor?: boolean, enableAPNSBadge?: boolean, includeInReport?: boolean, defaultAppFilterId?: number, enableWelcomeEmail?: boolean, appleAppId?: string, appleTeamId?: string, appleAuthKeyId?: string, appleAuthKey?: Blob, appleIssuerId?: string, appStoreKeyId?: string, appStoreKey?: Blob, googlePrivateKeyFile?: Blob, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, emailSender?: string, smtpUser?: string, smtpHost?: string, vatomBusinessId?: string, vatomRestClientId?: string, vatomRestSecretKey?: string, twilioAccountSID?: string, twilioAuthToken?: string, twilioSenderPhoneNumber?: string, openAISecretKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling updateApplication.');
         }
@@ -3203,7 +3151,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/update`;
+        let localVarPath = `/application/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ApplicationResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3222,8 +3170,7 @@ export class ApplicationService extends BaseService {
     /**
      * Change Appliation Status
      * Set the application\&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @endpoint post /api/{version}/application/active
-     * @param version 
+     * @endpoint post /application/active
      * @param accountId The account used to perform the delete, must have rights to edit the application.
      * @param appKey The key of the application to be deleted
      * @param active If true then set to active, false otherwise
@@ -3231,13 +3178,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateApplicationActive(version: number, accountId: number, appKey: string, active: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateApplicationActive(version: number, accountId: number, appKey: string, active: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateApplicationActive(version: number, accountId: number, appKey: string, active: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateApplicationActive(version: number, accountId: number, appKey: string, active: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateApplicationActive.');
-        }
+    public updateApplicationActive(accountId: number, appKey: string, active: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateApplicationActive(accountId: number, appKey: string, active: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateApplicationActive(accountId: number, appKey: string, active: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateApplicationActive(accountId: number, appKey: string, active: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateApplicationActive.');
         }
@@ -3302,7 +3246,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/active`;
+        let localVarPath = `/application/active`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3321,8 +3265,7 @@ export class ApplicationService extends BaseService {
     /**
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @endpoint post /api/{version}/application/placement/update
-     * @param version 
+     * @endpoint post /application/placement/update
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -3338,13 +3281,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
-    public updateApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
-    public updateApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
-    public updateApplicationPlacement(version: number, placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateApplicationPlacement.');
-        }
+    public updateApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PlacementResponse>;
+    public updateApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlacementResponse>>;
+    public updateApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlacementResponse>>;
+    public updateApplicationPlacement(placementId: number, deviceId?: string, accountId?: number, name?: string, description?: string, size?: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', height?: number, width?: number, refreshInterval?: number, defaultImageId?: number, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (placementId === null || placementId === undefined) {
             throw new Error('Required parameter placementId was null or undefined when calling updateApplicationPlacement.');
         }
@@ -3475,7 +3415,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/placement/update`;
+        let localVarPath = `/application/placement/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PlacementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -3494,8 +3434,7 @@ export class ApplicationService extends BaseService {
     /**
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @endpoint post /api/{version}/application/certificate/create
-     * @param version 
+     * @endpoint post /application/certificate/create
      * @param appKey The key of the application
      * @param deviceId Device Id
      * @param accountId The account used to perform the delete, must have rights to edit the application.
@@ -3504,13 +3443,10 @@ export class ApplicationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public uploadApplicationCertificate(version: number, appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public uploadApplicationCertificate(version: number, appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public uploadApplicationCertificate(version: number, appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public uploadApplicationCertificate(version: number, appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling uploadApplicationCertificate.');
-        }
+    public uploadApplicationCertificate(appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public uploadApplicationCertificate(appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public uploadApplicationCertificate(appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public uploadApplicationCertificate(appKey: string, deviceId?: string, accountId?: number, certificate?: Blob, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling uploadApplicationCertificate.');
         }
@@ -3578,7 +3514,7 @@ export class ApplicationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/application/certificate/create`;
+        let localVarPath = `/application/certificate/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -40,20 +40,16 @@ export class TwitterService extends BaseService {
     /**
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @endpoint post /api/{version}/twitter/authorize
-     * @param version 
+     * @endpoint post /twitter/authorize
      * @param appKey the application key
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public authorizeTwitter(version: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public authorizeTwitter(version: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public authorizeTwitter(version: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public authorizeTwitter(version: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling authorizeTwitter.');
-        }
+    public authorizeTwitter(appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public authorizeTwitter(appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public authorizeTwitter(appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public authorizeTwitter(appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling authorizeTwitter.');
         }
@@ -94,7 +90,7 @@ export class TwitterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/twitter/authorize`;
+        let localVarPath = `/twitter/authorize`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -113,8 +109,7 @@ export class TwitterService extends BaseService {
     /**
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @endpoint post /api/{version}/twitter/login
-     * @param version 
+     * @endpoint post /twitter/login
      * @param accessToken The access token
      * @param accessTokenSecret The secret access token
      * @param appKey The application key
@@ -126,13 +121,10 @@ export class TwitterService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public loginTwitter(version: number, accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public loginTwitter(version: number, accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public loginTwitter(version: number, accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public loginTwitter(version: number, accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling loginTwitter.');
-        }
+    public loginTwitter(accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public loginTwitter(accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public loginTwitter(accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public loginTwitter(accessToken: string, accessTokenSecret: string, appKey: string, responseFilters: string, deviceId?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accessToken === null || accessToken === undefined) {
             throw new Error('Required parameter accessToken was null or undefined when calling loginTwitter.');
         }
@@ -236,7 +228,7 @@ export class TwitterService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/twitter/login`;
+        let localVarPath = `/twitter/login`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {

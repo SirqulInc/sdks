@@ -48,8 +48,7 @@ export class AudienceService extends BaseService {
     /**
      * Create Audience
      * Create a user defined audience.
-     * @endpoint post /api/{version}/audience/create
-     * @param version 
+     * @endpoint post /audience/create
      * @param accountId The logged in user.
      * @param name The name of the audience
      * @param description The description of the audience
@@ -83,13 +82,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createAudience(version: number, accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
-    public createAudience(version: number, accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
-    public createAudience(version: number, accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
-    public createAudience(version: number, accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createAudience.');
-        }
+    public createAudience(accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
+    public createAudience(accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
+    public createAudience(accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
+    public createAudience(accountId: number, name: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, startTimeOffset?: number, endTimeOffset?: number, sendSuggestion?: boolean, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createAudience.');
         }
@@ -385,7 +381,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/create`;
+        let localVarPath = `/audience/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AudienceResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -404,21 +400,17 @@ export class AudienceService extends BaseService {
     /**
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @endpoint post /api/{version}/audience/delete
-     * @param version 
+     * @endpoint post /audience/delete
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to delete.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteAudience(version: number, accountId: number, audienceId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteAudience(version: number, accountId: number, audienceId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteAudience(version: number, accountId: number, audienceId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteAudience(version: number, accountId: number, audienceId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteAudience.');
-        }
+    public deleteAudience(accountId: number, audienceId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteAudience(accountId: number, audienceId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteAudience(accountId: number, audienceId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteAudience(accountId: number, audienceId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteAudience.');
         }
@@ -471,7 +463,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/delete`;
+        let localVarPath = `/audience/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -490,19 +482,15 @@ export class AudienceService extends BaseService {
     /**
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @endpoint get /api/{version}/audience/ageGroups
-     * @param version 
+     * @endpoint get /audience/ageGroups
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAgeGroups(version: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AgeGroupResponse>>;
-    public getAgeGroups(version: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AgeGroupResponse>>>;
-    public getAgeGroups(version: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AgeGroupResponse>>>;
-    public getAgeGroups(version: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAgeGroups.');
-        }
+    public getAgeGroups(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AgeGroupResponse>>;
+    public getAgeGroups(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AgeGroupResponse>>>;
+    public getAgeGroups(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AgeGroupResponse>>>;
+    public getAgeGroups(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -529,7 +517,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/ageGroups`;
+        let localVarPath = `/audience/ageGroups`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AgeGroupResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -547,8 +535,7 @@ export class AudienceService extends BaseService {
     /**
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @endpoint get /api/{version}/audience/get
-     * @param version 
+     * @endpoint get /audience/get
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to return.
      * @param appKey The application key (optional). If provided, results may be scoped to this application.
@@ -559,13 +546,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAudience(version: number, accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
-    public getAudience(version: number, accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
-    public getAudience(version: number, accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
-    public getAudience(version: number, accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAudience.');
-        }
+    public getAudience(accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
+    public getAudience(accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
+    public getAudience(accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
+    public getAudience(accountId: number, audienceId: number, appKey?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getAudience.');
         }
@@ -654,7 +638,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/get`;
+        let localVarPath = `/audience/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AudienceResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -673,8 +657,7 @@ export class AudienceService extends BaseService {
     /**
      * Search Audiences
      * Get the list audiences owned by the account
-     * @endpoint get /api/{version}/audience/search
-     * @param version 
+     * @endpoint get /audience/search
      * @param accountId The logged in user.
      * @param albumIds Comma separated list of album IDs to filter results with
      * @param keyword The keyword used to search
@@ -698,13 +681,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAudienceList(version: number, accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<SearchResponse>>;
-    public getAudienceList(version: number, accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<SearchResponse>>>;
-    public getAudienceList(version: number, accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<SearchResponse>>>;
-    public getAudienceList(version: number, accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAudienceList.');
-        }
+    public getAudienceList(accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<SearchResponse>>;
+    public getAudienceList(accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<SearchResponse>>>;
+    public getAudienceList(accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<SearchResponse>>>;
+    public getAudienceList(accountId?: number, albumIds?: string, keyword?: string, keywordFields?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'SEND_SUGGESTION' | 'OWNER_ID' | 'OWNER_DISPLAY' | 'GENDER', descending?: boolean, start?: number, limit?: number, sendSuggestion?: boolean, activeOnly?: boolean, groupByGroupingId?: boolean, appKey?: string, returnGlobal?: boolean, exactKeyword?: boolean, audienceType?: string, audienceTypes?: string, returnAccountCount?: boolean, returnAlbumCount?: boolean, albumTypesForCount?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -904,7 +884,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/search`;
+        let localVarPath = `/audience/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<SearchResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -923,20 +903,16 @@ export class AudienceService extends BaseService {
     /**
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @endpoint get /api/{version}/audience/devices
-     * @param version 
+     * @endpoint get /audience/devices
      * @param includeInactive If true return inactive record as well. default is false.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getDevices(version: number, includeInactive: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AudienceDeviceResponse>>;
-    public getDevices(version: number, includeInactive: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AudienceDeviceResponse>>>;
-    public getDevices(version: number, includeInactive: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AudienceDeviceResponse>>>;
-    public getDevices(version: number, includeInactive: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getDevices.');
-        }
+    public getDevices(includeInactive: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AudienceDeviceResponse>>;
+    public getDevices(includeInactive: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AudienceDeviceResponse>>>;
+    public getDevices(includeInactive: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AudienceDeviceResponse>>>;
+    public getDevices(includeInactive: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (includeInactive === null || includeInactive === undefined) {
             throw new Error('Required parameter includeInactive was null or undefined when calling getDevices.');
         }
@@ -977,7 +953,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/devices`;
+        let localVarPath = `/audience/devices`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AudienceDeviceResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -996,19 +972,15 @@ export class AudienceService extends BaseService {
     /**
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @endpoint get /api/{version}/audience/experiences
-     * @param version 
+     * @endpoint get /audience/experiences
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getExperiences(version: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getExperiences(version: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getExperiences(version: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getExperiences(version: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getExperiences.');
-        }
+    public getExperiences(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getExperiences(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getExperiences(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getExperiences(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1035,7 +1007,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/experiences`;
+        let localVarPath = `/audience/experiences`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1053,21 +1025,17 @@ export class AudienceService extends BaseService {
     /**
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @endpoint get /api/{version}/audience/grouped/get
-     * @param version 
+     * @endpoint get /audience/grouped/get
      * @param accountId The logged in user.
      * @param audienceGroupingId The audience grouping id to return.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getGroupedAudiences(version: number, accountId: number, audienceGroupingId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
-    public getGroupedAudiences(version: number, accountId: number, audienceGroupingId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
-    public getGroupedAudiences(version: number, accountId: number, audienceGroupingId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
-    public getGroupedAudiences(version: number, accountId: number, audienceGroupingId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getGroupedAudiences.');
-        }
+    public getGroupedAudiences(accountId: number, audienceGroupingId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
+    public getGroupedAudiences(accountId: number, audienceGroupingId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
+    public getGroupedAudiences(accountId: number, audienceGroupingId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
+    public getGroupedAudiences(accountId: number, audienceGroupingId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getGroupedAudiences.');
         }
@@ -1120,7 +1088,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/grouped/get`;
+        let localVarPath = `/audience/grouped/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AudienceResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1139,8 +1107,7 @@ export class AudienceService extends BaseService {
     /**
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @endpoint post /api/{version}/audience/suggestion/list
-     * @param version 
+     * @endpoint post /audience/suggestion/list
      * @param accountId The account to match offers for.
      * @param limit the limit of the index
      * @param suggestionType the type of suggestion
@@ -1148,13 +1115,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listByAccount(version: number, accountId: number, limit: number, suggestionType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
-    public listByAccount(version: number, accountId: number, limit: number, suggestionType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
-    public listByAccount(version: number, accountId: number, limit: number, suggestionType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
-    public listByAccount(version: number, accountId: number, limit: number, suggestionType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listByAccount.');
-        }
+    public listByAccount(accountId: number, limit: number, suggestionType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
+    public listByAccount(accountId: number, limit: number, suggestionType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
+    public listByAccount(accountId: number, limit: number, suggestionType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
+    public listByAccount(accountId: number, limit: number, suggestionType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listByAccount.');
         }
@@ -1219,7 +1183,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/suggestion/list`;
+        let localVarPath = `/audience/suggestion/list`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferListResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1238,8 +1202,7 @@ export class AudienceService extends BaseService {
     /**
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @endpoint get /api/{version}/audience/suggestion/offersByAudience
-     * @param version 
+     * @endpoint get /audience/suggestion/offersByAudience
      * @param limit this is the limit of the index
      * @param gender this is the gender to list offers by
      * @param age this is the age to list offers by
@@ -1250,13 +1213,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listByAudience(version: number, limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
-    public listByAudience(version: number, limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
-    public listByAudience(version: number, limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
-    public listByAudience(version: number, limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listByAudience.');
-        }
+    public listByAudience(limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
+    public listByAudience(limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
+    public listByAudience(limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
+    public listByAudience(limit: number, gender?: string, age?: number, categoryIds?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (limit === null || limit === undefined) {
             throw new Error('Required parameter limit was null or undefined when calling listByAudience.');
         }
@@ -1342,7 +1302,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/suggestion/offersByAudience`;
+        let localVarPath = `/audience/suggestion/offersByAudience`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1361,8 +1321,7 @@ export class AudienceService extends BaseService {
     /**
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @endpoint get /api/{version}/audience/suggestion/latest
-     * @param version 
+     * @endpoint get /audience/suggestion/latest
      * @param accountId The account to match offers for.
      * @param timeframe The timeframe in seconds of the latest suggestions
      * @param suggestionType The type of trigger suggestions to return
@@ -1370,13 +1329,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public listLastestByAccount(version: number, accountId: number, timeframe: number, suggestionType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
-    public listLastestByAccount(version: number, accountId: number, timeframe: number, suggestionType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
-    public listLastestByAccount(version: number, accountId: number, timeframe: number, suggestionType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
-    public listLastestByAccount(version: number, accountId: number, timeframe: number, suggestionType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling listLastestByAccount.');
-        }
+    public listLastestByAccount(accountId: number, timeframe: number, suggestionType: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferListResponse>;
+    public listLastestByAccount(accountId: number, timeframe: number, suggestionType: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferListResponse>>;
+    public listLastestByAccount(accountId: number, timeframe: number, suggestionType: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferListResponse>>;
+    public listLastestByAccount(accountId: number, timeframe: number, suggestionType: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling listLastestByAccount.');
         }
@@ -1441,7 +1397,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/suggestion/latest`;
+        let localVarPath = `/audience/suggestion/latest`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1460,8 +1416,7 @@ export class AudienceService extends BaseService {
     /**
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @endpoint post /api/{version}/audience/suggestion/send
-     * @param version 
+     * @endpoint post /audience/suggestion/send
      * @param accountId The account to match offers for.
      * @param latitude the latitude
      * @param longitude the longitude
@@ -1469,13 +1424,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public sendByAccount(version: number, accountId: number, latitude: number, longitude: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public sendByAccount(version: number, accountId: number, latitude: number, longitude: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public sendByAccount(version: number, accountId: number, latitude: number, longitude: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public sendByAccount(version: number, accountId: number, latitude: number, longitude: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling sendByAccount.');
-        }
+    public sendByAccount(accountId: number, latitude: number, longitude: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public sendByAccount(accountId: number, latitude: number, longitude: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public sendByAccount(accountId: number, latitude: number, longitude: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public sendByAccount(accountId: number, latitude: number, longitude: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling sendByAccount.');
         }
@@ -1540,7 +1492,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/suggestion/send`;
+        let localVarPath = `/audience/suggestion/send`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1559,8 +1511,7 @@ export class AudienceService extends BaseService {
     /**
      * Update Audience
      * Update a user defined audience.
-     * @endpoint post /api/{version}/audience/update
-     * @param version 
+     * @endpoint post /audience/update
      * @param accountId The logged in user.
      * @param audienceId The id of the audience to update.
      * @param name The name of the audience
@@ -1596,13 +1547,10 @@ export class AudienceService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateAudience(version: number, accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
-    public updateAudience(version: number, accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
-    public updateAudience(version: number, accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
-    public updateAudience(version: number, accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateAudience.');
-        }
+    public updateAudience(accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AudienceResponse>;
+    public updateAudience(accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AudienceResponse>>;
+    public updateAudience(accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AudienceResponse>>;
+    public updateAudience(accountId: number, audienceId: number, name?: string, description?: string, searchTags?: string, gender?: string, ageGroups?: string, categoryIds?: string, applicationIds?: string, gameExperienceLevel?: string, devices?: string, deviceIds?: string, deviceVersions?: string, locations?: string, radius?: string, active?: boolean, sendSuggestion?: boolean, startTimeOffset?: number, endTimeOffset?: number, associateDescription?: string, associateType?: string, associateId?: number, groupingId?: string, metaData?: string, visibility?: string, audienceType?: string, useOrder?: boolean, cohortRegionsData?: string, appKey?: string, trilaterationTypes?: string, uniqueName?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateAudience.');
         }
@@ -1916,7 +1864,7 @@ export class AudienceService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/audience/update`;
+        let localVarPath = `/audience/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AudienceResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -40,8 +40,7 @@ export class LikeService extends BaseService {
     /**
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @endpoint post /api/{version}/like
-     * @param version 
+     * @endpoint post /like
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -58,13 +57,10 @@ export class LikeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public registerLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LikableResponse>;
-    public registerLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LikableResponse>>;
-    public registerLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LikableResponse>>;
-    public registerLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling registerLike.');
-        }
+    public registerLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LikableResponse>;
+    public registerLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LikableResponse>>;
+    public registerLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LikableResponse>>;
+    public registerLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, permissionableType?: string, permissionableId?: number, like?: boolean, app?: string, gameType?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (likableType === null || likableType === undefined) {
             throw new Error('Required parameter likableType was null or undefined when calling registerLike.');
         }
@@ -207,7 +203,7 @@ export class LikeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/like`;
+        let localVarPath = `/like`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LikableResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -226,8 +222,7 @@ export class LikeService extends BaseService {
     /**
      * Delete Like
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @endpoint post /api/{version}/like/delete
-     * @param version 
+     * @endpoint post /like/delete
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -238,13 +233,10 @@ export class LikeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LikableResponse>;
-    public removeLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LikableResponse>>;
-    public removeLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LikableResponse>>;
-    public removeLike(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeLike.');
-        }
+    public removeLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<LikableResponse>;
+    public removeLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<LikableResponse>>;
+    public removeLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<LikableResponse>>;
+    public removeLike(likableType: string, likableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (likableType === null || likableType === undefined) {
             throw new Error('Required parameter likableType was null or undefined when calling removeLike.');
         }
@@ -333,7 +325,7 @@ export class LikeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/like/delete`;
+        let localVarPath = `/like/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<LikableResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -352,8 +344,7 @@ export class LikeService extends BaseService {
     /**
      * Search Likes
      * Search for likes on a likable object.
-     * @endpoint get /api/{version}/like/search
-     * @param version 
+     * @endpoint get /like/search
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param likableId The id of the likable object
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -369,13 +360,10 @@ export class LikeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchLikes(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
-    public searchLikes(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
-    public searchLikes(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
-    public searchLikes(version: number, likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchLikes.');
-        }
+    public searchLikes(likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SearchResponse>;
+    public searchLikes(likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchResponse>>;
+    public searchLikes(likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchResponse>>;
+    public searchLikes(likableType: string, likableId: number, deviceId?: string, accountId?: number, connectionAccountIds?: string, sortField?: string, descending?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (likableType === null || likableType === undefined) {
             throw new Error('Required parameter likableType was null or undefined when calling searchLikes.');
         }
@@ -509,7 +497,7 @@ export class LikeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/like/search`;
+        let localVarPath = `/like/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SearchResponse>('get', `${basePath}${localVarPath}`,
             {

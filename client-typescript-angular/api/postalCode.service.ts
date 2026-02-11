@@ -40,8 +40,7 @@ export class PostalCodeService extends BaseService {
     /**
      * Create Postal Code
      * Create a Postal Code
-     * @endpoint post /api/{version}/postalCode/create
-     * @param version 
+     * @endpoint post /postalCode/create
      * @param accountId the id of the logged in user
      * @param code the postal code
      * @param latitude the latitude of the postal code
@@ -53,13 +52,10 @@ export class PostalCodeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createPostalCode(version: number, accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
-    public createPostalCode(version: number, accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
-    public createPostalCode(version: number, accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
-    public createPostalCode(version: number, accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createPostalCode.');
-        }
+    public createPostalCode(accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
+    public createPostalCode(accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
+    public createPostalCode(accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
+    public createPostalCode(accountId: number, code: string, latitude: number, longitude: number, stateCode?: string, city?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createPostalCode.');
         }
@@ -163,7 +159,7 @@ export class PostalCodeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/postalCode/create`;
+        let localVarPath = `/postalCode/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PostalCodeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -182,21 +178,17 @@ export class PostalCodeService extends BaseService {
     /**
      * Delete Postal Code
      * Delete a Postal Code
-     * @endpoint post /api/{version}/postalCode/delete
-     * @param version 
+     * @endpoint post /postalCode/delete
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deletePostalCode(version: number, accountId: number, postalCodeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deletePostalCode(version: number, accountId: number, postalCodeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deletePostalCode(version: number, accountId: number, postalCodeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deletePostalCode(version: number, accountId: number, postalCodeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deletePostalCode.');
-        }
+    public deletePostalCode(accountId: number, postalCodeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deletePostalCode(accountId: number, postalCodeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deletePostalCode(accountId: number, postalCodeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deletePostalCode(accountId: number, postalCodeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deletePostalCode.');
         }
@@ -249,7 +241,7 @@ export class PostalCodeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/postalCode/delete`;
+        let localVarPath = `/postalCode/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -268,20 +260,16 @@ export class PostalCodeService extends BaseService {
     /**
      * Get Postal Code
      * Get a Postal Code
-     * @endpoint get /api/{version}/postalCode/get
-     * @param version 
+     * @endpoint get /postalCode/get
      * @param postalCodeId the id of the postal code to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPostalCode(version: number, postalCodeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
-    public getPostalCode(version: number, postalCodeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
-    public getPostalCode(version: number, postalCodeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
-    public getPostalCode(version: number, postalCodeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPostalCode.');
-        }
+    public getPostalCode(postalCodeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
+    public getPostalCode(postalCodeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
+    public getPostalCode(postalCodeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
+    public getPostalCode(postalCodeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (postalCodeId === null || postalCodeId === undefined) {
             throw new Error('Required parameter postalCodeId was null or undefined when calling getPostalCode.');
         }
@@ -322,7 +310,7 @@ export class PostalCodeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/postalCode/get`;
+        let localVarPath = `/postalCode/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PostalCodeResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -341,8 +329,7 @@ export class PostalCodeService extends BaseService {
     /**
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @endpoint get /api/{version}/postalCode/search
-     * @param version 
+     * @endpoint get /postalCode/search
      * @param sortField the field to sort the results on
      * @param descending whether to order results in ascending or descending order
      * @param latitude the latitude of the postal code to search on
@@ -355,13 +342,10 @@ export class PostalCodeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPostalCodes(version: number, sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PostalCodeResponse>>;
-    public getPostalCodes(version: number, sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PostalCodeResponse>>>;
-    public getPostalCodes(version: number, sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PostalCodeResponse>>>;
-    public getPostalCodes(version: number, sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPostalCodes.');
-        }
+    public getPostalCodes(sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PostalCodeResponse>>;
+    public getPostalCodes(sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PostalCodeResponse>>>;
+    public getPostalCodes(sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PostalCodeResponse>>>;
+    public getPostalCodes(sortField: string, descending: boolean, latitude?: number, longitude?: number, keyword?: string, miles?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling getPostalCodes.');
         }
@@ -468,7 +452,7 @@ export class PostalCodeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/postalCode/search`;
+        let localVarPath = `/postalCode/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<PostalCodeResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -487,8 +471,7 @@ export class PostalCodeService extends BaseService {
     /**
      * Update Postal Code
      * Update a Postal Code
-     * @endpoint post /api/{version}/postalCode/update
-     * @param version 
+     * @endpoint post /postalCode/update
      * @param accountId the id of the logged in user
      * @param postalCodeId the id of the postal code to update
      * @param code the postal code to update
@@ -501,13 +484,10 @@ export class PostalCodeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updatePostalCode(version: number, accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
-    public updatePostalCode(version: number, accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
-    public updatePostalCode(version: number, accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
-    public updatePostalCode(version: number, accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updatePostalCode.');
-        }
+    public updatePostalCode(accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PostalCodeResponse>;
+    public updatePostalCode(accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PostalCodeResponse>>;
+    public updatePostalCode(accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PostalCodeResponse>>;
+    public updatePostalCode(accountId: number, postalCodeId: number, code?: string, latitude?: number, longitude?: number, stateCode?: string, city?: string, active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updatePostalCode.');
         }
@@ -614,7 +594,7 @@ export class PostalCodeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/postalCode/update`;
+        let localVarPath = `/postalCode/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PostalCodeResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -40,8 +40,7 @@ export class PackService extends BaseService {
     /**
      * Create Pack
      * Create a pack.
-     * @endpoint post /api/{version}/pack/create
-     * @param version 
+     * @endpoint post /pack/create
      * @param accountId The logged in user.
      * @param title The title of the pack
      * @param packOrder The order of the pack
@@ -70,13 +69,10 @@ export class PackService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createPack(version: number, accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
-    public createPack(version: number, accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
-    public createPack(version: number, accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
-    public createPack(version: number, accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createPack.');
-        }
+    public createPack(accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
+    public createPack(accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
+    public createPack(accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
+    public createPack(accountId: number, title: string, packOrder: number, price: number, highest: boolean, allocateTickets: boolean, ticketCount: number, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, priceType?: string, gameLevelIds?: string, inGame?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createPack.');
         }
@@ -342,7 +338,7 @@ export class PackService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pack/create`;
+        let localVarPath = `/pack/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PackResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -361,21 +357,17 @@ export class PackService extends BaseService {
     /**
      * Delete Pack
      * Delete a pack.
-     * @endpoint post /api/{version}/pack/delete
-     * @param version 
+     * @endpoint post /pack/delete
      * @param accountId the id of the logged in user
      * @param packId the id of the pack to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deletePack(version: number, accountId: number, packId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deletePack(version: number, accountId: number, packId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deletePack(version: number, accountId: number, packId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deletePack(version: number, accountId: number, packId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deletePack.');
-        }
+    public deletePack(accountId: number, packId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deletePack(accountId: number, packId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deletePack(accountId: number, packId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deletePack(accountId: number, packId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deletePack.');
         }
@@ -428,7 +420,7 @@ export class PackService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pack/delete`;
+        let localVarPath = `/pack/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -447,8 +439,7 @@ export class PackService extends BaseService {
     /**
      * Get Pack
      * Get a pack.
-     * @endpoint get /api/{version}/pack/get
-     * @param version 
+     * @endpoint get /pack/get
      * @param accountId The logged in user.
      * @param packId The id of the pack to return.
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false.
@@ -456,13 +447,10 @@ export class PackService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPack(version: number, accountId: number, packId: number, includeGameData: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
-    public getPack(version: number, accountId: number, packId: number, includeGameData: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
-    public getPack(version: number, accountId: number, packId: number, includeGameData: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
-    public getPack(version: number, accountId: number, packId: number, includeGameData: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPack.');
-        }
+    public getPack(accountId: number, packId: number, includeGameData: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
+    public getPack(accountId: number, packId: number, includeGameData: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
+    public getPack(accountId: number, packId: number, includeGameData: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
+    public getPack(accountId: number, packId: number, includeGameData: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPack.');
         }
@@ -527,7 +515,7 @@ export class PackService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pack/get`;
+        let localVarPath = `/pack/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PackResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -546,8 +534,7 @@ export class PackService extends BaseService {
     /**
      * Search Packs
      * Search on packs.
-     * @endpoint get /api/{version}/pack/search
-     * @param version 
+     * @endpoint get /pack/search
      * @param accountId The logged in user.
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
      * @param descending Determines whether the sorted list is in descending or ascending order
@@ -562,13 +549,10 @@ export class PackService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPacks(version: number, accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PackResponse>>;
-    public searchPacks(version: number, accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PackResponse>>>;
-    public searchPacks(version: number, accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PackResponse>>>;
-    public searchPacks(version: number, accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPacks.');
-        }
+    public searchPacks(accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<PackResponse>>;
+    public searchPacks(accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PackResponse>>>;
+    public searchPacks(accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PackResponse>>>;
+    public searchPacks(accountId: number, sortField: 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED', descending: boolean, keyword?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', start?: number, limit?: number, includeGameData?: boolean, includeInactive?: boolean, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchPacks.');
         }
@@ -696,7 +680,7 @@ export class PackService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pack/search`;
+        let localVarPath = `/pack/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<PackResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -715,8 +699,7 @@ export class PackService extends BaseService {
     /**
      * Update Pack
      * Update a pack.
-     * @endpoint post /api/{version}/pack/update
-     * @param version 
+     * @endpoint post /pack/update
      * @param accountId The logged in user.
      * @param packId The id of the pack to update.
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -746,13 +729,10 @@ export class PackService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updatePack(version: number, accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
-    public updatePack(version: number, accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
-    public updatePack(version: number, accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
-    public updatePack(version: number, accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updatePack.');
-        }
+    public updatePack(accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PackResponse>;
+    public updatePack(accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PackResponse>>;
+    public updatePack(accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PackResponse>>;
+    public updatePack(accountId: number, packId: number, allocateTickets: boolean, ticketCount: number, title?: string, description?: string, searchTags?: string, active?: boolean, gameType?: string, appKey?: string, packType?: 'TUTORIAL' | 'BUILTIN' | 'DOWNLOAD' | 'THRESHOLD' | 'THEME' | 'TOURNAMENT', packOrder?: number, sequenceType?: 'FIRST_AVAILABLE' | 'ALL_AVAILABLE', backgroundId?: number, imageId?: number, startDate?: number, endDate?: number, authorOverride?: string, price?: number, priceType?: string, gameLevelIds?: string, inGame?: boolean, highest?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updatePack.');
         }
@@ -1018,7 +998,7 @@ export class PackService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/pack/update`;
+        let localVarPath = `/pack/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PackResponse>('post', `${basePath}${localVarPath}`,
             {

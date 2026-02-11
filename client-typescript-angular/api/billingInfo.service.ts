@@ -38,8 +38,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @endpoint post /api/{version}/billing/update
-     * @param version 
+     * @endpoint post /billing/update
      * @param accountId The account used to perform the the request
      * @param paymentMethodId Payment Method Id
      * @param accountName the name of the account
@@ -67,13 +66,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addPaymentMethod(version: number, accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public addPaymentMethod(version: number, accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public addPaymentMethod(version: number, accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public addPaymentMethod(version: number, accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addPaymentMethod.');
-        }
+    public addPaymentMethod(accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public addPaymentMethod(accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public addPaymentMethod(accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public addPaymentMethod(accountId: number, paymentMethodId?: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, defaultPaymentMethod?: boolean, paymentMethodNickname?: string, taxId?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling addPaymentMethod.');
         }
@@ -312,7 +308,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/update`;
+        let localVarPath = `/billing/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -331,8 +327,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Create Payment Method
      * Add a new method of payment.
-     * @endpoint post /api/{version}/billing/create
-     * @param version 
+     * @endpoint post /billing/create
      * @param accountId The account used to perform the the request
      * @param accountName Account Name of the credit card user
      * @param firstName The first name on the credit card
@@ -362,13 +357,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createPaymentMethod(version: number, accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public createPaymentMethod(version: number, accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public createPaymentMethod(version: number, accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public createPaymentMethod(version: number, accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createPaymentMethod.');
-        }
+    public createPaymentMethod(accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public createPaymentMethod(accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public createPaymentMethod(accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public createPaymentMethod(accountId: number, accountName?: string, firstName?: string, lastName?: string, address?: string, city?: string, state?: string, postalCode?: string, country?: string, phone?: string, creditCardNumber?: string, expirationDate?: string, ccv?: string, accountNumber?: string, bankName?: string, routingNumber?: string, paymentMethodNickname?: string, taxId?: string, defaultPaymentMethod?: boolean, authToken?: string, provider?: string, providerCustomerProfileId?: string, providerPaymentProfileId?: string, metaData?: string, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createPaymentMethod.');
         }
@@ -625,7 +617,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/create`;
+        let localVarPath = `/billing/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -644,8 +636,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Create Smart Contract
      * Adds a smart contract.
-     * @endpoint post /api/{version}/billing/crypto/transfer
-     * @param version 
+     * @endpoint post /billing/crypto/transfer
      * @param accountId The account used to perform the the request
      * @param tokenName The token name
      * @param tokenSymbol The token symbol
@@ -654,13 +645,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createSmartContract(version: number, accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public createSmartContract(version: number, accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public createSmartContract(version: number, accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public createSmartContract(version: number, accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createSmartContract.');
-        }
+    public createSmartContract(accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public createSmartContract(accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public createSmartContract(accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public createSmartContract(accountId: number, tokenName: string, tokenSymbol: string, paymentMethodId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createSmartContract.');
         }
@@ -734,7 +722,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/crypto/transfer`;
+        let localVarPath = `/billing/crypto/transfer`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -753,8 +741,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @endpoint get /api/{version}/billing/crypto/get
-     * @param version 
+     * @endpoint get /billing/crypto/get
      * @param accountId The account used to perform the the request
      * @param ownerAccountId The account to retreive balances for
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user\&#39;s default payment method will be returned.
@@ -762,13 +749,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCryptoBalance(version: number, accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public getCryptoBalance(version: number, accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public getCryptoBalance(version: number, accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public getCryptoBalance(version: number, accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCryptoBalance.');
-        }
+    public getCryptoBalance(accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public getCryptoBalance(accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public getCryptoBalance(accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public getCryptoBalance(accountId: number, ownerAccountId?: number, paymentMethodId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCryptoBalance.');
         }
@@ -827,7 +811,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/crypto/get`;
+        let localVarPath = `/billing/crypto/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -846,8 +830,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Get Payment Method
      * Get the details of the user\&#39;s payment method or their current default method of payment
-     * @endpoint get /api/{version}/billing/get
-     * @param version 
+     * @endpoint get /billing/get
      * @param accountId The account used to perform the the request
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user\&#39;s default payment method will be returned.
      * @param getCurrentBalance Determines whether to get the user\&#39;s current balance for the requested payment method option (not all payment method options support this)
@@ -855,13 +838,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getPaymentMethod(version: number, accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public getPaymentMethod(version: number, accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public getPaymentMethod(version: number, accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public getPaymentMethod(version: number, accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getPaymentMethod.');
-        }
+    public getPaymentMethod(accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public getPaymentMethod(accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public getPaymentMethod(accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public getPaymentMethod(accountId: number, paymentMethodId?: number, getCurrentBalance?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getPaymentMethod.');
         }
@@ -920,7 +900,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/get`;
+        let localVarPath = `/billing/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -939,8 +919,7 @@ export class BillingInfoService extends BaseService {
     /**
      * Search Payment Methods
      * Search the payment methods of an account
-     * @endpoint get /api/{version}/billing/search
-     * @param version 
+     * @endpoint get /billing/search
      * @param accountId Account Id to search on
      * @param provider Provider to search on
      * @param type the type to search on
@@ -953,13 +932,10 @@ export class BillingInfoService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPaymentMethod(version: number, accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
-    public searchPaymentMethod(version: number, accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
-    public searchPaymentMethod(version: number, accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
-    public searchPaymentMethod(version: number, accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPaymentMethod.');
-        }
+    public searchPaymentMethod(accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<PaymentTypesResponse>;
+    public searchPaymentMethod(accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentTypesResponse>>;
+    public searchPaymentMethod(accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentTypesResponse>>;
+    public searchPaymentMethod(accountId: number, provider?: string, type?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchPaymentMethod.');
         }
@@ -1063,7 +1039,7 @@ export class BillingInfoService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billing/search`;
+        let localVarPath = `/billing/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<PaymentTypesResponse>('get', `${basePath}${localVarPath}`,
             {

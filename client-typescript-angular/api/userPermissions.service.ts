@@ -40,8 +40,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Add User
      * Adds a user to a permissionable object.
-     * @endpoint post /api/{version}/consumer/permissions/add
-     * @param version 
+     * @endpoint post /consumer/permissions/add
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required)
@@ -63,13 +62,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addUsersToPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public addUsersToPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public addUsersToPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public addUsersToPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addUsersToPermissionable.');
-        }
+    public addUsersToPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public addUsersToPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public addUsersToPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public addUsersToPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, read?: boolean, write?: boolean, _delete?: boolean, add?: boolean, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, pending?: boolean, admin?: boolean, includeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (permissionableType === null || permissionableType === undefined) {
             throw new Error('Required parameter permissionableType was null or undefined when calling addUsersToPermissionable.');
         }
@@ -257,7 +253,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/permissions/add`;
+        let localVarPath = `/consumer/permissions/add`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -276,8 +272,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @endpoint post /api/{version}/permissionable/approve
-     * @param version 
+     * @endpoint post /permissionable/approve
      * @param permissionableType The permissionable type of the object
      * @param permissionableId The id of the permissionable object
      * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -287,13 +282,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public approvePermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public approvePermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public approvePermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public approvePermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling approvePermissionable.');
-        }
+    public approvePermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public approvePermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public approvePermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public approvePermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, approvalStatus?: 'PENDING' | 'REJECTED' | 'APPROVED' | 'FEATURED', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (permissionableType === null || permissionableType === undefined) {
             throw new Error('Required parameter permissionableType was null or undefined when calling approvePermissionable.');
         }
@@ -373,7 +365,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/permissionable/approve`;
+        let localVarPath = `/permissionable/approve`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -392,8 +384,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Leave
      * Used when the user wants to leave from someone else\&#39;s permissionable object
-     * @endpoint post /api/{version}/consumer/permissions/leave
-     * @param version 
+     * @endpoint post /consumer/permissions/leave
      * @param permissionableType the permissionable type PermissionableType
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required)
@@ -404,13 +395,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public leaveFromPermissionable(version: number, permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public leaveFromPermissionable(version: number, permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public leaveFromPermissionable(version: number, permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public leaveFromPermissionable(version: number, permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling leaveFromPermissionable.');
-        }
+    public leaveFromPermissionable(permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public leaveFromPermissionable(permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public leaveFromPermissionable(permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public leaveFromPermissionable(permissionableType: string, permissionableId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (permissionableType === null || permissionableType === undefined) {
             throw new Error('Required parameter permissionableType was null or undefined when calling leaveFromPermissionable.');
         }
@@ -499,7 +487,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/permissions/leave`;
+        let localVarPath = `/consumer/permissions/leave`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -518,8 +506,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @endpoint post /api/{version}/consumer/permissions/remove
-     * @param version 
+     * @endpoint post /consumer/permissions/remove
      * @param permissionableType the permissionable type of the object
      * @param permissionableId the id of the permissionable object
      * @param deviceId the device id (deviceId or accountId required)
@@ -535,13 +522,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeUsersFromPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeUsersFromPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeUsersFromPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeUsersFromPermissionable(version: number, permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeUsersFromPermissionable.');
-        }
+    public removeUsersFromPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeUsersFromPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeUsersFromPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeUsersFromPermissionable(permissionableType: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId: number, deviceId?: string, accountId?: number, connectionIds?: string, connectionAccountIds?: string, connectionGroupIds?: string, removeFriendGroup?: boolean, latitude?: number, longitude?: number, audienceIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (permissionableType === null || permissionableType === undefined) {
             throw new Error('Required parameter permissionableType was null or undefined when calling removeUsersFromPermissionable.');
         }
@@ -675,7 +659,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/consumer/permissions/remove`;
+        let localVarPath = `/consumer/permissions/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -694,8 +678,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Search Permissionables
      * Search on UserPermissions
-     * @endpoint get /api/{version}/permissions/search
-     * @param version 
+     * @endpoint get /permissions/search
      * @param deviceId A unique ID given by the device (deviceId or accountId required)
      * @param accountId The account ID of the user (deviceId or accountId required)
      * @param connectionAccountId Filter results for a specific user account
@@ -713,13 +696,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPermissionables(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<UserPermissionsResponse>>;
-    public searchPermissionables(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<UserPermissionsResponse>>>;
-    public searchPermissionables(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<UserPermissionsResponse>>>;
-    public searchPermissionables(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPermissionables.');
-        }
+    public searchPermissionables(deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<UserPermissionsResponse>>;
+    public searchPermissionables(deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<UserPermissionsResponse>>>;
+    public searchPermissionables(deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<UserPermissionsResponse>>>;
+    public searchPermissionables(deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, keyword?: string, sortField?: string, descending?: boolean, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -865,7 +845,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/permissions/search`;
+        let localVarPath = `/permissions/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<UserPermissionsResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -884,8 +864,7 @@ export class UserPermissionsService extends BaseService {
     /**
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @endpoint get /api/{version}/permissions/distancesearch
-     * @param version 
+     * @endpoint get /permissions/distancesearch
      * @param latitude The latitude of the current account
      * @param longitude The longitude of the current account
      * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -904,13 +883,10 @@ export class UserPermissionsService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchPermissionablesFollowingDistance(version: number, latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<UserPermissionsResponse>>;
-    public searchPermissionablesFollowingDistance(version: number, latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<UserPermissionsResponse>>>;
-    public searchPermissionablesFollowingDistance(version: number, latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<UserPermissionsResponse>>>;
-    public searchPermissionablesFollowingDistance(version: number, latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchPermissionablesFollowingDistance.');
-        }
+    public searchPermissionablesFollowingDistance(latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<UserPermissionsResponse>>;
+    public searchPermissionablesFollowingDistance(latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<UserPermissionsResponse>>>;
+    public searchPermissionablesFollowingDistance(latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<UserPermissionsResponse>>>;
+    public searchPermissionablesFollowingDistance(latitude: number, longitude: number, deviceId?: string, accountId?: number, connectionAccountId?: number, connectionAccountIds?: string, permissionableType?: 'ACCOUNT' | 'GAMELEVEL' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'SCHEDULED_NOTIFICATION' | 'TASK' | 'TRIGGER', permissionableId?: number, searchRange?: number, keyword?: string, pending?: boolean, admin?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (latitude === null || latitude === undefined) {
             throw new Error('Required parameter latitude was null or undefined when calling searchPermissionablesFollowingDistance.');
         }
@@ -1071,7 +1047,7 @@ export class UserPermissionsService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/permissions/distancesearch`;
+        let localVarPath = `/permissions/distancesearch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<UserPermissionsResponse>>('get', `${basePath}${localVarPath}`,
             {

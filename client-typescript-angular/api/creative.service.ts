@@ -42,21 +42,17 @@ export class CreativeService extends BaseService {
     /**
      * Add Preview
      * Enable this ad for preview for this account.
-     * @endpoint post /api/{version}/creative/addpreview
-     * @param version 
+     * @endpoint post /creative/addpreview
      * @param accountId the id of the account
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addPreview(version: number, accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public addPreview(version: number, accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public addPreview(version: number, accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public addPreview(version: number, accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addPreview.');
-        }
+    public addPreview(accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public addPreview(accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public addPreview(accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public addPreview(accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling addPreview.');
         }
@@ -109,7 +105,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/addpreview`;
+        let localVarPath = `/creative/addpreview`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -128,8 +124,7 @@ export class CreativeService extends BaseService {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @endpoint get /api/{version}/ads/find
-     * @param version 
+     * @endpoint get /ads/find
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param randomize return a random set of results, default is true. If false returns in nature order.
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -150,13 +145,10 @@ export class CreativeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public adsFind(version: number, appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
-    public adsFind(version: number, appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
-    public adsFind(version: number, appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
-    public adsFind(version: number, appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling adsFind.');
-        }
+    public adsFind(appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
+    public adsFind(appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
+    public adsFind(appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
+    public adsFind(appKey: string, randomize: boolean, targetedAdsOnly: boolean, type?: string, accountId?: number, appVersion?: string, latitude?: number, longitude?: number, device?: string, deviceIdentifier?: number, deviceVersion?: string, start?: number, limit?: number, includeAudiences?: boolean, allocatesTickets?: boolean, missionIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling adsFind.');
         }
@@ -338,7 +330,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/ads/find`;
+        let localVarPath = `/ads/find`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<MissionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -357,8 +349,7 @@ export class CreativeService extends BaseService {
     /**
      * Create Creative
      * Create a creative
-     * @endpoint post /api/{version}/creative/create
-     * @param version 
+     * @endpoint post /creative/create
      * @param accountId The logged in user.
      * @param name The name of the level.
      * @param active If true set the game level as active. Default is false.
@@ -378,13 +369,10 @@ export class CreativeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createCreative(version: number, accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
-    public createCreative(version: number, accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
-    public createCreative(version: number, accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
-    public createCreative(version: number, accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createCreative.');
-        }
+    public createCreative(accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
+    public createCreative(accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
+    public createCreative(accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
+    public createCreative(accountId: number, name: string, active: boolean, waitForAsset: boolean, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, referenceId?: number, appVersion?: string, missionId?: number, offerId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createCreative.');
         }
@@ -560,7 +548,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/create`;
+        let localVarPath = `/creative/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CreativeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -579,21 +567,17 @@ export class CreativeService extends BaseService {
     /**
      * Delete Creative
      * Delete a creative
-     * @endpoint post /api/{version}/creative/delete
-     * @param version 
+     * @endpoint post /creative/delete
      * @param accountId the id of the logged in user
      * @param creativeId the id of the creative to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteCreative(version: number, accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteCreative(version: number, accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteCreative(version: number, accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteCreative(version: number, accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteCreative.');
-        }
+    public deleteCreative(accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteCreative(accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteCreative(accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteCreative(accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteCreative.');
         }
@@ -646,7 +630,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/delete`;
+        let localVarPath = `/creative/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -665,21 +649,17 @@ export class CreativeService extends BaseService {
     /**
      * Get Creative
      * Get a creative
-     * @endpoint get /api/{version}/creative/get
-     * @param version 
+     * @endpoint get /creative/get
      * @param accountId the id of the logged in user
      * @param creativeId the ID of the creative to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCreative(version: number, accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
-    public getCreative(version: number, accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
-    public getCreative(version: number, accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
-    public getCreative(version: number, accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCreative.');
-        }
+    public getCreative(accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
+    public getCreative(accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
+    public getCreative(accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
+    public getCreative(accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCreative.');
         }
@@ -732,7 +712,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/get`;
+        let localVarPath = `/creative/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CreativeResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -751,8 +731,7 @@ export class CreativeService extends BaseService {
     /**
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @endpoint get /api/{version}/creative/search
-     * @param version 
+     * @endpoint get /creative/search
      * @param accountId The logged in user.
      * @param appKey the application key
      * @param start Start the result set at some index.
@@ -763,13 +742,10 @@ export class CreativeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getCreativesByApplication(version: number, accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CreativeResponse>>;
-    public getCreativesByApplication(version: number, accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CreativeResponse>>>;
-    public getCreativesByApplication(version: number, accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CreativeResponse>>>;
-    public getCreativesByApplication(version: number, accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getCreativesByApplication.');
-        }
+    public getCreativesByApplication(accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<CreativeResponse>>;
+    public getCreativesByApplication(accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<CreativeResponse>>>;
+    public getCreativesByApplication(accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<CreativeResponse>>>;
+    public getCreativesByApplication(accountId: number, appKey: string, start: number, limit: number, missionId?: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getCreativesByApplication.');
         }
@@ -864,7 +840,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/search`;
+        let localVarPath = `/creative/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<CreativeResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -883,21 +859,17 @@ export class CreativeService extends BaseService {
     /**
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @endpoint post /api/{version}/creative/removepreview
-     * @param version 
+     * @endpoint post /creative/removepreview
      * @param accountId the ID of the logged in user
      * @param creativeId the ID of the creative to remove preview
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removePreview(version: number, accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removePreview(version: number, accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removePreview(version: number, accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removePreview(version: number, accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removePreview.');
-        }
+    public removePreview(accountId: number, creativeId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removePreview(accountId: number, creativeId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removePreview(accountId: number, creativeId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removePreview(accountId: number, creativeId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling removePreview.');
         }
@@ -950,7 +922,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/removepreview`;
+        let localVarPath = `/creative/removepreview`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -969,8 +941,7 @@ export class CreativeService extends BaseService {
     /**
      * Update Creative
      * Update a creative
-     * @endpoint post /api/{version}/creative/update
-     * @param version 
+     * @endpoint post /creative/update
      * @param accountId The logged in user.
      * @param creativeId the creative Id to upate.
      * @param name The name of the level.
@@ -989,13 +960,10 @@ export class CreativeService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateCreative(version: number, accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
-    public updateCreative(version: number, accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
-    public updateCreative(version: number, accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
-    public updateCreative(version: number, accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateCreative.');
-        }
+    public updateCreative(accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreativeResponse>;
+    public updateCreative(accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreativeResponse>>;
+    public updateCreative(accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreativeResponse>>;
+    public updateCreative(accountId: number, creativeId: number, name?: string, description?: string, assetImageId?: number, action?: string, data?: string, suffix?: string, type?: string, balance?: number, active?: boolean, referenceId?: number, appVersion?: string, missionId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateCreative.');
         }
@@ -1156,7 +1124,7 @@ export class CreativeService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/creative/update`;
+        let localVarPath = `/creative/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<CreativeResponse>('post', `${basePath}${localVarPath}`,
             {

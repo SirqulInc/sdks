@@ -48,8 +48,7 @@ export class NotificationService extends BaseService {
     /**
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @endpoint post /api/{version}/notification/template/create
-     * @param version 
+     * @endpoint post /notification/template/create
      * @param accountId The account ID of the user.
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
      * @param title title of the notification template
@@ -61,13 +60,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createNotificationTemplate(version: number, accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
-    public createNotificationTemplate(version: number, accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
-    public createNotificationTemplate(version: number, accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
-    public createNotificationTemplate(version: number, accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createNotificationTemplate.');
-        }
+    public createNotificationTemplate(accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
+    public createNotificationTemplate(accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
+    public createNotificationTemplate(accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
+    public createNotificationTemplate(accountId: number, conduit: string, title: string, body: string, appKey?: string, event?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createNotificationTemplate.');
         }
@@ -171,7 +167,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/template/create`;
+        let localVarPath = `/notification/template/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationTemplateResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -190,8 +186,7 @@ export class NotificationService extends BaseService {
     /**
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @endpoint post /api/{version}/notification/blocked/batch
-     * @param version 
+     * @endpoint post /notification/blocked/batch
      * @param appKey The application key
      * @param data batch data payload (application specific)
      * @param accountId the account id of the user
@@ -199,13 +194,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOrUpdateBlockedNotifications(version: number, appKey: string, data: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BlockedNotificationResponse>;
-    public createOrUpdateBlockedNotifications(version: number, appKey: string, data: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BlockedNotificationResponse>>;
-    public createOrUpdateBlockedNotifications(version: number, appKey: string, data: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BlockedNotificationResponse>>;
-    public createOrUpdateBlockedNotifications(version: number, appKey: string, data: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOrUpdateBlockedNotifications.');
-        }
+    public createOrUpdateBlockedNotifications(appKey: string, data: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BlockedNotificationResponse>;
+    public createOrUpdateBlockedNotifications(appKey: string, data: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BlockedNotificationResponse>>;
+    public createOrUpdateBlockedNotifications(appKey: string, data: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BlockedNotificationResponse>>;
+    public createOrUpdateBlockedNotifications(appKey: string, data: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling createOrUpdateBlockedNotifications.');
         }
@@ -267,7 +259,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/blocked/batch`;
+        let localVarPath = `/notification/blocked/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BlockedNotificationResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -286,21 +278,17 @@ export class NotificationService extends BaseService {
     /**
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @endpoint post /api/{version}/notification/template/delete
-     * @param version 
+     * @endpoint post /notification/template/delete
      * @param accountId the account id of the user
      * @param notificationTemplateId the id of the notification template to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
-    public deleteNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
-    public deleteNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
-    public deleteNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteNotificationTemplate.');
-        }
+    public deleteNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
+    public deleteNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
+    public deleteNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
+    public deleteNotificationTemplate(accountId: number, notificationTemplateId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteNotificationTemplate.');
         }
@@ -353,7 +341,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/template/delete`;
+        let localVarPath = `/notification/template/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationTemplateResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -372,21 +360,17 @@ export class NotificationService extends BaseService {
     /**
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @endpoint get /api/{version}/notification/template/get
-     * @param version 
+     * @endpoint get /notification/template/get
      * @param accountId the id of the account
      * @param notificationTemplateId the id of the notification template to get
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
-    public getNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
-    public getNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
-    public getNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getNotificationTemplate.');
-        }
+    public getNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
+    public getNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
+    public getNotificationTemplate(accountId: number, notificationTemplateId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
+    public getNotificationTemplate(accountId: number, notificationTemplateId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getNotificationTemplate.');
         }
@@ -439,7 +423,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/template/get`;
+        let localVarPath = `/notification/template/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationTemplateResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -458,8 +442,7 @@ export class NotificationService extends BaseService {
     /**
      * Get Notifications
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @endpoint get /api/{version}/notification/search
-     * @param version 
+     * @endpoint get /notification/search
      * @param deviceId the unique id of the device making the request (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param connectionAccountId the account id used to view another person\&#39;s notifications
@@ -485,13 +468,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getNotifications(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationMessageListResponse>;
-    public getNotifications(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationMessageListResponse>>;
-    public getNotifications(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationMessageListResponse>>;
-    public getNotifications(version: number, deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getNotifications.');
-        }
+    public getNotifications(deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationMessageListResponse>;
+    public getNotifications(deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationMessageListResponse>>;
+    public getNotifications(deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationMessageListResponse>>;
+    public getNotifications(deviceId?: string, accountId?: number, connectionAccountId?: number, appKey?: string, eventType?: string, contentIds?: string, contentTypes?: string, parentIds?: string, parentTypes?: string, actionCategory?: string, conduits?: string, keyword?: string, returnReadMessages?: boolean, markAsRead?: boolean, fromDate?: number, latitude?: number, longitude?: number, returnSent?: boolean, ignoreFlagged?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -709,7 +689,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/search`;
+        let localVarPath = `/notification/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationMessageListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -728,8 +708,7 @@ export class NotificationService extends BaseService {
     /**
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @endpoint post /api/{version}/notification/token
-     * @param version 
+     * @endpoint post /notification/token
      * @param token A token that is generated by the device to sign requests for the notification service providers
      * @param pushType The type of push notification. Possible values include: APNS, GCM
      * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -744,13 +723,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public registerNotificationToken(version: number, token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public registerNotificationToken(version: number, token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public registerNotificationToken(version: number, token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public registerNotificationToken(version: number, token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling registerNotificationToken.');
-        }
+    public registerNotificationToken(token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public registerNotificationToken(token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public registerNotificationToken(token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public registerNotificationToken(token: string, pushType: 'APNS' | 'GCM' | 'BAIDU' | 'XGPUSH' | 'JPUSH', deviceId?: string, accountId?: number, environment?: string, appKey?: string, gameType?: string, active?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (token === null || token === undefined) {
             throw new Error('Required parameter token was null or undefined when calling registerNotificationToken.');
         }
@@ -875,7 +851,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/token`;
+        let localVarPath = `/notification/token`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -894,8 +870,7 @@ export class NotificationService extends BaseService {
     /**
      * Search on the user\&#39;s blocked notification settings
      * Search on the user\&#39;s blocked notification settings
-     * @endpoint get /api/{version}/notification/blocked/search
-     * @param version 
+     * @endpoint get /notification/blocked/search
      * @param appKey The application key
      * @param accountId the account id of the user
      * @param searchTags search tags to filter results
@@ -912,13 +887,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchBlockedNotifications(version: number, appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BlockedNotificationResponse>;
-    public searchBlockedNotifications(version: number, appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BlockedNotificationResponse>>;
-    public searchBlockedNotifications(version: number, appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BlockedNotificationResponse>>;
-    public searchBlockedNotifications(version: number, appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchBlockedNotifications.');
-        }
+    public searchBlockedNotifications(appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BlockedNotificationResponse>;
+    public searchBlockedNotifications(appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BlockedNotificationResponse>>;
+    public searchBlockedNotifications(appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BlockedNotificationResponse>>;
+    public searchBlockedNotifications(appKey: string, accountId?: number, searchTags?: string, events?: string, conduits?: string, customTypes?: string, contentTypes?: string, contentIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling searchBlockedNotifications.');
         }
@@ -1058,7 +1030,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/blocked/search`;
+        let localVarPath = `/notification/blocked/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BlockedNotificationResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1077,8 +1049,7 @@ export class NotificationService extends BaseService {
     /**
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @endpoint get /api/{version}/notification/template/search
-     * @param version 
+     * @endpoint get /notification/template/search
      * @param accountId The account ID of the user.
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (\&#39;global\&#39; templates will not have an application and will be returned last if \&#39;descending\&#39; is set to false.
      * @param descending Specified whether the results are returned in descending or ascending order.
@@ -1094,13 +1065,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchNotificationTemplate(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
-    public searchNotificationTemplate(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
-    public searchNotificationTemplate(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
-    public searchNotificationTemplate(version: number, accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchNotificationTemplate.');
-        }
+    public searchNotificationTemplate(accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
+    public searchNotificationTemplate(accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
+    public searchNotificationTemplate(accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
+    public searchNotificationTemplate(accountId: number, sortField: string, descending: boolean, start: number, limit: number, appKey?: string, event?: string, conduit?: string, globalOnly?: boolean, reservedOnly?: boolean, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchNotificationTemplate.');
         }
@@ -1243,7 +1211,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/template/search`;
+        let localVarPath = `/notification/template/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationTemplateResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1262,8 +1230,7 @@ export class NotificationService extends BaseService {
     /**
      * Search for Recipients
      * Search for application users to send notifications.
-     * @endpoint get /api/{version}/notification/recipient/search
-     * @param version 
+     * @endpoint get /notification/recipient/search
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
      * @param deviceId the unique id of the device making the request (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -1281,13 +1248,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRecipients(version: number, sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<NotificationRecipientResponse>>;
-    public searchRecipients(version: number, sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<NotificationRecipientResponse>>>;
-    public searchRecipients(version: number, sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<NotificationRecipientResponse>>>;
-    public searchRecipients(version: number, sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRecipients.');
-        }
+    public searchRecipients(sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<NotificationRecipientResponse>>;
+    public searchRecipients(sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<NotificationRecipientResponse>>>;
+    public searchRecipients(sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<NotificationRecipientResponse>>>;
+    public searchRecipients(sortField: 'ID' | 'HAS_SMS' | 'HAS_EMAIL' | 'HAS_APNS' | 'HAS_GCM' | 'APPLICATION_ID' | 'APPLICATION_NAME' | 'ACCOUNT_ID' | 'ACCOUNT_USERNAME' | 'ACCOUNT_DISPLAY' | 'ACCOUNT_TYPE', deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, recipientAccountIds?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (sortField === null || sortField === undefined) {
             throw new Error('Required parameter sortField was null or undefined when calling searchRecipients.');
         }
@@ -1436,7 +1400,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/recipient/search`;
+        let localVarPath = `/notification/recipient/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<NotificationRecipientResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1455,8 +1419,7 @@ export class NotificationService extends BaseService {
     /**
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @endpoint get /api/{version}/notification/recipient/search/count
-     * @param version 
+     * @endpoint get /notification/recipient/search/count
      * @param deviceId the unique id of the device making the request (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.
@@ -1473,13 +1436,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRecipientsCount(version: number, deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationRecipientResponseListResponse>;
-    public searchRecipientsCount(version: number, deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationRecipientResponseListResponse>>;
-    public searchRecipientsCount(version: number, deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationRecipientResponseListResponse>>;
-    public searchRecipientsCount(version: number, deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRecipientsCount.');
-        }
+    public searchRecipientsCount(deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationRecipientResponseListResponse>;
+    public searchRecipientsCount(deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationRecipientResponseListResponse>>;
+    public searchRecipientsCount(deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationRecipientResponseListResponse>>;
+    public searchRecipientsCount(deviceId?: string, accountId?: number, appKey?: string, conduit?: string, keyword?: string, audienceId?: number, audienceIds?: string, connectionGroupIds?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1616,7 +1576,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/recipient/search/count`;
+        let localVarPath = `/notification/recipient/search/count`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationRecipientResponseListResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1635,8 +1595,7 @@ export class NotificationService extends BaseService {
     /**
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @endpoint post /api/{version}/notification/batch
-     * @param version 
+     * @endpoint post /notification/batch
      * @param accountId The account id of the application owner/manager
      * @param appKey The application key for updating an existing application
      * @param customMessage Message string that will be displayed in on the notification
@@ -1650,13 +1609,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public sendBatchNotifications(version: number, accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public sendBatchNotifications(version: number, accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public sendBatchNotifications(version: number, accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public sendBatchNotifications(version: number, accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling sendBatchNotifications.');
-        }
+    public sendBatchNotifications(accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public sendBatchNotifications(accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public sendBatchNotifications(accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public sendBatchNotifications(accountId: number, appKey: string, customMessage: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling sendBatchNotifications.');
         }
@@ -1775,7 +1731,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/batch`;
+        let localVarPath = `/notification/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1794,8 +1750,7 @@ export class NotificationService extends BaseService {
     /**
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @endpoint post /api/{version}/notification/custom
-     * @param version 
+     * @endpoint post /notification/custom
      * @param deviceId the unique id of the device making the request (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification
@@ -1818,13 +1773,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public sendCustomNotifications(version: number, deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public sendCustomNotifications(version: number, deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public sendCustomNotifications(version: number, deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public sendCustomNotifications(version: number, deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling sendCustomNotifications.');
-        }
+    public sendCustomNotifications(deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public sendCustomNotifications(deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public sendCustomNotifications(deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public sendCustomNotifications(deviceId?: string, accountId?: number, receiverAccountIds?: string, includeFriendGroup?: boolean, appKey?: string, gameType?: string, conduit?: string, contentId?: number, contentName?: string, contentType?: string, parentId?: number, parentType?: string, actionCategory?: string, subject?: string, customMessage?: string, friendOnlyAPNS?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -2015,7 +1967,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/custom`;
+        let localVarPath = `/notification/custom`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2034,8 +1986,7 @@ export class NotificationService extends BaseService {
     /**
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @endpoint post /api/{version}/notification/template/update
-     * @param version 
+     * @endpoint post /notification/template/update
      * @param accountId The account ID of the user.
      * @param notificationTemplateId The notification template ID to update.
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit.
@@ -2045,13 +1996,10 @@ export class NotificationService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
-    public updateNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
-    public updateNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
-    public updateNotificationTemplate(version: number, accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateNotificationTemplate.');
-        }
+    public updateNotificationTemplate(accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NotificationTemplateResponse>;
+    public updateNotificationTemplate(accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NotificationTemplateResponse>>;
+    public updateNotificationTemplate(accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NotificationTemplateResponse>>;
+    public updateNotificationTemplate(accountId: number, notificationTemplateId: number, title?: string, body?: string, tags?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateNotificationTemplate.');
         }
@@ -2131,7 +2079,7 @@ export class NotificationService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/notification/template/update`;
+        let localVarPath = `/notification/template/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NotificationTemplateResponse>('post', `${basePath}${localVarPath}`,
             {

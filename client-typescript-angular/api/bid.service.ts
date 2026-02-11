@@ -40,8 +40,7 @@ export class BidService extends BaseService {
     /**
      * Create Bid
      * Creates a bid on a biddable object
-     * @endpoint post /api/{version}/bid/create
-     * @param version 
+     * @endpoint post /bid/create
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
      * @param biddableId The id of the biddable object
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -54,13 +53,10 @@ export class BidService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createBid(version: number, biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
-    public createBid(version: number, biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
-    public createBid(version: number, biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
-    public createBid(version: number, biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createBid.');
-        }
+    public createBid(biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
+    public createBid(biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
+    public createBid(biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
+    public createBid(biddableType: string, biddableId: number, amountPerView: number, amountPerAction: number, budgetAmount: number, budgetSchedule: string, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (biddableType === null || biddableType === undefined) {
             throw new Error('Required parameter biddableType was null or undefined when calling createBid.');
         }
@@ -179,7 +175,7 @@ export class BidService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/bid/create`;
+        let localVarPath = `/bid/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BidResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -198,8 +194,7 @@ export class BidService extends BaseService {
     /**
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @endpoint post /api/{version}/bid/delete
-     * @param version 
+     * @endpoint post /bid/delete
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -207,13 +202,10 @@ export class BidService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteBid.');
-        }
+    public deleteBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteBid(bidId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (bidId === null || bidId === undefined) {
             throw new Error('Required parameter bidId was null or undefined when calling deleteBid.');
         }
@@ -272,7 +264,7 @@ export class BidService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/bid/delete`;
+        let localVarPath = `/bid/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -291,8 +283,7 @@ export class BidService extends BaseService {
     /**
      * Get Bid
      * Get the bid details of a biddable object
-     * @endpoint get /api/{version}/bid/get
-     * @param version 
+     * @endpoint get /bid/get
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -300,13 +291,10 @@ export class BidService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
-    public getBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
-    public getBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
-    public getBid(version: number, bidId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBid.');
-        }
+    public getBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
+    public getBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
+    public getBid(bidId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
+    public getBid(bidId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (bidId === null || bidId === undefined) {
             throw new Error('Required parameter bidId was null or undefined when calling getBid.');
         }
@@ -365,7 +353,7 @@ export class BidService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/bid/get`;
+        let localVarPath = `/bid/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BidResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -384,8 +372,7 @@ export class BidService extends BaseService {
     /**
      * Update Bid
      * Updates a bid on a biddable object
-     * @endpoint post /api/{version}/bid/update
-     * @param version 
+     * @endpoint post /bid/update
      * @param bidId The bid id
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -397,13 +384,10 @@ export class BidService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateBid(version: number, bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
-    public updateBid(version: number, bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
-    public updateBid(version: number, bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
-    public updateBid(version: number, bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateBid.');
-        }
+    public updateBid(bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BidResponse>;
+    public updateBid(bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BidResponse>>;
+    public updateBid(bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BidResponse>>;
+    public updateBid(bidId: number, deviceId?: string, accountId?: number, amountPerView?: number, amountPerAction?: number, budgetAmount?: number, budgetSchedule?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (bidId === null || bidId === undefined) {
             throw new Error('Required parameter bidId was null or undefined when calling updateBid.');
         }
@@ -498,7 +482,7 @@ export class BidService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/bid/update`;
+        let localVarPath = `/bid/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BidResponse>('post', `${basePath}${localVarPath}`,
             {

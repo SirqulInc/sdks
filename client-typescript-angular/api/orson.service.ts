@@ -58,8 +58,7 @@ export class OrsonService extends BaseService {
     /**
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @endpoint post /api/{version}/orson/ai/addMovie
-     * @param version 
+     * @endpoint post /orson/ai/addMovie
      * @param accountId Sirqul Account Id
      * @param movieName Movie Name
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -71,13 +70,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public addMovie(version: number, accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiAddMovieResponse>;
-    public addMovie(version: number, accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiAddMovieResponse>>;
-    public addMovie(version: number, accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiAddMovieResponse>>;
-    public addMovie(version: number, accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling addMovie.');
-        }
+    public addMovie(accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiAddMovieResponse>;
+    public addMovie(accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiAddMovieResponse>>;
+    public addMovie(accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiAddMovieResponse>>;
+    public addMovie(accountId: number, movieName: string, thirdPartyAccountId?: string, tags?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling addMovie.');
         }
@@ -175,7 +171,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/addMovie`;
+        let localVarPath = `/orson/ai/addMovie`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiAddMovieResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -194,8 +190,7 @@ export class OrsonService extends BaseService {
     /**
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @endpoint get /api/{version}/orson/ai/docs
-     * @param version 
+     * @endpoint get /orson/ai/docs
      * @param accountId Sirqul Account Id
      * @param doc Doc
      * @param returnTopics Return Topics
@@ -205,13 +200,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public aiDocs(version: number, accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
-    public aiDocs(version: number, accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
-    public aiDocs(version: number, accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
-    public aiDocs(version: number, accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling aiDocs.');
-        }
+    public aiDocs(accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
+    public aiDocs(accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
+    public aiDocs(accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
+    public aiDocs(accountId: number, doc: string, returnTopics?: boolean, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling aiDocs.');
         }
@@ -291,7 +283,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/docs`;
+        let localVarPath = `/orson/ai/docs`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiProtoResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -310,8 +302,7 @@ export class OrsonService extends BaseService {
     /**
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @endpoint get /api/{version}/orson/ai/img
-     * @param version 
+     * @endpoint get /orson/ai/img
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param parseFlag Parse Flag
@@ -321,13 +312,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public aiFindImages(version: number, accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
-    public aiFindImages(version: number, accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
-    public aiFindImages(version: number, accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
-    public aiFindImages(version: number, accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling aiFindImages.');
-        }
+    public aiFindImages(accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
+    public aiFindImages(accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
+    public aiFindImages(accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
+    public aiFindImages(accountId: number, text: string, parseFlag?: string, fetchFlag?: string, size?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling aiFindImages.');
         }
@@ -407,7 +395,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/img`;
+        let localVarPath = `/orson/ai/img`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiProtoResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -426,8 +414,7 @@ export class OrsonService extends BaseService {
     /**
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @endpoint get /api/{version}/orson/ai/tags
-     * @param version 
+     * @endpoint get /orson/ai/tags
      * @param accountId Sirqul Account Id
      * @param tags Tags
      * @param conditional Conditional
@@ -437,13 +424,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public aiTags(version: number, accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
-    public aiTags(version: number, accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
-    public aiTags(version: number, accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
-    public aiTags(version: number, accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling aiTags.');
-        }
+    public aiTags(accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
+    public aiTags(accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
+    public aiTags(accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
+    public aiTags(accountId: number, tags: string, conditional?: string, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling aiTags.');
         }
@@ -523,7 +507,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/tags`;
+        let localVarPath = `/orson/ai/tags`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiProtoResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -542,8 +526,7 @@ export class OrsonService extends BaseService {
     /**
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @endpoint get /api/{version}/orson/ai/text
-     * @param version 
+     * @endpoint get /orson/ai/text
      * @param accountId Sirqul Account Id
      * @param terms Terms
      * @param conditional Conditional
@@ -553,13 +536,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public aiText(version: number, accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
-    public aiText(version: number, accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
-    public aiText(version: number, accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
-    public aiText(version: number, accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling aiText.');
-        }
+    public aiText(accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiProtoResponse>;
+    public aiText(accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiProtoResponse>>;
+    public aiText(accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiProtoResponse>>;
+    public aiText(accountId: number, terms: string, conditional?: string, limit?: number, offset?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling aiText.');
         }
@@ -639,7 +619,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/text`;
+        let localVarPath = `/orson/ai/text`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiProtoResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -658,8 +638,7 @@ export class OrsonService extends BaseService {
     /**
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @endpoint post /api/{version}/orson/ai/batch
-     * @param version 
+     * @endpoint post /orson/ai/batch
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
      * @param limit The number of topics to return
@@ -671,13 +650,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public batch(version: number, accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiBatchResponse>;
-    public batch(version: number, accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiBatchResponse>>;
-    public batch(version: number, accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiBatchResponse>>;
-    public batch(version: number, accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling batch.');
-        }
+    public batch(accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiBatchResponse>;
+    public batch(accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiBatchResponse>>;
+    public batch(accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiBatchResponse>>;
+    public batch(accountId: number, thirdPartyAccountId?: string, limit?: number, operations?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling batch.');
         }
@@ -772,7 +748,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/batch`;
+        let localVarPath = `/orson/ai/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiBatchResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -791,21 +767,17 @@ export class OrsonService extends BaseService {
     /**
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @endpoint post /api/{version}/orson/stories/episodes/instant
-     * @param version 
+     * @endpoint post /orson/stories/episodes/instant
      * @param accountId Sirqul Account Id
      * @param data Request Data String
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createInstantEpisode(version: number, accountId: number, data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonEpisodeResponse>;
-    public createInstantEpisode(version: number, accountId: number, data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonEpisodeResponse>>;
-    public createInstantEpisode(version: number, accountId: number, data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonEpisodeResponse>>;
-    public createInstantEpisode(version: number, accountId: number, data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createInstantEpisode.');
-        }
+    public createInstantEpisode(accountId: number, data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonEpisodeResponse>;
+    public createInstantEpisode(accountId: number, data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonEpisodeResponse>>;
+    public createInstantEpisode(accountId: number, data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonEpisodeResponse>>;
+    public createInstantEpisode(accountId: number, data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createInstantEpisode.');
         }
@@ -858,7 +830,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/stories/episodes/instant`;
+        let localVarPath = `/orson/stories/episodes/instant`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonEpisodeResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -877,8 +849,7 @@ export class OrsonService extends BaseService {
     /**
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @endpoint post /api/{version}/orson/ai/voiceCanvas
-     * @param version 
+     * @endpoint post /orson/ai/voiceCanvas
      * @param accountId Sirqul Account Id
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -892,13 +863,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createVoiceCanvas(version: number, accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiVoiceCanvasResponse>;
-    public createVoiceCanvas(version: number, accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiVoiceCanvasResponse>>;
-    public createVoiceCanvas(version: number, accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiVoiceCanvasResponse>>;
-    public createVoiceCanvas(version: number, accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createVoiceCanvas.');
-        }
+    public createVoiceCanvas(accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiVoiceCanvasResponse>;
+    public createVoiceCanvas(accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiVoiceCanvasResponse>>;
+    public createVoiceCanvas(accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiVoiceCanvasResponse>>;
+    public createVoiceCanvas(accountId: number, dimensions: string, thirdPartyAccountId?: string, text?: string, file?: Blob, url?: string, parseFlag?: boolean, fetchFlag?: boolean, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createVoiceCanvas.');
         }
@@ -1014,7 +982,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/voiceCanvas`;
+        let localVarPath = `/orson/ai/voiceCanvas`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiVoiceCanvasResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1033,8 +1001,7 @@ export class OrsonService extends BaseService {
     /**
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @endpoint post /api/{version}/orson/ai/emotion
-     * @param version 
+     * @endpoint post /orson/ai/emotion
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
      * @param file An uploaded recording to analyze (Currently limited to 10MB)
@@ -1044,13 +1011,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public emotion(version: number, accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiEmotionsResponse>;
-    public emotion(version: number, accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiEmotionsResponse>>;
-    public emotion(version: number, accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiEmotionsResponse>>;
-    public emotion(version: number, accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling emotion.');
-        }
+    public emotion(accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiEmotionsResponse>;
+    public emotion(accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiEmotionsResponse>>;
+    public emotion(accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiEmotionsResponse>>;
+    public emotion(accountId: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling emotion.');
         }
@@ -1127,7 +1091,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/emotion`;
+        let localVarPath = `/orson/ai/emotion`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiEmotionsResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1146,21 +1110,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @endpoint get /api/{version}/orson/ai/addMovie/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/addMovie/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAddMovieResult(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiAddMovieResponse>;
-    public getAddMovieResult(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiAddMovieResponse>>;
-    public getAddMovieResult(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiAddMovieResponse>>;
-    public getAddMovieResult(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAddMovieResult.');
-        }
+    public getAddMovieResult(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiAddMovieResponse>;
+    public getAddMovieResult(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiAddMovieResponse>>;
+    public getAddMovieResult(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiAddMovieResponse>>;
+    public getAddMovieResult(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getAddMovieResult.');
         }
@@ -1204,7 +1164,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/addMovie/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/addMovie/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiAddMovieResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1223,21 +1183,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @endpoint get /api/{version}/orson/ai/batch/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/batch/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBatch(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiBatchResponse>;
-    public getBatch(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiBatchResponse>>;
-    public getBatch(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiBatchResponse>>;
-    public getBatch(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBatch.');
-        }
+    public getBatch(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiBatchResponse>;
+    public getBatch(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiBatchResponse>>;
+    public getBatch(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiBatchResponse>>;
+    public getBatch(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getBatch.');
         }
@@ -1281,7 +1237,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/batch/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/batch/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiBatchResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1300,21 +1256,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @endpoint get /api/{version}/orson/ai/emotion/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/emotion/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getEmotion(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiEmotionsResponse>;
-    public getEmotion(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiEmotionsResponse>>;
-    public getEmotion(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiEmotionsResponse>>;
-    public getEmotion(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getEmotion.');
-        }
+    public getEmotion(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiEmotionsResponse>;
+    public getEmotion(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiEmotionsResponse>>;
+    public getEmotion(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiEmotionsResponse>>;
+    public getEmotion(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getEmotion.');
         }
@@ -1358,7 +1310,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/emotion/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/emotion/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiEmotionsResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1377,21 +1329,17 @@ export class OrsonService extends BaseService {
     /**
      * Check episode status
      * Gets a summary of the episode\&#39;s status, including any renders.
-     * @endpoint get /api/{version}/orson/stories/episodes/{episodeId}/status
-     * @param version 
+     * @endpoint get /orson/stories/episodes/{episodeId}/status
      * @param episodeId Episode ID
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getEpisodeStatus(version: number, episodeId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonEpisodeResponse>;
-    public getEpisodeStatus(version: number, episodeId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonEpisodeResponse>>;
-    public getEpisodeStatus(version: number, episodeId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonEpisodeResponse>>;
-    public getEpisodeStatus(version: number, episodeId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getEpisodeStatus.');
-        }
+    public getEpisodeStatus(episodeId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonEpisodeResponse>;
+    public getEpisodeStatus(episodeId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonEpisodeResponse>>;
+    public getEpisodeStatus(episodeId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonEpisodeResponse>>;
+    public getEpisodeStatus(episodeId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (episodeId === null || episodeId === undefined) {
             throw new Error('Required parameter episodeId was null or undefined when calling getEpisodeStatus.');
         }
@@ -1435,7 +1383,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/stories/episodes/${this.configuration.encodeParam({name: "episodeId", value: episodeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/status`;
+        let localVarPath = `/orson/stories/episodes/${this.configuration.encodeParam({name: "episodeId", value: episodeId, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}/status`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonEpisodeResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1454,21 +1402,17 @@ export class OrsonService extends BaseService {
     /**
      * Check episode status
      * Gets a summary of the episode\&#39;s status, including any renders.
-     * @endpoint get /api/{version}/orson/stories/renders/{renderId}/status
-     * @param version 
+     * @endpoint get /orson/stories/renders/{renderId}/status
      * @param renderId Render ID
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getRenderStatus(version: number, renderId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonRenderResponse>;
-    public getRenderStatus(version: number, renderId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonRenderResponse>>;
-    public getRenderStatus(version: number, renderId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonRenderResponse>>;
-    public getRenderStatus(version: number, renderId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getRenderStatus.');
-        }
+    public getRenderStatus(renderId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonRenderResponse>;
+    public getRenderStatus(renderId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonRenderResponse>>;
+    public getRenderStatus(renderId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonRenderResponse>>;
+    public getRenderStatus(renderId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (renderId === null || renderId === undefined) {
             throw new Error('Required parameter renderId was null or undefined when calling getRenderStatus.');
         }
@@ -1512,7 +1456,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/stories/renders/${this.configuration.encodeParam({name: "renderId", value: renderId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/status`;
+        let localVarPath = `/orson/stories/renders/${this.configuration.encodeParam({name: "renderId", value: renderId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/status`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonRenderResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1531,21 +1475,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @endpoint get /api/{version}/orson/ai/stt/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/stt/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getSTT(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiSTTResponse>;
-    public getSTT(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiSTTResponse>>;
-    public getSTT(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiSTTResponse>>;
-    public getSTT(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getSTT.');
-        }
+    public getSTT(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiSTTResponse>;
+    public getSTT(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiSTTResponse>>;
+    public getSTT(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiSTTResponse>>;
+    public getSTT(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getSTT.');
         }
@@ -1589,7 +1529,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/stt/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/stt/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiSTTResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1608,21 +1548,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @endpoint get /api/{version}/orson/ai/tts/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/tts/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTTS(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTTSResponse>;
-    public getTTS(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTTSResponse>>;
-    public getTTS(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTTSResponse>>;
-    public getTTS(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTTS.');
-        }
+    public getTTS(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTTSResponse>;
+    public getTTS(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTTSResponse>>;
+    public getTTS(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTTSResponse>>;
+    public getTTS(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getTTS.');
         }
@@ -1666,7 +1602,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/tts/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/tts/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTTSResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1685,21 +1621,17 @@ export class OrsonService extends BaseService {
     /**
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @endpoint get /api/{version}/orson/ai/techTune/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/techTune/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTechTune(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTechTuneResponse>;
-    public getTechTune(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTechTuneResponse>>;
-    public getTechTune(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTechTuneResponse>>;
-    public getTechTune(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTechTune.');
-        }
+    public getTechTune(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTechTuneResponse>;
+    public getTechTune(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTechTuneResponse>>;
+    public getTechTune(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTechTuneResponse>>;
+    public getTechTune(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getTechTune.');
         }
@@ -1743,7 +1675,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/techTune/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/techTune/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTechTuneResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1762,21 +1694,17 @@ export class OrsonService extends BaseService {
     /**
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @endpoint get /api/{version}/orson/ai/topics/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/topics/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTopics(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTopicsResponse>;
-    public getTopics(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTopicsResponse>>;
-    public getTopics(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTopicsResponse>>;
-    public getTopics(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTopics.');
-        }
+    public getTopics(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTopicsResponse>;
+    public getTopics(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTopicsResponse>>;
+    public getTopics(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTopicsResponse>>;
+    public getTopics(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getTopics.');
         }
@@ -1820,7 +1748,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/topics/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/topics/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTopicsResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1839,21 +1767,17 @@ export class OrsonService extends BaseService {
     /**
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @endpoint get /api/{version}/orson/ai/voiceCanvas/{requestId}
-     * @param version 
+     * @endpoint get /orson/ai/voiceCanvas/{requestId}
      * @param requestId Orson Request Id
      * @param accountId Sirqul Account Id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getVoiceCanvas(version: number, requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiVoiceCanvasResponse>;
-    public getVoiceCanvas(version: number, requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiVoiceCanvasResponse>>;
-    public getVoiceCanvas(version: number, requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiVoiceCanvasResponse>>;
-    public getVoiceCanvas(version: number, requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getVoiceCanvas.');
-        }
+    public getVoiceCanvas(requestId: string, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiVoiceCanvasResponse>;
+    public getVoiceCanvas(requestId: string, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiVoiceCanvasResponse>>;
+    public getVoiceCanvas(requestId: string, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiVoiceCanvasResponse>>;
+    public getVoiceCanvas(requestId: string, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (requestId === null || requestId === undefined) {
             throw new Error('Required parameter requestId was null or undefined when calling getVoiceCanvas.');
         }
@@ -1897,7 +1821,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/voiceCanvas/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/orson/ai/voiceCanvas/${this.configuration.encodeParam({name: "requestId", value: requestId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiVoiceCanvasResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1916,21 +1840,17 @@ export class OrsonService extends BaseService {
     /**
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @endpoint post /api/{version}/orson/stories/renders
-     * @param version 
+     * @endpoint post /orson/stories/renders
      * @param accountId Sirqul Account Id
      * @param data Request Data String
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public startVideoRender(version: number, accountId: number, data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonRenderResponse>;
-    public startVideoRender(version: number, accountId: number, data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonRenderResponse>>;
-    public startVideoRender(version: number, accountId: number, data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonRenderResponse>>;
-    public startVideoRender(version: number, accountId: number, data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling startVideoRender.');
-        }
+    public startVideoRender(accountId: number, data: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonRenderResponse>;
+    public startVideoRender(accountId: number, data: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonRenderResponse>>;
+    public startVideoRender(accountId: number, data: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonRenderResponse>>;
+    public startVideoRender(accountId: number, data: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling startVideoRender.');
         }
@@ -1983,7 +1903,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/stories/renders`;
+        let localVarPath = `/orson/stories/renders`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonRenderResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2002,8 +1922,7 @@ export class OrsonService extends BaseService {
     /**
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @endpoint post /api/{version}/orson/ai/stt
-     * @param version 
+     * @endpoint post /orson/ai/stt
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
      * @param sourceLanguage Source Language
@@ -2015,13 +1934,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public stt(version: number, accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiSTTResponse>;
-    public stt(version: number, accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiSTTResponse>>;
-    public stt(version: number, accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiSTTResponse>>;
-    public stt(version: number, accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling stt.');
-        }
+    public stt(accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiSTTResponse>;
+    public stt(accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiSTTResponse>>;
+    public stt(accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiSTTResponse>>;
+    public stt(accountId: number, thirdPartyAccountId?: string, sourceLanguage?: string, targetLanguage?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling stt.');
         }
@@ -2116,7 +2032,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/stt`;
+        let localVarPath = `/orson/ai/stt`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiSTTResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2135,8 +2051,7 @@ export class OrsonService extends BaseService {
     /**
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @endpoint post /api/{version}/orson/ai/topics
-     * @param version 
+     * @endpoint post /orson/ai/topics
      * @param accountId Sirqul Account Id
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
      * @param doc The text to get topics for.
@@ -2149,13 +2064,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public summarizeTopics(version: number, accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTopicsResponse>;
-    public summarizeTopics(version: number, accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTopicsResponse>>;
-    public summarizeTopics(version: number, accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTopicsResponse>>;
-    public summarizeTopics(version: number, accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling summarizeTopics.');
-        }
+    public summarizeTopics(accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTopicsResponse>;
+    public summarizeTopics(accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTopicsResponse>>;
+    public summarizeTopics(accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTopicsResponse>>;
+    public summarizeTopics(accountId: number, thirdPartyAccountId?: string, doc?: string, file?: Blob, url?: string, limit?: number, offset?: number, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling summarizeTopics.');
         }
@@ -2259,7 +2171,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/topics`;
+        let localVarPath = `/orson/ai/topics`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTopicsResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2278,8 +2190,7 @@ export class OrsonService extends BaseService {
     /**
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @endpoint post /api/{version}/orson/ai/techTune
-     * @param version 
+     * @endpoint post /orson/ai/techTune
      * @param accountId Sirqul Account Id
      * @param numFacesExpected Number of expected faces
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -2290,13 +2201,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public techTune(version: number, accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTechTuneResponse>;
-    public techTune(version: number, accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTechTuneResponse>>;
-    public techTune(version: number, accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTechTuneResponse>>;
-    public techTune(version: number, accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling techTune.');
-        }
+    public techTune(accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTechTuneResponse>;
+    public techTune(accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTechTuneResponse>>;
+    public techTune(accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTechTuneResponse>>;
+    public techTune(accountId: number, numFacesExpected: number, thirdPartyAccountId?: string, file?: Blob, url?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling techTune.');
         }
@@ -2385,7 +2293,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/techTune`;
+        let localVarPath = `/orson/ai/techTune`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTechTuneResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -2404,8 +2312,7 @@ export class OrsonService extends BaseService {
     /**
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @endpoint post /api/{version}/orson/ai/tts
-     * @param version 
+     * @endpoint post /orson/ai/tts
      * @param accountId Sirqul Account Id
      * @param text Text
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -2416,13 +2323,10 @@ export class OrsonService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public tts(version: number, accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTTSResponse>;
-    public tts(version: number, accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTTSResponse>>;
-    public tts(version: number, accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTTSResponse>>;
-    public tts(version: number, accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling tts.');
-        }
+    public tts(accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OrsonAiTTSResponse>;
+    public tts(accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OrsonAiTTSResponse>>;
+    public tts(accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OrsonAiTTSResponse>>;
+    public tts(accountId: number, text: string, thirdPartyAccountId?: string, language?: string, voice?: string, callback?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling tts.');
         }
@@ -2511,7 +2415,7 @@ export class OrsonService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/orson/ai/tts`;
+        let localVarPath = `/orson/ai/tts`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OrsonAiTTSResponse>('post', `${basePath}${localVarPath}`,
             {

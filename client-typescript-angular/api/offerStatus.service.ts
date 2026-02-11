@@ -40,8 +40,7 @@ export class OfferStatusService extends BaseService {
     /**
      * Create Offer Status
      * Create an offer status record
-     * @endpoint post /api/{version}/offer/status/create
-     * @param version 
+     * @endpoint post /offer/status/create
      * @param name The name of the status
      * @param code The status code, must be unique 
      * @param deviceId The device id (deviceId or accountId required)
@@ -56,13 +55,10 @@ export class OfferStatusService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createOfferTransactionStatus(version: number, name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
-    public createOfferTransactionStatus(version: number, name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
-    public createOfferTransactionStatus(version: number, name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
-    public createOfferTransactionStatus(version: number, name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createOfferTransactionStatus.');
-        }
+    public createOfferTransactionStatus(name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
+    public createOfferTransactionStatus(name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
+    public createOfferTransactionStatus(name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
+    public createOfferTransactionStatus(name: string, code: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, description?: string, role?: string, active?: boolean, applicationIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling createOfferTransactionStatus.');
         }
@@ -187,7 +183,7 @@ export class OfferStatusService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/offer/status/create`;
+        let localVarPath = `/offer/status/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferTransactionStatusResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -206,8 +202,7 @@ export class OfferStatusService extends BaseService {
     /**
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @endpoint post /api/{version}/offer/status/delete
-     * @param version 
+     * @endpoint post /offer/status/delete
      * @param statusId The id of the record to delete
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -217,13 +212,10 @@ export class OfferStatusService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteOfferTransactionStatus.');
-        }
+    public deleteOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (statusId === null || statusId === undefined) {
             throw new Error('Required parameter statusId was null or undefined when calling deleteOfferTransactionStatus.');
         }
@@ -300,7 +292,7 @@ export class OfferStatusService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/offer/status/delete`;
+        let localVarPath = `/offer/status/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -319,8 +311,7 @@ export class OfferStatusService extends BaseService {
     /**
      * Get Offer Status
      * Get an offer status record
-     * @endpoint get /api/{version}/offer/status/get
-     * @param version 
+     * @endpoint get /offer/status/get
      * @param statusId The id of the record to get 
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
@@ -330,13 +321,10 @@ export class OfferStatusService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
-    public getOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
-    public getOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
-    public getOfferTransactionStatus(version: number, statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getOfferTransactionStatus.');
-        }
+    public getOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
+    public getOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
+    public getOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
+    public getOfferTransactionStatus(statusId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (statusId === null || statusId === undefined) {
             throw new Error('Required parameter statusId was null or undefined when calling getOfferTransactionStatus.');
         }
@@ -413,7 +401,7 @@ export class OfferStatusService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/offer/status/get`;
+        let localVarPath = `/offer/status/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferTransactionStatusResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -432,8 +420,7 @@ export class OfferStatusService extends BaseService {
     /**
      * Search Offer Status
      * Search for the available offer statuses
-     * @endpoint get /api/{version}/offer/status/search
-     * @param version 
+     * @endpoint get /offer/status/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param latitude Used to update the user\&#39;s current location
@@ -450,13 +437,10 @@ export class OfferStatusService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchOfferTransactionStatuses(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionStatusResponse>>;
-    public searchOfferTransactionStatuses(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionStatusResponse>>>;
-    public searchOfferTransactionStatuses(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionStatusResponse>>>;
-    public searchOfferTransactionStatuses(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchOfferTransactionStatuses.');
-        }
+    public searchOfferTransactionStatuses(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<OfferTransactionStatusResponse>>;
+    public searchOfferTransactionStatuses(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<OfferTransactionStatusResponse>>>;
+    public searchOfferTransactionStatuses(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<OfferTransactionStatusResponse>>>;
+    public searchOfferTransactionStatuses(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, keyword?: string, role?: string, appKey?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'NAME' | 'DESCRIPTION' | 'CODE' | 'ROLE', descending?: boolean, start?: number, limit?: number, includeInactive?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -593,7 +577,7 @@ export class OfferStatusService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/offer/status/search`;
+        let localVarPath = `/offer/status/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<OfferTransactionStatusResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -612,8 +596,7 @@ export class OfferStatusService extends BaseService {
     /**
      * Update Offer Status
      * Update an offer status record
-     * @endpoint post /api/{version}/offer/status/update
-     * @param version 
+     * @endpoint post /offer/status/update
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param latitude Used to update the user\&#39;s current location
@@ -629,13 +612,10 @@ export class OfferStatusService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateOfferTransactionStatus(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
-    public updateOfferTransactionStatus(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
-    public updateOfferTransactionStatus(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
-    public updateOfferTransactionStatus(version: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateOfferTransactionStatus.');
-        }
+    public updateOfferTransactionStatus(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<OfferTransactionStatusResponse>;
+    public updateOfferTransactionStatus(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<OfferTransactionStatusResponse>>;
+    public updateOfferTransactionStatus(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<OfferTransactionStatusResponse>>;
+    public updateOfferTransactionStatus(deviceId?: string, accountId?: number, latitude?: number, longitude?: number, statusId?: number, name?: string, description?: string, code?: number, role?: string, active?: boolean, applicationIds?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -763,7 +743,7 @@ export class OfferStatusService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/offer/status/update`;
+        let localVarPath = `/offer/status/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<OfferTransactionStatusResponse>('post', `${basePath}${localVarPath}`,
             {

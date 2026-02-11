@@ -38,20 +38,16 @@ export class DisbursementService extends BaseService {
     /**
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @endpoint get /api/{version}/disbursement/check
-     * @param version 
+     * @endpoint get /disbursement/check
      * @param disbursementId the ID of the disbursement being checked on
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public checkDisbursements(version: number, disbursementId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
-    public checkDisbursements(version: number, disbursementId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
-    public checkDisbursements(version: number, disbursementId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
-    public checkDisbursements(version: number, disbursementId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling checkDisbursements.');
-        }
+    public checkDisbursements(disbursementId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
+    public checkDisbursements(disbursementId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
+    public checkDisbursements(disbursementId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
+    public checkDisbursements(disbursementId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (disbursementId === null || disbursementId === undefined) {
             throw new Error('Required parameter disbursementId was null or undefined when calling checkDisbursements.');
         }
@@ -92,7 +88,7 @@ export class DisbursementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/disbursement/check`;
+        let localVarPath = `/disbursement/check`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<DisbursementResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -111,8 +107,7 @@ export class DisbursementService extends BaseService {
     /**
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @endpoint post /api/{version}/disbursement/create
-     * @param version 
+     * @endpoint post /disbursement/create
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
      * @param receiverAccountId the ID of the account receiving the disbursement
      * @param originalSenderAccountId the ID of the original sender account
@@ -127,13 +122,10 @@ export class DisbursementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createDisbursement(version: number, accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
-    public createDisbursement(version: number, accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
-    public createDisbursement(version: number, accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
-    public createDisbursement(version: number, accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createDisbursement.');
-        }
+    public createDisbursement(accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
+    public createDisbursement(accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
+    public createDisbursement(accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
+    public createDisbursement(accountId: number, receiverAccountId: number, originalSenderAccountId: number, amount: number, provider: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, introspectionParams?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createDisbursement.');
         }
@@ -267,7 +259,7 @@ export class DisbursementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/disbursement/create`;
+        let localVarPath = `/disbursement/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<DisbursementResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -286,21 +278,17 @@ export class DisbursementService extends BaseService {
     /**
      * Get Disbursement
      * Get Disbursement details
-     * @endpoint get /api/{version}/disbursement/get
-     * @param version 
+     * @endpoint get /disbursement/get
      * @param accountId The logged in user.
      * @param disbursementId the id of the disbursement
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getDisbursement(version: number, accountId: number, disbursementId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
-    public getDisbursement(version: number, accountId: number, disbursementId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
-    public getDisbursement(version: number, accountId: number, disbursementId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
-    public getDisbursement(version: number, accountId: number, disbursementId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getDisbursement.');
-        }
+    public getDisbursement(accountId: number, disbursementId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
+    public getDisbursement(accountId: number, disbursementId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
+    public getDisbursement(accountId: number, disbursementId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
+    public getDisbursement(accountId: number, disbursementId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getDisbursement.');
         }
@@ -353,7 +341,7 @@ export class DisbursementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/disbursement/get`;
+        let localVarPath = `/disbursement/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<DisbursementResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -372,8 +360,7 @@ export class DisbursementService extends BaseService {
     /**
      * Search Disbursements
      * Search Disbursements
-     * @endpoint get /api/{version}/disbursement/search
-     * @param version 
+     * @endpoint get /disbursement/search
      * @param accountId the id of the logged in user
      * @param receiverAccountId filter results by the id of the account receiving the disbursement
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED
@@ -388,13 +375,10 @@ export class DisbursementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchDisbursements(version: number, accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<DisbursementResponse>>;
-    public searchDisbursements(version: number, accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<DisbursementResponse>>>;
-    public searchDisbursements(version: number, accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<DisbursementResponse>>>;
-    public searchDisbursements(version: number, accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchDisbursements.');
-        }
+    public searchDisbursements(accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<DisbursementResponse>>;
+    public searchDisbursements(accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<DisbursementResponse>>>;
+    public searchDisbursements(accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<DisbursementResponse>>>;
+    public searchDisbursements(accountId: number, receiverAccountId?: number, statuses?: string, providers?: string, beforeDate?: number, afterDate?: number, start?: number, limit?: number, activeOnly?: boolean, externalId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchDisbursements.');
         }
@@ -516,7 +500,7 @@ export class DisbursementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/disbursement/search`;
+        let localVarPath = `/disbursement/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<DisbursementResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -535,8 +519,7 @@ export class DisbursementService extends BaseService {
     /**
      * Update Disbursement
      * Update Disbursement
-     * @endpoint post /api/{version}/disbursement/update
-     * @param version 
+     * @endpoint post /disbursement/update
      * @param accountId the id of the logged in user
      * @param disbursementId the id of the disbursement being updated
      * @param amount the disbursement dollar amount being updated
@@ -551,13 +534,10 @@ export class DisbursementService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateDisbursement(version: number, accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
-    public updateDisbursement(version: number, accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
-    public updateDisbursement(version: number, accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
-    public updateDisbursement(version: number, accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateDisbursement.');
-        }
+    public updateDisbursement(accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<DisbursementResponse>;
+    public updateDisbursement(accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DisbursementResponse>>;
+    public updateDisbursement(accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DisbursementResponse>>;
+    public updateDisbursement(accountId: number, disbursementId: number, amount?: number, provider?: 'AUTHORIZE_NET' | 'AMAZON_FPS' | 'BILL_COM', scheduledDate?: number, title?: string, comment?: string, externalId?: string, retry?: boolean, introspectionParams?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateDisbursement.');
         }
@@ -682,7 +662,7 @@ export class DisbursementService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/disbursement/update`;
+        let localVarPath = `/disbursement/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<DisbursementResponse>('post', `${basePath}${localVarPath}`,
             {

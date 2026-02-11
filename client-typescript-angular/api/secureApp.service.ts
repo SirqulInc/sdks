@@ -42,8 +42,7 @@ export class SecureAppService extends BaseService {
     /**
      * Create Secure Application
      * Create a secure application record.
-     * @endpoint post /api/{version}/secure/application/create
-     * @param version 
+     * @endpoint post /secure/application/create
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param keyCert 
@@ -58,13 +57,10 @@ export class SecureAppService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createSecureApplication(version: number, accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public createSecureApplication(version: number, accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public createSecureApplication(version: number, accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public createSecureApplication(version: number, accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createSecureApplication.');
-        }
+    public createSecureApplication(accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public createSecureApplication(accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public createSecureApplication(accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public createSecureApplication(accountId: number, appKey: string, keyCert: Blob, trustStore: Blob, username: string, password: string, active?: boolean, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createSecureApplication.');
         }
@@ -201,7 +197,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/application/create`;
+        let localVarPath = `/secure/application/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -220,21 +216,17 @@ export class SecureAppService extends BaseService {
     /**
      * Delete Secure Application
      * Delete a secure application record.
-     * @endpoint post /api/{version}/secure/application/delete
-     * @param version 
+     * @endpoint post /secure/application/delete
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteSecureApplication(version: number, accountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteSecureApplication(version: number, accountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteSecureApplication(version: number, accountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteSecureApplication(version: number, accountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteSecureApplication.');
-        }
+    public deleteSecureApplication(accountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteSecureApplication(accountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteSecureApplication(accountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteSecureApplication(accountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteSecureApplication.');
         }
@@ -287,7 +279,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/application/delete`;
+        let localVarPath = `/secure/application/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -306,8 +298,7 @@ export class SecureAppService extends BaseService {
     /**
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @endpoint post /api/{version}/secure/login
-     * @param version 
+     * @endpoint post /secure/login
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
      * @param biometricFile The data file used to perform authentication
      * @param deviceId The unique id of the device making the request
@@ -321,13 +312,10 @@ export class SecureAppService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public loginSecure(version: number, appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public loginSecure(version: number, appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public loginSecure(version: number, appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public loginSecure(version: number, appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling loginSecure.');
-        }
+    public loginSecure(appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public loginSecure(appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public loginSecure(appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public loginSecure(appKey: string, biometricFile: Blob, deviceId?: string, biometricFile2?: Blob, ageRestriction?: number, returnProfile?: boolean, responseFilters?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (appKey === null || appKey === undefined) {
             throw new Error('Required parameter appKey was null or undefined when calling loginSecure.');
         }
@@ -443,7 +431,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/login`;
+        let localVarPath = `/secure/login`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -462,20 +450,16 @@ export class SecureAppService extends BaseService {
     /**
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @endpoint post /api/{version}/secure/purchase
-     * @param version 
+     * @endpoint post /secure/purchase
      * @param body The payment request object
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public purchaseSecure(version: number, body: PaymentRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
-    public purchaseSecure(version: number, body: PaymentRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
-    public purchaseSecure(version: number, body: PaymentRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
-    public purchaseSecure(version: number, body: PaymentRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling purchaseSecure.');
-        }
+    public purchaseSecure(body: PaymentRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ProfileResponse>;
+    public purchaseSecure(body: PaymentRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProfileResponse>>;
+    public purchaseSecure(body: PaymentRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProfileResponse>>;
+    public purchaseSecure(body: PaymentRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling purchaseSecure.');
         }
@@ -514,7 +498,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/purchase`;
+        let localVarPath = `/secure/purchase`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ProfileResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -533,21 +517,17 @@ export class SecureAppService extends BaseService {
     /**
      * Rest Secure Application
      * Reset a secure application client.
-     * @endpoint post /api/{version}/secure/application/reset
-     * @param version 
+     * @endpoint post /secure/application/reset
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public resetSecure(version: number, accountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public resetSecure(version: number, accountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public resetSecure(version: number, accountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public resetSecure(version: number, accountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling resetSecure.');
-        }
+    public resetSecure(accountId: number, appKey: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public resetSecure(accountId: number, appKey: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public resetSecure(accountId: number, appKey: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public resetSecure(accountId: number, appKey: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling resetSecure.');
         }
@@ -600,7 +580,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/application/reset`;
+        let localVarPath = `/secure/application/reset`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -619,8 +599,7 @@ export class SecureAppService extends BaseService {
     /**
      * Update Secure Application
      * Update a secure application record.
-     * @endpoint post /api/{version}/secure/application/update
-     * @param version 
+     * @endpoint post /secure/application/update
      * @param accountId The unique id of the user making the request
      * @param appKey The application to secure
      * @param active 
@@ -635,13 +614,10 @@ export class SecureAppService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateSecureApplication(version: number, accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateSecureApplication(version: number, accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateSecureApplication(version: number, accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateSecureApplication(version: number, accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateSecureApplication.');
-        }
+    public updateSecureApplication(accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateSecureApplication(accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateSecureApplication(accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateSecureApplication(accountId: number, appKey: string, active?: boolean, keyCert?: Blob, trustStore?: Blob, username?: string, password?: string, biometricType?: 'FINGERPRINT' | 'IRIS' | 'FACIAL', biometricPosition?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', biometricPosition2?: 'UNKNOWN' | 'LEFT_INDEX' | 'LEFT_MIDDLE' | 'LEFT_RING' | 'LEFT_LITTLE' | 'LEFT_THUMB' | 'RIGHT_INDEX' | 'RIGHT_MIDDLE' | 'RIGHT_RING' | 'RIGHT_LITTLE' | 'RIGHT_THUMB' | 'LEFT' | 'RIGHT', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateSecureApplication.');
         }
@@ -766,7 +742,7 @@ export class SecureAppService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/secure/application/update`;
+        let localVarPath = `/secure/application/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

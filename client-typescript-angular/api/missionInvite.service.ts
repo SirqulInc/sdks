@@ -40,8 +40,7 @@ export class MissionInviteService extends BaseService {
     /**
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @endpoint post /api/{version}/mission/invite/create
-     * @param version 
+     * @endpoint post /mission/invite/create
      * @param deviceId the device id (deviceId or accountId required).
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param missionId The mission to find the invite for.
@@ -51,13 +50,10 @@ export class MissionInviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public createMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public createMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public createMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createMissionInvite.');
-        }
+    public createMissionInvite(deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public createMissionInvite(deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public createMissionInvite(deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public createMissionInvite(deviceId?: string, accountId?: number, missionId?: number, joinCode?: string, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -131,7 +127,7 @@ export class MissionInviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/invite/create`;
+        let localVarPath = `/mission/invite/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -150,8 +146,7 @@ export class MissionInviteService extends BaseService {
     /**
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @endpoint post /api/{version}/mission/invite/delete
-     * @param version 
+     * @endpoint post /mission/invite/delete
      * @param deviceId the device id (deviceId or accountId required).
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
@@ -161,13 +156,10 @@ export class MissionInviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteMissionInvite.');
-        }
+    public deleteMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -241,7 +233,7 @@ export class MissionInviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/invite/delete`;
+        let localVarPath = `/mission/invite/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -260,8 +252,7 @@ export class MissionInviteService extends BaseService {
     /**
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @endpoint get /api/{version}/mission/invite/get
-     * @param version 
+     * @endpoint get /mission/invite/get
      * @param deviceId the device id (deviceId or accountId required).
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
@@ -272,13 +263,10 @@ export class MissionInviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public getMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public getMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public getMissionInvite(version: number, deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getMissionInvite.');
-        }
+    public getMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public getMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public getMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public getMissionInvite(deviceId?: string, accountId?: number, missionId?: number, missionInviteId?: number, includeGameData?: boolean, includeScores?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -361,7 +349,7 @@ export class MissionInviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/invite/get`;
+        let localVarPath = `/mission/invite/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -380,8 +368,7 @@ export class MissionInviteService extends BaseService {
     /**
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @endpoint get /api/{version}/mission/invite/search
-     * @param version 
+     * @endpoint get /mission/invite/search
      * @param deviceId the device id (deviceId or accountId required).
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param appKey the app to retrieve the data for, use your application key.
@@ -399,13 +386,10 @@ export class MissionInviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchMissionInvites(version: number, deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
-    public searchMissionInvites(version: number, deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
-    public searchMissionInvites(version: number, deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
-    public searchMissionInvites(version: number, deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchMissionInvites.');
-        }
+    public searchMissionInvites(deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<MissionResponse>>;
+    public searchMissionInvites(deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<MissionResponse>>>;
+    public searchMissionInvites(deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<MissionResponse>>>;
+    public searchMissionInvites(deviceId?: string, accountId?: number, appKey?: string, appVersion?: string, missionId?: number, status?: string, lastUpdated?: number, start?: number, limit?: number, keyword?: string, missionTypes?: string, filterByBillable?: boolean, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -551,7 +535,7 @@ export class MissionInviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/invite/search`;
+        let localVarPath = `/mission/invite/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<MissionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -570,8 +554,7 @@ export class MissionInviteService extends BaseService {
     /**
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @endpoint post /api/{version}/mission/invite/update
-     * @param version 
+     * @endpoint post /mission/invite/update
      * @param deviceId the device id (deviceId or accountId required).
      * @param accountId the account id of the user (deviceId or accountId required).
      * @param appKey the application key
@@ -587,13 +570,10 @@ export class MissionInviteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateMissionInvite(version: number, deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
-    public updateMissionInvite(version: number, deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
-    public updateMissionInvite(version: number, deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
-    public updateMissionInvite(version: number, deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateMissionInvite.');
-        }
+    public updateMissionInvite(deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionResponse>;
+    public updateMissionInvite(deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionResponse>>;
+    public updateMissionInvite(deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionResponse>>;
+    public updateMissionInvite(deviceId?: string, accountId?: number, appKey?: string, missionId?: number, missionInviteId?: number, packId?: number, gameLevelId?: number, status?: string, permissionableType?: string, permissionableId?: number, includeGameData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -721,7 +701,7 @@ export class MissionInviteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/mission/invite/update`;
+        let localVarPath = `/mission/invite/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionResponse>('post', `${basePath}${localVarPath}`,
             {

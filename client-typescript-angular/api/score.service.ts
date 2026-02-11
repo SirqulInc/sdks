@@ -38,8 +38,7 @@ export class ScoreService extends BaseService {
     /**
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @endpoint post /api/{version}/score/create
-     * @param version 
+     * @endpoint post /score/create
      * @param accountId The logged in user.
      * @param appKey The game application key to save the score for.
      * @param points The score
@@ -54,13 +53,10 @@ export class ScoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createScore(version: number, accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScoreResponse>;
-    public createScore(version: number, accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScoreResponse>>;
-    public createScore(version: number, accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScoreResponse>>;
-    public createScore(version: number, accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createScore.');
-        }
+    public createScore(accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScoreResponse>;
+    public createScore(accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScoreResponse>>;
+    public createScore(accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScoreResponse>>;
+    public createScore(accountId: number, appKey: string, points: number, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, timeTaken?: number, highest?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createScore.');
         }
@@ -188,7 +184,7 @@ export class ScoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/score/create`;
+        let localVarPath = `/score/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScoreResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -207,8 +203,7 @@ export class ScoreService extends BaseService {
     /**
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @endpoint get /api/{version}/score/get
-     * @param version 
+     * @endpoint get /score/get
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission.
@@ -222,13 +217,10 @@ export class ScoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getScore(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScoreResponse>;
-    public getScore(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScoreResponse>>;
-    public getScore(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScoreResponse>>;
-    public getScore(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getScore.');
-        }
+    public getScore(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<ScoreResponse>;
+    public getScore(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ScoreResponse>>;
+    public getScore(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ScoreResponse>>;
+    public getScore(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, scoreObjectType?: string, scoreStatus?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getScore.');
         }
@@ -344,7 +336,7 @@ export class ScoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/score/get`;
+        let localVarPath = `/score/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<ScoreResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -363,8 +355,7 @@ export class ScoreService extends BaseService {
     /**
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @endpoint get /api/{version}/score/search
-     * @param version 
+     * @endpoint get /score/search
      * @param accountId The logged in user.
      * @param appKey The game application key to get the level for.
      * @param missionId The missionId to score for, null if not playing mission.
@@ -376,13 +367,10 @@ export class ScoreService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchScores(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ScoreResponse>>;
-    public searchScores(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ScoreResponse>>>;
-    public searchScores(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ScoreResponse>>>;
-    public searchScores(version: number, accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchScores.');
-        }
+    public searchScores(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<ScoreResponse>>;
+    public searchScores(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<ScoreResponse>>>;
+    public searchScores(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<ScoreResponse>>>;
+    public searchScores(accountId: number, appKey: string, missionId?: number, gameId?: number, packId?: number, gameLevelId?: number, gameObjectId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchScores.');
         }
@@ -480,7 +468,7 @@ export class ScoreService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/score/search`;
+        let localVarPath = `/score/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<ScoreResponse>>('get', `${basePath}${localVarPath}`,
             {

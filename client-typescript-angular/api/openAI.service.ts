@@ -38,8 +38,7 @@ export class OpenAIService extends BaseService {
     /**
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @endpoint post /api/{version}/openai/v1/images/generations
-     * @param version 
+     * @endpoint post /openai/v1/images/generations
      * @param accountId Sirqul Account Id
      * @param postBody Post Body Parameters
      * @param returnRawResponse Return raw response
@@ -47,13 +46,10 @@ export class OpenAIService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public imageGeneration(version: number, accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedProxyItemResponse>;
-    public imageGeneration(version: number, accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedProxyItemResponse>>;
-    public imageGeneration(version: number, accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedProxyItemResponse>>;
-    public imageGeneration(version: number, accountId: number, postBody: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling imageGeneration.');
-        }
+    public imageGeneration(accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<WrappedProxyItemResponse>;
+    public imageGeneration(accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<WrappedProxyItemResponse>>;
+    public imageGeneration(accountId: number, postBody: string, returnRawResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<WrappedProxyItemResponse>>;
+    public imageGeneration(accountId: number, postBody: string, returnRawResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling imageGeneration.');
         }
@@ -115,7 +111,7 @@ export class OpenAIService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/openai/v1/images/generations`;
+        let localVarPath = `/openai/v1/images/generations`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<WrappedProxyItemResponse>('post', `${basePath}${localVarPath}`,
             {

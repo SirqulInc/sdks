@@ -40,8 +40,7 @@ export class BillableEntityService extends BaseService {
     /**
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @endpoint post /api/{version}/billable/create
-     * @param version 
+     * @endpoint post /billable/create
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
      * @param name The name of the entity responsible for billing 
@@ -58,13 +57,10 @@ export class BillableEntityService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
-    public createBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
-    public createBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
-    public createBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createBillableEntity.');
-        }
+    public createBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
+    public createBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
+    public createBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
+    public createBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -201,7 +197,7 @@ export class BillableEntityService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billable/create`;
+        let localVarPath = `/billable/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BillableEntityResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -220,21 +216,17 @@ export class BillableEntityService extends BaseService {
     /**
      * Delete Billable
      * Mark the billable as deleted
-     * @endpoint post /api/{version}/billable/delete
-     * @param version 
+     * @endpoint post /billable/delete
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteBillableEntity(version: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteBillableEntity(version: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteBillableEntity(version: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteBillableEntity(version: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteBillableEntity.');
-        }
+    public deleteBillableEntity(deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteBillableEntity(deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteBillableEntity(deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteBillableEntity(deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -281,7 +273,7 @@ export class BillableEntityService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billable/delete`;
+        let localVarPath = `/billable/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -300,8 +292,7 @@ export class BillableEntityService extends BaseService {
     /**
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @endpoint get /api/{version}/billable/get
-     * @param version 
+     * @endpoint get /billable/get
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response
@@ -310,13 +301,10 @@ export class BillableEntityService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getBillableEntity(version: number, deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
-    public getBillableEntity(version: number, deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
-    public getBillableEntity(version: number, deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
-    public getBillableEntity(version: number, deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getBillableEntity.');
-        }
+    public getBillableEntity(deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
+    public getBillableEntity(deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
+    public getBillableEntity(deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
+    public getBillableEntity(deviceId?: string, accountId?: number, includeCounts?: boolean, includePayments?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -381,7 +369,7 @@ export class BillableEntityService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billable/get`;
+        let localVarPath = `/billable/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BillableEntityResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -400,8 +388,7 @@ export class BillableEntityService extends BaseService {
     /**
      * Update Billable
      * Updates the billable record for an account
-     * @endpoint post /api/{version}/billable/update
-     * @param version 
+     * @endpoint post /billable/update
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
      * @param name The name of the entity responsible for billing 
@@ -418,13 +405,10 @@ export class BillableEntityService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
-    public updateBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
-    public updateBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
-    public updateBillableEntity(version: number, deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateBillableEntity.');
-        }
+    public updateBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<BillableEntityResponse>;
+    public updateBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<BillableEntityResponse>>;
+    public updateBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<BillableEntityResponse>>;
+    public updateBillableEntity(deviceId?: string, accountId?: number, name?: string, streetAddress?: string, streetAddress2?: string, city?: string, state?: string, postalCode?: string, businessPhone?: string, businessPhoneExt?: string, authorizeNetApiKey?: string, authorizeNetTransactionKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -561,7 +545,7 @@ export class BillableEntityService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/billable/update`;
+        let localVarPath = `/billable/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<BillableEntityResponse>('post', `${basePath}${localVarPath}`,
             {

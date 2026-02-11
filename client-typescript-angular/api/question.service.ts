@@ -40,8 +40,7 @@ export class QuestionService extends BaseService {
     /**
      * Create Question
      * Create a question and related answers by the given params.
-     * @endpoint post /api/{version}/game/question/create
-     * @param version 
+     * @endpoint post /game/question/create
      * @param accountId the id of the logged in user
      * @param question the text of the question
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -57,13 +56,10 @@ export class QuestionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createQuestion(version: number, accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
-    public createQuestion(version: number, accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
-    public createQuestion(version: number, accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
-    public createQuestion(version: number, accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createQuestion.');
-        }
+    public createQuestion(accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
+    public createQuestion(accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
+    public createQuestion(accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
+    public createQuestion(accountId: number, question: string, answers: string, active: boolean, allocateTickets: boolean, ticketCount: number, tags?: string, videoURL?: string, assetId?: number, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createQuestion.');
         }
@@ -209,7 +205,7 @@ export class QuestionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/question/create`;
+        let localVarPath = `/game/question/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QuestionResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -228,21 +224,17 @@ export class QuestionService extends BaseService {
     /**
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @endpoint post /api/{version}/game/question/delete
-     * @param version 
+     * @endpoint post /game/question/delete
      * @param questionId the id of the question to delete
      * @param accountId the id of the account that can execute this request
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteQuestion(version: number, questionId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteQuestion(version: number, questionId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteQuestion(version: number, questionId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteQuestion(version: number, questionId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteQuestion.');
-        }
+    public deleteQuestion(questionId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteQuestion(questionId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteQuestion(questionId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteQuestion(questionId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (questionId === null || questionId === undefined) {
             throw new Error('Required parameter questionId was null or undefined when calling deleteQuestion.');
         }
@@ -295,7 +287,7 @@ export class QuestionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/question/delete`;
+        let localVarPath = `/game/question/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -314,21 +306,17 @@ export class QuestionService extends BaseService {
     /**
      * Get Question
      * Get a question by the given id.
-     * @endpoint get /api/{version}/game/question/get
-     * @param version 
+     * @endpoint get /game/question/get
      * @param questionId the id of the question to get
      * @param accountId the id of the account that can make this request
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getQuestion(version: number, questionId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
-    public getQuestion(version: number, questionId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
-    public getQuestion(version: number, questionId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
-    public getQuestion(version: number, questionId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getQuestion.');
-        }
+    public getQuestion(questionId: number, accountId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
+    public getQuestion(questionId: number, accountId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
+    public getQuestion(questionId: number, accountId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
+    public getQuestion(questionId: number, accountId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (questionId === null || questionId === undefined) {
             throw new Error('Required parameter questionId was null or undefined when calling getQuestion.');
         }
@@ -381,7 +369,7 @@ export class QuestionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/question/get`;
+        let localVarPath = `/game/question/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QuestionResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -400,8 +388,7 @@ export class QuestionService extends BaseService {
     /**
      * Search Questions
      * Search for questions by the given params.
-     * @endpoint get /api/{version}/game/question/search
-     * @param version 
+     * @endpoint get /game/question/search
      * @param accountId The logged in user.
      * @param sortField The column to sort the search on
      * @param descending The order to return the search results
@@ -413,13 +400,10 @@ export class QuestionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchQuestions(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<QuestionResponse>>;
-    public searchQuestions(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<QuestionResponse>>>;
-    public searchQuestions(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<QuestionResponse>>>;
-    public searchQuestions(version: number, accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchQuestions.');
-        }
+    public searchQuestions(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<QuestionResponse>>;
+    public searchQuestions(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<QuestionResponse>>>;
+    public searchQuestions(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<QuestionResponse>>>;
+    public searchQuestions(accountId: number, sortField: string, descending: boolean, activeOnly: boolean, start: number, limit: number, keyword?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchQuestions.');
         }
@@ -529,7 +513,7 @@ export class QuestionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/question/search`;
+        let localVarPath = `/game/question/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<QuestionResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -548,8 +532,7 @@ export class QuestionService extends BaseService {
     /**
      * Update Question
      * Update a question and related answers.
-     * @endpoint post /api/{version}/game/question/update
-     * @param version 
+     * @endpoint post /game/question/update
      * @param questionId The id of the question to update.
      * @param accountId The logged in user.
      * @param ticketCount The number of tickets to reward
@@ -566,13 +549,10 @@ export class QuestionService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateQuestion(version: number, questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
-    public updateQuestion(version: number, questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
-    public updateQuestion(version: number, questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
-    public updateQuestion(version: number, questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateQuestion.');
-        }
+    public updateQuestion(questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<QuestionResponse>;
+    public updateQuestion(questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<QuestionResponse>>;
+    public updateQuestion(questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<QuestionResponse>>;
+    public updateQuestion(questionId: number, accountId: number, ticketCount: number, question?: string, answers?: string, tags?: string, videoURL?: string, assetId?: number, active?: boolean, allocateTickets?: boolean, ticketType?: string, points?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (questionId === null || questionId === undefined) {
             throw new Error('Required parameter questionId was null or undefined when calling updateQuestion.');
         }
@@ -718,7 +698,7 @@ export class QuestionService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/game/question/update`;
+        let localVarPath = `/game/question/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<QuestionResponse>('post', `${basePath}${localVarPath}`,
             {

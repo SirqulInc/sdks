@@ -40,8 +40,7 @@ export class TriggerService extends BaseService {
     /**
      * Create Trigger
      * Create a trigger
-     * @endpoint post /api/{version}/trigger/create
-     * @param version 
+     * @endpoint post /trigger/create
      * @param accountId The logged in user
      * @param name The name of the trigger
      * @param appKey The application to target
@@ -59,13 +58,10 @@ export class TriggerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createTrigger(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
-    public createTrigger(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
-    public createTrigger(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
-    public createTrigger(version: number, accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createTrigger.');
-        }
+    public createTrigger(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
+    public createTrigger(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
+    public createTrigger(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
+    public createTrigger(accountId: number, name: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createTrigger.');
         }
@@ -217,7 +213,7 @@ export class TriggerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trigger/create`;
+        let localVarPath = `/trigger/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TriggerResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -236,21 +232,17 @@ export class TriggerService extends BaseService {
     /**
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @endpoint post /api/{version}/trigger/delete
-     * @param version 
+     * @endpoint post /trigger/delete
      * @param accountId The logged in user.
      * @param triggerId The id of the trigger to delete.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteTrigger(version: number, accountId: number, triggerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteTrigger(version: number, accountId: number, triggerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteTrigger(version: number, accountId: number, triggerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteTrigger(version: number, accountId: number, triggerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteTrigger.');
-        }
+    public deleteTrigger(accountId: number, triggerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteTrigger(accountId: number, triggerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteTrigger(accountId: number, triggerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteTrigger(accountId: number, triggerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteTrigger.');
         }
@@ -303,7 +295,7 @@ export class TriggerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trigger/delete`;
+        let localVarPath = `/trigger/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -322,21 +314,17 @@ export class TriggerService extends BaseService {
     /**
      * Get Trigger
      * Get a trigger
-     * @endpoint get /api/{version}/trigger/get
-     * @param version 
+     * @endpoint get /trigger/get
      * @param accountId The logged in user.
      * @param triggerId The id of the Trigger to return.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTrigger(version: number, accountId: number, triggerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
-    public getTrigger(version: number, accountId: number, triggerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
-    public getTrigger(version: number, accountId: number, triggerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
-    public getTrigger(version: number, accountId: number, triggerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTrigger.');
-        }
+    public getTrigger(accountId: number, triggerId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
+    public getTrigger(accountId: number, triggerId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
+    public getTrigger(accountId: number, triggerId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
+    public getTrigger(accountId: number, triggerId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getTrigger.');
         }
@@ -389,7 +377,7 @@ export class TriggerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trigger/get`;
+        let localVarPath = `/trigger/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TriggerResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -408,8 +396,7 @@ export class TriggerService extends BaseService {
     /**
      * Search Triggers
      * Search for triggers
-     * @endpoint get /api/{version}/trigger/search
-     * @param version 
+     * @endpoint get /trigger/search
      * @param accountId The logged in user.
      * @param groupingId Filter results by a grouping identifier defined by the client
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user\&#39;\&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers 
@@ -426,13 +413,10 @@ export class TriggerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTriggers(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TriggerResponse>>;
-    public searchTriggers(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TriggerResponse>>>;
-    public searchTriggers(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TriggerResponse>>>;
-    public searchTriggers(version: number, accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTriggers.');
-        }
+    public searchTriggers(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<TriggerResponse>>;
+    public searchTriggers(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TriggerResponse>>>;
+    public searchTriggers(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TriggerResponse>>>;
+    public searchTriggers(accountId: number, groupingId?: string, filter?: string, statuses?: string, templateTypes?: string, appKey?: string, keyword?: string, sortField?: string, descending?: boolean, start?: number, limit?: number, activeOnly?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchTriggers.');
         }
@@ -572,7 +556,7 @@ export class TriggerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trigger/search`;
+        let localVarPath = `/trigger/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<TriggerResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -591,8 +575,7 @@ export class TriggerService extends BaseService {
     /**
      * Update Trigger
      * Update a trigger
-     * @endpoint post /api/{version}/trigger/update
-     * @param version 
+     * @endpoint post /trigger/update
      * @param triggerId The trigger to update
      * @param accountId The logged in user
      * @param name The name of the trigger
@@ -611,13 +594,10 @@ export class TriggerService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTrigger(version: number, triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
-    public updateTrigger(version: number, triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
-    public updateTrigger(version: number, triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
-    public updateTrigger(version: number, triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTrigger.');
-        }
+    public updateTrigger(triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TriggerResponse>;
+    public updateTrigger(triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TriggerResponse>>;
+    public updateTrigger(triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TriggerResponse>>;
+    public updateTrigger(triggerId: number, accountId: number, name?: string, appKey?: string, groupingId?: string, endpointURL?: string, payload?: string, scheduledDate?: number, startDate?: number, endDate?: number, cronExpression?: string, conditionalInput?: string, visibility?: 'PUBLIC' | 'PRIVATE' | 'FRIENDS', active?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (triggerId === null || triggerId === undefined) {
             throw new Error('Required parameter triggerId was null or undefined when calling updateTrigger.');
         }
@@ -778,7 +758,7 @@ export class TriggerService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/trigger/update`;
+        let localVarPath = `/trigger/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TriggerResponse>('post', `${basePath}${localVarPath}`,
             {

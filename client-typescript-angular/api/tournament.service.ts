@@ -42,8 +42,7 @@ export class TournamentService extends BaseService {
     /**
      * Create Tournament
      * Create a tournament.
-     * @endpoint post /api/{version}/tournament/create
-     * @param version 
+     * @endpoint post /tournament/create
      * @param accountId The logged in user.
      * @param appKey The appKey the tournament is created for.
      * @param title The title of the tournament
@@ -83,13 +82,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createTournament(version: number, accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
-    public createTournament(version: number, accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
-    public createTournament(version: number, accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
-    public createTournament(version: number, accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createTournament.');
-        }
+    public createTournament(accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
+    public createTournament(accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
+    public createTournament(accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
+    public createTournament(accountId: number, appKey: string, title: string, costToPlay: number, startDate: number, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY' | 'MULTISTAGE', visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling createTournament.');
         }
@@ -448,7 +444,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/create`;
+        let localVarPath = `/tournament/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TournamentResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -467,21 +463,17 @@ export class TournamentService extends BaseService {
     /**
      * Delete Tournament
      * Delete a tournament.
-     * @endpoint post /api/{version}/tournament/delete
-     * @param version 
+     * @endpoint post /tournament/delete
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission to delete
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteTournament(version: number, accountId: number, missionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteTournament(version: number, accountId: number, missionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteTournament(version: number, accountId: number, missionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteTournament(version: number, accountId: number, missionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteTournament.');
-        }
+    public deleteTournament(accountId: number, missionId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteTournament(accountId: number, missionId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteTournament(accountId: number, missionId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteTournament(accountId: number, missionId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling deleteTournament.');
         }
@@ -534,7 +526,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/delete`;
+        let localVarPath = `/tournament/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -553,8 +545,7 @@ export class TournamentService extends BaseService {
     /**
      * Get Tournament
      * Get a tournament.
-     * @endpoint get /api/{version}/tournament/get
-     * @param version 
+     * @endpoint get /tournament/get
      * @param accountId The id of the logged in user
      * @param missionId The id of the mission to return (either missionId or joinCode is required)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required)
@@ -564,13 +555,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getTournament(version: number, accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
-    public getTournament(version: number, accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
-    public getTournament(version: number, accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
-    public getTournament(version: number, accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getTournament.');
-        }
+    public getTournament(accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
+    public getTournament(accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
+    public getTournament(accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
+    public getTournament(accountId: number, missionId?: number, joinCode?: string, includeScores?: 'ALL' | 'MINE', objectPreviewSize?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling getTournament.');
         }
@@ -647,7 +635,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/get`;
+        let localVarPath = `/tournament/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TournamentResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -666,8 +654,7 @@ export class TournamentService extends BaseService {
     /**
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @endpoint get /api/{version}/tournament/object/search
-     * @param version 
+     * @endpoint get /tournament/object/search
      * @param accountId the account ID
      * @param gameLevelId the game level id to filter results by
      * @param sortField the field to sort by
@@ -678,13 +665,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchObjects(version: number, accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public searchObjects(version: number, accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public searchObjects(version: number, accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public searchObjects(version: number, accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchObjects.');
-        }
+    public searchObjects(accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public searchObjects(accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public searchObjects(accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public searchObjects(accountId: number, gameLevelId: number, sortField?: 'ID' | 'PLAYER_SCORE_COUNT', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchObjects.');
         }
@@ -773,7 +757,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/object/search`;
+        let localVarPath = `/tournament/object/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -792,8 +776,7 @@ export class TournamentService extends BaseService {
     /**
      * Search Tournament Rounds
      * Search for the user\&#39;s tournament games.
-     * @endpoint get /api/{version}/tournament/round/search
-     * @param version 
+     * @endpoint get /tournament/round/search
      * @param accountId the account ID
      * @param appKey the application key
      * @param status comma separated list of statuses to filter results by
@@ -806,13 +789,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRounds(version: number, accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public searchRounds(version: number, accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public searchRounds(version: number, accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public searchRounds(version: number, accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRounds.');
-        }
+    public searchRounds(accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public searchRounds(accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public searchRounds(accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public searchRounds(accountId: number, appKey: string, status?: string, missionType?: 'TOURNAMENT' | 'POOLPLAY', currentOnly?: boolean, visibilities?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchRounds.');
         }
@@ -919,7 +899,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/round/search`;
+        let localVarPath = `/tournament/round/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -938,8 +918,7 @@ export class TournamentService extends BaseService {
     /**
      * Search Tournaments
      * Search for tournaments
-     * @endpoint get /api/{version}/tournament/search
-     * @param version 
+     * @endpoint get /tournament/search
      * @param accountId The logged in user.
      * @param appKey The application key
      * @param keyword the keyword to search tournament on
@@ -956,13 +935,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchTournaments(version: number, accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionShortResponse>;
-    public searchTournaments(version: number, accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionShortResponse>>;
-    public searchTournaments(version: number, accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionShortResponse>>;
-    public searchTournaments(version: number, accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchTournaments.');
-        }
+    public searchTournaments(accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<MissionShortResponse>;
+    public searchTournaments(accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<MissionShortResponse>>;
+    public searchTournaments(accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<MissionShortResponse>>;
+    public searchTournaments(accountId: number, appKey: string, keyword?: string, subType?: string, includeInactive?: boolean, missionTypes?: string, filter?: 'ALL' | 'UPCOMING' | 'PAST' | 'PRESENT' | 'ACTIVE', sortField?: 'ACTIVE' | 'TITLE' | 'DESCRIPTION' | 'CREATED' | 'UPDATED' | 'MISSION_TYPE' | 'OWNER_DISPLAY' | 'START_DATE' | 'END_DATE' | 'STARTING_LIMIT' | 'AVAILABLE_LIMIT' | 'INVITE_COUNT' | 'ACCEPTED_COUNT', descending?: boolean, visibility?: string, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling searchTournaments.');
         }
@@ -1105,7 +1081,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/search`;
+        let localVarPath = `/tournament/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<MissionShortResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -1124,8 +1100,7 @@ export class TournamentService extends BaseService {
     /**
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @endpoint post /api/{version}/tournament/score
-     * @param version 
+     * @endpoint post /tournament/score
      * @param accountId The logged in user account ID.
      * @param appKey The application key.
      * @param missionId The missionId to score for
@@ -1137,13 +1112,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public submitTournamentScore(version: number, accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public submitTournamentScore(version: number, accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public submitTournamentScore(version: number, accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public submitTournamentScore(version: number, accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling submitTournamentScore.');
-        }
+    public submitTournamentScore(accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public submitTournamentScore(accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public submitTournamentScore(accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public submitTournamentScore(accountId: number, appKey: string, missionId: number, gameId: number, packId: number, scores: string, gameLevelId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling submitTournamentScore.');
         }
@@ -1253,7 +1225,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/score`;
+        let localVarPath = `/tournament/score`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1272,8 +1244,7 @@ export class TournamentService extends BaseService {
     /**
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @endpoint post /api/{version}/tournament/vote
-     * @param version 
+     * @endpoint post /tournament/vote
      * @param accountId The logged in user.
      * @param appKey The application to target
      * @param missionId The tournament\&#39;s primary id
@@ -1284,13 +1255,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public submitTournamentVote(version: number, accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public submitTournamentVote(version: number, accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public submitTournamentVote(version: number, accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public submitTournamentVote(version: number, accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling submitTournamentVote.');
-        }
+    public submitTournamentVote(accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public submitTournamentVote(accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public submitTournamentVote(accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public submitTournamentVote(accountId: number, appKey: string, missionId: number, gameObjectId: number, deviceId?: string, checkIfDeviceAlreadyVoted?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling submitTournamentVote.');
         }
@@ -1385,7 +1353,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/vote`;
+        let localVarPath = `/tournament/vote`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1404,8 +1372,7 @@ export class TournamentService extends BaseService {
     /**
      * Substitute Tournament Player
      * Service to replace the user\&#39;s opponent in the current level - pack - mission with an AI account.
-     * @endpoint post /api/{version}/tournament/substitute
-     * @param version 
+     * @endpoint post /tournament/substitute
      * @param accountId the id of the logged in user
      * @param missionId the id of the mission
      * @param packId the id of the pack
@@ -1414,13 +1381,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public substituteTournamentPlayer(version: number, accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public substituteTournamentPlayer(version: number, accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public substituteTournamentPlayer(version: number, accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public substituteTournamentPlayer(version: number, accountId: number, missionId: number, packId: number, gameLevelId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling substituteTournamentPlayer.');
-        }
+    public substituteTournamentPlayer(accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public substituteTournamentPlayer(accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public substituteTournamentPlayer(accountId: number, missionId: number, packId: number, gameLevelId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public substituteTournamentPlayer(accountId: number, missionId: number, packId: number, gameLevelId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling substituteTournamentPlayer.');
         }
@@ -1497,7 +1461,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/substitute`;
+        let localVarPath = `/tournament/substitute`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1516,8 +1480,7 @@ export class TournamentService extends BaseService {
     /**
      * Update Tournament
      * Update a tournament.
-     * @endpoint post /api/{version}/tournament/update
-     * @param version 
+     * @endpoint post /tournament/update
      * @param accountId The logged in user.
      * @param missionId The mission/tournament to update
      * @param title The title of the tournament
@@ -1556,13 +1519,10 @@ export class TournamentService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateTournament(version: number, accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
-    public updateTournament(version: number, accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
-    public updateTournament(version: number, accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
-    public updateTournament(version: number, accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateTournament.');
-        }
+    public updateTournament(accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<TournamentResponse>;
+    public updateTournament(accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TournamentResponse>>;
+    public updateTournament(accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TournamentResponse>>;
+    public updateTournament(accountId: number, missionId: number, title?: string, subType?: string, imageAssetId?: number, secondsBetweenLevels?: number, secondsForTieBreaker?: number, secondsBetweenPacks?: number, maximumLevelLength?: number, costToPlay?: number, costToPlayType?: string, minimumToPlay?: number, startingLimit?: number, availableLimit?: number, description?: string, metaData?: string, startDate?: number, audienceIds?: string, active?: boolean, enableBuyBack?: boolean, offerIds?: string, offerAssetId?: number, fixedReward?: boolean, splitReward?: 'EVEN' | 'ALL' | 'FIRST' | 'RANDOM', allocateTickets?: boolean, tournamentData?: string, visibility?: 'PUBLIC' | 'LISTABLE' | 'REWARDABLE' | 'TRIGGERABLE' | 'PRIVATE', preliminaryGroups?: number, preliminaryGroupAdvancements?: string, enableMultipleEntries?: boolean, enableMultipleVotes?: boolean, featured?: boolean, winnerTag?: string, tieTag?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (accountId === null || accountId === undefined) {
             throw new Error('Required parameter accountId was null or undefined when calling updateTournament.');
         }
@@ -1903,7 +1863,7 @@ export class TournamentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tournament/update`;
+        let localVarPath = `/tournament/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<TournamentResponse>('post', `${basePath}${localVarPath}`,
             {

@@ -42,8 +42,7 @@ export class RatingService extends BaseService {
     /**
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @endpoint post /api/{version}/rating/create
-     * @param version 
+     * @endpoint post /rating/create
      * @param ratableType The ratable object type {RETAILER_LOCATION}
      * @param ratableId The id of the ratable object
      * @param ratingValue The integer value of 0-100
@@ -59,13 +58,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createRating(version: number, ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RatingResponse>;
-    public createRating(version: number, ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RatingResponse>>;
-    public createRating(version: number, ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RatingResponse>>;
-    public createRating(version: number, ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createRating.');
-        }
+    public createRating(ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RatingResponse>;
+    public createRating(ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RatingResponse>>;
+    public createRating(ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RatingResponse>>;
+    public createRating(ratableType: string, ratableId: number, ratingValue: number, deviceId?: string, accountId?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ratableType === null || ratableType === undefined) {
             throw new Error('Required parameter ratableType was null or undefined when calling createRating.');
         }
@@ -202,7 +198,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/rating/create`;
+        let localVarPath = `/rating/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RatingResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -221,8 +217,7 @@ export class RatingService extends BaseService {
     /**
      * Delete Rating
      * Sets a rating as deleted.
-     * @endpoint post /api/{version}/rating/delete
-     * @param version 
+     * @endpoint post /rating/delete
      * @param ratingId The ID of the rating to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -230,13 +225,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteRating(version: number, ratingId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteRating(version: number, ratingId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteRating(version: number, ratingId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteRating(version: number, ratingId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteRating.');
-        }
+    public deleteRating(ratingId: number, deviceId?: string, accountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteRating(ratingId: number, deviceId?: string, accountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteRating(ratingId: number, deviceId?: string, accountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteRating(ratingId: number, deviceId?: string, accountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ratingId === null || ratingId === undefined) {
             throw new Error('Required parameter ratingId was null or undefined when calling deleteRating.');
         }
@@ -295,7 +287,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/rating/delete`;
+        let localVarPath = `/rating/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -314,8 +306,7 @@ export class RatingService extends BaseService {
     /**
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @endpoint get /api/{version}/location/rating/index/search
-     * @param version 
+     * @endpoint get /location/rating/index/search
      * @param categoryIds Comma separated list of category ids to filter the results by
      * @param keyword The keyword used to search
      * @param locationType The type of location to filter the results by
@@ -337,13 +328,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchLocationRatingIndexes(version: number, categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingIndexResponse>>;
-    public searchLocationRatingIndexes(version: number, categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingIndexResponse>>>;
-    public searchLocationRatingIndexes(version: number, categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingIndexResponse>>>;
-    public searchLocationRatingIndexes(version: number, categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchLocationRatingIndexes.');
-        }
+    public searchLocationRatingIndexes(categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingIndexResponse>>;
+    public searchLocationRatingIndexes(categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingIndexResponse>>>;
+    public searchLocationRatingIndexes(categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingIndexResponse>>>;
+    public searchLocationRatingIndexes(categoryIds?: string, keyword?: string, locationType?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, searchRange?: number, latitude?: number, longitude?: number, returnOverallRating?: boolean, distanceUnit?: 'MILES' | 'KILOMETERS', returnRetailer?: boolean, returnAssets?: boolean, returnOffers?: boolean, returnCategories?: boolean, returnFilters?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -525,7 +513,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/location/rating/index/search`;
+        let localVarPath = `/location/rating/index/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<RatingIndexResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -544,8 +532,7 @@ export class RatingService extends BaseService {
     /**
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @endpoint get /api/{version}/rating/index/search
-     * @param version 
+     * @endpoint get /rating/index/search
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by
      * @param categoryIds Comma separated list of category ids to filter the results by
@@ -563,13 +550,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRatingIndexes(version: number, ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingIndexResponse>>;
-    public searchRatingIndexes(version: number, ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingIndexResponse>>>;
-    public searchRatingIndexes(version: number, ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingIndexResponse>>>;
-    public searchRatingIndexes(version: number, ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRatingIndexes.');
-        }
+    public searchRatingIndexes(ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingIndexResponse>>;
+    public searchRatingIndexes(ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingIndexResponse>>>;
+    public searchRatingIndexes(ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingIndexResponse>>>;
+    public searchRatingIndexes(ratableType: 'LOCATABLE' | 'RESERVABLE' | 'PERMISSIONABLE' | 'NOTABLE' | 'ASSETABLE' | 'LIKABLE' | 'FLAGABLE' | 'FAVORITABLE' | 'RATABLE' | 'ALBUM' | 'COLLECTION' | 'APPLICATION' | 'APPLICATION_SETTING' | 'APPLICATION_CERT' | 'APPLICATION_PLACEMENT' | 'ACCOUNT' | 'ACCOUNT_SETTING' | 'GAME_LEVEL' | 'PACK' | 'MISSION' | 'TOURNAMENT' | 'ASSET' | 'ALBUM_CONTEST' | 'THEME_DESCRIPTOR' | 'OFFER' | 'OFFER_LOCATION' | 'EVENT' | 'RETAILER' | 'RETAILER_LOCATION' | 'NOTE' | 'CREATIVE' | 'FAVORITE' | 'LIKE' | 'RATING' | 'ANALYTIC' | 'THIRD_PARTY_CREDENTIAL' | 'THIRD_PARTY_NETWORK' | 'REGION', ratableIds?: string, categoryIds?: string, secondaryType?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'COUNT' | 'SUMMATION' | 'AVERAGE' | 'VALUE', descending?: boolean, start?: number, limit?: number, latitude?: number, longitude?: number, returnRatable?: boolean, returnOverallRating?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ratableType === null || ratableType === undefined) {
             throw new Error('Required parameter ratableType was null or undefined when calling searchRatingIndexes.');
         }
@@ -718,7 +702,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/rating/index/search`;
+        let localVarPath = `/rating/index/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<RatingIndexResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -737,8 +721,7 @@ export class RatingService extends BaseService {
     /**
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @endpoint get /api/{version}/rating/search
-     * @param version 
+     * @endpoint get /rating/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param filterAccountId Filter results for a particular account
@@ -754,13 +737,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchRatings(version: number, deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingResponse>>;
-    public searchRatings(version: number, deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingResponse>>>;
-    public searchRatings(version: number, deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingResponse>>>;
-    public searchRatings(version: number, deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchRatings.');
-        }
+    public searchRatings(deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<RatingResponse>>;
+    public searchRatings(deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RatingResponse>>>;
+    public searchRatings(deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RatingResponse>>>;
+    public searchRatings(deviceId?: string, accountId?: number, filterAccountId?: number, ratableType?: string, ratableId?: number, categoryIds?: string, keyword?: string, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'RATABLE_TYPE' | 'RATABLE_ID' | 'RATABLE_DISPLAY' | 'CATEGORY_ID' | 'CATEGORY_NAME' | 'CATEGORY_SHORT_NAME' | 'CATEGORY_DISPLAY' | 'VALUE', descending?: boolean, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -888,7 +868,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/rating/search`;
+        let localVarPath = `/rating/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<RatingResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -907,8 +887,7 @@ export class RatingService extends BaseService {
     /**
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @endpoint post /api/{version}/rating/update
-     * @param version 
+     * @endpoint post /rating/update
      * @param ratingId The id of the rating (Note: this is not the ratable object id)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -923,13 +902,10 @@ export class RatingService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateRating(version: number, ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RatingResponse>;
-    public updateRating(version: number, ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RatingResponse>>;
-    public updateRating(version: number, ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RatingResponse>>;
-    public updateRating(version: number, ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateRating.');
-        }
+    public updateRating(ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<RatingResponse>;
+    public updateRating(ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RatingResponse>>;
+    public updateRating(ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RatingResponse>>;
+    public updateRating(ratingId: number, deviceId?: string, accountId?: number, ratingValue?: number, categoryId?: number, display?: string, description?: string, locationDescription?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ratingId === null || ratingId === undefined) {
             throw new Error('Required parameter ratingId was null or undefined when calling updateRating.');
         }
@@ -1051,7 +1027,7 @@ export class RatingService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/rating/update`;
+        let localVarPath = `/rating/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<RatingResponse>('post', `${basePath}${localVarPath}`,
             {

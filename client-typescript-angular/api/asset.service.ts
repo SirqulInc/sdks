@@ -44,20 +44,16 @@ export class AssetService extends BaseService {
     /**
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @endpoint get /api/{version}/asset/download/{filename}
-     * @param version 
+     * @endpoint get /asset/download/{filename}
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assetDownload(version: number, filename: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public assetDownload(version: number, filename: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public assetDownload(version: number, filename: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public assetDownload(version: number, filename: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assetDownload.');
-        }
+    public assetDownload(filename: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public assetDownload(filename: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public assetDownload(filename: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public assetDownload(filename: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (filename === null || filename === undefined) {
             throw new Error('Required parameter filename was null or undefined when calling assetDownload.');
         }
@@ -87,7 +83,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/download/${this.configuration.encodeParam({name: "filename", value: filename, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        let localVarPath = `/asset/download/${this.configuration.encodeParam({name: "filename", value: filename, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -105,8 +101,7 @@ export class AssetService extends BaseService {
     /**
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @endpoint post /api/{version}/asset/morph
-     * @param version 
+     * @endpoint post /asset/morph
      * @param offerId offer id used for inserting offer text/flavor
      * @param adSize the ad size used for selecting a format for the creative image
      * @param creativeId used for inserting the newly created image into
@@ -118,13 +113,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public assetMorph(version: number, offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetShortResponse>;
-    public assetMorph(version: number, offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetShortResponse>>;
-    public assetMorph(version: number, offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetShortResponse>>;
-    public assetMorph(version: number, offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling assetMorph.');
-        }
+    public assetMorph(offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetShortResponse>;
+    public assetMorph(offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetShortResponse>>;
+    public assetMorph(offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetShortResponse>>;
+    public assetMorph(offerId: number, adSize: 'CONFIG' | 'BANNER' | 'LEADERBOARD' | 'SKYSCRAPER' | 'VIDEO' | 'ZIP' | 'INTERSTITIAL' | 'CUSTOM1' | 'CUSTOM2' | 'CUSTOM3' | 'CUSTOM4' | 'CUSTOM5' | 'CUSTOM6' | 'CUSTOM7' | 'CUSTOM8' | 'CUSTOM9' | 'CUSTOM10', creativeId?: number, width?: number, height?: number, backgroundSize?: string, template?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (offerId === null || offerId === undefined) {
             throw new Error('Required parameter offerId was null or undefined when calling assetMorph.');
         }
@@ -222,7 +214,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/morph`;
+        let localVarPath = `/asset/morph`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssetShortResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -241,8 +233,7 @@ export class AssetService extends BaseService {
     /**
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @endpoint post /api/{version}/asset/create
-     * @param version 
+     * @endpoint post /asset/create
      * @param returnNulls to return nulls
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -281,13 +272,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createAsset(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetResponse>;
-    public createAsset(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetResponse>>;
-    public createAsset(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetResponse>>;
-    public createAsset(version: number, returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createAsset.');
-        }
+    public createAsset(returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetResponse>;
+    public createAsset(returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetResponse>>;
+    public createAsset(returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetResponse>>;
+    public createAsset(returnNulls?: boolean, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, addToDefaultAlbum?: string, addToMediaLibrary?: boolean, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, app?: string, appKey?: string, searchTags?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -622,7 +610,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/create`;
+        let localVarPath = `/asset/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssetResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -641,8 +629,7 @@ export class AssetService extends BaseService {
     /**
      * Delete Asset
      * Delete an asset.
-     * @endpoint post /api/{version}/asset/delete
-     * @param version 
+     * @endpoint post /asset/delete
      * @param assetId the id of the asset to delete
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -652,13 +639,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteAsset(version: number, assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteAsset(version: number, assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteAsset(version: number, assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteAsset(version: number, assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteAsset.');
-        }
+    public deleteAsset(assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteAsset(assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteAsset(assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteAsset(assetId: string, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (assetId === null || assetId === undefined) {
             throw new Error('Required parameter assetId was null or undefined when calling deleteAsset.');
         }
@@ -735,7 +719,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/delete`;
+        let localVarPath = `/asset/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -754,8 +738,7 @@ export class AssetService extends BaseService {
     /**
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @endpoint get /api/{version}/asset/get
-     * @param version 
+     * @endpoint get /asset/get
      * @param assetId the asset ID
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -764,13 +747,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getAsset(version: number, assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetFullResponse>;
-    public getAsset(version: number, assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetFullResponse>>;
-    public getAsset(version: number, assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetFullResponse>>;
-    public getAsset(version: number, assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getAsset.');
-        }
+    public getAsset(assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<AssetFullResponse>;
+    public getAsset(assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AssetFullResponse>>;
+    public getAsset(assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AssetFullResponse>>;
+    public getAsset(assetId: number, deviceId?: string, accountId?: number, noteDescending?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (assetId === null || assetId === undefined) {
             throw new Error('Required parameter assetId was null or undefined when calling getAsset.');
         }
@@ -838,7 +818,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/get`;
+        let localVarPath = `/asset/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<AssetFullResponse>('get', `${basePath}${localVarPath}`,
             {
@@ -857,8 +837,7 @@ export class AssetService extends BaseService {
     /**
      * Remove Asset from Collection
      * Remove assets from collections
-     * @endpoint post /api/{version}/asset/remove
-     * @param version 
+     * @endpoint post /asset/remove
      * @param assetId the id of the asset to remove
      * @param deviceId the device id (deviceId or accountId required)
      * @param accountId the account id of the user (deviceId or accountId required)
@@ -871,13 +850,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public removeAsset(version: number, assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public removeAsset(version: number, assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public removeAsset(version: number, assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public removeAsset(version: number, assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling removeAsset.');
-        }
+    public removeAsset(assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public removeAsset(assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public removeAsset(assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public removeAsset(assetId: string, deviceId?: string, accountId?: number, albumId?: number, collectionId?: number, removeFromDefaultAlbums?: boolean, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (assetId === null || assetId === undefined) {
             throw new Error('Required parameter assetId was null or undefined when calling removeAsset.');
         }
@@ -981,7 +957,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/remove`;
+        let localVarPath = `/asset/remove`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -1000,8 +976,7 @@ export class AssetService extends BaseService {
     /**
      * Search Assets
      * Searches for assets
-     * @endpoint get /api/{version}/asset/search
-     * @param version 
+     * @endpoint get /asset/search
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
      * @param albumIds comma separated list of album ids to search on
@@ -1030,13 +1005,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchAssets(version: number, deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssetResponse>>;
-    public searchAssets(version: number, deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssetResponse>>>;
-    public searchAssets(version: number, deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssetResponse>>>;
-    public searchAssets(version: number, deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchAssets.');
-        }
+    public searchAssets(deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<AssetResponse>>;
+    public searchAssets(deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AssetResponse>>>;
+    public searchAssets(deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AssetResponse>>>;
+    public searchAssets(deviceId?: string, accountId?: number, albumIds?: string, assetIds?: string, appKey?: string, mediaType?: string, mimeType?: string, keyword?: string, versionCode?: number, versionName?: string, updatedSince?: number, updatedBefore?: number, sortField?: string, descending?: boolean, searchMediaLibrary?: boolean, filterByBillable?: boolean, activeOnly?: boolean, returnApp?: boolean, start?: number, limit?: number, searchMode?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1281,7 +1253,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/search`;
+        let localVarPath = `/asset/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<AssetResponse>>('get', `${basePath}${localVarPath}`,
             {
@@ -1300,8 +1272,7 @@ export class AssetService extends BaseService {
     /**
      * Update Asset
      * Updates an asset\&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @endpoint post /api/{version}/asset/update
-     * @param version 
+     * @endpoint post /asset/update
      * @param assetId the ID of the asset to update
      * @param deviceId a unique ID given by the device (deviceId or accountId required)
      * @param accountId the account ID of the user (deviceId or accountId required)
@@ -1337,13 +1308,10 @@ export class AssetService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateAsset(version: number, assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public updateAsset(version: number, assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public updateAsset(version: number, assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public updateAsset(version: number, assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateAsset.');
-        }
+    public updateAsset(assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public updateAsset(assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public updateAsset(assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public updateAsset(assetId: number, deviceId?: string, accountId?: number, albumId?: number, attachedAssetId?: number, versionCode?: number, versionName?: string, metaData?: string, caption?: string, assetType?: string, approvalStatus?: string, assignedAccountId?: number, media?: Blob, mediaUrl?: string, mediaString?: string, mediaStringFileName?: string, mediaStringContentType?: string, mediaHeight?: number, mediaWidth?: number, attachedMedia?: Blob, attachedMediaUrl?: string, attachedMediaString?: string, attachedMediaStringFileName?: string, attachedMediaStringContentType?: string, attachedMediaHeight?: number, attachedMediaWidth?: number, locationDescription?: string, searchTags?: string, appKey?: string, latitude?: number, longitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (assetId === null || assetId === undefined) {
             throw new Error('Required parameter assetId was null or undefined when calling updateAsset.');
         }
@@ -1654,7 +1622,7 @@ export class AssetService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/asset/update`;
+        let localVarPath = `/asset/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {

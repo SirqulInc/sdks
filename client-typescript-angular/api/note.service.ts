@@ -40,8 +40,7 @@ export class NoteService extends BaseService {
     /**
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @endpoint post /api/{version}/note/batch
-     * @param version 
+     * @endpoint post /note/batch
      * @param notableId The id of the notable object the batch operation will affect
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
      * @param deviceId The device id (deviceId or accountId required)
@@ -51,13 +50,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public batchOperation(version: number, notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public batchOperation(version: number, notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public batchOperation(version: number, notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public batchOperation(version: number, notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling batchOperation.');
-        }
+    public batchOperation(notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public batchOperation(notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public batchOperation(notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public batchOperation(notableId: number, notableType: string, deviceId?: string, accountId?: number, batchOperation?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (notableId === null || notableId === undefined) {
             throw new Error('Required parameter notableId was null or undefined when calling batchOperation.');
         }
@@ -137,7 +133,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/batch`;
+        let localVarPath = `/note/batch`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -156,8 +152,7 @@ export class NoteService extends BaseService {
     /**
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @endpoint post /api/{version}/note/create
-     * @param version 
+     * @endpoint post /note/create
      * @param comment The message the user wishes to leave a comment on
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -204,13 +199,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public createNote(version: number, comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NoteResponse>;
-    public createNote(version: number, comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NoteResponse>>;
-    public createNote(version: number, comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NoteResponse>>;
-    public createNote(version: number, comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling createNote.');
-        }
+    public createNote(comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NoteResponse>;
+    public createNote(comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NoteResponse>>;
+    public createNote(comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NoteResponse>>;
+    public createNote(comment: string, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, receiverAccountIds?: string, returnFullResponse?: boolean, initializeAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (comment === null || comment === undefined) {
             throw new Error('Required parameter comment was null or undefined when calling createNote.');
         }
@@ -620,7 +612,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/create`;
+        let localVarPath = `/note/create`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NoteResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -639,8 +631,7 @@ export class NoteService extends BaseService {
     /**
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @endpoint post /api/{version}/note/delete
-     * @param version 
+     * @endpoint post /note/delete
      * @param noteId The ID of the note to delete
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -651,13 +642,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public deleteNote(version: number, noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public deleteNote(version: number, noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public deleteNote(version: number, noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public deleteNote(version: number, noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling deleteNote.');
-        }
+    public deleteNote(noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public deleteNote(noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public deleteNote(noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public deleteNote(noteId: number, deviceId?: string, accountId?: number, latitude?: number, longitude?: number, appKey?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (noteId === null || noteId === undefined) {
             throw new Error('Required parameter noteId was null or undefined when calling deleteNote.');
         }
@@ -743,7 +731,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/delete`;
+        let localVarPath = `/note/delete`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -762,8 +750,7 @@ export class NoteService extends BaseService {
     /**
      * Get Note
      * Get for a note based on its Id.
-     * @endpoint post /api/{version}/note/get
-     * @param version 
+     * @endpoint post /note/get
      * @param noteId the id of the note to get
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -772,13 +759,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public getNote(version: number, noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
-    public getNote(version: number, noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
-    public getNote(version: number, noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
-    public getNote(version: number, noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling getNote.');
-        }
+    public getNote(noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<SirqulResponse>;
+    public getNote(noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SirqulResponse>>;
+    public getNote(noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SirqulResponse>>;
+    public getNote(noteId: number, deviceId?: string, accountId?: number, returnFullResponse?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (noteId === null || noteId === undefined) {
             throw new Error('Required parameter noteId was null or undefined when calling getNote.');
         }
@@ -846,7 +830,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/get`;
+        let localVarPath = `/note/get`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<SirqulResponse>('post', `${basePath}${localVarPath}`,
             {
@@ -865,8 +849,7 @@ export class NoteService extends BaseService {
     /**
      * Search Notes
      * Search for notes on a notable object.
-     * @endpoint post /api/{version}/note/search
-     * @param version 
+     * @endpoint post /note/search
      * @param deviceId The device id (deviceId or accountId required)
      * @param accountId The account id of the user (deviceId or accountId required)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}
@@ -888,13 +871,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public searchNotes(version: number, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<NoteResponse>>;
-    public searchNotes(version: number, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<NoteResponse>>>;
-    public searchNotes(version: number, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<NoteResponse>>>;
-    public searchNotes(version: number, deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling searchNotes.');
-        }
+    public searchNotes(deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<NoteResponse>>;
+    public searchNotes(deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<NoteResponse>>>;
+    public searchNotes(deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<NoteResponse>>>;
+    public searchNotes(deviceId?: string, accountId?: number, notableType?: string, notableId?: number, noteTypes?: string, appKey?: string, keyword?: string, flagCountMinimum?: number, flagsExceedThreshold?: boolean, includeInactive?: boolean, sortField?: 'ID' | 'CREATED' | 'UPDATED' | 'DELETED' | 'SEARCH_TAGS' | 'ACTIVE' | 'OWNER_DISPLAY' | 'NOTABLE_TYPE' | 'NOTE_TAG' | 'NOTE_COUNT' | 'LIKES' | 'DISLIKES', descending?: boolean, returnFullResponse?: boolean, updatedSince?: number, updatedBefore?: number, start?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new OpenApiHttpParams(this.encoder);
 
@@ -1076,7 +1056,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/search`;
+        let localVarPath = `/note/search`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<NoteResponse>>('post', `${basePath}${localVarPath}`,
             {
@@ -1095,8 +1075,7 @@ export class NoteService extends BaseService {
     /**
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @endpoint post /api/{version}/note/update
-     * @param version 
+     * @endpoint post /note/update
      * @param noteId The id of the note, used when editing a comment
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1142,13 +1121,10 @@ export class NoteService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public updateNote(version: number, noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NoteResponse>;
-    public updateNote(version: number, noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NoteResponse>>;
-    public updateNote(version: number, noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NoteResponse>>;
-    public updateNote(version: number, noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (version === null || version === undefined) {
-            throw new Error('Required parameter version was null or undefined when calling updateNote.');
-        }
+    public updateNote(noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<NoteResponse>;
+    public updateNote(noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<NoteResponse>>;
+    public updateNote(noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<NoteResponse>>;
+    public updateNote(noteId: number, deviceId?: string, accountId?: number, comment?: string, noteType?: string, assetIds?: string, tags?: string, permissionableType?: string, permissionableId?: number, appKey?: string, locationDescription?: string, latitude?: number, longitude?: number, metaData?: string, returnFullResponse?: boolean, active?: boolean, updateAsset?: boolean, assetReturnNulls?: boolean, assetAlbumId?: number, assetCollectionId?: number, assetAddToDefaultAlbum?: string, assetAddToMediaLibrary?: boolean, assetVersionCode?: number, assetVersionName?: string, assetMetaData?: string, assetCaption?: string, assetMedia?: Blob, assetMediaUrl?: string, assetMediaString?: string, assetMediaStringFileName?: string, assetMediaStringContentType?: string, assetAttachedMedia?: Blob, assetAttachedMediaUrl?: string, assetAttachedMediaString?: string, assetAttachedMediaStringFileName?: string, assetAttachedMediaStringContentType?: string, assetLocationDescription?: string, assetApp?: string, assetSearchTags?: string, assetLatitude?: number, assetLongitude?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (noteId === null || noteId === undefined) {
             throw new Error('Required parameter noteId was null or undefined when calling updateNote.');
         }
@@ -1549,7 +1525,7 @@ export class NoteService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/${this.configuration.encodeParam({name: "version", value: version, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/note/update`;
+        let localVarPath = `/note/update`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<NoteResponse>('post', `${basePath}${localVarPath}`,
             {
