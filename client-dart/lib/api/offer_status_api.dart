@@ -24,8 +24,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] name (required):
   ///   The name of the status
   ///
@@ -55,10 +53,9 @@ class OfferStatusApi {
   ///
   /// * [String] applicationIds:
   ///   The applications to associate the status with, if null then for all.
-  Future<Response> createOfferTransactionStatusWithHttpInfo(num version, String name, int code, { String? deviceId, int? accountId, double? latitude, double? longitude, String? description, String? role, bool? active, String? applicationIds, }) async {
+  Future<Response> createOfferTransactionStatusWithHttpInfo(String name, int code, { String? deviceId, int? accountId, double? latitude, double? longitude, String? description, String? role, bool? active, String? applicationIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/status/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/status/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -114,8 +111,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] name (required):
   ///   The name of the status
   ///
@@ -145,8 +140,8 @@ class OfferStatusApi {
   ///
   /// * [String] applicationIds:
   ///   The applications to associate the status with, if null then for all.
-  Future<OfferTransactionStatusResponse?> createOfferTransactionStatus(num version, String name, int code, { String? deviceId, int? accountId, double? latitude, double? longitude, String? description, String? role, bool? active, String? applicationIds, }) async {
-    final response = await createOfferTransactionStatusWithHttpInfo(version, name, code,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, description: description, role: role, active: active, applicationIds: applicationIds, );
+  Future<OfferTransactionStatusResponse?> createOfferTransactionStatus(String name, int code, { String? deviceId, int? accountId, double? latitude, double? longitude, String? description, String? role, bool? active, String? applicationIds, }) async {
+    final response = await createOfferTransactionStatusWithHttpInfo(name, code,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, description: description, role: role, active: active, applicationIds: applicationIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,8 +163,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] statusId (required):
   ///   The id of the record to delete
   ///
@@ -184,10 +177,9 @@ class OfferStatusApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<Response> deleteOfferTransactionStatusWithHttpInfo(num version, int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> deleteOfferTransactionStatusWithHttpInfo(int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/status/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/status/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -230,8 +222,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] statusId (required):
   ///   The id of the record to delete
   ///
@@ -246,8 +236,8 @@ class OfferStatusApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<SirqulResponse?> deleteOfferTransactionStatus(num version, int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await deleteOfferTransactionStatusWithHttpInfo(version, statusId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> deleteOfferTransactionStatus(int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await deleteOfferTransactionStatusWithHttpInfo(statusId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -269,8 +259,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] statusId (required):
   ///   The id of the record to get 
   ///
@@ -285,10 +273,9 @@ class OfferStatusApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<Response> getOfferTransactionStatusWithHttpInfo(num version, int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getOfferTransactionStatusWithHttpInfo(int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/status/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/status/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -331,8 +318,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] statusId (required):
   ///   The id of the record to get 
   ///
@@ -347,8 +332,8 @@ class OfferStatusApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<OfferTransactionStatusResponse?> getOfferTransactionStatus(num version, int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getOfferTransactionStatusWithHttpInfo(version, statusId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<OfferTransactionStatusResponse?> getOfferTransactionStatus(int statusId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getOfferTransactionStatusWithHttpInfo(statusId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -369,8 +354,6 @@ class OfferStatusApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -407,10 +390,9 @@ class OfferStatusApi {
   ///
   /// * [bool] includeInactive:
   ///   If true include inactive items
-  Future<Response> searchOfferTransactionStatusesWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, String? role, String? appKey, String? sortField, bool? descending, int? start, int? limit, bool? includeInactive, }) async {
+  Future<Response> searchOfferTransactionStatusesWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, String? role, String? appKey, String? sortField, bool? descending, int? start, int? limit, bool? includeInactive, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/status/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/status/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -476,8 +458,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -513,8 +493,8 @@ class OfferStatusApi {
   ///
   /// * [bool] includeInactive:
   ///   If true include inactive items
-  Future<List<OfferTransactionStatusResponse>?> searchOfferTransactionStatuses(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, String? role, String? appKey, String? sortField, bool? descending, int? start, int? limit, bool? includeInactive, }) async {
-    final response = await searchOfferTransactionStatusesWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, role: role, appKey: appKey, sortField: sortField, descending: descending, start: start, limit: limit, includeInactive: includeInactive, );
+  Future<List<OfferTransactionStatusResponse>?> searchOfferTransactionStatuses({ String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, String? role, String? appKey, String? sortField, bool? descending, int? start, int? limit, bool? includeInactive, }) async {
+    final response = await searchOfferTransactionStatusesWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, role: role, appKey: appKey, sortField: sortField, descending: descending, start: start, limit: limit, includeInactive: includeInactive, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -538,8 +518,6 @@ class OfferStatusApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -573,10 +551,9 @@ class OfferStatusApi {
   ///
   /// * [String] applicationIds:
   ///   The applications to associate the status with, if null then for all.
-  Future<Response> updateOfferTransactionStatusWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, int? statusId, String? name, String? description, int? code, String? role, bool? active, String? applicationIds, }) async {
+  Future<Response> updateOfferTransactionStatusWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, int? statusId, String? name, String? description, int? code, String? role, bool? active, String? applicationIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/status/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/status/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -639,8 +616,6 @@ class OfferStatusApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -673,8 +648,8 @@ class OfferStatusApi {
   ///
   /// * [String] applicationIds:
   ///   The applications to associate the status with, if null then for all.
-  Future<OfferTransactionStatusResponse?> updateOfferTransactionStatus(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, int? statusId, String? name, String? description, int? code, String? role, bool? active, String? applicationIds, }) async {
-    final response = await updateOfferTransactionStatusWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, statusId: statusId, name: name, description: description, code: code, role: role, active: active, applicationIds: applicationIds, );
+  Future<OfferTransactionStatusResponse?> updateOfferTransactionStatus({ String? deviceId, int? accountId, double? latitude, double? longitude, int? statusId, String? name, String? description, int? code, String? role, bool? active, String? applicationIds, }) async {
+    final response = await updateOfferTransactionStatusWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, statusId: statusId, name: name, description: description, code: code, role: role, active: active, applicationIds: applicationIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -24,8 +24,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -34,10 +32,9 @@ class TerritoryApi {
   ///
   /// * [bool] active:
   ///   If true set the game level as active. Default is true.
-  Future<Response> createTerritoryWithHttpInfo(num version, int accountId, String name, { bool? active, }) async {
+  Future<Response> createTerritoryWithHttpInfo(int accountId, String name, { bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/territory/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/territory/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -72,8 +69,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -82,8 +77,8 @@ class TerritoryApi {
   ///
   /// * [bool] active:
   ///   If true set the game level as active. Default is true.
-  Future<TerritoryResponse?> createTerritory(num version, int accountId, String name, { bool? active, }) async {
-    final response = await createTerritoryWithHttpInfo(version, accountId, name,  active: active, );
+  Future<TerritoryResponse?> createTerritory(int accountId, String name, { bool? active, }) async {
+    final response = await createTerritoryWithHttpInfo(accountId, name,  active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -105,17 +100,14 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] territoryId (required):
   ///   the id of the territory to delete
-  Future<Response> deleteTerritoryWithHttpInfo(num version, int accountId, int territoryId,) async {
+  Future<Response> deleteTerritoryWithHttpInfo(int accountId, int territoryId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/territory/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/territory/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -147,15 +139,13 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] territoryId (required):
   ///   the id of the territory to delete
-  Future<SirqulResponse?> deleteTerritory(num version, int accountId, int territoryId,) async {
-    final response = await deleteTerritoryWithHttpInfo(version, accountId, territoryId,);
+  Future<SirqulResponse?> deleteTerritory(int accountId, int territoryId,) async {
+    final response = await deleteTerritoryWithHttpInfo(accountId, territoryId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -177,14 +167,11 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] territoryId (required):
   ///   the id of the territory to get
-  Future<Response> getTerritoryWithHttpInfo(num version, int territoryId,) async {
+  Future<Response> getTerritoryWithHttpInfo(int territoryId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/territory/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/territory/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -215,12 +202,10 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] territoryId (required):
   ///   the id of the territory to get
-  Future<TerritoryResponse?> getTerritory(num version, int territoryId,) async {
-    final response = await getTerritoryWithHttpInfo(version, territoryId,);
+  Future<TerritoryResponse?> getTerritory(int territoryId,) async {
+    final response = await getTerritoryWithHttpInfo(territoryId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -242,8 +227,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
   ///
@@ -258,10 +241,9 @@ class TerritoryApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<Response> searchTerritoriesWithHttpInfo(num version, String sortField, bool descending, { String? keyword, int? start, int? limit, }) async {
+  Future<Response> searchTerritoriesWithHttpInfo(String sortField, bool descending, { String? keyword, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/territory/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/territory/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -302,8 +284,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
   ///
@@ -318,8 +298,8 @@ class TerritoryApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<List<TerritoryResponse>?> searchTerritories(num version, String sortField, bool descending, { String? keyword, int? start, int? limit, }) async {
-    final response = await searchTerritoriesWithHttpInfo(version, sortField, descending,  keyword: keyword, start: start, limit: limit, );
+  Future<List<TerritoryResponse>?> searchTerritories(String sortField, bool descending, { String? keyword, int? start, int? limit, }) async {
+    final response = await searchTerritoriesWithHttpInfo(sortField, descending,  keyword: keyword, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -344,8 +324,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -357,10 +335,9 @@ class TerritoryApi {
   ///
   /// * [bool] active:
   ///   If true set the game level as active.
-  Future<Response> updateTerritoryWithHttpInfo(num version, int accountId, int territoryId, { String? name, bool? active, }) async {
+  Future<Response> updateTerritoryWithHttpInfo(int accountId, int territoryId, { String? name, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/territory/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/territory/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -398,8 +375,6 @@ class TerritoryApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -411,8 +386,8 @@ class TerritoryApi {
   ///
   /// * [bool] active:
   ///   If true set the game level as active.
-  Future<TerritoryResponse?> updateTerritory(num version, int accountId, int territoryId, { String? name, bool? active, }) async {
-    final response = await updateTerritoryWithHttpInfo(version, accountId, territoryId,  name: name, active: active, );
+  Future<TerritoryResponse?> updateTerritory(int accountId, int territoryId, { String? name, bool? active, }) async {
+    final response = await updateTerritoryWithHttpInfo(accountId, territoryId,  name: name, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

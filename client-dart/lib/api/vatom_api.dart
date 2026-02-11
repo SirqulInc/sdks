@@ -24,8 +24,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -34,10 +32,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> createFollowingWithHttpInfo(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> createFollowingWithHttpInfo(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/rels/following/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/rels/following/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -72,8 +69,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -82,8 +77,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> createFollowing(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await createFollowingWithHttpInfo(version, accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> createFollowing(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await createFollowingWithHttpInfo(accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -97,8 +92,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -110,10 +103,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> createSpaceWithHttpInfo(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> createSpaceWithHttpInfo(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/spaces/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/spaces/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -149,8 +141,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -162,8 +152,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> createSpace(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await createSpaceWithHttpInfo(version, accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> createSpace(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await createSpaceWithHttpInfo(accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -177,8 +167,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -190,10 +178,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> createVatomEventWithHttpInfo(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> createVatomEventWithHttpInfo(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -229,8 +216,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -242,8 +227,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> createVatomEvent(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await createVatomEventWithHttpInfo(version, accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> createVatomEvent(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await createVatomEventWithHttpInfo(accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -257,8 +242,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -267,10 +250,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> deleteFollowingWithHttpInfo(num version, int accountId, String vatomRelsKey, { bool? returnRawResponse, }) async {
+  Future<Response> deleteFollowingWithHttpInfo(int accountId, String vatomRelsKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/rels/following/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/rels/following/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -305,8 +287,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -315,8 +295,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> deleteFollowing(num version, int accountId, String vatomRelsKey, { bool? returnRawResponse, }) async {
-    final response = await deleteFollowingWithHttpInfo(version, accountId, vatomRelsKey,  returnRawResponse: returnRawResponse, );
+  Future<void> deleteFollowing(int accountId, String vatomRelsKey, { bool? returnRawResponse, }) async {
+    final response = await deleteFollowingWithHttpInfo(accountId, vatomRelsKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -330,8 +310,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -343,10 +321,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> deletePointsBalanceWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> deletePointsBalanceWithHttpInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign/points/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign/points/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -382,8 +359,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -395,8 +370,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> deletePointsBalance(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await deletePointsBalanceWithHttpInfo(version, accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> deletePointsBalance(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await deletePointsBalanceWithHttpInfo(accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -410,8 +385,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -423,10 +396,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> deleteSpaceWithHttpInfo(num version, int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
+  Future<Response> deleteSpaceWithHttpInfo(int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/spaces/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/spaces/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -462,8 +434,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -475,8 +445,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> deleteSpace(num version, int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
-    final response = await deleteSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId,  returnRawResponse: returnRawResponse, );
+  Future<void> deleteSpace(int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
+    final response = await deleteSpaceWithHttpInfo(accountId, appKey, vatomSpaceId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -490,8 +460,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -503,10 +471,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> deleteVatomEventWithHttpInfo(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+  Future<Response> deleteVatomEventWithHttpInfo(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -542,8 +509,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -555,8 +520,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> deleteVatomEvent(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
-    final response = await deleteVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
+  Future<void> deleteVatomEvent(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+    final response = await deleteVatomEventWithHttpInfo(accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -570,8 +535,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -580,10 +543,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> deleteVatomNFTWithHttpInfo(num version, int accountId, String vatomId, { bool? returnRawResponse, }) async {
+  Future<Response> deleteVatomNFTWithHttpInfo(int accountId, String vatomId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/vatoms/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/vatoms/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -618,8 +580,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -628,8 +588,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> deleteVatomNFT(num version, int accountId, String vatomId, { bool? returnRawResponse, }) async {
-    final response = await deleteVatomNFTWithHttpInfo(version, accountId, vatomId,  returnRawResponse: returnRawResponse, );
+  Future<void> deleteVatomNFT(int accountId, String vatomId, { bool? returnRawResponse, }) async {
+    final response = await deleteVatomNFTWithHttpInfo(accountId, vatomId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -643,8 +603,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -656,10 +614,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> executeActionOnNFTWithHttpInfo(num version, int accountId, String vatomId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> executeActionOnNFTWithHttpInfo(int accountId, String vatomId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/vatoms/execute-action'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/vatoms/execute-action';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -695,8 +652,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -708,8 +663,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> executeActionOnNFT(num version, int accountId, String vatomId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await executeActionOnNFTWithHttpInfo(version, accountId, vatomId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> executeActionOnNFT(int accountId, String vatomId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await executeActionOnNFTWithHttpInfo(accountId, vatomId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -723,8 +678,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -733,10 +686,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> geomapSearchWithHttpInfo(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> geomapSearchWithHttpInfo(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/vatoms/geo-map/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/vatoms/geo-map/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -771,8 +723,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -781,8 +731,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> geomapSearch(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await geomapSearchWithHttpInfo(version, accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> geomapSearch(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await geomapSearchWithHttpInfo(accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -796,8 +746,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -806,10 +754,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getBusinessBehaviorsWithHttpInfo(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
+  Future<Response> getBusinessBehaviorsWithHttpInfo(int accountId, String appKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/behaviors'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/behaviors';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -844,8 +791,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -854,8 +799,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getBusinessBehaviors(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
-    final response = await getBusinessBehaviorsWithHttpInfo(version, accountId, appKey,  returnRawResponse: returnRawResponse, );
+  Future<void> getBusinessBehaviors(int accountId, String appKey, { bool? returnRawResponse, }) async {
+    final response = await getBusinessBehaviorsWithHttpInfo(accountId, appKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -869,8 +814,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -879,10 +822,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getBusinessCoinsBalanceWithHttpInfo(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
+  Future<Response> getBusinessCoinsBalanceWithHttpInfo(int accountId, String appKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/coins/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/coins/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -917,8 +859,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -927,8 +867,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getBusinessCoinsBalance(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
-    final response = await getBusinessCoinsBalanceWithHttpInfo(version, accountId, appKey,  returnRawResponse: returnRawResponse, );
+  Future<void> getBusinessCoinsBalance(int accountId, String appKey, { bool? returnRawResponse, }) async {
+    final response = await getBusinessCoinsBalanceWithHttpInfo(accountId, appKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -942,17 +882,14 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getBusinessIdsWithHttpInfo(num version, int accountId, { bool? returnRawResponse, }) async {
+  Future<Response> getBusinessIdsWithHttpInfo(int accountId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/businesses'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/businesses';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -986,15 +923,13 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getBusinessIds(num version, int accountId, { bool? returnRawResponse, }) async {
-    final response = await getBusinessIdsWithHttpInfo(version, accountId,  returnRawResponse: returnRawResponse, );
+  Future<void> getBusinessIds(int accountId, { bool? returnRawResponse, }) async {
+    final response = await getBusinessIdsWithHttpInfo(accountId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1008,8 +943,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1021,10 +954,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getBusinessInfoWithHttpInfo(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> getBusinessInfoWithHttpInfo(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1062,8 +994,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1075,8 +1005,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getBusinessInfo(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await getBusinessInfoWithHttpInfo(version, accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> getBusinessInfo(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await getBusinessInfoWithHttpInfo(accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1090,8 +1020,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1100,10 +1028,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getBusinessUsersWithHttpInfo(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
+  Future<Response> getBusinessUsersWithHttpInfo(int accountId, String appKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/users'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/users';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1138,8 +1065,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1148,8 +1073,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getBusinessUsers(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
-    final response = await getBusinessUsersWithHttpInfo(version, accountId, appKey,  returnRawResponse: returnRawResponse, );
+  Future<void> getBusinessUsers(int accountId, String appKey, { bool? returnRawResponse, }) async {
+    final response = await getBusinessUsersWithHttpInfo(accountId, appKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1163,8 +1088,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1176,10 +1099,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getCampaignGroupEntitiesWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getCampaignGroupEntitiesWithHttpInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign-groups/entities'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign-groups/entities';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1215,8 +1137,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1228,8 +1148,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getCampaignGroupEntities(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getCampaignGroupEntitiesWithHttpInfo(version, accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getCampaignGroupEntities(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getCampaignGroupEntitiesWithHttpInfo(accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1243,8 +1163,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1256,10 +1174,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getCampaignGroupRulesWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getCampaignGroupRulesWithHttpInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign-groups/rules'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign-groups/rules';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1295,8 +1212,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1308,8 +1223,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getCampaignGroupRules(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getCampaignGroupRulesWithHttpInfo(version, accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getCampaignGroupRules(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getCampaignGroupRulesWithHttpInfo(accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1323,8 +1238,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1336,10 +1249,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getCampaignGroupStatsWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getCampaignGroupStatsWithHttpInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign-groups/stats'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign-groups/stats';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1375,8 +1287,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1388,8 +1298,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getCampaignGroupStats(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getCampaignGroupStatsWithHttpInfo(version, accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getCampaignGroupStats(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getCampaignGroupStatsWithHttpInfo(accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1403,8 +1313,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1416,10 +1324,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getCampaignInfoWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getCampaignInfoWithHttpInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign-groups/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign-groups/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1455,8 +1362,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1468,8 +1373,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getCampaignInfo(num version, int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getCampaignInfoWithHttpInfo(version, accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getCampaignInfo(int accountId, String appKey, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getCampaignInfoWithHttpInfo(accountId, appKey, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1483,8 +1388,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1496,10 +1399,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getEventGuestListWithHttpInfo(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+  Future<Response> getEventGuestListWithHttpInfo(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/guests/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/guests/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1535,8 +1437,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1548,8 +1448,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getEventGuestList(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
-    final response = await getEventGuestListWithHttpInfo(version, accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
+  Future<void> getEventGuestList(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+    final response = await getEventGuestListWithHttpInfo(accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1563,8 +1463,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1573,10 +1471,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getInventoryWithHttpInfo(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> getInventoryWithHttpInfo(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/inventory'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/inventory';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1611,8 +1508,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1621,8 +1516,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getInventory(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await getInventoryWithHttpInfo(version, accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> getInventory(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await getInventoryWithHttpInfo(accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1636,17 +1531,14 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getMyFollowingWithHttpInfo(num version, int accountId, { bool? returnRawResponse, }) async {
+  Future<Response> getMyFollowingWithHttpInfo(int accountId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/rels/following'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/rels/following';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1680,15 +1572,13 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getMyFollowing(num version, int accountId, { bool? returnRawResponse, }) async {
-    final response = await getMyFollowingWithHttpInfo(version, accountId,  returnRawResponse: returnRawResponse, );
+  Future<void> getMyFollowing(int accountId, { bool? returnRawResponse, }) async {
+    final response = await getMyFollowingWithHttpInfo(accountId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1702,8 +1592,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1715,10 +1603,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getPointsBalanceWithHttpInfo(num version, int accountId, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getPointsBalanceWithHttpInfo(int accountId, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/u/campaign/points/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/u/campaign/points/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1754,8 +1641,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1767,8 +1652,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getPointsBalance(num version, int accountId, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getPointsBalanceWithHttpInfo(version, accountId, vatomUserId, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getPointsBalance(int accountId, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getPointsBalanceWithHttpInfo(accountId, vatomUserId, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1781,8 +1666,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -1798,10 +1681,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getPointsBalanceAsBusinessWithHttpInfo(num version, int accountId, String appKey, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
+  Future<Response> getPointsBalanceAsBusinessWithHttpInfo(int accountId, String appKey, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign/u/points/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign/u/points/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1838,8 +1720,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1854,8 +1734,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getPointsBalanceAsBusiness(num version, int accountId, String appKey, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
-    final response = await getPointsBalanceAsBusinessWithHttpInfo(version, accountId, appKey, vatomUserId, vatomCampaignId,  returnRawResponse: returnRawResponse, );
+  Future<void> getPointsBalanceAsBusiness(int accountId, String appKey, String vatomUserId, String vatomCampaignId, { bool? returnRawResponse, }) async {
+    final response = await getPointsBalanceAsBusinessWithHttpInfo(accountId, appKey, vatomUserId, vatomCampaignId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1869,8 +1749,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1882,10 +1760,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getSpaceWithHttpInfo(num version, int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
+  Future<Response> getSpaceWithHttpInfo(int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/spaces/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/spaces/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1921,8 +1798,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1934,8 +1809,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getSpace(num version, int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
-    final response = await getSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId,  returnRawResponse: returnRawResponse, );
+  Future<void> getSpace(int accountId, String appKey, String vatomSpaceId, { bool? returnRawResponse, }) async {
+    final response = await getSpaceWithHttpInfo(accountId, appKey, vatomSpaceId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1949,8 +1824,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1962,10 +1835,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserCoinsAsBusinessWithHttpInfo(num version, int accountId, String vatomUserId, String appKey, { bool? returnRawResponse, }) async {
+  Future<Response> getUserCoinsAsBusinessWithHttpInfo(int accountId, String vatomUserId, String appKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/users/coins/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/users/coins/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2001,8 +1873,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2014,8 +1884,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserCoinsAsBusiness(num version, int accountId, String vatomUserId, String appKey, { bool? returnRawResponse, }) async {
-    final response = await getUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey,  returnRawResponse: returnRawResponse, );
+  Future<void> getUserCoinsAsBusiness(int accountId, String vatomUserId, String appKey, { bool? returnRawResponse, }) async {
+    final response = await getUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2029,8 +1899,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2042,10 +1910,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserCoinsBalanceWithHttpInfo(num version, int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> getUserCoinsBalanceWithHttpInfo(int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/u/coins/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/u/coins/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2083,8 +1950,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2096,8 +1961,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserCoinsBalance(num version, int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await getUserCoinsBalanceWithHttpInfo(version, accountId, vatomUserId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> getUserCoinsBalance(int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await getUserCoinsBalanceWithHttpInfo(accountId, vatomUserId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2111,8 +1976,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2121,10 +1984,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserFollowersWithHttpInfo(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+  Future<Response> getUserFollowersWithHttpInfo(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/users/rels/followers'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/users/rels/followers';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2159,8 +2021,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2169,8 +2029,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserFollowers(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
-    final response = await getUserFollowersWithHttpInfo(version, accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
+  Future<void> getUserFollowers(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+    final response = await getUserFollowersWithHttpInfo(accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2184,8 +2044,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2194,10 +2052,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserFollowingWithHttpInfo(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+  Future<Response> getUserFollowingWithHttpInfo(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/users/rels/following'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/users/rels/following';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2232,8 +2089,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2242,8 +2097,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserFollowing(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
-    final response = await getUserFollowingWithHttpInfo(version, accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
+  Future<void> getUserFollowing(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+    final response = await getUserFollowingWithHttpInfo(accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2257,8 +2112,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2267,10 +2120,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserInfoWithHttpInfo(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+  Future<Response> getUserInfoWithHttpInfo(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/user/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/user/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2305,8 +2157,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2315,8 +2165,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserInfo(num version, int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
-    final response = await getUserInfoWithHttpInfo(version, accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
+  Future<void> getUserInfo(int accountId, String vatomUserId, { bool? returnRawResponse, }) async {
+    final response = await getUserInfoWithHttpInfo(accountId, vatomUserId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2330,17 +2180,14 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getUserProfileWithHttpInfo(num version, int accountId, { bool? returnRawResponse, }) async {
+  Future<Response> getUserProfileWithHttpInfo(int accountId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2374,15 +2221,13 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getUserProfile(num version, int accountId, { bool? returnRawResponse, }) async {
-    final response = await getUserProfileWithHttpInfo(version, accountId,  returnRawResponse: returnRawResponse, );
+  Future<void> getUserProfile(int accountId, { bool? returnRawResponse, }) async {
+    final response = await getUserProfileWithHttpInfo(accountId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2396,8 +2241,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2409,10 +2252,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getVatomEventWithHttpInfo(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+  Future<Response> getVatomEventWithHttpInfo(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2448,8 +2290,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2461,8 +2301,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getVatomEvent(num version, int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
-    final response = await getVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
+  Future<void> getVatomEvent(int accountId, String appKey, String vatomEventId, { bool? returnRawResponse, }) async {
+    final response = await getVatomEventWithHttpInfo(accountId, appKey, vatomEventId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2476,8 +2316,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2486,10 +2324,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> getVatomNFTWithHttpInfo(num version, int accountId, String vatomId, { bool? returnRawResponse, }) async {
+  Future<Response> getVatomNFTWithHttpInfo(int accountId, String vatomId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/vatoms/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/vatoms/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2524,8 +2361,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2534,8 +2369,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> getVatomNFT(num version, int accountId, String vatomId, { bool? returnRawResponse, }) async {
-    final response = await getVatomNFTWithHttpInfo(version, accountId, vatomId,  returnRawResponse: returnRawResponse, );
+  Future<void> getVatomNFT(int accountId, String vatomId, { bool? returnRawResponse, }) async {
+    final response = await getVatomNFTWithHttpInfo(accountId, vatomId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2549,8 +2384,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2562,10 +2395,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> listCommunitiesWithHttpInfo(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> listCommunitiesWithHttpInfo(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/communities/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/communities/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2603,8 +2435,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2616,8 +2446,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> listCommunities(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await listCommunitiesWithHttpInfo(version, accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> listCommunities(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await listCommunitiesWithHttpInfo(accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2631,8 +2461,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2644,10 +2472,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> listEventsWithHttpInfo(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> listEventsWithHttpInfo(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2685,8 +2512,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2698,8 +2523,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> listEvents(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await listEventsWithHttpInfo(version, accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> listEvents(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await listEventsWithHttpInfo(accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2713,8 +2538,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2726,10 +2549,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> listSpacesWithHttpInfo(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> listSpacesWithHttpInfo(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/spaces/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/spaces/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2767,8 +2589,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2780,8 +2600,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> listSpaces(num version, int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await listSpacesWithHttpInfo(version, accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> listSpaces(int accountId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await listSpacesWithHttpInfo(accountId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2795,8 +2615,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2808,10 +2626,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> listUserCoinTransactionsWithHttpInfo(num version, int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> listUserCoinTransactionsWithHttpInfo(int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/u/coins/txns/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/u/coins/txns/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2849,8 +2666,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2862,8 +2677,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> listUserCoinTransactions(num version, int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await listUserCoinTransactionsWithHttpInfo(version, accountId, vatomUserId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> listUserCoinTransactions(int accountId, String vatomUserId, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await listUserCoinTransactionsWithHttpInfo(accountId, vatomUserId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2877,8 +2692,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2893,10 +2706,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> listUserCoinTransactionsAsBusinessWithHttpInfo(num version, int accountId, String vatomUserId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> listUserCoinTransactionsAsBusinessWithHttpInfo(int accountId, String vatomUserId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/users/coins/txns/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/users/coins/txns/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2935,8 +2747,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2951,8 +2761,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> listUserCoinTransactionsAsBusiness(num version, int accountId, String vatomUserId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await listUserCoinTransactionsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> listUserCoinTransactionsAsBusiness(int accountId, String vatomUserId, String appKey, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await listUserCoinTransactionsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2965,8 +2775,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -2982,10 +2790,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> performActionOnNFTWithHttpInfo(num version, int accountId, String vatomId, String vatomAction, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> performActionOnNFTWithHttpInfo(int accountId, String vatomId, String vatomAction, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/vatoms/actions'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/vatoms/actions';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3022,8 +2829,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3038,8 +2843,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> performActionOnNFT(num version, int accountId, String vatomId, String vatomAction, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await performActionOnNFTWithHttpInfo(version, accountId, vatomId, vatomAction, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> performActionOnNFT(int accountId, String vatomId, String vatomAction, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await performActionOnNFTWithHttpInfo(accountId, vatomId, vatomAction, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3053,8 +2858,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3066,10 +2869,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> redeemNFTWithHttpInfo(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> redeemNFTWithHttpInfo(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/redemptions'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/redemptions';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3105,8 +2907,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3118,8 +2918,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> redeemNFT(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await redeemNFTWithHttpInfo(version, accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> redeemNFT(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await redeemNFTWithHttpInfo(accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3132,8 +2932,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -3149,10 +2947,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> redeemUserCoinsAsBusinessWithHttpInfo(num version, int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> redeemUserCoinsAsBusinessWithHttpInfo(int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/users/coins/redeem'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/users/coins/redeem';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3189,8 +2986,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3205,8 +3000,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> redeemUserCoinsAsBusiness(num version, int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await redeemUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> redeemUserCoinsAsBusiness(int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await redeemUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3220,8 +3015,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3230,10 +3023,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> searchBusinessesWithHttpInfo(num version, int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> searchBusinessesWithHttpInfo(int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3270,8 +3062,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3280,8 +3070,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> searchBusinesses(num version, int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await searchBusinessesWithHttpInfo(version, accountId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> searchBusinesses(int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await searchBusinessesWithHttpInfo(accountId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3295,8 +3085,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3305,10 +3093,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> searchCampaignGroupsWithHttpInfo(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
+  Future<Response> searchCampaignGroupsWithHttpInfo(int accountId, String appKey, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign-groups/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign-groups/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3343,8 +3130,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3353,8 +3138,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> searchCampaignGroups(num version, int accountId, String appKey, { bool? returnRawResponse, }) async {
-    final response = await searchCampaignGroupsWithHttpInfo(version, accountId, appKey,  returnRawResponse: returnRawResponse, );
+  Future<void> searchCampaignGroups(int accountId, String appKey, { bool? returnRawResponse, }) async {
+    final response = await searchCampaignGroupsWithHttpInfo(accountId, appKey,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3368,17 +3153,14 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> searchIdentitiesWithHttpInfo(num version, int accountId, { bool? returnRawResponse, }) async {
+  Future<Response> searchIdentitiesWithHttpInfo(int accountId, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/identities/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/identities/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3412,15 +3194,13 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> searchIdentities(num version, int accountId, { bool? returnRawResponse, }) async {
-    final response = await searchIdentitiesWithHttpInfo(version, accountId,  returnRawResponse: returnRawResponse, );
+  Future<void> searchIdentities(int accountId, { bool? returnRawResponse, }) async {
+    final response = await searchIdentitiesWithHttpInfo(accountId,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3434,8 +3214,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3444,10 +3222,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> searchInventoryWithHttpInfo(num version, int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
+  Future<Response> searchInventoryWithHttpInfo(int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/user-inventory/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/user-inventory/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3484,8 +3261,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3494,8 +3269,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> searchInventory(num version, int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
-    final response = await searchInventoryWithHttpInfo(version, accountId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
+  Future<void> searchInventory(int accountId, { String? vatomParameters, bool? returnRawResponse, }) async {
+    final response = await searchInventoryWithHttpInfo(accountId,  vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3508,8 +3283,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -3525,10 +3298,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> sendNFTWithHttpInfo(num version, int accountId, String appKey, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> sendNFTWithHttpInfo(int accountId, String appKey, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaigns/send'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaigns/send';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3565,8 +3337,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3581,8 +3351,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> sendNFT(num version, int accountId, String appKey, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await sendNFTWithHttpInfo(version, accountId, appKey, vatomCampaignId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> sendNFT(int accountId, String appKey, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await sendNFTWithHttpInfo(accountId, appKey, vatomCampaignId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3595,8 +3365,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -3615,10 +3383,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> setPointsBalanceAsBusinessWithHttpInfo(num version, int accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> setPointsBalanceAsBusinessWithHttpInfo(int accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/campaign/u/points/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/campaign/u/points/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3656,8 +3423,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3675,8 +3440,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> setPointsBalanceAsBusiness(num version, int accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await setPointsBalanceAsBusinessWithHttpInfo(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> setPointsBalanceAsBusiness(int accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await setPointsBalanceAsBusinessWithHttpInfo(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3690,8 +3455,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3703,10 +3466,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> transferUserCoinsWithHttpInfo(num version, int accountId, String vatomUserId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> transferUserCoinsWithHttpInfo(int accountId, String vatomUserId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/u/coins/transfer'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/u/coins/transfer';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3742,8 +3504,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3755,8 +3515,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> transferUserCoins(num version, int accountId, String vatomUserId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await transferUserCoinsWithHttpInfo(version, accountId, vatomUserId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> transferUserCoins(int accountId, String vatomUserId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await transferUserCoinsWithHttpInfo(accountId, vatomUserId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3770,8 +3530,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3783,10 +3541,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateBusinessCoinsWithHttpInfo(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateBusinessCoinsWithHttpInfo(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/coins/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/coins/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3822,8 +3579,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3835,8 +3590,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateBusinessCoins(num version, int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateBusinessCoinsWithHttpInfo(version, accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateBusinessCoins(int accountId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateBusinessCoinsWithHttpInfo(accountId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3849,8 +3604,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -3866,10 +3619,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateEventGuestListWithHttpInfo(num version, int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateEventGuestListWithHttpInfo(int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/guests/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/guests/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3906,8 +3658,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -3922,8 +3672,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateEventGuestList(num version, int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateEventGuestListWithHttpInfo(version, accountId, appKey, vatomEventId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateEventGuestList(int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateEventGuestListWithHttpInfo(accountId, appKey, vatomEventId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3936,8 +3686,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -3953,10 +3701,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateSpaceWithHttpInfo(num version, int accountId, String appKey, String vatomSpaceId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateSpaceWithHttpInfo(int accountId, String appKey, String vatomSpaceId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/spaces/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/spaces/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3993,8 +3740,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -4009,8 +3754,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateSpace(num version, int accountId, String appKey, String vatomSpaceId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateSpace(int accountId, String appKey, String vatomSpaceId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateSpaceWithHttpInfo(accountId, appKey, vatomSpaceId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4023,8 +3768,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -4040,10 +3783,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateUserCoinsAsBusinessWithHttpInfo(num version, int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateUserCoinsAsBusinessWithHttpInfo(int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/users/coins/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/users/coins/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4080,8 +3822,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -4096,8 +3836,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateUserCoinsAsBusiness(num version, int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateUserCoinsAsBusiness(int accountId, String vatomUserId, String appKey, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4111,8 +3851,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -4121,10 +3859,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateUserProfileWithHttpInfo(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateUserProfileWithHttpInfo(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/me/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/me/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4159,8 +3896,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -4169,8 +3904,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateUserProfile(num version, int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateUserProfileWithHttpInfo(version, accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateUserProfile(int accountId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateUserProfileWithHttpInfo(accountId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4183,8 +3918,6 @@ class VatomApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -4200,10 +3933,9 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> updateVatomEventWithHttpInfo(num version, int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
+  Future<Response> updateVatomEventWithHttpInfo(int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vatom/b/events/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vatom/b/events/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4240,8 +3972,6 @@ class VatomApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -4256,8 +3986,8 @@ class VatomApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<void> updateVatomEvent(num version, int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
-    final response = await updateVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId, vatomParameters,  returnRawResponse: returnRawResponse, );
+  Future<void> updateVatomEvent(int accountId, String appKey, String vatomEventId, String vatomParameters, { bool? returnRawResponse, }) async {
+    final response = await updateVatomEventWithHttpInfo(accountId, appKey, vatomEventId, vatomParameters,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

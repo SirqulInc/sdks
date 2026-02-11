@@ -24,8 +24,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user's account ID
   ///
@@ -67,10 +65,9 @@ class ListingApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> createListingWithHttpInfo(num version, int accountId, String name, { String? filterIds, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
+  Future<Response> createListingWithHttpInfo(int accountId, String name, { String? filterIds, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -138,8 +135,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user's account ID
   ///
@@ -181,8 +176,8 @@ class ListingApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<ListingFullResponse?> createListing(num version, int accountId, String name, { String? filterIds, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
-    final response = await createListingWithHttpInfo(version, accountId, name,  filterIds: filterIds, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, );
+  Future<ListingFullResponse?> createListing(int accountId, String name, { String? filterIds, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
+    final response = await createListingWithHttpInfo(accountId, name,  filterIds: filterIds, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -204,17 +199,14 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] listingId (required):
   ///   the id of the listing to delete
-  Future<Response> deleteListingWithHttpInfo(num version, int accountId, int listingId,) async {
+  Future<Response> deleteListingWithHttpInfo(int accountId, int listingId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -246,15 +238,13 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] listingId (required):
   ///   the id of the listing to delete
-  Future<SirqulResponse?> deleteListing(num version, int accountId, int listingId,) async {
-    final response = await deleteListingWithHttpInfo(version, accountId, listingId,);
+  Future<SirqulResponse?> deleteListing(int accountId, int listingId,) async {
+    final response = await deleteListingWithHttpInfo(accountId, listingId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -276,14 +266,11 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] listingId (required):
   ///   the id of the listing to get
-  Future<Response> getListingWithHttpInfo(num version, int listingId,) async {
+  Future<Response> getListingWithHttpInfo(int listingId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -314,12 +301,10 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] listingId (required):
   ///   the id of the listing to get
-  Future<ListingFullResponse?> getListing(num version, int listingId,) async {
-    final response = await getListingWithHttpInfo(version, listingId,);
+  Future<ListingFullResponse?> getListing(int listingId,) async {
+    final response = await getListingWithHttpInfo(listingId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -340,8 +325,6 @@ class ListingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   the account id of the user
@@ -387,10 +370,9 @@ class ListingApi {
   ///
   /// * [String] externalGroupId:
   ///   external group identifier used by a third party
-  Future<Response> searchListingWithHttpInfo(num version, { int? accountId, String? keyword, int? start, int? limit, bool? activeOnly, double? latitude, double? longitude, int? startDate, int? endDate, String? categoryIds, String? filterIds, bool? useListingOrderIds, String? externalId, String? externalId2, String? externalGroupId, }) async {
+  Future<Response> searchListingWithHttpInfo({ int? accountId, String? keyword, int? start, int? limit, bool? activeOnly, double? latitude, double? longitude, int? startDate, int? endDate, String? categoryIds, String? filterIds, bool? useListingOrderIds, String? externalId, String? externalId2, String? externalGroupId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -465,8 +447,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the account id of the user
   ///
@@ -511,8 +491,8 @@ class ListingApi {
   ///
   /// * [String] externalGroupId:
   ///   external group identifier used by a third party
-  Future<List<ListingResponse>?> searchListing(num version, { int? accountId, String? keyword, int? start, int? limit, bool? activeOnly, double? latitude, double? longitude, int? startDate, int? endDate, String? categoryIds, String? filterIds, bool? useListingOrderIds, String? externalId, String? externalId2, String? externalGroupId, }) async {
-    final response = await searchListingWithHttpInfo(version,  accountId: accountId, keyword: keyword, start: start, limit: limit, activeOnly: activeOnly, latitude: latitude, longitude: longitude, startDate: startDate, endDate: endDate, categoryIds: categoryIds, filterIds: filterIds, useListingOrderIds: useListingOrderIds, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, );
+  Future<List<ListingResponse>?> searchListing({ int? accountId, String? keyword, int? start, int? limit, bool? activeOnly, double? latitude, double? longitude, int? startDate, int? endDate, String? categoryIds, String? filterIds, bool? useListingOrderIds, String? externalId, String? externalId2, String? externalGroupId, }) async {
+    final response = await searchListingWithHttpInfo( accountId: accountId, keyword: keyword, start: start, limit: limit, activeOnly: activeOnly, latitude: latitude, longitude: longitude, startDate: startDate, endDate: endDate, categoryIds: categoryIds, filterIds: filterIds, useListingOrderIds: useListingOrderIds, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -537,8 +517,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the account id of the user
   ///
@@ -553,10 +531,9 @@ class ListingApi {
   ///
   /// * [bool] useListingOrderIds:
   ///   determines whether to use configured listing order ids
-  Future<Response> summaryListingWithHttpInfo(num version, { int? accountId, int? startDate, String? categoryIds, int? daysToInclude, bool? useListingOrderIds, }) async {
+  Future<Response> summaryListingWithHttpInfo({ int? accountId, int? startDate, String? categoryIds, int? daysToInclude, bool? useListingOrderIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/summary'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/summary';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -601,8 +578,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the account id of the user
   ///
@@ -617,8 +592,8 @@ class ListingApi {
   ///
   /// * [bool] useListingOrderIds:
   ///   determines whether to use configured listing order ids
-  Future<List<ListingGroupResponse>?> summaryListing(num version, { int? accountId, int? startDate, String? categoryIds, int? daysToInclude, bool? useListingOrderIds, }) async {
-    final response = await summaryListingWithHttpInfo(version,  accountId: accountId, startDate: startDate, categoryIds: categoryIds, daysToInclude: daysToInclude, useListingOrderIds: useListingOrderIds, );
+  Future<List<ListingGroupResponse>?> summaryListing({ int? accountId, int? startDate, String? categoryIds, int? daysToInclude, bool? useListingOrderIds, }) async {
+    final response = await summaryListingWithHttpInfo( accountId: accountId, startDate: startDate, categoryIds: categoryIds, daysToInclude: daysToInclude, useListingOrderIds: useListingOrderIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -642,8 +617,6 @@ class ListingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the user's account ID
@@ -689,10 +662,9 @@ class ListingApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> updateListingWithHttpInfo(num version, int accountId, int listingId, { String? filterIds, String? name, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
+  Future<Response> updateListingWithHttpInfo(int accountId, int listingId, { String? filterIds, String? name, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/listing/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/listing/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -763,8 +735,6 @@ class ListingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user's account ID
   ///
@@ -809,8 +779,8 @@ class ListingApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<ListingFullResponse?> updateListing(num version, int accountId, int listingId, { String? filterIds, String? name, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
-    final response = await updateListingWithHttpInfo(version, accountId, listingId,  filterIds: filterIds, name: name, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, );
+  Future<ListingFullResponse?> updateListing(int accountId, int listingId, { String? filterIds, String? name, String? description, int? start, int? end, String? locationName, String? locationDescription, bool? isPrivate, String? externalId, String? externalId2, String? externalGroupId, bool? active, String? metaData, }) async {
+    final response = await updateListingWithHttpInfo(accountId, listingId,  filterIds: filterIds, name: name, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

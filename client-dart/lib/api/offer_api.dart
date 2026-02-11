@@ -24,8 +24,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
   ///
@@ -34,10 +32,9 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> batchUpdateOfferLocationsWithHttpInfo(num version, String data, { String? deviceId, int? accountId, }) async {
+  Future<Response> batchUpdateOfferLocationsWithHttpInfo(String data, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/location/batchUpdate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/location/batchUpdate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -74,8 +71,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
   ///
@@ -84,8 +79,8 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> batchUpdateOfferLocations(num version, String data, { String? deviceId, int? accountId, }) async {
-    final response = await batchUpdateOfferLocationsWithHttpInfo(version, data,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> batchUpdateOfferLocations(String data, { String? deviceId, int? accountId, }) async {
+    final response = await batchUpdateOfferLocationsWithHttpInfo(data,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -106,8 +101,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] includeOfferLocations (required):
   ///   If true return all the offer locations associated with the offer
@@ -366,10 +359,9 @@ class OfferApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<Response> createOfferWithHttpInfo(num version, bool includeOfferLocations, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String offerType, String specialOfferType, String offerVisibility, bool active, { String? deviceId, int? accountId, String? tags, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
+  Future<Response> createOfferWithHttpInfo(bool includeOfferLocations, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String offerType, String specialOfferType, String offerVisibility, bool active, { String? deviceId, int? accountId, String? tags, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -625,8 +617,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] includeOfferLocations (required):
   ///   If true return all the offer locations associated with the offer
   ///
@@ -884,8 +874,8 @@ class OfferApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<RetailerOfferResponse?> createOffer(num version, bool includeOfferLocations, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String offerType, String specialOfferType, String offerVisibility, bool active, { String? deviceId, int? accountId, String? tags, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
-    final response = await createOfferWithHttpInfo(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active,  deviceId: deviceId, accountId: accountId, tags: tags, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, );
+  Future<RetailerOfferResponse?> createOffer(bool includeOfferLocations, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String offerType, String specialOfferType, String offerVisibility, bool active, { String? deviceId, int? accountId, String? tags, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
+    final response = await createOfferWithHttpInfo(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active,  deviceId: deviceId, accountId: accountId, tags: tags, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -907,8 +897,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   The ID of the offer to be deleted
   ///
@@ -917,10 +905,9 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the offer.
-  Future<Response> deleteOfferWithHttpInfo(num version, int offerId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteOfferWithHttpInfo(int offerId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -957,8 +944,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   The ID of the offer to be deleted
   ///
@@ -967,8 +952,8 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the offer.
-  Future<SirqulResponse?> deleteOffer(num version, int offerId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteOfferWithHttpInfo(version, offerId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteOffer(int offerId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteOfferWithHttpInfo(offerId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -990,8 +975,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerLocationId (required):
   ///   The ID of the offer location to be deleted
   ///
@@ -1000,10 +983,9 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the offer location.
-  Future<Response> deleteOfferLocationWithHttpInfo(num version, int offerLocationId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteOfferLocationWithHttpInfo(int offerLocationId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/location/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/location/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1040,8 +1022,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerLocationId (required):
   ///   The ID of the offer location to be deleted
   ///
@@ -1050,8 +1030,8 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the offer location.
-  Future<SirqulResponse?> deleteOfferLocation(num version, int offerLocationId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteOfferLocationWithHttpInfo(version, offerLocationId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteOfferLocation(int offerLocationId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteOfferLocationWithHttpInfo(offerLocationId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1073,8 +1053,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   The id of the offer
   ///
@@ -1086,10 +1064,9 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account id (deviceId or accountId required)
-  Future<Response> getOfferWithHttpInfo(num version, int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, }) async {
+  Future<Response> getOfferWithHttpInfo(int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1127,8 +1104,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   The id of the offer
   ///
@@ -1140,8 +1115,8 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account id (deviceId or accountId required)
-  Future<RetailerOfferResponse?> getOffer(num version, int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, }) async {
-    final response = await getOfferWithHttpInfo(version, offerId, includeOfferLocations,  deviceId: deviceId, accountId: accountId, );
+  Future<RetailerOfferResponse?> getOffer(int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, }) async {
+    final response = await getOfferWithHttpInfo(offerId, includeOfferLocations,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1162,8 +1137,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id for returning account information (i.e. favorites)
@@ -1194,10 +1167,9 @@ class OfferApi {
   ///
   /// * [bool] includeChildOffers:
   ///   Determines whether to include child offers in the response
-  Future<Response> getOfferDetailsWithHttpInfo(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, double? distance, double? latitude, double? longitude, bool? includeOfferLocations, bool? includeRetailerLocations, bool? includeChildOffers, }) async {
+  Future<Response> getOfferDetailsWithHttpInfo({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, double? distance, double? latitude, double? longitude, bool? includeOfferLocations, bool? includeRetailerLocations, bool? includeChildOffers, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1257,8 +1229,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id for returning account information (i.e. favorites)
   ///
@@ -1288,8 +1258,8 @@ class OfferApi {
   ///
   /// * [bool] includeChildOffers:
   ///   Determines whether to include child offers in the response
-  Future<OfferResponse?> getOfferDetails(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, double? distance, double? latitude, double? longitude, bool? includeOfferLocations, bool? includeRetailerLocations, bool? includeChildOffers, }) async {
-    final response = await getOfferDetailsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, distance: distance, latitude: latitude, longitude: longitude, includeOfferLocations: includeOfferLocations, includeRetailerLocations: includeRetailerLocations, includeChildOffers: includeChildOffers, );
+  Future<OfferResponse?> getOfferDetails({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, double? distance, double? latitude, double? longitude, bool? includeOfferLocations, bool? includeRetailerLocations, bool? includeChildOffers, }) async {
+    final response = await getOfferDetailsWithHttpInfo( deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, distance: distance, latitude: latitude, longitude: longitude, includeOfferLocations: includeOfferLocations, includeRetailerLocations: includeRetailerLocations, includeChildOffers: includeChildOffers, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1311,8 +1281,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] latitude (required):
   ///   The latitude of where the search will center at
   ///
@@ -1324,10 +1292,9 @@ class OfferApi {
   ///
   /// * [String] distanceUnit:
   ///   The units to use for distance calculations (e.g. MILES, KILOMETERS)
-  Future<Response> getOfferListCountsWithHttpInfo(num version, double latitude, double longitude, { num? searchRange, String? distanceUnit, }) async {
+  Future<Response> getOfferListCountsWithHttpInfo(double latitude, double longitude, { num? searchRange, String? distanceUnit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/lists/count'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/lists/count';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1365,8 +1332,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] latitude (required):
   ///   The latitude of where the search will center at
   ///
@@ -1378,8 +1343,8 @@ class OfferApi {
   ///
   /// * [String] distanceUnit:
   ///   The units to use for distance calculations (e.g. MILES, KILOMETERS)
-  Future<ListCountResponse?> getOfferListCounts(num version, double latitude, double longitude, { num? searchRange, String? distanceUnit, }) async {
-    final response = await getOfferListCountsWithHttpInfo(version, latitude, longitude,  searchRange: searchRange, distanceUnit: distanceUnit, );
+  Future<ListCountResponse?> getOfferListCounts(double latitude, double longitude, { num? searchRange, String? distanceUnit, }) async {
+    final response = await getOfferListCountsWithHttpInfo(latitude, longitude,  searchRange: searchRange, distanceUnit: distanceUnit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1401,17 +1366,14 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerLocationId:
   ///   the id of the offer location to get
   ///
   /// * [String] udid:
   ///   the UDID of the device
-  Future<Response> getOfferLocationWithHttpInfo(num version, { int? offerLocationId, String? udid, }) async {
+  Future<Response> getOfferLocationWithHttpInfo({ int? offerLocationId, String? udid, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/location/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/location/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1447,15 +1409,13 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerLocationId:
   ///   the id of the offer location to get
   ///
   /// * [String] udid:
   ///   the UDID of the device
-  Future<OfferShortResponse?> getOfferLocation(num version, { int? offerLocationId, String? udid, }) async {
-    final response = await getOfferLocationWithHttpInfo(version,  offerLocationId: offerLocationId, udid: udid, );
+  Future<OfferShortResponse?> getOfferLocation({ int? offerLocationId, String? udid, }) async {
+    final response = await getOfferLocationWithHttpInfo( offerLocationId: offerLocationId, udid: udid, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1476,8 +1436,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
@@ -1538,10 +1496,9 @@ class OfferApi {
   ///
   /// * [int] lastNotificationSent:
   ///   
-  Future<Response> getOfferLocationsForRetailersWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, { String? deviceId, int? accountId, String? keyword, int? retailerId, int? retailerLocationId, String? offerType, String? specialOfferType, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
+  Future<Response> getOfferLocationsForRetailersWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, { String? deviceId, int? accountId, String? keyword, int? retailerId, int? retailerLocationId, String? offerType, String? specialOfferType, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/location/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/location/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1619,8 +1576,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
   ///
@@ -1680,8 +1635,8 @@ class OfferApi {
   ///
   /// * [int] lastNotificationSent:
   ///   
-  Future<List<OfferShortResponse>?> getOfferLocationsForRetailers(num version, String sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, { String? deviceId, int? accountId, String? keyword, int? retailerId, int? retailerLocationId, String? offerType, String? specialOfferType, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
-    final response = await getOfferLocationsForRetailersWithHttpInfo(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation,  deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerType: offerType, specialOfferType: specialOfferType, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, );
+  Future<List<OfferShortResponse>?> getOfferLocationsForRetailers(String sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, { String? deviceId, int? accountId, String? keyword, int? retailerId, int? retailerLocationId, String? offerType, String? specialOfferType, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
+    final response = await getOfferLocationsForRetailersWithHttpInfo(sortField, descending, start, limit, activeOnly, includeRetailerLocation,  deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerType: offerType, specialOfferType: specialOfferType, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1705,8 +1660,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] offerVisibility (required):
   ///   
@@ -1800,10 +1753,9 @@ class OfferApi {
   ///
   /// * [int] lastNotificationSent:
   ///   
-  Future<Response> getOffersForRetailersWithHttpInfo(num version, String offerVisibility, String sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, { String? deviceId, int? accountId, String? categoryIds, String? filterIds, String? q, String? keyword, int? retailerId, int? retailerLocationId, String? couponType, String? offerType, String? offerTypes, String? specialOfferType, int? i, int? l, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
+  Future<Response> getOffersForRetailersWithHttpInfo(String offerVisibility, String sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, { String? deviceId, int? accountId, String? categoryIds, String? filterIds, String? q, String? keyword, int? retailerId, int? retailerLocationId, String? couponType, String? offerType, String? offerTypes, String? specialOfferType, int? i, int? l, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1906,8 +1858,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] offerVisibility (required):
   ///   
   ///
@@ -2000,8 +1950,8 @@ class OfferApi {
   ///
   /// * [int] lastNotificationSent:
   ///   
-  Future<List<OfferResponse>?> getOffersForRetailers(num version, String offerVisibility, String sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, { String? deviceId, int? accountId, String? categoryIds, String? filterIds, String? q, String? keyword, int? retailerId, int? retailerLocationId, String? couponType, String? offerType, String? offerTypes, String? specialOfferType, int? i, int? l, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
-    final response = await getOffersForRetailersWithHttpInfo(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations,  deviceId: deviceId, accountId: accountId, categoryIds: categoryIds, filterIds: filterIds, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, couponType: couponType, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, i: i, l: l, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, );
+  Future<List<OfferResponse>?> getOffersForRetailers(String offerVisibility, String sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, { String? deviceId, int? accountId, String? categoryIds, String? filterIds, String? q, String? keyword, int? retailerId, int? retailerLocationId, String? couponType, String? offerType, String? offerTypes, String? specialOfferType, int? i, int? l, String? barcodeType, String? barcodeEntry, String? isbn, String? asin, String? deviceStatus, bool? needsNotificationSent, int? lastNotificationSent, }) async {
+    final response = await getOffersForRetailersWithHttpInfo(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations,  deviceId: deviceId, accountId: accountId, categoryIds: categoryIds, filterIds: filterIds, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, couponType: couponType, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, i: i, l: l, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2026,8 +1976,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerTransactionId (required):
   ///   the OfferTransaction ID of the transaction being redeemed
   ///
@@ -2042,10 +1990,9 @@ class OfferApi {
   ///
   /// * [int] offerLocationId:
   ///   the OfferLocation ID where the offer is being redeemed
-  Future<Response> redeemOfferTransactionWithHttpInfo(num version, int offerTransactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, }) async {
+  Future<Response> redeemOfferTransactionWithHttpInfo(int offerTransactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/transaction/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/transaction/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2086,8 +2033,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerTransactionId (required):
   ///   the OfferTransaction ID of the transaction being redeemed
   ///
@@ -2102,8 +2047,8 @@ class OfferApi {
   ///
   /// * [int] offerLocationId:
   ///   the OfferLocation ID where the offer is being redeemed
-  Future<SirqulResponse?> redeemOfferTransaction(num version, int offerTransactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, }) async {
-    final response = await redeemOfferTransactionWithHttpInfo(version, offerTransactionId, status,  deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, );
+  Future<SirqulResponse?> redeemOfferTransaction(int offerTransactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, }) async {
+    final response = await redeemOfferTransactionWithHttpInfo(offerTransactionId, status,  deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2124,8 +2069,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
@@ -2198,10 +2141,9 @@ class OfferApi {
   ///
   /// * [int] l:
   ///   This parameter is deprecated.
-  Future<Response> searchOfferTransactionsForRetailersWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, int? retailerId, int? retailerLocationId, int? offerId, int? offerLocationId, bool? redeemed, bool? reservationsOnly, String? couponType, String? offerType, String? specialOfferType, String? customerAccountIds, String? categoryIds, int? redeemableStartDate, int? redeemableEndDate, int? i, int? l, }) async {
+  Future<Response> searchOfferTransactionsForRetailersWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, int? retailerId, int? retailerLocationId, int? offerId, int? offerLocationId, bool? redeemed, bool? reservationsOnly, String? couponType, String? offerType, String? specialOfferType, String? customerAccountIds, String? categoryIds, int? redeemableStartDate, int? redeemableEndDate, int? i, int? l, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/transaction/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/transaction/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2293,8 +2235,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
   ///
@@ -2366,8 +2306,8 @@ class OfferApi {
   ///
   /// * [int] l:
   ///   This parameter is deprecated.
-  Future<List<OfferTransactionResponse>?> searchOfferTransactionsForRetailers(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, int? retailerId, int? retailerLocationId, int? offerId, int? offerLocationId, bool? redeemed, bool? reservationsOnly, String? couponType, String? offerType, String? specialOfferType, String? customerAccountIds, String? categoryIds, int? redeemableStartDate, int? redeemableEndDate, int? i, int? l, }) async {
-    final response = await searchOfferTransactionsForRetailersWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerId: offerId, offerLocationId: offerLocationId, redeemed: redeemed, reservationsOnly: reservationsOnly, couponType: couponType, offerType: offerType, specialOfferType: specialOfferType, customerAccountIds: customerAccountIds, categoryIds: categoryIds, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, i: i, l: l, );
+  Future<List<OfferTransactionResponse>?> searchOfferTransactionsForRetailers(String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, int? retailerId, int? retailerLocationId, int? offerId, int? offerLocationId, bool? redeemed, bool? reservationsOnly, String? couponType, String? offerType, String? specialOfferType, String? customerAccountIds, String? categoryIds, int? redeemableStartDate, int? redeemableEndDate, int? i, int? l, }) async {
+    final response = await searchOfferTransactionsForRetailersWithHttpInfo(sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerId: offerId, offerLocationId: offerLocationId, redeemed: redeemed, reservationsOnly: reservationsOnly, couponType: couponType, offerType: offerType, specialOfferType: specialOfferType, customerAccountIds: customerAccountIds, categoryIds: categoryIds, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, i: i, l: l, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2391,8 +2331,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [double] latitude (required):
   ///   The latitude of where the search will center at
@@ -2486,10 +2424,9 @@ class OfferApi {
   ///
   /// * [String] groupBy:
   ///   groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy=OFFER_ID and sortField=DISTANCE (to sort by distance).
-  Future<Response> searchOffersForConsumerWithHttpInfo(num version, double latitude, double longitude, String recommendationType, int locationId, int start, int limit, int maxRecommendations, String distanceUnit, { String? appKey, String? deviceId, int? accountId, double? searchRange, String? tags, String? supportedPostalCodes, String? keyword, String? categories, String? filters, String? offerTypes, String? type, String? sortField, String? recommendOfferIds, String? retailerLocationIds, int? offerId, bool? includeMission, bool? includeCategories, bool? includeFilters, bool? includeExpired, bool? includeFavorite, bool? closestOfferOnly, String? searchExpression, String? groupBy, }) async {
+  Future<Response> searchOffersForConsumerWithHttpInfo(double latitude, double longitude, String recommendationType, int locationId, int start, int limit, int maxRecommendations, String distanceUnit, { String? appKey, String? deviceId, int? accountId, double? searchRange, String? tags, String? supportedPostalCodes, String? keyword, String? categories, String? filters, String? offerTypes, String? type, String? sortField, String? recommendOfferIds, String? retailerLocationIds, int? offerId, bool? includeMission, bool? includeCategories, bool? includeFilters, bool? includeExpired, bool? includeFavorite, bool? closestOfferOnly, String? searchExpression, String? groupBy, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/lists'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/lists';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2596,8 +2533,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] latitude (required):
   ///   The latitude of where the search will center at
   ///
@@ -2690,8 +2625,8 @@ class OfferApi {
   ///
   /// * [String] groupBy:
   ///   groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy=OFFER_ID and sortField=DISTANCE (to sort by distance).
-  Future<OfferListResponse?> searchOffersForConsumer(num version, double latitude, double longitude, String recommendationType, int locationId, int start, int limit, int maxRecommendations, String distanceUnit, { String? appKey, String? deviceId, int? accountId, double? searchRange, String? tags, String? supportedPostalCodes, String? keyword, String? categories, String? filters, String? offerTypes, String? type, String? sortField, String? recommendOfferIds, String? retailerLocationIds, int? offerId, bool? includeMission, bool? includeCategories, bool? includeFilters, bool? includeExpired, bool? includeFavorite, bool? closestOfferOnly, String? searchExpression, String? groupBy, }) async {
-    final response = await searchOffersForConsumerWithHttpInfo(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit,  appKey: appKey, deviceId: deviceId, accountId: accountId, searchRange: searchRange, tags: tags, supportedPostalCodes: supportedPostalCodes, keyword: keyword, categories: categories, filters: filters, offerTypes: offerTypes, type: type, sortField: sortField, recommendOfferIds: recommendOfferIds, retailerLocationIds: retailerLocationIds, offerId: offerId, includeMission: includeMission, includeCategories: includeCategories, includeFilters: includeFilters, includeExpired: includeExpired, includeFavorite: includeFavorite, closestOfferOnly: closestOfferOnly, searchExpression: searchExpression, groupBy: groupBy, );
+  Future<OfferListResponse?> searchOffersForConsumer(double latitude, double longitude, String recommendationType, int locationId, int start, int limit, int maxRecommendations, String distanceUnit, { String? appKey, String? deviceId, int? accountId, double? searchRange, String? tags, String? supportedPostalCodes, String? keyword, String? categories, String? filters, String? offerTypes, String? type, String? sortField, String? recommendOfferIds, String? retailerLocationIds, int? offerId, bool? includeMission, bool? includeCategories, bool? includeFilters, bool? includeExpired, bool? includeFavorite, bool? closestOfferOnly, String? searchExpression, String? groupBy, }) async {
+    final response = await searchOffersForConsumerWithHttpInfo(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit,  appKey: appKey, deviceId: deviceId, accountId: accountId, searchRange: searchRange, tags: tags, supportedPostalCodes: supportedPostalCodes, keyword: keyword, categories: categories, filters: filters, offerTypes: offerTypes, type: type, sortField: sortField, recommendOfferIds: recommendOfferIds, retailerLocationIds: retailerLocationIds, offerId: offerId, includeMission: includeMission, includeCategories: includeCategories, includeFilters: includeFilters, includeExpired: includeExpired, includeFavorite: includeFavorite, closestOfferOnly: closestOfferOnly, searchExpression: searchExpression, groupBy: groupBy, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2713,17 +2648,14 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start:
   ///   The index into the record set to start with. Default is 0.
   ///
   /// * [int] limit:
   ///   The total number of record to return. Default id 20.
-  Future<Response> topOfferTransactionsWithHttpInfo(num version, { int? start, int? limit, }) async {
+  Future<Response> topOfferTransactionsWithHttpInfo({ int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/offer/top'
-      .replaceAll('{version}', version.toString());
+    final path = r'/offer/top';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2759,15 +2691,13 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start:
   ///   The index into the record set to start with. Default is 0.
   ///
   /// * [int] limit:
   ///   The total number of record to return. Default id 20.
-  Future<OfferListResponse?> topOfferTransactions(num version, { int? start, int? limit, }) async {
-    final response = await topOfferTransactionsWithHttpInfo(version,  start: start, limit: limit, );
+  Future<OfferListResponse?> topOfferTransactions({ int? start, int? limit, }) async {
+    final response = await topOfferTransactionsWithHttpInfo( start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2788,8 +2718,6 @@ class OfferApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] offerId (required):
   ///   The offer to update
@@ -3051,10 +2979,9 @@ class OfferApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<Response> updateOfferWithHttpInfo(num version, int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? tags, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? offerType, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
+  Future<Response> updateOfferWithHttpInfo(int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? tags, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? offerType, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3341,8 +3268,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   The offer to update
   ///
@@ -3603,8 +3528,8 @@ class OfferApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<RetailerOfferResponse?> updateOffer(num version, int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? tags, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? offerType, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
-    final response = await updateOfferWithHttpInfo(version, offerId, includeOfferLocations,  deviceId: deviceId, accountId: accountId, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, tags: tags, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, );
+  Future<RetailerOfferResponse?> updateOffer(int offerId, bool includeOfferLocations, { String? deviceId, int? accountId, int? parentOfferId, String? retailerLocationIds, String? offerLocations, String? tags, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? externalId, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? offerType, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? brand, String? productType, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? department, String? features, double? minimumPrice, double? width, double? height, double? depth, double? weight, String? unit, String? studio, String? parentalRating, int? publishDate, int? availabilityDate, int? sizeId, int? listingId, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, int? rebootTimeHour, int? rebootTimeMinute, int? idleTimeoutInSecond, String? serialNumber, String? udid, String? deviceType, double? devicePower, double? deviceInterference, String? availability, String? availabilitySummary, }) async {
+    final response = await updateOfferWithHttpInfo(offerId, includeOfferLocations,  deviceId: deviceId, accountId: accountId, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, tags: tags, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3626,8 +3551,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] offerIds (required):
   ///   Comma separated list of offer ids
   ///
@@ -3639,10 +3562,9 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the activation, must have rights to edit the offer.
-  Future<Response> updateOfferStatusWithHttpInfo(num version, String offerIds, bool active, { String? deviceId, int? accountId, }) async {
+  Future<Response> updateOfferStatusWithHttpInfo(String offerIds, bool active, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/offer/status'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/offer/status';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3680,8 +3602,6 @@ class OfferApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] offerIds (required):
   ///   Comma separated list of offer ids
   ///
@@ -3693,8 +3613,8 @@ class OfferApi {
   ///
   /// * [int] accountId:
   ///   The account used to perform the activation, must have rights to edit the offer.
-  Future<SirqulResponse?> updateOfferStatus(num version, String offerIds, bool active, { String? deviceId, int? accountId, }) async {
-    final response = await updateOfferStatusWithHttpInfo(version, offerIds, active,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> updateOfferStatus(String offerIds, bool active, { String? deviceId, int? accountId, }) async {
+    final response = await updateOfferStatusWithHttpInfo(offerIds, active,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

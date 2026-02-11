@@ -24,8 +24,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -46,10 +44,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> addMovieWithHttpInfo(num version, int accountId, String movieName, { String? thirdPartyAccountId, String? tags, MultipartFile? file, String? url, String? callback, }) async {
+  Future<Response> addMovieWithHttpInfo(int accountId, String movieName, { String? thirdPartyAccountId, String? tags, MultipartFile? file, String? url, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/addMovie'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/addMovie';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,8 +93,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -118,8 +113,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiAddMovieResponse?> addMovie(num version, int accountId, String movieName, { String? thirdPartyAccountId, String? tags, MultipartFile? file, String? url, String? callback, }) async {
-    final response = await addMovieWithHttpInfo(version, accountId, movieName,  thirdPartyAccountId: thirdPartyAccountId, tags: tags, file: file, url: url, callback: callback, );
+  Future<OrsonAiAddMovieResponse?> addMovie(int accountId, String movieName, { String? thirdPartyAccountId, String? tags, MultipartFile? file, String? url, String? callback, }) async {
+    final response = await addMovieWithHttpInfo(accountId, movieName,  thirdPartyAccountId: thirdPartyAccountId, tags: tags, file: file, url: url, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,8 +136,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -157,10 +150,9 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<Response> aiDocsWithHttpInfo(num version, int accountId, String doc, { bool? returnTopics, int? limit, int? offset, }) async {
+  Future<Response> aiDocsWithHttpInfo(int accountId, String doc, { bool? returnTopics, int? limit, int? offset, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/docs'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/docs';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -201,8 +193,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -217,8 +207,8 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<OrsonAiProtoResponse?> aiDocs(num version, int accountId, String doc, { bool? returnTopics, int? limit, int? offset, }) async {
-    final response = await aiDocsWithHttpInfo(version, accountId, doc,  returnTopics: returnTopics, limit: limit, offset: offset, );
+  Future<OrsonAiProtoResponse?> aiDocs(int accountId, String doc, { bool? returnTopics, int? limit, int? offset, }) async {
+    final response = await aiDocsWithHttpInfo(accountId, doc,  returnTopics: returnTopics, limit: limit, offset: offset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -240,8 +230,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -256,10 +244,9 @@ class OrsonApi {
   ///
   /// * [String] size:
   ///   Size
-  Future<Response> aiFindImagesWithHttpInfo(num version, int accountId, String text, { String? parseFlag, String? fetchFlag, String? size, }) async {
+  Future<Response> aiFindImagesWithHttpInfo(int accountId, String text, { String? parseFlag, String? fetchFlag, String? size, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/img'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/img';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -300,8 +287,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -316,8 +301,8 @@ class OrsonApi {
   ///
   /// * [String] size:
   ///   Size
-  Future<OrsonAiProtoResponse?> aiFindImages(num version, int accountId, String text, { String? parseFlag, String? fetchFlag, String? size, }) async {
-    final response = await aiFindImagesWithHttpInfo(version, accountId, text,  parseFlag: parseFlag, fetchFlag: fetchFlag, size: size, );
+  Future<OrsonAiProtoResponse?> aiFindImages(int accountId, String text, { String? parseFlag, String? fetchFlag, String? size, }) async {
+    final response = await aiFindImagesWithHttpInfo(accountId, text,  parseFlag: parseFlag, fetchFlag: fetchFlag, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -339,8 +324,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -355,10 +338,9 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<Response> aiTagsWithHttpInfo(num version, int accountId, String tags, { String? conditional, int? limit, int? offset, }) async {
+  Future<Response> aiTagsWithHttpInfo(int accountId, String tags, { String? conditional, int? limit, int? offset, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/tags'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/tags';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -399,8 +381,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -415,8 +395,8 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<OrsonAiProtoResponse?> aiTags(num version, int accountId, String tags, { String? conditional, int? limit, int? offset, }) async {
-    final response = await aiTagsWithHttpInfo(version, accountId, tags,  conditional: conditional, limit: limit, offset: offset, );
+  Future<OrsonAiProtoResponse?> aiTags(int accountId, String tags, { String? conditional, int? limit, int? offset, }) async {
+    final response = await aiTagsWithHttpInfo(accountId, tags,  conditional: conditional, limit: limit, offset: offset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -438,8 +418,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -454,10 +432,9 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<Response> aiTextWithHttpInfo(num version, int accountId, String terms, { String? conditional, int? limit, int? offset, }) async {
+  Future<Response> aiTextWithHttpInfo(int accountId, String terms, { String? conditional, int? limit, int? offset, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/text'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/text';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -498,8 +475,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -514,8 +489,8 @@ class OrsonApi {
   ///
   /// * [int] offset:
   ///   Offset
-  Future<OrsonAiProtoResponse?> aiText(num version, int accountId, String terms, { String? conditional, int? limit, int? offset, }) async {
-    final response = await aiTextWithHttpInfo(version, accountId, terms,  conditional: conditional, limit: limit, offset: offset, );
+  Future<OrsonAiProtoResponse?> aiText(int accountId, String terms, { String? conditional, int? limit, int? offset, }) async {
+    final response = await aiTextWithHttpInfo(accountId, terms,  conditional: conditional, limit: limit, offset: offset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -537,8 +512,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -559,10 +532,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> batchWithHttpInfo(num version, int accountId, { String? thirdPartyAccountId, int? limit, String? operations, MultipartFile? file, String? url, String? callback, }) async {
+  Future<Response> batchWithHttpInfo(int accountId, { String? thirdPartyAccountId, int? limit, String? operations, MultipartFile? file, String? url, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -611,8 +583,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -633,8 +603,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiBatchResponse?> batch(num version, int accountId, { String? thirdPartyAccountId, int? limit, String? operations, MultipartFile? file, String? url, String? callback, }) async {
-    final response = await batchWithHttpInfo(version, accountId,  thirdPartyAccountId: thirdPartyAccountId, limit: limit, operations: operations, file: file, url: url, callback: callback, );
+  Future<OrsonAiBatchResponse?> batch(int accountId, { String? thirdPartyAccountId, int? limit, String? operations, MultipartFile? file, String? url, String? callback, }) async {
+    final response = await batchWithHttpInfo(accountId,  thirdPartyAccountId: thirdPartyAccountId, limit: limit, operations: operations, file: file, url: url, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -656,17 +626,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [String] data (required):
   ///   Request Data String
-  Future<Response> createInstantEpisodeWithHttpInfo(num version, int accountId, String data,) async {
+  Future<Response> createInstantEpisodeWithHttpInfo(int accountId, String data,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/stories/episodes/instant'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/stories/episodes/instant';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -698,15 +665,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [String] data (required):
   ///   Request Data String
-  Future<OrsonEpisodeResponse?> createInstantEpisode(num version, int accountId, String data,) async {
-    final response = await createInstantEpisodeWithHttpInfo(version, accountId, data,);
+  Future<OrsonEpisodeResponse?> createInstantEpisode(int accountId, String data,) async {
+    final response = await createInstantEpisodeWithHttpInfo(accountId, data,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -727,8 +692,6 @@ class OrsonApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -756,10 +719,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> createVoiceCanvasWithHttpInfo(num version, int accountId, String dimensions, { String? thirdPartyAccountId, String? text, MultipartFile? file, String? url, bool? parseFlag, bool? fetchFlag, String? callback, }) async {
+  Future<Response> createVoiceCanvasWithHttpInfo(int accountId, String dimensions, { String? thirdPartyAccountId, String? text, MultipartFile? file, String? url, bool? parseFlag, bool? fetchFlag, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/voiceCanvas'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/voiceCanvas';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -812,8 +774,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -840,8 +800,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiVoiceCanvasResponse?> createVoiceCanvas(num version, int accountId, String dimensions, { String? thirdPartyAccountId, String? text, MultipartFile? file, String? url, bool? parseFlag, bool? fetchFlag, String? callback, }) async {
-    final response = await createVoiceCanvasWithHttpInfo(version, accountId, dimensions,  thirdPartyAccountId: thirdPartyAccountId, text: text, file: file, url: url, parseFlag: parseFlag, fetchFlag: fetchFlag, callback: callback, );
+  Future<OrsonAiVoiceCanvasResponse?> createVoiceCanvas(int accountId, String dimensions, { String? thirdPartyAccountId, String? text, MultipartFile? file, String? url, bool? parseFlag, bool? fetchFlag, String? callback, }) async {
+    final response = await createVoiceCanvasWithHttpInfo(accountId, dimensions,  thirdPartyAccountId: thirdPartyAccountId, text: text, file: file, url: url, parseFlag: parseFlag, fetchFlag: fetchFlag, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -863,8 +823,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -879,10 +837,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> emotionWithHttpInfo(num version, int accountId, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
+  Future<Response> emotionWithHttpInfo(int accountId, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/emotion'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/emotion';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -925,8 +882,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -941,8 +896,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiEmotionsResponse?> emotion(num version, int accountId, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
-    final response = await emotionWithHttpInfo(version, accountId,  thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, );
+  Future<OrsonAiEmotionsResponse?> emotion(int accountId, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
+    final response = await emotionWithHttpInfo(accountId,  thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -964,17 +919,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getAddMovieResultWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getAddMovieResultWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/addMovie/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/addMovie/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1006,15 +958,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiAddMovieResponse?> getAddMovieResult(num version, String requestId, int accountId,) async {
-    final response = await getAddMovieResultWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiAddMovieResponse?> getAddMovieResult(String requestId, int accountId,) async {
+    final response = await getAddMovieResultWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1036,17 +986,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getBatchWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getBatchWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/batch/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/batch/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1078,15 +1025,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiBatchResponse?> getBatch(num version, String requestId, int accountId,) async {
-    final response = await getBatchWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiBatchResponse?> getBatch(String requestId, int accountId,) async {
+    final response = await getBatchWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1108,17 +1053,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getEmotionWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getEmotionWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/emotion/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/emotion/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1150,15 +1092,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiEmotionsResponse?> getEmotion(num version, String requestId, int accountId,) async {
-    final response = await getEmotionWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiEmotionsResponse?> getEmotion(String requestId, int accountId,) async {
+    final response = await getEmotionWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1180,17 +1120,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] episodeId (required):
   ///   Episode ID
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getEpisodeStatusWithHttpInfo(num version, int episodeId, int accountId,) async {
+  Future<Response> getEpisodeStatusWithHttpInfo(int episodeId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/stories/episodes/{episodeId}/status'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/stories/episodes/{episodeId}/status'
       .replaceAll('{episodeId}', episodeId.toString());
 
     // ignore: prefer_final_locals
@@ -1222,15 +1159,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] episodeId (required):
   ///   Episode ID
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonEpisodeResponse?> getEpisodeStatus(num version, int episodeId, int accountId,) async {
-    final response = await getEpisodeStatusWithHttpInfo(version, episodeId, accountId,);
+  Future<OrsonEpisodeResponse?> getEpisodeStatus(int episodeId, int accountId,) async {
+    final response = await getEpisodeStatusWithHttpInfo(episodeId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1252,17 +1187,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] renderId (required):
   ///   Render ID
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getRenderStatusWithHttpInfo(num version, String renderId, int accountId,) async {
+  Future<Response> getRenderStatusWithHttpInfo(String renderId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/stories/renders/{renderId}/status'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/stories/renders/{renderId}/status'
       .replaceAll('{renderId}', renderId);
 
     // ignore: prefer_final_locals
@@ -1294,15 +1226,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] renderId (required):
   ///   Render ID
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonRenderResponse?> getRenderStatus(num version, String renderId, int accountId,) async {
-    final response = await getRenderStatusWithHttpInfo(version, renderId, accountId,);
+  Future<OrsonRenderResponse?> getRenderStatus(String renderId, int accountId,) async {
+    final response = await getRenderStatusWithHttpInfo(renderId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1324,17 +1254,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getSTTWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getSTTWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/stt/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/stt/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1366,15 +1293,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiSTTResponse?> getSTT(num version, String requestId, int accountId,) async {
-    final response = await getSTTWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiSTTResponse?> getSTT(String requestId, int accountId,) async {
+    final response = await getSTTWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1396,17 +1321,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getTTSWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getTTSWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/tts/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/tts/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1438,15 +1360,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiTTSResponse?> getTTS(num version, String requestId, int accountId,) async {
-    final response = await getTTSWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiTTSResponse?> getTTS(String requestId, int accountId,) async {
+    final response = await getTTSWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1468,17 +1388,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getTechTuneWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getTechTuneWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/techTune/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/techTune/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1510,15 +1427,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiTechTuneResponse?> getTechTune(num version, String requestId, int accountId,) async {
-    final response = await getTechTuneWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiTechTuneResponse?> getTechTune(String requestId, int accountId,) async {
+    final response = await getTechTuneWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1540,17 +1455,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getTopicsWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getTopicsWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/topics/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/topics/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1582,15 +1494,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiTopicsResponse?> getTopics(num version, String requestId, int accountId,) async {
-    final response = await getTopicsWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiTopicsResponse?> getTopics(String requestId, int accountId,) async {
+    final response = await getTopicsWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1612,17 +1522,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<Response> getVoiceCanvasWithHttpInfo(num version, String requestId, int accountId,) async {
+  Future<Response> getVoiceCanvasWithHttpInfo(String requestId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/voiceCanvas/{requestId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/orson/ai/voiceCanvas/{requestId}'
       .replaceAll('{requestId}', requestId);
 
     // ignore: prefer_final_locals
@@ -1654,15 +1561,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] requestId (required):
   ///   Orson Request Id
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
-  Future<OrsonAiVoiceCanvasResponse?> getVoiceCanvas(num version, String requestId, int accountId,) async {
-    final response = await getVoiceCanvasWithHttpInfo(version, requestId, accountId,);
+  Future<OrsonAiVoiceCanvasResponse?> getVoiceCanvas(String requestId, int accountId,) async {
+    final response = await getVoiceCanvasWithHttpInfo(requestId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1684,17 +1589,14 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [String] data (required):
   ///   Request Data String
-  Future<Response> startVideoRenderWithHttpInfo(num version, int accountId, String data,) async {
+  Future<Response> startVideoRenderWithHttpInfo(int accountId, String data,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/stories/renders'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/stories/renders';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1726,15 +1628,13 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
   /// * [String] data (required):
   ///   Request Data String
-  Future<OrsonRenderResponse?> startVideoRender(num version, int accountId, String data,) async {
-    final response = await startVideoRenderWithHttpInfo(version, accountId, data,);
+  Future<OrsonRenderResponse?> startVideoRender(int accountId, String data,) async {
+    final response = await startVideoRenderWithHttpInfo(accountId, data,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1756,8 +1656,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1778,10 +1676,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> sttWithHttpInfo(num version, int accountId, { String? thirdPartyAccountId, String? sourceLanguage, String? targetLanguage, MultipartFile? file, String? url, String? callback, }) async {
+  Future<Response> sttWithHttpInfo(int accountId, { String? thirdPartyAccountId, String? sourceLanguage, String? targetLanguage, MultipartFile? file, String? url, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/stt'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/stt';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1830,8 +1727,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1852,8 +1747,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiSTTResponse?> stt(num version, int accountId, { String? thirdPartyAccountId, String? sourceLanguage, String? targetLanguage, MultipartFile? file, String? url, String? callback, }) async {
-    final response = await sttWithHttpInfo(version, accountId,  thirdPartyAccountId: thirdPartyAccountId, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage, file: file, url: url, callback: callback, );
+  Future<OrsonAiSTTResponse?> stt(int accountId, { String? thirdPartyAccountId, String? sourceLanguage, String? targetLanguage, MultipartFile? file, String? url, String? callback, }) async {
+    final response = await sttWithHttpInfo(accountId,  thirdPartyAccountId: thirdPartyAccountId, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage, file: file, url: url, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1874,8 +1769,6 @@ class OrsonApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
@@ -1900,10 +1793,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> summarizeTopicsWithHttpInfo(num version, int accountId, { String? thirdPartyAccountId, String? doc, MultipartFile? file, String? url, int? limit, int? offset, String? callback, }) async {
+  Future<Response> summarizeTopicsWithHttpInfo(int accountId, { String? thirdPartyAccountId, String? doc, MultipartFile? file, String? url, int? limit, int? offset, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/topics'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/topics';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1955,8 +1847,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -1980,8 +1870,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiTopicsResponse?> summarizeTopics(num version, int accountId, { String? thirdPartyAccountId, String? doc, MultipartFile? file, String? url, int? limit, int? offset, String? callback, }) async {
-    final response = await summarizeTopicsWithHttpInfo(version, accountId,  thirdPartyAccountId: thirdPartyAccountId, doc: doc, file: file, url: url, limit: limit, offset: offset, callback: callback, );
+  Future<OrsonAiTopicsResponse?> summarizeTopics(int accountId, { String? thirdPartyAccountId, String? doc, MultipartFile? file, String? url, int? limit, int? offset, String? callback, }) async {
+    final response = await summarizeTopicsWithHttpInfo(accountId,  thirdPartyAccountId: thirdPartyAccountId, doc: doc, file: file, url: url, limit: limit, offset: offset, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2003,8 +1893,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2022,10 +1910,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> techTuneWithHttpInfo(num version, int accountId, int numFacesExpected, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
+  Future<Response> techTuneWithHttpInfo(int accountId, int numFacesExpected, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/techTune'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/techTune';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2069,8 +1956,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2088,8 +1973,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiTechTuneResponse?> techTune(num version, int accountId, int numFacesExpected, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
-    final response = await techTuneWithHttpInfo(version, accountId, numFacesExpected,  thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, );
+  Future<OrsonAiTechTuneResponse?> techTune(int accountId, int numFacesExpected, { String? thirdPartyAccountId, MultipartFile? file, String? url, String? callback, }) async {
+    final response = await techTuneWithHttpInfo(accountId, numFacesExpected,  thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2111,8 +1996,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2130,10 +2013,9 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<Response> ttsWithHttpInfo(num version, int accountId, String text, { String? thirdPartyAccountId, String? language, String? voice, String? callback, }) async {
+  Future<Response> ttsWithHttpInfo(int accountId, String text, { String? thirdPartyAccountId, String? language, String? voice, String? callback, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/orson/ai/tts'
-      .replaceAll('{version}', version.toString());
+    final path = r'/orson/ai/tts';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2177,8 +2059,6 @@ class OrsonApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -2196,8 +2076,8 @@ class OrsonApi {
   ///
   /// * [String] callback:
   ///   When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
-  Future<OrsonAiTTSResponse?> tts(num version, int accountId, String text, { String? thirdPartyAccountId, String? language, String? voice, String? callback, }) async {
-    final response = await ttsWithHttpInfo(version, accountId, text,  thirdPartyAccountId: thirdPartyAccountId, language: language, voice: voice, callback: callback, );
+  Future<OrsonAiTTSResponse?> tts(int accountId, String text, { String? thirdPartyAccountId, String? language, String? voice, String? callback, }) async {
+    final response = await ttsWithHttpInfo(accountId, text,  thirdPartyAccountId: thirdPartyAccountId, language: language, voice: voice, callback: callback, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

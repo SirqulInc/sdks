@@ -24,8 +24,6 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
@@ -55,10 +53,9 @@ class SecureAppApi {
   ///
   /// * [String] biometricPosition2:
   ///   The position for each the biometric2 file uploaded
-  Future<Response> createSecureApplicationWithHttpInfo(num version, int accountId, String appKey, MultipartFile keyCert, MultipartFile trustStore, String username, String password, { bool? active, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
+  Future<Response> createSecureApplicationWithHttpInfo(int accountId, String appKey, MultipartFile keyCert, MultipartFile trustStore, String username, String password, { bool? active, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/application/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/application/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -106,8 +103,6 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
@@ -137,8 +132,8 @@ class SecureAppApi {
   ///
   /// * [String] biometricPosition2:
   ///   The position for each the biometric2 file uploaded
-  Future<SirqulResponse?> createSecureApplication(num version, int accountId, String appKey, MultipartFile keyCert, MultipartFile trustStore, String username, String password, { bool? active, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
-    final response = await createSecureApplicationWithHttpInfo(version, accountId, appKey, keyCert, trustStore, username, password,  active: active, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, );
+  Future<SirqulResponse?> createSecureApplication(int accountId, String appKey, MultipartFile keyCert, MultipartFile trustStore, String username, String password, { bool? active, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
+    final response = await createSecureApplicationWithHttpInfo(accountId, appKey, keyCert, trustStore, username, password,  active: active, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -160,17 +155,14 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
   /// * [String] appKey (required):
   ///   The application to secure
-  Future<Response> deleteSecureApplicationWithHttpInfo(num version, int accountId, String appKey,) async {
+  Future<Response> deleteSecureApplicationWithHttpInfo(int accountId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/application/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/application/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -202,15 +194,13 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
   /// * [String] appKey (required):
   ///   The application to secure
-  Future<SirqulResponse?> deleteSecureApplication(num version, int accountId, String appKey,) async {
-    final response = await deleteSecureApplicationWithHttpInfo(version, accountId, appKey,);
+  Future<SirqulResponse?> deleteSecureApplication(int accountId, String appKey,) async {
+    final response = await deleteSecureApplicationWithHttpInfo(accountId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -231,8 +221,6 @@ class SecureAppApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application making the request, defines what type and position is required to make a secure login the request.
@@ -260,10 +248,9 @@ class SecureAppApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<Response> loginSecureWithHttpInfo(num version, String appKey, MultipartFile biometricFile, { String? deviceId, MultipartFile? biometricFile2, int? ageRestriction, bool? returnProfile, String? responseFilters, double? latitude, double? longitude, }) async {
+  Future<Response> loginSecureWithHttpInfo(String appKey, MultipartFile biometricFile, { String? deviceId, MultipartFile? biometricFile2, int? ageRestriction, bool? returnProfile, String? responseFilters, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/login'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/login';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -316,8 +303,6 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application making the request, defines what type and position is required to make a secure login the request.
   ///
@@ -344,8 +329,8 @@ class SecureAppApi {
   ///
   /// * [double] longitude:
   ///   Used to update the user's current location
-  Future<ProfileResponse?> loginSecure(num version, String appKey, MultipartFile biometricFile, { String? deviceId, MultipartFile? biometricFile2, int? ageRestriction, bool? returnProfile, String? responseFilters, double? latitude, double? longitude, }) async {
-    final response = await loginSecureWithHttpInfo(version, appKey, biometricFile,  deviceId: deviceId, biometricFile2: biometricFile2, ageRestriction: ageRestriction, returnProfile: returnProfile, responseFilters: responseFilters, latitude: latitude, longitude: longitude, );
+  Future<ProfileResponse?> loginSecure(String appKey, MultipartFile biometricFile, { String? deviceId, MultipartFile? biometricFile2, int? ageRestriction, bool? returnProfile, String? responseFilters, double? latitude, double? longitude, }) async {
+    final response = await loginSecureWithHttpInfo(appKey, biometricFile,  deviceId: deviceId, biometricFile2: biometricFile2, ageRestriction: ageRestriction, returnProfile: returnProfile, responseFilters: responseFilters, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -367,14 +352,11 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [PaymentRequest] body (required):
   ///   The payment request object
-  Future<Response> purchaseSecureWithHttpInfo(num version, PaymentRequest body,) async {
+  Future<Response> purchaseSecureWithHttpInfo(PaymentRequest body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/purchase'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/purchase';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -403,12 +385,10 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [PaymentRequest] body (required):
   ///   The payment request object
-  Future<ProfileResponse?> purchaseSecure(num version, PaymentRequest body,) async {
-    final response = await purchaseSecureWithHttpInfo(version, body,);
+  Future<ProfileResponse?> purchaseSecure(PaymentRequest body,) async {
+    final response = await purchaseSecureWithHttpInfo(body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -430,17 +410,14 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
   /// * [String] appKey (required):
   ///   The application to secure
-  Future<Response> resetSecureWithHttpInfo(num version, int accountId, String appKey,) async {
+  Future<Response> resetSecureWithHttpInfo(int accountId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/application/reset'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/application/reset';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -472,15 +449,13 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
   /// * [String] appKey (required):
   ///   The application to secure
-  Future<SirqulResponse?> resetSecure(num version, int accountId, String appKey,) async {
-    final response = await resetSecureWithHttpInfo(version, accountId, appKey,);
+  Future<SirqulResponse?> resetSecure(int accountId, String appKey,) async {
+    final response = await resetSecureWithHttpInfo(accountId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -501,8 +476,6 @@ class SecureAppApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
@@ -533,10 +506,9 @@ class SecureAppApi {
   ///
   /// * [String] biometricPosition2:
   ///   The position for each the biometric2 file uploaded
-  Future<Response> updateSecureApplicationWithHttpInfo(num version, int accountId, String appKey, { bool? active, MultipartFile? keyCert, MultipartFile? trustStore, String? username, String? password, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
+  Future<Response> updateSecureApplicationWithHttpInfo(int accountId, String appKey, { bool? active, MultipartFile? keyCert, MultipartFile? trustStore, String? username, String? password, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/secure/application/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/secure/application/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -592,8 +564,6 @@ class SecureAppApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The unique id of the user making the request
   ///
@@ -623,8 +593,8 @@ class SecureAppApi {
   ///
   /// * [String] biometricPosition2:
   ///   The position for each the biometric2 file uploaded
-  Future<SirqulResponse?> updateSecureApplication(num version, int accountId, String appKey, { bool? active, MultipartFile? keyCert, MultipartFile? trustStore, String? username, String? password, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
-    final response = await updateSecureApplicationWithHttpInfo(version, accountId, appKey,  active: active, keyCert: keyCert, trustStore: trustStore, username: username, password: password, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, );
+  Future<SirqulResponse?> updateSecureApplication(int accountId, String appKey, { bool? active, MultipartFile? keyCert, MultipartFile? trustStore, String? username, String? password, String? biometricType, String? biometricPosition, String? biometricPosition2, }) async {
+    final response = await updateSecureApplicationWithHttpInfo(accountId, appKey,  active: active, keyCert: keyCert, trustStore: trustStore, username: username, password: password, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

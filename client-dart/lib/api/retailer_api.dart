@@ -24,8 +24,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] name (required):
   ///   The name of the retailer
   ///
@@ -124,10 +122,9 @@ class RetailerApi {
   ///
   /// * [String] responseFormat:
   ///   The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
-  Future<Response> createRetailerWithHttpInfo(num version, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? categoryIdsToAdd, String? categoryIdsToRemove, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? createDefaultLocation, String? responseFormat, }) async {
+  Future<Response> createRetailerWithHttpInfo(String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? categoryIdsToAdd, String? categoryIdsToRemove, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? createDefaultLocation, String? responseFormat, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -254,8 +251,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] name (required):
   ///   The name of the retailer
   ///
@@ -354,8 +349,8 @@ class RetailerApi {
   ///
   /// * [String] responseFormat:
   ///   The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
-  Future<RetailerFullResponse?> createRetailer(num version, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? categoryIdsToAdd, String? categoryIdsToRemove, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? createDefaultLocation, String? responseFormat, }) async {
-    final response = await createRetailerWithHttpInfo(version, name,  deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, categoryIdsToAdd: categoryIdsToAdd, categoryIdsToRemove: categoryIdsToRemove, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, createDefaultLocation: createDefaultLocation, responseFormat: responseFormat, );
+  Future<RetailerFullResponse?> createRetailer(String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? categoryIdsToAdd, String? categoryIdsToRemove, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? createDefaultLocation, String? responseFormat, }) async {
+    final response = await createRetailerWithHttpInfo(name,  deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, categoryIdsToAdd: categoryIdsToAdd, categoryIdsToRemove: categoryIdsToRemove, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, createDefaultLocation: createDefaultLocation, responseFormat: responseFormat, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -377,8 +372,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -387,10 +380,9 @@ class RetailerApi {
   ///
   /// * [int] retailerId:
   ///   The ID of the retailer to be deleted
-  Future<Response> deleteRetailerWithHttpInfo(num version, { String? deviceId, int? accountId, int? retailerId, }) async {
+  Future<Response> deleteRetailerWithHttpInfo({ String? deviceId, int? accountId, int? retailerId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -429,8 +421,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -439,8 +429,8 @@ class RetailerApi {
   ///
   /// * [int] retailerId:
   ///   The ID of the retailer to be deleted
-  Future<SirqulResponse?> deleteRetailer(num version, { String? deviceId, int? accountId, int? retailerId, }) async {
-    final response = await deleteRetailerWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, retailerId: retailerId, );
+  Future<SirqulResponse?> deleteRetailer({ String? deviceId, int? accountId, int? retailerId, }) async {
+    final response = await deleteRetailerWithHttpInfo( deviceId: deviceId, accountId: accountId, retailerId: retailerId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -462,8 +452,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   the ID of the retailer
   ///
@@ -475,10 +463,9 @@ class RetailerApi {
   ///
   /// * [bool] includeCounts:
   ///   Determines whether to include counts in the response (default true)
-  Future<Response> getRetailerWithHttpInfo(num version, int retailerId, { String? deviceId, int? accountId, bool? includeCounts, }) async {
+  Future<Response> getRetailerWithHttpInfo(int retailerId, { String? deviceId, int? accountId, bool? includeCounts, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -518,8 +505,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   the ID of the retailer
   ///
@@ -531,8 +516,8 @@ class RetailerApi {
   ///
   /// * [bool] includeCounts:
   ///   Determines whether to include counts in the response (default true)
-  Future<RetailerFullResponse?> getRetailer(num version, int retailerId, { String? deviceId, int? accountId, bool? includeCounts, }) async {
-    final response = await getRetailerWithHttpInfo(version, retailerId,  deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, );
+  Future<RetailerFullResponse?> getRetailer(int retailerId, { String? deviceId, int? accountId, bool? includeCounts, }) async {
+    final response = await getRetailerWithHttpInfo(retailerId,  deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -553,8 +538,6 @@ class RetailerApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] visibility (required):
   ///   
@@ -597,10 +580,9 @@ class RetailerApi {
   ///
   /// * [int] l:
   ///   This parameter is deprecated.
-  Future<Response> getRetailersWithHttpInfo(num version, String visibility, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, String? categoryIds, String? filterIds, int? i, int? l, }) async {
+  Future<Response> getRetailersWithHttpInfo(String visibility, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, String? categoryIds, String? filterIds, int? i, int? l, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -660,8 +642,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] visibility (required):
   ///   
   ///
@@ -703,8 +683,8 @@ class RetailerApi {
   ///
   /// * [int] l:
   ///   This parameter is deprecated.
-  Future<List<RetailerResponse>?> getRetailers(num version, String visibility, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, String? categoryIds, String? filterIds, int? i, int? l, }) async {
-    final response = await getRetailersWithHttpInfo(version, visibility, sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, i: i, l: l, );
+  Future<List<RetailerResponse>?> getRetailers(String visibility, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? q, String? keyword, String? categoryIds, String? filterIds, int? i, int? l, }) async {
+    final response = await getRetailersWithHttpInfo(visibility, sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, i: i, l: l, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -729,8 +709,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] username (required):
   ///   the user's email address they used to sign-up
   ///
@@ -748,10 +726,9 @@ class RetailerApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<Response> retailerLoginCheckWithHttpInfo(num version, String username, String password, { String? deviceId, double? latitude, double? longitude, String? appKey, }) async {
+  Future<Response> retailerLoginCheckWithHttpInfo(String username, String password, { String? deviceId, double? latitude, double? longitude, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/login'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/login';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -795,8 +772,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] username (required):
   ///   the user's email address they used to sign-up
   ///
@@ -814,8 +789,8 @@ class RetailerApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<AccountLoginResponse?> retailerLoginCheck(num version, String username, String password, { String? deviceId, double? latitude, double? longitude, String? appKey, }) async {
-    final response = await retailerLoginCheckWithHttpInfo(version, username, password,  deviceId: deviceId, latitude: latitude, longitude: longitude, appKey: appKey, );
+  Future<AccountLoginResponse?> retailerLoginCheck(String username, String password, { String? deviceId, double? latitude, double? longitude, String? appKey, }) async {
+    final response = await retailerLoginCheckWithHttpInfo(username, password,  deviceId: deviceId, latitude: latitude, longitude: longitude, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -836,8 +811,6 @@ class RetailerApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] retailerId (required):
   ///   The ID of the retailer to update
@@ -934,10 +907,9 @@ class RetailerApi {
   ///
   /// * [String] responseFormat:
   ///   The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
-  Future<Response> updateRetailerWithHttpInfo(num version, int retailerId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? active, String? responseFormat, }) async {
+  Future<Response> updateRetailerWithHttpInfo(int retailerId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? active, String? responseFormat, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1061,8 +1033,6 @@ class RetailerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   The ID of the retailer to update
   ///
@@ -1158,8 +1128,8 @@ class RetailerApi {
   ///
   /// * [String] responseFormat:
   ///   The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
-  Future<RetailerFullResponse?> updateRetailer(num version, int retailerId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? active, String? responseFormat, }) async {
-    final response = await updateRetailerWithHttpInfo(version, retailerId,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, active: active, responseFormat: responseFormat, );
+  Future<RetailerFullResponse?> updateRetailer(int retailerId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? facebookUrl, String? twitterUrl, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? metaData, String? searchTags, String? retailerType, String? visibility, bool? active, String? responseFormat, }) async {
+    final response = await updateRetailerWithHttpInfo(retailerId,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, active: active, responseFormat: responseFormat, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

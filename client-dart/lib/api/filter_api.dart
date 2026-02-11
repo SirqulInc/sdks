@@ -24,8 +24,6 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user (must have permissions to the target application)
   ///
@@ -52,10 +50,9 @@ class FilterApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> createFilterWithHttpInfo(num version, int accountId, String name, { String? appKey, int? parentFilterId, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
+  Future<Response> createFilterWithHttpInfo(int accountId, String name, { String? appKey, int? parentFilterId, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/filter/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/filter/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -108,8 +105,6 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user (must have permissions to the target application)
   ///
@@ -136,8 +131,8 @@ class FilterApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<FilterTreeResponse?> createFilter(num version, int accountId, String name, { String? appKey, int? parentFilterId, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
-    final response = await createFilterWithHttpInfo(version, accountId, name,  appKey: appKey, parentFilterId: parentFilterId, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, );
+  Future<FilterTreeResponse?> createFilter(int accountId, String name, { String? appKey, int? parentFilterId, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
+    final response = await createFilterWithHttpInfo(accountId, name,  appKey: appKey, parentFilterId: parentFilterId, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -159,17 +154,14 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user (must have permissions to the filter's assigned application)
   ///
   /// * [int] filterId (required):
   ///   The ID of the filter to delete
-  Future<Response> deleteFilterWithHttpInfo(num version, int accountId, int filterId,) async {
+  Future<Response> deleteFilterWithHttpInfo(int accountId, int filterId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/filter/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/filter/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -201,15 +193,13 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user (must have permissions to the filter's assigned application)
   ///
   /// * [int] filterId (required):
   ///   The ID of the filter to delete
-  Future<SirqulResponse?> deleteFilter(num version, int accountId, int filterId,) async {
-    final response = await deleteFilterWithHttpInfo(version, accountId, filterId,);
+  Future<SirqulResponse?> deleteFilter(int accountId, int filterId,) async {
+    final response = await deleteFilterWithHttpInfo(accountId, filterId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -231,14 +221,11 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] filterId (required):
   ///   the id of the filter to get
-  Future<Response> getFilterWithHttpInfo(num version, int filterId,) async {
+  Future<Response> getFilterWithHttpInfo(int filterId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/filter/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/filter/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -269,12 +256,10 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] filterId (required):
   ///   the id of the filter to get
-  Future<FilterTreeResponse?> getFilter(num version, int filterId,) async {
-    final response = await getFilterWithHttpInfo(version, filterId,);
+  Future<FilterTreeResponse?> getFilter(int filterId,) async {
+    final response = await getFilterWithHttpInfo(filterId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -295,8 +280,6 @@ class FilterApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The account id of the user
@@ -327,10 +310,9 @@ class FilterApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active categories
-  Future<Response> searchFiltersWithHttpInfo(num version, { int? accountId, String? keyword, String? appKey, String? responseGroup, bool? rootOnly, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchFiltersWithHttpInfo({ int? accountId, String? keyword, String? appKey, String? responseGroup, bool? rootOnly, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/filter/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/filter/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -390,8 +372,6 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user
   ///
@@ -421,8 +401,8 @@ class FilterApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active categories
-  Future<List<FilterResponse>?> searchFilters(num version, { int? accountId, String? keyword, String? appKey, String? responseGroup, bool? rootOnly, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchFiltersWithHttpInfo(version,  accountId: accountId, keyword: keyword, appKey: appKey, responseGroup: responseGroup, rootOnly: rootOnly, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<FilterResponse>?> searchFilters({ int? accountId, String? keyword, String? appKey, String? responseGroup, bool? rootOnly, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchFiltersWithHttpInfo( accountId: accountId, keyword: keyword, appKey: appKey, responseGroup: responseGroup, rootOnly: rootOnly, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -446,8 +426,6 @@ class FilterApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the user
@@ -475,10 +453,9 @@ class FilterApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> updateFilterWithHttpInfo(num version, int accountId, int filterId, { int? parentFilterId, String? name, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
+  Future<Response> updateFilterWithHttpInfo(int accountId, int filterId, { int? parentFilterId, String? name, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/filter/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/filter/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -531,8 +508,6 @@ class FilterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -559,8 +534,8 @@ class FilterApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<FilterTreeResponse?> updateFilter(num version, int accountId, int filterId, { int? parentFilterId, String? name, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
-    final response = await updateFilterWithHttpInfo(version, accountId, filterId,  parentFilterId: parentFilterId, name: name, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, );
+  Future<FilterTreeResponse?> updateFilter(int accountId, int filterId, { int? parentFilterId, String? name, String? description, String? externalId, String? externalType, bool? active, String? metaData, }) async {
+    final response = await updateFilterWithHttpInfo(accountId, filterId,  parentFilterId: parentFilterId, name: name, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

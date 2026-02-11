@@ -24,8 +24,6 @@ class FacebookApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -37,10 +35,9 @@ class FacebookApi {
   ///
   /// * [double] longitude:
   ///   used to update the user's current location
-  Future<Response> getTokenWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getTokenWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/facebook/getfbtoken'
-      .replaceAll('{version}', version.toString());
+    final path = r'/facebook/getfbtoken';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -82,8 +79,6 @@ class FacebookApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -95,8 +90,8 @@ class FacebookApi {
   ///
   /// * [double] longitude:
   ///   used to update the user's current location
-  Future<TokenResponse?> getToken(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getTokenWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<TokenResponse?> getToken({ String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getTokenWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -117,8 +112,6 @@ class FacebookApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] event (required):
   ///   the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
@@ -149,10 +142,9 @@ class FacebookApi {
   ///
   /// * [double] longitude:
   ///   used to update the user's current location
-  Future<Response> graphInterfaceWithHttpInfo(num version, String event, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, int? assetId, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+  Future<Response> graphInterfaceWithHttpInfo(String event, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, int? assetId, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/facebook/graph'
-      .replaceAll('{version}', version.toString());
+    final path = r'/facebook/graph';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -210,8 +202,6 @@ class FacebookApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] event (required):
   ///   the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
   ///
@@ -241,8 +231,8 @@ class FacebookApi {
   ///
   /// * [double] longitude:
   ///   used to update the user's current location
-  Future<SirqulResponse?> graphInterface(num version, String event, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, int? assetId, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
-    final response = await graphInterfaceWithHttpInfo(version, event,  deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, assetId: assetId, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> graphInterface(String event, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, int? assetId, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+    final response = await graphInterfaceWithHttpInfo(event,  deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, assetId: assetId, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

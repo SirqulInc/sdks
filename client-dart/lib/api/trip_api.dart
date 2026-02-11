@@ -24,13 +24,10 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Trip] body:
-  Future<Response> createTripWithHttpInfo(num version, { Trip? body, }) async {
+  Future<Response> createTripWithHttpInfo({ Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trip';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Trip] body:
-  Future<Trip?> createTrip(num version, { Trip? body, }) async {
-    final response = await createTripWithHttpInfo(version,  body: body, );
+  Future<Trip?> createTrip({ Trip? body, }) async {
+    final response = await createTripWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to delete
-  Future<Response> deleteWithHttpInfo(num version, int id,) async {
+  Future<Response> deleteWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to delete
-  Future<void> delete(num version, int id,) async {
-    final response = await deleteWithHttpInfo(version, id,);
+  Future<void> delete(int id,) async {
+    final response = await deleteWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,17 +131,14 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Response> driveTripWithHttpInfo(num version, int id, bool recurrence,) async {
+  Future<Response> driveTripWithHttpInfo(int id, bool recurrence,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/drive'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/drive'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -183,15 +170,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Trip?> driveTrip(num version, int id, bool recurrence,) async {
-    final response = await driveTripWithHttpInfo(version, id, recurrence,);
+  Future<Trip?> driveTrip(int id, bool recurrence,) async {
+    final response = await driveTripWithHttpInfo(id, recurrence,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -213,17 +198,14 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Response> flexibleTripWithHttpInfo(num version, int id, bool recurrence,) async {
+  Future<Response> flexibleTripWithHttpInfo(int id, bool recurrence,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/flexible'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/flexible'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -255,15 +237,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Trip?> flexibleTrip(num version, int id, bool recurrence,) async {
-    final response = await flexibleTripWithHttpInfo(version, id, recurrence,);
+  Future<Trip?> flexibleTrip(int id, bool recurrence,) async {
+    final response = await flexibleTripWithHttpInfo(id, recurrence,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -285,14 +265,11 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to get
-  Future<Response> getTripWithHttpInfo(num version, int id,) async {
+  Future<Response> getTripWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -322,12 +299,10 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to get
-  Future<Trip?> getTrip(num version, int id,) async {
-    final response = await getTripWithHttpInfo(version, id,);
+  Future<Trip?> getTrip(int id,) async {
+    final response = await getTripWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -348,8 +323,6 @@ class TripApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] id (required):
   ///   The id The id of the trip to search for matches for
@@ -374,10 +347,9 @@ class TripApi {
   ///
   /// * [bool] matchedHasDriver:
   ///   Only return matchings that already have driver assigned
-  Future<Response> getTripMatchesWithHttpInfo(num version, int id, String sortField, bool descending, int start, int limit, bool activeOnly, { bool? matchedHasRoute, bool? matchedHasDriver, }) async {
+  Future<Response> getTripMatchesWithHttpInfo(int id, String sortField, bool descending, int start, int limit, bool activeOnly, { bool? matchedHasRoute, bool? matchedHasDriver, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/match'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/match'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -419,8 +391,6 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id The id of the trip to search for matches for
   ///
@@ -444,8 +414,8 @@ class TripApi {
   ///
   /// * [bool] matchedHasDriver:
   ///   Only return matchings that already have driver assigned
-  Future<List<Trip>?> getTripMatches(num version, int id, String sortField, bool descending, int start, int limit, bool activeOnly, { bool? matchedHasRoute, bool? matchedHasDriver, }) async {
-    final response = await getTripMatchesWithHttpInfo(version, id, sortField, descending, start, limit, activeOnly,  matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, );
+  Future<List<Trip>?> getTripMatches(int id, String sortField, bool descending, int start, int limit, bool activeOnly, { bool? matchedHasRoute, bool? matchedHasDriver, }) async {
+    final response = await getTripMatchesWithHttpInfo(id, sortField, descending, start, limit, activeOnly,  matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -470,8 +440,6 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] startDate:
   ///   The lower bound date to process matchings
   ///
@@ -480,10 +448,9 @@ class TripApi {
   ///
   /// * [int] tripId:
   ///   the id of the trip to process
-  Future<Response> processTripMatchesWithHttpInfo(num version, { int? startDate, int? endDate, int? tripId, }) async {
+  Future<Response> processTripMatchesWithHttpInfo({ int? startDate, int? endDate, int? tripId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/match/process'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trip/match/process';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -522,8 +489,6 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] startDate:
   ///   The lower bound date to process matchings
   ///
@@ -532,8 +497,8 @@ class TripApi {
   ///
   /// * [int] tripId:
   ///   the id of the trip to process
-  Future<List<Trip>?> processTripMatches(num version, { int? startDate, int? endDate, int? tripId, }) async {
-    final response = await processTripMatchesWithHttpInfo(version,  startDate: startDate, endDate: endDate, tripId: tripId, );
+  Future<List<Trip>?> processTripMatches({ int? startDate, int? endDate, int? tripId, }) async {
+    final response = await processTripMatchesWithHttpInfo( startDate: startDate, endDate: endDate, tripId: tripId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -558,17 +523,14 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Response> rideWithHttpInfo(num version, int id, bool recurrence,) async {
+  Future<Response> rideWithHttpInfo(int id, bool recurrence,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/ride'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/ride'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -600,15 +562,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [bool] recurrence (required):
   ///   the frequency of the trip (e.g. weekly, until 2018-08-09)
-  Future<Trip?> ride(num version, int id, bool recurrence,) async {
-    final response = await rideWithHttpInfo(version, id, recurrence,);
+  Future<Trip?> ride(int id, bool recurrence,) async {
+    final response = await rideWithHttpInfo(id, recurrence,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -629,8 +589,6 @@ class TripApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The owner of the trips
@@ -658,10 +616,9 @@ class TripApi {
   ///
   /// * [bool] hasNotifications:
   ///   whether to search on trips that have notifications or not
-  Future<Response> searchWithHttpInfo(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? hasNotifications, }) async {
+  Future<Response> searchWithHttpInfo(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? hasNotifications, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trip';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -706,8 +663,6 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The owner of the trips
   ///
@@ -734,8 +689,8 @@ class TripApi {
   ///
   /// * [bool] hasNotifications:
   ///   whether to search on trips that have notifications or not
-  Future<List<Trip>?> search(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? hasNotifications, }) async {
-    final response = await searchWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly,  startDate: startDate, endDate: endDate, hasNotifications: hasNotifications, );
+  Future<List<Trip>?> search(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? hasNotifications, }) async {
+    final response = await searchWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly,  startDate: startDate, endDate: endDate, hasNotifications: hasNotifications, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -759,8 +714,6 @@ class TripApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The owner of the trips
@@ -791,10 +744,9 @@ class TripApi {
   ///
   /// * [bool] matchedHasDriver:
   ///   Only return matchings that already have driver assigned
-  Future<Response> searchTripsWithHttpInfo(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? matchedHasRoute, bool? matchedHasDriver, }) async {
+  Future<Response> searchTripsWithHttpInfo(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? matchedHasRoute, bool? matchedHasDriver, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/match'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trip/match';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -842,8 +794,6 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The owner of the trips
   ///
@@ -873,8 +823,8 @@ class TripApi {
   ///
   /// * [bool] matchedHasDriver:
   ///   Only return matchings that already have driver assigned
-  Future<List<Trip>?> searchTrips(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? matchedHasRoute, bool? matchedHasDriver, }) async {
-    final response = await searchTripsWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly,  startDate: startDate, endDate: endDate, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, );
+  Future<List<Trip>?> searchTrips(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { int? startDate, int? endDate, bool? matchedHasRoute, bool? matchedHasDriver, }) async {
+    final response = await searchTripsWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly,  startDate: startDate, endDate: endDate, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -897,16 +847,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to update locations for
   ///
   /// * [Trip] body:
-  Future<Response> updateLocationsWithHttpInfo(num version, int id, { Trip? body, }) async {
+  Future<Response> updateLocationsWithHttpInfo(int id, { Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/locations'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/locations'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -934,14 +881,12 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to update locations for
   ///
   /// * [Trip] body:
-  Future<Trip?> updateLocations(num version, int id, { Trip? body, }) async {
-    final response = await updateLocationsWithHttpInfo(version, id,  body: body, );
+  Future<Trip?> updateLocations(int id, { Trip? body, }) async {
+    final response = await updateLocationsWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -961,16 +906,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [Trip] body:
-  Future<Response> updateRecurrenceLocationsWithHttpInfo(num version, int id, { Trip? body, }) async {
+  Future<Response> updateRecurrenceLocationsWithHttpInfo(int id, { Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/locations/recurrence'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/locations/recurrence'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -998,14 +940,12 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [Trip] body:
-  Future<List<Trip>?> updateRecurrenceLocations(num version, int id, { Trip? body, }) async {
-    final response = await updateRecurrenceLocationsWithHttpInfo(version, id,  body: body, );
+  Future<List<Trip>?> updateRecurrenceLocations(int id, { Trip? body, }) async {
+    final response = await updateRecurrenceLocationsWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1028,16 +968,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [Trip] body:
-  Future<Response> updateRecurrenceShipmentsWithHttpInfo(num version, int id, { Trip? body, }) async {
+  Future<Response> updateRecurrenceShipmentsWithHttpInfo(int id, { Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/shipments/recurrence'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/shipments/recurrence'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -1065,14 +1002,12 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [Trip] body:
-  Future<List<Trip>?> updateRecurrenceShipments(num version, int id, { Trip? body, }) async {
-    final response = await updateRecurrenceShipmentsWithHttpInfo(version, id,  body: body, );
+  Future<List<Trip>?> updateRecurrenceShipments(int id, { Trip? body, }) async {
+    final response = await updateRecurrenceShipmentsWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1095,16 +1030,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip shipments to update
   ///
   /// * [Trip] body:
-  Future<Response> updateShipmentsWithHttpInfo(num version, int id, { Trip? body, }) async {
+  Future<Response> updateShipmentsWithHttpInfo(int id, { Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}/shipments'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}/shipments'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -1132,14 +1064,12 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip shipments to update
   ///
   /// * [Trip] body:
-  Future<Trip?> updateShipments(num version, int id, { Trip? body, }) async {
-    final response = await updateShipmentsWithHttpInfo(version, id,  body: body, );
+  Future<Trip?> updateShipments(int id, { Trip? body, }) async {
+    final response = await updateShipmentsWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1161,16 +1091,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to update
   ///
   /// * [Trip] body:
-  Future<Response> updateTripWithHttpInfo(num version, int id, { Trip? body, }) async {
+  Future<Response> updateTripWithHttpInfo(int id, { Trip? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/trip/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -1200,14 +1127,12 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip to update
   ///
   /// * [Trip] body:
-  Future<Trip?> updateTrip(num version, int id, { Trip? body, }) async {
-    final response = await updateTripWithHttpInfo(version, id,  body: body, );
+  Future<Trip?> updateTrip(int id, { Trip? body, }) async {
+    final response = await updateTripWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1229,17 +1154,14 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [String] notifications:
   ///   the notifications to update on the trip
-  Future<Response> updateTripNotificationsWithHttpInfo(num version, int id, { String? notifications, }) async {
+  Future<Response> updateTripNotificationsWithHttpInfo(int id, { String? notifications, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trip/notifications'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trip/notifications';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1273,15 +1195,13 @@ class TripApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the trip
   ///
   /// * [String] notifications:
   ///   the notifications to update on the trip
-  Future<Trip?> updateTripNotifications(num version, int id, { String? notifications, }) async {
-    final response = await updateTripNotificationsWithHttpInfo(version, id,  notifications: notifications, );
+  Future<Trip?> updateTripNotifications(int id, { String? notifications, }) async {
+    final response = await updateTripNotificationsWithHttpInfo(id,  notifications: notifications, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

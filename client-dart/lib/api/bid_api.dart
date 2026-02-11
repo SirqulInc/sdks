@@ -24,8 +24,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] biddableType (required):
   ///   A biddable object type. Possible values include: CREATIVE (ads).
   ///
@@ -49,10 +47,9 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> createBidWithHttpInfo(num version, String biddableType, int biddableId, double amountPerView, double amountPerAction, double budgetAmount, String budgetSchedule, { String? deviceId, int? accountId, }) async {
+  Future<Response> createBidWithHttpInfo(String biddableType, int biddableId, double amountPerView, double amountPerAction, double budgetAmount, String budgetSchedule, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/bid/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/bid/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -94,8 +91,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] biddableType (required):
   ///   A biddable object type. Possible values include: CREATIVE (ads).
   ///
@@ -119,8 +114,8 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<BidResponse?> createBid(num version, String biddableType, int biddableId, double amountPerView, double amountPerAction, double budgetAmount, String budgetSchedule, { String? deviceId, int? accountId, }) async {
-    final response = await createBidWithHttpInfo(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule,  deviceId: deviceId, accountId: accountId, );
+  Future<BidResponse?> createBid(String biddableType, int biddableId, double amountPerView, double amountPerAction, double budgetAmount, String budgetSchedule, { String? deviceId, int? accountId, }) async {
+    final response = await createBidWithHttpInfo(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -142,8 +137,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -152,10 +145,9 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deleteBidWithHttpInfo(num version, int bidId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteBidWithHttpInfo(int bidId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/bid/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/bid/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -192,8 +184,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -202,8 +192,8 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> deleteBid(num version, int bidId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteBidWithHttpInfo(version, bidId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteBid(int bidId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteBidWithHttpInfo(bidId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -225,8 +215,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -235,10 +223,9 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> getBidWithHttpInfo(num version, int bidId, { String? deviceId, int? accountId, }) async {
+  Future<Response> getBidWithHttpInfo(int bidId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/bid/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/bid/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -275,8 +262,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -285,8 +270,8 @@ class BidApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<BidResponse?> getBid(num version, int bidId, { String? deviceId, int? accountId, }) async {
-    final response = await getBidWithHttpInfo(version, bidId,  deviceId: deviceId, accountId: accountId, );
+  Future<BidResponse?> getBid(int bidId, { String? deviceId, int? accountId, }) async {
+    final response = await getBidWithHttpInfo(bidId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -308,8 +293,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -330,10 +313,9 @@ class BidApi {
   ///
   /// * [String] budgetSchedule:
   ///   The schedule for when the allocated budget amount is reset
-  Future<Response> updateBidWithHttpInfo(num version, int bidId, { String? deviceId, int? accountId, double? amountPerView, double? amountPerAction, double? budgetAmount, String? budgetSchedule, }) async {
+  Future<Response> updateBidWithHttpInfo(int bidId, { String? deviceId, int? accountId, double? amountPerView, double? amountPerAction, double? budgetAmount, String? budgetSchedule, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/bid/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/bid/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -382,8 +364,6 @@ class BidApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] bidId (required):
   ///   The bid id
   ///
@@ -404,8 +384,8 @@ class BidApi {
   ///
   /// * [String] budgetSchedule:
   ///   The schedule for when the allocated budget amount is reset
-  Future<BidResponse?> updateBid(num version, int bidId, { String? deviceId, int? accountId, double? amountPerView, double? amountPerAction, double? budgetAmount, String? budgetSchedule, }) async {
-    final response = await updateBidWithHttpInfo(version, bidId,  deviceId: deviceId, accountId: accountId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, );
+  Future<BidResponse?> updateBid(int bidId, { String? deviceId, int? accountId, double? amountPerView, double? amountPerAction, double? budgetAmount, String? budgetSchedule, }) async {
+    final response = await updateBidWithHttpInfo(bidId,  deviceId: deviceId, accountId: accountId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

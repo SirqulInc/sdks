@@ -24,8 +24,6 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] udid (required):
   ///   The unique identifier of the source device
   ///
@@ -40,10 +38,9 @@ class LocationApi {
   ///
   /// * [MultipartFile] dataFile:
   ///   Binary file containing data (multipart upload)
-  Future<Response> cacheTrilaterationDataWithHttpInfo(num version, String udid, { int? sourceTime, int? minimumSampleSize, String? data, MultipartFile? dataFile, }) async {
+  Future<Response> cacheTrilaterationDataWithHttpInfo(String udid, { int? sourceTime, int? minimumSampleSize, String? data, MultipartFile? dataFile, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/trilaterate/cache'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/trilaterate/cache';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -86,8 +83,6 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] udid (required):
   ///   The unique identifier of the source device
   ///
@@ -102,8 +97,8 @@ class LocationApi {
   ///
   /// * [MultipartFile] dataFile:
   ///   Binary file containing data (multipart upload)
-  Future<SirqulResponse?> cacheTrilaterationData(num version, String udid, { int? sourceTime, int? minimumSampleSize, String? data, MultipartFile? dataFile, }) async {
-    final response = await cacheTrilaterationDataWithHttpInfo(version, udid,  sourceTime: sourceTime, minimumSampleSize: minimumSampleSize, data: data, dataFile: dataFile, );
+  Future<SirqulResponse?> cacheTrilaterationData(String udid, { int? sourceTime, int? minimumSampleSize, String? data, MultipartFile? dataFile, }) async {
+    final response = await cacheTrilaterationDataWithHttpInfo(udid,  sourceTime: sourceTime, minimumSampleSize: minimumSampleSize, data: data, dataFile: dataFile, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -125,13 +120,10 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [TrilatCacheRequest] body:
-  Future<Response> cacheTrilaterationDataGzipWithHttpInfo(num version, { TrilatCacheRequest? body, }) async {
+  Future<Response> cacheTrilaterationDataGzipWithHttpInfo({ TrilatCacheRequest? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/trilaterate/cache/submit'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/trilaterate/cache/submit';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -160,11 +152,9 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [TrilatCacheRequest] body:
-  Future<SirqulResponse?> cacheTrilaterationDataGzip(num version, { TrilatCacheRequest? body, }) async {
-    final response = await cacheTrilaterationDataGzipWithHttpInfo(version,  body: body, );
+  Future<SirqulResponse?> cacheTrilaterationDataGzip({ TrilatCacheRequest? body, }) async {
+    final response = await cacheTrilaterationDataGzipWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -186,14 +176,11 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] ip:
   ///   the ip address of the client device
-  Future<Response> getLocationByIpWithHttpInfo(num version, { String? ip, }) async {
+  Future<Response> getLocationByIpWithHttpInfo({ String? ip, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/ip'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/ip';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -226,12 +213,10 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] ip:
   ///   the ip address of the client device
-  Future<CoordsResponse?> getLocationByIp(num version, { String? ip, }) async {
-    final response = await getLocationByIpWithHttpInfo(version,  ip: ip, );
+  Future<CoordsResponse?> getLocationByIp({ String? ip, }) async {
+    final response = await getLocationByIpWithHttpInfo( ip: ip, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -253,8 +238,6 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account making the request, if provided the last know location will be updated
   ///
@@ -269,10 +252,9 @@ class LocationApi {
   ///
   /// * [String] responseFilters:
   ///   Optional response filters (not used currently)
-  Future<Response> getLocationByTrilaterationWithHttpInfo(num version, { int? accountId, double? latitude, double? longitude, String? data, String? responseFilters, }) async {
+  Future<Response> getLocationByTrilaterationWithHttpInfo({ int? accountId, double? latitude, double? longitude, String? data, String? responseFilters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/location/trilaterate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/location/trilaterate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -317,8 +299,6 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account making the request, if provided the last know location will be updated
   ///
@@ -333,8 +313,8 @@ class LocationApi {
   ///
   /// * [String] responseFilters:
   ///   Optional response filters (not used currently)
-  Future<GeoPointResponse?> getLocationByTrilateration(num version, { int? accountId, double? latitude, double? longitude, String? data, String? responseFilters, }) async {
-    final response = await getLocationByTrilaterationWithHttpInfo(version,  accountId: accountId, latitude: latitude, longitude: longitude, data: data, responseFilters: responseFilters, );
+  Future<GeoPointResponse?> getLocationByTrilateration({ int? accountId, double? latitude, double? longitude, String? data, String? responseFilters, }) async {
+    final response = await getLocationByTrilaterationWithHttpInfo( accountId: accountId, latitude: latitude, longitude: longitude, data: data, responseFilters: responseFilters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -355,8 +335,6 @@ class LocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the device id
@@ -414,10 +392,9 @@ class LocationApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> getLocationsWithHttpInfo(num version, { String? deviceId, int? accountId, double? currentlatitude, double? currentlongitude, double? currentLatitude, double? currentLongitude, String? query, String? zipcode, String? zipCode, double? selectedMaplatitude, double? selectedMaplongitude, double? selectedMapLatitude, double? selectedMapLongitude, double? searchRange, bool? useGeocode, int? i, int? start, int? l, int? limit, }) async {
+  Future<Response> getLocationsWithHttpInfo({ String? deviceId, int? accountId, double? currentlatitude, double? currentlongitude, double? currentLatitude, double? currentLongitude, String? query, String? zipcode, String? zipCode, double? selectedMaplatitude, double? selectedMaplongitude, double? selectedMapLatitude, double? selectedMapLongitude, double? searchRange, bool? useGeocode, int? i, int? start, int? l, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -504,8 +481,6 @@ class LocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id
   ///
@@ -562,8 +537,8 @@ class LocationApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<LocationSearchResponse?> getLocations(num version, { String? deviceId, int? accountId, double? currentlatitude, double? currentlongitude, double? currentLatitude, double? currentLongitude, String? query, String? zipcode, String? zipCode, double? selectedMaplatitude, double? selectedMaplongitude, double? selectedMapLatitude, double? selectedMapLongitude, double? searchRange, bool? useGeocode, int? i, int? start, int? l, int? limit, }) async {
-    final response = await getLocationsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, currentlatitude: currentlatitude, currentlongitude: currentlongitude, currentLatitude: currentLatitude, currentLongitude: currentLongitude, query: query, zipcode: zipcode, zipCode: zipCode, selectedMaplatitude: selectedMaplatitude, selectedMaplongitude: selectedMaplongitude, selectedMapLatitude: selectedMapLatitude, selectedMapLongitude: selectedMapLongitude, searchRange: searchRange, useGeocode: useGeocode, i: i, start: start, l: l, limit: limit, );
+  Future<LocationSearchResponse?> getLocations({ String? deviceId, int? accountId, double? currentlatitude, double? currentlongitude, double? currentLatitude, double? currentLongitude, String? query, String? zipcode, String? zipCode, double? selectedMaplatitude, double? selectedMaplongitude, double? selectedMapLatitude, double? selectedMapLongitude, double? searchRange, bool? useGeocode, int? i, int? start, int? l, int? limit, }) async {
+    final response = await getLocationsWithHttpInfo( deviceId: deviceId, accountId: accountId, currentlatitude: currentlatitude, currentlongitude: currentlongitude, currentLatitude: currentLatitude, currentLongitude: currentLongitude, query: query, zipcode: zipcode, zipCode: zipCode, selectedMaplatitude: selectedMaplatitude, selectedMaplongitude: selectedMaplongitude, selectedMapLatitude: selectedMapLatitude, selectedMapLongitude: selectedMapLongitude, searchRange: searchRange, useGeocode: useGeocode, i: i, start: start, l: l, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

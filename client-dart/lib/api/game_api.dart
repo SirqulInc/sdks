@@ -24,8 +24,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The logged in user.
   ///
@@ -46,10 +44,9 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   Show more details in response.
-  Future<Response> createGameWithHttpInfo(num version, { int? accountId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
+  Future<Response> createGameWithHttpInfo({ int? accountId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -100,8 +97,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The logged in user.
   ///
@@ -122,8 +117,8 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   Show more details in response.
-  Future<GameResponse?> createGame(num version, { int? accountId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
-    final response = await createGameWithHttpInfo(version,  accountId: accountId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, );
+  Future<GameResponse?> createGame({ int? accountId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
+    final response = await createGameWithHttpInfo( accountId: accountId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -145,17 +140,14 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] gameId (required):
   ///   the updating game's id.
-  Future<Response> deleteGameWithHttpInfo(num version, int accountId, int gameId,) async {
+  Future<Response> deleteGameWithHttpInfo(int accountId, int gameId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,15 +179,13 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] gameId (required):
   ///   the updating game's id.
-  Future<SirqulResponse?> deleteGame(num version, int accountId, int gameId,) async {
-    final response = await deleteGameWithHttpInfo(version, accountId, gameId,);
+  Future<SirqulResponse?> deleteGame(int accountId, int gameId,) async {
+    final response = await deleteGameWithHttpInfo(accountId, gameId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -217,8 +207,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -227,10 +215,9 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<Response> getGameWithHttpInfo(num version, int accountId, int gameId, { bool? includeGameData, }) async {
+  Future<Response> getGameWithHttpInfo(int accountId, int gameId, { bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -265,8 +252,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -275,8 +260,8 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<GameResponse?> getGame(num version, int accountId, int gameId, { bool? includeGameData, }) async {
-    final response = await getGameWithHttpInfo(version, accountId, gameId,  includeGameData: includeGameData, );
+  Future<GameResponse?> getGame(int accountId, int gameId, { bool? includeGameData, }) async {
+    final response = await getGameWithHttpInfo(accountId, gameId,  includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -297,8 +282,6 @@ class GameApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -323,10 +306,9 @@ class GameApi {
   ///
   /// * [bool] includeInactive:
   ///   more details in response
-  Future<Response> searchGamesWithHttpInfo(num version, int accountId, String appKey, int start, int limit, { String? keyword, String? appVersion, bool? includeGameData, bool? includeInactive, }) async {
+  Future<Response> searchGamesWithHttpInfo(int accountId, String appKey, int start, int limit, { String? keyword, String? appVersion, bool? includeGameData, bool? includeInactive, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -372,8 +354,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -397,8 +377,8 @@ class GameApi {
   ///
   /// * [bool] includeInactive:
   ///   more details in response
-  Future<GameResponse?> searchGames(num version, int accountId, String appKey, int start, int limit, { String? keyword, String? appVersion, bool? includeGameData, bool? includeInactive, }) async {
-    final response = await searchGamesWithHttpInfo(version, accountId, appKey, start, limit,  keyword: keyword, appVersion: appVersion, includeGameData: includeGameData, includeInactive: includeInactive, );
+  Future<GameResponse?> searchGames(int accountId, String appKey, int start, int limit, { String? keyword, String? appVersion, bool? includeGameData, bool? includeInactive, }) async {
+    final response = await searchGamesWithHttpInfo(accountId, appKey, start, limit,  keyword: keyword, appVersion: appVersion, includeGameData: includeGameData, includeInactive: includeInactive, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -419,8 +399,6 @@ class GameApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The logged in user.
@@ -445,10 +423,9 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   show more details in response.
-  Future<Response> updateGameWithHttpInfo(num version, { int? accountId, int? gameId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
+  Future<Response> updateGameWithHttpInfo({ int? accountId, int? gameId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -502,8 +479,6 @@ class GameApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The logged in user.
   ///
@@ -527,8 +502,8 @@ class GameApi {
   ///
   /// * [bool] includeGameData:
   ///   show more details in response.
-  Future<GameResponse?> updateGame(num version, { int? accountId, int? gameId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
-    final response = await updateGameWithHttpInfo(version,  accountId: accountId, gameId: gameId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, );
+  Future<GameResponse?> updateGame({ int? accountId, int? gameId, String? appKey, String? title, String? description, String? metaData, String? packIds, bool? includeGameData, }) async {
+    final response = await updateGameWithHttpInfo( accountId: accountId, gameId: gameId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

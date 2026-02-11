@@ -24,13 +24,10 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Program] body:
-  Future<Response> createProgramWithHttpInfo(num version, { Program? body, }) async {
+  Future<Response> createProgramWithHttpInfo({ Program? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program'
-      .replaceAll('{version}', version.toString());
+    final path = r'/program';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Program] body:
-  Future<Program?> createProgram(num version, { Program? body, }) async {
-    final response = await createProgramWithHttpInfo(version,  body: body, );
+  Future<Program?> createProgram({ Program? body, }) async {
+    final response = await createProgramWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
-  Future<Response> deleteProgramWithHttpInfo(num version, int id,) async {
+  Future<Response> deleteProgramWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/program/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
-  Future<void> deleteProgram(num version, int id,) async {
-    final response = await deleteProgramWithHttpInfo(version, id,);
+  Future<void> deleteProgram(int id,) async {
+    final response = await deleteProgramWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,14 +131,11 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
-  Future<Response> getProgramWithHttpInfo(num version, int id,) async {
+  Future<Response> getProgramWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/program/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -178,12 +165,10 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
-  Future<Program?> getProgram(num version, int id,) async {
-    final response = await getProgramWithHttpInfo(version, id,);
+  Future<Program?> getProgram(int id,) async {
+    final response = await getProgramWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,16 +190,13 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
   ///
   /// * [Program] body:
-  Future<Response> postProgramWithHttpInfo(num version, int id, { Program? body, }) async {
+  Future<Response> postProgramWithHttpInfo(int id, { Program? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/program/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -244,14 +226,12 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
   ///
   /// * [Program] body:
-  Future<Program?> postProgram(num version, int id, { Program? body, }) async {
-    final response = await postProgramWithHttpInfo(version, id,  body: body, );
+  Future<Program?> postProgram(int id, { Program? body, }) async {
+    final response = await postProgramWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -273,16 +253,13 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
   ///
   /// * [Program] body:
-  Future<Response> putProgramWithHttpInfo(num version, int id, { Program? body, }) async {
+  Future<Response> putProgramWithHttpInfo(int id, { Program? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/program/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -312,14 +289,12 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the program
   ///
   /// * [Program] body:
-  Future<Program?> putProgram(num version, int id, { Program? body, }) async {
-    final response = await putProgramWithHttpInfo(version, id,  body: body, );
+  Future<Program?> putProgram(int id, { Program? body, }) async {
+    final response = await putProgramWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -341,8 +316,6 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -360,10 +333,9 @@ class ProgramApi {
   ///
   /// * [String] keyword:
   ///   The keyword to filter results by
-  Future<Response> searchProgramsWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
+  Future<Response> searchProgramsWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/program'
-      .replaceAll('{version}', version.toString());
+    final path = r'/program';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -401,8 +373,6 @@ class ProgramApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -420,8 +390,8 @@ class ProgramApi {
   ///
   /// * [String] keyword:
   ///   The keyword to filter results by
-  Future<List<Program>?> searchPrograms(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
-    final response = await searchProgramsWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  keyword: keyword, );
+  Future<List<Program>?> searchPrograms(String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
+    final response = await searchProgramsWithHttpInfo(sortField, descending, start, limit, activeOnly,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

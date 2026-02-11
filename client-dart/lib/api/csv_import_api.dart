@@ -22,8 +22,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -38,10 +36,9 @@ class CSVImportApi {
   ///
   /// * [int] limit (required):
   ///   the limit of the pagination
-  Future<Response> getStatusCSVWithHttpInfo(num version, int accountId, int batchId, String responseGroup, int start, int limit,) async {
+  Future<Response> getStatusCSVWithHttpInfo(int accountId, int batchId, String responseGroup, int start, int limit,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/csvimport/batch/status/details'
-      .replaceAll('{version}', version.toString());
+    final path = r'/csvimport/batch/status/details';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -74,8 +71,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -90,8 +85,8 @@ class CSVImportApi {
   ///
   /// * [int] limit (required):
   ///   the limit of the pagination
-  Future<SirqulResponse?> getStatusCSV(num version, int accountId, int batchId, String responseGroup, int start, int limit,) async {
-    final response = await getStatusCSVWithHttpInfo(version, accountId, batchId, responseGroup, start, limit,);
+  Future<SirqulResponse?> getStatusCSV(int accountId, int batchId, String responseGroup, int start, int limit,) async {
+    final response = await getStatusCSVWithHttpInfo(accountId, batchId, responseGroup, start, limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -113,8 +108,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
@@ -123,10 +116,9 @@ class CSVImportApi {
   ///
   /// * [int] limit (required):
   ///   the limit of the pagination
-  Future<Response> listStatusCSVWithHttpInfo(num version, int accountId, int start, int limit,) async {
+  Future<Response> listStatusCSVWithHttpInfo(int accountId, int start, int limit,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/csvimport/batch/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/csvimport/batch/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -159,8 +151,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
@@ -169,8 +159,8 @@ class CSVImportApi {
   ///
   /// * [int] limit (required):
   ///   the limit of the pagination
-  Future<CsvImportResponse?> listStatusCSV(num version, int accountId, int start, int limit,) async {
-    final response = await listStatusCSVWithHttpInfo(version, accountId, start, limit,);
+  Future<CsvImportResponse?> listStatusCSV(int accountId, int start, int limit,) async {
+    final response = await listStatusCSVWithHttpInfo(accountId, start, limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -192,17 +182,14 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] batchId (required):
   ///   the id of the batch to get its status
-  Future<Response> statusCSVWithHttpInfo(num version, int accountId, int batchId,) async {
+  Future<Response> statusCSVWithHttpInfo(int accountId, int batchId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/csvimport/batch/status'
-      .replaceAll('{version}', version.toString());
+    final path = r'/csvimport/batch/status';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -234,15 +221,13 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] batchId (required):
   ///   the id of the batch to get its status
-  Future<CsvImportResponse?> statusCSV(num version, int accountId, int batchId,) async {
-    final response = await statusCSVWithHttpInfo(version, accountId, batchId,);
+  Future<CsvImportResponse?> statusCSV(int accountId, int batchId,) async {
+    final response = await statusCSVWithHttpInfo(accountId, batchId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -264,8 +249,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
@@ -280,10 +263,9 @@ class CSVImportApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<Response> uploadCSVWithHttpInfo(num version, int accountId, String uploadType, MultipartFile importFile, String fileFormat, { String? appKey, }) async {
+  Future<Response> uploadCSVWithHttpInfo(int accountId, String uploadType, MultipartFile importFile, String fileFormat, { String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/csvimport/upload'
-      .replaceAll('{version}', version.toString());
+    final path = r'/csvimport/upload';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -320,8 +302,6 @@ class CSVImportApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
@@ -336,8 +316,8 @@ class CSVImportApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<CsvImportResponse?> uploadCSV(num version, int accountId, String uploadType, MultipartFile importFile, String fileFormat, { String? appKey, }) async {
-    final response = await uploadCSVWithHttpInfo(version, accountId, uploadType, importFile, fileFormat,  appKey: appKey, );
+  Future<CsvImportResponse?> uploadCSV(int accountId, String uploadType, MultipartFile importFile, String fileFormat, { String? appKey, }) async {
+    final response = await uploadCSVWithHttpInfo(accountId, uploadType, importFile, fileFormat,  appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

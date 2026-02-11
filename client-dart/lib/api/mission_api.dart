@@ -24,8 +24,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -103,10 +101,9 @@ class MissionApi {
   ///
   /// * [String] radius:
   ///   Comma separated list of radii for locations
-  Future<Response> createMissionWithHttpInfo(num version, int accountId, String title, { String? description, String? subType, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, String? missionTask, String? formatType, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? metaData, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
+  Future<Response> createMissionWithHttpInfo(int accountId, String title, { String? description, String? subType, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, String? missionTask, String? formatType, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? metaData, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -210,8 +207,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -289,8 +284,8 @@ class MissionApi {
   ///
   /// * [String] radius:
   ///   Comma separated list of radii for locations
-  Future<MissionResponse?> createMission(num version, int accountId, String title, { String? description, String? subType, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, String? missionTask, String? formatType, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? metaData, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
-    final response = await createMissionWithHttpInfo(version, accountId, title,  description: description, subType: subType, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, missionTask: missionTask, formatType: formatType, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, metaData: metaData, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, );
+  Future<MissionResponse?> createMission(int accountId, String title, { String? description, String? subType, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, String? missionTask, String? formatType, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? metaData, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
+    final response = await createMissionWithHttpInfo(accountId, title,  description: description, subType: subType, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, missionTask: missionTask, formatType: formatType, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, metaData: metaData, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -312,17 +307,14 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] missionId (required):
   ///   the id of the mission to delete
-  Future<Response> deleteMissionWithHttpInfo(num version, int accountId, int missionId,) async {
+  Future<Response> deleteMissionWithHttpInfo(int accountId, int missionId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -354,15 +346,13 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] missionId (required):
   ///   the id of the mission to delete
-  Future<SirqulResponse?> deleteMission(num version, int accountId, int missionId,) async {
-    final response = await deleteMissionWithHttpInfo(version, accountId, missionId,);
+  Future<SirqulResponse?> deleteMission(int accountId, int missionId,) async {
+    final response = await deleteMissionWithHttpInfo(accountId, missionId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -383,8 +373,6 @@ class MissionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
@@ -442,10 +430,9 @@ class MissionApi {
   ///
   /// * [String] audienceOperator:
   ///   will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
-  Future<Response> findMissionsWithHttpInfo(num version, String appKey, { String? suffix, String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? allocatesTickets, bool? randomize, bool? targetedAdsOnly, String? missionIds, String? audienceOperator, }) async {
+  Future<Response> findMissionsWithHttpInfo(String appKey, { String? suffix, String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? allocatesTickets, bool? randomize, bool? targetedAdsOnly, String? missionIds, String? audienceOperator, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/find'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/find';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -530,8 +517,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
   ///
@@ -588,8 +573,8 @@ class MissionApi {
   ///
   /// * [String] audienceOperator:
   ///   will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
-  Future<MissionResponse?> findMissions(num version, String appKey, { String? suffix, String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? allocatesTickets, bool? randomize, bool? targetedAdsOnly, String? missionIds, String? audienceOperator, }) async {
-    final response = await findMissionsWithHttpInfo(version, appKey,  suffix: suffix, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, randomize: randomize, targetedAdsOnly: targetedAdsOnly, missionIds: missionIds, audienceOperator: audienceOperator, );
+  Future<MissionResponse?> findMissions(String appKey, { String? suffix, String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? allocatesTickets, bool? randomize, bool? targetedAdsOnly, String? missionIds, String? audienceOperator, }) async {
+    final response = await findMissionsWithHttpInfo(appKey,  suffix: suffix, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, randomize: randomize, targetedAdsOnly: targetedAdsOnly, missionIds: missionIds, audienceOperator: audienceOperator, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -611,8 +596,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -621,10 +604,9 @@ class MissionApi {
   ///
   /// * [bool] returnCreative:
   ///   Return creatives associated with the mission when true
-  Future<Response> getMissionWithHttpInfo(num version, int accountId, int missionId, { bool? returnCreative, }) async {
+  Future<Response> getMissionWithHttpInfo(int accountId, int missionId, { bool? returnCreative, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -659,8 +641,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -669,8 +649,8 @@ class MissionApi {
   ///
   /// * [bool] returnCreative:
   ///   Return creatives associated with the mission when true
-  Future<MissionResponse?> getMission(num version, int accountId, int missionId, { bool? returnCreative, }) async {
-    final response = await getMissionWithHttpInfo(version, accountId, missionId,  returnCreative: returnCreative, );
+  Future<MissionResponse?> getMission(int accountId, int missionId, { bool? returnCreative, }) async {
+    final response = await getMissionWithHttpInfo(accountId, missionId,  returnCreative: returnCreative, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -691,8 +671,6 @@ class MissionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -717,10 +695,9 @@ class MissionApi {
   ///
   /// * [String] adSize:
   ///   the size of the ad
-  Future<Response> importMissionWithHttpInfo(num version, int accountId, double latitude, double longitude, String appKey, { String? keyword, int? start, int? limit, String? adSize, }) async {
+  Future<Response> importMissionWithHttpInfo(int accountId, double latitude, double longitude, String appKey, { String? keyword, int? start, int? limit, String? adSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/import'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/import';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -766,8 +743,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -791,8 +766,8 @@ class MissionApi {
   ///
   /// * [String] adSize:
   ///   the size of the ad
-  Future<SirqulResponse?> importMission(num version, int accountId, double latitude, double longitude, String appKey, { String? keyword, int? start, int? limit, String? adSize, }) async {
-    final response = await importMissionWithHttpInfo(version, accountId, latitude, longitude, appKey,  keyword: keyword, start: start, limit: limit, adSize: adSize, );
+  Future<SirqulResponse?> importMission(int accountId, double latitude, double longitude, String appKey, { String? keyword, int? start, int? limit, String? adSize, }) async {
+    final response = await importMissionWithHttpInfo(accountId, latitude, longitude, appKey,  keyword: keyword, start: start, limit: limit, adSize: adSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -814,8 +789,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   The starting index in the result set to return. Default is 0.
   ///
@@ -824,10 +797,9 @@ class MissionApi {
   ///
   /// * [bool] activeOnly (required):
   ///   Determines whether to return only active results. Default is false.
-  Future<Response> searchMissionFormatsWithHttpInfo(num version, int start, int limit, bool activeOnly,) async {
+  Future<Response> searchMissionFormatsWithHttpInfo(int start, int limit, bool activeOnly,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/format/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/format/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -860,8 +832,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   The starting index in the result set to return. Default is 0.
   ///
@@ -870,8 +840,8 @@ class MissionApi {
   ///
   /// * [bool] activeOnly (required):
   ///   Determines whether to return only active results. Default is false.
-  Future<List<MissionFormatResponse>?> searchMissionFormats(num version, int start, int limit, bool activeOnly,) async {
-    final response = await searchMissionFormatsWithHttpInfo(version, start, limit, activeOnly,);
+  Future<List<MissionFormatResponse>?> searchMissionFormats(int start, int limit, bool activeOnly,) async {
+    final response = await searchMissionFormatsWithHttpInfo(start, limit, activeOnly,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -895,8 +865,6 @@ class MissionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -930,10 +898,9 @@ class MissionApi {
   ///
   /// * [bool] descending:
   ///   Whether to sort in descending order (default true)
-  Future<Response> searchMissionsWithHttpInfo(num version, int accountId, { String? keyword, String? subType, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
+  Future<Response> searchMissionsWithHttpInfo(int accountId, { String? keyword, String? subType, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -994,8 +961,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1028,8 +993,8 @@ class MissionApi {
   ///
   /// * [bool] descending:
   ///   Whether to sort in descending order (default true)
-  Future<List<MissionResponse>?> searchMissions(num version, int accountId, { String? keyword, String? subType, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
-    final response = await searchMissionsWithHttpInfo(version, accountId,  keyword: keyword, subType: subType, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, );
+  Future<List<MissionResponse>?> searchMissions(int accountId, { String? keyword, String? subType, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
+    final response = await searchMissionsWithHttpInfo(accountId,  keyword: keyword, subType: subType, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1053,8 +1018,6 @@ class MissionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -1085,10 +1048,9 @@ class MissionApi {
   ///
   /// * [bool] descending:
   ///   Whether to sort in descending order (default true)
-  Future<Response> searchMissionsByBillableEntityWithHttpInfo(num version, int accountId, { String? keyword, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
+  Future<Response> searchMissionsByBillableEntityWithHttpInfo(int accountId, { String? keyword, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/searchByBillableEntity'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/searchByBillableEntity';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1146,8 +1108,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1177,8 +1137,8 @@ class MissionApi {
   ///
   /// * [bool] descending:
   ///   Whether to sort in descending order (default true)
-  Future<List<MissionResponse>?> searchMissionsByBillableEntity(num version, int accountId, { String? keyword, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
-    final response = await searchMissionsByBillableEntityWithHttpInfo(version, accountId,  keyword: keyword, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, );
+  Future<List<MissionResponse>?> searchMissionsByBillableEntity(int accountId, { String? keyword, int? start, int? limit, bool? includeGameData, bool? includeAudiences, bool? includeInactive, String? suffix, String? sortField, bool? descending, }) async {
+    final response = await searchMissionsByBillableEntityWithHttpInfo(accountId,  keyword: keyword, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1202,8 +1162,6 @@ class MissionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -1279,10 +1237,9 @@ class MissionApi {
   ///
   /// * [String] radius:
   ///   Comma separated list of radii for locations
-  Future<Response> updateMissionWithHttpInfo(num version, int accountId, int missionId, { String? title, String? description, String? subType, String? metaData, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
+  Future<Response> updateMissionWithHttpInfo(int accountId, int missionId, { String? title, String? description, String? subType, String? metaData, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1383,8 +1340,6 @@ class MissionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1459,8 +1414,8 @@ class MissionApi {
   ///
   /// * [String] radius:
   ///   Comma separated list of radii for locations
-  Future<MissionResponse?> updateMission(num version, int accountId, int missionId, { String? title, String? description, String? subType, String? metaData, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
-    final response = await updateMissionWithHttpInfo(version, accountId, missionId,  title: title, description: description, subType: subType, metaData: metaData, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, );
+  Future<MissionResponse?> updateMission(int accountId, int missionId, { String? title, String? description, String? subType, String? metaData, int? startDate, int? endDate, bool? active, String? gameLevelIds, String? creativeIds, String? audienceIds, int? offerId, double? balance, bool? advancedReporting, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? applicationIds, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, }) async {
+    final response = await updateMissionWithHttpInfo(accountId, missionId,  title: title, description: description, subType: subType, metaData: metaData, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

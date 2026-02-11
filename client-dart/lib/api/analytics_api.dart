@@ -24,8 +24,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   The start of the pagination
   ///
@@ -34,10 +32,9 @@ class AnalyticsApi {
   ///
   /// * [int] accountId (required):
   ///   the account id of the user
-  Future<Response> activitiesWithHttpInfo(num version, int start, int limit, int accountId,) async {
+  Future<Response> activitiesWithHttpInfo(int start, int limit, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/analytics/useractivity'
-      .replaceAll('{version}', version.toString());
+    final path = r'/analytics/useractivity';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -70,8 +67,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   The start of the pagination
   ///
@@ -80,8 +75,8 @@ class AnalyticsApi {
   ///
   /// * [int] accountId (required):
   ///   the account id of the user
-  Future<List<UserActivityResponse>?> activities(num version, int start, int limit, int accountId,) async {
-    final response = await activitiesWithHttpInfo(version, start, limit, accountId,);
+  Future<List<UserActivityResponse>?> activities(int start, int limit, int accountId,) async {
+    final response = await activitiesWithHttpInfo(start, limit, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -105,8 +100,6 @@ class AnalyticsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
@@ -200,10 +193,9 @@ class AnalyticsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> aggregatedFilteredUsageWithHttpInfo(num version, { String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, String? groupByRoot, String? groupBy, String? distinctCount, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
+  Future<Response> aggregatedFilteredUsageWithHttpInfo({ String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, String? groupByRoot, String? groupBy, String? distinctCount, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/analytics/aggregatedFilteredUsage'
-      .replaceAll('{version}', version.toString());
+    final path = r'/analytics/aggregatedFilteredUsage';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -326,8 +318,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
   ///
@@ -420,8 +410,8 @@ class AnalyticsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ChartData?> aggregatedFilteredUsage(num version, { String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, String? groupByRoot, String? groupBy, String? distinctCount, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
-    final response = await aggregatedFilteredUsageWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, groupByRoot: groupByRoot, groupBy: groupBy, distinctCount: distinctCount, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, );
+  Future<ChartData?> aggregatedFilteredUsage({ String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, String? groupByRoot, String? groupBy, String? distinctCount, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
+    final response = await aggregatedFilteredUsageWithHttpInfo( deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, groupByRoot: groupByRoot, groupBy: groupBy, distinctCount: distinctCount, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -442,8 +432,6 @@ class AnalyticsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
@@ -561,10 +549,9 @@ class AnalyticsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> filteredUsageWithHttpInfo(num version, { String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, int? customId, String? customType, double? customValue, double? customValue2, int? customLong, int? customLong2, String? customMessage, String? customMessage2, String? groupBy, String? distinctCount, String? sumColumn, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
+  Future<Response> filteredUsageWithHttpInfo({ String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, int? customId, String? customType, double? customValue, double? customValue2, int? customLong, int? customLong2, String? customMessage, String? customMessage2, String? groupBy, String? distinctCount, String? sumColumn, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/analytics/filteredUsage'
-      .replaceAll('{version}', version.toString());
+    final path = r'/analytics/filteredUsage';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -711,8 +698,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
   ///
@@ -829,8 +814,8 @@ class AnalyticsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ChartData?> filteredUsage(num version, { String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, int? customId, String? customType, double? customValue, double? customValue2, int? customLong, int? customLong2, String? customMessage, String? customMessage2, String? groupBy, String? distinctCount, String? sumColumn, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
-    final response = await filteredUsageWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, customId: customId, customType: customType, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, customMessage: customMessage, customMessage2: customMessage2, groupBy: groupBy, distinctCount: distinctCount, sumColumn: sumColumn, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, );
+  Future<ChartData?> filteredUsage({ String? deviceId, int? accountId, int? applicationId, String? appKey, int? startDate, int? endDate, String? deviceType, String? device, String? deviceOS, String? gender, String? ageGroup, String? country, String? state, String? city, String? zip, String? model, String? tag, int? userAccountId, String? userAccountDisplay, String? userAccountUsername, int? customId, String? customType, double? customValue, double? customValue2, int? customLong, int? customLong2, String? customMessage, String? customMessage2, String? groupBy, String? distinctCount, String? sumColumn, String? sortField, bool? descending, bool? hideUnknown, String? responseFormat, int? l, int? limit, double? latitude, double? longitude, }) async {
+    final response = await filteredUsageWithHttpInfo( deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, customId: customId, customType: customType, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, customMessage: customMessage, customMessage2: customMessage2, groupBy: groupBy, distinctCount: distinctCount, sumColumn: sumColumn, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -851,8 +836,6 @@ class AnalyticsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] tag (required):
   ///   The tag to apply: the name of the action or thing being logged.
@@ -946,10 +929,9 @@ class AnalyticsApi {
   ///
   /// * [int] customLong2:
   ///   a custom long value for the usage record
-  Future<Response> usageWithHttpInfo(num version, String tag, { String? deviceId, int? accountId, int? applicationId, String? appKey, String? appVersion, String? device, String? deviceType, String? deviceOS, String? model, double? latitude, double? longitude, int? customId, String? customType, int? achievementIncrement, String? city, String? state, String? country, String? zip, String? locationDescription, int? clientTime, String? errorMessage, String? ip, String? userAgent, bool? backgroundEvent, String? customMessage, String? customMessage2, double? customValue, double? customValue2, int? customLong, int? customLong2, }) async {
+  Future<Response> usageWithHttpInfo(String tag, { String? deviceId, int? accountId, int? applicationId, String? appKey, String? appVersion, String? device, String? deviceType, String? deviceOS, String? model, double? latitude, double? longitude, int? customId, String? customType, int? achievementIncrement, String? city, String? state, String? country, String? zip, String? locationDescription, int? clientTime, String? errorMessage, String? ip, String? userAgent, bool? backgroundEvent, String? customMessage, String? customMessage2, double? customValue, double? customValue2, int? customLong, int? customLong2, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/analytics/usage'
-      .replaceAll('{version}', version.toString());
+    final path = r'/analytics/usage';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1070,8 +1052,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] tag (required):
   ///   The tag to apply: the name of the action or thing being logged.
   ///
@@ -1164,8 +1144,8 @@ class AnalyticsApi {
   ///
   /// * [int] customLong2:
   ///   a custom long value for the usage record
-  Future<SirqulResponse?> usage(num version, String tag, { String? deviceId, int? accountId, int? applicationId, String? appKey, String? appVersion, String? device, String? deviceType, String? deviceOS, String? model, double? latitude, double? longitude, int? customId, String? customType, int? achievementIncrement, String? city, String? state, String? country, String? zip, String? locationDescription, int? clientTime, String? errorMessage, String? ip, String? userAgent, bool? backgroundEvent, String? customMessage, String? customMessage2, double? customValue, double? customValue2, int? customLong, int? customLong2, }) async {
-    final response = await usageWithHttpInfo(version, tag,  deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, appVersion: appVersion, device: device, deviceType: deviceType, deviceOS: deviceOS, model: model, latitude: latitude, longitude: longitude, customId: customId, customType: customType, achievementIncrement: achievementIncrement, city: city, state: state, country: country, zip: zip, locationDescription: locationDescription, clientTime: clientTime, errorMessage: errorMessage, ip: ip, userAgent: userAgent, backgroundEvent: backgroundEvent, customMessage: customMessage, customMessage2: customMessage2, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, );
+  Future<SirqulResponse?> usage(String tag, { String? deviceId, int? accountId, int? applicationId, String? appKey, String? appVersion, String? device, String? deviceType, String? deviceOS, String? model, double? latitude, double? longitude, int? customId, String? customType, int? achievementIncrement, String? city, String? state, String? country, String? zip, String? locationDescription, int? clientTime, String? errorMessage, String? ip, String? userAgent, bool? backgroundEvent, String? customMessage, String? customMessage2, double? customValue, double? customValue2, int? customLong, int? customLong2, }) async {
+    final response = await usageWithHttpInfo(tag,  deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, appVersion: appVersion, device: device, deviceType: deviceType, deviceOS: deviceOS, model: model, latitude: latitude, longitude: longitude, customId: customId, customType: customType, achievementIncrement: achievementIncrement, city: city, state: state, country: country, zip: zip, locationDescription: locationDescription, clientTime: clientTime, errorMessage: errorMessage, ip: ip, userAgent: userAgent, backgroundEvent: backgroundEvent, customMessage: customMessage, customMessage2: customMessage2, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1186,8 +1166,6 @@ class AnalyticsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key unique to each application.
@@ -1221,10 +1199,9 @@ class AnalyticsApi {
   ///
   /// * [bool] returnSummaryResponse:
   ///   Returns a summary response of the achievements that have been completed due to the analytics
-  Future<Response> usageBatchWithHttpInfo(num version, String appKey, String device, String data, { String? deviceId, int? accountId, String? appVersion, String? deviceType, String? deviceOS, String? model, bool? updateRanking, bool? returnSummaryResponse, }) async {
+  Future<Response> usageBatchWithHttpInfo(String appKey, String device, String data, { String? deviceId, int? accountId, String? appVersion, String? deviceType, String? deviceOS, String? model, bool? updateRanking, bool? returnSummaryResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/analytics/usage/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/analytics/usage/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1281,8 +1258,6 @@ class AnalyticsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key unique to each application.
   ///
@@ -1315,8 +1290,8 @@ class AnalyticsApi {
   ///
   /// * [bool] returnSummaryResponse:
   ///   Returns a summary response of the achievements that have been completed due to the analytics
-  Future<SirqulResponse?> usageBatch(num version, String appKey, String device, String data, { String? deviceId, int? accountId, String? appVersion, String? deviceType, String? deviceOS, String? model, bool? updateRanking, bool? returnSummaryResponse, }) async {
-    final response = await usageBatchWithHttpInfo(version, appKey, device, data,  deviceId: deviceId, accountId: accountId, appVersion: appVersion, deviceType: deviceType, deviceOS: deviceOS, model: model, updateRanking: updateRanking, returnSummaryResponse: returnSummaryResponse, );
+  Future<SirqulResponse?> usageBatch(String appKey, String device, String data, { String? deviceId, int? accountId, String? appVersion, String? deviceType, String? deviceOS, String? model, bool? updateRanking, bool? returnSummaryResponse, }) async {
+    final response = await usageBatchWithHttpInfo(appKey, device, data,  deviceId: deviceId, accountId: accountId, appVersion: appVersion, deviceType: deviceType, deviceOS: deviceOS, model: model, updateRanking: updateRanking, returnSummaryResponse: returnSummaryResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -24,8 +24,6 @@ class CarrierApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] keyword:
   ///   The keyword to search on
   ///
@@ -40,10 +38,9 @@ class CarrierApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return inactive results
-  Future<Response> searchCarriersWithHttpInfo(num version, { String? keyword, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchCarriersWithHttpInfo({ String? keyword, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/carrier/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/carrier/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -88,8 +85,6 @@ class CarrierApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] keyword:
   ///   The keyword to search on
   ///
@@ -104,8 +99,8 @@ class CarrierApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return inactive results
-  Future<List<CellCarrierResponse>?> searchCarriers(num version, { String? keyword, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchCarriersWithHttpInfo(version,  keyword: keyword, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<CellCarrierResponse>?> searchCarriers({ String? keyword, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchCarriersWithHttpInfo( keyword: keyword, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

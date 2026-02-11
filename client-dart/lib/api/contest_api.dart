@@ -24,8 +24,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] publicRead (required):
   ///   determines whether the contest's participants has read permissions
   ///
@@ -100,10 +98,9 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> addOrUpdateAlbumContestWithHttpInfo(num version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, { String? deviceId, int? accountId, String? gameType, String? appKey, String? contestType, int? albumContestId, String? title, String? description, int? albumId1, bool? removeAlbum1, int? albumId2, bool? removeAlbum2, int? startDate, int? endDate, String? locationDescription, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, double? latitude, double? longitude, }) async {
+  Future<Response> addOrUpdateAlbumContestWithHttpInfo(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, { String? deviceId, int? accountId, String? gameType, String? appKey, String? contestType, int? albumContestId, String? title, String? description, int? albumId1, bool? removeAlbum1, int? albumId2, bool? removeAlbum2, int? startDate, int? endDate, String? locationDescription, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -196,8 +193,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] publicRead (required):
   ///   determines whether the contest's participants has read permissions
   ///
@@ -272,8 +267,8 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<AlbumContestResponse?> addOrUpdateAlbumContest(num version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, { String? deviceId, int? accountId, String? gameType, String? appKey, String? contestType, int? albumContestId, String? title, String? description, int? albumId1, bool? removeAlbum1, int? albumId2, bool? removeAlbum2, int? startDate, int? endDate, String? locationDescription, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, double? latitude, double? longitude, }) async {
-    final response = await addOrUpdateAlbumContestWithHttpInfo(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, contestType: contestType, albumContestId: albumContestId, title: title, description: description, albumId1: albumId1, removeAlbum1: removeAlbum1, albumId2: albumId2, removeAlbum2: removeAlbum2, startDate: startDate, endDate: endDate, locationDescription: locationDescription, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, latitude: latitude, longitude: longitude, );
+  Future<AlbumContestResponse?> addOrUpdateAlbumContest(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, { String? deviceId, int? accountId, String? gameType, String? appKey, String? contestType, int? albumContestId, String? title, String? description, int? albumId1, bool? removeAlbum1, int? albumId2, bool? removeAlbum2, int? startDate, int? endDate, String? locationDescription, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, double? latitude, double? longitude, }) async {
+    final response = await addOrUpdateAlbumContestWithHttpInfo(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, contestType: contestType, albumContestId: albumContestId, title: title, description: description, albumId1: albumId1, removeAlbum1: removeAlbum1, albumId2: albumId2, removeAlbum2: removeAlbum2, startDate: startDate, endDate: endDate, locationDescription: locationDescription, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -295,8 +290,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   The ID of the album contest
   ///
@@ -308,10 +301,9 @@ class ContestApi {
   ///
   /// * [int] accountId:
   ///   The account ID of the user (deviceId or accountId required)
-  Future<Response> approveAlbumContestWithHttpInfo(num version, int albumContestId, String approvalStatus, { String? deviceId, int? accountId, }) async {
+  Future<Response> approveAlbumContestWithHttpInfo(int albumContestId, String approvalStatus, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest/approve'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest/approve';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -349,8 +341,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   The ID of the album contest
   ///
@@ -362,8 +352,8 @@ class ContestApi {
   ///
   /// * [int] accountId:
   ///   The account ID of the user (deviceId or accountId required)
-  Future<SirqulResponse?> approveAlbumContest(num version, int albumContestId, String approvalStatus, { String? deviceId, int? accountId, }) async {
-    final response = await approveAlbumContestWithHttpInfo(version, albumContestId, approvalStatus,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> approveAlbumContest(int albumContestId, String approvalStatus, { String? deviceId, int? accountId, }) async {
+    final response = await approveAlbumContestWithHttpInfo(albumContestId, approvalStatus,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -385,8 +375,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -401,10 +389,9 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> deleteContestWithHttpInfo(num version, int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> deleteContestWithHttpInfo(int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -447,8 +434,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -463,8 +448,8 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<SirqulResponse?> deleteContest(num version, int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await deleteContestWithHttpInfo(version, albumContestId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> deleteContest(int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await deleteContestWithHttpInfo(albumContestId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -486,8 +471,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -502,10 +485,9 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> getAlbumContestWithHttpInfo(num version, int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getAlbumContestWithHttpInfo(int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -548,8 +530,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -564,8 +544,8 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<AlbumContestResponse?> getAlbumContest(num version, int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getAlbumContestWithHttpInfo(version, albumContestId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<AlbumContestResponse?> getAlbumContest(int albumContestId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getAlbumContestWithHttpInfo(albumContestId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -586,8 +566,6 @@ class ContestApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] filter (required):
   ///   a comma separated list of Ownership
@@ -645,10 +623,9 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> getAlbumContestsWithHttpInfo(num version, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? appKey, String? appType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, double? latitude, double? longitude, }) async {
+  Future<Response> getAlbumContestsWithHttpInfo(String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? appKey, String? appType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -725,8 +702,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] filter (required):
   ///   a comma separated list of Ownership
   ///
@@ -783,8 +758,8 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<AlbumContestListResponse?> getAlbumContests(num version, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? appKey, String? appType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, double? latitude, double? longitude, }) async {
-    final response = await getAlbumContestsWithHttpInfo(version, filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, appType: appType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, latitude: latitude, longitude: longitude, );
+  Future<AlbumContestListResponse?> getAlbumContests(String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? appKey, String? appType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, double? latitude, double? longitude, }) async {
+    final response = await getAlbumContestsWithHttpInfo(filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, appType: appType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -806,8 +781,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -828,10 +801,9 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> voteOnAlbumContestWithHttpInfo(num version, int albumContestId, int albumId, { String? deviceId, int? accountId, String? contestType, double? latitude, double? longitude, }) async {
+  Future<Response> voteOnAlbumContestWithHttpInfo(int albumContestId, int albumId, { String? deviceId, int? accountId, String? contestType, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/album/contest/vote'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/album/contest/vote';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -878,8 +850,6 @@ class ContestApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumContestId (required):
   ///   the album contest ID
   ///
@@ -900,8 +870,8 @@ class ContestApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<AlbumContestResponse?> voteOnAlbumContest(num version, int albumContestId, int albumId, { String? deviceId, int? accountId, String? contestType, double? latitude, double? longitude, }) async {
-    final response = await voteOnAlbumContestWithHttpInfo(version, albumContestId, albumId,  deviceId: deviceId, accountId: accountId, contestType: contestType, latitude: latitude, longitude: longitude, );
+  Future<AlbumContestResponse?> voteOnAlbumContest(int albumContestId, int albumId, { String? deviceId, int? accountId, String? contestType, double? latitude, double? longitude, }) async {
+    final response = await voteOnAlbumContestWithHttpInfo(albumContestId, albumId,  deviceId: deviceId, accountId: accountId, contestType: contestType, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

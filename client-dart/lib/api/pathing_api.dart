@@ -24,8 +24,6 @@ class PathingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   the data to with start, end point and exclusion points
   ///
@@ -37,10 +35,9 @@ class PathingApi {
   ///
   /// * [bool] directions (required):
   ///   determines whether to return text directions
-  Future<Response> computePathWithHttpInfo(num version, String data, String units, bool reducePath, bool directions,) async {
+  Future<Response> computePathWithHttpInfo(String data, String units, bool reducePath, bool directions,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pathing/compute'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pathing/compute';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -74,8 +71,6 @@ class PathingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   the data to with start, end point and exclusion points
   ///
@@ -87,8 +82,8 @@ class PathingApi {
   ///
   /// * [bool] directions (required):
   ///   determines whether to return text directions
-  Future<PathingResponse?> computePath(num version, String data, String units, bool reducePath, bool directions,) async {
-    final response = await computePathWithHttpInfo(version, data, units, reducePath, directions,);
+  Future<PathingResponse?> computePath(String data, String units, bool reducePath, bool directions,) async {
+    final response = await computePathWithHttpInfo(data, units, reducePath, directions,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

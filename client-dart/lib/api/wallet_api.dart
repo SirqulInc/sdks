@@ -24,8 +24,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -58,10 +56,9 @@ class WalletApi {
   ///
   /// * [int] status:
   ///   Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
-  Future<Response> createOfferTransactionWithHttpInfo(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, int? status, }) async {
+  Future<Response> createOfferTransactionWithHttpInfo({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, int? status, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -124,8 +121,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -158,8 +153,8 @@ class WalletApi {
   ///
   /// * [int] status:
   ///   Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
-  Future<List<OfferTransactionResponse>?> createOfferTransaction(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, int? status, }) async {
-    final response = await createOfferTransactionWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, status: status, );
+  Future<List<OfferTransactionResponse>?> createOfferTransaction({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, int? status, }) async {
+    final response = await createOfferTransactionWithHttpInfo( deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, status: status, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -184,8 +179,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to remove
   ///
@@ -194,10 +187,9 @@ class WalletApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deleteOfferTransactionWithHttpInfo(num version, int transactionId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteOfferTransactionWithHttpInfo(int transactionId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -234,8 +226,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to remove
   ///
@@ -244,8 +234,8 @@ class WalletApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> deleteOfferTransaction(num version, int transactionId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteOfferTransactionWithHttpInfo(version, transactionId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteOfferTransaction(int transactionId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteOfferTransactionWithHttpInfo(transactionId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -264,8 +254,6 @@ class WalletApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to get details of
@@ -287,10 +275,9 @@ class WalletApi {
   ///
   /// * [bool] returnFullResponse:
   ///   Determines whether to return a detailed version of the response
-  Future<Response> getOfferTransactionWithHttpInfo(num version, int transactionId, { String? deviceId, int? accountId, bool? includeMission, double? latitude, double? longitude, bool? returnFullResponse, }) async {
+  Future<Response> getOfferTransactionWithHttpInfo(int transactionId, { String? deviceId, int? accountId, bool? includeMission, double? latitude, double? longitude, bool? returnFullResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -337,8 +324,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to get details of
   ///
@@ -359,8 +344,8 @@ class WalletApi {
   ///
   /// * [bool] returnFullResponse:
   ///   Determines whether to return a detailed version of the response
-  Future<OfferTransactionResponse?> getOfferTransaction(num version, int transactionId, { String? deviceId, int? accountId, bool? includeMission, double? latitude, double? longitude, bool? returnFullResponse, }) async {
-    final response = await getOfferTransactionWithHttpInfo(version, transactionId,  deviceId: deviceId, accountId: accountId, includeMission: includeMission, latitude: latitude, longitude: longitude, returnFullResponse: returnFullResponse, );
+  Future<OfferTransactionResponse?> getOfferTransaction(int transactionId, { String? deviceId, int? accountId, bool? includeMission, double? latitude, double? longitude, bool? returnFullResponse, }) async {
+    final response = await getOfferTransactionWithHttpInfo(transactionId,  deviceId: deviceId, accountId: accountId, includeMission: includeMission, latitude: latitude, longitude: longitude, returnFullResponse: returnFullResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -381,8 +366,6 @@ class WalletApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -413,10 +396,9 @@ class WalletApi {
   ///
   /// * [String] appKey:
   ///   The application requesting the purchase, required when currencyType is TICKETS
-  Future<Response> previewOfferTransactionWithHttpInfo(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, }) async {
+  Future<Response> previewOfferTransactionWithHttpInfo({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/preview'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/preview';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -476,8 +458,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -507,8 +487,8 @@ class WalletApi {
   ///
   /// * [String] appKey:
   ///   The application requesting the purchase, required when currencyType is TICKETS
-  Future<List<OfferTransactionResponse>?> previewOfferTransaction(num version, { String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, }) async {
-    final response = await previewOfferTransactionWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, );
+  Future<List<OfferTransactionResponse>?> previewOfferTransaction({ String? deviceId, int? accountId, int? offerId, int? offerLocationId, String? offerCart, String? promoCode, String? currencyType, bool? usePoints, String? metaData, String? appKey, }) async {
+    final response = await previewOfferTransactionWithHttpInfo( deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -532,8 +512,6 @@ class WalletApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -657,10 +635,9 @@ class WalletApi {
   ///
   /// * [int] recurringExpirationBefore:
   ///   Filter results by the recurring billing expiration date
-  Future<Response> searchOfferTransactionsWithHttpInfo(num version, { String? deviceId, int? accountId, String? keyword, int? retailerId, String? retailerIds, int? retailerLocationId, String? retailerLocationIds, String? excludeRetailerLocationIds, int? offerId, String? offerIds, int? offerLocationId, String? offerLocationIds, String? offerType, String? offerTypes, String? specialOfferType, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, int? redeemableStartDate, int? redeemableEndDate, bool? filterByParentOffer, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, bool? redeemed, String? statuses, bool? reservationsOnly, bool? activeOnly, bool? returnFullResponse, int? recurringStartedSince, int? recurringStartedBefore, int? recurringExpirationSince, int? recurringExpirationBefore, }) async {
+  Future<Response> searchOfferTransactionsWithHttpInfo({ String? deviceId, int? accountId, String? keyword, int? retailerId, String? retailerIds, int? retailerLocationId, String? retailerLocationIds, String? excludeRetailerLocationIds, int? offerId, String? offerIds, int? offerLocationId, String? offerLocationIds, String? offerType, String? offerTypes, String? specialOfferType, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, int? redeemableStartDate, int? redeemableEndDate, bool? filterByParentOffer, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, bool? redeemed, String? statuses, bool? reservationsOnly, bool? activeOnly, bool? returnFullResponse, int? recurringStartedSince, int? recurringStartedBefore, int? recurringExpirationSince, int? recurringExpirationBefore, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -813,8 +790,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -937,8 +912,8 @@ class WalletApi {
   ///
   /// * [int] recurringExpirationBefore:
   ///   Filter results by the recurring billing expiration date
-  Future<List<OfferTransactionResponse>?> searchOfferTransactions(num version, { String? deviceId, int? accountId, String? keyword, int? retailerId, String? retailerIds, int? retailerLocationId, String? retailerLocationIds, String? excludeRetailerLocationIds, int? offerId, String? offerIds, int? offerLocationId, String? offerLocationIds, String? offerType, String? offerTypes, String? specialOfferType, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, int? redeemableStartDate, int? redeemableEndDate, bool? filterByParentOffer, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, bool? redeemed, String? statuses, bool? reservationsOnly, bool? activeOnly, bool? returnFullResponse, int? recurringStartedSince, int? recurringStartedBefore, int? recurringExpirationSince, int? recurringExpirationBefore, }) async {
-    final response = await searchOfferTransactionsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerIds: retailerIds, retailerLocationId: retailerLocationId, retailerLocationIds: retailerLocationIds, excludeRetailerLocationIds: excludeRetailerLocationIds, offerId: offerId, offerIds: offerIds, offerLocationId: offerLocationId, offerLocationIds: offerLocationIds, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, filterByParentOffer: filterByParentOffer, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, redeemed: redeemed, statuses: statuses, reservationsOnly: reservationsOnly, activeOnly: activeOnly, returnFullResponse: returnFullResponse, recurringStartedSince: recurringStartedSince, recurringStartedBefore: recurringStartedBefore, recurringExpirationSince: recurringExpirationSince, recurringExpirationBefore: recurringExpirationBefore, );
+  Future<List<OfferTransactionResponse>?> searchOfferTransactions({ String? deviceId, int? accountId, String? keyword, int? retailerId, String? retailerIds, int? retailerLocationId, String? retailerLocationIds, String? excludeRetailerLocationIds, int? offerId, String? offerIds, int? offerLocationId, String? offerLocationIds, String? offerType, String? offerTypes, String? specialOfferType, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, int? redeemableStartDate, int? redeemableEndDate, bool? filterByParentOffer, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, bool? redeemed, String? statuses, bool? reservationsOnly, bool? activeOnly, bool? returnFullResponse, int? recurringStartedSince, int? recurringStartedBefore, int? recurringExpirationSince, int? recurringExpirationBefore, }) async {
+    final response = await searchOfferTransactionsWithHttpInfo( deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerIds: retailerIds, retailerLocationId: retailerLocationId, retailerLocationIds: retailerLocationIds, excludeRetailerLocationIds: excludeRetailerLocationIds, offerId: offerId, offerIds: offerIds, offerLocationId: offerLocationId, offerLocationIds: offerLocationIds, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, filterByParentOffer: filterByParentOffer, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, redeemed: redeemed, statuses: statuses, reservationsOnly: reservationsOnly, activeOnly: activeOnly, returnFullResponse: returnFullResponse, recurringStartedSince: recurringStartedSince, recurringStartedBefore: recurringStartedBefore, recurringExpirationSince: recurringExpirationSince, recurringExpirationBefore: recurringExpirationBefore, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -962,8 +937,6 @@ class WalletApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to remove
@@ -1003,10 +976,9 @@ class WalletApi {
   ///
   /// * [String] exceptionMembershipOfferIds:
   ///   Exception Offers, transaction audiences of these offers won't be removed out of the account when up
-  Future<Response> updateOfferTransactionWithHttpInfo(num version, int transactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, String? currencyType, bool? usePoints, String? appKey, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, String? exceptionMembershipOfferIds, }) async {
+  Future<Response> updateOfferTransactionWithHttpInfo(int transactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, String? currencyType, bool? usePoints, String? appKey, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, String? exceptionMembershipOfferIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/wallet/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/wallet/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1071,8 +1043,6 @@ class WalletApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] transactionId (required):
   ///   The offer transaction id to remove
   ///
@@ -1111,8 +1081,8 @@ class WalletApi {
   ///
   /// * [String] exceptionMembershipOfferIds:
   ///   Exception Offers, transaction audiences of these offers won't be removed out of the account when up
-  Future<OfferTransactionResponse?> updateOfferTransaction(num version, int transactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, String? currencyType, bool? usePoints, String? appKey, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, String? exceptionMembershipOfferIds, }) async {
-    final response = await updateOfferTransactionWithHttpInfo(version, transactionId, status,  deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, currencyType: currencyType, usePoints: usePoints, appKey: appKey, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, exceptionMembershipOfferIds: exceptionMembershipOfferIds, );
+  Future<OfferTransactionResponse?> updateOfferTransaction(int transactionId, int status, { String? deviceId, int? accountId, int? offerLocationId, String? currencyType, bool? usePoints, String? appKey, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, String? exceptionMembershipOfferIds, }) async {
+    final response = await updateOfferTransactionWithHttpInfo(transactionId, status,  deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, currencyType: currencyType, usePoints: usePoints, appKey: appKey, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, exceptionMembershipOfferIds: exceptionMembershipOfferIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

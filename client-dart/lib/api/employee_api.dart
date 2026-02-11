@@ -24,8 +24,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -37,10 +35,9 @@ class EmployeeApi {
   ///
   /// * [String] role:
   ///   The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
-  Future<Response> assignEmployeeWithHttpInfo(num version, int accountId, int managerAccountId, int employeeAccountId, { String? role, }) async {
+  Future<Response> assignEmployeeWithHttpInfo(int accountId, int managerAccountId, int employeeAccountId, { String? role, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/assign'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/assign';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -76,8 +73,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -89,8 +84,8 @@ class EmployeeApi {
   ///
   /// * [String] role:
   ///   The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
-  Future<EmployeeResponse?> assignEmployee(num version, int accountId, int managerAccountId, int employeeAccountId, { String? role, }) async {
-    final response = await assignEmployeeWithHttpInfo(version, accountId, managerAccountId, employeeAccountId,  role: role, );
+  Future<EmployeeResponse?> assignEmployee(int accountId, int managerAccountId, int employeeAccountId, { String? role, }) async {
+    final response = await assignEmployeeWithHttpInfo(accountId, managerAccountId, employeeAccountId,  role: role, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -112,8 +107,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -125,10 +118,9 @@ class EmployeeApi {
   ///
   /// * [bool] assign:
   ///   If true (default) assign to the location, otherwise remove from the retailer
-  Future<Response> assignToLocationEmployeeWithHttpInfo(num version, int accountId, int retailerLocationId, { int? employeeAccountId, bool? assign, }) async {
+  Future<Response> assignToLocationEmployeeWithHttpInfo(int accountId, int retailerLocationId, { int? employeeAccountId, bool? assign, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/assignToLocation'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/assignToLocation';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -166,8 +158,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -179,8 +169,8 @@ class EmployeeApi {
   ///
   /// * [bool] assign:
   ///   If true (default) assign to the location, otherwise remove from the retailer
-  Future<SirqulResponse?> assignToLocationEmployee(num version, int accountId, int retailerLocationId, { int? employeeAccountId, bool? assign, }) async {
-    final response = await assignToLocationEmployeeWithHttpInfo(version, accountId, retailerLocationId,  employeeAccountId: employeeAccountId, assign: assign, );
+  Future<SirqulResponse?> assignToLocationEmployee(int accountId, int retailerLocationId, { int? employeeAccountId, bool? assign, }) async {
+    final response = await assignToLocationEmployeeWithHttpInfo(accountId, retailerLocationId,  employeeAccountId: employeeAccountId, assign: assign, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -201,8 +191,6 @@ class EmployeeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
@@ -293,10 +281,9 @@ class EmployeeApi {
   ///
   /// * [String] assignedDeviceId:
   ///   The device id to assign to the user (used for IPS beacon tracking)
-  Future<Response> createEmployeeWithHttpInfo(num version, int accountId, int managerAccountId, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? aboutUs, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
+  Future<Response> createEmployeeWithHttpInfo(int accountId, int managerAccountId, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? aboutUs, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -408,8 +395,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -499,8 +484,8 @@ class EmployeeApi {
   ///
   /// * [String] assignedDeviceId:
   ///   The device id to assign to the user (used for IPS beacon tracking)
-  Future<EmployeeResponse?> createEmployee(num version, int accountId, int managerAccountId, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? aboutUs, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
-    final response = await createEmployeeWithHttpInfo(version, accountId, managerAccountId, username, password,  name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, aboutUs: aboutUs, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, );
+  Future<EmployeeResponse?> createEmployee(int accountId, int managerAccountId, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? aboutUs, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
+    final response = await createEmployeeWithHttpInfo(accountId, managerAccountId, username, password,  name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, aboutUs: aboutUs, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -522,17 +507,14 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] employeeAccountId (required):
   ///   the id of the employee to delete
-  Future<Response> deleteEmployeeWithHttpInfo(num version, int accountId, int employeeAccountId,) async {
+  Future<Response> deleteEmployeeWithHttpInfo(int accountId, int employeeAccountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -564,15 +546,13 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] employeeAccountId (required):
   ///   the id of the employee to delete
-  Future<SirqulResponse?> deleteEmployee(num version, int accountId, int employeeAccountId,) async {
-    final response = await deleteEmployeeWithHttpInfo(version, accountId, employeeAccountId,);
+  Future<SirqulResponse?> deleteEmployee(int accountId, int employeeAccountId,) async {
+    final response = await deleteEmployeeWithHttpInfo(accountId, employeeAccountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -594,8 +574,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of logged in user
   ///
@@ -604,10 +582,9 @@ class EmployeeApi {
   ///
   /// * [String] settingsAppKey:
   ///   Determines whether to return the application settings for the employee for a particular application
-  Future<Response> getEmployeeWithHttpInfo(num version, int accountId, int employeeAccountId, { String? settingsAppKey, }) async {
+  Future<Response> getEmployeeWithHttpInfo(int accountId, int employeeAccountId, { String? settingsAppKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -642,8 +619,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of logged in user
   ///
@@ -652,8 +627,8 @@ class EmployeeApi {
   ///
   /// * [String] settingsAppKey:
   ///   Determines whether to return the application settings for the employee for a particular application
-  Future<EmployeeResponse?> getEmployee(num version, int accountId, int employeeAccountId, { String? settingsAppKey, }) async {
-    final response = await getEmployeeWithHttpInfo(version, accountId, employeeAccountId,  settingsAppKey: settingsAppKey, );
+  Future<EmployeeResponse?> getEmployee(int accountId, int employeeAccountId, { String? settingsAppKey, }) async {
+    final response = await getEmployeeWithHttpInfo(accountId, employeeAccountId,  settingsAppKey: settingsAppKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -674,8 +649,6 @@ class EmployeeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
@@ -727,10 +700,9 @@ class EmployeeApi {
   ///
   /// * [String] query:
   ///   Legacy/reporting query parameter used for formatting employee responses
-  Future<Response> searchEmployeesWithHttpInfo(num version, int accountId, { String? role, int? retailerId, int? retailerLocationId, String? q, String? keyword, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? activeOnly, bool? managedOnly, String? settingsAppKey, String? categoryIds, String? query, }) async {
+  Future<Response> searchEmployeesWithHttpInfo(int accountId, { String? role, int? retailerId, int? retailerLocationId, String? q, String? keyword, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? activeOnly, bool? managedOnly, String? settingsAppKey, String? categoryIds, String? query, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -809,8 +781,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -861,8 +831,8 @@ class EmployeeApi {
   ///
   /// * [String] query:
   ///   Legacy/reporting query parameter used for formatting employee responses
-  Future<List<EmployeeResponse>?> searchEmployees(num version, int accountId, { String? role, int? retailerId, int? retailerLocationId, String? q, String? keyword, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? activeOnly, bool? managedOnly, String? settingsAppKey, String? categoryIds, String? query, }) async {
-    final response = await searchEmployeesWithHttpInfo(version, accountId,  role: role, retailerId: retailerId, retailerLocationId: retailerLocationId, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, activeOnly: activeOnly, managedOnly: managedOnly, settingsAppKey: settingsAppKey, categoryIds: categoryIds, query: query, );
+  Future<List<EmployeeResponse>?> searchEmployees(int accountId, { String? role, int? retailerId, int? retailerLocationId, String? q, String? keyword, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? activeOnly, bool? managedOnly, String? settingsAppKey, String? categoryIds, String? query, }) async {
+    final response = await searchEmployeesWithHttpInfo(accountId,  role: role, retailerId: retailerId, retailerLocationId: retailerLocationId, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, activeOnly: activeOnly, managedOnly: managedOnly, settingsAppKey: settingsAppKey, categoryIds: categoryIds, query: query, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -887,17 +857,14 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
   /// * [int] employeeAccountId (required):
   ///   The account id of the user to be unassigned
-  Future<Response> unassignEmployeeWithHttpInfo(num version, int accountId, int employeeAccountId,) async {
+  Future<Response> unassignEmployeeWithHttpInfo(int accountId, int employeeAccountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/unassign'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/unassign';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -929,15 +896,13 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
   /// * [int] employeeAccountId (required):
   ///   The account id of the user to be unassigned
-  Future<EmployeeResponse?> unassignEmployee(num version, int accountId, int employeeAccountId,) async {
-    final response = await unassignEmployeeWithHttpInfo(version, accountId, employeeAccountId,);
+  Future<EmployeeResponse?> unassignEmployee(int accountId, int employeeAccountId,) async {
+    final response = await unassignEmployeeWithHttpInfo(accountId, employeeAccountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -958,8 +923,6 @@ class EmployeeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
@@ -1050,10 +1013,9 @@ class EmployeeApi {
   ///
   /// * [String] assignedDeviceId:
   ///   The device id to assign to the user (used for IPS beacon tracking)
-  Future<Response> updateEmployeeWithHttpInfo(num version, int accountId, int employeeAccountId, { int? managerAccountId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, bool? active, String? password, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
+  Future<Response> updateEmployeeWithHttpInfo(int accountId, int employeeAccountId, { int? managerAccountId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, bool? active, String? password, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/employee/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/employee/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1169,8 +1131,6 @@ class EmployeeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -1260,8 +1220,8 @@ class EmployeeApi {
   ///
   /// * [String] assignedDeviceId:
   ///   The device id to assign to the user (used for IPS beacon tracking)
-  Future<EmployeeResponse?> updateEmployee(num version, int accountId, int employeeAccountId, { int? managerAccountId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, bool? active, String? password, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
-    final response = await updateEmployeeWithHttpInfo(version, accountId, employeeAccountId,  managerAccountId: managerAccountId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, active: active, password: password, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, );
+  Future<EmployeeResponse?> updateEmployee(int accountId, int employeeAccountId, { int? managerAccountId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, int? assetId, String? gender, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, String? role, bool? active, String? password, String? retailerLocationIds, String? settingsAppKey, String? appBlob, String? assignedDeviceId, }) async {
+    final response = await updateEmployeeWithHttpInfo(accountId, employeeAccountId,  managerAccountId: managerAccountId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, active: active, password: password, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

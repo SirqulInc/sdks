@@ -24,8 +24,6 @@ class ScoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -55,10 +53,9 @@ class ScoreApi {
   ///
   /// * [bool] highest:
   ///   
-  Future<Response> createScoreWithHttpInfo(num version, int accountId, String appKey, int points, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, int? timeTaken, bool? highest, }) async {
+  Future<Response> createScoreWithHttpInfo(int accountId, String appKey, int points, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, int? timeTaken, bool? highest, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/score/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/score/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -112,8 +109,6 @@ class ScoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -143,8 +138,8 @@ class ScoreApi {
   ///
   /// * [bool] highest:
   ///   
-  Future<ScoreResponse?> createScore(num version, int accountId, String appKey, int points, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, int? timeTaken, bool? highest, }) async {
-    final response = await createScoreWithHttpInfo(version, accountId, appKey, points,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, timeTaken: timeTaken, highest: highest, );
+  Future<ScoreResponse?> createScore(int accountId, String appKey, int points, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, int? timeTaken, bool? highest, }) async {
+    final response = await createScoreWithHttpInfo(accountId, appKey, points,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, timeTaken: timeTaken, highest: highest, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -165,8 +160,6 @@ class ScoreApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -194,10 +187,9 @@ class ScoreApi {
   ///
   /// * [String] scoreStatus:
   ///   The status of the score to filter (ScoreStatus)
-  Future<Response> getScoreWithHttpInfo(num version, int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, String? scoreObjectType, String? scoreStatus, }) async {
+  Future<Response> getScoreWithHttpInfo(int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, String? scoreObjectType, String? scoreStatus, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/score/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/score/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -250,8 +242,6 @@ class ScoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -278,8 +268,8 @@ class ScoreApi {
   ///
   /// * [String] scoreStatus:
   ///   The status of the score to filter (ScoreStatus)
-  Future<ScoreResponse?> getScore(num version, int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, String? scoreObjectType, String? scoreStatus, }) async {
-    final response = await getScoreWithHttpInfo(version, accountId, appKey,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreObjectType: scoreObjectType, scoreStatus: scoreStatus, );
+  Future<ScoreResponse?> getScore(int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, String? scoreObjectType, String? scoreStatus, }) async {
+    final response = await getScoreWithHttpInfo(accountId, appKey,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreObjectType: scoreObjectType, scoreStatus: scoreStatus, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -301,8 +291,6 @@ class ScoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -323,10 +311,9 @@ class ScoreApi {
   ///
   /// * [int] gameObjectId:
   ///   The gameObjectId to score for, null if level based scoring.
-  Future<Response> searchScoresWithHttpInfo(num version, int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
+  Future<Response> searchScoresWithHttpInfo(int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/score/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/score/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -373,8 +360,6 @@ class ScoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -395,8 +380,8 @@ class ScoreApi {
   ///
   /// * [int] gameObjectId:
   ///   The gameObjectId to score for, null if level based scoring.
-  Future<List<ScoreResponse>?> searchScores(num version, int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
-    final response = await searchScoresWithHttpInfo(version, accountId, appKey,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, );
+  Future<List<ScoreResponse>?> searchScores(int accountId, String appKey, { int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
+    final response = await searchScoresWithHttpInfo(accountId, appKey,  missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

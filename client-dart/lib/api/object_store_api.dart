@@ -24,8 +24,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -40,10 +38,9 @@ class ObjectStoreApi {
   ///
   /// * [String] fieldType (required):
   ///   field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
-  Future<Response> addFieldWithHttpInfo(num version, int accountId, String appKey, String objectName, String fieldName, String fieldType,) async {
+  Future<Response> addFieldWithHttpInfo(int accountId, String appKey, String objectName, String fieldName, String fieldType,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/field/add'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/field/add';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -78,8 +75,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -94,8 +89,8 @@ class ObjectStoreApi {
   ///
   /// * [String] fieldType (required):
   ///   field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
-  Future<ObjectStoreResponse?> addField(num version, int accountId, String appKey, String objectName, String fieldName, String fieldType,) async {
-    final response = await addFieldWithHttpInfo(version, accountId, appKey, objectName, fieldName, fieldType,);
+  Future<ObjectStoreResponse?> addField(int accountId, String appKey, String objectName, String fieldName, String fieldType,) async {
+    final response = await addFieldWithHttpInfo(accountId, appKey, objectName, fieldName, fieldType,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -117,8 +112,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   the name of the object to create data for
   ///
@@ -126,10 +119,9 @@ class ObjectStoreApi {
   ///   the account id
   ///
   /// * [String] body:
-  Future<Response> createDataWithHttpInfo(num version, String objectName, { int? accountId, String? body, }) async {
+  Future<Response> createDataWithHttpInfo(String objectName, { int? accountId, String? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/data/{objectName}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/object/data/{objectName}'
       .replaceAll('{objectName}', objectName);
 
     // ignore: prefer_final_locals
@@ -163,8 +155,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   the name of the object to create data for
   ///
@@ -172,8 +162,8 @@ class ObjectStoreApi {
   ///   the account id
   ///
   /// * [String] body:
-  Future<ObjectStoreResponse?> createData(num version, String objectName, { int? accountId, String? body, }) async {
-    final response = await createDataWithHttpInfo(version, objectName,  accountId: accountId, body: body, );
+  Future<ObjectStoreResponse?> createData(String objectName, { int? accountId, String? body, }) async {
+    final response = await createDataWithHttpInfo(objectName,  accountId: accountId, body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -195,8 +185,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -205,10 +193,9 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   The name of the object to create
-  Future<Response> createObjectWithHttpInfo(num version, int accountId, String appKey, String objectName,) async {
+  Future<Response> createObjectWithHttpInfo(int accountId, String appKey, String objectName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -241,8 +228,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -251,8 +236,8 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   The name of the object to create
-  Future<ObjectStoreResponse?> createObject(num version, int accountId, String appKey, String objectName,) async {
-    final response = await createObjectWithHttpInfo(version, accountId, appKey, objectName,);
+  Future<ObjectStoreResponse?> createObject(int accountId, String appKey, String objectName,) async {
+    final response = await createObjectWithHttpInfo(accountId, appKey, objectName,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -274,8 +259,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -284,10 +267,9 @@ class ObjectStoreApi {
   ///
   /// * [int] accountId:
   ///   The account id of the logged in user
-  Future<Response> deleteDataWithHttpInfo(num version, String objectName, String objectId, { int? accountId, }) async {
+  Future<Response> deleteDataWithHttpInfo(String objectName, String objectId, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/data/{objectName}/{objectId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/object/data/{objectName}/{objectId}'
       .replaceAll('{objectName}', objectName)
       .replaceAll('{objectId}', objectId);
 
@@ -322,8 +304,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -332,8 +312,8 @@ class ObjectStoreApi {
   ///
   /// * [int] accountId:
   ///   The account id of the logged in user
-  Future<ObjectStoreResponse?> deleteData(num version, String objectName, String objectId, { int? accountId, }) async {
-    final response = await deleteDataWithHttpInfo(version, objectName, objectId,  accountId: accountId, );
+  Future<ObjectStoreResponse?> deleteData(String objectName, String objectId, { int? accountId, }) async {
+    final response = await deleteDataWithHttpInfo(objectName, objectId,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -355,8 +335,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -368,10 +346,9 @@ class ObjectStoreApi {
   ///
   /// * [String] fieldName (required):
   ///   field name The name of the field to remove.
-  Future<Response> deleteFieldWithHttpInfo(num version, int accountId, String appKey, String objectName, String fieldName,) async {
+  Future<Response> deleteFieldWithHttpInfo(int accountId, String appKey, String objectName, String fieldName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/field/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/field/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -405,8 +382,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -418,8 +393,8 @@ class ObjectStoreApi {
   ///
   /// * [String] fieldName (required):
   ///   field name The name of the field to remove.
-  Future<ObjectStoreResponse?> deleteField(num version, int accountId, String appKey, String objectName, String fieldName,) async {
-    final response = await deleteFieldWithHttpInfo(version, accountId, appKey, objectName, fieldName,);
+  Future<ObjectStoreResponse?> deleteField(int accountId, String appKey, String objectName, String fieldName,) async {
+    final response = await deleteFieldWithHttpInfo(accountId, appKey, objectName, fieldName,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -441,8 +416,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -451,10 +424,9 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   the name of the object to delete
-  Future<Response> deleteObjectWithHttpInfo(num version, int accountId, String appKey, String objectName,) async {
+  Future<Response> deleteObjectWithHttpInfo(int accountId, String appKey, String objectName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -487,8 +459,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -497,8 +467,8 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   the name of the object to delete
-  Future<ObjectStoreResponse?> deleteObject(num version, int accountId, String appKey, String objectName,) async {
-    final response = await deleteObjectWithHttpInfo(version, accountId, appKey, objectName,);
+  Future<ObjectStoreResponse?> deleteObject(int accountId, String appKey, String objectName,) async {
+    final response = await deleteObjectWithHttpInfo(accountId, appKey, objectName,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -520,8 +490,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -533,10 +501,9 @@ class ObjectStoreApi {
   ///
   /// * [String] include:
   ///   
-  Future<Response> getDataWithHttpInfo(num version, String objectName, String objectId, { int? accountId, String? include, }) async {
+  Future<Response> getDataWithHttpInfo(String objectName, String objectId, { int? accountId, String? include, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/data/{objectName}/{objectId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/object/data/{objectName}/{objectId}'
       .replaceAll('{objectName}', objectName)
       .replaceAll('{objectId}', objectId);
 
@@ -574,8 +541,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -587,8 +552,8 @@ class ObjectStoreApi {
   ///
   /// * [String] include:
   ///   
-  Future<ObjectStoreResponse?> getData(num version, String objectName, String objectId, { int? accountId, String? include, }) async {
-    final response = await getDataWithHttpInfo(version, objectName, objectId,  accountId: accountId, include: include, );
+  Future<ObjectStoreResponse?> getData(String objectName, String objectId, { int? accountId, String? include, }) async {
+    final response = await getDataWithHttpInfo(objectName, objectId,  accountId: accountId, include: include, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -610,8 +575,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -620,10 +583,9 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   The name of the object to get the definition for
-  Future<Response> getObjectWithHttpInfo(num version, int accountId, String appKey, String objectName,) async {
+  Future<Response> getObjectWithHttpInfo(int accountId, String appKey, String objectName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -656,8 +618,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -666,8 +626,8 @@ class ObjectStoreApi {
   ///
   /// * [String] objectName (required):
   ///   The name of the object to get the definition for
-  Future<ObjectStoreResponse?> getObject(num version, int accountId, String appKey, String objectName,) async {
-    final response = await getObjectWithHttpInfo(version, accountId, appKey, objectName,);
+  Future<ObjectStoreResponse?> getObject(int accountId, String appKey, String objectName,) async {
+    final response = await getObjectWithHttpInfo(accountId, appKey, objectName,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -688,8 +648,6 @@ class ObjectStoreApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
@@ -714,10 +672,9 @@ class ObjectStoreApi {
   ///
   /// * [String] include:
   ///   
-  Future<Response> searchDataWithHttpInfo(num version, String objectName, bool count, int start, int limit, { int? accountId, String? criteria, String? order, String? include, }) async {
+  Future<Response> searchDataWithHttpInfo(String objectName, bool count, int start, int limit, { int? accountId, String? criteria, String? order, String? include, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/data/{objectName}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/object/data/{objectName}'
       .replaceAll('{objectName}', objectName);
 
     // ignore: prefer_final_locals
@@ -763,8 +720,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -788,8 +743,8 @@ class ObjectStoreApi {
   ///
   /// * [String] include:
   ///   
-  Future<ObjectStoreResponse?> searchData(num version, String objectName, bool count, int start, int limit, { int? accountId, String? criteria, String? order, String? include, }) async {
-    final response = await searchDataWithHttpInfo(version, objectName, count, start, limit,  accountId: accountId, criteria: criteria, order: order, include: include, );
+  Future<ObjectStoreResponse?> searchData(String objectName, bool count, int start, int limit, { int? accountId, String? criteria, String? order, String? include, }) async {
+    final response = await searchDataWithHttpInfo(objectName, count, start, limit,  accountId: accountId, criteria: criteria, order: order, include: include, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -811,8 +766,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -827,10 +780,9 @@ class ObjectStoreApi {
   ///
   /// * [String] keyword:
   ///   The name of the object(s) to search for, can be a partial match
-  Future<Response> searchObjectWithHttpInfo(num version, int accountId, String appKey, int start, int limit, { String? keyword, }) async {
+  Future<Response> searchObjectWithHttpInfo(int accountId, String appKey, int start, int limit, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/object/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -867,8 +819,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -883,8 +833,8 @@ class ObjectStoreApi {
   ///
   /// * [String] keyword:
   ///   The name of the object(s) to search for, can be a partial match
-  Future<ObjectStoreResponse?> searchObject(num version, int accountId, String appKey, int start, int limit, { String? keyword, }) async {
-    final response = await searchObjectWithHttpInfo(version, accountId, appKey, start, limit,  keyword: keyword, );
+  Future<ObjectStoreResponse?> searchObject(int accountId, String appKey, int start, int limit, { String? keyword, }) async {
+    final response = await searchObjectWithHttpInfo(accountId, appKey, start, limit,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -906,8 +856,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -918,10 +866,9 @@ class ObjectStoreApi {
   ///   The account id of the logged in user
   ///
   /// * [String] body:
-  Future<Response> updateDataWithHttpInfo(num version, String objectName, String objectId, { int? accountId, String? body, }) async {
+  Future<Response> updateDataWithHttpInfo(String objectName, String objectId, { int? accountId, String? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/object/data/{objectName}/{objectId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/object/data/{objectName}/{objectId}'
       .replaceAll('{objectName}', objectName)
       .replaceAll('{objectId}', objectId);
 
@@ -956,8 +903,6 @@ class ObjectStoreApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] objectName (required):
   ///   The name of the object to search upon
   ///
@@ -968,8 +913,8 @@ class ObjectStoreApi {
   ///   The account id of the logged in user
   ///
   /// * [String] body:
-  Future<ObjectStoreResponse?> updateData(num version, String objectName, String objectId, { int? accountId, String? body, }) async {
-    final response = await updateDataWithHttpInfo(version, objectName, objectId,  accountId: accountId, body: body, );
+  Future<ObjectStoreResponse?> updateData(String objectName, String objectId, { int? accountId, String? body, }) async {
+    final response = await updateDataWithHttpInfo(objectName, objectId,  accountId: accountId, body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

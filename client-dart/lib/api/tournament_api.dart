@@ -24,8 +24,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -130,10 +128,9 @@ class TournamentApi {
   ///
   /// * [String] tieTag:
   ///   This sets what analytic tag is used when a tie has occurred
-  Future<Response> createTournamentWithHttpInfo(num version, int accountId, String appKey, String title, int costToPlay, int startDate, { String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? missionType, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
+  Future<Response> createTournamentWithHttpInfo(int accountId, String appKey, String title, int costToPlay, int startDate, { String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? missionType, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -258,8 +255,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -364,8 +359,8 @@ class TournamentApi {
   ///
   /// * [String] tieTag:
   ///   This sets what analytic tag is used when a tie has occurred
-  Future<TournamentResponse?> createTournament(num version, int accountId, String appKey, String title, int costToPlay, int startDate, { String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? missionType, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
-    final response = await createTournamentWithHttpInfo(version, accountId, appKey, title, costToPlay, startDate,  subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, missionType: missionType, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, );
+  Future<TournamentResponse?> createTournament(int accountId, String appKey, String title, int costToPlay, int startDate, { String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? missionType, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
+    final response = await createTournamentWithHttpInfo(accountId, appKey, title, costToPlay, startDate,  subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, missionType: missionType, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -387,17 +382,14 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] missionId (required):
   ///   the id of the mission to delete
-  Future<Response> deleteTournamentWithHttpInfo(num version, int accountId, int missionId,) async {
+  Future<Response> deleteTournamentWithHttpInfo(int accountId, int missionId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -429,15 +421,13 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] missionId (required):
   ///   the id of the mission to delete
-  Future<SirqulResponse?> deleteTournament(num version, int accountId, int missionId,) async {
-    final response = await deleteTournamentWithHttpInfo(version, accountId, missionId,);
+  Future<SirqulResponse?> deleteTournament(int accountId, int missionId,) async {
+    final response = await deleteTournamentWithHttpInfo(accountId, missionId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -459,8 +449,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the logged in user
   ///
@@ -475,10 +463,9 @@ class TournamentApi {
   ///
   /// * [int] objectPreviewSize:
   ///   Determines the max number of game objects that will get returned for each game level response
-  Future<Response> getTournamentWithHttpInfo(num version, int accountId, { int? missionId, String? joinCode, String? includeScores, int? objectPreviewSize, }) async {
+  Future<Response> getTournamentWithHttpInfo(int accountId, { int? missionId, String? joinCode, String? includeScores, int? objectPreviewSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -521,8 +508,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the logged in user
   ///
@@ -537,8 +522,8 @@ class TournamentApi {
   ///
   /// * [int] objectPreviewSize:
   ///   Determines the max number of game objects that will get returned for each game level response
-  Future<TournamentResponse?> getTournament(num version, int accountId, { int? missionId, String? joinCode, String? includeScores, int? objectPreviewSize, }) async {
-    final response = await getTournamentWithHttpInfo(version, accountId,  missionId: missionId, joinCode: joinCode, includeScores: includeScores, objectPreviewSize: objectPreviewSize, );
+  Future<TournamentResponse?> getTournament(int accountId, { int? missionId, String? joinCode, String? includeScores, int? objectPreviewSize, }) async {
+    final response = await getTournamentWithHttpInfo(accountId,  missionId: missionId, joinCode: joinCode, includeScores: includeScores, objectPreviewSize: objectPreviewSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -560,8 +545,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID
   ///
@@ -579,10 +562,9 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> searchObjectsWithHttpInfo(num version, int accountId, int gameLevelId, { String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchObjectsWithHttpInfo(int accountId, int gameLevelId, { String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/object/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/object/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -626,8 +608,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID
   ///
@@ -645,8 +625,8 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<SirqulResponse?> searchObjects(num version, int accountId, int gameLevelId, { String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchObjectsWithHttpInfo(version, accountId, gameLevelId,  sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<SirqulResponse?> searchObjects(int accountId, int gameLevelId, { String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchObjectsWithHttpInfo(accountId, gameLevelId,  sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -667,8 +647,6 @@ class TournamentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the account ID
@@ -693,10 +671,9 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> searchRoundsWithHttpInfo(num version, int accountId, String appKey, { String? status, String? missionType, bool? currentOnly, String? visibilities, int? start, int? limit, }) async {
+  Future<Response> searchRoundsWithHttpInfo(int accountId, String appKey, { String? status, String? missionType, bool? currentOnly, String? visibilities, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/round/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/round/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -746,8 +723,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID
   ///
@@ -771,8 +746,8 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<SirqulResponse?> searchRounds(num version, int accountId, String appKey, { String? status, String? missionType, bool? currentOnly, String? visibilities, int? start, int? limit, }) async {
-    final response = await searchRoundsWithHttpInfo(version, accountId, appKey,  status: status, missionType: missionType, currentOnly: currentOnly, visibilities: visibilities, start: start, limit: limit, );
+  Future<SirqulResponse?> searchRounds(int accountId, String appKey, { String? status, String? missionType, bool? currentOnly, String? visibilities, int? start, int? limit, }) async {
+    final response = await searchRoundsWithHttpInfo(accountId, appKey,  status: status, missionType: missionType, currentOnly: currentOnly, visibilities: visibilities, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -793,8 +768,6 @@ class TournamentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -831,10 +804,9 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   Limit the result to some number
-  Future<Response> searchTournamentsWithHttpInfo(num version, int accountId, String appKey, { String? keyword, String? subType, bool? includeInactive, String? missionTypes, String? filter, String? sortField, bool? descending, String? visibility, int? start, int? limit, }) async {
+  Future<Response> searchTournamentsWithHttpInfo(int accountId, String appKey, { String? keyword, String? subType, bool? includeInactive, String? missionTypes, String? filter, String? sortField, bool? descending, String? visibility, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -896,8 +868,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -933,8 +903,8 @@ class TournamentApi {
   ///
   /// * [int] limit:
   ///   Limit the result to some number
-  Future<MissionShortResponse?> searchTournaments(num version, int accountId, String appKey, { String? keyword, String? subType, bool? includeInactive, String? missionTypes, String? filter, String? sortField, bool? descending, String? visibility, int? start, int? limit, }) async {
-    final response = await searchTournamentsWithHttpInfo(version, accountId, appKey,  keyword: keyword, subType: subType, includeInactive: includeInactive, missionTypes: missionTypes, filter: filter, sortField: sortField, descending: descending, visibility: visibility, start: start, limit: limit, );
+  Future<MissionShortResponse?> searchTournaments(int accountId, String appKey, { String? keyword, String? subType, bool? includeInactive, String? missionTypes, String? filter, String? sortField, bool? descending, String? visibility, int? start, int? limit, }) async {
+    final response = await searchTournamentsWithHttpInfo(accountId, appKey,  keyword: keyword, subType: subType, includeInactive: includeInactive, missionTypes: missionTypes, filter: filter, sortField: sortField, descending: descending, visibility: visibility, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -956,8 +926,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user account ID.
   ///
@@ -978,10 +946,9 @@ class TournamentApi {
   ///
   /// * [int] gameLevelId:
   ///   The gameLevelId to score for
-  Future<Response> submitTournamentScoreWithHttpInfo(num version, int accountId, String appKey, int missionId, int gameId, int packId, String scores, { int? gameLevelId, }) async {
+  Future<Response> submitTournamentScoreWithHttpInfo(int accountId, String appKey, int missionId, int gameId, int packId, String scores, { int? gameLevelId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/score'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/score';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1020,8 +987,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user account ID.
   ///
@@ -1042,8 +1007,8 @@ class TournamentApi {
   ///
   /// * [int] gameLevelId:
   ///   The gameLevelId to score for
-  Future<SirqulResponse?> submitTournamentScore(num version, int accountId, String appKey, int missionId, int gameId, int packId, String scores, { int? gameLevelId, }) async {
-    final response = await submitTournamentScoreWithHttpInfo(version, accountId, appKey, missionId, gameId, packId, scores,  gameLevelId: gameLevelId, );
+  Future<SirqulResponse?> submitTournamentScore(int accountId, String appKey, int missionId, int gameId, int packId, String scores, { int? gameLevelId, }) async {
+    final response = await submitTournamentScoreWithHttpInfo(accountId, appKey, missionId, gameId, packId, scores,  gameLevelId: gameLevelId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1065,8 +1030,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1084,10 +1047,9 @@ class TournamentApi {
   ///
   /// * [bool] checkIfDeviceAlreadyVoted:
   ///   When true, check if the device already voted to prevent duplicate votes from the same device
-  Future<Response> submitTournamentVoteWithHttpInfo(num version, int accountId, String appKey, int missionId, int gameObjectId, { String? deviceId, bool? checkIfDeviceAlreadyVoted, }) async {
+  Future<Response> submitTournamentVoteWithHttpInfo(int accountId, String appKey, int missionId, int gameObjectId, { String? deviceId, bool? checkIfDeviceAlreadyVoted, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/vote'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/vote';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1127,8 +1089,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1146,8 +1106,8 @@ class TournamentApi {
   ///
   /// * [bool] checkIfDeviceAlreadyVoted:
   ///   When true, check if the device already voted to prevent duplicate votes from the same device
-  Future<SirqulResponse?> submitTournamentVote(num version, int accountId, String appKey, int missionId, int gameObjectId, { String? deviceId, bool? checkIfDeviceAlreadyVoted, }) async {
-    final response = await submitTournamentVoteWithHttpInfo(version, accountId, appKey, missionId, gameObjectId,  deviceId: deviceId, checkIfDeviceAlreadyVoted: checkIfDeviceAlreadyVoted, );
+  Future<SirqulResponse?> submitTournamentVote(int accountId, String appKey, int missionId, int gameObjectId, { String? deviceId, bool? checkIfDeviceAlreadyVoted, }) async {
+    final response = await submitTournamentVoteWithHttpInfo(accountId, appKey, missionId, gameObjectId,  deviceId: deviceId, checkIfDeviceAlreadyVoted: checkIfDeviceAlreadyVoted, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1169,8 +1129,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -1182,10 +1140,9 @@ class TournamentApi {
   ///
   /// * [int] gameLevelId (required):
   ///   the id of the game level
-  Future<Response> substituteTournamentPlayerWithHttpInfo(num version, int accountId, int missionId, int packId, int gameLevelId,) async {
+  Future<Response> substituteTournamentPlayerWithHttpInfo(int accountId, int missionId, int packId, int gameLevelId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/substitute'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/substitute';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1219,8 +1176,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -1232,8 +1187,8 @@ class TournamentApi {
   ///
   /// * [int] gameLevelId (required):
   ///   the id of the game level
-  Future<SirqulResponse?> substituteTournamentPlayer(num version, int accountId, int missionId, int packId, int gameLevelId,) async {
-    final response = await substituteTournamentPlayerWithHttpInfo(version, accountId, missionId, packId, gameLevelId,);
+  Future<SirqulResponse?> substituteTournamentPlayer(int accountId, int missionId, int packId, int gameLevelId,) async {
+    final response = await substituteTournamentPlayerWithHttpInfo(accountId, missionId, packId, gameLevelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1254,8 +1209,6 @@ class TournamentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -1358,10 +1311,9 @@ class TournamentApi {
   ///
   /// * [String] tieTag:
   ///   This sets what analytic tag is used when a winner is determined
-  Future<Response> updateTournamentWithHttpInfo(num version, int accountId, int missionId, { String? title, String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, int? costToPlay, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, int? startDate, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
+  Future<Response> updateTournamentWithHttpInfo(int accountId, int missionId, { String? title, String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, int? costToPlay, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, int? startDate, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tournament/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tournament/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1489,8 +1441,6 @@ class TournamentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1592,8 +1542,8 @@ class TournamentApi {
   ///
   /// * [String] tieTag:
   ///   This sets what analytic tag is used when a winner is determined
-  Future<TournamentResponse?> updateTournament(num version, int accountId, int missionId, { String? title, String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, int? costToPlay, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, int? startDate, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
-    final response = await updateTournamentWithHttpInfo(version, accountId, missionId,  title: title, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlay: costToPlay, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, startDate: startDate, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, );
+  Future<TournamentResponse?> updateTournament(int accountId, int missionId, { String? title, String? subType, int? imageAssetId, int? secondsBetweenLevels, int? secondsForTieBreaker, int? secondsBetweenPacks, int? maximumLevelLength, int? costToPlay, String? costToPlayType, int? minimumToPlay, int? startingLimit, int? availableLimit, String? description, String? metaData, int? startDate, String? audienceIds, bool? active, bool? enableBuyBack, String? offerIds, int? offerAssetId, bool? fixedReward, String? splitReward, bool? allocateTickets, String? tournamentData, String? visibility, int? preliminaryGroups, String? preliminaryGroupAdvancements, bool? enableMultipleEntries, bool? enableMultipleVotes, bool? featured, String? winnerTag, String? tieTag, }) async {
+    final response = await updateTournamentWithHttpInfo(accountId, missionId,  title: title, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlay: costToPlay, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, startDate: startDate, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

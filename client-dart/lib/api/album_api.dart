@@ -24,8 +24,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] title (required):
   ///   the title of the album
   ///
@@ -163,10 +161,9 @@ class AlbumApi {
   ///
   /// * [int] linkedObjectId:
   ///   sets a linked object id so that it can be returned as part of the album response
-  Future<Response> addAlbumCollectionWithHttpInfo(num version, String title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, { String? deviceId, int? accountId, String? assetsToAdd, MultipartFile? media, String? mediaURL, int? assetId, MultipartFile? attachedMedia, String? attachedMediaURL, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, double? latitude, double? longitude, String? locationDescription, String? visibility, String? gameType, String? appKey, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? approvalStatus, String? linkedObjectType, int? linkedObjectId, }) async {
+  Future<Response> addAlbumCollectionWithHttpInfo(String title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, { String? deviceId, int? accountId, String? assetsToAdd, MultipartFile? media, String? mediaURL, int? assetId, MultipartFile? attachedMedia, String? attachedMediaURL, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, double? latitude, double? longitude, String? locationDescription, String? visibility, String? gameType, String? appKey, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? approvalStatus, String? linkedObjectType, int? linkedObjectId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -318,8 +315,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] title (required):
   ///   the title of the album
   ///
@@ -457,8 +452,8 @@ class AlbumApi {
   ///
   /// * [int] linkedObjectId:
   ///   sets a linked object id so that it can be returned as part of the album response
-  Future<SearchResponse?> addAlbumCollection(num version, String title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, { String? deviceId, int? accountId, String? assetsToAdd, MultipartFile? media, String? mediaURL, int? assetId, MultipartFile? attachedMedia, String? attachedMediaURL, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, double? latitude, double? longitude, String? locationDescription, String? visibility, String? gameType, String? appKey, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? approvalStatus, String? linkedObjectType, int? linkedObjectId, }) async {
-    final response = await addAlbumCollectionWithHttpInfo(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous,  deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, media: media, mediaURL: mediaURL, assetId: assetId, attachedMedia: attachedMedia, attachedMediaURL: attachedMediaURL, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, gameType: gameType, appKey: appKey, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, approvalStatus: approvalStatus, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, );
+  Future<SearchResponse?> addAlbumCollection(String title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, { String? deviceId, int? accountId, String? assetsToAdd, MultipartFile? media, String? mediaURL, int? assetId, MultipartFile? attachedMedia, String? attachedMediaURL, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, double? latitude, double? longitude, String? locationDescription, String? visibility, String? gameType, String? appKey, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? approvalStatus, String? linkedObjectType, int? linkedObjectId, }) async {
+    final response = await addAlbumCollectionWithHttpInfo(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous,  deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, media: media, mediaURL: mediaURL, assetId: assetId, attachedMedia: attachedMedia, attachedMediaURL: attachedMediaURL, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, gameType: gameType, appKey: appKey, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, approvalStatus: approvalStatus, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -479,8 +474,6 @@ class AlbumApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] albumId (required):
   ///   the album ID
@@ -511,10 +504,9 @@ class AlbumApi {
   ///
   /// * [String] connectionGroups:
   ///   comma separated list of connection group IDs
-  Future<Response> addAlbumUsersWithHttpInfo(num version, int albumId, bool includeFriendGroup, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connections, String? connectionGroups, }) async {
+  Future<Response> addAlbumUsersWithHttpInfo(int albumId, bool includeFriendGroup, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connections, String? connectionGroups, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/user/add'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/user/add';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -570,8 +562,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID
   ///
@@ -601,8 +591,8 @@ class AlbumApi {
   ///
   /// * [String] connectionGroups:
   ///   comma separated list of connection group IDs
-  Future<SirqulResponse?> addAlbumUsers(num version, int albumId, bool includeFriendGroup, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connections, String? connectionGroups, }) async {
-    final response = await addAlbumUsersWithHttpInfo(version, albumId, includeFriendGroup,  deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connections: connections, connectionGroups: connectionGroups, );
+  Future<SirqulResponse?> addAlbumUsers(int albumId, bool includeFriendGroup, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connections, String? connectionGroups, }) async {
+    final response = await addAlbumUsersWithHttpInfo(albumId, includeFriendGroup,  deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connections: connections, connectionGroups: connectionGroups, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -624,8 +614,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   The ID of the album
   ///
@@ -640,10 +628,9 @@ class AlbumApi {
   ///
   /// * [bool] verified:
   ///   Sets whether the album should be marked as \"verified\"
-  Future<Response> approveAlbumWithHttpInfo(num version, int albumId, { String? deviceId, int? accountId, String? approvalStatus, bool? verified, }) async {
+  Future<Response> approveAlbumWithHttpInfo(int albumId, { String? deviceId, int? accountId, String? approvalStatus, bool? verified, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/approve'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/approve';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -686,8 +673,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   The ID of the album
   ///
@@ -702,8 +687,8 @@ class AlbumApi {
   ///
   /// * [bool] verified:
   ///   Sets whether the album should be marked as \"verified\"
-  Future<SirqulResponse?> approveAlbum(num version, int albumId, { String? deviceId, int? accountId, String? approvalStatus, bool? verified, }) async {
-    final response = await approveAlbumWithHttpInfo(version, albumId,  deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, verified: verified, );
+  Future<SirqulResponse?> approveAlbum(int albumId, { String? deviceId, int? accountId, String? approvalStatus, bool? verified, }) async {
+    final response = await approveAlbumWithHttpInfo(albumId,  deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, verified: verified, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -724,8 +709,6 @@ class AlbumApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   This parameter is deprecated.
@@ -753,10 +736,9 @@ class AlbumApi {
   ///
   /// * [int] audiencePreviewSize:
   ///   returns the first X audiences. To search on and paginate the remaining audiences - please use the \"/audience/search\" endpoint.
-  Future<Response> getAlbumCollectionWithHttpInfo(num version, bool returnNulls, int albumId, { String? deviceId, int? accountId, int? likePreviewSize, int? assetPreviewSize, int? notePreviewSize, int? connectionPreviewSize, int? audiencePreviewSize, }) async {
+  Future<Response> getAlbumCollectionWithHttpInfo(bool returnNulls, int albumId, { String? deviceId, int? accountId, int? likePreviewSize, int? assetPreviewSize, int? notePreviewSize, int? connectionPreviewSize, int? audiencePreviewSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -809,8 +791,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   This parameter is deprecated.
   ///
@@ -837,8 +817,8 @@ class AlbumApi {
   ///
   /// * [int] audiencePreviewSize:
   ///   returns the first X audiences. To search on and paginate the remaining audiences - please use the \"/audience/search\" endpoint.
-  Future<AlbumFullResponse?> getAlbumCollection(num version, bool returnNulls, int albumId, { String? deviceId, int? accountId, int? likePreviewSize, int? assetPreviewSize, int? notePreviewSize, int? connectionPreviewSize, int? audiencePreviewSize, }) async {
-    final response = await getAlbumCollectionWithHttpInfo(version, returnNulls, albumId,  deviceId: deviceId, accountId: accountId, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, );
+  Future<AlbumFullResponse?> getAlbumCollection(bool returnNulls, int albumId, { String? deviceId, int? accountId, int? likePreviewSize, int? assetPreviewSize, int? notePreviewSize, int? connectionPreviewSize, int? audiencePreviewSize, }) async {
+    final response = await getAlbumCollectionWithHttpInfo(returnNulls, albumId,  deviceId: deviceId, accountId: accountId, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -860,8 +840,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID
   ///
@@ -870,10 +848,9 @@ class AlbumApi {
   ///
   /// * [int] accountId:
   ///   the account ID of the user (deviceId or accountId required)
-  Future<Response> leaveAlbumWithHttpInfo(num version, int albumId, { String? deviceId, int? accountId, }) async {
+  Future<Response> leaveAlbumWithHttpInfo(int albumId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/user/leave'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/user/leave';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -910,8 +887,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID
   ///
@@ -920,8 +895,8 @@ class AlbumApi {
   ///
   /// * [int] accountId:
   ///   the account ID of the user (deviceId or accountId required)
-  Future<SirqulResponse?> leaveAlbum(num version, int albumId, { String? deviceId, int? accountId, }) async {
-    final response = await leaveAlbumWithHttpInfo(version, albumId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> leaveAlbum(int albumId, { String? deviceId, int? accountId, }) async {
+    final response = await leaveAlbumWithHttpInfo(albumId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -943,8 +918,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID to delete
   ///
@@ -953,10 +926,9 @@ class AlbumApi {
   ///
   /// * [int] accountId:
   ///   the account ID of the user (deviceId or accountId required)
-  Future<Response> removeAlbumWithHttpInfo(num version, int albumId, { String? deviceId, int? accountId, }) async {
+  Future<Response> removeAlbumWithHttpInfo(int albumId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -993,8 +965,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID to delete
   ///
@@ -1003,8 +973,8 @@ class AlbumApi {
   ///
   /// * [int] accountId:
   ///   the account ID of the user (deviceId or accountId required)
-  Future<SirqulResponse?> removeAlbum(num version, int albumId, { String? deviceId, int? accountId, }) async {
-    final response = await removeAlbumWithHttpInfo(version, albumId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> removeAlbum(int albumId, { String? deviceId, int? accountId, }) async {
+    final response = await removeAlbumWithHttpInfo(albumId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1026,8 +996,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID
   ///
@@ -1045,10 +1013,9 @@ class AlbumApi {
   ///
   /// * [String] connectionGroups:
   ///   comma separated list of connection group IDs
-  Future<Response> removeAlbumUsersWithHttpInfo(num version, int albumId, bool removeFriendGroup, { String? deviceId, int? accountId, String? connections, String? connectionGroups, }) async {
+  Future<Response> removeAlbumUsersWithHttpInfo(int albumId, bool removeFriendGroup, { String? deviceId, int? accountId, String? connections, String? connectionGroups, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/user/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/user/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1092,8 +1059,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the album ID
   ///
@@ -1111,8 +1076,8 @@ class AlbumApi {
   ///
   /// * [String] connectionGroups:
   ///   comma separated list of connection group IDs
-  Future<SirqulResponse?> removeAlbumUsers(num version, int albumId, bool removeFriendGroup, { String? deviceId, int? accountId, String? connections, String? connectionGroups, }) async {
-    final response = await removeAlbumUsersWithHttpInfo(version, albumId, removeFriendGroup,  deviceId: deviceId, accountId: accountId, connections: connections, connectionGroups: connectionGroups, );
+  Future<SirqulResponse?> removeAlbumUsers(int albumId, bool removeFriendGroup, { String? deviceId, int? accountId, String? connections, String? connectionGroups, }) async {
+    final response = await removeAlbumUsersWithHttpInfo(albumId, removeFriendGroup,  deviceId: deviceId, accountId: accountId, connections: connections, connectionGroups: connectionGroups, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1133,8 +1098,6 @@ class AlbumApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] filter (required):
   ///   a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
@@ -1315,10 +1278,9 @@ class AlbumApi {
   ///
   /// * [bool] generateAlbums:
   ///   If true and results are empty, attempt to generate albums via templates
-  Future<Response> searchAlbumsWithHttpInfo(num version, String filter, int albumTypeId, String subType, bool includeInactive, String sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, { String? deviceId, int? accountId, int? connectionAccountId, int? ownerId, String? albumIds, String? excludeAlbumIds, int? mediaId, String? keyword, String? albumType, int? limitPerAlbumType, int? dateCreated, int? updatedSince, int? updatedBefore, int? createdSince, int? createdBefore, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, double? latitude, double? longitude, String? appKey, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? excludeAudienceIds, bool? includeCompletable, bool? includeRating, String? searchMode, bool? stackSearch, int? stackWindowSize, int? minStackPerPage, String? stackPaginationIdentifier, bool? stackDetails, int? flagCountMinimum, bool? removeFlaggedContent, bool? verifiedFilter, String? linkedObjectType, int? linkedObjectId, int? orderAudienceId, bool? ignoreDefaultAppFilter, String? searchExpression, bool? generateAlbums, }) async {
+  Future<Response> searchAlbumsWithHttpInfo(String filter, int albumTypeId, String subType, bool includeInactive, String sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, { String? deviceId, int? accountId, int? connectionAccountId, int? ownerId, String? albumIds, String? excludeAlbumIds, int? mediaId, String? keyword, String? albumType, int? limitPerAlbumType, int? dateCreated, int? updatedSince, int? updatedBefore, int? createdSince, int? createdBefore, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, double? latitude, double? longitude, String? appKey, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? excludeAudienceIds, bool? includeCompletable, bool? includeRating, String? searchMode, bool? stackSearch, int? stackWindowSize, int? minStackPerPage, String? stackPaginationIdentifier, bool? stackDetails, int? flagCountMinimum, bool? removeFlaggedContent, bool? verifiedFilter, String? linkedObjectType, int? linkedObjectId, int? orderAudienceId, bool? ignoreDefaultAppFilter, String? searchExpression, bool? generateAlbums, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1494,8 +1456,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] filter (required):
   ///   a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
   ///
@@ -1675,8 +1635,8 @@ class AlbumApi {
   ///
   /// * [bool] generateAlbums:
   ///   If true and results are empty, attempt to generate albums via templates
-  Future<List<AlbumFullResponse>?> searchAlbums(num version, String filter, int albumTypeId, String subType, bool includeInactive, String sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, { String? deviceId, int? accountId, int? connectionAccountId, int? ownerId, String? albumIds, String? excludeAlbumIds, int? mediaId, String? keyword, String? albumType, int? limitPerAlbumType, int? dateCreated, int? updatedSince, int? updatedBefore, int? createdSince, int? createdBefore, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, double? latitude, double? longitude, String? appKey, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? excludeAudienceIds, bool? includeCompletable, bool? includeRating, String? searchMode, bool? stackSearch, int? stackWindowSize, int? minStackPerPage, String? stackPaginationIdentifier, bool? stackDetails, int? flagCountMinimum, bool? removeFlaggedContent, bool? verifiedFilter, String? linkedObjectType, int? linkedObjectId, int? orderAudienceId, bool? ignoreDefaultAppFilter, String? searchExpression, bool? generateAlbums, }) async {
-    final response = await searchAlbumsWithHttpInfo(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, ownerId: ownerId, albumIds: albumIds, excludeAlbumIds: excludeAlbumIds, mediaId: mediaId, keyword: keyword, albumType: albumType, limitPerAlbumType: limitPerAlbumType, dateCreated: dateCreated, updatedSince: updatedSince, updatedBefore: updatedBefore, createdSince: createdSince, createdBefore: createdBefore, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, latitude: latitude, longitude: longitude, appKey: appKey, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, excludeAudienceIds: excludeAudienceIds, includeCompletable: includeCompletable, includeRating: includeRating, searchMode: searchMode, stackSearch: stackSearch, stackWindowSize: stackWindowSize, minStackPerPage: minStackPerPage, stackPaginationIdentifier: stackPaginationIdentifier, stackDetails: stackDetails, flagCountMinimum: flagCountMinimum, removeFlaggedContent: removeFlaggedContent, verifiedFilter: verifiedFilter, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, orderAudienceId: orderAudienceId, ignoreDefaultAppFilter: ignoreDefaultAppFilter, searchExpression: searchExpression, generateAlbums: generateAlbums, );
+  Future<List<AlbumFullResponse>?> searchAlbums(String filter, int albumTypeId, String subType, bool includeInactive, String sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, { String? deviceId, int? accountId, int? connectionAccountId, int? ownerId, String? albumIds, String? excludeAlbumIds, int? mediaId, String? keyword, String? albumType, int? limitPerAlbumType, int? dateCreated, int? updatedSince, int? updatedBefore, int? createdSince, int? createdBefore, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, double? latitude, double? longitude, String? appKey, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? excludeAudienceIds, bool? includeCompletable, bool? includeRating, String? searchMode, bool? stackSearch, int? stackWindowSize, int? minStackPerPage, String? stackPaginationIdentifier, bool? stackDetails, int? flagCountMinimum, bool? removeFlaggedContent, bool? verifiedFilter, String? linkedObjectType, int? linkedObjectId, int? orderAudienceId, bool? ignoreDefaultAppFilter, String? searchExpression, bool? generateAlbums, }) async {
+    final response = await searchAlbumsWithHttpInfo(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, ownerId: ownerId, albumIds: albumIds, excludeAlbumIds: excludeAlbumIds, mediaId: mediaId, keyword: keyword, albumType: albumType, limitPerAlbumType: limitPerAlbumType, dateCreated: dateCreated, updatedSince: updatedSince, updatedBefore: updatedBefore, createdSince: createdSince, createdBefore: createdBefore, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, latitude: latitude, longitude: longitude, appKey: appKey, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, excludeAudienceIds: excludeAudienceIds, includeCompletable: includeCompletable, includeRating: includeRating, searchMode: searchMode, stackSearch: stackSearch, stackWindowSize: stackWindowSize, minStackPerPage: minStackPerPage, stackPaginationIdentifier: stackPaginationIdentifier, stackDetails: stackDetails, flagCountMinimum: flagCountMinimum, removeFlaggedContent: removeFlaggedContent, verifiedFilter: verifiedFilter, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, orderAudienceId: orderAudienceId, ignoreDefaultAppFilter: ignoreDefaultAppFilter, searchExpression: searchExpression, generateAlbums: generateAlbums, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1700,8 +1660,6 @@ class AlbumApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] albumId (required):
   ///   the ID of the album to update
@@ -1837,10 +1795,9 @@ class AlbumApi {
   ///
   /// * [bool] indexNow:
   ///   determines whether the album should be indexed immediately
-  Future<Response> updateAlbumCollectionWithHttpInfo(num version, int albumId, { String? deviceId, int? accountId, String? assetsToAdd, String? assetsToRemove, int? assetId, MultipartFile? media, String? mediaURL, bool? active, String? title, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, bool? publicRead, bool? publicWrite, bool? publicDelete, bool? publicAdd, double? latitude, double? longitude, String? locationDescription, String? visibility, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, bool? anonymous, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? linkedObjectType, int? linkedObjectId, bool? indexNow, }) async {
+  Future<Response> updateAlbumCollectionWithHttpInfo(int albumId, { String? deviceId, int? accountId, String? assetsToAdd, String? assetsToRemove, int? assetId, MultipartFile? media, String? mediaURL, bool? active, String? title, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, bool? publicRead, bool? publicWrite, bool? publicDelete, bool? publicAdd, double? latitude, double? longitude, String? locationDescription, String? visibility, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, bool? anonymous, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? linkedObjectType, int? linkedObjectId, bool? indexNow, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/album/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/album/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2003,8 +1960,6 @@ class AlbumApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] albumId (required):
   ///   the ID of the album to update
   ///
@@ -2139,8 +2094,8 @@ class AlbumApi {
   ///
   /// * [bool] indexNow:
   ///   determines whether the album should be indexed immediately
-  Future<AlbumResponse?> updateAlbumCollection(num version, int albumId, { String? deviceId, int? accountId, String? assetsToAdd, String? assetsToRemove, int? assetId, MultipartFile? media, String? mediaURL, bool? active, String? title, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, bool? publicRead, bool? publicWrite, bool? publicDelete, bool? publicAdd, double? latitude, double? longitude, String? locationDescription, String? visibility, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, bool? anonymous, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? linkedObjectType, int? linkedObjectId, bool? indexNow, }) async {
-    final response = await updateAlbumCollectionWithHttpInfo(version, albumId,  deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, assetsToRemove: assetsToRemove, assetId: assetId, media: media, mediaURL: mediaURL, active: active, title: title, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, anonymous: anonymous, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, indexNow: indexNow, );
+  Future<AlbumResponse?> updateAlbumCollection(int albumId, { String? deviceId, int? accountId, String? assetsToAdd, String? assetsToRemove, int? assetId, MultipartFile? media, String? mediaURL, bool? active, String? title, int? startDate, int? endDate, String? tags, String? description, String? albumType, int? albumTypeId, String? subType, bool? publicRead, bool? publicWrite, bool? publicDelete, bool? publicAdd, double? latitude, double? longitude, String? locationDescription, String? visibility, String? cellPhone, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? fullAddress, bool? anonymous, String? metaData, String? categoryIds, String? categoryFilterIds, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, bool? includeAllAppUsersAsMembers, bool? includeAudiencesAsMembers, String? audienceOperator, String? linkedObjectType, int? linkedObjectId, bool? indexNow, }) async {
+    final response = await updateAlbumCollectionWithHttpInfo(albumId,  deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, assetsToRemove: assetsToRemove, assetId: assetId, media: media, mediaURL: mediaURL, active: active, title: title, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, anonymous: anonymous, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, indexNow: indexNow, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -24,8 +24,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key that the purchase can be used in
   ///
@@ -85,10 +83,9 @@ class PurchaseItemApi {
   ///
   /// * [int] offerLocationId:
   ///   The offer location that will get added to the user's wallet after purchase.
-  Future<Response> createPurchaseItemWithHttpInfo(num version, String appKey, String name, String purchaseType, { String? deviceId, int? accountId, String? description, int? tickets, double? price, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
+  Future<Response> createPurchaseItemWithHttpInfo(String appKey, String name, String purchaseType, { String? deviceId, int? accountId, String? description, int? tickets, double? price, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -172,8 +169,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key that the purchase can be used in
   ///
@@ -233,8 +228,8 @@ class PurchaseItemApi {
   ///
   /// * [int] offerLocationId:
   ///   The offer location that will get added to the user's wallet after purchase.
-  Future<PurchaseItemFullResponse?> createPurchaseItem(num version, String appKey, String name, String purchaseType, { String? deviceId, int? accountId, String? description, int? tickets, double? price, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
-    final response = await createPurchaseItemWithHttpInfo(version, appKey, name, purchaseType,  deviceId: deviceId, accountId: accountId, description: description, tickets: tickets, price: price, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, );
+  Future<PurchaseItemFullResponse?> createPurchaseItem(String appKey, String name, String purchaseType, { String? deviceId, int? accountId, String? description, int? tickets, double? price, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
+    final response = await createPurchaseItemWithHttpInfo(appKey, name, purchaseType,  deviceId: deviceId, accountId: accountId, description: description, tickets: tickets, price: price, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -256,8 +251,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
   ///
@@ -266,10 +259,9 @@ class PurchaseItemApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deletePurchaseItemWithHttpInfo(num version, int purchaseItemId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deletePurchaseItemWithHttpInfo(int purchaseItemId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -306,8 +298,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
   ///
@@ -316,8 +306,8 @@ class PurchaseItemApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> deletePurchaseItem(num version, int purchaseItemId, { String? deviceId, int? accountId, }) async {
-    final response = await deletePurchaseItemWithHttpInfo(version, purchaseItemId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deletePurchaseItem(int purchaseItemId, { String? deviceId, int? accountId, }) async {
+    final response = await deletePurchaseItemWithHttpInfo(purchaseItemId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -339,8 +329,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
   ///
@@ -349,10 +337,9 @@ class PurchaseItemApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> getPurchaseItemWithHttpInfo(num version, int purchaseItemId, { String? deviceId, int? accountId, }) async {
+  Future<Response> getPurchaseItemWithHttpInfo(int purchaseItemId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -389,8 +376,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
   ///
@@ -399,8 +384,8 @@ class PurchaseItemApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<PurchaseItemFullResponse?> getPurchaseItem(num version, int purchaseItemId, { String? deviceId, int? accountId, }) async {
-    final response = await getPurchaseItemWithHttpInfo(version, purchaseItemId,  deviceId: deviceId, accountId: accountId, );
+  Future<PurchaseItemFullResponse?> getPurchaseItem(int purchaseItemId, { String? deviceId, int? accountId, }) async {
+    final response = await getPurchaseItemWithHttpInfo(purchaseItemId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -421,8 +406,6 @@ class PurchaseItemApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -459,10 +442,9 @@ class PurchaseItemApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<Response> searchPurchaseItemsWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, bool? filterByBillable, String? purchaseType, String? serviceAction, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchPurchaseItemsWithHttpInfo({ String? deviceId, int? accountId, String? appKey, bool? filterByBillable, String? purchaseType, String? serviceAction, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -528,8 +510,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -565,8 +545,8 @@ class PurchaseItemApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<List<PurchaseItemResponse>?> searchPurchaseItems(num version, { String? deviceId, int? accountId, String? appKey, bool? filterByBillable, String? purchaseType, String? serviceAction, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchPurchaseItemsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, filterByBillable: filterByBillable, purchaseType: purchaseType, serviceAction: serviceAction, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<PurchaseItemResponse>?> searchPurchaseItems({ String? deviceId, int? accountId, String? appKey, bool? filterByBillable, String? purchaseType, String? serviceAction, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchPurchaseItemsWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, filterByBillable: filterByBillable, purchaseType: purchaseType, serviceAction: serviceAction, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -590,8 +570,6 @@ class PurchaseItemApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
@@ -655,10 +633,9 @@ class PurchaseItemApi {
   ///
   /// * [int] offerLocationId:
   ///   The offer location that will get added to the user's wallet after purchase.
-  Future<Response> updatePurchaseItemWithHttpInfo(num version, int purchaseItemId, { String? deviceId, int? accountId, String? name, String? description, int? tickets, double? price, String? purchaseType, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? active, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
+  Future<Response> updatePurchaseItemWithHttpInfo(int purchaseItemId, { String? deviceId, int? accountId, String? name, String? description, int? tickets, double? price, String? purchaseType, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? active, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -749,8 +726,6 @@ class PurchaseItemApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] purchaseItemId (required):
   ///   The purchase item id
   ///
@@ -813,8 +788,8 @@ class PurchaseItemApi {
   ///
   /// * [int] offerLocationId:
   ///   The offer location that will get added to the user's wallet after purchase.
-  Future<PurchaseItemFullResponse?> updatePurchaseItem(num version, int purchaseItemId, { String? deviceId, int? accountId, String? name, String? description, int? tickets, double? price, String? purchaseType, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? active, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
-    final response = await updatePurchaseItemWithHttpInfo(version, purchaseItemId,  deviceId: deviceId, accountId: accountId, name: name, description: description, tickets: tickets, price: price, purchaseType: purchaseType, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, );
+  Future<PurchaseItemFullResponse?> updatePurchaseItem(int purchaseItemId, { String? deviceId, int? accountId, String? name, String? description, int? tickets, double? price, String? purchaseType, String? purchaseCode, String? secretKey, int? purchaseLimit, String? serviceAction, int? coverAssetId, int? promoAssetId, bool? giftable, bool? assetable, bool? active, bool? allocateTickets, String? ticketType, int? points, int? offerLocationId, }) async {
+    final response = await updatePurchaseItemWithHttpInfo(purchaseItemId,  deviceId: deviceId, accountId: accountId, name: name, description: description, tickets: tickets, price: price, purchaseType: purchaseType, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

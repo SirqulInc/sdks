@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApiClient {
-  ApiClient({this.basePath = 'http://localhost', this.authentication,});
+  ApiClient({this.basePath = 'https://dev.sirqul.com/api/3.18', this.authentication,});
 
   final String basePath;
   final Authentication? authentication;

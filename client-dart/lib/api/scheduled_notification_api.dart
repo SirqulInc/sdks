@@ -24,8 +24,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -127,10 +125,9 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] sendToAll:
   ///   Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
-  Future<Response> createScheduledNotificationWithHttpInfo(num version, int accountId, String name, String type, String message, { int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
+  Future<Response> createScheduledNotificationWithHttpInfo(int accountId, String name, String type, String message, { int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -254,8 +251,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -357,8 +352,8 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] sendToAll:
   ///   Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
-  Future<ScheduledNotificationFullResponse?> createScheduledNotification(num version, int accountId, String name, String type, String message, { int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
-    final response = await createScheduledNotificationWithHttpInfo(version, accountId, name, type, message,  contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, appKey: appKey, groupingId: groupingId, connectionGroupIds: connectionGroupIds, connectionAccountIds: connectionAccountIds, audienceId: audienceId, audienceIds: audienceIds, albumIds: albumIds, reportId: reportId, reportParams: reportParams, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, cronType: cronType, metaData: metaData, conditionalInput: conditionalInput, templateType: templateType, visibility: visibility, active: active, sendNow: sendNow, eventType: eventType, deepLinkURI: deepLinkURI, sendToAll: sendToAll, );
+  Future<ScheduledNotificationFullResponse?> createScheduledNotification(int accountId, String name, String type, String message, { int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
+    final response = await createScheduledNotificationWithHttpInfo(accountId, name, type, message,  contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, appKey: appKey, groupingId: groupingId, connectionGroupIds: connectionGroupIds, connectionAccountIds: connectionAccountIds, audienceId: audienceId, audienceIds: audienceIds, albumIds: albumIds, reportId: reportId, reportParams: reportParams, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, cronType: cronType, metaData: metaData, conditionalInput: conditionalInput, templateType: templateType, visibility: visibility, active: active, sendNow: sendNow, eventType: eventType, deepLinkURI: deepLinkURI, sendToAll: sendToAll, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -380,8 +375,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -390,10 +383,9 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] deleteByGroupingId:
   ///   If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
-  Future<Response> deleteScheduledNotificationWithHttpInfo(num version, int accountId, int scheduledNotificationId, { bool? deleteByGroupingId, }) async {
+  Future<Response> deleteScheduledNotificationWithHttpInfo(int accountId, int scheduledNotificationId, { bool? deleteByGroupingId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -428,8 +420,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -438,8 +428,8 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] deleteByGroupingId:
   ///   If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
-  Future<ScheduledNotificationFullResponse?> deleteScheduledNotification(num version, int accountId, int scheduledNotificationId, { bool? deleteByGroupingId, }) async {
-    final response = await deleteScheduledNotificationWithHttpInfo(version, accountId, scheduledNotificationId,  deleteByGroupingId: deleteByGroupingId, );
+  Future<ScheduledNotificationFullResponse?> deleteScheduledNotification(int accountId, int scheduledNotificationId, { bool? deleteByGroupingId, }) async {
+    final response = await deleteScheduledNotificationWithHttpInfo(accountId, scheduledNotificationId,  deleteByGroupingId: deleteByGroupingId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -461,17 +451,14 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
   ///
   /// * [int] scheduledNotificationId (required):
   ///   the id of the scheduled notification to get
-  Future<Response> getScheduledNotificationWithHttpInfo(num version, int accountId, int scheduledNotificationId,) async {
+  Future<Response> getScheduledNotificationWithHttpInfo(int accountId, int scheduledNotificationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -503,15 +490,13 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
   ///
   /// * [int] scheduledNotificationId (required):
   ///   the id of the scheduled notification to get
-  Future<ScheduledNotificationFullResponse?> getScheduledNotification(num version, int accountId, int scheduledNotificationId,) async {
-    final response = await getScheduledNotificationWithHttpInfo(version, accountId, scheduledNotificationId,);
+  Future<ScheduledNotificationFullResponse?> getScheduledNotification(int accountId, int scheduledNotificationId,) async {
+    final response = await getScheduledNotificationWithHttpInfo(accountId, scheduledNotificationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -532,8 +517,6 @@ class ScheduledNotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -558,10 +541,9 @@ class ScheduledNotificationApi {
   ///
   /// * [String] type:
   ///   The type of scheduled notification; supported values are: MOBILE_NOTIFICATION
-  Future<Response> scheduleNotificationListingsWithHttpInfo(num version, int accountId, String appKey, String reportName, String message, int offset, int recipientReportId, { String? reportParams, String? type, }) async {
+  Future<Response> scheduleNotificationListingsWithHttpInfo(int accountId, String appKey, String reportName, String message, int offset, int recipientReportId, { String? reportParams, String? type, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/generate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/generate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -603,8 +585,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -628,8 +608,8 @@ class ScheduledNotificationApi {
   ///
   /// * [String] type:
   ///   The type of scheduled notification; supported values are: MOBILE_NOTIFICATION
-  Future<SirqulResponse?> scheduleNotificationListings(num version, int accountId, String appKey, String reportName, String message, int offset, int recipientReportId, { String? reportParams, String? type, }) async {
-    final response = await scheduleNotificationListingsWithHttpInfo(version, accountId, appKey, reportName, message, offset, recipientReportId,  reportParams: reportParams, type: type, );
+  Future<SirqulResponse?> scheduleNotificationListings(int accountId, String appKey, String reportName, String message, int offset, int recipientReportId, { String? reportParams, String? type, }) async {
+    final response = await scheduleNotificationListingsWithHttpInfo(accountId, appKey, reportName, message, offset, recipientReportId,  reportParams: reportParams, type: type, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -650,8 +630,6 @@ class ScheduledNotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -712,10 +690,9 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] returnAudienceAccountCount:
   ///   If true, include audience account counts in the response
-  Future<Response> searchScheduledNotificationsWithHttpInfo(num version, int accountId, { String? groupingId, int? audienceId, String? filter, String? types, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, bool? groupByGroupingId, bool? returnAudienceAccountCount, }) async {
+  Future<Response> searchScheduledNotificationsWithHttpInfo(int accountId, { String? groupingId, int? audienceId, String? filter, String? types, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, bool? groupByGroupingId, bool? returnAudienceAccountCount, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -803,8 +780,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -864,8 +839,8 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] returnAudienceAccountCount:
   ///   If true, include audience account counts in the response
-  Future<ScheduledNotificationFullResponse?> searchScheduledNotifications(num version, int accountId, { String? groupingId, int? audienceId, String? filter, String? types, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, bool? groupByGroupingId, bool? returnAudienceAccountCount, }) async {
-    final response = await searchScheduledNotificationsWithHttpInfo(version, accountId,  groupingId: groupingId, audienceId: audienceId, filter: filter, types: types, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, returnAudienceAccountCount: returnAudienceAccountCount, );
+  Future<ScheduledNotificationFullResponse?> searchScheduledNotifications(int accountId, { String? groupingId, int? audienceId, String? filter, String? types, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, bool? groupByGroupingId, bool? returnAudienceAccountCount, }) async {
+    final response = await searchScheduledNotificationsWithHttpInfo(accountId,  groupingId: groupingId, audienceId: audienceId, filter: filter, types: types, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, returnAudienceAccountCount: returnAudienceAccountCount, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -886,8 +861,6 @@ class ScheduledNotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] scheduledNotificationId (required):
   ///   The id of scheduled notification to update
@@ -1002,10 +975,9 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] sendToAll:
   ///   Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
-  Future<Response> updateScheduledNotificationWithHttpInfo(num version, int scheduledNotificationId, int accountId, { String? name, String? type, String? message, String? payload, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, String? errorMessage, String? status, bool? updateByGroupingId, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
+  Future<Response> updateScheduledNotificationWithHttpInfo(int scheduledNotificationId, int accountId, { String? name, String? type, String? message, String? payload, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, String? errorMessage, String? status, bool? updateByGroupingId, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/schedule/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/schedule/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1145,8 +1117,6 @@ class ScheduledNotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] scheduledNotificationId (required):
   ///   The id of scheduled notification to update
   ///
@@ -1260,8 +1230,8 @@ class ScheduledNotificationApi {
   ///
   /// * [bool] sendToAll:
   ///   Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
-  Future<ScheduledNotificationFullResponse?> updateScheduledNotification(num version, int scheduledNotificationId, int accountId, { String? name, String? type, String? message, String? payload, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, String? errorMessage, String? status, bool? updateByGroupingId, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
-    final response = await updateScheduledNotificationWithHttpInfo(version, scheduledNotificationId, accountId,  name: name, type: type, message: message, payload: payload, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, appKey: appKey, groupingId: groupingId, connectionGroupIds: connectionGroupIds, connectionAccountIds: connectionAccountIds, audienceId: audienceId, audienceIds: audienceIds, albumIds: albumIds, reportId: reportId, reportParams: reportParams, endpointURL: endpointURL, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, cronType: cronType, metaData: metaData, conditionalInput: conditionalInput, templateType: templateType, visibility: visibility, active: active, errorMessage: errorMessage, status: status, updateByGroupingId: updateByGroupingId, sendNow: sendNow, eventType: eventType, deepLinkURI: deepLinkURI, sendToAll: sendToAll, );
+  Future<ScheduledNotificationFullResponse?> updateScheduledNotification(int scheduledNotificationId, int accountId, { String? name, String? type, String? message, String? payload, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? appKey, String? groupingId, String? connectionGroupIds, String? connectionAccountIds, int? audienceId, String? audienceIds, String? albumIds, int? reportId, String? reportParams, String? endpointURL, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? cronType, String? metaData, String? conditionalInput, String? templateType, String? visibility, bool? active, String? errorMessage, String? status, bool? updateByGroupingId, bool? sendNow, String? eventType, String? deepLinkURI, bool? sendToAll, }) async {
+    final response = await updateScheduledNotificationWithHttpInfo(scheduledNotificationId, accountId,  name: name, type: type, message: message, payload: payload, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, appKey: appKey, groupingId: groupingId, connectionGroupIds: connectionGroupIds, connectionAccountIds: connectionAccountIds, audienceId: audienceId, audienceIds: audienceIds, albumIds: albumIds, reportId: reportId, reportParams: reportParams, endpointURL: endpointURL, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, cronType: cronType, metaData: metaData, conditionalInput: conditionalInput, templateType: templateType, visibility: visibility, active: active, errorMessage: errorMessage, status: status, updateByGroupingId: updateByGroupingId, sendNow: sendNow, eventType: eventType, deepLinkURI: deepLinkURI, sendToAll: sendToAll, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

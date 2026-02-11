@@ -24,8 +24,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
   ///
@@ -61,10 +59,9 @@ class PurchaseOrderApi {
   ///
   /// * [String] promoCode:
   ///   The Promo Code
-  Future<Response> createOrderWithHttpInfo(num version, String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
+  Future<Response> createOrderWithHttpInfo(String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -126,8 +123,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
   ///
@@ -163,8 +158,8 @@ class PurchaseOrderApi {
   ///
   /// * [String] promoCode:
   ///   The Promo Code
-  Future<OrderResponse?> createOrder(num version, String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
-    final response = await createOrderWithHttpInfo(version, appKey, cart,  deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, );
+  Future<OrderResponse?> createOrder(String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
+    final response = await createOrderWithHttpInfo(appKey, cart,  deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -186,8 +181,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] orderId (required):
   ///   Order Id
   ///
@@ -196,10 +189,9 @@ class PurchaseOrderApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deleteOrderWithHttpInfo(num version, int orderId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteOrderWithHttpInfo(int orderId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -236,8 +228,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] orderId (required):
   ///   Order Id
   ///
@@ -246,8 +236,8 @@ class PurchaseOrderApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> deleteOrder(num version, int orderId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteOrderWithHttpInfo(version, orderId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteOrder(int orderId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteOrderWithHttpInfo(orderId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -269,8 +259,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -282,10 +270,9 @@ class PurchaseOrderApi {
   ///
   /// * [String] externalOrderId:
   ///   The external order id to get details of, either orderId or externalOrderId must be provided
-  Future<Response> getOrderWithHttpInfo(num version, { String? deviceId, int? accountId, int? orderId, String? externalOrderId, }) async {
+  Future<Response> getOrderWithHttpInfo({ String? deviceId, int? accountId, int? orderId, String? externalOrderId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -327,8 +314,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -340,8 +325,8 @@ class PurchaseOrderApi {
   ///
   /// * [String] externalOrderId:
   ///   The external order id to get details of, either orderId or externalOrderId must be provided
-  Future<OrderResponse?> getOrder(num version, { String? deviceId, int? accountId, int? orderId, String? externalOrderId, }) async {
-    final response = await getOrderWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, orderId: orderId, externalOrderId: externalOrderId, );
+  Future<OrderResponse?> getOrder({ String? deviceId, int? accountId, int? orderId, String? externalOrderId, }) async {
+    final response = await getOrderWithHttpInfo( deviceId: deviceId, accountId: accountId, orderId: orderId, externalOrderId: externalOrderId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -362,8 +347,6 @@ class PurchaseOrderApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
@@ -400,10 +383,9 @@ class PurchaseOrderApi {
   ///
   /// * [String] promoCode:
   ///   The Promo Code
-  Future<Response> previewOrderWithHttpInfo(num version, String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
+  Future<Response> previewOrderWithHttpInfo(String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/preview'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/preview';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -465,8 +447,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
   ///
@@ -502,8 +482,8 @@ class PurchaseOrderApi {
   ///
   /// * [String] promoCode:
   ///   The Promo Code
-  Future<OrderResponse?> previewOrder(num version, String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
-    final response = await previewOrderWithHttpInfo(version, appKey, cart,  deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, );
+  Future<OrderResponse?> previewOrder(String appKey, String cart, { String? deviceId, int? accountId, String? description, String? currencyType, int? paymentMethodId, String? externalOrderId, String? externalPaymentId, String? remoteRefType, int? externalDate, String? promoCode, }) async {
+    final response = await previewOrderWithHttpInfo(appKey, cart,  deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -524,8 +504,6 @@ class PurchaseOrderApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
@@ -619,10 +597,9 @@ class PurchaseOrderApi {
   ///
   /// * [int] endedBefore:
   ///   Filter results by the offer end date
-  Future<Response> searchOrdersWithHttpInfo(num version, String appKey, { String? deviceId, int? accountId, int? start, int? limit, bool? descending, bool? activeOnly, bool? ignoreCustomerFilter, String? orderItemTypes, String? orderItemIds, String? orderCustomTypes, String? orderCustomIds, String? sortField, String? offerTypes, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? offerIds, String? offerLocationIds, String? retailerIds, String? retailerLocationIds, String? statuses, String? keyword, int? redeemableStartDate, int? redeemableEndDate, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, }) async {
+  Future<Response> searchOrdersWithHttpInfo(String appKey, { String? deviceId, int? accountId, int? start, int? limit, bool? descending, bool? activeOnly, bool? ignoreCustomerFilter, String? orderItemTypes, String? orderItemIds, String? orderCustomTypes, String? orderCustomIds, String? sortField, String? offerTypes, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? offerIds, String? offerLocationIds, String? retailerIds, String? retailerLocationIds, String? statuses, String? keyword, int? redeemableStartDate, int? redeemableEndDate, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -743,8 +720,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application requesting the purchase
   ///
@@ -837,8 +812,8 @@ class PurchaseOrderApi {
   ///
   /// * [int] endedBefore:
   ///   Filter results by the offer end date
-  Future<List<OrderResponse>?> searchOrders(num version, String appKey, { String? deviceId, int? accountId, int? start, int? limit, bool? descending, bool? activeOnly, bool? ignoreCustomerFilter, String? orderItemTypes, String? orderItemIds, String? orderCustomTypes, String? orderCustomIds, String? sortField, String? offerTypes, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? offerIds, String? offerLocationIds, String? retailerIds, String? retailerLocationIds, String? statuses, String? keyword, int? redeemableStartDate, int? redeemableEndDate, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, }) async {
-    final response = await searchOrdersWithHttpInfo(version, appKey,  deviceId: deviceId, accountId: accountId, start: start, limit: limit, descending: descending, activeOnly: activeOnly, ignoreCustomerFilter: ignoreCustomerFilter, orderItemTypes: orderItemTypes, orderItemIds: orderItemIds, orderCustomTypes: orderCustomTypes, orderCustomIds: orderCustomIds, sortField: sortField, offerTypes: offerTypes, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, offerIds: offerIds, offerLocationIds: offerLocationIds, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, statuses: statuses, keyword: keyword, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, );
+  Future<List<OrderResponse>?> searchOrders(String appKey, { String? deviceId, int? accountId, int? start, int? limit, bool? descending, bool? activeOnly, bool? ignoreCustomerFilter, String? orderItemTypes, String? orderItemIds, String? orderCustomTypes, String? orderCustomIds, String? sortField, String? offerTypes, String? specialOfferTypes, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? offerIds, String? offerLocationIds, String? retailerIds, String? retailerLocationIds, String? statuses, String? keyword, int? redeemableStartDate, int? redeemableEndDate, int? startedSince, int? startedBefore, int? endedSince, int? endedBefore, }) async {
+    final response = await searchOrdersWithHttpInfo(appKey,  deviceId: deviceId, accountId: accountId, start: start, limit: limit, descending: descending, activeOnly: activeOnly, ignoreCustomerFilter: ignoreCustomerFilter, orderItemTypes: orderItemTypes, orderItemIds: orderItemIds, orderCustomTypes: orderCustomTypes, orderCustomIds: orderCustomIds, sortField: sortField, offerTypes: offerTypes, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, offerIds: offerIds, offerLocationIds: offerLocationIds, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, statuses: statuses, keyword: keyword, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -862,8 +837,6 @@ class PurchaseOrderApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] orderId (required):
   ///   The order to add the purchase to, leave null for new order.
@@ -897,10 +870,9 @@ class PurchaseOrderApi {
   ///
   /// * [int] externalDate:
   ///   External Date
-  Future<Response> updateOrderWithHttpInfo(num version, int orderId, String appKey, String cart, { String? deviceId, int? accountId, int? paymentTransactionId, String? description, String? currencyType, int? paymentMethodId, String? externalPaymentId, int? externalDate, }) async {
+  Future<Response> updateOrderWithHttpInfo(int orderId, String appKey, String cart, { String? deviceId, int? accountId, int? paymentTransactionId, String? description, String? currencyType, int? paymentMethodId, String? externalPaymentId, int? externalDate, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/order/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/order/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -957,8 +929,6 @@ class PurchaseOrderApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] orderId (required):
   ///   The order to add the purchase to, leave null for new order.
   ///
@@ -991,8 +961,8 @@ class PurchaseOrderApi {
   ///
   /// * [int] externalDate:
   ///   External Date
-  Future<OrderResponse?> updateOrder(num version, int orderId, String appKey, String cart, { String? deviceId, int? accountId, int? paymentTransactionId, String? description, String? currencyType, int? paymentMethodId, String? externalPaymentId, int? externalDate, }) async {
-    final response = await updateOrderWithHttpInfo(version, orderId, appKey, cart,  deviceId: deviceId, accountId: accountId, paymentTransactionId: paymentTransactionId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalPaymentId: externalPaymentId, externalDate: externalDate, );
+  Future<OrderResponse?> updateOrder(int orderId, String appKey, String cart, { String? deviceId, int? accountId, int? paymentTransactionId, String? description, String? currencyType, int? paymentMethodId, String? externalPaymentId, int? externalDate, }) async {
+    final response = await updateOrderWithHttpInfo(orderId, appKey, cart,  deviceId: deviceId, accountId: accountId, paymentTransactionId: paymentTransactionId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalPaymentId: externalPaymentId, externalDate: externalDate, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

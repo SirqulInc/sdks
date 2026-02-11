@@ -24,8 +24,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the create, must be the responsible manager
   ///
@@ -34,10 +32,9 @@ class SubscriptionApi {
   ///
   /// * [String] promoCode:
   ///   Set a promo code for a discount.
-  Future<Response> createSubscriptionWithHttpInfo(num version, int accountId, { int? planId, String? promoCode, }) async {
+  Future<Response> createSubscriptionWithHttpInfo(int accountId, { int? planId, String? promoCode, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -74,8 +71,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the create, must be the responsible manager
   ///
@@ -84,8 +79,8 @@ class SubscriptionApi {
   ///
   /// * [String] promoCode:
   ///   Set a promo code for a discount.
-  Future<SubscriptionResponse?> createSubscription(num version, int accountId, { int? planId, String? promoCode, }) async {
-    final response = await createSubscriptionWithHttpInfo(version, accountId,  planId: planId, promoCode: promoCode, );
+  Future<SubscriptionResponse?> createSubscription(int accountId, { int? planId, String? promoCode, }) async {
+    final response = await createSubscriptionWithHttpInfo(accountId,  planId: planId, promoCode: promoCode, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -107,14 +102,11 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the delete, must be the responsible manager
-  Future<Response> deleteSubscriptionWithHttpInfo(num version, int accountId,) async {
+  Future<Response> deleteSubscriptionWithHttpInfo(int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -145,12 +137,10 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the delete, must be the responsible manager
-  Future<SirqulResponse?> deleteSubscription(num version, int accountId,) async {
-    final response = await deleteSubscriptionWithHttpInfo(version, accountId,);
+  Future<SirqulResponse?> deleteSubscription(int accountId,) async {
+    final response = await deleteSubscriptionWithHttpInfo(accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -172,14 +162,11 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the lookup
-  Future<Response> getSubscriptionWithHttpInfo(num version, int accountId,) async {
+  Future<Response> getSubscriptionWithHttpInfo(int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -210,12 +197,10 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the lookup
-  Future<SubscriptionResponse?> getSubscription(num version, int accountId,) async {
-    final response = await getSubscriptionWithHttpInfo(version, accountId,);
+  Future<SubscriptionResponse?> getSubscription(int accountId,) async {
+    final response = await getSubscriptionWithHttpInfo(accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -237,14 +222,11 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] planId (required):
   ///   The ID of the plan to get
-  Future<Response> getSubscriptionPlanWithHttpInfo(num version, int planId,) async {
+  Future<Response> getSubscriptionPlanWithHttpInfo(int planId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/plan/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/plan/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -275,12 +257,10 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] planId (required):
   ///   The ID of the plan to get
-  Future<SubscriptionPlanResponse?> getSubscriptionPlan(num version, int planId,) async {
-    final response = await getSubscriptionPlanWithHttpInfo(version, planId,);
+  Future<SubscriptionPlanResponse?> getSubscriptionPlan(int planId,) async {
+    final response = await getSubscriptionPlanWithHttpInfo(planId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -302,17 +282,14 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] visible:
   ///   Include visible only (true), hidden only (false), or all (null)
   ///
   /// * [String] role:
   ///   The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
-  Future<Response> getSubscriptionPlansWithHttpInfo(num version, { bool? visible, String? role, }) async {
+  Future<Response> getSubscriptionPlansWithHttpInfo({ bool? visible, String? role, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/plan/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/plan/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -348,15 +325,13 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] visible:
   ///   Include visible only (true), hidden only (false), or all (null)
   ///
   /// * [String] role:
   ///   The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
-  Future<List<SubscriptionPlanResponse>?> getSubscriptionPlans(num version, { bool? visible, String? role, }) async {
-    final response = await getSubscriptionPlansWithHttpInfo(version,  visible: visible, role: role, );
+  Future<List<SubscriptionPlanResponse>?> getSubscriptionPlans({ bool? visible, String? role, }) async {
+    final response = await getSubscriptionPlansWithHttpInfo( visible: visible, role: role, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -381,8 +356,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the lookup
   ///
@@ -394,10 +367,9 @@ class SubscriptionApi {
   ///
   /// * [int] end:
   ///   The end time frame
-  Future<Response> getSubscriptionUsageWithHttpInfo(num version, int accountId, { int? applicationId, int? start, int? end, }) async {
+  Future<Response> getSubscriptionUsageWithHttpInfo(int accountId, { int? applicationId, int? start, int? end, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/usage/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/usage/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -437,8 +409,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the lookup
   ///
@@ -450,8 +420,8 @@ class SubscriptionApi {
   ///
   /// * [int] end:
   ///   The end time frame
-  Future<ApplicationUsageResponse?> getSubscriptionUsage(num version, int accountId, { int? applicationId, int? start, int? end, }) async {
-    final response = await getSubscriptionUsageWithHttpInfo(version, accountId,  applicationId: applicationId, start: start, end: end, );
+  Future<ApplicationUsageResponse?> getSubscriptionUsage(int accountId, { int? applicationId, int? start, int? end, }) async {
+    final response = await getSubscriptionUsageWithHttpInfo(accountId,  applicationId: applicationId, start: start, end: end, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -473,8 +443,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the update, must be the responsible manager
   ///
@@ -486,10 +454,9 @@ class SubscriptionApi {
   ///
   /// * [bool] active:
   ///   Set active status
-  Future<Response> updateSubscriptionWithHttpInfo(num version, int accountId, { int? planId, String? promoCode, bool? active, }) async {
+  Future<Response> updateSubscriptionWithHttpInfo(int accountId, { int? planId, String? promoCode, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/subscription/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/subscription/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -529,8 +496,6 @@ class SubscriptionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the update, must be the responsible manager
   ///
@@ -542,8 +507,8 @@ class SubscriptionApi {
   ///
   /// * [bool] active:
   ///   Set active status
-  Future<SubscriptionResponse?> updateSubscription(num version, int accountId, { int? planId, String? promoCode, bool? active, }) async {
-    final response = await updateSubscriptionWithHttpInfo(version, accountId,  planId: planId, promoCode: promoCode, active: active, );
+  Future<SubscriptionResponse?> updateSubscription(int accountId, { int? planId, String? promoCode, bool? active, }) async {
+    final response = await updateSubscriptionWithHttpInfo(accountId,  planId: planId, promoCode: promoCode, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

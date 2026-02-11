@@ -24,13 +24,10 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [ShipmentBatch] body:
-  Future<Response> createShipmentBatchWithHttpInfo(num version, { ShipmentBatch? body, }) async {
+  Future<Response> createShipmentBatchWithHttpInfo({ ShipmentBatch? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/shipment/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [ShipmentBatch] body:
-  Future<ShipmentBatch?> createShipmentBatch(num version, { ShipmentBatch? body, }) async {
-    final response = await createShipmentBatchWithHttpInfo(version,  body: body, );
+  Future<ShipmentBatch?> createShipmentBatch({ ShipmentBatch? body, }) async {
+    final response = await createShipmentBatchWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] batchId (required):
   ///   the id of the shipment batch to delete
-  Future<Response> deleteShipmentBatchWithHttpInfo(num version, int batchId,) async {
+  Future<Response> deleteShipmentBatchWithHttpInfo(int batchId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/batch/{batchId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/batch/{batchId}'
       .replaceAll('{batchId}', batchId.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] batchId (required):
   ///   the id of the shipment batch to delete
-  Future<void> deleteShipmentBatch(num version, int batchId,) async {
-    final response = await deleteShipmentBatchWithHttpInfo(version, batchId,);
+  Future<void> deleteShipmentBatch(int batchId,) async {
+    final response = await deleteShipmentBatchWithHttpInfo(batchId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,14 +131,11 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] batchId (required):
   ///   the id of the shipment batch to get
-  Future<Response> getShipmentBatchWithHttpInfo(num version, int batchId,) async {
+  Future<Response> getShipmentBatchWithHttpInfo(int batchId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/batch/{batchId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/batch/{batchId}'
       .replaceAll('{batchId}', batchId.toString());
 
     // ignore: prefer_final_locals
@@ -178,12 +165,10 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] batchId (required):
   ///   the id of the shipment batch to get
-  Future<ShipmentBatch?> getShipmentBatch(num version, int batchId,) async {
-    final response = await getShipmentBatchWithHttpInfo(version, batchId,);
+  Future<ShipmentBatch?> getShipmentBatch(int batchId,) async {
+    final response = await getShipmentBatchWithHttpInfo(batchId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -204,8 +189,6 @@ class ShipmentBatchApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] batchId (required):
   ///   The id of the requested shipment batch
@@ -242,10 +225,9 @@ class ShipmentBatchApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for
-  Future<Response> getShipmentBatchStatusWithHttpInfo(num version, int batchId, int accountId, String sortField, bool descending, int start, int limit, { bool? valid, bool? started, bool? completed, bool? hasShipment, bool? hasRoute, String? keyword, }) async {
+  Future<Response> getShipmentBatchStatusWithHttpInfo(int batchId, int accountId, String sortField, bool descending, int start, int limit, { bool? valid, bool? started, bool? completed, bool? hasShipment, bool? hasRoute, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/batch/{batchId}/status'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/batch/{batchId}/status'
       .replaceAll('{batchId}', batchId.toString());
 
     // ignore: prefer_final_locals
@@ -299,8 +281,6 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] batchId (required):
   ///   The id of the requested shipment batch
   ///
@@ -336,8 +316,8 @@ class ShipmentBatchApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for
-  Future<List<ShipmentImportStatus>?> getShipmentBatchStatus(num version, int batchId, int accountId, String sortField, bool descending, int start, int limit, { bool? valid, bool? started, bool? completed, bool? hasShipment, bool? hasRoute, String? keyword, }) async {
-    final response = await getShipmentBatchStatusWithHttpInfo(version, batchId, accountId, sortField, descending, start, limit,  valid: valid, started: started, completed: completed, hasShipment: hasShipment, hasRoute: hasRoute, keyword: keyword, );
+  Future<List<ShipmentImportStatus>?> getShipmentBatchStatus(int batchId, int accountId, String sortField, bool descending, int start, int limit, { bool? valid, bool? started, bool? completed, bool? hasShipment, bool? hasRoute, String? keyword, }) async {
+    final response = await getShipmentBatchStatusWithHttpInfo(batchId, accountId, sortField, descending, start, limit,  valid: valid, started: started, completed: completed, hasShipment: hasShipment, hasRoute: hasRoute, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -362,8 +342,6 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] hubId (required):
   ///   The associated service hub
   ///
@@ -378,10 +356,9 @@ class ShipmentBatchApi {
   ///
   /// * [int] limit (required):
   ///   The limit for pagination
-  Future<Response> searchShipmentBatchWithHttpInfo(num version, int hubId, String sortField, bool descending, int start, int limit,) async {
+  Future<Response> searchShipmentBatchWithHttpInfo(int hubId, String sortField, bool descending, int start, int limit,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/shipment/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -416,8 +393,6 @@ class ShipmentBatchApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] hubId (required):
   ///   The associated service hub
   ///
@@ -432,8 +407,8 @@ class ShipmentBatchApi {
   ///
   /// * [int] limit (required):
   ///   The limit for pagination
-  Future<List<ShipmentBatch>?> searchShipmentBatch(num version, int hubId, String sortField, bool descending, int start, int limit,) async {
-    final response = await searchShipmentBatchWithHttpInfo(version, hubId, sortField, descending, start, limit,);
+  Future<List<ShipmentBatch>?> searchShipmentBatch(int hubId, String sortField, bool descending, int start, int limit,) async {
+    final response = await searchShipmentBatchWithHttpInfo(hubId, sortField, descending, start, limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

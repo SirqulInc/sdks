@@ -24,8 +24,6 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -196,10 +194,9 @@ class MediaApi {
   ///
   /// * [String] availabilitySummary:
   ///   ability to assign when the media expires
-  Future<Response> createMediaWithHttpInfo(num version, int accountId, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String specialOfferType, String offerVisibility, bool active, { String? retailerLocationIds, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? parentalRating, int? availabilityDate, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
+  Future<Response> createMediaWithHttpInfo(int accountId, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String specialOfferType, String offerVisibility, bool active, { String? retailerLocationIds, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? parentalRating, int? availabilityDate, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/media/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/media/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -370,8 +367,6 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the logged in user
   ///
@@ -542,8 +537,8 @@ class MediaApi {
   ///
   /// * [String] availabilitySummary:
   ///   ability to assign when the media expires
-  Future<MediaOfferResponse?> createMedia(num version, int accountId, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String specialOfferType, String offerVisibility, bool active, { String? retailerLocationIds, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? parentalRating, int? availabilityDate, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
-    final response = await createMediaWithHttpInfo(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active,  retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, parentalRating: parentalRating, availabilityDate: availabilityDate, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, );
+  Future<MediaOfferResponse?> createMedia(int accountId, String title, String barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, int ticketPrice, double fullPrice, double discountPrice, String specialOfferType, String offerVisibility, bool active, { String? retailerLocationIds, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, String? ticketPriceType, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? categoryIds, String? filterIds, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, String? parentalRating, int? availabilityDate, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
+    final response = await createMediaWithHttpInfo(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active,  retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, parentalRating: parentalRating, availabilityDate: availabilityDate, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -565,17 +560,14 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] mediaId (required):
   ///   the ID of the media to delete
-  Future<Response> deleteMediaWithHttpInfo(num version, int accountId, int mediaId,) async {
+  Future<Response> deleteMediaWithHttpInfo(int accountId, int mediaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/media/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/media/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -607,15 +599,13 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] mediaId (required):
   ///   the ID of the media to delete
-  Future<SirqulResponse?> deleteMedia(num version, int accountId, int mediaId,) async {
-    final response = await deleteMediaWithHttpInfo(version, accountId, mediaId,);
+  Future<SirqulResponse?> deleteMedia(int accountId, int mediaId,) async {
+    final response = await deleteMediaWithHttpInfo(accountId, mediaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -637,17 +627,14 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] mediaId (required):
   ///   the id of the media to get
-  Future<Response> getMediaWithHttpInfo(num version, int accountId, int mediaId,) async {
+  Future<Response> getMediaWithHttpInfo(int accountId, int mediaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/media/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/media/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -679,15 +666,13 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] mediaId (required):
   ///   the id of the media to get
-  Future<MediaOfferResponse?> getMedia(num version, int accountId, int mediaId,) async {
-    final response = await getMediaWithHttpInfo(version, accountId, mediaId,);
+  Future<MediaOfferResponse?> getMedia(int accountId, int mediaId,) async {
+    final response = await getMediaWithHttpInfo(accountId, mediaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -708,8 +693,6 @@ class MediaApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -737,10 +720,9 @@ class MediaApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<Response> searchMediaWithHttpInfo(num version, int accountId, bool activeOnly, String sortField, bool descending, { String? keyword, String? categoryIds, String? filterIds, int? start, int? limit, }) async {
+  Future<Response> searchMediaWithHttpInfo(int accountId, bool activeOnly, String sortField, bool descending, { String? keyword, String? categoryIds, String? filterIds, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/media/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/media/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -789,8 +771,6 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -817,8 +797,8 @@ class MediaApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<List<MediaOfferResponse>?> searchMedia(num version, int accountId, bool activeOnly, String sortField, bool descending, { String? keyword, String? categoryIds, String? filterIds, int? start, int? limit, }) async {
-    final response = await searchMediaWithHttpInfo(version, accountId, activeOnly, sortField, descending,  keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, start: start, limit: limit, );
+  Future<List<MediaOfferResponse>?> searchMedia(int accountId, bool activeOnly, String sortField, bool descending, { String? keyword, String? categoryIds, String? filterIds, int? start, int? limit, }) async {
+    final response = await searchMediaWithHttpInfo(accountId, activeOnly, sortField, descending,  keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -842,8 +822,6 @@ class MediaApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
@@ -1021,10 +999,9 @@ class MediaApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<Response> updateMediaWithHttpInfo(num version, int accountId, int mediaId, { String? retailerLocationIds, String? offerLocations, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, int? availabilityDate, String? parentalRating, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
+  Future<Response> updateMediaWithHttpInfo(int accountId, int mediaId, { String? retailerLocationIds, String? offerLocations, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, int? availabilityDate, String? parentalRating, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/media/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/media/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1227,8 +1204,6 @@ class MediaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
   ///
@@ -1405,8 +1380,8 @@ class MediaApi {
   ///
   /// * [String] availabilitySummary:
   ///   
-  Future<MediaOfferResponse?> updateMedia(num version, int accountId, int mediaId, { String? retailerLocationIds, String? offerLocations, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, int? availabilityDate, String? parentalRating, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
-    final response = await updateMediaWithHttpInfo(version, accountId, mediaId,  retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, availabilityDate: availabilityDate, parentalRating: parentalRating, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, );
+  Future<MediaOfferResponse?> updateMedia(int accountId, int mediaId, { String? retailerLocationIds, String? offerLocations, String? title, String? subTitle, String? details, String? subDetails, String? finePrint, String? barcodeType, String? barcodeEntry, String? externalRedeemOptions, String? externalUrl, String? ticketsRewardType, int? ticketsReward, int? activated, int? expires, bool? noExpiration, int? availableLimit, int? availableLimitPerUser, int? addedLimit, int? viewLimit, int? maxPrints, String? ticketPriceType, int? ticketPrice, double? fullPrice, double? discountPrice, bool? showRemaining, bool? showRedeemed, bool? replaced, bool? featured, String? specialOfferType, String? offerVisibility, String? categoryIds, String? filterIds, bool? active, int? barcodeAssetId, int? imageAssetId, int? imageAssetId1, int? imageAssetId2, int? imageAssetId3, int? imageAssetId4, int? imageAssetId5, String? publisher, int? redeemableStart, int? redeemableEnd, String? conditionType, String? isbn, String? asin, String? catalogNumbers, int? availabilityDate, String? parentalRating, String? mediaType, int? duration, String? author, int? releaseDate, String? collectionIds, String? availability, String? availabilitySummary, }) async {
+    final response = await updateMediaWithHttpInfo(accountId, mediaId,  retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, availabilityDate: availabilityDate, parentalRating: parentalRating, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

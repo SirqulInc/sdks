@@ -24,8 +24,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] favoritableId (required):
   ///   The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
   ///
@@ -43,10 +41,9 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> addFavoriteWithHttpInfo(num version, int favoritableId, String favoritableType, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> addFavoriteWithHttpInfo(int favoritableId, String favoritableType, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/favorite/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/favorite/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -90,8 +87,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] favoritableId (required):
   ///   The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
   ///
@@ -109,8 +104,8 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<WrappedResponse?> addFavorite(num version, int favoritableId, String favoritableType, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await addFavoriteWithHttpInfo(version, favoritableId, favoritableType,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<WrappedResponse?> addFavorite(int favoritableId, String favoritableType, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await addFavoriteWithHttpInfo(favoritableId, favoritableType,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -132,8 +127,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique ID given by the device (deviceId or accountId required)
   ///
@@ -148,10 +141,9 @@ class FavoriteApi {
   ///
   /// * [String] favoritableType:
   ///   The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
-  Future<Response> deleteFavoriteWithHttpInfo(num version, { String? deviceId, int? accountId, int? favoriteId, int? favoritableId, String? favoritableType, }) async {
+  Future<Response> deleteFavoriteWithHttpInfo({ String? deviceId, int? accountId, int? favoriteId, int? favoritableId, String? favoritableType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/favorite/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/favorite/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -196,8 +188,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique ID given by the device (deviceId or accountId required)
   ///
@@ -212,8 +202,8 @@ class FavoriteApi {
   ///
   /// * [String] favoritableType:
   ///   The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
-  Future<SirqulResponse?> deleteFavorite(num version, { String? deviceId, int? accountId, int? favoriteId, int? favoritableId, String? favoritableType, }) async {
-    final response = await deleteFavoriteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, favoriteId: favoriteId, favoritableId: favoritableId, favoritableType: favoritableType, );
+  Future<SirqulResponse?> deleteFavorite({ String? deviceId, int? accountId, int? favoriteId, int? favoritableId, String? favoritableType, }) async {
+    final response = await deleteFavoriteWithHttpInfo( deviceId: deviceId, accountId: accountId, favoriteId: favoriteId, favoritableId: favoritableId, favoritableType: favoritableType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -235,8 +225,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] favoriteId (required):
   ///   The ID of the favorite reference record
   ///
@@ -251,10 +239,9 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> getFavoriteWithHttpInfo(num version, int favoriteId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getFavoriteWithHttpInfo(int favoriteId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/favorite/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/favorite/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -297,8 +284,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] favoriteId (required):
   ///   The ID of the favorite reference record
   ///
@@ -313,8 +298,8 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<WrappedResponse?> getFavorite(num version, int favoriteId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getFavoriteWithHttpInfo(version, favoriteId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<WrappedResponse?> getFavorite(int favoriteId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getFavoriteWithHttpInfo(favoriteId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -335,8 +320,6 @@ class FavoriteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] favoritableType (required):
   ///   The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
@@ -379,10 +362,9 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> searchFavoritesWithHttpInfo(num version, String favoritableType, String sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, { String? deviceId, int? accountId, int? connectionAccountId, String? secondaryType, String? keyword, double? latitude, double? longitude, }) async {
+  Future<Response> searchFavoritesWithHttpInfo(String favoritableType, String sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, { String? deviceId, int? accountId, int? connectionAccountId, String? secondaryType, String? keyword, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/favorite/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/favorite/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -440,8 +422,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] favoritableType (required):
   ///   The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
   ///
@@ -483,8 +463,8 @@ class FavoriteApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<SearchResponse?> searchFavorites(num version, String favoritableType, String sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, { String? deviceId, int? accountId, int? connectionAccountId, String? secondaryType, String? keyword, double? latitude, double? longitude, }) async {
-    final response = await searchFavoritesWithHttpInfo(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, secondaryType: secondaryType, keyword: keyword, latitude: latitude, longitude: longitude, );
+  Future<SearchResponse?> searchFavorites(String favoritableType, String sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, { String? deviceId, int? accountId, int? connectionAccountId, String? secondaryType, String? keyword, double? latitude, double? longitude, }) async {
+    final response = await searchFavoritesWithHttpInfo(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, secondaryType: secondaryType, keyword: keyword, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -505,8 +485,6 @@ class FavoriteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] favoritableId (required):
   ///   The ID of the favoritableType to search on
@@ -534,10 +512,9 @@ class FavoriteApi {
   ///
   /// * [String] keyword:
   ///   The keyword to limit that account list
-  Future<Response> whoHasFavoritedWithHttpInfo(num version, int favoritableId, String favoritableType, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
+  Future<Response> whoHasFavoritedWithHttpInfo(int favoritableId, String favoritableType, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/favorite/whois'
-      .replaceAll('{version}', version.toString());
+    final path = r'/favorite/whois';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -586,8 +563,6 @@ class FavoriteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] favoritableId (required):
   ///   The ID of the favoritableType to search on
   ///
@@ -614,8 +589,8 @@ class FavoriteApi {
   ///
   /// * [String] keyword:
   ///   The keyword to limit that account list
-  Future<List<AccountResponse>?> whoHasFavorited(num version, int favoritableId, String favoritableType, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
-    final response = await whoHasFavoritedWithHttpInfo(version, favoritableId, favoritableType, start, limit,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, );
+  Future<List<AccountResponse>?> whoHasFavorited(int favoritableId, String favoritableType, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
+    final response = await whoHasFavoritedWithHttpInfo(favoritableId, favoritableType, start, limit,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

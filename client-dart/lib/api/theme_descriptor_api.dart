@@ -24,8 +24,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] publicRead (required):
   ///   determines whether the theme's participants have read permissions
   ///
@@ -106,10 +104,9 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> addOrUpdateThemeDescriptorWithHttpInfo(num version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, bool completeWithDefaultValues, { String? deviceId, int? accountId, String? gameType, int? themeDescriptorId, String? title, String? description, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, String? appVersion, String? colorValueJson, String? stringReplacerJson, String? customJsonObjects, MultipartFile? iconImage, MultipartFile? sceneAtlasImage, MultipartFile? bgImage, MultipartFile? bgSound, String? musicSelection, String? locationDescription, double? latitude, double? longitude, }) async {
+  Future<Response> addOrUpdateThemeDescriptorWithHttpInfo(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, bool completeWithDefaultValues, { String? deviceId, int? accountId, String? gameType, int? themeDescriptorId, String? title, String? description, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, String? appVersion, String? colorValueJson, String? stringReplacerJson, String? customJsonObjects, MultipartFile? iconImage, MultipartFile? sceneAtlasImage, MultipartFile? bgImage, MultipartFile? bgSound, String? musicSelection, String? locationDescription, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/theme'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/theme';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -206,8 +203,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] publicRead (required):
   ///   determines whether the theme's participants have read permissions
   ///
@@ -288,8 +283,8 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ThemeDescriptorResponse?> addOrUpdateThemeDescriptor(num version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, bool completeWithDefaultValues, { String? deviceId, int? accountId, String? gameType, int? themeDescriptorId, String? title, String? description, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, String? appVersion, String? colorValueJson, String? stringReplacerJson, String? customJsonObjects, MultipartFile? iconImage, MultipartFile? sceneAtlasImage, MultipartFile? bgImage, MultipartFile? bgSound, String? musicSelection, String? locationDescription, double? latitude, double? longitude, }) async {
-    final response = await addOrUpdateThemeDescriptorWithHttpInfo(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues,  deviceId: deviceId, accountId: accountId, gameType: gameType, themeDescriptorId: themeDescriptorId, title: title, description: description, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, appVersion: appVersion, colorValueJson: colorValueJson, stringReplacerJson: stringReplacerJson, customJsonObjects: customJsonObjects, iconImage: iconImage, sceneAtlasImage: sceneAtlasImage, bgImage: bgImage, bgSound: bgSound, musicSelection: musicSelection, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
+  Future<ThemeDescriptorResponse?> addOrUpdateThemeDescriptor(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, String visibility, bool includeFriendGroup, bool completeWithDefaultValues, { String? deviceId, int? accountId, String? gameType, int? themeDescriptorId, String? title, String? description, String? connectionIdsToAdd, String? connectionGroupIdsToAdd, String? appVersion, String? colorValueJson, String? stringReplacerJson, String? customJsonObjects, MultipartFile? iconImage, MultipartFile? sceneAtlasImage, MultipartFile? bgImage, MultipartFile? bgSound, String? musicSelection, String? locationDescription, double? latitude, double? longitude, }) async {
+    final response = await addOrUpdateThemeDescriptorWithHttpInfo(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues,  deviceId: deviceId, accountId: accountId, gameType: gameType, themeDescriptorId: themeDescriptorId, title: title, description: description, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, appVersion: appVersion, colorValueJson: colorValueJson, stringReplacerJson: stringReplacerJson, customJsonObjects: customJsonObjects, iconImage: iconImage, sceneAtlasImage: sceneAtlasImage, bgImage: bgImage, bgSound: bgSound, musicSelection: musicSelection, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -311,8 +306,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] themeDescriptorId (required):
   ///   the theme id
   ///
@@ -330,10 +323,9 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> getThemeDescriptorWithHttpInfo(num version, int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
+  Future<Response> getThemeDescriptorWithHttpInfo(int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/theme/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/theme/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -379,8 +371,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] themeDescriptorId (required):
   ///   the theme id
   ///
@@ -398,8 +388,8 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<PurchaseItemListResponse?> getThemeDescriptor(num version, int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
-    final response = await getThemeDescriptorWithHttpInfo(version, themeDescriptorId,  deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, );
+  Future<PurchaseItemListResponse?> getThemeDescriptor(int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
+    final response = await getThemeDescriptorWithHttpInfo(themeDescriptorId,  deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -420,8 +410,6 @@ class ThemeDescriptorApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] filter (required):
   ///   a comma separated list of Ownership
@@ -476,10 +464,9 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> getThemeDescriptorsWithHttpInfo(num version, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, String? appVersion, double? latitude, double? longitude, }) async {
+  Future<Response> getThemeDescriptorsWithHttpInfo(String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, String? appVersion, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/theme/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/theme/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -553,8 +540,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] filter (required):
   ///   a comma separated list of Ownership
   ///
@@ -608,8 +593,8 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<PurchaseItemListResponse?> getThemeDescriptors(num version, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, String? appVersion, double? latitude, double? longitude, }) async {
-    final response = await getThemeDescriptorsWithHttpInfo(version, filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, appVersion: appVersion, latitude: latitude, longitude: longitude, );
+  Future<PurchaseItemListResponse?> getThemeDescriptors(String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, String? gameType, String? contestType, int? ownerId, String? q, String? keyword, int? i, int? l, int? dateCreated, String? appVersion, double? latitude, double? longitude, }) async {
+    final response = await getThemeDescriptorsWithHttpInfo(filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, appVersion: appVersion, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -631,8 +616,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] themeDescriptorId (required):
   ///   the theme id to remove
   ///
@@ -650,10 +633,9 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> removeThemeDescriptorWithHttpInfo(num version, int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
+  Future<Response> removeThemeDescriptorWithHttpInfo(int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/theme/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/theme/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -699,8 +681,6 @@ class ThemeDescriptorApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] themeDescriptorId (required):
   ///   the theme id to remove
   ///
@@ -718,8 +698,8 @@ class ThemeDescriptorApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<SirqulResponse?> removeThemeDescriptor(num version, int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
-    final response = await removeThemeDescriptorWithHttpInfo(version, themeDescriptorId,  deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeThemeDescriptor(int themeDescriptorId, { String? deviceId, int? accountId, String? gameType, double? latitude, double? longitude, }) async {
+    final response = await removeThemeDescriptorWithHttpInfo(themeDescriptorId,  deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

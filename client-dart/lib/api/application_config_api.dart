@@ -24,8 +24,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
@@ -46,10 +44,9 @@ class ApplicationConfigApi {
   ///
   /// * [String] udid:
   ///   The device udid for device specific configurations
-  Future<Response> createApplicationConfigWithHttpInfo(num version, int accountId, String appKey, String configVersion, int assetId, { int? retailerId, int? retailerLocationId, String? udid, }) async {
+  Future<Response> createApplicationConfigWithHttpInfo(int accountId, String appKey, String configVersion, int assetId, { int? retailerId, int? retailerLocationId, String? udid, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -92,8 +89,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
@@ -114,8 +109,8 @@ class ApplicationConfigApi {
   ///
   /// * [String] udid:
   ///   The device udid for device specific configurations
-  Future<ApplicationConfigResponse?> createApplicationConfig(num version, int accountId, String appKey, String configVersion, int assetId, { int? retailerId, int? retailerLocationId, String? udid, }) async {
-    final response = await createApplicationConfigWithHttpInfo(version, accountId, appKey, configVersion, assetId,  retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, );
+  Future<ApplicationConfigResponse?> createApplicationConfig(int accountId, String appKey, String configVersion, int assetId, { int? retailerId, int? retailerLocationId, String? udid, }) async {
+    final response = await createApplicationConfigWithHttpInfo(accountId, appKey, configVersion, assetId,  retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -137,17 +132,14 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
   /// * [int] configId (required):
   ///   The config ID of the application configuration to delete
-  Future<Response> deleteApplicationConfigWithHttpInfo(num version, int accountId, int configId,) async {
+  Future<Response> deleteApplicationConfigWithHttpInfo(int accountId, int configId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -179,15 +171,13 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
   /// * [int] configId (required):
   ///   The config ID of the application configuration to delete
-  Future<SirqulResponse?> deleteApplicationConfig(num version, int accountId, int configId,) async {
-    final response = await deleteApplicationConfigWithHttpInfo(version, accountId, configId,);
+  Future<SirqulResponse?> deleteApplicationConfig(int accountId, int configId,) async {
+    final response = await deleteApplicationConfigWithHttpInfo(accountId, configId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -209,17 +199,14 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
   /// * [int] configId (required):
   ///   The config ID of the application configuration
-  Future<Response> getApplicationConfigWithHttpInfo(num version, int accountId, int configId,) async {
+  Future<Response> getApplicationConfigWithHttpInfo(int accountId, int configId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -251,15 +238,13 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
   /// * [int] configId (required):
   ///   The config ID of the application configuration
-  Future<ApplicationConfigResponse?> getApplicationConfig(num version, int accountId, int configId,) async {
-    final response = await getApplicationConfigWithHttpInfo(version, accountId, configId,);
+  Future<ApplicationConfigResponse?> getApplicationConfig(int accountId, int configId,) async {
+    final response = await getApplicationConfigWithHttpInfo(accountId, configId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -281,8 +266,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -300,10 +283,9 @@ class ApplicationConfigApi {
   ///
   /// * [bool] allowOlderVersions:
   ///   Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
-  Future<Response> getApplicationConfigByConfigVersionWithHttpInfo(num version, String appKey, String configVersion, { int? retailerId, int? retailerLocationId, String? udid, bool? allowOlderVersions, }) async {
+  Future<Response> getApplicationConfigByConfigVersionWithHttpInfo(String appKey, String configVersion, { int? retailerId, int? retailerLocationId, String? udid, bool? allowOlderVersions, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/getbyversion'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/getbyversion';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -347,8 +329,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -366,8 +346,8 @@ class ApplicationConfigApi {
   ///
   /// * [bool] allowOlderVersions:
   ///   Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
-  Future<ApplicationConfigResponse?> getApplicationConfigByConfigVersion(num version, String appKey, String configVersion, { int? retailerId, int? retailerLocationId, String? udid, bool? allowOlderVersions, }) async {
-    final response = await getApplicationConfigByConfigVersionWithHttpInfo(version, appKey, configVersion,  retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, allowOlderVersions: allowOlderVersions, );
+  Future<ApplicationConfigResponse?> getApplicationConfigByConfigVersion(String appKey, String configVersion, { int? retailerId, int? retailerLocationId, String? udid, bool? allowOlderVersions, }) async {
+    final response = await getApplicationConfigByConfigVersionWithHttpInfo(appKey, configVersion,  retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, allowOlderVersions: allowOlderVersions, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -388,8 +368,6 @@ class ApplicationConfigApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account ID of the user
@@ -420,10 +398,9 @@ class ApplicationConfigApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination (There is a hard limit of 100)
-  Future<Response> searchApplicationConfigWithHttpInfo(num version, int accountId, { String? appKey, int? retailerId, int? retailerLocationId, String? udid, String? configVersion, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchApplicationConfigWithHttpInfo(int accountId, { String? appKey, int? retailerId, int? retailerLocationId, String? udid, String? configVersion, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -481,8 +458,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
@@ -512,8 +487,8 @@ class ApplicationConfigApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination (There is a hard limit of 100)
-  Future<List<ApplicationConfigResponse>?> searchApplicationConfig(num version, int accountId, { String? appKey, int? retailerId, int? retailerLocationId, String? udid, String? configVersion, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchApplicationConfigWithHttpInfo(version, accountId,  appKey: appKey, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, configVersion: configVersion, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<List<ApplicationConfigResponse>?> searchApplicationConfig(int accountId, { String? appKey, int? retailerId, int? retailerLocationId, String? udid, String? configVersion, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchApplicationConfigWithHttpInfo(accountId,  appKey: appKey, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, configVersion: configVersion, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -538,8 +513,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
@@ -563,10 +536,9 @@ class ApplicationConfigApi {
   ///
   /// * [String] udid:
   ///   The device udid for device specific configurations
-  Future<Response> updateApplicationConfigWithHttpInfo(num version, int accountId, int configId, { String? appKey, String? configVersion, int? assetId, int? retailerId, int? retailerLocationId, String? udid, }) async {
+  Future<Response> updateApplicationConfigWithHttpInfo(int accountId, int configId, { String? appKey, String? configVersion, int? assetId, int? retailerId, int? retailerLocationId, String? udid, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/appconfig/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/appconfig/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -616,8 +588,6 @@ class ApplicationConfigApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user
   ///
@@ -641,8 +611,8 @@ class ApplicationConfigApi {
   ///
   /// * [String] udid:
   ///   The device udid for device specific configurations
-  Future<ApplicationConfigResponse?> updateApplicationConfig(num version, int accountId, int configId, { String? appKey, String? configVersion, int? assetId, int? retailerId, int? retailerLocationId, String? udid, }) async {
-    final response = await updateApplicationConfigWithHttpInfo(version, accountId, configId,  appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, );
+  Future<ApplicationConfigResponse?> updateApplicationConfig(int accountId, int configId, { String? appKey, String? configVersion, int? assetId, int? retailerId, int? retailerLocationId, String? udid, }) async {
+    final response = await updateApplicationConfigWithHttpInfo(accountId, configId,  appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

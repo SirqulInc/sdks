@@ -24,14 +24,11 @@ class TwitterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
-  Future<Response> authorizeTwitterWithHttpInfo(num version, String appKey,) async {
+  Future<Response> authorizeTwitterWithHttpInfo(String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/twitter/authorize'
-      .replaceAll('{version}', version.toString());
+    final path = r'/twitter/authorize';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -62,12 +59,10 @@ class TwitterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
-  Future<SirqulResponse?> authorizeTwitter(num version, String appKey,) async {
-    final response = await authorizeTwitterWithHttpInfo(version, appKey,);
+  Future<SirqulResponse?> authorizeTwitter(String appKey,) async {
+    final response = await authorizeTwitterWithHttpInfo(appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -89,8 +84,6 @@ class TwitterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] accessToken (required):
   ///   The access token
   ///
@@ -111,10 +104,9 @@ class TwitterApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> loginTwitterWithHttpInfo(num version, String accessToken, String accessTokenSecret, String appKey, String responseFilters, { String? deviceId, double? latitude, double? longitude, }) async {
+  Future<Response> loginTwitterWithHttpInfo(String accessToken, String accessTokenSecret, String appKey, String responseFilters, { String? deviceId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/twitter/login'
-      .replaceAll('{version}', version.toString());
+    final path = r'/twitter/login';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -157,8 +149,6 @@ class TwitterApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] accessToken (required):
   ///   The access token
   ///
@@ -179,8 +169,8 @@ class TwitterApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<ProfileResponse?> loginTwitter(num version, String accessToken, String accessTokenSecret, String appKey, String responseFilters, { String? deviceId, double? latitude, double? longitude, }) async {
-    final response = await loginTwitterWithHttpInfo(version, accessToken, accessTokenSecret, appKey, responseFilters,  deviceId: deviceId, latitude: latitude, longitude: longitude, );
+  Future<ProfileResponse?> loginTwitter(String accessToken, String accessTokenSecret, String appKey, String responseFilters, { String? deviceId, double? latitude, double? longitude, }) async {
+    final response = await loginTwitterWithHttpInfo(accessToken, accessTokenSecret, appKey, responseFilters,  deviceId: deviceId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

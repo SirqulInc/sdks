@@ -24,8 +24,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -40,10 +38,9 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<Response> createMissionInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? missionId, String? joinCode, bool? includeGameData, }) async {
+  Future<Response> createMissionInviteWithHttpInfo({ String? deviceId, int? accountId, int? missionId, String? joinCode, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/invite/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/invite/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -88,8 +85,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -104,8 +99,8 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<MissionResponse?> createMissionInvite(num version, { String? deviceId, int? accountId, int? missionId, String? joinCode, bool? includeGameData, }) async {
-    final response = await createMissionInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, missionId: missionId, joinCode: joinCode, includeGameData: includeGameData, );
+  Future<MissionResponse?> createMissionInvite({ String? deviceId, int? accountId, int? missionId, String? joinCode, bool? includeGameData, }) async {
+    final response = await createMissionInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, missionId: missionId, joinCode: joinCode, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -127,8 +122,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -143,10 +136,9 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<Response> deleteMissionInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, }) async {
+  Future<Response> deleteMissionInviteWithHttpInfo({ String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/invite/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/invite/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -191,8 +183,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -207,8 +197,8 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<SirqulResponse?> deleteMissionInvite(num version, { String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, }) async {
-    final response = await deleteMissionInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, );
+  Future<SirqulResponse?> deleteMissionInvite({ String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, }) async {
+    final response = await deleteMissionInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -230,8 +220,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -249,10 +237,9 @@ class MissionInviteApi {
   ///
   /// * [String] includeScores:
   ///   include the scores with the mission
-  Future<Response> getMissionInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, String? includeScores, }) async {
+  Future<Response> getMissionInviteWithHttpInfo({ String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, String? includeScores, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/invite/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/invite/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -300,8 +287,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -319,8 +304,8 @@ class MissionInviteApi {
   ///
   /// * [String] includeScores:
   ///   include the scores with the mission
-  Future<MissionResponse?> getMissionInvite(num version, { String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, String? includeScores, }) async {
-    final response = await getMissionInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, includeScores: includeScores, );
+  Future<MissionResponse?> getMissionInvite({ String? deviceId, int? accountId, int? missionId, int? missionInviteId, bool? includeGameData, String? includeScores, }) async {
+    final response = await getMissionInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, includeScores: includeScores, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -341,8 +326,6 @@ class MissionInviteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
@@ -382,10 +365,9 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<Response> searchMissionInvitesWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, String? appVersion, int? missionId, String? status, int? lastUpdated, int? start, int? limit, String? keyword, String? missionTypes, bool? filterByBillable, bool? includeGameData, }) async {
+  Future<Response> searchMissionInvitesWithHttpInfo({ String? deviceId, int? accountId, String? appKey, String? appVersion, int? missionId, String? status, int? lastUpdated, int? start, int? limit, String? keyword, String? missionTypes, bool? filterByBillable, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/invite/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/invite/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -454,8 +436,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -494,8 +474,8 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<List<MissionResponse>?> searchMissionInvites(num version, { String? deviceId, int? accountId, String? appKey, String? appVersion, int? missionId, String? status, int? lastUpdated, int? start, int? limit, String? keyword, String? missionTypes, bool? filterByBillable, bool? includeGameData, }) async {
-    final response = await searchMissionInvitesWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, appVersion: appVersion, missionId: missionId, status: status, lastUpdated: lastUpdated, start: start, limit: limit, keyword: keyword, missionTypes: missionTypes, filterByBillable: filterByBillable, includeGameData: includeGameData, );
+  Future<List<MissionResponse>?> searchMissionInvites({ String? deviceId, int? accountId, String? appKey, String? appVersion, int? missionId, String? status, int? lastUpdated, int? start, int? limit, String? keyword, String? missionTypes, bool? filterByBillable, bool? includeGameData, }) async {
+    final response = await searchMissionInvitesWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, appVersion: appVersion, missionId: missionId, status: status, lastUpdated: lastUpdated, start: start, limit: limit, keyword: keyword, missionTypes: missionTypes, filterByBillable: filterByBillable, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -519,8 +499,6 @@ class MissionInviteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
@@ -554,10 +532,9 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<Response> updateMissionInviteWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, int? missionId, int? missionInviteId, int? packId, int? gameLevelId, String? status, String? permissionableType, int? permissionableId, bool? includeGameData, }) async {
+  Future<Response> updateMissionInviteWithHttpInfo({ String? deviceId, int? accountId, String? appKey, int? missionId, int? missionInviteId, int? packId, int? gameLevelId, String? status, String? permissionableType, int? permissionableId, bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/mission/invite/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/mission/invite/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -620,8 +597,6 @@ class MissionInviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required).
   ///
@@ -654,8 +629,8 @@ class MissionInviteApi {
   ///
   /// * [bool] includeGameData:
   ///   Include the game level data with the mission.
-  Future<MissionResponse?> updateMissionInvite(num version, { String? deviceId, int? accountId, String? appKey, int? missionId, int? missionInviteId, int? packId, int? gameLevelId, String? status, String? permissionableType, int? permissionableId, bool? includeGameData, }) async {
-    final response = await updateMissionInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, missionId: missionId, missionInviteId: missionInviteId, packId: packId, gameLevelId: gameLevelId, status: status, permissionableType: permissionableType, permissionableId: permissionableId, includeGameData: includeGameData, );
+  Future<MissionResponse?> updateMissionInvite({ String? deviceId, int? accountId, String? appKey, int? missionId, int? missionInviteId, int? packId, int? gameLevelId, String? status, String? permissionableType, int? permissionableId, bool? includeGameData, }) async {
+    final response = await updateMissionInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, missionId: missionId, missionInviteId: missionInviteId, packId: packId, gameLevelId: gameLevelId, status: status, permissionableType: permissionableType, permissionableId: permissionableId, includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

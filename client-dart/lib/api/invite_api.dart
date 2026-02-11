@@ -24,8 +24,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   the invite token
   ///
@@ -67,10 +65,9 @@ class InviteApi {
   ///
   /// * [bool] autoFavoriteRetailerLocation:
   ///   whether to mark the retailer location as favorited automatically after invite is accepted
-  Future<Response> acceptInviteWithHttpInfo(num version, String token, int accountId, { int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, bool? autoFriend, bool? autoAttendEvent, bool? autoFavoriteOffer, bool? autoFavoriteOfferLocation, bool? autoFavoriteRetailerLocation, }) async {
+  Future<Response> acceptInviteWithHttpInfo(String token, int accountId, { int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, bool? autoFriend, bool? autoAttendEvent, bool? autoFavoriteOffer, bool? autoFavoriteOfferLocation, bool? autoFavoriteRetailerLocation, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/accept'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/accept';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -138,8 +135,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   the invite token
   ///
@@ -181,8 +176,8 @@ class InviteApi {
   ///
   /// * [bool] autoFavoriteRetailerLocation:
   ///   whether to mark the retailer location as favorited automatically after invite is accepted
-  Future<ConsumerInviteResponse?> acceptInvite(num version, String token, int accountId, { int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, bool? autoFriend, bool? autoAttendEvent, bool? autoFavoriteOffer, bool? autoFavoriteOfferLocation, bool? autoFavoriteRetailerLocation, }) async {
-    final response = await acceptInviteWithHttpInfo(version, token, accountId,  albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, autoFriend: autoFriend, autoAttendEvent: autoAttendEvent, autoFavoriteOffer: autoFavoriteOffer, autoFavoriteOfferLocation: autoFavoriteOfferLocation, autoFavoriteRetailerLocation: autoFavoriteRetailerLocation, );
+  Future<ConsumerInviteResponse?> acceptInvite(String token, int accountId, { int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, bool? autoFriend, bool? autoAttendEvent, bool? autoFavoriteOffer, bool? autoFavoriteOfferLocation, bool? autoFavoriteRetailerLocation, }) async {
+    final response = await acceptInviteWithHttpInfo(token, accountId,  albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, autoFriend: autoFriend, autoAttendEvent: autoAttendEvent, autoFavoriteOffer: autoFavoriteOffer, autoFavoriteOfferLocation: autoFavoriteOfferLocation, autoFavoriteRetailerLocation: autoFavoriteRetailerLocation, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -204,8 +199,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -226,10 +219,9 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> albumContestInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? albumContestId, double? latitude, double? longitude, }) async {
+  Future<Response> albumContestInviteWithHttpInfo({ String? deviceId, int? accountId, int? appId, String? appKey, int? albumContestId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/albumContest'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/albumContest';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -280,8 +272,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -302,8 +292,8 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<InviteResponse?> albumContestInvite(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? albumContestId, double? latitude, double? longitude, }) async {
-    final response = await albumContestInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumContestId: albumContestId, latitude: latitude, longitude: longitude, );
+  Future<InviteResponse?> albumContestInvite({ String? deviceId, int? accountId, int? appId, String? appKey, int? albumContestId, double? latitude, double? longitude, }) async {
+    final response = await albumContestInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumContestId: albumContestId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -325,8 +315,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -347,10 +335,9 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> albumInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? albumId, double? latitude, double? longitude, }) async {
+  Future<Response> albumInviteWithHttpInfo({ String? deviceId, int? accountId, int? appId, String? appKey, int? albumId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/album'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/album';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -401,8 +388,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -423,8 +408,8 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<InviteResponse?> albumInvite(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? albumId, double? latitude, double? longitude, }) async {
-    final response = await albumInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumId: albumId, latitude: latitude, longitude: longitude, );
+  Future<InviteResponse?> albumInvite({ String? deviceId, int? accountId, int? appId, String? appKey, int? albumId, double? latitude, double? longitude, }) async {
+    final response = await albumInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumId: albumId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -446,8 +431,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -462,10 +445,9 @@ class InviteApi {
   ///
   /// * [int] retailerLocationId:
   ///   The retailer location id of where the event will take place
-  Future<Response> eventInviteWithHttpInfo(num version, int accountId, String appKey, int listingId, { String? receiverAccountIds, int? retailerLocationId, }) async {
+  Future<Response> eventInviteWithHttpInfo(int accountId, String appKey, int listingId, { String? receiverAccountIds, int? retailerLocationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/event'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/event';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -504,8 +486,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -520,8 +500,8 @@ class InviteApi {
   ///
   /// * [int] retailerLocationId:
   ///   The retailer location id of where the event will take place
-  Future<InviteResponse?> eventInvite(num version, int accountId, String appKey, int listingId, { String? receiverAccountIds, int? retailerLocationId, }) async {
-    final response = await eventInviteWithHttpInfo(version, accountId, appKey, listingId,  receiverAccountIds: receiverAccountIds, retailerLocationId: retailerLocationId, );
+  Future<InviteResponse?> eventInvite(int accountId, String appKey, int listingId, { String? receiverAccountIds, int? retailerLocationId, }) async {
+    final response = await eventInviteWithHttpInfo(accountId, appKey, listingId,  receiverAccountIds: receiverAccountIds, retailerLocationId: retailerLocationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -543,8 +523,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -565,10 +543,9 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> gameInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? gameLevelId, double? latitude, double? longitude, }) async {
+  Future<Response> gameInviteWithHttpInfo({ String? deviceId, int? accountId, int? appId, String? appKey, int? gameLevelId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/gameLevel'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/gameLevel';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -619,8 +596,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -641,8 +616,8 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<InviteResponse?> gameInvite(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? gameLevelId, double? latitude, double? longitude, }) async {
-    final response = await gameInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, gameLevelId: gameLevelId, latitude: latitude, longitude: longitude, );
+  Future<InviteResponse?> gameInvite({ String? deviceId, int? accountId, int? appId, String? appKey, int? gameLevelId, double? latitude, double? longitude, }) async {
+    final response = await gameInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, gameLevelId: gameLevelId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -663,8 +638,6 @@ class InviteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   Account ID of the user if they are logged in
@@ -692,10 +665,9 @@ class InviteApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<Response> getInviteWithHttpInfo(num version, { int? accountId, String? token, int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, }) async {
+  Future<Response> getInviteWithHttpInfo({ int? accountId, String? token, int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -752,8 +724,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   Account ID of the user if they are logged in
   ///
@@ -780,8 +750,8 @@ class InviteApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<SirqulResponse?> getInvite(num version, { int? accountId, String? token, int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, }) async {
-    final response = await getInviteWithHttpInfo(version,  accountId: accountId, token: token, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, );
+  Future<SirqulResponse?> getInvite({ int? accountId, String? token, int? albumId, int? missionId, int? albumContestId, int? offerId, int? offerLocationId, int? retailerLocationId, String? appKey, }) async {
+    final response = await getInviteWithHttpInfo( accountId: accountId, token: token, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -803,8 +773,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -825,10 +793,9 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> missionInviteWithHttpInfo(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? missionId, double? latitude, double? longitude, }) async {
+  Future<Response> missionInviteWithHttpInfo({ String? deviceId, int? accountId, int? appId, String? appKey, int? missionId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/mission'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/mission';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -879,8 +846,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -901,8 +866,8 @@ class InviteApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<InviteResponse?> missionInvite(num version, { String? deviceId, int? accountId, int? appId, String? appKey, int? missionId, double? latitude, double? longitude, }) async {
-    final response = await missionInviteWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, missionId: missionId, latitude: latitude, longitude: longitude, );
+  Future<InviteResponse?> missionInvite({ String? deviceId, int? accountId, int? appId, String? appKey, int? missionId, double? latitude, double? longitude, }) async {
+    final response = await missionInviteWithHttpInfo( deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, missionId: missionId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -924,8 +889,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -934,10 +897,9 @@ class InviteApi {
   ///
   /// * [int] offerId (required):
   ///   the ID of the offer used to invite to favorite
-  Future<Response> offerInviteWithHttpInfo(num version, int accountId, String appKey, int offerId,) async {
+  Future<Response> offerInviteWithHttpInfo(int accountId, String appKey, int offerId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/offer'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/offer';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -970,8 +932,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -980,8 +940,8 @@ class InviteApi {
   ///
   /// * [int] offerId (required):
   ///   the ID of the offer used to invite to favorite
-  Future<InviteResponse?> offerInvite(num version, int accountId, String appKey, int offerId,) async {
-    final response = await offerInviteWithHttpInfo(version, accountId, appKey, offerId,);
+  Future<InviteResponse?> offerInvite(int accountId, String appKey, int offerId,) async {
+    final response = await offerInviteWithHttpInfo(accountId, appKey, offerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1003,8 +963,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -1013,10 +971,9 @@ class InviteApi {
   ///
   /// * [int] offerLocationId (required):
   ///   the id of the offer location to share
-  Future<Response> offerLocationInviteWithHttpInfo(num version, int accountId, String appKey, int offerLocationId,) async {
+  Future<Response> offerLocationInviteWithHttpInfo(int accountId, String appKey, int offerLocationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/offerLocation'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/offerLocation';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1049,8 +1006,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -1059,8 +1014,8 @@ class InviteApi {
   ///
   /// * [int] offerLocationId (required):
   ///   the id of the offer location to share
-  Future<InviteResponse?> offerLocationInvite(num version, int accountId, String appKey, int offerLocationId,) async {
-    final response = await offerLocationInviteWithHttpInfo(version, accountId, appKey, offerLocationId,);
+  Future<InviteResponse?> offerLocationInvite(int accountId, String appKey, int offerLocationId,) async {
+    final response = await offerLocationInviteWithHttpInfo(accountId, appKey, offerLocationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1082,8 +1037,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -1095,10 +1048,9 @@ class InviteApi {
   ///
   /// * [int] albumId:
   ///   Optional album id to link with the invite
-  Future<Response> retailerLocationInviteWithHttpInfo(num version, int accountId, String appKey, int retailerLocationId, { int? albumId, }) async {
+  Future<Response> retailerLocationInviteWithHttpInfo(int accountId, String appKey, int retailerLocationId, { int? albumId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/invite/retailerLocation'
-      .replaceAll('{version}', version.toString());
+    final path = r'/invite/retailerLocation';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1134,8 +1086,6 @@ class InviteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user making the share
   ///
@@ -1147,8 +1097,8 @@ class InviteApi {
   ///
   /// * [int] albumId:
   ///   Optional album id to link with the invite
-  Future<InviteResponse?> retailerLocationInvite(num version, int accountId, String appKey, int retailerLocationId, { int? albumId, }) async {
-    final response = await retailerLocationInviteWithHttpInfo(version, accountId, appKey, retailerLocationId,  albumId: albumId, );
+  Future<InviteResponse?> retailerLocationInvite(int accountId, String appKey, int retailerLocationId, { int? albumId, }) async {
+    final response = await retailerLocationInviteWithHttpInfo(accountId, appKey, retailerLocationId,  albumId: albumId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

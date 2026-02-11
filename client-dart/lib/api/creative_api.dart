@@ -24,17 +24,14 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] creativeId (required):
   ///   The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
-  Future<Response> addPreviewWithHttpInfo(num version, int accountId, int creativeId,) async {
+  Future<Response> addPreviewWithHttpInfo(int accountId, int creativeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/addpreview'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/addpreview';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -66,15 +63,13 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] creativeId (required):
   ///   The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
-  Future<SirqulResponse?> addPreview(num version, int accountId, int creativeId,) async {
-    final response = await addPreviewWithHttpInfo(version, accountId, creativeId,);
+  Future<SirqulResponse?> addPreview(int accountId, int creativeId,) async {
+    final response = await addPreviewWithHttpInfo(accountId, creativeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -95,8 +90,6 @@ class CreativeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
@@ -145,10 +138,9 @@ class CreativeApi {
   ///
   /// * [String] missionIds:
   ///   return only ads from the specified campaigns.
-  Future<Response> adsFindWithHttpInfo(num version, String appKey, bool randomize, bool targetedAdsOnly, { String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeAudiences, bool? allocatesTickets, String? missionIds, }) async {
+  Future<Response> adsFindWithHttpInfo(String appKey, bool randomize, bool targetedAdsOnly, { String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeAudiences, bool? allocatesTickets, String? missionIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ads/find'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ads/find';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -220,8 +212,6 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
   ///
@@ -269,8 +259,8 @@ class CreativeApi {
   ///
   /// * [String] missionIds:
   ///   return only ads from the specified campaigns.
-  Future<List<MissionResponse>?> adsFind(num version, String appKey, bool randomize, bool targetedAdsOnly, { String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeAudiences, bool? allocatesTickets, String? missionIds, }) async {
-    final response = await adsFindWithHttpInfo(version, appKey, randomize, targetedAdsOnly,  type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, missionIds: missionIds, );
+  Future<List<MissionResponse>?> adsFind(String appKey, bool randomize, bool targetedAdsOnly, { String? type, int? accountId, String? appVersion, double? latitude, double? longitude, String? device, int? deviceIdentifier, String? deviceVersion, int? start, int? limit, bool? includeAudiences, bool? allocatesTickets, String? missionIds, }) async {
+    final response = await adsFindWithHttpInfo(appKey, randomize, targetedAdsOnly,  type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, missionIds: missionIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -294,8 +284,6 @@ class CreativeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -341,10 +329,9 @@ class CreativeApi {
   ///
   /// * [int] offerId:
   ///   the id of the offer
-  Future<Response> createCreativeWithHttpInfo(num version, int accountId, String name, bool active, bool waitForAsset, { String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, int? referenceId, String? appVersion, int? missionId, int? offerId, }) async {
+  Future<Response> createCreativeWithHttpInfo(int accountId, String name, bool active, bool waitForAsset, { String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, int? referenceId, String? appVersion, int? missionId, int? offerId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -411,8 +398,6 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -457,8 +442,8 @@ class CreativeApi {
   ///
   /// * [int] offerId:
   ///   the id of the offer
-  Future<CreativeResponse?> createCreative(num version, int accountId, String name, bool active, bool waitForAsset, { String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, int? referenceId, String? appVersion, int? missionId, int? offerId, }) async {
-    final response = await createCreativeWithHttpInfo(version, accountId, name, active, waitForAsset,  description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, referenceId: referenceId, appVersion: appVersion, missionId: missionId, offerId: offerId, );
+  Future<CreativeResponse?> createCreative(int accountId, String name, bool active, bool waitForAsset, { String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, int? referenceId, String? appVersion, int? missionId, int? offerId, }) async {
+    final response = await createCreativeWithHttpInfo(accountId, name, active, waitForAsset,  description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, referenceId: referenceId, appVersion: appVersion, missionId: missionId, offerId: offerId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -480,17 +465,14 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the id of the creative to delete
-  Future<Response> deleteCreativeWithHttpInfo(num version, int accountId, int creativeId,) async {
+  Future<Response> deleteCreativeWithHttpInfo(int accountId, int creativeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -522,15 +504,13 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the id of the creative to delete
-  Future<SirqulResponse?> deleteCreative(num version, int accountId, int creativeId,) async {
-    final response = await deleteCreativeWithHttpInfo(version, accountId, creativeId,);
+  Future<SirqulResponse?> deleteCreative(int accountId, int creativeId,) async {
+    final response = await deleteCreativeWithHttpInfo(accountId, creativeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -552,17 +532,14 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the ID of the creative to get
-  Future<Response> getCreativeWithHttpInfo(num version, int accountId, int creativeId,) async {
+  Future<Response> getCreativeWithHttpInfo(int accountId, int creativeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -594,15 +571,13 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the ID of the creative to get
-  Future<CreativeResponse?> getCreative(num version, int accountId, int creativeId,) async {
-    final response = await getCreativeWithHttpInfo(version, accountId, creativeId,);
+  Future<CreativeResponse?> getCreative(int accountId, int creativeId,) async {
+    final response = await getCreativeWithHttpInfo(accountId, creativeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -624,8 +599,6 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -643,10 +616,9 @@ class CreativeApi {
   ///
   /// * [String] keyword:
   ///   Match the keyword to the owner name or level name.
-  Future<Response> getCreativesByApplicationWithHttpInfo(num version, int accountId, String appKey, int start, int limit, { int? missionId, String? keyword, }) async {
+  Future<Response> getCreativesByApplicationWithHttpInfo(int accountId, String appKey, int start, int limit, { int? missionId, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -686,8 +658,6 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -705,8 +675,8 @@ class CreativeApi {
   ///
   /// * [String] keyword:
   ///   Match the keyword to the owner name or level name.
-  Future<List<CreativeResponse>?> getCreativesByApplication(num version, int accountId, String appKey, int start, int limit, { int? missionId, String? keyword, }) async {
-    final response = await getCreativesByApplicationWithHttpInfo(version, accountId, appKey, start, limit,  missionId: missionId, keyword: keyword, );
+  Future<List<CreativeResponse>?> getCreativesByApplication(int accountId, String appKey, int start, int limit, { int? missionId, String? keyword, }) async {
+    final response = await getCreativesByApplicationWithHttpInfo(accountId, appKey, start, limit,  missionId: missionId, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -731,17 +701,14 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the ID of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the ID of the creative to remove preview
-  Future<Response> removePreviewWithHttpInfo(num version, int accountId, int creativeId,) async {
+  Future<Response> removePreviewWithHttpInfo(int accountId, int creativeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/removepreview'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/removepreview';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -773,15 +740,13 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the ID of the logged in user
   ///
   /// * [int] creativeId (required):
   ///   the ID of the creative to remove preview
-  Future<SirqulResponse?> removePreview(num version, int accountId, int creativeId,) async {
-    final response = await removePreviewWithHttpInfo(version, accountId, creativeId,);
+  Future<SirqulResponse?> removePreview(int accountId, int creativeId,) async {
+    final response = await removePreviewWithHttpInfo(accountId, creativeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -802,8 +767,6 @@ class CreativeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -846,10 +809,9 @@ class CreativeApi {
   ///
   /// * [int] missionId:
   ///   Assign the creative to a campaign for timing and audience matching.
-  Future<Response> updateCreativeWithHttpInfo(num version, int accountId, int creativeId, { String? name, String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, bool? active, int? referenceId, String? appVersion, int? missionId, }) async {
+  Future<Response> updateCreativeWithHttpInfo(int accountId, int creativeId, { String? name, String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, bool? active, int? referenceId, String? appVersion, int? missionId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/creative/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/creative/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -917,8 +879,6 @@ class CreativeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -960,8 +920,8 @@ class CreativeApi {
   ///
   /// * [int] missionId:
   ///   Assign the creative to a campaign for timing and audience matching.
-  Future<CreativeResponse?> updateCreative(num version, int accountId, int creativeId, { String? name, String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, bool? active, int? referenceId, String? appVersion, int? missionId, }) async {
-    final response = await updateCreativeWithHttpInfo(version, accountId, creativeId,  name: name, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, active: active, referenceId: referenceId, appVersion: appVersion, missionId: missionId, );
+  Future<CreativeResponse?> updateCreative(int accountId, int creativeId, { String? name, String? description, int? assetImageId, String? action, String? data, String? suffix, String? type, double? balance, bool? active, int? referenceId, String? appVersion, int? missionId, }) async {
+    final response = await updateCreativeWithHttpInfo(accountId, creativeId,  name: name, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, active: active, referenceId: referenceId, appVersion: appVersion, missionId: missionId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

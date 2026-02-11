@@ -24,16 +24,13 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account to create a dependent for
   ///
   /// * [Account] body:
-  Future<Response> createWithHttpInfo(num version, int accountId, { Account? body, }) async {
+  Future<Response> createWithHttpInfo(int accountId, { Account? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/dependent/{accountId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/dependent/{accountId}'
       .replaceAll('{accountId}', accountId.toString());
 
     // ignore: prefer_final_locals
@@ -63,14 +60,12 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account to create a dependent for
   ///
   /// * [Account] body:
-  Future<SirqulResponse?> create(num version, int accountId, { Account? body, }) async {
-    final response = await createWithHttpInfo(version, accountId,  body: body, );
+  Future<SirqulResponse?> create(int accountId, { Account? body, }) async {
+    final response = await createWithHttpInfo(accountId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -92,14 +87,11 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account to get a list of dependents
-  Future<Response> getDependentsWithHttpInfo(num version, int accountId,) async {
+  Future<Response> getDependentsWithHttpInfo(int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/dependent/{accountId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/dependent/{accountId}'
       .replaceAll('{accountId}', accountId.toString());
 
     // ignore: prefer_final_locals
@@ -129,12 +121,10 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account to get a list of dependents
-  Future<SirqulResponse?> getDependents(num version, int accountId,) async {
-    final response = await getDependentsWithHttpInfo(version, accountId,);
+  Future<SirqulResponse?> getDependents(int accountId,) async {
+    final response = await getDependentsWithHttpInfo(accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -156,17 +146,14 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account tied to the dependent
   ///
   /// * [int] dependentId (required):
   ///   the id of the dependent to delete
-  Future<Response> removeDependentWithHttpInfo(num version, int accountId, int dependentId,) async {
+  Future<Response> removeDependentWithHttpInfo(int accountId, int dependentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/dependent/{accountId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/dependent/{accountId}'
       .replaceAll('{accountId}', accountId.toString())
       .replaceAll('{dependentId}', dependentId.toString());
 
@@ -197,15 +184,13 @@ class DependentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the parent account tied to the dependent
   ///
   /// * [int] dependentId (required):
   ///   the id of the dependent to delete
-  Future<void> removeDependent(num version, int accountId, int dependentId,) async {
-    final response = await removeDependentWithHttpInfo(version, accountId, dependentId,);
+  Future<void> removeDependent(int accountId, int dependentId,) async {
+    final response = await removeDependentWithHttpInfo(accountId, dependentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

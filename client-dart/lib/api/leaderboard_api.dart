@@ -24,8 +24,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user creating the leaderboard.
   ///
@@ -64,10 +62,9 @@ class LeaderboardApi {
   ///
   /// * [String] metaData:
   ///   custom meta data for the leaderboard
-  Future<Response> createLeaderboardWithHttpInfo(num version, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, String? sortField, String? title, String? description, String? metaData, }) async {
+  Future<Response> createLeaderboardWithHttpInfo({ int? accountId, String? appKey, String? rankType, String? leaderboardMode, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, String? sortField, String? title, String? description, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/leaderboard/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/leaderboard/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -136,8 +133,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user creating the leaderboard.
   ///
@@ -176,8 +171,8 @@ class LeaderboardApi {
   ///
   /// * [String] metaData:
   ///   custom meta data for the leaderboard
-  Future<LeaderboardResponse?> createLeaderboard(num version, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, String? sortField, String? title, String? description, String? metaData, }) async {
-    final response = await createLeaderboardWithHttpInfo(version,  accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, sortField: sortField, title: title, description: description, metaData: metaData, );
+  Future<LeaderboardResponse?> createLeaderboard({ int? accountId, String? appKey, String? rankType, String? leaderboardMode, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, String? sortField, String? title, String? description, String? metaData, }) async {
+    final response = await createLeaderboardWithHttpInfo( accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, sortField: sortField, title: title, description: description, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -199,17 +194,14 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id to delete.
   ///
   /// * [int] accountId:
   ///   The account id of the user making the request.
-  Future<Response> deleteLeaderboardWithHttpInfo(num version, int leaderboardId, { int? accountId, }) async {
+  Future<Response> deleteLeaderboardWithHttpInfo(int leaderboardId, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/leaderboard/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/leaderboard/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -243,15 +235,13 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id to delete.
   ///
   /// * [int] accountId:
   ///   The account id of the user making the request.
-  Future<SirqulResponse?> deleteLeaderboard(num version, int leaderboardId, { int? accountId, }) async {
-    final response = await deleteLeaderboardWithHttpInfo(version, leaderboardId,  accountId: accountId, );
+  Future<SirqulResponse?> deleteLeaderboard(int leaderboardId, { int? accountId, }) async {
+    final response = await deleteLeaderboardWithHttpInfo(leaderboardId,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -273,8 +263,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id.
   ///
@@ -283,10 +271,9 @@ class LeaderboardApi {
   ///
   /// * [bool] includeFullRankingList:
   ///   set to true if need to return the leaderboard's full ranking list
-  Future<Response> getLeaderboardWithHttpInfo(num version, int leaderboardId, { int? accountId, bool? includeFullRankingList, }) async {
+  Future<Response> getLeaderboardWithHttpInfo(int leaderboardId, { int? accountId, bool? includeFullRankingList, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/leaderboard/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/leaderboard/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -323,8 +310,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id.
   ///
@@ -333,8 +318,8 @@ class LeaderboardApi {
   ///
   /// * [bool] includeFullRankingList:
   ///   set to true if need to return the leaderboard's full ranking list
-  Future<LeaderboardResponse?> getLeaderboard(num version, int leaderboardId, { int? accountId, bool? includeFullRankingList, }) async {
-    final response = await getLeaderboardWithHttpInfo(version, leaderboardId,  accountId: accountId, includeFullRankingList: includeFullRankingList, );
+  Future<LeaderboardResponse?> getLeaderboard(int leaderboardId, { int? accountId, bool? includeFullRankingList, }) async {
+    final response = await getLeaderboardWithHttpInfo(leaderboardId,  accountId: accountId, includeFullRankingList: includeFullRankingList, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -355,8 +340,6 @@ class LeaderboardApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The account id of the user requesting the search.
@@ -393,10 +376,9 @@ class LeaderboardApi {
   ///
   /// * [int] limit:
   ///   Limit the result to some number.
-  Future<Response> searchLeaderboardsWithHttpInfo(num version, { int? accountId, String? appKey, bool? globalOnly, String? keyword, String? leaderboardIds, String? rankTypes, String? sortField, bool? descending, bool? includeInactive, bool? includeAppResponse, int? start, int? limit, }) async {
+  Future<Response> searchLeaderboardsWithHttpInfo({ int? accountId, String? appKey, bool? globalOnly, String? keyword, String? leaderboardIds, String? rankTypes, String? sortField, bool? descending, bool? includeInactive, bool? includeAppResponse, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/leaderboard/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/leaderboard/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -462,8 +444,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user requesting the search.
   ///
@@ -499,8 +479,8 @@ class LeaderboardApi {
   ///
   /// * [int] limit:
   ///   Limit the result to some number.
-  Future<LeaderboardResponse?> searchLeaderboards(num version, { int? accountId, String? appKey, bool? globalOnly, String? keyword, String? leaderboardIds, String? rankTypes, String? sortField, bool? descending, bool? includeInactive, bool? includeAppResponse, int? start, int? limit, }) async {
-    final response = await searchLeaderboardsWithHttpInfo(version,  accountId: accountId, appKey: appKey, globalOnly: globalOnly, keyword: keyword, leaderboardIds: leaderboardIds, rankTypes: rankTypes, sortField: sortField, descending: descending, includeInactive: includeInactive, includeAppResponse: includeAppResponse, start: start, limit: limit, );
+  Future<LeaderboardResponse?> searchLeaderboards({ int? accountId, String? appKey, bool? globalOnly, String? keyword, String? leaderboardIds, String? rankTypes, String? sortField, bool? descending, bool? includeInactive, bool? includeAppResponse, int? start, int? limit, }) async {
+    final response = await searchLeaderboardsWithHttpInfo( accountId: accountId, appKey: appKey, globalOnly: globalOnly, keyword: keyword, leaderboardIds: leaderboardIds, rankTypes: rankTypes, sortField: sortField, descending: descending, includeInactive: includeInactive, includeAppResponse: includeAppResponse, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -521,8 +501,6 @@ class LeaderboardApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id to update.
@@ -568,10 +546,9 @@ class LeaderboardApi {
   ///
   /// * [String] metaData:
   ///   custom meta data for the leaderboard
-  Future<Response> updateLeaderboardWithHttpInfo(num version, int leaderboardId, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, String? sortField, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, bool? active, String? title, String? description, String? metaData, }) async {
+  Future<Response> updateLeaderboardWithHttpInfo(int leaderboardId, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, String? sortField, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, bool? active, String? title, String? description, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/leaderboard/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/leaderboard/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -644,8 +621,6 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] leaderboardId (required):
   ///   The leaderboard id to update.
   ///
@@ -690,8 +665,8 @@ class LeaderboardApi {
   ///
   /// * [String] metaData:
   ///   custom meta data for the leaderboard
-  Future<LeaderboardResponse?> updateLeaderboard(num version, int leaderboardId, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, String? sortField, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, bool? active, String? title, String? description, String? metaData, }) async {
-    final response = await updateLeaderboardWithHttpInfo(version, leaderboardId,  accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, sortField: sortField, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, active: active, title: title, description: description, metaData: metaData, );
+  Future<LeaderboardResponse?> updateLeaderboard(int leaderboardId, { int? accountId, String? appKey, String? rankType, String? leaderboardMode, String? sortField, MultipartFile? iconMedia, int? iconAssetId, MultipartFile? bannerMedia, int? bannerAssetId, int? limitation, bool? active, String? title, String? description, String? metaData, }) async {
+    final response = await updateLeaderboardWithHttpInfo(leaderboardId,  accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, sortField: sortField, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, active: active, title: title, description: description, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

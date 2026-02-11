@@ -24,8 +24,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -103,10 +101,9 @@ class GameLevelApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> createGameLevelWithHttpInfo(num version, int accountId, String name, String gameData, String gameDataSuffix, { String? appKey, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
+  Future<Response> createGameLevelWithHttpInfo(int accountId, String name, String gameData, String gameDataSuffix, { String? appKey, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -206,8 +203,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -285,8 +280,8 @@ class GameLevelApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<GameLevelResponse?> createGameLevel(num version, int accountId, String name, String gameData, String gameDataSuffix, { String? appKey, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
-    final response = await createGameLevelWithHttpInfo(version, accountId, name, gameData, gameDataSuffix,  appKey: appKey, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, );
+  Future<GameLevelResponse?> createGameLevel(int accountId, String name, String gameData, String gameDataSuffix, { String? appKey, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
+    final response = await createGameLevelWithHttpInfo(accountId, name, gameData, gameDataSuffix,  appKey: appKey, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -308,17 +303,14 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] levelId (required):
   ///   The id of the level to return.
-  Future<Response> deleteGameLevelWithHttpInfo(num version, int accountId, int levelId,) async {
+  Future<Response> deleteGameLevelWithHttpInfo(int accountId, int levelId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -350,15 +342,13 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] levelId (required):
   ///   The id of the level to return.
-  Future<SirqulResponse?> deleteGameLevel(num version, int accountId, int levelId,) async {
-    final response = await deleteGameLevelWithHttpInfo(version, accountId, levelId,);
+  Future<SirqulResponse?> deleteGameLevel(int accountId, int levelId,) async {
+    final response = await deleteGameLevelWithHttpInfo(accountId, levelId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -380,8 +370,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -390,10 +378,9 @@ class GameLevelApi {
   ///
   /// * [bool] includeGameData:
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<Response> getGameLevelWithHttpInfo(num version, int accountId, int levelId, { bool? includeGameData, }) async {
+  Future<Response> getGameLevelWithHttpInfo(int accountId, int levelId, { bool? includeGameData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -428,8 +415,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -438,8 +423,8 @@ class GameLevelApi {
   ///
   /// * [bool] includeGameData:
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<GameLevelResponse?> getGameLevel(num version, int accountId, int levelId, { bool? includeGameData, }) async {
-    final response = await getGameLevelWithHttpInfo(version, accountId, levelId,  includeGameData: includeGameData, );
+  Future<GameLevelResponse?> getGameLevel(int accountId, int levelId, { bool? includeGameData, }) async {
+    final response = await getGameLevelWithHttpInfo(accountId, levelId,  includeGameData: includeGameData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -460,8 +445,6 @@ class GameLevelApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -492,10 +475,9 @@ class GameLevelApi {
   ///
   /// * [String] filters:
   ///   
-  Future<Response> getGameLevelsByApplicationWithHttpInfo(num version, int accountId, String appKey, { String? keyword, String? sortField, bool? descending, int? start, int? limit, String? appVersion, bool? includeGameData, String? filters, }) async {
+  Future<Response> getGameLevelsByApplicationWithHttpInfo(int accountId, String appKey, { String? keyword, String? sortField, bool? descending, int? start, int? limit, String? appVersion, bool? includeGameData, String? filters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -551,8 +533,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -582,8 +562,8 @@ class GameLevelApi {
   ///
   /// * [String] filters:
   ///   
-  Future<GameLevelListResponse?> getGameLevelsByApplication(num version, int accountId, String appKey, { String? keyword, String? sortField, bool? descending, int? start, int? limit, String? appVersion, bool? includeGameData, String? filters, }) async {
-    final response = await getGameLevelsByApplicationWithHttpInfo(version, accountId, appKey,  keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, appVersion: appVersion, includeGameData: includeGameData, filters: filters, );
+  Future<GameLevelListResponse?> getGameLevelsByApplication(int accountId, String appKey, { String? keyword, String? sortField, bool? descending, int? start, int? limit, String? appVersion, bool? includeGameData, String? filters, }) async {
+    final response = await getGameLevelsByApplicationWithHttpInfo(accountId, appKey,  keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, appVersion: appVersion, includeGameData: includeGameData, filters: filters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -604,8 +584,6 @@ class GameLevelApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the user
@@ -630,10 +608,9 @@ class GameLevelApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<Response> getGameLevelsByBillableEntityWithHttpInfo(num version, int accountId, { String? appKey, String? keyword, String? sortField, bool? descending, bool? activeOnly, int? start, int? limit, }) async {
+  Future<Response> getGameLevelsByBillableEntityWithHttpInfo(int accountId, { String? appKey, String? keyword, String? sortField, bool? descending, bool? activeOnly, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/searchByBillableEntity'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/searchByBillableEntity';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -685,8 +662,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -710,8 +685,8 @@ class GameLevelApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<GameLevelResponse?> getGameLevelsByBillableEntity(num version, int accountId, { String? appKey, String? keyword, String? sortField, bool? descending, bool? activeOnly, int? start, int? limit, }) async {
-    final response = await getGameLevelsByBillableEntityWithHttpInfo(version, accountId,  appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, );
+  Future<GameLevelResponse?> getGameLevelsByBillableEntity(int accountId, { String? appKey, String? keyword, String? sortField, bool? descending, bool? activeOnly, int? start, int? limit, }) async {
+    final response = await getGameLevelsByBillableEntityWithHttpInfo(accountId,  appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -733,17 +708,14 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to get questions from
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
-  Future<Response> getQuestionsInLevelWithHttpInfo(num version, int levelId, int accountId,) async {
+  Future<Response> getQuestionsInLevelWithHttpInfo(int levelId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/questions/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/questions/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -775,15 +747,13 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to get questions from
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
-  Future<QuestionResponse?> getQuestionsInLevel(num version, int levelId, int accountId,) async {
-    final response = await getQuestionsInLevelWithHttpInfo(version, levelId, accountId,);
+  Future<QuestionResponse?> getQuestionsInLevel(int levelId, int accountId,) async {
+    final response = await getQuestionsInLevelWithHttpInfo(levelId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -805,17 +775,14 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to get words for
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
-  Future<Response> getWordsInLevelWithHttpInfo(num version, int levelId, int accountId,) async {
+  Future<Response> getWordsInLevelWithHttpInfo(int levelId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/words/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/words/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -847,15 +814,13 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to get words for
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
-  Future<WordzWordResponse?> getWordsInLevel(num version, int levelId, int accountId,) async {
-    final response = await getWordsInLevelWithHttpInfo(version, levelId, accountId,);
+  Future<WordzWordResponse?> getWordsInLevel(int levelId, int accountId,) async {
+    final response = await getWordsInLevelWithHttpInfo(levelId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -876,8 +841,6 @@ class GameLevelApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -959,10 +922,9 @@ class GameLevelApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> updateGameLevelWithHttpInfo(num version, int accountId, int levelId, { String? appKey, String? name, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? gameData, String? gameDataSuffix, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
+  Future<Response> updateGameLevelWithHttpInfo(int accountId, int levelId, { String? appKey, String? name, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? gameData, String? gameDataSuffix, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1069,8 +1031,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1151,8 +1111,8 @@ class GameLevelApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<GameLevelResponse?> updateGameLevel(num version, int accountId, int levelId, { String? appKey, String? name, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? gameData, String? gameDataSuffix, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
-    final response = await updateGameLevelWithHttpInfo(version, accountId, levelId,  appKey: appKey, name: name, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, gameData: gameData, gameDataSuffix: gameDataSuffix, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, );
+  Future<GameLevelResponse?> updateGameLevel(int accountId, int levelId, { String? appKey, String? name, String? description, String? difficulty, String? appVersion, int? assetImageId, int? assetIconId, String? gameData, String? gameDataSuffix, String? visibility, bool? friendGroup, String? connectionIds, String? connectionGroupIds, double? balance, bool? active, bool? allocateTickets, int? ticketCount, String? ticketType, int? points, String? tutorialTitle, String? tutorialMessage, String? tutorialAlignment, int? tutorialImageAssetId, int? offerId, String? metaData, }) async {
+    final response = await updateGameLevelWithHttpInfo(accountId, levelId,  appKey: appKey, name: name, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, gameData: gameData, gameDataSuffix: gameDataSuffix, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1174,8 +1134,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to update questions on
   ///
@@ -1184,10 +1142,9 @@ class GameLevelApi {
   ///
   /// * [String] questionIds (required):
   ///   the IDs of the questions to update
-  Future<Response> updateQuestionsInLevelWithHttpInfo(num version, int levelId, int accountId, String questionIds,) async {
+  Future<Response> updateQuestionsInLevelWithHttpInfo(int levelId, int accountId, String questionIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/questions/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/questions/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1220,8 +1177,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to update questions on
   ///
@@ -1230,8 +1185,8 @@ class GameLevelApi {
   ///
   /// * [String] questionIds (required):
   ///   the IDs of the questions to update
-  Future<SirqulResponse?> updateQuestionsInLevel(num version, int levelId, int accountId, String questionIds,) async {
-    final response = await updateQuestionsInLevelWithHttpInfo(version, levelId, accountId, questionIds,);
+  Future<SirqulResponse?> updateQuestionsInLevel(int levelId, int accountId, String questionIds,) async {
+    final response = await updateQuestionsInLevelWithHttpInfo(levelId, accountId, questionIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1253,8 +1208,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to update words for
   ///
@@ -1263,10 +1216,9 @@ class GameLevelApi {
   ///
   /// * [String] wordIds (required):
   ///   the ids of the words to update for the level
-  Future<Response> updateWordsInLevelWithHttpInfo(num version, int levelId, int accountId, String wordIds,) async {
+  Future<Response> updateWordsInLevelWithHttpInfo(int levelId, int accountId, String wordIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/level/words/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/level/words/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1299,8 +1251,6 @@ class GameLevelApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] levelId (required):
   ///   the id of the level to update words for
   ///
@@ -1309,8 +1259,8 @@ class GameLevelApi {
   ///
   /// * [String] wordIds (required):
   ///   the ids of the words to update for the level
-  Future<SirqulResponse?> updateWordsInLevel(num version, int levelId, int accountId, String wordIds,) async {
-    final response = await updateWordsInLevelWithHttpInfo(version, levelId, accountId, wordIds,);
+  Future<SirqulResponse?> updateWordsInLevel(int levelId, int accountId, String wordIds,) async {
+    final response = await updateWordsInLevelWithHttpInfo(levelId, accountId, wordIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

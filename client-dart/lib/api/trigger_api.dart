@@ -24,8 +24,6 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user
   ///
@@ -64,10 +62,9 @@ class TriggerApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Trigger is active or not (inactive Triggers are not processed)
-  Future<Response> createTriggerWithHttpInfo(num version, int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
+  Future<Response> createTriggerWithHttpInfo(int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trigger/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trigger/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -132,8 +129,6 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user
   ///
@@ -172,8 +167,8 @@ class TriggerApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Trigger is active or not (inactive Triggers are not processed)
-  Future<TriggerResponse?> createTrigger(num version, int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
-    final response = await createTriggerWithHttpInfo(version, accountId, name,  appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, );
+  Future<TriggerResponse?> createTrigger(int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
+    final response = await createTriggerWithHttpInfo(accountId, name,  appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -195,17 +190,14 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] triggerId (required):
   ///   The id of the trigger to delete.
-  Future<Response> deleteTriggerWithHttpInfo(num version, int accountId, int triggerId,) async {
+  Future<Response> deleteTriggerWithHttpInfo(int accountId, int triggerId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trigger/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trigger/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -237,15 +229,13 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] triggerId (required):
   ///   The id of the trigger to delete.
-  Future<SirqulResponse?> deleteTrigger(num version, int accountId, int triggerId,) async {
-    final response = await deleteTriggerWithHttpInfo(version, accountId, triggerId,);
+  Future<SirqulResponse?> deleteTrigger(int accountId, int triggerId,) async {
+    final response = await deleteTriggerWithHttpInfo(accountId, triggerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -267,17 +257,14 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] triggerId (required):
   ///   The id of the Trigger to return.
-  Future<Response> getTriggerWithHttpInfo(num version, int accountId, int triggerId,) async {
+  Future<Response> getTriggerWithHttpInfo(int accountId, int triggerId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trigger/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trigger/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -309,15 +296,13 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] triggerId (required):
   ///   The id of the Trigger to return.
-  Future<TriggerResponse?> getTrigger(num version, int accountId, int triggerId,) async {
-    final response = await getTriggerWithHttpInfo(version, accountId, triggerId,);
+  Future<TriggerResponse?> getTrigger(int accountId, int triggerId,) async {
+    final response = await getTriggerWithHttpInfo(accountId, triggerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -338,8 +323,6 @@ class TriggerApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -376,10 +359,9 @@ class TriggerApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results
-  Future<Response> searchTriggersWithHttpInfo(num version, int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchTriggersWithHttpInfo(int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trigger/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trigger/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -443,8 +425,6 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -480,8 +460,8 @@ class TriggerApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results
-  Future<List<TriggerResponse>?> searchTriggers(num version, int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchTriggersWithHttpInfo(version, accountId,  groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<TriggerResponse>?> searchTriggers(int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchTriggersWithHttpInfo(accountId,  groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -505,8 +485,6 @@ class TriggerApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] triggerId (required):
   ///   The trigger to update
@@ -549,10 +527,9 @@ class TriggerApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Trigger is active or not (inactive Triggers are not processed)
-  Future<Response> updateTriggerWithHttpInfo(num version, int triggerId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
+  Future<Response> updateTriggerWithHttpInfo(int triggerId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/trigger/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/trigger/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -620,8 +597,6 @@ class TriggerApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] triggerId (required):
   ///   The trigger to update
   ///
@@ -663,8 +638,8 @@ class TriggerApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Trigger is active or not (inactive Triggers are not processed)
-  Future<TriggerResponse?> updateTrigger(num version, int triggerId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
-    final response = await updateTriggerWithHttpInfo(version, triggerId, accountId,  name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, );
+  Future<TriggerResponse?> updateTrigger(int triggerId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? conditionalInput, String? visibility, bool? active, }) async {
+    final response = await updateTriggerWithHttpInfo(triggerId, accountId,  name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

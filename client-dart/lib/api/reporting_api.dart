@@ -24,8 +24,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user for passing account related params
   ///
@@ -58,10 +56,9 @@ class ReportingApi {
   ///
   /// * [String] pageUrl:
   ///   
-  Future<Response> createBatchWithHttpInfo(num version, int accountId, String status, int previewLimit, { String? appKey, String? endpoint, String? parameters, String? name, int? startDate, int? endDate, String? description, String? pageUrl, }) async {
+  Future<Response> createBatchWithHttpInfo(int accountId, String status, int previewLimit, { String? appKey, String? endpoint, String? parameters, String? name, int? startDate, int? endDate, String? description, String? pageUrl, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/batch/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/batch/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -118,8 +115,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user for passing account related params
   ///
@@ -152,8 +147,8 @@ class ReportingApi {
   ///
   /// * [String] pageUrl:
   ///   
-  Future<ReportBatchResponse?> createBatch(num version, int accountId, String status, int previewLimit, { String? appKey, String? endpoint, String? parameters, String? name, int? startDate, int? endDate, String? description, String? pageUrl, }) async {
-    final response = await createBatchWithHttpInfo(version, accountId, status, previewLimit,  appKey: appKey, endpoint: endpoint, parameters: parameters, name: name, startDate: startDate, endDate: endDate, description: description, pageUrl: pageUrl, );
+  Future<ReportBatchResponse?> createBatch(int accountId, String status, int previewLimit, { String? appKey, String? endpoint, String? parameters, String? name, int? startDate, int? endDate, String? description, String? pageUrl, }) async {
+    final response = await createBatchWithHttpInfo(accountId, status, previewLimit,  appKey: appKey, endpoint: endpoint, parameters: parameters, name: name, startDate: startDate, endDate: endDate, description: description, pageUrl: pageUrl, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -175,13 +170,10 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [List<RegionLegSummary>] body:
-  Future<Response> createRegionLegSummaryBatchWithHttpInfo(num version, { List<RegionLegSummary>? body, }) async {
+  Future<Response> createRegionLegSummaryBatchWithHttpInfo({ List<RegionLegSummary>? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/region/summary/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/region/summary/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -210,11 +202,9 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [List<RegionLegSummary>] body:
-  Future<ReportRegionLegSummaryBatchResponse?> createRegionLegSummaryBatch(num version, { List<RegionLegSummary>? body, }) async {
-    final response = await createRegionLegSummaryBatchWithHttpInfo(version,  body: body, );
+  Future<ReportRegionLegSummaryBatchResponse?> createRegionLegSummaryBatch({ List<RegionLegSummary>? body, }) async {
+    final response = await createRegionLegSummaryBatchWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -236,17 +226,14 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] batchId (required):
   ///   the id of the batch to delete
-  Future<Response> deleteBatchWithHttpInfo(num version, int accountId, int batchId,) async {
+  Future<Response> deleteBatchWithHttpInfo(int accountId, int batchId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/batch/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/batch/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -278,15 +265,13 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] batchId (required):
   ///   the id of the batch to delete
-  Future<SirqulResponse?> deleteBatch(num version, int accountId, int batchId,) async {
-    final response = await deleteBatchWithHttpInfo(version, accountId, batchId,);
+  Future<SirqulResponse?> deleteBatch(int accountId, int batchId,) async {
+    final response = await deleteBatchWithHttpInfo(accountId, batchId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -308,8 +293,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -318,10 +301,9 @@ class ReportingApi {
   ///
   /// * [bool] allResults (required):
   ///   whether to return all batch results or not
-  Future<Response> getReportBatchWithHttpInfo(num version, int accountId, int batchId, bool allResults,) async {
+  Future<Response> getReportBatchWithHttpInfo(int accountId, int batchId, bool allResults,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/batch/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/batch/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -354,8 +336,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -364,8 +344,8 @@ class ReportingApi {
   ///
   /// * [bool] allResults (required):
   ///   whether to return all batch results or not
-  Future<ReportBatchResponse?> getReportBatch(num version, int accountId, int batchId, bool allResults,) async {
-    final response = await getReportBatchWithHttpInfo(version, accountId, batchId, allResults,);
+  Future<ReportBatchResponse?> getReportBatch(int accountId, int batchId, bool allResults,) async {
+    final response = await getReportBatchWithHttpInfo(accountId, batchId, allResults,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -386,8 +366,6 @@ class ReportingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] desc (required):
   ///   If true then descending order, false is ascending
@@ -412,10 +390,9 @@ class ReportingApi {
   ///
   /// * [String] responseFormat:
   ///   Determines what response format to return. Options are: JSON or CSV
-  Future<Response> runReportWithHttpInfo(num version, bool desc, { int? accountId, String? query, String? parameters, String? order, int? start, int? limit, String? responseFormat, }) async {
+  Future<Response> runReportWithHttpInfo(bool desc, { int? accountId, String? query, String? parameters, String? order, int? start, int? limit, String? responseFormat, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/run'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/run';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -467,8 +444,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] desc (required):
   ///   If true then descending order, false is ascending
   ///
@@ -492,8 +467,8 @@ class ReportingApi {
   ///
   /// * [String] responseFormat:
   ///   Determines what response format to return. Options are: JSON or CSV
-  Future<ReportResponse?> runReport(num version, bool desc, { int? accountId, String? query, String? parameters, String? order, int? start, int? limit, String? responseFormat, }) async {
-    final response = await runReportWithHttpInfo(version, desc,  accountId: accountId, query: query, parameters: parameters, order: order, start: start, limit: limit, responseFormat: responseFormat, );
+  Future<ReportResponse?> runReport(bool desc, { int? accountId, String? query, String? parameters, String? order, int? start, int? limit, String? responseFormat, }) async {
+    final response = await runReportWithHttpInfo(desc,  accountId: accountId, query: query, parameters: parameters, order: order, start: start, limit: limit, responseFormat: responseFormat, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -514,8 +489,6 @@ class ReportingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
@@ -543,10 +516,9 @@ class ReportingApi {
   ///
   /// * [int] endDate:
   ///   the end date of the report batch to search on
-  Future<Response> searchBatchWithHttpInfo(num version, int accountId, int start, int limit, { String? names, String? appKey, String? status, bool? globalAppSearch, int? startDate, int? endDate, }) async {
+  Future<Response> searchBatchWithHttpInfo(int accountId, int start, int limit, { String? names, String? appKey, String? status, bool? globalAppSearch, int? startDate, int? endDate, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/report/batch/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/report/batch/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -597,8 +569,6 @@ class ReportingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
   ///
@@ -625,8 +595,8 @@ class ReportingApi {
   ///
   /// * [int] endDate:
   ///   the end date of the report batch to search on
-  Future<List<ReportBatchResponse>?> searchBatch(num version, int accountId, int start, int limit, { String? names, String? appKey, String? status, bool? globalAppSearch, int? startDate, int? endDate, }) async {
-    final response = await searchBatchWithHttpInfo(version, accountId, start, limit,  names: names, appKey: appKey, status: status, globalAppSearch: globalAppSearch, startDate: startDate, endDate: endDate, );
+  Future<List<ReportBatchResponse>?> searchBatch(int accountId, int start, int limit, { String? names, String? appKey, String? status, bool? globalAppSearch, int? startDate, int? endDate, }) async {
+    final response = await searchBatchWithHttpInfo(accountId, start, limit,  names: names, appKey: appKey, status: status, globalAppSearch: globalAppSearch, startDate: startDate, endDate: endDate, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

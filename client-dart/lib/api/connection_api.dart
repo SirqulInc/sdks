@@ -24,8 +24,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -52,10 +50,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> addConnectionToGroupWithHttpInfo(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
+  Future<Response> addConnectionToGroupWithHttpInfo(bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/addConnection'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/addConnection';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -108,8 +105,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -136,8 +131,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> addConnectionToGroup(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
-    final response = await addConnectionToGroupWithHttpInfo(version, returnNulls, groupId,  deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> addConnectionToGroup(bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
+    final response = await addConnectionToGroupWithHttpInfo(returnNulls, groupId,  deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -159,8 +154,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] connectionGroupId (required):
   ///   the connection group ID
   ///
@@ -181,10 +174,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> addConnectionsToGroupWithHttpInfo(num version, int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
+  Future<Response> addConnectionsToGroupWithHttpInfo(int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/connection/group/addConnections'
-      .replaceAll('{version}', version.toString());
+    final path = r'/connection/group/addConnections';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -233,8 +225,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] connectionGroupId (required):
   ///   the connection group ID
   ///
@@ -255,8 +245,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> addConnectionsToGroup(num version, int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
-    final response = await addConnectionsToGroupWithHttpInfo(version, connectionGroupId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> addConnectionsToGroup(int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
+    final response = await addConnectionsToGroupWithHttpInfo(connectionGroupId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -278,8 +268,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -300,10 +288,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> addSubGroupsWithHttpInfo(num version, bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> addSubGroupsWithHttpInfo(bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/addSubGroup'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/addSubGroup';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -348,8 +335,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -370,8 +355,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ConnectionGroupResponse?> addSubGroups(num version, bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await addSubGroupsWithHttpInfo(version, returnNulls, groupId, subGroupIds,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<ConnectionGroupResponse?> addSubGroups(bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await addSubGroupsWithHttpInfo(returnNulls, groupId, subGroupIds,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -392,8 +377,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required)
@@ -436,10 +419,9 @@ class ConnectionApi {
   ///
   /// * [bool] connectionResponse:
   ///   whether to return the connection response or not
-  Future<Response> createOrUpdateConnectionWithHttpInfo(num version, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, int? groupId, String? gameType, String? appKey, bool? isTrusted, bool? ignoreFriendRequest, bool? isContact, bool? isBlocked, bool? isFollowing, bool? connectionResponse, }) async {
+  Future<Response> createOrUpdateConnectionWithHttpInfo({ String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, int? groupId, String? gameType, String? appKey, bool? isTrusted, bool? ignoreFriendRequest, bool? isContact, bool? isBlocked, bool? isFollowing, bool? connectionResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/add'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/add';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -511,8 +493,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required)
   ///
@@ -554,8 +534,8 @@ class ConnectionApi {
   ///
   /// * [bool] connectionResponse:
   ///   whether to return the connection response or not
-  Future<ConnectionResponse?> createOrUpdateConnection(num version, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, int? groupId, String? gameType, String? appKey, bool? isTrusted, bool? ignoreFriendRequest, bool? isContact, bool? isBlocked, bool? isFollowing, bool? connectionResponse, }) async {
-    final response = await createOrUpdateConnectionWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, groupId: groupId, gameType: gameType, appKey: appKey, isTrusted: isTrusted, ignoreFriendRequest: ignoreFriendRequest, isContact: isContact, isBlocked: isBlocked, isFollowing: isFollowing, connectionResponse: connectionResponse, );
+  Future<ConnectionResponse?> createOrUpdateConnection({ String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, int? groupId, String? gameType, String? appKey, bool? isTrusted, bool? ignoreFriendRequest, bool? isContact, bool? isBlocked, bool? isFollowing, bool? connectionResponse, }) async {
+    final response = await createOrUpdateConnectionWithHttpInfo( deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, groupId: groupId, gameType: gameType, appKey: appKey, isTrusted: isTrusted, ignoreFriendRequest: ignoreFriendRequest, isContact: isContact, isBlocked: isBlocked, isFollowing: isFollowing, connectionResponse: connectionResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -576,8 +556,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
@@ -620,10 +598,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the longitude of the group
-  Future<Response> createOrUpdateGroupWithHttpInfo(num version, bool returnNulls, { String? deviceId, int? accountId, String? name, int? groupId, int? assetId, String? connections, String? description, bool? canViewProfileInfo, bool? canViewGameInfo, bool? canViewFriendInfo, bool? active, double? latitude, double? longitude, }) async {
+  Future<Response> createOrUpdateGroupWithHttpInfo(bool returnNulls, { String? deviceId, int? accountId, String? name, int? groupId, int? assetId, String? connections, String? description, bool? canViewProfileInfo, bool? canViewGameInfo, bool? canViewFriendInfo, bool? active, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -693,8 +670,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -736,8 +711,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the longitude of the group
-  Future<SirqulResponse?> createOrUpdateGroup(num version, bool returnNulls, { String? deviceId, int? accountId, String? name, int? groupId, int? assetId, String? connections, String? description, bool? canViewProfileInfo, bool? canViewGameInfo, bool? canViewFriendInfo, bool? active, double? latitude, double? longitude, }) async {
-    final response = await createOrUpdateGroupWithHttpInfo(version, returnNulls,  deviceId: deviceId, accountId: accountId, name: name, groupId: groupId, assetId: assetId, connections: connections, description: description, canViewProfileInfo: canViewProfileInfo, canViewGameInfo: canViewGameInfo, canViewFriendInfo: canViewFriendInfo, active: active, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> createOrUpdateGroup(bool returnNulls, { String? deviceId, int? accountId, String? name, int? groupId, int? assetId, String? connections, String? description, bool? canViewProfileInfo, bool? canViewGameInfo, bool? canViewFriendInfo, bool? active, double? latitude, double? longitude, }) async {
+    final response = await createOrUpdateGroupWithHttpInfo(returnNulls,  deviceId: deviceId, accountId: accountId, name: name, groupId: groupId, assetId: assetId, connections: connections, description: description, canViewProfileInfo: canViewProfileInfo, canViewGameInfo: canViewGameInfo, canViewFriendInfo: canViewFriendInfo, active: active, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -759,8 +734,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -769,10 +742,9 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<Response> followAcceptWithHttpInfo(num version, int accountId, int connectionAccountId, String appKey,) async {
+  Future<Response> followAcceptWithHttpInfo(int accountId, int connectionAccountId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/follow/accept'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/follow/accept';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -805,8 +777,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -815,8 +785,8 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<SirqulResponse?> followAccept(num version, int accountId, int connectionAccountId, String appKey,) async {
-    final response = await followAcceptWithHttpInfo(version, accountId, connectionAccountId, appKey,);
+  Future<SirqulResponse?> followAccept(int accountId, int connectionAccountId, String appKey,) async {
+    final response = await followAcceptWithHttpInfo(accountId, connectionAccountId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -838,8 +808,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -848,10 +816,9 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<Response> followRejectWithHttpInfo(num version, int accountId, int connectionAccountId, String appKey,) async {
+  Future<Response> followRejectWithHttpInfo(int accountId, int connectionAccountId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/follow/reject'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/follow/reject';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -884,8 +851,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -894,8 +859,8 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<SirqulResponse?> followReject(num version, int accountId, int connectionAccountId, String appKey,) async {
-    final response = await followRejectWithHttpInfo(version, accountId, connectionAccountId, appKey,);
+  Future<SirqulResponse?> followReject(int accountId, int connectionAccountId, String appKey,) async {
+    final response = await followRejectWithHttpInfo(accountId, connectionAccountId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -917,8 +882,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -927,10 +890,9 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<Response> followRemoveWithHttpInfo(num version, int accountId, int connectionAccountId, String appKey,) async {
+  Future<Response> followRemoveWithHttpInfo(int accountId, int connectionAccountId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/follow/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/follow/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -963,8 +925,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -973,8 +933,8 @@ class ConnectionApi {
   ///
   /// * [String] appKey (required):
   ///   the application key for sending notifications
-  Future<SirqulResponse?> followRemove(num version, int accountId, int connectionAccountId, String appKey,) async {
-    final response = await followRemoveWithHttpInfo(version, accountId, connectionAccountId, appKey,);
+  Future<SirqulResponse?> followRemove(int accountId, int connectionAccountId, String appKey,) async {
+    final response = await followRemoveWithHttpInfo(accountId, connectionAccountId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -996,8 +956,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -1009,10 +967,9 @@ class ConnectionApi {
   ///
   /// * [bool] approvalNeeded:
   ///   determines if the other user needs to confirm the follow request
-  Future<Response> followRequestWithHttpInfo(num version, int accountId, int connectionAccountId, String appKey, { bool? approvalNeeded, }) async {
+  Future<Response> followRequestWithHttpInfo(int accountId, int connectionAccountId, String appKey, { bool? approvalNeeded, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/follow/request'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/follow/request';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1048,8 +1005,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -1061,8 +1016,8 @@ class ConnectionApi {
   ///
   /// * [bool] approvalNeeded:
   ///   determines if the other user needs to confirm the follow request
-  Future<SirqulResponse?> followRequest(num version, int accountId, int connectionAccountId, String appKey, { bool? approvalNeeded, }) async {
-    final response = await followRequestWithHttpInfo(version, accountId, connectionAccountId, appKey,  approvalNeeded: approvalNeeded, );
+  Future<SirqulResponse?> followRequest(int accountId, int connectionAccountId, String appKey, { bool? approvalNeeded, }) async {
+    final response = await followRequestWithHttpInfo(accountId, connectionAccountId, appKey,  approvalNeeded: approvalNeeded, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1084,8 +1039,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1106,10 +1059,9 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<Response> friendAcceptWithHttpInfo(num version, int friendAccountId, bool notifyFriend, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
+  Future<Response> friendAcceptWithHttpInfo(int friendAccountId, bool notifyFriend, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/friend/accept'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/friend/accept';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1156,8 +1108,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1178,8 +1128,8 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<SirqulResponse?> friendAccept(num version, int friendAccountId, bool notifyFriend, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
-    final response = await friendAcceptWithHttpInfo(version, friendAccountId, notifyFriend,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, );
+  Future<SirqulResponse?> friendAccept(int friendAccountId, bool notifyFriend, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
+    final response = await friendAcceptWithHttpInfo(friendAccountId, notifyFriend,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1201,8 +1151,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1223,10 +1171,9 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<Response> friendRejectWithHttpInfo(num version, int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, bool? notifyFriend, String? notificationMessage, }) async {
+  Future<Response> friendRejectWithHttpInfo(int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, bool? notifyFriend, String? notificationMessage, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/friend/reject'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/friend/reject';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1275,8 +1222,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1297,8 +1242,8 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<SirqulResponse?> friendReject(num version, int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, bool? notifyFriend, String? notificationMessage, }) async {
-    final response = await friendRejectWithHttpInfo(version, friendAccountId,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notifyFriend: notifyFriend, notificationMessage: notificationMessage, );
+  Future<SirqulResponse?> friendReject(int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, bool? notifyFriend, String? notificationMessage, }) async {
+    final response = await friendRejectWithHttpInfo(friendAccountId,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notifyFriend: notifyFriend, notificationMessage: notificationMessage, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1320,8 +1265,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the account ID of the friend to remove
   ///
@@ -1336,10 +1279,9 @@ class ConnectionApi {
   ///
   /// * [bool] removeFromGroups:
   ///   optionally removes the connection from the user's groups
-  Future<Response> friendRemoveWithHttpInfo(num version, int friendAccountId, { String? deviceId, int? accountId, bool? notifyFriend, bool? removeFromGroups, }) async {
+  Future<Response> friendRemoveWithHttpInfo(int friendAccountId, { String? deviceId, int? accountId, bool? notifyFriend, bool? removeFromGroups, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/friend/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/friend/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1382,8 +1324,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the account ID of the friend to remove
   ///
@@ -1398,8 +1338,8 @@ class ConnectionApi {
   ///
   /// * [bool] removeFromGroups:
   ///   optionally removes the connection from the user's groups
-  Future<SirqulResponse?> friendRemove(num version, int friendAccountId, { String? deviceId, int? accountId, bool? notifyFriend, bool? removeFromGroups, }) async {
-    final response = await friendRemoveWithHttpInfo(version, friendAccountId,  deviceId: deviceId, accountId: accountId, notifyFriend: notifyFriend, removeFromGroups: removeFromGroups, );
+  Future<SirqulResponse?> friendRemove(int friendAccountId, { String? deviceId, int? accountId, bool? notifyFriend, bool? removeFromGroups, }) async {
+    final response = await friendRemoveWithHttpInfo(friendAccountId,  deviceId: deviceId, accountId: accountId, notifyFriend: notifyFriend, removeFromGroups: removeFromGroups, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1421,8 +1361,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1440,10 +1378,9 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<Response> friendRequestWithHttpInfo(num version, int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
+  Future<Response> friendRequestWithHttpInfo(int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/friend/request'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/friend/request';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1489,8 +1426,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] friendAccountId (required):
   ///   the friend's account id
   ///
@@ -1508,8 +1443,8 @@ class ConnectionApi {
   ///
   /// * [String] notificationMessage:
   ///   optional message to send in a notification
-  Future<SirqulResponse?> friendRequest(num version, int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
-    final response = await friendRequestWithHttpInfo(version, friendAccountId,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, );
+  Future<SirqulResponse?> friendRequest(int friendAccountId, { String? deviceId, int? accountId, String? gameType, String? appKey, String? notificationMessage, }) async {
+    final response = await friendRequestWithHttpInfo(friendAccountId,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1531,17 +1466,14 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the ID of the device
   ///
   /// * [int] accountId:
   ///   the id of the account
-  Future<Response> getConnectionSentFriendRequestsWithHttpInfo(num version, { String? deviceId, int? accountId, }) async {
+  Future<Response> getConnectionSentFriendRequestsWithHttpInfo({ String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/getRequested'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/getRequested';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1577,15 +1509,13 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the ID of the device
   ///
   /// * [int] accountId:
   ///   the id of the account
-  Future<ConnectionListResponse?> getConnectionSentFriendRequests(num version, { String? deviceId, int? accountId, }) async {
-    final response = await getConnectionSentFriendRequestsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, );
+  Future<ConnectionListResponse?> getConnectionSentFriendRequests({ String? deviceId, int? accountId, }) async {
+    final response = await getConnectionSentFriendRequestsWithHttpInfo( deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1606,8 +1536,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
@@ -1653,10 +1581,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> getConnectionsWithHttpInfo(num version, bool returnNulls, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, int? connectionAccountId, String? q, String? keyword, int? i, int? l, double? latitude, double? longitude, }) async {
+  Future<Response> getConnectionsWithHttpInfo(bool returnNulls, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, int? connectionAccountId, String? q, String? keyword, int? i, int? l, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1719,8 +1646,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -1765,8 +1690,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ConnectionListResponse?> getConnections(num version, bool returnNulls, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, int? connectionAccountId, String? q, String? keyword, int? i, int? l, double? latitude, double? longitude, }) async {
-    final response = await getConnectionsWithHttpInfo(version, returnNulls, filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, q: q, keyword: keyword, i: i, l: l, latitude: latitude, longitude: longitude, );
+  Future<ConnectionListResponse?> getConnections(bool returnNulls, String filter, String sortField, bool descending, int start, int limit, { String? deviceId, int? accountId, int? connectionAccountId, String? q, String? keyword, int? i, int? l, double? latitude, double? longitude, }) async {
+    final response = await getConnectionsWithHttpInfo(returnNulls, filter, sortField, descending, start, limit,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, q: q, keyword: keyword, i: i, l: l, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1786,8 +1711,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] combineConnections (required):
   ///   whether to combine connections or not
   ///
@@ -1805,10 +1728,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> getGroupDetailsWithHttpInfo(num version, bool combineConnections, { String? deviceId, int? accountId, int? groupId, double? latitude, double? longitude, }) async {
+  Future<Response> getGroupDetailsWithHttpInfo(bool combineConnections, { String? deviceId, int? accountId, int? groupId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/details/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/details/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1852,8 +1774,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] combineConnections (required):
   ///   whether to combine connections or not
   ///
@@ -1871,8 +1791,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<ConnectionGroupResponse?> getGroupDetails(num version, bool combineConnections, { String? deviceId, int? accountId, int? groupId, double? latitude, double? longitude, }) async {
-    final response = await getGroupDetailsWithHttpInfo(version, combineConnections,  deviceId: deviceId, accountId: accountId, groupId: groupId, latitude: latitude, longitude: longitude, );
+  Future<ConnectionGroupResponse?> getGroupDetails(bool combineConnections, { String? deviceId, int? accountId, int? groupId, double? latitude, double? longitude, }) async {
+    final response = await getGroupDetailsWithHttpInfo(combineConnections,  deviceId: deviceId, accountId: accountId, groupId: groupId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1893,8 +1813,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   the field to sort by
@@ -1925,10 +1843,9 @@ class ConnectionApi {
   ///
   /// * [String] keyword:
   ///   keyword search string
-  Future<Response> groupSearchWithHttpInfo(num version, String sortField, bool descending, bool activeOnly, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
+  Future<Response> groupSearchWithHttpInfo(String sortField, bool descending, bool activeOnly, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/connection/group/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/connection/group/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1978,8 +1895,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the field to sort by
   ///
@@ -2009,8 +1924,8 @@ class ConnectionApi {
   ///
   /// * [String] keyword:
   ///   keyword search string
-  Future<List<ConnectionInfoResponse>?> groupSearch(num version, String sortField, bool descending, bool activeOnly, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
-    final response = await groupSearchWithHttpInfo(version, sortField, descending, activeOnly, start, limit,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, );
+  Future<List<ConnectionInfoResponse>?> groupSearch(String sortField, bool descending, bool activeOnly, int start, int limit, { String? deviceId, int? accountId, double? latitude, double? longitude, String? keyword, }) async {
+    final response = await groupSearchWithHttpInfo(sortField, descending, activeOnly, start, limit,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2034,8 +1949,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
@@ -2063,10 +1976,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> removeConnectionFromGroupWithHttpInfo(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
+  Future<Response> removeConnectionFromGroupWithHttpInfo(bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/removeConnection'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/removeConnection';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2119,8 +2031,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -2147,8 +2057,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> removeConnectionFromGroup(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
-    final response = await removeConnectionFromGroupWithHttpInfo(version, returnNulls, groupId,  deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeConnectionFromGroup(bool returnNulls, int groupId, { String? deviceId, int? accountId, int? connectionId, int? connectionAccountId, int? pendingId, double? latitude, double? longitude, }) async {
+    final response = await removeConnectionFromGroupWithHttpInfo(returnNulls, groupId,  deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2170,8 +2080,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] connectionGroupId (required):
   ///   connection group id
   ///
@@ -2192,10 +2100,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> removeConnectionsFromGroupWithHttpInfo(num version, int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
+  Future<Response> removeConnectionsFromGroupWithHttpInfo(int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/connection/group/removeConnections'
-      .replaceAll('{version}', version.toString());
+    final path = r'/connection/group/removeConnections';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2244,8 +2151,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] connectionGroupId (required):
   ///   connection group id
   ///
@@ -2266,8 +2171,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> removeConnectionsFromGroup(num version, int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
-    final response = await removeConnectionsFromGroupWithHttpInfo(version, connectionGroupId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeConnectionsFromGroup(int connectionGroupId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, double? latitude, double? longitude, }) async {
+    final response = await removeConnectionsFromGroupWithHttpInfo(connectionGroupId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2289,8 +2194,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -2308,10 +2211,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> removeGroupWithHttpInfo(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> removeGroupWithHttpInfo(bool returnNulls, int groupId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2355,8 +2257,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -2374,8 +2274,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> removeGroup(num version, bool returnNulls, int groupId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await removeGroupWithHttpInfo(version, returnNulls, groupId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeGroup(bool returnNulls, int groupId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await removeGroupWithHttpInfo(returnNulls, groupId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2397,8 +2297,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -2419,10 +2317,9 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> removeSubGroupsWithHttpInfo(num version, bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> removeSubGroupsWithHttpInfo(bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/connection/group/removeSubGroup'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/connection/group/removeSubGroup';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2467,8 +2364,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   whether to return nulls or not
   ///
@@ -2489,8 +2384,8 @@ class ConnectionApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> removeSubGroups(num version, bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await removeSubGroupsWithHttpInfo(version, returnNulls, groupId, subGroupIds,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeSubGroups(bool returnNulls, int groupId, String subGroupIds, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await removeSubGroupsWithHttpInfo(returnNulls, groupId, subGroupIds,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2511,8 +2406,6 @@ class ConnectionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   return all json attributes if true. defualt is true.
@@ -2558,10 +2451,9 @@ class ConnectionApi {
   ///
   /// * [bool] hasLocation:
   ///   whether the search has location or not
-  Future<Response> searchConnectionsWithHttpInfo(num version, bool returnNulls, int start, int limit, { String? deviceId, int? accountId, String? q, String? keyword, double? latitude, double? longitude, String? gameType, String? appKey, int? i, int? l, String? sortField, bool? hasLocation, }) async {
+  Future<Response> searchConnectionsWithHttpInfo(bool returnNulls, int start, int limit, { String? deviceId, int? accountId, String? q, String? keyword, double? latitude, double? longitude, String? gameType, String? appKey, int? i, int? l, String? sortField, bool? hasLocation, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/connection/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/connection/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2630,8 +2522,6 @@ class ConnectionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   return all json attributes if true. defualt is true.
   ///
@@ -2676,8 +2566,8 @@ class ConnectionApi {
   ///
   /// * [bool] hasLocation:
   ///   whether the search has location or not
-  Future<ConnectionListResponse?> searchConnections(num version, bool returnNulls, int start, int limit, { String? deviceId, int? accountId, String? q, String? keyword, double? latitude, double? longitude, String? gameType, String? appKey, int? i, int? l, String? sortField, bool? hasLocation, }) async {
-    final response = await searchConnectionsWithHttpInfo(version, returnNulls, start, limit,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, latitude: latitude, longitude: longitude, gameType: gameType, appKey: appKey, i: i, l: l, sortField: sortField, hasLocation: hasLocation, );
+  Future<ConnectionListResponse?> searchConnections(bool returnNulls, int start, int limit, { String? deviceId, int? accountId, String? q, String? keyword, double? latitude, double? longitude, String? gameType, String? appKey, int? i, int? l, String? sortField, bool? hasLocation, }) async {
+    final response = await searchConnectionsWithHttpInfo(returnNulls, start, limit,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, latitude: latitude, longitude: longitude, gameType: gameType, appKey: appKey, i: i, l: l, sortField: sortField, hasLocation: hasLocation, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

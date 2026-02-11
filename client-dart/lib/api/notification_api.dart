@@ -24,8 +24,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
   ///
@@ -46,10 +44,9 @@ class NotificationApi {
   ///
   /// * [String] tags:
   ///   tags associated with the note template
-  Future<Response> createNotificationTemplateWithHttpInfo(num version, int accountId, String conduit, String title, String body, { String? appKey, String? event, String? tags, }) async {
+  Future<Response> createNotificationTemplateWithHttpInfo(int accountId, String conduit, String title, String body, { String? appKey, String? event, String? tags, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/template/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/template/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -92,8 +89,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
   ///
@@ -114,8 +109,8 @@ class NotificationApi {
   ///
   /// * [String] tags:
   ///   tags associated with the note template
-  Future<NotificationTemplateResponse?> createNotificationTemplate(num version, int accountId, String conduit, String title, String body, { String? appKey, String? event, String? tags, }) async {
-    final response = await createNotificationTemplateWithHttpInfo(version, accountId, conduit, title, body,  appKey: appKey, event: event, tags: tags, );
+  Future<NotificationTemplateResponse?> createNotificationTemplate(int accountId, String conduit, String title, String body, { String? appKey, String? event, String? tags, }) async {
+    final response = await createNotificationTemplateWithHttpInfo(accountId, conduit, title, body,  appKey: appKey, event: event, tags: tags, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -137,8 +132,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -147,10 +140,9 @@ class NotificationApi {
   ///
   /// * [int] accountId:
   ///   the account id of the user
-  Future<Response> createOrUpdateBlockedNotificationsWithHttpInfo(num version, String appKey, String data, { int? accountId, }) async {
+  Future<Response> createOrUpdateBlockedNotificationsWithHttpInfo(String appKey, String data, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/blocked/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/blocked/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -185,8 +177,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -195,8 +185,8 @@ class NotificationApi {
   ///
   /// * [int] accountId:
   ///   the account id of the user
-  Future<BlockedNotificationResponse?> createOrUpdateBlockedNotifications(num version, String appKey, String data, { int? accountId, }) async {
-    final response = await createOrUpdateBlockedNotificationsWithHttpInfo(version, appKey, data,  accountId: accountId, );
+  Future<BlockedNotificationResponse?> createOrUpdateBlockedNotifications(String appKey, String data, { int? accountId, }) async {
+    final response = await createOrUpdateBlockedNotificationsWithHttpInfo(appKey, data,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -218,17 +208,14 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
   /// * [int] notificationTemplateId (required):
   ///   the id of the notification template to delete
-  Future<Response> deleteNotificationTemplateWithHttpInfo(num version, int accountId, int notificationTemplateId,) async {
+  Future<Response> deleteNotificationTemplateWithHttpInfo(int accountId, int notificationTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/template/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/template/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -260,15 +247,13 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
   /// * [int] notificationTemplateId (required):
   ///   the id of the notification template to delete
-  Future<NotificationTemplateResponse?> deleteNotificationTemplate(num version, int accountId, int notificationTemplateId,) async {
-    final response = await deleteNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId,);
+  Future<NotificationTemplateResponse?> deleteNotificationTemplate(int accountId, int notificationTemplateId,) async {
+    final response = await deleteNotificationTemplateWithHttpInfo(accountId, notificationTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -290,17 +275,14 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] notificationTemplateId (required):
   ///   the id of the notification template to get
-  Future<Response> getNotificationTemplateWithHttpInfo(num version, int accountId, int notificationTemplateId,) async {
+  Future<Response> getNotificationTemplateWithHttpInfo(int accountId, int notificationTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/template/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/template/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -332,15 +314,13 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account
   ///
   /// * [int] notificationTemplateId (required):
   ///   the id of the notification template to get
-  Future<NotificationTemplateResponse?> getNotificationTemplate(num version, int accountId, int notificationTemplateId,) async {
-    final response = await getNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId,);
+  Future<NotificationTemplateResponse?> getNotificationTemplate(int accountId, int notificationTemplateId,) async {
+    final response = await getNotificationTemplateWithHttpInfo(accountId, notificationTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -361,8 +341,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
@@ -426,10 +404,9 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<Response> getNotificationsWithHttpInfo(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? appKey, String? eventType, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? actionCategory, String? conduits, String? keyword, bool? returnReadMessages, bool? markAsRead, int? fromDate, double? latitude, double? longitude, bool? returnSent, bool? ignoreFlagged, int? start, int? limit, }) async {
+  Future<Response> getNotificationsWithHttpInfo({ String? deviceId, int? accountId, int? connectionAccountId, String? appKey, String? eventType, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? actionCategory, String? conduits, String? keyword, bool? returnReadMessages, bool? markAsRead, int? fromDate, double? latitude, double? longitude, bool? returnSent, bool? ignoreFlagged, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -522,8 +499,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
   ///
@@ -586,8 +561,8 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<NotificationMessageListResponse?> getNotifications(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? appKey, String? eventType, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? actionCategory, String? conduits, String? keyword, bool? returnReadMessages, bool? markAsRead, int? fromDate, double? latitude, double? longitude, bool? returnSent, bool? ignoreFlagged, int? start, int? limit, }) async {
-    final response = await getNotificationsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, eventType: eventType, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, actionCategory: actionCategory, conduits: conduits, keyword: keyword, returnReadMessages: returnReadMessages, markAsRead: markAsRead, fromDate: fromDate, latitude: latitude, longitude: longitude, returnSent: returnSent, ignoreFlagged: ignoreFlagged, start: start, limit: limit, );
+  Future<NotificationMessageListResponse?> getNotifications({ String? deviceId, int? accountId, int? connectionAccountId, String? appKey, String? eventType, String? contentIds, String? contentTypes, String? parentIds, String? parentTypes, String? actionCategory, String? conduits, String? keyword, bool? returnReadMessages, bool? markAsRead, int? fromDate, double? latitude, double? longitude, bool? returnSent, bool? ignoreFlagged, int? start, int? limit, }) async {
+    final response = await getNotificationsWithHttpInfo( deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, eventType: eventType, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, actionCategory: actionCategory, conduits: conduits, keyword: keyword, returnReadMessages: returnReadMessages, markAsRead: markAsRead, fromDate: fromDate, latitude: latitude, longitude: longitude, returnSent: returnSent, ignoreFlagged: ignoreFlagged, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -608,8 +583,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] token (required):
   ///   A token that is generated by the device to sign requests for the notification service providers
@@ -640,10 +613,9 @@ class NotificationApi {
   ///
   /// * [double] longitude:
   ///   Longitude used to update the user's current location
-  Future<Response> registerNotificationTokenWithHttpInfo(num version, String token, String pushType, { String? deviceId, int? accountId, String? environment, String? appKey, String? gameType, bool? active, double? latitude, double? longitude, }) async {
+  Future<Response> registerNotificationTokenWithHttpInfo(String token, String pushType, { String? deviceId, int? accountId, String? environment, String? appKey, String? gameType, bool? active, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/token'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/token';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -699,8 +671,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   A token that is generated by the device to sign requests for the notification service providers
   ///
@@ -730,8 +700,8 @@ class NotificationApi {
   ///
   /// * [double] longitude:
   ///   Longitude used to update the user's current location
-  Future<SirqulResponse?> registerNotificationToken(num version, String token, String pushType, { String? deviceId, int? accountId, String? environment, String? appKey, String? gameType, bool? active, double? latitude, double? longitude, }) async {
-    final response = await registerNotificationTokenWithHttpInfo(version, token, pushType,  deviceId: deviceId, accountId: accountId, environment: environment, appKey: appKey, gameType: gameType, active: active, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> registerNotificationToken(String token, String pushType, { String? deviceId, int? accountId, String? environment, String? appKey, String? gameType, bool? active, double? latitude, double? longitude, }) async {
+    final response = await registerNotificationTokenWithHttpInfo(token, pushType,  deviceId: deviceId, accountId: accountId, environment: environment, appKey: appKey, gameType: gameType, active: active, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -752,8 +722,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key
@@ -790,10 +758,9 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<Response> searchBlockedNotificationsWithHttpInfo(num version, String appKey, { int? accountId, String? searchTags, String? events, String? conduits, String? customTypes, String? contentTypes, String? contentIds, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchBlockedNotificationsWithHttpInfo(String appKey, { int? accountId, String? searchTags, String? events, String? conduits, String? customTypes, String? contentTypes, String? contentIds, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/blocked/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/blocked/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -857,8 +824,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -894,8 +859,8 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<BlockedNotificationResponse?> searchBlockedNotifications(num version, String appKey, { int? accountId, String? searchTags, String? events, String? conduits, String? customTypes, String? contentTypes, String? contentIds, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchBlockedNotificationsWithHttpInfo(version, appKey,  accountId: accountId, searchTags: searchTags, events: events, conduits: conduits, customTypes: customTypes, contentTypes: contentTypes, contentIds: contentIds, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<BlockedNotificationResponse?> searchBlockedNotifications(String appKey, { int? accountId, String? searchTags, String? events, String? conduits, String? customTypes, String? contentTypes, String? contentIds, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchBlockedNotificationsWithHttpInfo(appKey,  accountId: accountId, searchTags: searchTags, events: events, conduits: conduits, customTypes: customTypes, contentTypes: contentTypes, contentIds: contentIds, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -916,8 +881,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
@@ -951,10 +914,9 @@ class NotificationApi {
   ///
   /// * [String] keyword:
   ///   Filter results by keyword on the title, tags.
-  Future<Response> searchNotificationTemplateWithHttpInfo(num version, int accountId, String sortField, bool descending, int start, int limit, { String? appKey, String? event, String? conduit, bool? globalOnly, bool? reservedOnly, String? keyword, }) async {
+  Future<Response> searchNotificationTemplateWithHttpInfo(int accountId, String sortField, bool descending, int start, int limit, { String? appKey, String? event, String? conduit, bool? globalOnly, bool? reservedOnly, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/template/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/template/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1007,8 +969,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
   ///
@@ -1041,8 +1001,8 @@ class NotificationApi {
   ///
   /// * [String] keyword:
   ///   Filter results by keyword on the title, tags.
-  Future<NotificationTemplateResponse?> searchNotificationTemplate(num version, int accountId, String sortField, bool descending, int start, int limit, { String? appKey, String? event, String? conduit, bool? globalOnly, bool? reservedOnly, String? keyword, }) async {
-    final response = await searchNotificationTemplateWithHttpInfo(version, accountId, sortField, descending, start, limit,  appKey: appKey, event: event, conduit: conduit, globalOnly: globalOnly, reservedOnly: reservedOnly, keyword: keyword, );
+  Future<NotificationTemplateResponse?> searchNotificationTemplate(int accountId, String sortField, bool descending, int start, int limit, { String? appKey, String? event, String? conduit, bool? globalOnly, bool? reservedOnly, String? keyword, }) async {
+    final response = await searchNotificationTemplateWithHttpInfo(accountId, sortField, descending, start, limit,  appKey: appKey, event: event, conduit: conduit, globalOnly: globalOnly, reservedOnly: reservedOnly, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1063,8 +1023,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
@@ -1104,10 +1062,9 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination (hard limit of 1000)
-  Future<Response> searchRecipientsWithHttpInfo(num version, String sortField, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? recipientAccountIds, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchRecipientsWithHttpInfo(String sortField, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? recipientAccountIds, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/recipient/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/recipient/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1174,8 +1131,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
   ///
@@ -1214,8 +1169,8 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination (hard limit of 1000)
-  Future<List<NotificationRecipientResponse>?> searchRecipients(num version, String sortField, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? recipientAccountIds, bool? descending, int? start, int? limit, }) async {
-    final response = await searchRecipientsWithHttpInfo(version, sortField,  deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, recipientAccountIds: recipientAccountIds, descending: descending, start: start, limit: limit, );
+  Future<List<NotificationRecipientResponse>?> searchRecipients(String sortField, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? recipientAccountIds, bool? descending, int? start, int? limit, }) async {
+    final response = await searchRecipientsWithHttpInfo(sortField,  deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, recipientAccountIds: recipientAccountIds, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1239,8 +1194,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
@@ -1277,10 +1230,9 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<Response> searchRecipientsCountWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchRecipientsCountWithHttpInfo({ String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/recipient/search/count'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/recipient/search/count';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1346,8 +1298,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
   ///
@@ -1383,8 +1333,8 @@ class NotificationApi {
   ///
   /// * [int] limit:
   ///   limit of the pagination
-  Future<NotificationRecipientResponseListResponse?> searchRecipientsCount(num version, { String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchRecipientsCountWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<NotificationRecipientResponseListResponse?> searchRecipientsCount({ String? deviceId, int? accountId, String? appKey, String? conduit, String? keyword, int? audienceId, String? audienceIds, String? connectionGroupIds, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchRecipientsCountWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1405,8 +1355,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the application owner/manager
@@ -1434,10 +1382,9 @@ class NotificationApi {
   ///
   /// * [String] parentType:
   ///   Default notification pay-load field (usage is dependent on the app and the type of event)
-  Future<Response> sendBatchNotificationsWithHttpInfo(num version, int accountId, String appKey, String customMessage, { String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, }) async {
+  Future<Response> sendBatchNotificationsWithHttpInfo(int accountId, String appKey, String customMessage, { String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1488,8 +1435,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the application owner/manager
   ///
@@ -1516,8 +1461,8 @@ class NotificationApi {
   ///
   /// * [String] parentType:
   ///   Default notification pay-load field (usage is dependent on the app and the type of event)
-  Future<SirqulResponse?> sendBatchNotifications(num version, int accountId, String appKey, String customMessage, { String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, }) async {
-    final response = await sendBatchNotificationsWithHttpInfo(version, accountId, appKey, customMessage,  conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, );
+  Future<SirqulResponse?> sendBatchNotifications(int accountId, String appKey, String customMessage, { String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, }) async {
+    final response = await sendBatchNotificationsWithHttpInfo(accountId, appKey, customMessage,  conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1538,8 +1483,6 @@ class NotificationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
@@ -1594,10 +1537,9 @@ class NotificationApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> sendCustomNotificationsWithHttpInfo(num version, { String? deviceId, int? accountId, String? receiverAccountIds, bool? includeFriendGroup, String? appKey, String? gameType, String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? actionCategory, String? subject, String? customMessage, bool? friendOnlyAPNS, double? latitude, double? longitude, }) async {
+  Future<Response> sendCustomNotificationsWithHttpInfo({ String? deviceId, int? accountId, String? receiverAccountIds, bool? includeFriendGroup, String? appKey, String? gameType, String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? actionCategory, String? subject, String? customMessage, bool? friendOnlyAPNS, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/custom'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/custom';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1681,8 +1623,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request (deviceId or accountId required)
   ///
@@ -1736,8 +1676,8 @@ class NotificationApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<SirqulResponse?> sendCustomNotifications(num version, { String? deviceId, int? accountId, String? receiverAccountIds, bool? includeFriendGroup, String? appKey, String? gameType, String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? actionCategory, String? subject, String? customMessage, bool? friendOnlyAPNS, double? latitude, double? longitude, }) async {
-    final response = await sendCustomNotificationsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, receiverAccountIds: receiverAccountIds, includeFriendGroup: includeFriendGroup, appKey: appKey, gameType: gameType, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, actionCategory: actionCategory, subject: subject, customMessage: customMessage, friendOnlyAPNS: friendOnlyAPNS, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> sendCustomNotifications({ String? deviceId, int? accountId, String? receiverAccountIds, bool? includeFriendGroup, String? appKey, String? gameType, String? conduit, int? contentId, String? contentName, String? contentType, int? parentId, String? parentType, String? actionCategory, String? subject, String? customMessage, bool? friendOnlyAPNS, double? latitude, double? longitude, }) async {
+    final response = await sendCustomNotificationsWithHttpInfo( deviceId: deviceId, accountId: accountId, receiverAccountIds: receiverAccountIds, includeFriendGroup: includeFriendGroup, appKey: appKey, gameType: gameType, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, actionCategory: actionCategory, subject: subject, customMessage: customMessage, friendOnlyAPNS: friendOnlyAPNS, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1759,8 +1699,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
   ///
@@ -1775,10 +1713,9 @@ class NotificationApi {
   ///
   /// * [String] tags:
   ///   The search tags on the template used during search queries.
-  Future<Response> updateNotificationTemplateWithHttpInfo(num version, int accountId, int notificationTemplateId, { String? title, String? body, String? tags, }) async {
+  Future<Response> updateNotificationTemplateWithHttpInfo(int accountId, int notificationTemplateId, { String? title, String? body, String? tags, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/notification/template/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/notification/template/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1819,8 +1756,6 @@ class NotificationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account ID of the user.
   ///
@@ -1835,8 +1770,8 @@ class NotificationApi {
   ///
   /// * [String] tags:
   ///   The search tags on the template used during search queries.
-  Future<NotificationTemplateResponse?> updateNotificationTemplate(num version, int accountId, int notificationTemplateId, { String? title, String? body, String? tags, }) async {
-    final response = await updateNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId,  title: title, body: body, tags: tags, );
+  Future<NotificationTemplateResponse?> updateNotificationTemplate(int accountId, int notificationTemplateId, { String? title, String? body, String? tags, }) async {
+    final response = await updateNotificationTemplateWithHttpInfo(accountId, notificationTemplateId,  title: title, body: body, tags: tags, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

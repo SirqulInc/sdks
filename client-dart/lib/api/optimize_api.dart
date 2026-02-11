@@ -24,8 +24,6 @@ class OptimizeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] batchID (required):
   ///   The batchID for getting the import status of.
   ///
@@ -34,10 +32,9 @@ class OptimizeApi {
   ///
   /// * [int] limit (required):
   ///   The limit for pagination
-  Future<Response> getOptimizationResultWithHttpInfo(num version, String batchID, int start, int limit,) async {
+  Future<Response> getOptimizationResultWithHttpInfo(String batchID, int start, int limit,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/optimize/result/{batchID}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/optimize/result/{batchID}'
       .replaceAll('{batchID}', batchID);
 
     // ignore: prefer_final_locals
@@ -70,8 +67,6 @@ class OptimizeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] batchID (required):
   ///   The batchID for getting the import status of.
   ///
@@ -80,8 +75,8 @@ class OptimizeApi {
   ///
   /// * [int] limit (required):
   ///   The limit for pagination
-  Future<Map<String, ShipmentOrder>?> getOptimizationResult(num version, String batchID, int start, int limit,) async {
-    final response = await getOptimizationResultWithHttpInfo(version, batchID, start, limit,);
+  Future<Map<String, ShipmentOrder>?> getOptimizationResult(String batchID, int start, int limit,) async {
+    final response = await getOptimizationResultWithHttpInfo(batchID, start, limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -103,13 +98,10 @@ class OptimizeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Orders] body:
-  Future<Response> requestOptimizationWithHttpInfo(num version, { Orders? body, }) async {
+  Future<Response> requestOptimizationWithHttpInfo({ Orders? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/optimize/request'
-      .replaceAll('{version}', version.toString());
+    final path = r'/optimize/request';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -138,11 +130,9 @@ class OptimizeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Orders] body:
-  Future<ImportStatuses?> requestOptimization(num version, { Orders? body, }) async {
-    final response = await requestOptimizationWithHttpInfo(version,  body: body, );
+  Future<ImportStatuses?> requestOptimization({ Orders? body, }) async {
+    final response = await requestOptimizationWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

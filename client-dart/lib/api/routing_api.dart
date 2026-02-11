@@ -24,14 +24,11 @@ class RoutingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
-  Future<Response> computeRoutingWithHttpInfo(num version, String data,) async {
+  Future<Response> computeRoutingWithHttpInfo(String data,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/routing/compute'
-      .replaceAll('{version}', version.toString());
+    final path = r'/routing/compute';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -62,12 +59,10 @@ class RoutingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
-  Future<RoutingListResponse?> computeRouting(num version, String data,) async {
-    final response = await computeRoutingWithHttpInfo(version, data,);
+  Future<RoutingListResponse?> computeRouting(String data,) async {
+    final response = await computeRoutingWithHttpInfo(data,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

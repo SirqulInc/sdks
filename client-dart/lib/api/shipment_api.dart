@@ -24,14 +24,11 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to cancel
-  Future<Response> cancelShipmentWithHttpInfo(num version, int id,) async {
+  Future<Response> cancelShipmentWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/{id}/cancel'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/{id}/cancel'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -61,12 +58,10 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to cancel
-  Future<void> cancelShipment(num version, int id,) async {
-    final response = await cancelShipmentWithHttpInfo(version, id,);
+  Future<void> cancelShipment(int id,) async {
+    final response = await cancelShipmentWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -80,13 +75,10 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Shipment] body:
-  Future<Response> createShipmentWithHttpInfo(num version, { Shipment? body, }) async {
+  Future<Response> createShipmentWithHttpInfo({ Shipment? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment'
-      .replaceAll('{version}', version.toString());
+    final path = r'/shipment';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -115,11 +107,9 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Shipment] body:
-  Future<Shipment?> createShipment(num version, { Shipment? body, }) async {
-    final response = await createShipmentWithHttpInfo(version,  body: body, );
+  Future<Shipment?> createShipment({ Shipment? body, }) async {
+    final response = await createShipmentWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,14 +131,11 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to delete
-  Future<Response> deleteShipmentWithHttpInfo(num version, int id,) async {
+  Future<Response> deleteShipmentWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -178,12 +165,10 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to delete
-  Future<void> deleteShipment(num version, int id,) async {
-    final response = await deleteShipmentWithHttpInfo(version, id,);
+  Future<void> deleteShipment(int id,) async {
+    final response = await deleteShipmentWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -197,14 +182,11 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to get
-  Future<Response> getShipmentWithHttpInfo(num version, int id,) async {
+  Future<Response> getShipmentWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -234,12 +216,10 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to get
-  Future<Shipment?> getShipment(num version, int id,) async {
-    final response = await getShipmentWithHttpInfo(version, id,);
+  Future<Shipment?> getShipment(int id,) async {
+    final response = await getShipmentWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -260,8 +240,6 @@ class ShipmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   The field to sort by
@@ -286,10 +264,9 @@ class ShipmentApi {
   ///
   /// * [int] routeId:
   ///   The route associate to this shipment
-  Future<Response> searchShipmentsWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? ownerId, int? riderId, int? routeId, }) async {
+  Future<Response> searchShipmentsWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { int? ownerId, int? riderId, int? routeId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment'
-      .replaceAll('{version}', version.toString());
+    final path = r'/shipment';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -333,8 +310,6 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -358,8 +333,8 @@ class ShipmentApi {
   ///
   /// * [int] routeId:
   ///   The route associate to this shipment
-  Future<List<Shipment>?> searchShipments(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? ownerId, int? riderId, int? routeId, }) async {
-    final response = await searchShipmentsWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  ownerId: ownerId, riderId: riderId, routeId: routeId, );
+  Future<List<Shipment>?> searchShipments(String sortField, bool descending, int start, int limit, bool activeOnly, { int? ownerId, int? riderId, int? routeId, }) async {
+    final response = await searchShipmentsWithHttpInfo(sortField, descending, start, limit, activeOnly,  ownerId: ownerId, riderId: riderId, routeId: routeId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,16 +359,13 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to update
   ///
   /// * [Shipment] body:
-  Future<Response> updateShipmentWithHttpInfo(num version, int id, { Shipment? body, }) async {
+  Future<Response> updateShipmentWithHttpInfo(int id, { Shipment? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -423,14 +395,12 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to update
   ///
   /// * [Shipment] body:
-  Future<Shipment?> updateShipment(num version, int id, { Shipment? body, }) async {
-    final response = await updateShipmentWithHttpInfo(version, id,  body: body, );
+  Future<Shipment?> updateShipment(int id, { Shipment? body, }) async {
+    final response = await updateShipmentWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -452,16 +422,13 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to update status
   ///
   /// * [Map<String, bool>] body:
-  Future<Response> updateShipmentStatusWithHttpInfo(num version, int id, { Map<String, bool>? body, }) async {
+  Future<Response> updateShipmentStatusWithHttpInfo(int id, { Map<String, bool>? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/shipment/{id}/status'
-      .replaceAll('{version}', version.toString())
+    final path = r'/shipment/{id}/status'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -491,14 +458,12 @@ class ShipmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the shipment to update status
   ///
   /// * [Map<String, bool>] body:
-  Future<void> updateShipmentStatus(num version, int id, { Map<String, bool>? body, }) async {
-    final response = await updateShipmentStatusWithHttpInfo(version, id,  body: body, );
+  Future<void> updateShipmentStatus(int id, { Map<String, bool>? body, }) async {
+    final response = await updateShipmentStatusWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

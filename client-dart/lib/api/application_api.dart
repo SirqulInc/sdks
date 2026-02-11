@@ -24,8 +24,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appName (required):
   ///   The name of the application
   ///
@@ -262,10 +260,9 @@ class ApplicationApi {
   ///
   /// * [String] openAISecretKey:
   ///   OpenAI Secret API Key
-  Future<Response> createApplicationWithHttpInfo(num version, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
+  Future<Response> createApplicationWithHttpInfo(String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -530,8 +527,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appName (required):
   ///   The name of the application
   ///
@@ -768,8 +763,8 @@ class ApplicationApi {
   ///
   /// * [String] openAISecretKey:
   ///   OpenAI Secret API Key
-  Future<ApplicationResponse?> createApplication(num version, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
-    final response = await createApplicationWithHttpInfo(version, appName,  deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, );
+  Future<ApplicationResponse?> createApplication(String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
+    final response = await createApplicationWithHttpInfo(appName,  deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -790,8 +785,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The appKey of the application the ad placement is for
@@ -825,10 +818,9 @@ class ApplicationApi {
   ///
   /// * [bool] active:
   ///   Active
-  Future<Response> createApplicationPlacementWithHttpInfo(num version, String appKey, String size, { String? deviceId, int? accountId, String? name, String? description, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
+  Future<Response> createApplicationPlacementWithHttpInfo(String appKey, String size, { String? deviceId, int? accountId, String? name, String? description, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/placement/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/placement/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -887,8 +879,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The appKey of the application the ad placement is for
   ///
@@ -921,8 +911,8 @@ class ApplicationApi {
   ///
   /// * [bool] active:
   ///   Active
-  Future<PlacementResponse?> createApplicationPlacement(num version, String appKey, String size, { String? deviceId, int? accountId, String? name, String? description, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
-    final response = await createApplicationPlacementWithHttpInfo(version, appKey, size,  deviceId: deviceId, accountId: accountId, name: name, description: description, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, );
+  Future<PlacementResponse?> createApplicationPlacement(String appKey, String size, { String? deviceId, int? accountId, String? name, String? description, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
+    final response = await createApplicationPlacementWithHttpInfo(appKey, size,  deviceId: deviceId, accountId: accountId, name: name, description: description, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -944,17 +934,14 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the application.
   ///
   /// * [String] appKey:
   ///   The key of the application to be deleted
-  Future<Response> deleteApplicationWithHttpInfo(num version, { int? accountId, String? appKey, }) async {
+  Future<Response> deleteApplicationWithHttpInfo({ int? accountId, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -990,15 +977,13 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the application.
   ///
   /// * [String] appKey:
   ///   The key of the application to be deleted
-  Future<SirqulResponse?> deleteApplication(num version, { int? accountId, String? appKey, }) async {
-    final response = await deleteApplicationWithHttpInfo(version,  accountId: accountId, appKey: appKey, );
+  Future<SirqulResponse?> deleteApplication({ int? accountId, String? appKey, }) async {
+    final response = await deleteApplicationWithHttpInfo( accountId: accountId, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1020,8 +1005,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] placementId (required):
   ///   The id of the placement to delete, the user must have rights to the application the ad placement is for
   ///
@@ -1030,10 +1013,9 @@ class ApplicationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deleteApplicationPlacementWithHttpInfo(num version, int placementId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteApplicationPlacementWithHttpInfo(int placementId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/placement/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/placement/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1070,8 +1052,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] placementId (required):
   ///   The id of the placement to delete, the user must have rights to the application the ad placement is for
   ///
@@ -1080,8 +1060,8 @@ class ApplicationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<PlacementResponse?> deleteApplicationPlacement(num version, int placementId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteApplicationPlacementWithHttpInfo(version, placementId,  deviceId: deviceId, accountId: accountId, );
+  Future<PlacementResponse?> deleteApplicationPlacement(int placementId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteApplicationPlacementWithHttpInfo(placementId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1103,17 +1083,14 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey:
   ///   The key of the application
   ///
   /// * [int] applicationId:
   ///   Application Id
-  Future<Response> getApplicationWithHttpInfo(num version, { String? appKey, int? applicationId, }) async {
+  Future<Response> getApplicationWithHttpInfo({ String? appKey, int? applicationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1149,15 +1126,13 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey:
   ///   The key of the application
   ///
   /// * [int] applicationId:
   ///   Application Id
-  Future<ApplicationResponse?> getApplication(num version, { String? appKey, int? applicationId, }) async {
-    final response = await getApplicationWithHttpInfo(version,  appKey: appKey, applicationId: applicationId, );
+  Future<ApplicationResponse?> getApplication({ String? appKey, int? applicationId, }) async {
+    final response = await getApplicationWithHttpInfo( appKey: appKey, applicationId: applicationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1179,8 +1154,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] placementId (required):
   ///   The id of the placement
   ///
@@ -1189,10 +1162,9 @@ class ApplicationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> getApplicationPlacementWithHttpInfo(num version, int placementId, { String? deviceId, int? accountId, }) async {
+  Future<Response> getApplicationPlacementWithHttpInfo(int placementId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/placement/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/placement/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1229,8 +1201,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] placementId (required):
   ///   The id of the placement
   ///
@@ -1239,8 +1209,8 @@ class ApplicationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<PlacementResponse?> getApplicationPlacement(num version, int placementId, { String? deviceId, int? accountId, }) async {
-    final response = await getApplicationPlacementWithHttpInfo(version, placementId,  deviceId: deviceId, accountId: accountId, );
+  Future<PlacementResponse?> getApplicationPlacement(int placementId, { String? deviceId, int? accountId, }) async {
+    final response = await getApplicationPlacementWithHttpInfo(placementId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1259,14 +1229,9 @@ class ApplicationApi {
   /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<Response> getApplicationVersionsWithHttpInfo(num version,) async {
+  Future<Response> getApplicationVersionsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/versions'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/versions';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1292,12 +1257,8 @@ class ApplicationApi {
   /// Get API versions
   ///
   /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<SirqulResponse?> getApplicationVersions(num version,) async {
-    final response = await getApplicationVersionsWithHttpInfo(version,);
+  Future<SirqulResponse?> getApplicationVersions() async {
+    final response = await getApplicationVersionsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1318,8 +1279,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key
@@ -1344,10 +1303,9 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<Response> getUniqueUsersByAppWithHttpInfo(num version, String appKey, { String? q, String? keyword, int? since, int? i, int? start, int? l, int? limit, }) async {
+  Future<Response> getUniqueUsersByAppWithHttpInfo(String appKey, { String? q, String? keyword, int? since, int? i, int? start, int? l, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/users'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/users';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1399,8 +1357,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key
   ///
@@ -1424,8 +1380,8 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<AccountListResponse?> getUniqueUsersByApp(num version, String appKey, { String? q, String? keyword, int? since, int? i, int? start, int? l, int? limit, }) async {
-    final response = await getUniqueUsersByAppWithHttpInfo(version, appKey,  q: q, keyword: keyword, since: since, i: i, start: start, l: l, limit: limit, );
+  Future<AccountListResponse?> getUniqueUsersByApp(String appKey, { String? q, String? keyword, int? since, int? i, int? start, int? l, int? limit, }) async {
+    final response = await getUniqueUsersByAppWithHttpInfo(appKey,  q: q, keyword: keyword, since: since, i: i, start: start, l: l, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1446,8 +1402,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The account id of the application owner/manager
@@ -1508,10 +1462,9 @@ class ApplicationApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<Response> listApplicationsWithHttpInfo(num version, { int? accountId, String? q, String? keyword, String? platforms, String? deviceIds, String? deviceVersions, String? categoryIds, String? sortField, bool? hasAds, bool? publicNotifications, bool? filterBillable, bool? filterContentAdmin, bool? descending, int? i, int? start, int? l, int? limit, String? applicationIds, bool? hasObjectStore, bool? activeOnly, }) async {
+  Future<Response> listApplicationsWithHttpInfo({ int? accountId, String? q, String? keyword, String? platforms, String? deviceIds, String? deviceVersions, String? categoryIds, String? sortField, bool? hasAds, bool? publicNotifications, bool? filterBillable, bool? filterContentAdmin, bool? descending, int? i, int? start, int? l, int? limit, String? applicationIds, bool? hasObjectStore, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1601,8 +1554,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the application owner/manager
   ///
@@ -1662,8 +1613,8 @@ class ApplicationApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<List<ApplicationShortResponse>?> listApplications(num version, { int? accountId, String? q, String? keyword, String? platforms, String? deviceIds, String? deviceVersions, String? categoryIds, String? sortField, bool? hasAds, bool? publicNotifications, bool? filterBillable, bool? filterContentAdmin, bool? descending, int? i, int? start, int? l, int? limit, String? applicationIds, bool? hasObjectStore, bool? activeOnly, }) async {
-    final response = await listApplicationsWithHttpInfo(version,  accountId: accountId, q: q, keyword: keyword, platforms: platforms, deviceIds: deviceIds, deviceVersions: deviceVersions, categoryIds: categoryIds, sortField: sortField, hasAds: hasAds, publicNotifications: publicNotifications, filterBillable: filterBillable, filterContentAdmin: filterContentAdmin, descending: descending, i: i, start: start, l: l, limit: limit, applicationIds: applicationIds, hasObjectStore: hasObjectStore, activeOnly: activeOnly, );
+  Future<List<ApplicationShortResponse>?> listApplications({ int? accountId, String? q, String? keyword, String? platforms, String? deviceIds, String? deviceVersions, String? categoryIds, String? sortField, bool? hasAds, bool? publicNotifications, bool? filterBillable, bool? filterContentAdmin, bool? descending, int? i, int? start, int? l, int? limit, String? applicationIds, bool? hasObjectStore, bool? activeOnly, }) async {
+    final response = await listApplicationsWithHttpInfo( accountId: accountId, q: q, keyword: keyword, platforms: platforms, deviceIds: deviceIds, deviceVersions: deviceVersions, categoryIds: categoryIds, sortField: sortField, hasAds: hasAds, publicNotifications: publicNotifications, filterBillable: filterBillable, filterContentAdmin: filterContentAdmin, descending: descending, i: i, start: start, l: l, limit: limit, applicationIds: applicationIds, hasObjectStore: hasObjectStore, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1688,8 +1639,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The key of the application
   ///
@@ -1704,10 +1653,9 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<Response> searchApplicationPlacementWithHttpInfo(num version, String appKey, { String? deviceId, int? accountId, int? start, int? limit, }) async {
+  Future<Response> searchApplicationPlacementWithHttpInfo(String appKey, { String? deviceId, int? accountId, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/placement/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/placement/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1750,8 +1698,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The key of the application
   ///
@@ -1766,8 +1712,8 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<List<PlacementResponse>?> searchApplicationPlacement(num version, String appKey, { String? deviceId, int? accountId, int? start, int? limit, }) async {
-    final response = await searchApplicationPlacementWithHttpInfo(version, appKey,  deviceId: deviceId, accountId: accountId, start: start, limit: limit, );
+  Future<List<PlacementResponse>?> searchApplicationPlacement(String appKey, { String? deviceId, int? accountId, int? start, int? limit, }) async {
+    final response = await searchApplicationPlacementWithHttpInfo(appKey,  deviceId: deviceId, accountId: accountId, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1792,8 +1738,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -1817,10 +1761,9 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit per result set for pagination
-  Future<Response> searchApplicationSettingsWithHttpInfo(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchApplicationSettingsWithHttpInfo({ String? deviceId, int? accountId, int? connectionAccountId, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/settings/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/settings/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1874,8 +1817,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -1899,8 +1840,8 @@ class ApplicationApi {
   ///
   /// * [int] limit:
   ///   The limit per result set for pagination
-  Future<ApplicationSettingsResponse?> searchApplicationSettings(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchApplicationSettingsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<ApplicationSettingsResponse?> searchApplicationSettings({ String? deviceId, int? accountId, int? connectionAccountId, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchApplicationSettingsWithHttpInfo( deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1921,8 +1862,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
@@ -1971,10 +1910,9 @@ class ApplicationApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<Response> searchApplicationsWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, String? q, String? keyword, String? qSearchFields, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? hasAds, bool? publicNotifications, bool? activeOnly, }) async {
+  Future<Response> searchApplicationsWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, String? q, String? keyword, String? qSearchFields, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? hasAds, bool? publicNotifications, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2052,8 +1990,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique id of the device making the request (deviceId or accountId required)
   ///
@@ -2101,8 +2037,8 @@ class ApplicationApi {
   ///
   /// * [bool] activeOnly:
   ///   Return only active results
-  Future<List<ApplicationResponse>?> searchApplications(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, String? q, String? keyword, String? qSearchFields, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? hasAds, bool? publicNotifications, bool? activeOnly, }) async {
-    final response = await searchApplicationsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, q: q, keyword: keyword, qSearchFields: qSearchFields, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, hasAds: hasAds, publicNotifications: publicNotifications, activeOnly: activeOnly, );
+  Future<List<ApplicationResponse>?> searchApplications({ String? deviceId, int? accountId, double? latitude, double? longitude, String? q, String? keyword, String? qSearchFields, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? hasAds, bool? publicNotifications, bool? activeOnly, }) async {
+    final response = await searchApplicationsWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, q: q, keyword: keyword, qSearchFields: qSearchFields, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, hasAds: hasAds, publicNotifications: publicNotifications, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2126,8 +2062,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key for updating an existing application
@@ -2368,10 +2302,9 @@ class ApplicationApi {
   ///
   /// * [String] openAISecretKey:
   ///   OpenAI Secret API Key
-  Future<Response> updateApplicationWithHttpInfo(num version, String appKey, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
+  Future<Response> updateApplicationWithHttpInfo(String appKey, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2637,8 +2570,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key for updating an existing application
   ///
@@ -2878,8 +2809,8 @@ class ApplicationApi {
   ///
   /// * [String] openAISecretKey:
   ///   OpenAI Secret API Key
-  Future<ApplicationResponse?> updateApplication(num version, String appKey, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
-    final response = await updateApplicationWithHttpInfo(version, appKey, appName,  deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, );
+  Future<ApplicationResponse?> updateApplication(String appKey, String appName, { String? deviceId, int? accountId, String? about, String? bundleId, int? appIconAssetId, int? appLogoAssetId, String? facebookAppId, String? facebookAppSecret, String? googleApiKey, bool? updateEULADate, String? eulaVersion, String? landingPageUrl, bool? showInActivities, String? activityDescription, String? inviteWelcomeText, String? invitePageUrl, String? urlScheme, String? platforms, String? downloadUrls, String? categoryIds, String? scoringType, int? hintCost, int? maxScore, double? ticketsPerPoint, bool? hasGameData, bool? publicNotifications, bool? useMatchingAlgorithm, bool? globalTickets, double? buildVersion, double? apiVersion, String? placementName, String? placementDescription, String? placementSize, int? placementHeight, int? placementWidth, int? placementRefreshInterval, bool? createObjectStore, bool? publicContentApproval, bool? productionMode, int? minimumSessionLength, int? sessionGapLength, bool? localAdsEnabled, String? sqootApiKey, String? trilatProcessingType, int? maxSampleSize, double? minRSSI, String? modules, int? authorizedCount, String? authorizedServers, String? defaultTimezone, String? smtpPass, String? metaData, String? placementMetaData, bool? ipsFloor, bool? enableAPNSBadge, bool? includeInReport, int? defaultAppFilterId, bool? enableWelcomeEmail, String? appleAppId, String? appleTeamId, String? appleAuthKeyId, MultipartFile? appleAuthKey, String? appleIssuerId, String? appStoreKeyId, MultipartFile? appStoreKey, MultipartFile? googlePrivateKeyFile, String? authorizeNetApiKey, String? authorizeNetTransactionKey, String? emailSender, String? smtpUser, String? smtpHost, String? vatomBusinessId, String? vatomRestClientId, String? vatomRestSecretKey, String? twilioAccountSID, String? twilioAuthToken, String? twilioSenderPhoneNumber, String? openAISecretKey, }) async {
+    final response = await updateApplicationWithHttpInfo(appKey, appName,  deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2901,8 +2832,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the delete, must have rights to edit the application.
   ///
@@ -2911,10 +2840,9 @@ class ApplicationApi {
   ///
   /// * [bool] active (required):
   ///   If true then set to active, false otherwise
-  Future<Response> updateApplicationActiveWithHttpInfo(num version, int accountId, String appKey, bool active,) async {
+  Future<Response> updateApplicationActiveWithHttpInfo(int accountId, String appKey, bool active,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/active'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/active';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2947,8 +2875,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the delete, must have rights to edit the application.
   ///
@@ -2957,8 +2883,8 @@ class ApplicationApi {
   ///
   /// * [bool] active (required):
   ///   If true then set to active, false otherwise
-  Future<SirqulResponse?> updateApplicationActive(num version, int accountId, String appKey, bool active,) async {
-    final response = await updateApplicationActiveWithHttpInfo(version, accountId, appKey, active,);
+  Future<SirqulResponse?> updateApplicationActive(int accountId, String appKey, bool active,) async {
+    final response = await updateApplicationActiveWithHttpInfo(accountId, appKey, active,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2979,8 +2905,6 @@ class ApplicationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] placementId (required):
   ///   The id of the placement to update, the user must have rights to the application the ad placement is for
@@ -3014,10 +2938,9 @@ class ApplicationApi {
   ///
   /// * [bool] active:
   ///   Active
-  Future<Response> updateApplicationPlacementWithHttpInfo(num version, int placementId, { String? deviceId, int? accountId, String? name, String? description, String? size, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
+  Future<Response> updateApplicationPlacementWithHttpInfo(int placementId, { String? deviceId, int? accountId, String? name, String? description, String? size, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/placement/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/placement/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3078,8 +3001,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] placementId (required):
   ///   The id of the placement to update, the user must have rights to the application the ad placement is for
   ///
@@ -3112,8 +3033,8 @@ class ApplicationApi {
   ///
   /// * [bool] active:
   ///   Active
-  Future<PlacementResponse?> updateApplicationPlacement(num version, int placementId, { String? deviceId, int? accountId, String? name, String? description, String? size, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
-    final response = await updateApplicationPlacementWithHttpInfo(version, placementId,  deviceId: deviceId, accountId: accountId, name: name, description: description, size: size, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, );
+  Future<PlacementResponse?> updateApplicationPlacement(int placementId, { String? deviceId, int? accountId, String? name, String? description, String? size, int? height, int? width, int? refreshInterval, int? defaultImageId, bool? active, }) async {
+    final response = await updateApplicationPlacementWithHttpInfo(placementId,  deviceId: deviceId, accountId: accountId, name: name, description: description, size: size, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3135,8 +3056,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The key of the application
   ///
@@ -3148,10 +3067,9 @@ class ApplicationApi {
   ///
   /// * [MultipartFile] certificate:
   ///   Certificate
-  Future<Response> uploadApplicationCertificateWithHttpInfo(num version, String appKey, { String? deviceId, int? accountId, MultipartFile? certificate, }) async {
+  Future<Response> uploadApplicationCertificateWithHttpInfo(String appKey, { String? deviceId, int? accountId, MultipartFile? certificate, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/application/certificate/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/application/certificate/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3191,8 +3109,6 @@ class ApplicationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The key of the application
   ///
@@ -3204,8 +3120,8 @@ class ApplicationApi {
   ///
   /// * [MultipartFile] certificate:
   ///   Certificate
-  Future<SirqulResponse?> uploadApplicationCertificate(num version, String appKey, { String? deviceId, int? accountId, MultipartFile? certificate, }) async {
-    final response = await uploadApplicationCertificateWithHttpInfo(version, appKey,  deviceId: deviceId, accountId: accountId, certificate: certificate, );
+  Future<SirqulResponse?> uploadApplicationCertificate(String appKey, { String? deviceId, int? accountId, MultipartFile? certificate, }) async {
+    final response = await uploadApplicationCertificateWithHttpInfo(appKey,  deviceId: deviceId, accountId: accountId, certificate: certificate, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

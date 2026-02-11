@@ -24,8 +24,6 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -46,10 +44,9 @@ class PostalCodeApi {
   ///
   /// * [bool] active:
   ///   whether the postal code created should be active or inactive
-  Future<Response> createPostalCodeWithHttpInfo(num version, int accountId, String code, double latitude, double longitude, { String? stateCode, String? city, bool? active, }) async {
+  Future<Response> createPostalCodeWithHttpInfo(int accountId, String code, double latitude, double longitude, { String? stateCode, String? city, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/postalCode/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/postalCode/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -92,8 +89,6 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -114,8 +109,8 @@ class PostalCodeApi {
   ///
   /// * [bool] active:
   ///   whether the postal code created should be active or inactive
-  Future<PostalCodeResponse?> createPostalCode(num version, int accountId, String code, double latitude, double longitude, { String? stateCode, String? city, bool? active, }) async {
-    final response = await createPostalCodeWithHttpInfo(version, accountId, code, latitude, longitude,  stateCode: stateCode, city: city, active: active, );
+  Future<PostalCodeResponse?> createPostalCode(int accountId, String code, double latitude, double longitude, { String? stateCode, String? city, bool? active, }) async {
+    final response = await createPostalCodeWithHttpInfo(accountId, code, latitude, longitude,  stateCode: stateCode, city: city, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -137,17 +132,14 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] postalCodeId (required):
   ///   the id of the postal code to delete
-  Future<Response> deletePostalCodeWithHttpInfo(num version, int accountId, int postalCodeId,) async {
+  Future<Response> deletePostalCodeWithHttpInfo(int accountId, int postalCodeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/postalCode/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/postalCode/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -179,15 +171,13 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] postalCodeId (required):
   ///   the id of the postal code to delete
-  Future<SirqulResponse?> deletePostalCode(num version, int accountId, int postalCodeId,) async {
-    final response = await deletePostalCodeWithHttpInfo(version, accountId, postalCodeId,);
+  Future<SirqulResponse?> deletePostalCode(int accountId, int postalCodeId,) async {
+    final response = await deletePostalCodeWithHttpInfo(accountId, postalCodeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -209,14 +199,11 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] postalCodeId (required):
   ///   the id of the postal code to get
-  Future<Response> getPostalCodeWithHttpInfo(num version, int postalCodeId,) async {
+  Future<Response> getPostalCodeWithHttpInfo(int postalCodeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/postalCode/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/postalCode/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -247,12 +234,10 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] postalCodeId (required):
   ///   the id of the postal code to get
-  Future<PostalCodeResponse?> getPostalCode(num version, int postalCodeId,) async {
-    final response = await getPostalCodeWithHttpInfo(version, postalCodeId,);
+  Future<PostalCodeResponse?> getPostalCode(int postalCodeId,) async {
+    final response = await getPostalCodeWithHttpInfo(postalCodeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -273,8 +258,6 @@ class PostalCodeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   the field to sort the results on
@@ -299,10 +282,9 @@ class PostalCodeApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<Response> getPostalCodesWithHttpInfo(num version, String sortField, bool descending, { double? latitude, double? longitude, String? keyword, double? miles, int? start, int? limit, }) async {
+  Future<Response> getPostalCodesWithHttpInfo(String sortField, bool descending, { double? latitude, double? longitude, String? keyword, double? miles, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/postalCode/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/postalCode/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -352,8 +334,6 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the field to sort the results on
   ///
@@ -377,8 +357,8 @@ class PostalCodeApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<List<PostalCodeResponse>?> getPostalCodes(num version, String sortField, bool descending, { double? latitude, double? longitude, String? keyword, double? miles, int? start, int? limit, }) async {
-    final response = await getPostalCodesWithHttpInfo(version, sortField, descending,  latitude: latitude, longitude: longitude, keyword: keyword, miles: miles, start: start, limit: limit, );
+  Future<List<PostalCodeResponse>?> getPostalCodes(String sortField, bool descending, { double? latitude, double? longitude, String? keyword, double? miles, int? start, int? limit, }) async {
+    final response = await getPostalCodesWithHttpInfo(sortField, descending,  latitude: latitude, longitude: longitude, keyword: keyword, miles: miles, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -403,8 +383,6 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -428,10 +406,9 @@ class PostalCodeApi {
   ///
   /// * [bool] active:
   ///   whether the postal code is active or inactive
-  Future<Response> updatePostalCodeWithHttpInfo(num version, int accountId, int postalCodeId, { String? code, double? latitude, double? longitude, String? stateCode, String? city, bool? active, }) async {
+  Future<Response> updatePostalCodeWithHttpInfo(int accountId, int postalCodeId, { String? code, double? latitude, double? longitude, String? stateCode, String? city, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/postalCode/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/postalCode/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -481,8 +458,6 @@ class PostalCodeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -506,8 +481,8 @@ class PostalCodeApi {
   ///
   /// * [bool] active:
   ///   whether the postal code is active or inactive
-  Future<PostalCodeResponse?> updatePostalCode(num version, int accountId, int postalCodeId, { String? code, double? latitude, double? longitude, String? stateCode, String? city, bool? active, }) async {
-    final response = await updatePostalCodeWithHttpInfo(version, accountId, postalCodeId,  code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, );
+  Future<PostalCodeResponse?> updatePostalCode(int accountId, int postalCodeId, { String? code, double? latitude, double? longitude, String? stateCode, String? city, bool? active, }) async {
+    final response = await updatePostalCodeWithHttpInfo(accountId, postalCodeId,  code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

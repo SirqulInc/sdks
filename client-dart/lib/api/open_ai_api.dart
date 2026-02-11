@@ -24,8 +24,6 @@ class OpenAIApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -34,10 +32,9 @@ class OpenAIApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<Response> imageGenerationWithHttpInfo(num version, int accountId, String postBody, { bool? returnRawResponse, }) async {
+  Future<Response> imageGenerationWithHttpInfo(int accountId, String postBody, { bool? returnRawResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/openai/v1/images/generations'
-      .replaceAll('{version}', version.toString());
+    final path = r'/openai/v1/images/generations';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -72,8 +69,6 @@ class OpenAIApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Sirqul Account Id
   ///
@@ -82,8 +77,8 @@ class OpenAIApi {
   ///
   /// * [bool] returnRawResponse:
   ///   Return raw response
-  Future<WrappedProxyItemResponse?> imageGeneration(num version, int accountId, String postBody, { bool? returnRawResponse, }) async {
-    final response = await imageGenerationWithHttpInfo(version, accountId, postBody,  returnRawResponse: returnRawResponse, );
+  Future<WrappedProxyItemResponse?> imageGeneration(int accountId, String postBody, { bool? returnRawResponse, }) async {
+    final response = await imageGenerationWithHttpInfo(accountId, postBody,  returnRawResponse: returnRawResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

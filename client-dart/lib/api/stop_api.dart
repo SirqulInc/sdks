@@ -24,14 +24,11 @@ class StopApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the stop to get
-  Future<Response> getStopWithHttpInfo(num version, int id,) async {
+  Future<Response> getStopWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/stop/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/stop/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -61,12 +58,10 @@ class StopApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the stop to get
-  Future<Stop?> getStop(num version, int id,) async {
-    final response = await getStopWithHttpInfo(version, id,);
+  Future<Stop?> getStop(int id,) async {
+    final response = await getStopWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -88,16 +83,13 @@ class StopApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the stop to update
   ///
   /// * [Stop] body:
-  Future<Response> updateStopWithHttpInfo(num version, int id, { Stop? body, }) async {
+  Future<Response> updateStopWithHttpInfo(int id, { Stop? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/stop/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/stop/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -127,14 +119,12 @@ class StopApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the stop to update
   ///
   /// * [Stop] body:
-  Future<Stop?> updateStop(num version, int id, { Stop? body, }) async {
-    final response = await updateStopWithHttpInfo(version, id,  body: body, );
+  Future<Stop?> updateStop(int id, { Stop? body, }) async {
+    final response = await updateStopWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -24,8 +24,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the id of the device that owns the tickets
   ///
@@ -40,10 +38,9 @@ class TicketApi {
   ///
   /// * [String] ticketType:
   ///   the type of ticket
-  Future<Response> getTicketCountWithHttpInfo(num version, { String? deviceId, int? accountId, String? gameType, String? appKey, String? ticketType, }) async {
+  Future<Response> getTicketCountWithHttpInfo({ String? deviceId, int? accountId, String? gameType, String? appKey, String? ticketType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ticket/count'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ticket/count';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -88,8 +85,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the id of the device that owns the tickets
   ///
@@ -104,8 +99,8 @@ class TicketApi {
   ///
   /// * [String] ticketType:
   ///   the type of ticket
-  Future<CountResponse?> getTicketCount(num version, { String? deviceId, int? accountId, String? gameType, String? appKey, String? ticketType, }) async {
-    final response = await getTicketCountWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, ticketType: ticketType, );
+  Future<CountResponse?> getTicketCount({ String? deviceId, int? accountId, String? gameType, String? appKey, String? ticketType, }) async {
+    final response = await getTicketCountWithHttpInfo( deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, ticketType: ticketType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -126,8 +121,6 @@ class TicketApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   the id of the device that owns the tickets
@@ -155,10 +148,9 @@ class TicketApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<Response> getTicketListWithHttpInfo(num version, { String? deviceId, int? accountId, String? ticketObjectType, String? actionType, String? ticketIds, String? objectIds, String? receiptTokens, String? gameType, String? appKey, }) async {
+  Future<Response> getTicketListWithHttpInfo({ String? deviceId, int? accountId, String? ticketObjectType, String? actionType, String? ticketIds, String? objectIds, String? receiptTokens, String? gameType, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ticket/getList'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ticket/getList';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -215,8 +207,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the id of the device that owns the tickets
   ///
@@ -243,8 +233,8 @@ class TicketApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<TicketListResponse?> getTicketList(num version, { String? deviceId, int? accountId, String? ticketObjectType, String? actionType, String? ticketIds, String? objectIds, String? receiptTokens, String? gameType, String? appKey, }) async {
-    final response = await getTicketListWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, ticketObjectType: ticketObjectType, actionType: actionType, ticketIds: ticketIds, objectIds: objectIds, receiptTokens: receiptTokens, gameType: gameType, appKey: appKey, );
+  Future<TicketListResponse?> getTicketList({ String? deviceId, int? accountId, String? ticketObjectType, String? actionType, String? ticketIds, String? objectIds, String? receiptTokens, String? gameType, String? appKey, }) async {
+    final response = await getTicketListWithHttpInfo( deviceId: deviceId, accountId: accountId, ticketObjectType: ticketObjectType, actionType: actionType, ticketIds: ticketIds, objectIds: objectIds, receiptTokens: receiptTokens, gameType: gameType, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -265,8 +255,6 @@ class TicketApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] receiverAccountId (required):
   ///   the id of the account receiving the tickets
@@ -291,10 +279,9 @@ class TicketApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<Response> giftPurchaseWithHttpInfo(num version, int receiverAccountId, int ticketId, { String? deviceId, int? accountId, int? assetId, String? customMessage, String? gameType, String? appKey, }) async {
+  Future<Response> giftPurchaseWithHttpInfo(int receiverAccountId, int ticketId, { String? deviceId, int? accountId, int? assetId, String? customMessage, String? gameType, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/purchase/gift'
-      .replaceAll('{version}', version.toString());
+    final path = r'/purchase/gift';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -344,8 +331,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] receiverAccountId (required):
   ///   the id of the account receiving the tickets
   ///
@@ -369,8 +354,8 @@ class TicketApi {
   ///
   /// * [String] appKey:
   ///   the application key
-  Future<SirqulResponse?> giftPurchase(num version, int receiverAccountId, int ticketId, { String? deviceId, int? accountId, int? assetId, String? customMessage, String? gameType, String? appKey, }) async {
-    final response = await giftPurchaseWithHttpInfo(version, receiverAccountId, ticketId,  deviceId: deviceId, accountId: accountId, assetId: assetId, customMessage: customMessage, gameType: gameType, appKey: appKey, );
+  Future<SirqulResponse?> giftPurchase(int receiverAccountId, int ticketId, { String? deviceId, int? accountId, int? assetId, String? customMessage, String? gameType, String? appKey, }) async {
+    final response = await giftPurchaseWithHttpInfo(receiverAccountId, ticketId,  deviceId: deviceId, accountId: accountId, assetId: assetId, customMessage: customMessage, gameType: gameType, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -391,8 +376,6 @@ class TicketApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] actionType (required):
   ///   the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
@@ -447,10 +430,9 @@ class TicketApi {
   ///
   /// * [String] appVersion:
   ///   the application version
-  Future<Response> saveTicketWithHttpInfo(num version, String actionType, String ticketObjectType, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, String? receiptData, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
+  Future<Response> saveTicketWithHttpInfo(String actionType, String ticketObjectType, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, String? receiptData, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ticket/save'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ticket/save';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -530,8 +512,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] actionType (required):
   ///   the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
   ///
@@ -585,8 +565,8 @@ class TicketApi {
   ///
   /// * [String] appVersion:
   ///   the application version
-  Future<ProfileResponse?> saveTicket(num version, String actionType, String ticketObjectType, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, String? receiptData, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
-    final response = await saveTicketWithHttpInfo(version, actionType, ticketObjectType,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, receiptData: receiptData, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, );
+  Future<ProfileResponse?> saveTicket(String actionType, String ticketObjectType, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, String? receiptData, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
+    final response = await saveTicketWithHttpInfo(actionType, ticketObjectType,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, receiptData: receiptData, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -607,8 +587,6 @@ class TicketApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] actionType (required):
   ///   the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
@@ -663,10 +641,9 @@ class TicketApi {
   ///
   /// * [String] appVersion:
   ///   the application version
-  Future<Response> saveTicketViaFileUploadWithHttpInfo(num version, String actionType, String ticketObjectType, MultipartFile receiptData, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
+  Future<Response> saveTicketViaFileUploadWithHttpInfo(String actionType, String ticketObjectType, MultipartFile receiptData, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ticket/save/fileUpload'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ticket/save/fileUpload';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -744,8 +721,6 @@ class TicketApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] actionType (required):
   ///   the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
   ///
@@ -799,8 +774,8 @@ class TicketApi {
   ///
   /// * [String] appVersion:
   ///   the application version
-  Future<ProfileResponse?> saveTicketViaFileUpload(num version, String actionType, String ticketObjectType, MultipartFile receiptData, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
-    final response = await saveTicketViaFileUploadWithHttpInfo(version, actionType, ticketObjectType, receiptData,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, );
+  Future<ProfileResponse?> saveTicketViaFileUpload(String actionType, String ticketObjectType, MultipartFile receiptData, { bool? returnNulls, String? deviceId, int? accountId, String? gameType, String? appKey, int? objectId, String? purchaseCode, String? receiptToken, int? count, String? ticketType, String? purchaseProvider, String? purchaseType, bool? returnProfileResponse, bool? includeProfileResponse, String? appVersion, }) async {
+    final response = await saveTicketViaFileUploadWithHttpInfo(actionType, ticketObjectType, receiptData,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -819,14 +794,9 @@ class TicketApi {
   /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<Response> ticketOffersWithHttpInfo(num version,) async {
+  Future<Response> ticketOffersWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ticket/ticketoffers'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ticket/ticketoffers';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -852,12 +822,8 @@ class TicketApi {
   /// Get Ticket Offers
   ///
   /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<TicketOfferResponse?> ticketOffers(num version,) async {
-    final response = await ticketOffersWithHttpInfo(version,);
+  Future<TicketOfferResponse?> ticketOffers() async {
+    final response = await ticketOffersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

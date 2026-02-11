@@ -24,8 +24,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
   ///
@@ -46,10 +44,9 @@ class TrackingApi {
   ///
   /// * [String] slaveUID:
   ///   
-  Future<Response> batchSaveTrackingWithHttpInfo(num version, String data, { String? deviceId, int? accountId, bool? generateAccounts, bool? updateAccountLocations, String? defaultTag, String? slaveUID, }) async {
+  Future<Response> batchSaveTrackingWithHttpInfo(String data, { String? deviceId, int? accountId, bool? generateAccounts, bool? updateAccountLocations, String? defaultTag, String? slaveUID, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/batch/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/batch/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -98,8 +95,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] data (required):
   ///   JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
   ///
@@ -120,8 +115,8 @@ class TrackingApi {
   ///
   /// * [String] slaveUID:
   ///   
-  Future<List<Leg>?> batchSaveTracking(num version, String data, { String? deviceId, int? accountId, bool? generateAccounts, bool? updateAccountLocations, String? defaultTag, String? slaveUID, }) async {
-    final response = await batchSaveTrackingWithHttpInfo(version, data,  deviceId: deviceId, accountId: accountId, generateAccounts: generateAccounts, updateAccountLocations: updateAccountLocations, defaultTag: defaultTag, slaveUID: slaveUID, );
+  Future<List<Leg>?> batchSaveTracking(String data, { String? deviceId, int? accountId, bool? generateAccounts, bool? updateAccountLocations, String? defaultTag, String? slaveUID, }) async {
+    final response = await batchSaveTrackingWithHttpInfo(data,  deviceId: deviceId, accountId: accountId, generateAccounts: generateAccounts, updateAccountLocations: updateAccountLocations, defaultTag: defaultTag, slaveUID: slaveUID, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -145,8 +140,6 @@ class TrackingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the customer
@@ -174,10 +167,9 @@ class TrackingApi {
   ///
   /// * [String] sortOrder:
   ///   The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
-  Future<Response> getPredictedLocationsWithHttpInfo(num version, int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, int? threshold, String? distanceUnit, double? searchRange, String? sortOrder, }) async {
+  Future<Response> getPredictedLocationsWithHttpInfo(int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, int? threshold, String? distanceUnit, double? searchRange, String? sortOrder, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/predicted/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/predicted/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -232,8 +224,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the customer
   ///
@@ -260,8 +250,8 @@ class TrackingApi {
   ///
   /// * [String] sortOrder:
   ///   The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
-  Future<PredictedLocationResponse?> getPredictedLocations(num version, int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, int? threshold, String? distanceUnit, double? searchRange, String? sortOrder, }) async {
-    final response = await getPredictedLocationsWithHttpInfo(version, accountId,  latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, threshold: threshold, distanceUnit: distanceUnit, searchRange: searchRange, sortOrder: sortOrder, );
+  Future<PredictedLocationResponse?> getPredictedLocations(int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, int? threshold, String? distanceUnit, double? searchRange, String? sortOrder, }) async {
+    final response = await getPredictedLocationsWithHttpInfo(accountId,  latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, threshold: threshold, distanceUnit: distanceUnit, searchRange: searchRange, sortOrder: sortOrder, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -283,8 +273,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the customer
   ///
@@ -293,10 +281,9 @@ class TrackingApi {
   ///
   /// * [int] endStepId (required):
   ///   The stepId to end with
-  Future<Response> getPredictedPathWithHttpInfo(num version, int accountId, int startStepId, int endStepId,) async {
+  Future<Response> getPredictedPathWithHttpInfo(int accountId, int startStepId, int endStepId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/path/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/path/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -329,8 +316,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the customer
   ///
@@ -339,8 +324,8 @@ class TrackingApi {
   ///
   /// * [int] endStepId (required):
   ///   The stepId to end with
-  Future<List<StepResponse>?> getPredictedPath(num version, int accountId, int startStepId, int endStepId,) async {
-    final response = await getPredictedPathWithHttpInfo(version, accountId, startStepId, endStepId,);
+  Future<List<StepResponse>?> getPredictedPath(int accountId, int startStepId, int endStepId,) async {
+    final response = await getPredictedPathWithHttpInfo(accountId, startStepId, endStepId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -364,8 +349,6 @@ class TrackingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the customer
@@ -399,10 +382,9 @@ class TrackingApi {
   ///
   /// * [String] distanceUnit:
   ///   Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
-  Future<Response> getPreferredLocationsWithHttpInfo(num version, int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, String? sortField, bool? descending, int? start, int? limit, double? searchRange, String? distanceUnit, }) async {
+  Future<Response> getPreferredLocationsWithHttpInfo(int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, String? sortField, bool? descending, int? start, int? limit, double? searchRange, String? distanceUnit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/preferred/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/preferred/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -463,8 +445,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the customer
   ///
@@ -497,8 +477,8 @@ class TrackingApi {
   ///
   /// * [String] distanceUnit:
   ///   Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
-  Future<List<PreferredLocationResponse>?> getPreferredLocations(num version, int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, String? sortField, bool? descending, int? start, int? limit, double? searchRange, String? distanceUnit, }) async {
-    final response = await getPreferredLocationsWithHttpInfo(version, accountId,  latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, distanceUnit: distanceUnit, );
+  Future<List<PreferredLocationResponse>?> getPreferredLocations(int accountId, { double? latitude, double? longitude, int? dateCheck, String? hourCheck, String? sortField, bool? descending, int? start, int? limit, double? searchRange, String? distanceUnit, }) async {
+    final response = await getPreferredLocationsWithHttpInfo(accountId,  latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, distanceUnit: distanceUnit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -523,8 +503,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required)
   ///
@@ -548,10 +526,9 @@ class TrackingApi {
   ///
   /// * [bool] getLastPoint:
   ///   gets the last known location of the user
-  Future<Response> getTrackingLegsWithHttpInfo(num version, { String? deviceId, int? accountId, int? ownerId, String? trackingDeviceId, int? startDate, int? endDate, String? tags, bool? getLastPoint, }) async {
+  Future<Response> getTrackingLegsWithHttpInfo({ String? deviceId, int? accountId, int? ownerId, String? trackingDeviceId, int? startDate, int? endDate, String? tags, bool? getLastPoint, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -605,8 +582,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id (deviceId or accountId required)
   ///
@@ -630,8 +605,8 @@ class TrackingApi {
   ///
   /// * [bool] getLastPoint:
   ///   gets the last known location of the user
-  Future<List<LegResponse>?> getTrackingLegs(num version, { String? deviceId, int? accountId, int? ownerId, String? trackingDeviceId, int? startDate, int? endDate, String? tags, bool? getLastPoint, }) async {
-    final response = await getTrackingLegsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, ownerId: ownerId, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, getLastPoint: getLastPoint, );
+  Future<List<LegResponse>?> getTrackingLegs({ String? deviceId, int? accountId, int? ownerId, String? trackingDeviceId, int? startDate, int? endDate, String? tags, bool? getLastPoint, }) async {
+    final response = await getTrackingLegsWithHttpInfo( deviceId: deviceId, accountId: accountId, ownerId: ownerId, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, getLastPoint: getLastPoint, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -655,8 +630,6 @@ class TrackingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [double] startLat (required):
   ///   the latitude of the first point
@@ -693,10 +666,9 @@ class TrackingApi {
   ///
   /// * [String] tags:
   ///   name the leg for searching
-  Future<Response> saveTrackingLegWithHttpInfo(num version, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, String? steps, String? tags, }) async {
+  Future<Response> saveTrackingLegWithHttpInfo(double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, String? steps, String? tags, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/leg/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/leg/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -750,8 +722,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] startLat (required):
   ///   the latitude of the first point
   ///
@@ -787,8 +757,8 @@ class TrackingApi {
   ///
   /// * [String] tags:
   ///   name the leg for searching
-  Future<SirqulResponse?> saveTrackingLeg(num version, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, String? steps, String? tags, }) async {
-    final response = await saveTrackingLegWithHttpInfo(version, startLat, startLng, startDate, endLat, endLng, endDate,  deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, steps: steps, tags: tags, );
+  Future<SirqulResponse?> saveTrackingLeg(double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, String? steps, String? tags, }) async {
+    final response = await saveTrackingLegWithHttpInfo(startLat, startLng, startDate, endLat, endLng, endDate,  deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, steps: steps, tags: tags, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -809,8 +779,6 @@ class TrackingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] legId (required):
   ///   the leg to add the step to
@@ -844,10 +812,9 @@ class TrackingApi {
   ///
   /// * [int] duration:
   ///   the total duration
-  Future<Response> saveTrackingStepWithHttpInfo(num version, int legId, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, }) async {
+  Future<Response> saveTrackingStepWithHttpInfo(int legId, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/step/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/step/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -896,8 +863,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] legId (required):
   ///   the leg to add the step to
   ///
@@ -930,8 +895,8 @@ class TrackingApi {
   ///
   /// * [int] duration:
   ///   the total duration
-  Future<SirqulResponse?> saveTrackingStep(num version, int legId, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, }) async {
-    final response = await saveTrackingStepWithHttpInfo(version, legId, startLat, startLng, startDate, endLat, endLng, endDate,  deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, );
+  Future<SirqulResponse?> saveTrackingStep(int legId, double startLat, double startLng, int startDate, double endLat, double endLng, int endDate, { String? deviceId, int? accountId, double? distance, int? duration, }) async {
+    final response = await saveTrackingStepWithHttpInfo(legId, startLat, startLng, startDate, endLat, endLng, endDate,  deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -952,8 +917,6 @@ class TrackingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id of the user
@@ -996,10 +959,9 @@ class TrackingApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results. Default is false.
-  Future<Response> searchAccountsWithTrackingLegsWithHttpInfo(num version, int accountId, { String? keyword, int? startDate, int? endDate, String? tags, String? audienceIds, double? latitude, double? longitude, double? range, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchAccountsWithTrackingLegsWithHttpInfo(int accountId, { String? keyword, int? startDate, int? endDate, String? tags, String? audienceIds, double? latitude, double? longitude, double? range, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1069,8 +1031,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -1112,8 +1072,8 @@ class TrackingApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results. Default is false.
-  Future<List<AccountMiniResponse>?> searchAccountsWithTrackingLegs(num version, int accountId, { String? keyword, int? startDate, int? endDate, String? tags, String? audienceIds, double? latitude, double? longitude, double? range, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchAccountsWithTrackingLegsWithHttpInfo(version, accountId,  keyword: keyword, startDate: startDate, endDate: endDate, tags: tags, audienceIds: audienceIds, latitude: latitude, longitude: longitude, range: range, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<AccountMiniResponse>?> searchAccountsWithTrackingLegs(int accountId, { String? keyword, int? startDate, int? endDate, String? tags, String? audienceIds, double? latitude, double? longitude, double? range, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchAccountsWithTrackingLegsWithHttpInfo(accountId,  keyword: keyword, startDate: startDate, endDate: endDate, tags: tags, audienceIds: audienceIds, latitude: latitude, longitude: longitude, range: range, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1138,8 +1098,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id to search tracking for
   ///
@@ -1163,10 +1121,9 @@ class TrackingApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<Response> searchTrackingLegsWithHttpInfo(num version, int accountId, String appKey, { String? trackingDeviceId, int? startDate, int? endDate, String? tags, int? start, int? limit, }) async {
+  Future<Response> searchTrackingLegsWithHttpInfo(int accountId, String appKey, { String? trackingDeviceId, int? startDate, int? endDate, String? tags, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/tracking/searchByBillable'
-      .replaceAll('{version}', version.toString());
+    final path = r'/tracking/searchByBillable';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1216,8 +1173,6 @@ class TrackingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id to search tracking for
   ///
@@ -1241,8 +1196,8 @@ class TrackingApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<List<LegResponse>?> searchTrackingLegs(num version, int accountId, String appKey, { String? trackingDeviceId, int? startDate, int? endDate, String? tags, int? start, int? limit, }) async {
-    final response = await searchTrackingLegsWithHttpInfo(version, accountId, appKey,  trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, start: start, limit: limit, );
+  Future<List<LegResponse>?> searchTrackingLegs(int accountId, String appKey, { String? trackingDeviceId, int? startDate, int? endDate, String? tags, int? start, int? limit, }) async {
+    final response = await searchTrackingLegsWithHttpInfo(accountId, appKey,  trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

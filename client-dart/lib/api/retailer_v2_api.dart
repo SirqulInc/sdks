@@ -24,8 +24,6 @@ class RetailerV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   the id of the retailer
   ///
@@ -43,10 +41,9 @@ class RetailerV2Api {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<Response> getRetaokilerWithHttpInfo(num version, int retailerId, bool activeOnly, { String? keyword, String? sortField, int? start, int? limit, }) async {
+  Future<Response> getRetaokilerWithHttpInfo(int retailerId, bool activeOnly, { String? keyword, String? sortField, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -90,8 +87,6 @@ class RetailerV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   the id of the retailer
   ///
@@ -109,8 +104,8 @@ class RetailerV2Api {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<SirqulResponse?> getRetaokiler(num version, int retailerId, bool activeOnly, { String? keyword, String? sortField, int? start, int? limit, }) async {
-    final response = await getRetaokilerWithHttpInfo(version, retailerId, activeOnly,  keyword: keyword, sortField: sortField, start: start, limit: limit, );
+  Future<SirqulResponse?> getRetaokiler(int retailerId, bool activeOnly, { String? keyword, String? sortField, int? start, int? limit, }) async {
+    final response = await getRetaokilerWithHttpInfo(retailerId, activeOnly,  keyword: keyword, sortField: sortField, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

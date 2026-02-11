@@ -24,8 +24,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key for filtering results by application
   ///
@@ -55,10 +53,9 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> getHistoricalRankingsWithHttpInfo(num version, String appKey, String rankType, int startDate, int endDate, { String? deviceId, int? accountId, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> getHistoricalRankingsWithHttpInfo(String appKey, String rankType, int startDate, int endDate, { String? deviceId, int? accountId, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ranking/historical/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ranking/historical/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -110,8 +107,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key for filtering results by application
   ///
@@ -141,8 +136,8 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<RankFullResponse?> getHistoricalRankings(num version, String appKey, String rankType, int startDate, int endDate, { String? deviceId, int? accountId, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await getHistoricalRankingsWithHttpInfo(version, appKey, rankType, startDate, endDate,  deviceId: deviceId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<RankFullResponse?> getHistoricalRankings(String appKey, String rankType, int startDate, int endDate, { String? deviceId, int? accountId, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await getHistoricalRankingsWithHttpInfo(appKey, rankType, startDate, endDate,  deviceId: deviceId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -163,8 +158,6 @@ class RankingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
@@ -219,10 +212,9 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> getRankingsWithHttpInfo(num version, { String? deviceId, int? accountId, String? gameType, String? appKey, String? q, String? keyword, String? rankType, String? leaderboardMode, String? withinAccountIds, bool? returnUserRank, int? albumId, int? audienceId, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, }) async {
+  Future<Response> getRankingsWithHttpInfo({ String? deviceId, int? accountId, String? gameType, String? appKey, String? q, String? keyword, String? rankType, String? leaderboardMode, String? withinAccountIds, bool? returnUserRank, int? albumId, int? audienceId, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ranking/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ranking/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -306,8 +298,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -361,8 +351,8 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<RankFullResponse?> getRankings(num version, { String? deviceId, int? accountId, String? gameType, String? appKey, String? q, String? keyword, String? rankType, String? leaderboardMode, String? withinAccountIds, bool? returnUserRank, int? albumId, int? audienceId, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, }) async {
-    final response = await getRankingsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, q: q, keyword: keyword, rankType: rankType, leaderboardMode: leaderboardMode, withinAccountIds: withinAccountIds, returnUserRank: returnUserRank, albumId: albumId, audienceId: audienceId, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, );
+  Future<RankFullResponse?> getRankings({ String? deviceId, int? accountId, String? gameType, String? appKey, String? q, String? keyword, String? rankType, String? leaderboardMode, String? withinAccountIds, bool? returnUserRank, int? albumId, int? audienceId, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, }) async {
+    final response = await getRankingsWithHttpInfo( deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, q: q, keyword: keyword, rankType: rankType, leaderboardMode: leaderboardMode, withinAccountIds: withinAccountIds, returnUserRank: returnUserRank, albumId: albumId, audienceId: audienceId, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -383,8 +373,6 @@ class RankingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
@@ -418,10 +406,9 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> getUserRankWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, String? rankType, bool? returnUserRank, String? leaderboardMode, String? sortField, String? keyword, bool? descending, int? start, int? limit, }) async {
+  Future<Response> getUserRankWithHttpInfo({ String? deviceId, int? accountId, String? appKey, String? rankType, bool? returnUserRank, String? leaderboardMode, String? sortField, String? keyword, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ranking/personal/ranks'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ranking/personal/ranks';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -484,8 +471,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -518,8 +503,8 @@ class RankingApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Object?> getUserRank(num version, { String? deviceId, int? accountId, String? appKey, String? rankType, bool? returnUserRank, String? leaderboardMode, String? sortField, String? keyword, bool? descending, int? start, int? limit, }) async {
-    final response = await getUserRankWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, rankType: rankType, returnUserRank: returnUserRank, leaderboardMode: leaderboardMode, sortField: sortField, keyword: keyword, descending: descending, start: start, limit: limit, );
+  Future<Object?> getUserRank({ String? deviceId, int? accountId, String? appKey, String? rankType, bool? returnUserRank, String? leaderboardMode, String? sortField, String? keyword, bool? descending, int? start, int? limit, }) async {
+    final response = await getUserRankWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, rankType: rankType, returnUserRank: returnUserRank, leaderboardMode: leaderboardMode, sortField: sortField, keyword: keyword, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -540,8 +525,6 @@ class RankingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the logged in user's account id (must have permissions to manage data for the application)
@@ -608,10 +591,9 @@ class RankingApi {
   ///
   /// * [int] endDate:
   ///   the end date to update
-  Future<Response> overrideUserRankWithHttpInfo(num version, int accountId, int ownerAccountId, String appKey, String rankType, { int? totalScore, int? totalCount, int? totalTime, int? dailyScore, int? dailyCount, int? dailyTime, int? weeklyScore, int? weeklyCount, int? weeklyTime, int? monthlyScore, int? monthlyCount, int? monthlyTime, int? topScore, int? lowestScore, int? streakCount, int? streakBestCount, int? startDate, int? endDate, }) async {
+  Future<Response> overrideUserRankWithHttpInfo(int accountId, int ownerAccountId, String appKey, String rankType, { int? totalScore, int? totalCount, int? totalTime, int? dailyScore, int? dailyCount, int? dailyTime, int? weeklyScore, int? weeklyCount, int? weeklyTime, int? monthlyScore, int? monthlyCount, int? monthlyTime, int? topScore, int? lowestScore, int? streakCount, int? streakBestCount, int? startDate, int? endDate, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ranking/override'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ranking/override';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -699,8 +681,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the logged in user's account id (must have permissions to manage data for the application)
   ///
@@ -766,8 +746,8 @@ class RankingApi {
   ///
   /// * [int] endDate:
   ///   the end date to update
-  Future<SirqulResponse?> overrideUserRank(num version, int accountId, int ownerAccountId, String appKey, String rankType, { int? totalScore, int? totalCount, int? totalTime, int? dailyScore, int? dailyCount, int? dailyTime, int? weeklyScore, int? weeklyCount, int? weeklyTime, int? monthlyScore, int? monthlyCount, int? monthlyTime, int? topScore, int? lowestScore, int? streakCount, int? streakBestCount, int? startDate, int? endDate, }) async {
-    final response = await overrideUserRankWithHttpInfo(version, accountId, ownerAccountId, appKey, rankType,  totalScore: totalScore, totalCount: totalCount, totalTime: totalTime, dailyScore: dailyScore, dailyCount: dailyCount, dailyTime: dailyTime, weeklyScore: weeklyScore, weeklyCount: weeklyCount, weeklyTime: weeklyTime, monthlyScore: monthlyScore, monthlyCount: monthlyCount, monthlyTime: monthlyTime, topScore: topScore, lowestScore: lowestScore, streakCount: streakCount, streakBestCount: streakBestCount, startDate: startDate, endDate: endDate, );
+  Future<SirqulResponse?> overrideUserRank(int accountId, int ownerAccountId, String appKey, String rankType, { int? totalScore, int? totalCount, int? totalTime, int? dailyScore, int? dailyCount, int? dailyTime, int? weeklyScore, int? weeklyCount, int? weeklyTime, int? monthlyScore, int? monthlyCount, int? monthlyTime, int? topScore, int? lowestScore, int? streakCount, int? streakBestCount, int? startDate, int? endDate, }) async {
+    final response = await overrideUserRankWithHttpInfo(accountId, ownerAccountId, appKey, rankType,  totalScore: totalScore, totalCount: totalCount, totalTime: totalTime, dailyScore: dailyScore, dailyCount: dailyCount, dailyTime: dailyTime, weeklyScore: weeklyScore, weeklyCount: weeklyCount, weeklyTime: weeklyTime, monthlyScore: monthlyScore, monthlyCount: monthlyCount, monthlyTime: monthlyTime, topScore: topScore, lowestScore: lowestScore, streakCount: streakCount, streakBestCount: streakBestCount, startDate: startDate, endDate: endDate, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -788,8 +768,6 @@ class RankingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the account id of the user
@@ -820,10 +798,9 @@ class RankingApi {
   ///
   /// * [bool] createLeaderboard:
   ///   create the leaderboard if it does not exist (default false)
-  Future<Response> updateRankingsWithHttpInfo(num version, int accountId, String appKey, String rankType, { int? increment, int? timeIncrement, String? tag, int? startDate, int? endDate, bool? updateGlobal, bool? createLeaderboard, }) async {
+  Future<Response> updateRankingsWithHttpInfo(int accountId, String appKey, String rankType, { int? increment, int? timeIncrement, String? tag, int? startDate, int? endDate, bool? updateGlobal, bool? createLeaderboard, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/ranking/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/ranking/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -877,8 +854,6 @@ class RankingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -908,8 +883,8 @@ class RankingApi {
   ///
   /// * [bool] createLeaderboard:
   ///   create the leaderboard if it does not exist (default false)
-  Future<SirqulResponse?> updateRankings(num version, int accountId, String appKey, String rankType, { int? increment, int? timeIncrement, String? tag, int? startDate, int? endDate, bool? updateGlobal, bool? createLeaderboard, }) async {
-    final response = await updateRankingsWithHttpInfo(version, accountId, appKey, rankType,  increment: increment, timeIncrement: timeIncrement, tag: tag, startDate: startDate, endDate: endDate, updateGlobal: updateGlobal, createLeaderboard: createLeaderboard, );
+  Future<SirqulResponse?> updateRankings(int accountId, String appKey, String rankType, { int? increment, int? timeIncrement, String? tag, int? startDate, int? endDate, bool? updateGlobal, bool? createLeaderboard, }) async {
+    final response = await updateRankingsWithHttpInfo(accountId, appKey, rankType,  increment: increment, timeIncrement: timeIncrement, tag: tag, startDate: startDate, endDate: endDate, updateGlobal: updateGlobal, createLeaderboard: createLeaderboard, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

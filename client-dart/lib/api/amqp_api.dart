@@ -24,8 +24,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
   ///
@@ -67,10 +65,9 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<Response> consumerCreateWithHttpInfo(num version, String appKey, String name, String hostname, String username, String password, String dataMapping, { String? deviceId, int? accountId, int? port, String? virtualHost, String? exchanger, String? exchangerType, int? workers, bool? useSSL, }) async {
+  Future<Response> consumerCreateWithHttpInfo(String appKey, String name, String hostname, String username, String password, String dataMapping, { String? deviceId, int? accountId, int? port, String? virtualHost, String? exchanger, String? exchangerType, int? workers, bool? useSSL, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/consumer/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/consumer/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -130,8 +127,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
   ///
@@ -173,8 +168,8 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<QueueResponse?> consumerCreate(num version, String appKey, String name, String hostname, String username, String password, String dataMapping, { String? deviceId, int? accountId, int? port, String? virtualHost, String? exchanger, String? exchangerType, int? workers, bool? useSSL, }) async {
-    final response = await consumerCreateWithHttpInfo(version, appKey, name, hostname, username, password, dataMapping,  deviceId: deviceId, accountId: accountId, port: port, virtualHost: virtualHost, exchanger: exchanger, exchangerType: exchangerType, workers: workers, useSSL: useSSL, );
+  Future<QueueResponse?> consumerCreate(String appKey, String name, String hostname, String username, String password, String dataMapping, { String? deviceId, int? accountId, int? port, String? virtualHost, String? exchanger, String? exchangerType, int? workers, bool? useSSL, }) async {
+    final response = await consumerCreateWithHttpInfo(appKey, name, hostname, username, password, dataMapping,  deviceId: deviceId, accountId: accountId, port: port, virtualHost: virtualHost, exchanger: exchanger, exchangerType: exchangerType, workers: workers, useSSL: useSSL, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -196,8 +191,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
   ///
@@ -215,10 +208,9 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<Response> consumerUpdateWithHttpInfo(num version, String appKey, int queueId, String dataMapping, { String? deviceId, int? accountId, bool? useSSL, }) async {
+  Future<Response> consumerUpdateWithHttpInfo(String appKey, int queueId, String dataMapping, { String? deviceId, int? accountId, bool? useSSL, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/consumer/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/consumer/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -260,8 +252,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
   ///
@@ -279,8 +269,8 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<QueueResponse?> consumerUpdate(num version, String appKey, int queueId, String dataMapping, { String? deviceId, int? accountId, bool? useSSL, }) async {
-    final response = await consumerUpdateWithHttpInfo(version, appKey, queueId, dataMapping,  deviceId: deviceId, accountId: accountId, useSSL: useSSL, );
+  Future<QueueResponse?> consumerUpdate(String appKey, int queueId, String dataMapping, { String? deviceId, int? accountId, bool? useSSL, }) async {
+    final response = await consumerUpdateWithHttpInfo(appKey, queueId, dataMapping,  deviceId: deviceId, accountId: accountId, useSSL: useSSL, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -301,8 +291,6 @@ class AMQPApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   The application key unique to each application.
@@ -339,10 +327,9 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<Response> queueCreateWithHttpInfo(num version, String appKey, String name, { String? deviceId, int? accountId, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
+  Future<Response> queueCreateWithHttpInfo(String appKey, String name, { String? deviceId, int? accountId, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -404,8 +391,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   The application key unique to each application.
   ///
@@ -441,8 +426,8 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   Use SSL
-  Future<QueueResponse?> queueCreate(num version, String appKey, String name, { String? deviceId, int? accountId, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
-    final response = await queueCreateWithHttpInfo(version, appKey, name,  deviceId: deviceId, accountId: accountId, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, );
+  Future<QueueResponse?> queueCreate(String appKey, String name, { String? deviceId, int? accountId, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
+    final response = await queueCreateWithHttpInfo(appKey, name,  deviceId: deviceId, accountId: accountId, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -464,8 +449,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] queueId (required):
   ///   The id of the queue to find
   ///
@@ -474,10 +457,9 @@ class AMQPApi {
   ///
   /// * [int] accountId:
   ///   The logged in user ID
-  Future<Response> queueDeleteWithHttpInfo(num version, int queueId, { String? deviceId, int? accountId, }) async {
+  Future<Response> queueDeleteWithHttpInfo(int queueId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -514,8 +496,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] queueId (required):
   ///   The id of the queue to find
   ///
@@ -524,8 +504,8 @@ class AMQPApi {
   ///
   /// * [int] accountId:
   ///   The logged in user ID
-  Future<SirqulResponse?> queueDelete(num version, int queueId, { String? deviceId, int? accountId, }) async {
-    final response = await queueDeleteWithHttpInfo(version, queueId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> queueDelete(int queueId, { String? deviceId, int? accountId, }) async {
+    final response = await queueDeleteWithHttpInfo(queueId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -547,8 +527,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The client device ID
   ///
@@ -569,10 +547,9 @@ class AMQPApi {
   ///
   /// * [String] virtualHost:
   ///   The virtual host of the queue to find
-  Future<Response> queueGetWithHttpInfo(num version, { String? deviceId, int? accountId, int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
+  Future<Response> queueGetWithHttpInfo({ String? deviceId, int? accountId, int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -623,8 +600,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The client device ID
   ///
@@ -645,8 +620,8 @@ class AMQPApi {
   ///
   /// * [String] virtualHost:
   ///   The virtual host of the queue to find
-  Future<QueueResponse?> queueGet(num version, { String? deviceId, int? accountId, int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
-    final response = await queueGetWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, );
+  Future<QueueResponse?> queueGet({ String? deviceId, int? accountId, int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
+    final response = await queueGetWithHttpInfo( deviceId: deviceId, accountId: accountId, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -668,8 +643,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] message (required):
   ///   The payload to send to the queue
   ///
@@ -687,10 +660,9 @@ class AMQPApi {
   ///
   /// * [String] virtualHost:
   ///   The virtual host defined on the server to queue
-  Future<Response> queuePublishWithHttpInfo(num version, String message, { int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
+  Future<Response> queuePublishWithHttpInfo(String message, { int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/publish'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/publish';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -736,8 +708,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] message (required):
   ///   The payload to send to the queue
   ///
@@ -755,8 +725,8 @@ class AMQPApi {
   ///
   /// * [String] virtualHost:
   ///   The virtual host defined on the server to queue
-  Future<SirqulResponse?> queuePublish(num version, String message, { int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
-    final response = await queuePublishWithHttpInfo(version, message,  queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, );
+  Future<SirqulResponse?> queuePublish(String message, { int? queueId, String? appKey, String? name, String? hostname, String? virtualHost, }) async {
+    final response = await queuePublishWithHttpInfo(message,  queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -778,8 +748,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] queueId:
   ///   The id of the queue to find
   ///
@@ -797,10 +765,9 @@ class AMQPApi {
   ///
   /// * [int] limit:
   ///   Limit of the index
-  Future<Response> queueSearchWithHttpInfo(num version, { int? queueId, String? deviceId, int? accountId, String? name, int? start, int? limit, }) async {
+  Future<Response> queueSearchWithHttpInfo({ int? queueId, String? deviceId, int? accountId, String? name, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -848,8 +815,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] queueId:
   ///   The id of the queue to find
   ///
@@ -867,8 +832,8 @@ class AMQPApi {
   ///
   /// * [int] limit:
   ///   Limit of the index
-  Future<QueueResponse?> queueSearch(num version, { int? queueId, String? deviceId, int? accountId, String? name, int? start, int? limit, }) async {
-    final response = await queueSearchWithHttpInfo(version,  queueId: queueId, deviceId: deviceId, accountId: accountId, name: name, start: start, limit: limit, );
+  Future<QueueResponse?> queueSearch({ int? queueId, String? deviceId, int? accountId, String? name, int? start, int? limit, }) async {
+    final response = await queueSearchWithHttpInfo( queueId: queueId, deviceId: deviceId, accountId: accountId, name: name, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -889,8 +854,6 @@ class AMQPApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] queueId (required):
   ///   The id of the queue to update
@@ -927,10 +890,9 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   the SSL to use
-  Future<Response> queueUpdateWithHttpInfo(num version, int queueId, { String? deviceId, int? accountId, String? appKey, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
+  Future<Response> queueUpdateWithHttpInfo(int queueId, { String? deviceId, int? accountId, String? appKey, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/queue/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/queue/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -994,8 +956,6 @@ class AMQPApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] queueId (required):
   ///   The id of the queue to update
   ///
@@ -1031,8 +991,8 @@ class AMQPApi {
   ///
   /// * [bool] useSSL:
   ///   the SSL to use
-  Future<QueueResponse?> queueUpdate(num version, int queueId, { String? deviceId, int? accountId, String? appKey, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
-    final response = await queueUpdateWithHttpInfo(version, queueId,  deviceId: deviceId, accountId: accountId, appKey: appKey, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, );
+  Future<QueueResponse?> queueUpdate(int queueId, { String? deviceId, int? accountId, String? appKey, int? workers, String? analyticTags, String? hostname, int? port, String? username, String? password, String? virtualHost, bool? useSSL, }) async {
+    final response = await queueUpdateWithHttpInfo(queueId,  deviceId: deviceId, accountId: accountId, appKey: appKey, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

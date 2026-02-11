@@ -24,17 +24,14 @@ class StripeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   Sirqul Application Key
   ///
   /// * [String] stripeParameters (required):
   ///   Stripe Parameters
-  Future<Response> createStripeCheckoutSessionWithHttpInfo(num version, String appKey, String stripeParameters,) async {
+  Future<Response> createStripeCheckoutSessionWithHttpInfo(String appKey, String stripeParameters,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/stripe/checkout/session/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/stripe/checkout/session/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -66,15 +63,13 @@ class StripeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   Sirqul Application Key
   ///
   /// * [String] stripeParameters (required):
   ///   Stripe Parameters
-  Future<SirqulResponse?> createStripeCheckoutSession(num version, String appKey, String stripeParameters,) async {
-    final response = await createStripeCheckoutSessionWithHttpInfo(version, appKey, stripeParameters,);
+  Future<SirqulResponse?> createStripeCheckoutSession(String appKey, String stripeParameters,) async {
+    final response = await createStripeCheckoutSessionWithHttpInfo(appKey, stripeParameters,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

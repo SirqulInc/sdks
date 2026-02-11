@@ -24,13 +24,10 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [CargoType] body:
-  Future<Response> createCargoTypeWithHttpInfo(num version, { CargoType? body, }) async {
+  Future<Response> createCargoTypeWithHttpInfo({ CargoType? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/type'
-      .replaceAll('{version}', version.toString());
+    final path = r'/cargo/type';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [CargoType] body:
-  Future<CargoType?> createCargoType(num version, { CargoType? body, }) async {
-    final response = await createCargoTypeWithHttpInfo(version,  body: body, );
+  Future<CargoType?> createCargoType({ CargoType? body, }) async {
+    final response = await createCargoTypeWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the ID of the cargo type
-  Future<Response> deleteCargoTypeWithHttpInfo(num version, int cargoTypeId,) async {
+  Future<Response> deleteCargoTypeWithHttpInfo(int cargoTypeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/type/{cargoTypeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/type/{cargoTypeId}'
       .replaceAll('{cargoTypeId}', cargoTypeId.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the ID of the cargo type
-  Future<void> deleteCargoType(num version, int cargoTypeId,) async {
-    final response = await deleteCargoTypeWithHttpInfo(version, cargoTypeId,);
+  Future<void> deleteCargoType(int cargoTypeId,) async {
+    final response = await deleteCargoTypeWithHttpInfo(cargoTypeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,14 +131,11 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the cargo type ID
-  Future<Response> getCargoTypeWithHttpInfo(num version, int cargoTypeId,) async {
+  Future<Response> getCargoTypeWithHttpInfo(int cargoTypeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/type/{cargoTypeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/type/{cargoTypeId}'
       .replaceAll('{cargoTypeId}', cargoTypeId.toString());
 
     // ignore: prefer_final_locals
@@ -178,12 +165,10 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the cargo type ID
-  Future<CargoType?> getCargoType(num version, int cargoTypeId,) async {
-    final response = await getCargoTypeWithHttpInfo(version, cargoTypeId,);
+  Future<CargoType?> getCargoType(int cargoTypeId,) async {
+    final response = await getCargoTypeWithHttpInfo(cargoTypeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,8 +190,6 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the sort field to use for the cargo type
   ///
@@ -227,10 +210,9 @@ class CargoTypeApi {
   ///
   /// * [int] hubId:
   ///   the ID of the hub
-  Future<Response> searchCargoTypesWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? retailerId, int? hubId, }) async {
+  Future<Response> searchCargoTypesWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { int? retailerId, int? hubId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/type'
-      .replaceAll('{version}', version.toString());
+    final path = r'/cargo/type';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -271,8 +253,6 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the sort field to use for the cargo type
   ///
@@ -293,8 +273,8 @@ class CargoTypeApi {
   ///
   /// * [int] hubId:
   ///   the ID of the hub
-  Future<List<CargoType>?> searchCargoTypes(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? retailerId, int? hubId, }) async {
-    final response = await searchCargoTypesWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  retailerId: retailerId, hubId: hubId, );
+  Future<List<CargoType>?> searchCargoTypes(String sortField, bool descending, int start, int limit, bool activeOnly, { int? retailerId, int? hubId, }) async {
+    final response = await searchCargoTypesWithHttpInfo(sortField, descending, start, limit, activeOnly,  retailerId: retailerId, hubId: hubId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -319,16 +299,13 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the ID of the cargo type
   ///
   /// * [CargoType] body:
-  Future<Response> updateCargoTypeWithHttpInfo(num version, int cargoTypeId, { CargoType? body, }) async {
+  Future<Response> updateCargoTypeWithHttpInfo(int cargoTypeId, { CargoType? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/cargo/type/{cargoTypeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/cargo/type/{cargoTypeId}'
       .replaceAll('{cargoTypeId}', cargoTypeId.toString());
 
     // ignore: prefer_final_locals
@@ -358,14 +335,12 @@ class CargoTypeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] cargoTypeId (required):
   ///   the ID of the cargo type
   ///
   /// * [CargoType] body:
-  Future<CargoType?> updateCargoType(num version, int cargoTypeId, { CargoType? body, }) async {
-    final response = await updateCargoTypeWithHttpInfo(version, cargoTypeId,  body: body, );
+  Future<CargoType?> updateCargoType(int cargoTypeId, { CargoType? body, }) async {
+    final response = await updateCargoTypeWithHttpInfo(cargoTypeId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

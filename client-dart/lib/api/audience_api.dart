@@ -24,8 +24,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -112,10 +110,9 @@ class AudienceApi {
   ///
   /// * [bool] uniqueName:
   ///   If true, makes sure the audience name is unique
-  Future<Response> createAudienceWithHttpInfo(num version, int accountId, String name, { String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, int? startTimeOffset, int? endTimeOffset, bool? sendSuggestion, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
+  Future<Response> createAudienceWithHttpInfo(int accountId, String name, { String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, int? startTimeOffset, int? endTimeOffset, bool? sendSuggestion, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -228,8 +225,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -316,8 +311,8 @@ class AudienceApi {
   ///
   /// * [bool] uniqueName:
   ///   If true, makes sure the audience name is unique
-  Future<AudienceResponse?> createAudience(num version, int accountId, String name, { String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, int? startTimeOffset, int? endTimeOffset, bool? sendSuggestion, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
-    final response = await createAudienceWithHttpInfo(version, accountId, name,  description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, sendSuggestion: sendSuggestion, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, );
+  Future<AudienceResponse?> createAudience(int accountId, String name, { String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, int? startTimeOffset, int? endTimeOffset, bool? sendSuggestion, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
+    final response = await createAudienceWithHttpInfo(accountId, name,  description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, sendSuggestion: sendSuggestion, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -339,17 +334,14 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] audienceId (required):
   ///   The id of the audience to delete.
-  Future<Response> deleteAudienceWithHttpInfo(num version, int accountId, int audienceId,) async {
+  Future<Response> deleteAudienceWithHttpInfo(int accountId, int audienceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -381,15 +373,13 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] audienceId (required):
   ///   The id of the audience to delete.
-  Future<SirqulResponse?> deleteAudience(num version, int accountId, int audienceId,) async {
-    final response = await deleteAudienceWithHttpInfo(version, accountId, audienceId,);
+  Future<SirqulResponse?> deleteAudience(int accountId, int audienceId,) async {
+    final response = await deleteAudienceWithHttpInfo(accountId, audienceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -408,14 +398,9 @@ class AudienceApi {
   /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<Response> getAgeGroupsWithHttpInfo(num version,) async {
+  Future<Response> getAgeGroupsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/ageGroups'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/ageGroups';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -441,12 +426,8 @@ class AudienceApi {
   /// Get Age Groups
   ///
   /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<List<AgeGroupResponse>?> getAgeGroups(num version,) async {
-    final response = await getAgeGroupsWithHttpInfo(version,);
+  Future<List<AgeGroupResponse>?> getAgeGroups() async {
+    final response = await getAgeGroupsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -471,8 +452,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -490,10 +469,9 @@ class AudienceApi {
   ///
   /// * [String] albumTypesForCount:
   ///   (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
-  Future<Response> getAudienceWithHttpInfo(num version, int accountId, int audienceId, { String? appKey, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
+  Future<Response> getAudienceWithHttpInfo(int accountId, int audienceId, { String? appKey, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -537,8 +515,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -556,8 +532,8 @@ class AudienceApi {
   ///
   /// * [String] albumTypesForCount:
   ///   (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
-  Future<AudienceResponse?> getAudience(num version, int accountId, int audienceId, { String? appKey, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
-    final response = await getAudienceWithHttpInfo(version, accountId, audienceId,  appKey: appKey, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, );
+  Future<AudienceResponse?> getAudience(int accountId, int audienceId, { String? appKey, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
+    final response = await getAudienceWithHttpInfo(accountId, audienceId,  appKey: appKey, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -578,8 +554,6 @@ class AudienceApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The logged in user.
@@ -637,10 +611,9 @@ class AudienceApi {
   ///
   /// * [String] albumTypesForCount:
   ///   (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
-  Future<Response> getAudienceListWithHttpInfo(num version, { int? accountId, String? albumIds, String? keyword, String? keywordFields, String? sortField, bool? descending, int? start, int? limit, bool? sendSuggestion, bool? activeOnly, bool? groupByGroupingId, String? appKey, bool? returnGlobal, bool? exactKeyword, String? audienceType, String? audienceTypes, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
+  Future<Response> getAudienceListWithHttpInfo({ int? accountId, String? albumIds, String? keyword, String? keywordFields, String? sortField, bool? descending, int? start, int? limit, bool? sendSuggestion, bool? activeOnly, bool? groupByGroupingId, String? appKey, bool? returnGlobal, bool? exactKeyword, String? audienceType, String? audienceTypes, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -727,8 +700,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The logged in user.
   ///
@@ -785,8 +756,8 @@ class AudienceApi {
   ///
   /// * [String] albumTypesForCount:
   ///   (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
-  Future<List<SearchResponse>?> getAudienceList(num version, { int? accountId, String? albumIds, String? keyword, String? keywordFields, String? sortField, bool? descending, int? start, int? limit, bool? sendSuggestion, bool? activeOnly, bool? groupByGroupingId, String? appKey, bool? returnGlobal, bool? exactKeyword, String? audienceType, String? audienceTypes, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
-    final response = await getAudienceListWithHttpInfo(version,  accountId: accountId, albumIds: albumIds, keyword: keyword, keywordFields: keywordFields, sortField: sortField, descending: descending, start: start, limit: limit, sendSuggestion: sendSuggestion, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, appKey: appKey, returnGlobal: returnGlobal, exactKeyword: exactKeyword, audienceType: audienceType, audienceTypes: audienceTypes, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, );
+  Future<List<SearchResponse>?> getAudienceList({ int? accountId, String? albumIds, String? keyword, String? keywordFields, String? sortField, bool? descending, int? start, int? limit, bool? sendSuggestion, bool? activeOnly, bool? groupByGroupingId, String? appKey, bool? returnGlobal, bool? exactKeyword, String? audienceType, String? audienceTypes, bool? returnAccountCount, bool? returnAlbumCount, String? albumTypesForCount, }) async {
+    final response = await getAudienceListWithHttpInfo( accountId: accountId, albumIds: albumIds, keyword: keyword, keywordFields: keywordFields, sortField: sortField, descending: descending, start: start, limit: limit, sendSuggestion: sendSuggestion, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, appKey: appKey, returnGlobal: returnGlobal, exactKeyword: exactKeyword, audienceType: audienceType, audienceTypes: audienceTypes, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -811,14 +782,11 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] includeInactive (required):
   ///   If true return inactive record as well. default is false.
-  Future<Response> getDevicesWithHttpInfo(num version, bool includeInactive,) async {
+  Future<Response> getDevicesWithHttpInfo(bool includeInactive,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/devices'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/devices';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -849,12 +817,10 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] includeInactive (required):
   ///   If true return inactive record as well. default is false.
-  Future<List<AudienceDeviceResponse>?> getDevices(num version, bool includeInactive,) async {
-    final response = await getDevicesWithHttpInfo(version, includeInactive,);
+  Future<List<AudienceDeviceResponse>?> getDevices(bool includeInactive,) async {
+    final response = await getDevicesWithHttpInfo(includeInactive,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -876,14 +842,9 @@ class AudienceApi {
   /// Gets the list of available experiences that can be selected by consumers and retailers.
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<Response> getExperiencesWithHttpInfo(num version,) async {
+  Future<Response> getExperiencesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/experiences'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/experiences';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -909,12 +870,8 @@ class AudienceApi {
   /// Get Experiences
   ///
   /// Gets the list of available experiences that can be selected by consumers and retailers.
-  ///
-  /// Parameters:
-  ///
-  /// * [num] version (required):
-  Future<SirqulResponse?> getExperiences(num version,) async {
-    final response = await getExperiencesWithHttpInfo(version,);
+  Future<SirqulResponse?> getExperiences() async {
+    final response = await getExperiencesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -936,17 +893,14 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [String] audienceGroupingId (required):
   ///   The audience grouping id to return.
-  Future<Response> getGroupedAudiencesWithHttpInfo(num version, int accountId, String audienceGroupingId,) async {
+  Future<Response> getGroupedAudiencesWithHttpInfo(int accountId, String audienceGroupingId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/grouped/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/grouped/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -978,15 +932,13 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [String] audienceGroupingId (required):
   ///   The audience grouping id to return.
-  Future<AudienceResponse?> getGroupedAudiences(num version, int accountId, String audienceGroupingId,) async {
-    final response = await getGroupedAudiencesWithHttpInfo(version, accountId, audienceGroupingId,);
+  Future<AudienceResponse?> getGroupedAudiences(int accountId, String audienceGroupingId,) async {
+    final response = await getGroupedAudiencesWithHttpInfo(accountId, audienceGroupingId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1008,8 +960,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1018,10 +968,9 @@ class AudienceApi {
   ///
   /// * [String] suggestionType (required):
   ///   the type of suggestion
-  Future<Response> listByAccountWithHttpInfo(num version, int accountId, int limit, String suggestionType,) async {
+  Future<Response> listByAccountWithHttpInfo(int accountId, int limit, String suggestionType,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/suggestion/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/suggestion/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1054,8 +1003,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1064,8 +1011,8 @@ class AudienceApi {
   ///
   /// * [String] suggestionType (required):
   ///   the type of suggestion
-  Future<OfferListResponse?> listByAccount(num version, int accountId, int limit, String suggestionType,) async {
-    final response = await listByAccountWithHttpInfo(version, accountId, limit, suggestionType,);
+  Future<OfferListResponse?> listByAccount(int accountId, int limit, String suggestionType,) async {
+    final response = await listByAccountWithHttpInfo(accountId, limit, suggestionType,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1087,8 +1034,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] limit (required):
   ///   this is the limit of the index
   ///
@@ -1106,10 +1051,9 @@ class AudienceApi {
   ///
   /// * [double] longitude:
   ///   this is the longitude to list offers by
-  Future<Response> listByAudienceWithHttpInfo(num version, int limit, { String? gender, int? age, String? categoryIds, double? latitude, double? longitude, }) async {
+  Future<Response> listByAudienceWithHttpInfo(int limit, { String? gender, int? age, String? categoryIds, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/suggestion/offersByAudience'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/suggestion/offersByAudience';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1155,8 +1099,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] limit (required):
   ///   this is the limit of the index
   ///
@@ -1174,8 +1116,8 @@ class AudienceApi {
   ///
   /// * [double] longitude:
   ///   this is the longitude to list offers by
-  Future<OfferListResponse?> listByAudience(num version, int limit, { String? gender, int? age, String? categoryIds, double? latitude, double? longitude, }) async {
-    final response = await listByAudienceWithHttpInfo(version, limit,  gender: gender, age: age, categoryIds: categoryIds, latitude: latitude, longitude: longitude, );
+  Future<OfferListResponse?> listByAudience(int limit, { String? gender, int? age, String? categoryIds, double? latitude, double? longitude, }) async {
+    final response = await listByAudienceWithHttpInfo(limit,  gender: gender, age: age, categoryIds: categoryIds, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1197,8 +1139,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1207,10 +1147,9 @@ class AudienceApi {
   ///
   /// * [String] suggestionType (required):
   ///   The type of trigger suggestions to return
-  Future<Response> listLastestByAccountWithHttpInfo(num version, int accountId, int timeframe, String suggestionType,) async {
+  Future<Response> listLastestByAccountWithHttpInfo(int accountId, int timeframe, String suggestionType,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/suggestion/latest'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/suggestion/latest';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1243,8 +1182,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1253,8 +1190,8 @@ class AudienceApi {
   ///
   /// * [String] suggestionType (required):
   ///   The type of trigger suggestions to return
-  Future<OfferListResponse?> listLastestByAccount(num version, int accountId, int timeframe, String suggestionType,) async {
-    final response = await listLastestByAccountWithHttpInfo(version, accountId, timeframe, suggestionType,);
+  Future<OfferListResponse?> listLastestByAccount(int accountId, int timeframe, String suggestionType,) async {
+    final response = await listLastestByAccountWithHttpInfo(accountId, timeframe, suggestionType,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1276,8 +1213,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1286,10 +1221,9 @@ class AudienceApi {
   ///
   /// * [double] longitude (required):
   ///   the longitude
-  Future<Response> sendByAccountWithHttpInfo(num version, int accountId, double latitude, double longitude,) async {
+  Future<Response> sendByAccountWithHttpInfo(int accountId, double latitude, double longitude,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/suggestion/send'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/suggestion/send';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1322,8 +1256,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to match offers for.
   ///
@@ -1332,8 +1264,8 @@ class AudienceApi {
   ///
   /// * [double] longitude (required):
   ///   the longitude
-  Future<SirqulResponse?> sendByAccount(num version, int accountId, double latitude, double longitude,) async {
-    final response = await sendByAccountWithHttpInfo(version, accountId, latitude, longitude,);
+  Future<SirqulResponse?> sendByAccount(int accountId, double latitude, double longitude,) async {
+    final response = await sendByAccountWithHttpInfo(accountId, latitude, longitude,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1354,8 +1286,6 @@ class AudienceApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -1449,10 +1379,9 @@ class AudienceApi {
   ///
   /// * [bool] uniqueName:
   ///   If true, makes sure the audience name is unique
-  Future<Response> updateAudienceWithHttpInfo(num version, int accountId, int audienceId, { String? name, String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, bool? active, bool? sendSuggestion, int? startTimeOffset, int? endTimeOffset, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
+  Future<Response> updateAudienceWithHttpInfo(int accountId, int audienceId, { String? name, String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, bool? active, bool? sendSuggestion, int? startTimeOffset, int? endTimeOffset, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/audience/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/audience/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1571,8 +1500,6 @@ class AudienceApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1665,8 +1592,8 @@ class AudienceApi {
   ///
   /// * [bool] uniqueName:
   ///   If true, makes sure the audience name is unique
-  Future<AudienceResponse?> updateAudience(num version, int accountId, int audienceId, { String? name, String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, bool? active, bool? sendSuggestion, int? startTimeOffset, int? endTimeOffset, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
-    final response = await updateAudienceWithHttpInfo(version, accountId, audienceId,  name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, active: active, sendSuggestion: sendSuggestion, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, );
+  Future<AudienceResponse?> updateAudience(int accountId, int audienceId, { String? name, String? description, String? searchTags, String? gender, String? ageGroups, String? categoryIds, String? applicationIds, String? gameExperienceLevel, String? devices, String? deviceIds, String? deviceVersions, String? locations, String? radius, bool? active, bool? sendSuggestion, int? startTimeOffset, int? endTimeOffset, String? associateDescription, String? associateType, int? associateId, String? groupingId, String? metaData, String? visibility, String? audienceType, bool? useOrder, String? cohortRegionsData, String? appKey, String? trilaterationTypes, bool? uniqueName, }) async {
+    final response = await updateAudienceWithHttpInfo(accountId, audienceId,  name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, active: active, sendSuggestion: sendSuggestion, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

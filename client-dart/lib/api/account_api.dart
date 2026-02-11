@@ -24,8 +24,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -127,10 +125,9 @@ class AccountApi {
   ///
   /// * [bool] contentAdminOnly:
   ///   Returns only content admin users
-  Future<Response> accountLocationSearchWithHttpInfo(num version, { String? deviceId, int? accountId, String? q, String? keyword, String? postalCode, double? latitude, double? longitude, String? appKey, double? range, int? locationLastUpdated, String? gender, int? minAge, int? maxAge, int? companionshipIndex, int? i, int? start, int? l, int? limit, String? searchMode, String? sortField, bool? descending, String? roles, String? tags, String? experience, String? categoryIds, String? audienceIds, String? audienceOperator, bool? updateCurrentLocation, bool? updatePreferredSettings, bool? showExactLocations, bool? showConnectionToSearcher, int? flagCountMinimum, bool? verifiedUserOnly, bool? contentAdminOnly, }) async {
+  Future<Response> accountLocationSearchWithHttpInfo({ String? deviceId, int? accountId, String? q, String? keyword, String? postalCode, double? latitude, double? longitude, String? appKey, double? range, int? locationLastUpdated, String? gender, int? minAge, int? maxAge, int? companionshipIndex, int? i, int? start, int? l, int? limit, String? searchMode, String? sortField, bool? descending, String? roles, String? tags, String? experience, String? categoryIds, String? audienceIds, String? audienceOperator, bool? updateCurrentLocation, bool? updatePreferredSettings, bool? showExactLocations, bool? showConnectionToSearcher, int? flagCountMinimum, bool? verifiedUserOnly, bool? contentAdminOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -262,8 +259,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -365,8 +360,8 @@ class AccountApi {
   ///
   /// * [bool] contentAdminOnly:
   ///   Returns only content admin users
-  Future<UserLocationSearchResponse?> accountLocationSearch(num version, { String? deviceId, int? accountId, String? q, String? keyword, String? postalCode, double? latitude, double? longitude, String? appKey, double? range, int? locationLastUpdated, String? gender, int? minAge, int? maxAge, int? companionshipIndex, int? i, int? start, int? l, int? limit, String? searchMode, String? sortField, bool? descending, String? roles, String? tags, String? experience, String? categoryIds, String? audienceIds, String? audienceOperator, bool? updateCurrentLocation, bool? updatePreferredSettings, bool? showExactLocations, bool? showConnectionToSearcher, int? flagCountMinimum, bool? verifiedUserOnly, bool? contentAdminOnly, }) async {
-    final response = await accountLocationSearchWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, postalCode: postalCode, latitude: latitude, longitude: longitude, appKey: appKey, range: range, locationLastUpdated: locationLastUpdated, gender: gender, minAge: minAge, maxAge: maxAge, companionshipIndex: companionshipIndex, i: i, start: start, l: l, limit: limit, searchMode: searchMode, sortField: sortField, descending: descending, roles: roles, tags: tags, experience: experience, categoryIds: categoryIds, audienceIds: audienceIds, audienceOperator: audienceOperator, updateCurrentLocation: updateCurrentLocation, updatePreferredSettings: updatePreferredSettings, showExactLocations: showExactLocations, showConnectionToSearcher: showConnectionToSearcher, flagCountMinimum: flagCountMinimum, verifiedUserOnly: verifiedUserOnly, contentAdminOnly: contentAdminOnly, );
+  Future<UserLocationSearchResponse?> accountLocationSearch({ String? deviceId, int? accountId, String? q, String? keyword, String? postalCode, double? latitude, double? longitude, String? appKey, double? range, int? locationLastUpdated, String? gender, int? minAge, int? maxAge, int? companionshipIndex, int? i, int? start, int? l, int? limit, String? searchMode, String? sortField, bool? descending, String? roles, String? tags, String? experience, String? categoryIds, String? audienceIds, String? audienceOperator, bool? updateCurrentLocation, bool? updatePreferredSettings, bool? showExactLocations, bool? showConnectionToSearcher, int? flagCountMinimum, bool? verifiedUserOnly, bool? contentAdminOnly, }) async {
+    final response = await accountLocationSearchWithHttpInfo( deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, postalCode: postalCode, latitude: latitude, longitude: longitude, appKey: appKey, range: range, locationLastUpdated: locationLastUpdated, gender: gender, minAge: minAge, maxAge: maxAge, companionshipIndex: companionshipIndex, i: i, start: start, l: l, limit: limit, searchMode: searchMode, sortField: sortField, descending: descending, roles: roles, tags: tags, experience: experience, categoryIds: categoryIds, audienceIds: audienceIds, audienceOperator: audienceOperator, updateCurrentLocation: updateCurrentLocation, updatePreferredSettings: updatePreferredSettings, showExactLocations: showExactLocations, showConnectionToSearcher: showConnectionToSearcher, flagCountMinimum: flagCountMinimum, verifiedUserOnly: verifiedUserOnly, contentAdminOnly: contentAdminOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -388,8 +383,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountIdBeingBlocked (required):
   ///   The id of the account to be blocked/unblocked
   ///
@@ -410,10 +403,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> blockAccountWithHttpInfo(num version, int accountIdBeingBlocked, { String? deviceId, int? accountId, bool? blockFlagValue, bool? removeFromGroupsIfBlocked, double? latitude, double? longitude, }) async {
+  Future<Response> blockAccountWithHttpInfo(int accountIdBeingBlocked, { String? deviceId, int? accountId, bool? blockFlagValue, bool? removeFromGroupsIfBlocked, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/block'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/block';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -462,8 +454,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountIdBeingBlocked (required):
   ///   The id of the account to be blocked/unblocked
   ///
@@ -484,8 +474,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<SirqulResponse?> blockAccount(num version, int accountIdBeingBlocked, { String? deviceId, int? accountId, bool? blockFlagValue, bool? removeFromGroupsIfBlocked, double? latitude, double? longitude, }) async {
-    final response = await blockAccountWithHttpInfo(version, accountIdBeingBlocked,  deviceId: deviceId, accountId: accountId, blockFlagValue: blockFlagValue, removeFromGroupsIfBlocked: removeFromGroupsIfBlocked, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> blockAccount(int accountIdBeingBlocked, { String? deviceId, int? accountId, bool? blockFlagValue, bool? removeFromGroupsIfBlocked, double? latitude, double? longitude, }) async {
+    final response = await blockAccountWithHttpInfo(accountIdBeingBlocked,  deviceId: deviceId, accountId: accountId, blockFlagValue: blockFlagValue, removeFromGroupsIfBlocked: removeFromGroupsIfBlocked, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -506,8 +496,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] username (required):
   ///   The access token to authenticate with (ex: username)
@@ -724,10 +712,9 @@ class AccountApi {
   ///
   /// * [int] personalAudienceId:
   ///   Personal audience id to associate with this account
-  Future<Response> createAccountWithHttpInfo(num version, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceId, String? deviceIdType, String? emailAddress, int? assetId, String? streetAddress, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? inviteToken, int? referralAccountId, bool? sendValidation, String? gameType, String? appKey, String? appVersion, String? responseType, String? audienceIdsToAdd, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? locationVisibility, double? homeLatitude, double? homeLongitude, String? appNickname, int? personalAudienceId, }) async {
+  Future<Response> createAccountWithHttpInfo(String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceId, String? deviceIdType, String? emailAddress, int? assetId, String? streetAddress, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? inviteToken, int? referralAccountId, bool? sendValidation, String? gameType, String? appKey, String? appVersion, String? responseType, String? audienceIdsToAdd, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? locationVisibility, double? homeLatitude, double? homeLongitude, String? appNickname, int? personalAudienceId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -969,8 +956,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] username (required):
   ///   The access token to authenticate with (ex: username)
   ///
@@ -1186,8 +1171,8 @@ class AccountApi {
   ///
   /// * [int] personalAudienceId:
   ///   Personal audience id to associate with this account
-  Future<AccountLoginResponse?> createAccount(num version, String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceId, String? deviceIdType, String? emailAddress, int? assetId, String? streetAddress, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? inviteToken, int? referralAccountId, bool? sendValidation, String? gameType, String? appKey, String? appVersion, String? responseType, String? audienceIdsToAdd, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? locationVisibility, double? homeLatitude, double? homeLongitude, String? appNickname, int? personalAudienceId, }) async {
-    final response = await createAccountWithHttpInfo(version, username, password,  name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceId: deviceId, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, streetAddress: streetAddress, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, inviteToken: inviteToken, referralAccountId: referralAccountId, sendValidation: sendValidation, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, audienceIdsToAdd: audienceIdsToAdd, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, locationVisibility: locationVisibility, homeLatitude: homeLatitude, homeLongitude: homeLongitude, appNickname: appNickname, personalAudienceId: personalAudienceId, );
+  Future<AccountLoginResponse?> createAccount(String username, String password, { String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceId, String? deviceIdType, String? emailAddress, int? assetId, String? streetAddress, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? inviteToken, int? referralAccountId, bool? sendValidation, String? gameType, String? appKey, String? appVersion, String? responseType, String? audienceIdsToAdd, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? locationVisibility, double? homeLatitude, double? homeLongitude, String? appNickname, int? personalAudienceId, }) async {
+    final response = await createAccountWithHttpInfo(username, password,  name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceId: deviceId, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, streetAddress: streetAddress, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, inviteToken: inviteToken, referralAccountId: referralAccountId, sendValidation: sendValidation, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, audienceIdsToAdd: audienceIdsToAdd, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, locationVisibility: locationVisibility, homeLatitude: homeLatitude, homeLongitude: homeLongitude, appNickname: appNickname, personalAudienceId: personalAudienceId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1208,8 +1193,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -1456,10 +1439,9 @@ class AccountApi {
   ///
   /// * [String] nonGuestUsername:
   ///   The user's username to update with if they currently have a guest username
-  Future<Response> editAccountWithHttpInfo(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? role, int? assetId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? gender, int? age, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, bool? makeProfileInfoPublic, bool? makeGameInfoPublic, bool? makeFriendsInfoPublic, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, String? platforms, String? tags, String? aboutUs, String? matchToken, String? gameExperience, String? categories, String? categoryIds, String? responseFilters, bool? showAsZipcode, bool? showExactLocation, bool? showOthersExactLocation, bool? acceptedTerms, String? locationVisibility, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? gameType, String? appKey, double? latitude, double? longitude, bool? returnProfile, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, String? appNickname, int? personalAudienceId, String? nonGuestUsername, }) async {
+  Future<Response> editAccountWithHttpInfo({ String? deviceId, int? accountId, int? connectionAccountId, String? role, int? assetId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? gender, int? age, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, bool? makeProfileInfoPublic, bool? makeGameInfoPublic, bool? makeFriendsInfoPublic, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, String? platforms, String? tags, String? aboutUs, String? matchToken, String? gameExperience, String? categories, String? categoryIds, String? responseFilters, bool? showAsZipcode, bool? showExactLocation, bool? showOthersExactLocation, bool? acceptedTerms, String? locationVisibility, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? gameType, String? appKey, double? latitude, double? longitude, bool? returnProfile, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, String? appNickname, int? personalAudienceId, String? nonGuestUsername, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/profile/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/profile/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1735,8 +1717,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -1982,8 +1962,8 @@ class AccountApi {
   ///
   /// * [String] nonGuestUsername:
   ///   The user's username to update with if they currently have a guest username
-  Future<ProfileInfoResponse?> editAccount(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? role, int? assetId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? gender, int? age, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, bool? makeProfileInfoPublic, bool? makeGameInfoPublic, bool? makeFriendsInfoPublic, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, String? platforms, String? tags, String? aboutUs, String? matchToken, String? gameExperience, String? categories, String? categoryIds, String? responseFilters, bool? showAsZipcode, bool? showExactLocation, bool? showOthersExactLocation, bool? acceptedTerms, String? locationVisibility, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? gameType, String? appKey, double? latitude, double? longitude, bool? returnProfile, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, String? appNickname, int? personalAudienceId, String? nonGuestUsername, }) async {
-    final response = await editAccountWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, role: role, assetId: assetId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, gender: gender, age: age, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, makeProfileInfoPublic: makeProfileInfoPublic, makeGameInfoPublic: makeGameInfoPublic, makeFriendsInfoPublic: makeFriendsInfoPublic, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, platforms: platforms, tags: tags, aboutUs: aboutUs, matchToken: matchToken, gameExperience: gameExperience, categories: categories, categoryIds: categoryIds, responseFilters: responseFilters, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, showOthersExactLocation: showOthersExactLocation, acceptedTerms: acceptedTerms, locationVisibility: locationVisibility, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, returnProfile: returnProfile, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, appNickname: appNickname, personalAudienceId: personalAudienceId, nonGuestUsername: nonGuestUsername, );
+  Future<ProfileInfoResponse?> editAccount({ String? deviceId, int? accountId, int? connectionAccountId, String? role, int? assetId, String? name, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? gender, int? age, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? emailAddress, String? streetAddress, String? streetAddress2, String? city, String? state, String? zipcode, String? country, bool? makeProfileInfoPublic, bool? makeGameInfoPublic, bool? makeFriendsInfoPublic, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, String? platforms, String? tags, String? aboutUs, String? matchToken, String? gameExperience, String? categories, String? categoryIds, String? responseFilters, bool? showAsZipcode, bool? showExactLocation, bool? showOthersExactLocation, bool? acceptedTerms, String? locationVisibility, String? appBlob, bool? appEnablePush, bool? appEnableSMS, bool? appEnableEmail, String? gameType, String? appKey, double? latitude, double? longitude, bool? returnProfile, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, String? appNickname, int? personalAudienceId, String? nonGuestUsername, }) async {
+    final response = await editAccountWithHttpInfo( deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, role: role, assetId: assetId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, gender: gender, age: age, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, makeProfileInfoPublic: makeProfileInfoPublic, makeGameInfoPublic: makeGameInfoPublic, makeFriendsInfoPublic: makeFriendsInfoPublic, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, platforms: platforms, tags: tags, aboutUs: aboutUs, matchToken: matchToken, gameExperience: gameExperience, categories: categories, categoryIds: categoryIds, responseFilters: responseFilters, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, showOthersExactLocation: showOthersExactLocation, acceptedTerms: acceptedTerms, locationVisibility: locationVisibility, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, returnProfile: returnProfile, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, appNickname: appNickname, personalAudienceId: personalAudienceId, nonGuestUsername: nonGuestUsername, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2005,8 +1985,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id
   ///
@@ -2018,10 +1996,9 @@ class AccountApi {
   ///
   /// * [String] username:
   ///   the user's username to update with if they currently have a guest username
-  Future<Response> editUsernameWithHttpInfo(num version, { String? deviceId, int? accountId, String? emailAddress, String? username, }) async {
+  Future<Response> editUsernameWithHttpInfo({ String? deviceId, int? accountId, String? emailAddress, String? username, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/username/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/username/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2063,8 +2040,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id
   ///
@@ -2076,8 +2051,8 @@ class AccountApi {
   ///
   /// * [String] username:
   ///   the user's username to update with if they currently have a guest username
-  Future<SirqulResponse?> editUsername(num version, { String? deviceId, int? accountId, String? emailAddress, String? username, }) async {
-    final response = await editUsernameWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, emailAddress: emailAddress, username: username, );
+  Future<SirqulResponse?> editUsername({ String? deviceId, int? accountId, String? emailAddress, String? username, }) async {
+    final response = await editUsernameWithHttpInfo( deviceId: deviceId, accountId: accountId, emailAddress: emailAddress, username: username, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2098,8 +2073,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls:
   ///   Return Nulls
@@ -2136,10 +2109,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   Longitude used to update the user's current location
-  Future<Response> getAccountWithHttpInfo(num version, { bool? returnNulls, String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? responseFilters, String? gameType, String? appKey, String? purchaseType, bool? updateViewedDate, double? latitude, double? longitude, }) async {
+  Future<Response> getAccountWithHttpInfo({ bool? returnNulls, String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? responseFilters, String? gameType, String? appKey, String? purchaseType, bool? updateViewedDate, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/profile/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/profile/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2205,8 +2177,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls:
   ///   Return Nulls
   ///
@@ -2242,8 +2212,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   Longitude used to update the user's current location
-  Future<ProfileResponse?> getAccount(num version, { bool? returnNulls, String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? responseFilters, String? gameType, String? appKey, String? purchaseType, bool? updateViewedDate, double? latitude, double? longitude, }) async {
-    final response = await getAccountWithHttpInfo(version,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, responseFilters: responseFilters, gameType: gameType, appKey: appKey, purchaseType: purchaseType, updateViewedDate: updateViewedDate, latitude: latitude, longitude: longitude, );
+  Future<ProfileResponse?> getAccount({ bool? returnNulls, String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? responseFilters, String? gameType, String? appKey, String? purchaseType, bool? updateViewedDate, double? latitude, double? longitude, }) async {
+    final response = await getAccountWithHttpInfo( returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, responseFilters: responseFilters, gameType: gameType, appKey: appKey, purchaseType: purchaseType, updateViewedDate: updateViewedDate, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2264,8 +2234,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls:
   ///   Determines whether to return null fields in the response
@@ -2308,10 +2276,9 @@ class AccountApi {
   ///
   /// * [int] limit:
   ///   Limit of the pagination
-  Future<Response> getProfileAssetsWithHttpInfo(num version, { bool? returnNulls, String? deviceId, int? accountId, int? ownerId, String? mediaTypes, String? mimeTypes, String? sortField, bool? descending, double? latitude, double? longitude, int? i, int? start, int? l, int? limit, }) async {
+  Future<Response> getProfileAssetsWithHttpInfo({ bool? returnNulls, String? deviceId, int? accountId, int? ownerId, String? mediaTypes, String? mimeTypes, String? sortField, bool? descending, double? latitude, double? longitude, int? i, int? start, int? l, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/profile/assets'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/profile/assets';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2383,8 +2350,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls:
   ///   Determines whether to return null fields in the response
   ///
@@ -2426,8 +2391,8 @@ class AccountApi {
   ///
   /// * [int] limit:
   ///   Limit of the pagination
-  Future<AssetListResponse?> getProfileAssets(num version, { bool? returnNulls, String? deviceId, int? accountId, int? ownerId, String? mediaTypes, String? mimeTypes, String? sortField, bool? descending, double? latitude, double? longitude, int? i, int? start, int? l, int? limit, }) async {
-    final response = await getProfileAssetsWithHttpInfo(version,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, ownerId: ownerId, mediaTypes: mediaTypes, mimeTypes: mimeTypes, sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, i: i, start: start, l: l, limit: limit, );
+  Future<AssetListResponse?> getProfileAssets({ bool? returnNulls, String? deviceId, int? accountId, int? ownerId, String? mediaTypes, String? mimeTypes, String? sortField, bool? descending, double? latitude, double? longitude, int? i, int? start, int? l, int? limit, }) async {
+    final response = await getProfileAssetsWithHttpInfo( returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, ownerId: ownerId, mediaTypes: mediaTypes, mimeTypes: mimeTypes, sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, i: i, start: start, l: l, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2448,8 +2413,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
@@ -2483,10 +2446,9 @@ class AccountApi {
   ///
   /// * [bool] childrenChildren:
   ///   if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item
-  Future<Response> getReferralListWithHttpInfo(num version, { int? accountId, String? appKey, String? retrieveType, num? levelLimit, num? ancestorLevelLimit, num? childrenLevelLimit, num? ancestorListStart, num? ancestorListLimit, num? childrenListStart, num? childrenListLimit, bool? childrenChildren, }) async {
+  Future<Response> getReferralListWithHttpInfo({ int? accountId, String? appKey, String? retrieveType, num? levelLimit, num? ancestorLevelLimit, num? childrenLevelLimit, num? ancestorListStart, num? ancestorListLimit, num? childrenListStart, num? childrenListLimit, bool? childrenChildren, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/referral/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/referral/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2549,8 +2511,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
   ///
@@ -2583,8 +2543,8 @@ class AccountApi {
   ///
   /// * [bool] childrenChildren:
   ///   if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item
-  Future<void> getReferralList(num version, { int? accountId, String? appKey, String? retrieveType, num? levelLimit, num? ancestorLevelLimit, num? childrenLevelLimit, num? ancestorListStart, num? ancestorListLimit, num? childrenListStart, num? childrenListLimit, bool? childrenChildren, }) async {
-    final response = await getReferralListWithHttpInfo(version,  accountId: accountId, appKey: appKey, retrieveType: retrieveType, levelLimit: levelLimit, ancestorLevelLimit: ancestorLevelLimit, childrenLevelLimit: childrenLevelLimit, ancestorListStart: ancestorListStart, ancestorListLimit: ancestorListLimit, childrenListStart: childrenListStart, childrenListLimit: childrenListLimit, childrenChildren: childrenChildren, );
+  Future<void> getReferralList({ int? accountId, String? appKey, String? retrieveType, num? levelLimit, num? ancestorLevelLimit, num? childrenLevelLimit, num? ancestorListStart, num? ancestorListLimit, num? childrenListStart, num? childrenListLimit, bool? childrenChildren, }) async {
+    final response = await getReferralListWithHttpInfo( accountId: accountId, appKey: appKey, retrieveType: retrieveType, levelLimit: levelLimit, ancestorLevelLimit: ancestorLevelLimit, childrenLevelLimit: childrenLevelLimit, ancestorListStart: ancestorListStart, ancestorListLimit: ancestorListLimit, childrenListStart: childrenListStart, childrenListLimit: childrenListLimit, childrenChildren: childrenChildren, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2598,8 +2558,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -2611,10 +2569,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> getSettingsWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getSettingsWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/settings/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/settings/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2656,8 +2613,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -2669,8 +2624,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<UserSettingsResponse?> getSettings(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getSettingsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<UserSettingsResponse?> getSettings({ String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getSettingsWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2691,8 +2646,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] accessToken (required):
   ///
@@ -2718,10 +2671,9 @@ class AccountApi {
   /// * [double] latitude:
   ///
   /// * [double] longitude:
-  Future<Response> loginDelegateWithHttpInfo(num version, String accessToken, String appKey, { String? deviceId, String? accessTokenSecret, int? delegatedAccountId, String? delegatedUsername, String? networkUID, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, }) async {
+  Future<Response> loginDelegateWithHttpInfo(String accessToken, String appKey, { String? deviceId, String? accessTokenSecret, int? delegatedAccountId, String? delegatedUsername, String? networkUID, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/login/delegate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/login/delegate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2780,8 +2732,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] accessToken (required):
   ///
   /// * [String] appKey (required):
@@ -2806,8 +2756,8 @@ class AccountApi {
   /// * [double] latitude:
   ///
   /// * [double] longitude:
-  Future<ProfileResponse?> loginDelegate(num version, String accessToken, String appKey, { String? deviceId, String? accessTokenSecret, int? delegatedAccountId, String? delegatedUsername, String? networkUID, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, }) async {
-    final response = await loginDelegateWithHttpInfo(version, accessToken, appKey,  deviceId: deviceId, accessTokenSecret: accessTokenSecret, delegatedAccountId: delegatedAccountId, delegatedUsername: delegatedUsername, networkUID: networkUID, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, );
+  Future<ProfileResponse?> loginDelegate(String accessToken, String appKey, { String? deviceId, String? accessTokenSecret, int? delegatedAccountId, String? delegatedUsername, String? networkUID, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, }) async {
+    final response = await loginDelegateWithHttpInfo(accessToken, appKey,  deviceId: deviceId, accessTokenSecret: accessTokenSecret, delegatedAccountId: delegatedAccountId, delegatedUsername: delegatedUsername, networkUID: networkUID, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2828,8 +2778,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] accessToken (required):
   ///   The access token to authenticate with (ex: username or fb token)
@@ -2869,10 +2817,9 @@ class AccountApi {
   ///
   /// * [int] thirdPartyCredentialId:
   ///   Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object
-  Future<Response> loginGeneralWithHttpInfo(num version, String accessToken, String networkUID, String appKey, { String? deviceId, String? deviceIdType, String? accessTokenSecret, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, bool? emailMatch, int? chosenAccountId, int? thirdPartyCredentialId, }) async {
+  Future<Response> loginGeneralWithHttpInfo(String accessToken, String networkUID, String appKey, { String? deviceId, String? deviceIdType, String? accessTokenSecret, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, bool? emailMatch, int? chosenAccountId, int? thirdPartyCredentialId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/login'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/login';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2935,8 +2882,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] accessToken (required):
   ///   The access token to authenticate with (ex: username or fb token)
   ///
@@ -2975,8 +2920,8 @@ class AccountApi {
   ///
   /// * [int] thirdPartyCredentialId:
   ///   Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object
-  Future<ProfileResponse?> loginGeneral(num version, String accessToken, String networkUID, String appKey, { String? deviceId, String? deviceIdType, String? accessTokenSecret, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, bool? emailMatch, int? chosenAccountId, int? thirdPartyCredentialId, }) async {
-    final response = await loginGeneralWithHttpInfo(version, accessToken, networkUID, appKey,  deviceId: deviceId, deviceIdType: deviceIdType, accessTokenSecret: accessTokenSecret, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, emailMatch: emailMatch, chosenAccountId: chosenAccountId, thirdPartyCredentialId: thirdPartyCredentialId, );
+  Future<ProfileResponse?> loginGeneral(String accessToken, String networkUID, String appKey, { String? deviceId, String? deviceIdType, String? accessTokenSecret, int? ageRestriction, String? responseFilters, double? latitude, double? longitude, bool? emailMatch, int? chosenAccountId, int? thirdPartyCredentialId, }) async {
+    final response = await loginGeneralWithHttpInfo(accessToken, networkUID, appKey,  deviceId: deviceId, deviceIdType: deviceIdType, accessTokenSecret: accessTokenSecret, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, emailMatch: emailMatch, chosenAccountId: chosenAccountId, thirdPartyCredentialId: thirdPartyCredentialId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2997,8 +2942,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] username (required):
   ///   the user's email address they used to sign-up
@@ -3029,10 +2972,9 @@ class AccountApi {
   ///
   /// * [String] responseFilters:
   ///   a comma separated list of ProfileFilters for filtering the returned response data
-  Future<Response> loginUsernameWithHttpInfo(num version, String username, String password, { String? deviceId, double? latitude, double? longitude, String? app, String? gameType, String? appKey, bool? returnProfile, String? responseFilters, }) async {
+  Future<Response> loginUsernameWithHttpInfo(String username, String password, { String? deviceId, double? latitude, double? longitude, String? app, String? gameType, String? appKey, bool? returnProfile, String? responseFilters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3088,8 +3030,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] username (required):
   ///   the user's email address they used to sign-up
   ///
@@ -3119,8 +3059,8 @@ class AccountApi {
   ///
   /// * [String] responseFilters:
   ///   a comma separated list of ProfileFilters for filtering the returned response data
-  Future<ProfileResponse?> loginUsername(num version, String username, String password, { String? deviceId, double? latitude, double? longitude, String? app, String? gameType, String? appKey, bool? returnProfile, String? responseFilters, }) async {
-    final response = await loginUsernameWithHttpInfo(version, username, password,  deviceId: deviceId, latitude: latitude, longitude: longitude, app: app, gameType: gameType, appKey: appKey, returnProfile: returnProfile, responseFilters: responseFilters, );
+  Future<ProfileResponse?> loginUsername(String username, String password, { String? deviceId, double? latitude, double? longitude, String? app, String? gameType, String? appKey, bool? returnProfile, String? responseFilters, }) async {
+    final response = await loginUsernameWithHttpInfo(username, password,  deviceId: deviceId, latitude: latitude, longitude: longitude, app: app, gameType: gameType, appKey: appKey, returnProfile: returnProfile, responseFilters: responseFilters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3142,8 +3082,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -3158,10 +3096,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> logoutWithHttpInfo(num version, { String? deviceId, String? deviceIdType, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> logoutWithHttpInfo({ String? deviceId, String? deviceIdType, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/logout'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/logout';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3206,8 +3143,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -3222,8 +3157,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<SirqulResponse?> logout(num version, { String? deviceId, String? deviceIdType, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await logoutWithHttpInfo(version,  deviceId: deviceId, deviceIdType: deviceIdType, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> logout({ String? deviceId, String? deviceIdType, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await logoutWithHttpInfo( deviceId: deviceId, deviceIdType: deviceIdType, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3245,8 +3180,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] mergeAccountId (required):
   ///   The id of the account to being merged
   ///
@@ -3258,10 +3191,9 @@ class AccountApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> mergeAccountWithHttpInfo(num version, int mergeAccountId, String appKey, { String? deviceId, int? accountId, }) async {
+  Future<Response> mergeAccountWithHttpInfo(int mergeAccountId, String appKey, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/merge'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/merge';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3299,8 +3231,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] mergeAccountId (required):
   ///   The id of the account to being merged
   ///
@@ -3312,8 +3242,8 @@ class AccountApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> mergeAccount(num version, int mergeAccountId, String appKey, { String? deviceId, int? accountId, }) async {
-    final response = await mergeAccountWithHttpInfo(version, mergeAccountId, appKey,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> mergeAccount(int mergeAccountId, String appKey, { String? deviceId, int? accountId, }) async {
+    final response = await mergeAccountWithHttpInfo(mergeAccountId, appKey,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3335,8 +3265,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to update
   ///
@@ -3348,10 +3276,9 @@ class AccountApi {
   ///
   /// * [String] confirmPassword (required):
   ///   The new password to confirm, must match newPassword
-  Future<Response> passwordChangeWithHttpInfo(num version, int accountId, String oldPassword, String newPassword, String confirmPassword,) async {
+  Future<Response> passwordChangeWithHttpInfo(int accountId, String oldPassword, String newPassword, String confirmPassword,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/passwordchange'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/passwordchange';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3385,8 +3312,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account to update
   ///
@@ -3398,8 +3323,8 @@ class AccountApi {
   ///
   /// * [String] confirmPassword (required):
   ///   The new password to confirm, must match newPassword
-  Future<SirqulResponse?> passwordChange(num version, int accountId, String oldPassword, String newPassword, String confirmPassword,) async {
-    final response = await passwordChangeWithHttpInfo(version, accountId, oldPassword, newPassword, confirmPassword,);
+  Future<SirqulResponse?> passwordChange(int accountId, String oldPassword, String newPassword, String confirmPassword,) async {
+    final response = await passwordChangeWithHttpInfo(accountId, oldPassword, newPassword, confirmPassword,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3421,8 +3346,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
   ///
@@ -3431,10 +3354,9 @@ class AccountApi {
   ///
   /// * [String] confirm (required):
   ///   The new password to confirm, must match newPassword
-  Future<Response> passwordResetWithHttpInfo(num version, String token, String password, String confirm,) async {
+  Future<Response> passwordResetWithHttpInfo(String token, String password, String confirm,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/passwordreset'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/passwordreset';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3467,8 +3389,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
   ///
@@ -3477,8 +3397,8 @@ class AccountApi {
   ///
   /// * [String] confirm (required):
   ///   The new password to confirm, must match newPassword
-  Future<SirqulResponse?> passwordReset(num version, String token, String password, String confirm,) async {
-    final response = await passwordResetWithHttpInfo(version, token, password, confirm,);
+  Future<SirqulResponse?> passwordReset(String token, String password, String confirm,) async {
+    final response = await passwordResetWithHttpInfo(token, password, confirm,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3500,8 +3420,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] email (required):
   ///   The email/username of the account
   ///
@@ -3516,10 +3434,9 @@ class AccountApi {
   ///
   /// * [String] referer:
   ///   this is used to generate a password reset link
-  Future<Response> requestPasswordResetWithHttpInfo(num version, String email, { String? from, String? domain, String? subUrl, String? referer, }) async {
+  Future<Response> requestPasswordResetWithHttpInfo(String email, { String? from, String? domain, String? subUrl, String? referer, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/requestpasswordreset'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/requestpasswordreset';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3562,8 +3479,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] email (required):
   ///   The email/username of the account
   ///
@@ -3578,8 +3493,8 @@ class AccountApi {
   ///
   /// * [String] referer:
   ///   this is used to generate a password reset link
-  Future<SirqulResponse?> requestPasswordReset(num version, String email, { String? from, String? domain, String? subUrl, String? referer, }) async {
-    final response = await requestPasswordResetWithHttpInfo(version, email,  from: from, domain: domain, subUrl: subUrl, referer: referer, );
+  Future<SirqulResponse?> requestPasswordReset(String email, { String? from, String? domain, String? subUrl, String? referer, }) async {
+    final response = await requestPasswordResetWithHttpInfo(email,  from: from, domain: domain, subUrl: subUrl, referer: referer, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3601,14 +3516,11 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
-  Future<Response> requestValidateAccountWithHttpInfo(num version, int accountId,) async {
+  Future<Response> requestValidateAccountWithHttpInfo(int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/requestValidateAccount'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/requestValidateAccount';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3639,12 +3551,10 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
-  Future<SirqulResponse?> requestValidateAccount(num version, int accountId,) async {
-    final response = await requestValidateAccountWithHttpInfo(version, accountId,);
+  Future<SirqulResponse?> requestValidateAccount(int accountId,) async {
+    final response = await requestValidateAccountWithHttpInfo(accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3665,8 +3575,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The id of the account requesting
@@ -3721,10 +3629,9 @@ class AccountApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results. Default is false.
-  Future<Response> searchAccountsWithHttpInfo(num version, int accountId, String appKey, { String? keyword, double? latitude, double? longitude, double? radius, String? gender, String? gameExperience, int? age, String? categoryIds, bool? returnNulls, String? responseFilters, String? purchaseType, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchAccountsWithHttpInfo(int accountId, String appKey, { String? keyword, double? latitude, double? longitude, double? radius, String? gender, String? gameExperience, int? age, String? categoryIds, bool? returnNulls, String? responseFilters, String? purchaseType, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/profile/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/profile/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3804,8 +3711,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the account requesting
   ///
@@ -3859,8 +3764,8 @@ class AccountApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results. Default is false.
-  Future<List<ProfileResponse>?> searchAccounts(num version, int accountId, String appKey, { String? keyword, double? latitude, double? longitude, double? radius, String? gender, String? gameExperience, int? age, String? categoryIds, bool? returnNulls, String? responseFilters, String? purchaseType, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchAccountsWithHttpInfo(version, accountId, appKey,  keyword: keyword, latitude: latitude, longitude: longitude, radius: radius, gender: gender, gameExperience: gameExperience, age: age, categoryIds: categoryIds, returnNulls: returnNulls, responseFilters: responseFilters, purchaseType: purchaseType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<ProfileResponse>?> searchAccounts(int accountId, String appKey, { String? keyword, double? latitude, double? longitude, double? radius, String? gender, String? gameExperience, int? age, String? categoryIds, bool? returnNulls, String? responseFilters, String? purchaseType, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchAccountsWithHttpInfo(accountId, appKey,  keyword: keyword, latitude: latitude, longitude: longitude, radius: radius, gender: gender, gameExperience: gameExperience, age: age, categoryIds: categoryIds, returnNulls: returnNulls, responseFilters: responseFilters, purchaseType: purchaseType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3884,8 +3789,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] username (required):
   ///   The user's encrypted email address they used to sign-up
@@ -3913,10 +3816,9 @@ class AccountApi {
   ///
   /// * [String] responseFilters:
   ///   A comma separated list of ProfileFilters for filtering the returned response data
-  Future<Response> secureLoginWithHttpInfo(num version, String username, String password, String gameType, { String? deviceId, String? charsetName, double? latitude, double? longitude, bool? returnProfile, String? responseFilters, }) async {
+  Future<Response> secureLoginWithHttpInfo(String username, String password, String gameType, { String? deviceId, String? charsetName, double? latitude, double? longitude, bool? returnProfile, String? responseFilters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/login/validate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/login/validate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -3967,8 +3869,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] username (required):
   ///   The user's encrypted email address they used to sign-up
   ///
@@ -3995,8 +3895,8 @@ class AccountApi {
   ///
   /// * [String] responseFilters:
   ///   A comma separated list of ProfileFilters for filtering the returned response data
-  Future<ProfileResponse?> secureLogin(num version, String username, String password, String gameType, { String? deviceId, String? charsetName, double? latitude, double? longitude, bool? returnProfile, String? responseFilters, }) async {
-    final response = await secureLoginWithHttpInfo(version, username, password, gameType,  deviceId: deviceId, charsetName: charsetName, latitude: latitude, longitude: longitude, returnProfile: returnProfile, responseFilters: responseFilters, );
+  Future<ProfileResponse?> secureLogin(String username, String password, String gameType, { String? deviceId, String? charsetName, double? latitude, double? longitude, bool? returnProfile, String? responseFilters, }) async {
+    final response = await secureLoginWithHttpInfo(username, password, gameType,  deviceId: deviceId, charsetName: charsetName, latitude: latitude, longitude: longitude, returnProfile: returnProfile, responseFilters: responseFilters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4017,8 +3917,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId (required):
   ///   The device id
@@ -4202,10 +4100,9 @@ class AccountApi {
   ///
   /// * [String] responseType:
   ///   Response Type
-  Future<Response> secureSignupWithHttpInfo(num version, String deviceId, String username, String password, { String? name, String? inviteToken, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceIdType, String? emailAddress, int? assetId, String? address, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? charsetName, String? gameType, String? appKey, String? appVersion, String? responseType, }) async {
+  Future<Response> secureSignupWithHttpInfo(String deviceId, String username, String password, { String? name, String? inviteToken, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceIdType, String? emailAddress, int? assetId, String? address, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? charsetName, String? gameType, String? appKey, String? appVersion, String? responseType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/create/validate'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/create/validate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4412,8 +4309,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId (required):
   ///   The device id
   ///
@@ -4596,8 +4491,8 @@ class AccountApi {
   ///
   /// * [String] responseType:
   ///   Response Type
-  Future<ProfileInfoResponse?> secureSignup(num version, String deviceId, String username, String password, { String? name, String? inviteToken, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceIdType, String? emailAddress, int? assetId, String? address, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? charsetName, String? gameType, String? appKey, String? appVersion, String? responseType, }) async {
-    final response = await secureSignupWithHttpInfo(version, deviceId, username, password,  name: name, inviteToken: inviteToken, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, address: address, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, charsetName: charsetName, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, );
+  Future<ProfileInfoResponse?> secureSignup(String deviceId, String username, String password, { String? name, String? inviteToken, String? prefixName, String? firstName, String? middleName, String? lastName, String? suffixName, String? title, String? deviceIdType, String? emailAddress, int? assetId, String? address, String? zipcode, String? gender, int? birthday, String? homePhone, String? cellPhone, String? cellPhoneCarrier, String? businessPhone, String? role, String? platforms, String? tags, String? aboutUs, String? gameExperience, String? categoryIds, String? hometown, String? height, int? heightIndex, String? ethnicity, String? bodyType, String? maritalStatus, String? children, String? religion, String? education, int? educationIndex, String? smoke, String? drink, String? companionship, int? companionshipIndex, int? preferredMinAge, int? preferredMaxAge, int? preferredMinHeight, int? preferredMaxHeight, String? preferredGender, String? preferredEducation, int? preferredEducationIndex, String? preferredBodyType, String? preferredEthnicity, String? preferredLocation, double? preferredLocationRange, double? latitude, double? longitude, bool? acceptedTerms, String? charsetName, String? gameType, String? appKey, String? appVersion, String? responseType, }) async {
+    final response = await secureSignupWithHttpInfo(deviceId, username, password,  name: name, inviteToken: inviteToken, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, address: address, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, charsetName: charsetName, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4619,8 +4514,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -4641,10 +4534,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> setMatchTokenWithHttpInfo(num version, { String? deviceId, int? accountId, String? matchToken, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+  Future<Response> setMatchTokenWithHttpInfo({ String? deviceId, int? accountId, String? matchToken, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/profile/matchToken'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/profile/matchToken';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4695,8 +4587,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -4717,8 +4607,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<SirqulResponse?> setMatchToken(num version, { String? deviceId, int? accountId, String? matchToken, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
-    final response = await setMatchTokenWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, matchToken: matchToken, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> setMatchToken({ String? deviceId, int? accountId, String? matchToken, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+    final response = await setMatchTokenWithHttpInfo( deviceId: deviceId, accountId: accountId, matchToken: matchToken, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4740,8 +4630,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user (deviceId or accountId required)
   ///
@@ -4756,10 +4644,9 @@ class AccountApi {
   ///
   /// * [String] appKey:
   ///   the application key that the user belongs to
-  Future<Response> updateActveStatusWithHttpInfo(num version, int accountId, int connectionAccountId, bool active, { String? deviceId, String? appKey, }) async {
+  Future<Response> updateActveStatusWithHttpInfo(int accountId, int connectionAccountId, bool active, { String? deviceId, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/active/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/active/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4798,8 +4685,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user (deviceId or accountId required)
   ///
@@ -4814,8 +4699,8 @@ class AccountApi {
   ///
   /// * [String] appKey:
   ///   the application key that the user belongs to
-  Future<SirqulResponse?> updateActveStatus(num version, int accountId, int connectionAccountId, bool active, { String? deviceId, String? appKey, }) async {
-    final response = await updateActveStatusWithHttpInfo(version, accountId, connectionAccountId, active,  deviceId: deviceId, appKey: appKey, );
+  Future<SirqulResponse?> updateActveStatus(int accountId, int connectionAccountId, bool active, { String? deviceId, String? appKey, }) async {
+    final response = await updateActveStatusWithHttpInfo(accountId, connectionAccountId, active,  deviceId: deviceId, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4837,8 +4722,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -4853,10 +4736,9 @@ class AccountApi {
   ///
   /// * [int] clientTime:
   ///   The time of the update
-  Future<Response> updateLocationWithHttpInfo(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, int? clientTime, }) async {
+  Future<Response> updateLocationWithHttpInfo({ String? deviceId, int? accountId, double? latitude, double? longitude, int? clientTime, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/location/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/location/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -4901,8 +4783,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -4917,8 +4797,8 @@ class AccountApi {
   ///
   /// * [int] clientTime:
   ///   The time of the update
-  Future<SirqulResponse?> updateLocation(num version, { String? deviceId, int? accountId, double? latitude, double? longitude, int? clientTime, }) async {
-    final response = await updateLocationWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, clientTime: clientTime, );
+  Future<SirqulResponse?> updateLocation({ String? deviceId, int? accountId, double? latitude, double? longitude, int? clientTime, }) async {
+    final response = await updateLocationWithHttpInfo( deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, clientTime: clientTime, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4939,8 +4819,6 @@ class AccountApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -4977,10 +4855,9 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<Response> updateSettingsWithHttpInfo(num version, { String? deviceId, int? accountId, String? blockedNotifications, String? suggestionMethod, int? suggestionCount, int? suggestionTimeFrame, bool? showOthersExactLocation, bool? showAsZipcode, bool? showExactLocation, String? favoriteVisibility, double? latitude, double? longitude, }) async {
+  Future<Response> updateSettingsWithHttpInfo({ String? deviceId, int? accountId, String? blockedNotifications, String? suggestionMethod, int? suggestionCount, int? suggestionTimeFrame, bool? showOthersExactLocation, bool? showAsZipcode, bool? showExactLocation, String? favoriteVisibility, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/settings/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/settings/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5046,8 +4923,6 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -5083,8 +4958,8 @@ class AccountApi {
   ///
   /// * [double] longitude:
   ///   The current longitude of the user
-  Future<UserSettingsResponse?> updateSettings(num version, { String? deviceId, int? accountId, String? blockedNotifications, String? suggestionMethod, int? suggestionCount, int? suggestionTimeFrame, bool? showOthersExactLocation, bool? showAsZipcode, bool? showExactLocation, String? favoriteVisibility, double? latitude, double? longitude, }) async {
-    final response = await updateSettingsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, blockedNotifications: blockedNotifications, suggestionMethod: suggestionMethod, suggestionCount: suggestionCount, suggestionTimeFrame: suggestionTimeFrame, showOthersExactLocation: showOthersExactLocation, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, favoriteVisibility: favoriteVisibility, latitude: latitude, longitude: longitude, );
+  Future<UserSettingsResponse?> updateSettings({ String? deviceId, int? accountId, String? blockedNotifications, String? suggestionMethod, int? suggestionCount, int? suggestionTimeFrame, bool? showOthersExactLocation, bool? showAsZipcode, bool? showExactLocation, String? favoriteVisibility, double? latitude, double? longitude, }) async {
+    final response = await updateSettingsWithHttpInfo( deviceId: deviceId, accountId: accountId, blockedNotifications: blockedNotifications, suggestionMethod: suggestionMethod, suggestionCount: suggestionCount, suggestionTimeFrame: suggestionTimeFrame, showOthersExactLocation: showOthersExactLocation, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, favoriteVisibility: favoriteVisibility, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5106,14 +4981,11 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
-  Future<Response> validateAccountSignupWithHttpInfo(num version, String token,) async {
+  Future<Response> validateAccountSignupWithHttpInfo(String token,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/validateAccountSignup'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/validateAccountSignup';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5144,12 +5016,10 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
-  Future<AccountLoginResponse?> validateAccountSignup(num version, String token,) async {
-    final response = await validateAccountSignupWithHttpInfo(version, token,);
+  Future<AccountLoginResponse?> validateAccountSignup(String token,) async {
+    final response = await validateAccountSignupWithHttpInfo(token,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -5171,14 +5041,11 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
-  Future<Response> validatePasswordResetWithHttpInfo(num version, String token,) async {
+  Future<Response> validatePasswordResetWithHttpInfo(String token,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/account/validatepasswordreset'
-      .replaceAll('{version}', version.toString());
+    final path = r'/account/validatepasswordreset';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -5209,12 +5076,10 @@ class AccountApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] token (required):
   ///   The token associated with the account to update, good for 24 hours
-  Future<SirqulResponse?> validatePasswordReset(num version, String token,) async {
-    final response = await validatePasswordResetWithHttpInfo(version, token,);
+  Future<SirqulResponse?> validatePasswordReset(String token,) async {
+    final response = await validatePasswordResetWithHttpInfo(token,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

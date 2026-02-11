@@ -24,8 +24,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -55,10 +53,9 @@ class EventApi {
   ///
   /// * [double] longitude:
   ///   The location of the status update
-  Future<Response> attendEventWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, int? listingId, int? retailerLocationId, int? offerLocationId, int? transactionId, int? status, double? latitude, double? longitude, }) async {
+  Future<Response> attendEventWithHttpInfo({ String? deviceId, int? accountId, String? appKey, int? listingId, int? retailerLocationId, int? offerLocationId, int? transactionId, int? status, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/attend'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/attend';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -118,8 +115,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -149,8 +144,8 @@ class EventApi {
   ///
   /// * [double] longitude:
   ///   The location of the status update
-  Future<OfferResponse?> attendEvent(num version, { String? deviceId, int? accountId, String? appKey, int? listingId, int? retailerLocationId, int? offerLocationId, int? transactionId, int? status, double? latitude, double? longitude, }) async {
-    final response = await attendEventWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, listingId: listingId, retailerLocationId: retailerLocationId, offerLocationId: offerLocationId, transactionId: transactionId, status: status, latitude: latitude, longitude: longitude, );
+  Future<OfferResponse?> attendEvent({ String? deviceId, int? accountId, String? appKey, int? listingId, int? retailerLocationId, int? offerLocationId, int? transactionId, int? status, double? latitude, double? longitude, }) async {
+    final response = await attendEventWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, listingId: listingId, retailerLocationId: retailerLocationId, offerLocationId: offerLocationId, transactionId: transactionId, status: status, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -171,8 +166,6 @@ class EventApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -209,10 +202,9 @@ class EventApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<Response> createEventWithHttpInfo(num version, int accountId, String title, { String? retailerLocationIds, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, String? metaData, }) async {
+  Future<Response> createEventWithHttpInfo(int accountId, String title, { String? retailerLocationIds, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -274,8 +266,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -311,8 +301,8 @@ class EventApi {
   ///
   /// * [String] metaData:
   ///   external custom client defined data
-  Future<OfferResponse?> createEvent(num version, int accountId, String title, { String? retailerLocationIds, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, String? metaData, }) async {
-    final response = await createEventWithHttpInfo(version, accountId, title,  retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, metaData: metaData, );
+  Future<OfferResponse?> createEvent(int accountId, String title, { String? retailerLocationIds, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, String? metaData, }) async {
+    final response = await createEventWithHttpInfo(accountId, title,  retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -334,17 +324,14 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] eventId (required):
   ///   the id of the event to update
-  Future<Response> deleteEventWithHttpInfo(num version, int accountId, int eventId,) async {
+  Future<Response> deleteEventWithHttpInfo(int accountId, int eventId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -376,15 +363,13 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] eventId (required):
   ///   the id of the event to update
-  Future<SirqulResponse?> deleteEvent(num version, int accountId, int eventId,) async {
-    final response = await deleteEventWithHttpInfo(version, accountId, eventId,);
+  Future<SirqulResponse?> deleteEvent(int accountId, int eventId,) async {
+    final response = await deleteEventWithHttpInfo(accountId, eventId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -406,17 +391,14 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] eventId (required):
   ///   The id of the event to return
-  Future<Response> getEventWithHttpInfo(num version, int accountId, int eventId,) async {
+  Future<Response> getEventWithHttpInfo(int accountId, int eventId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -448,15 +430,13 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] eventId (required):
   ///   The id of the event to return
-  Future<OfferResponse?> getEvent(num version, int accountId, int eventId,) async {
-    final response = await getEventWithHttpInfo(version, accountId, eventId,);
+  Future<OfferResponse?> getEvent(int accountId, int eventId,) async {
+    final response = await getEventWithHttpInfo(accountId, eventId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -477,8 +457,6 @@ class EventApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -536,10 +514,9 @@ class EventApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<Response> searchEventTransactionsWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, String? keyword, int? retailerId, int? retailerLocationId, int? excludeRetailerLocationId, int? listingId, int? offerId, int? offerLocationId, String? customerAccountIds, String? affiliatedCategoryIds, int? startDate, int? endDate, String? statuses, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchEventTransactionsWithHttpInfo({ String? deviceId, int? accountId, String? appKey, String? keyword, int? retailerId, int? retailerLocationId, int? excludeRetailerLocationId, int? listingId, int? offerId, int? offerLocationId, String? customerAccountIds, String? affiliatedCategoryIds, int? startDate, int? endDate, String? statuses, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/attendance/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/attendance/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -626,8 +603,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -684,8 +659,8 @@ class EventApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<List<EventAttendanceResponse>?> searchEventTransactions(num version, { String? deviceId, int? accountId, String? appKey, String? keyword, int? retailerId, int? retailerLocationId, int? excludeRetailerLocationId, int? listingId, int? offerId, int? offerLocationId, String? customerAccountIds, String? affiliatedCategoryIds, int? startDate, int? endDate, String? statuses, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchEventTransactionsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, excludeRetailerLocationId: excludeRetailerLocationId, listingId: listingId, offerId: offerId, offerLocationId: offerLocationId, customerAccountIds: customerAccountIds, affiliatedCategoryIds: affiliatedCategoryIds, startDate: startDate, endDate: endDate, statuses: statuses, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<List<EventAttendanceResponse>?> searchEventTransactions({ String? deviceId, int? accountId, String? appKey, String? keyword, int? retailerId, int? retailerLocationId, int? excludeRetailerLocationId, int? listingId, int? offerId, int? offerLocationId, String? customerAccountIds, String? affiliatedCategoryIds, int? startDate, int? endDate, String? statuses, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchEventTransactionsWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, excludeRetailerLocationId: excludeRetailerLocationId, listingId: listingId, offerId: offerId, offerLocationId: offerLocationId, customerAccountIds: customerAccountIds, affiliatedCategoryIds: affiliatedCategoryIds, startDate: startDate, endDate: endDate, statuses: statuses, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -709,8 +684,6 @@ class EventApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -750,10 +723,9 @@ class EventApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<Response> searchEventsWithHttpInfo(num version, int accountId, { String? keyword, bool? activeOnly, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? sortField, bool? descending, int? startDate, int? endDate, int? start, int? limit, }) async {
+  Future<Response> searchEventsWithHttpInfo(int accountId, { String? keyword, bool? activeOnly, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? sortField, bool? descending, int? startDate, int? endDate, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -820,8 +792,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -860,8 +830,8 @@ class EventApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<List<OfferShortResponse>?> searchEvents(num version, int accountId, { String? keyword, bool? activeOnly, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? sortField, bool? descending, int? startDate, int? endDate, int? start, int? limit, }) async {
-    final response = await searchEventsWithHttpInfo(version, accountId,  keyword: keyword, activeOnly: activeOnly, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, sortField: sortField, descending: descending, startDate: startDate, endDate: endDate, start: start, limit: limit, );
+  Future<List<OfferShortResponse>?> searchEvents(int accountId, { String? keyword, bool? activeOnly, String? categoryIds, String? filterIds, String? offerAudienceIds, String? transactionAudienceIds, String? sortField, bool? descending, int? startDate, int? endDate, int? start, int? limit, }) async {
+    final response = await searchEventsWithHttpInfo(accountId,  keyword: keyword, activeOnly: activeOnly, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, sortField: sortField, descending: descending, startDate: startDate, endDate: endDate, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -885,8 +855,6 @@ class EventApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -923,10 +891,9 @@ class EventApi {
   ///
   /// * [int] redeemableEnd:
   ///   The event end date/time
-  Future<Response> updateEventWithHttpInfo(num version, int accountId, int eventId, { String? retailerLocationIds, String? title, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, }) async {
+  Future<Response> updateEventWithHttpInfo(int accountId, int eventId, { String? retailerLocationIds, String? title, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/event/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/event/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -988,8 +955,6 @@ class EventApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -1025,8 +990,8 @@ class EventApi {
   ///
   /// * [int] redeemableEnd:
   ///   The event end date/time
-  Future<OfferResponse?> updateEvent(num version, int accountId, int eventId, { String? retailerLocationIds, String? title, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, }) async {
-    final response = await updateEventWithHttpInfo(version, accountId, eventId,  retailerLocationIds: retailerLocationIds, title: title, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, );
+  Future<OfferResponse?> updateEvent(int accountId, int eventId, { String? retailerLocationIds, String? title, String? subTitle, String? details, String? categoryIds, String? filterIds, bool? active, int? imageAssetId, int? redeemableStart, int? redeemableEnd, }) async {
+    final response = await updateEventWithHttpInfo(accountId, eventId,  retailerLocationIds: retailerLocationIds, title: title, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

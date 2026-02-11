@@ -24,13 +24,10 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [RouteSettings] body:
-  Future<Response> createRouteSettingsWithHttpInfo(num version, { RouteSettings? body, }) async {
+  Future<Response> createRouteSettingsWithHttpInfo({ RouteSettings? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/setting'
-      .replaceAll('{version}', version.toString());
+    final path = r'/route/setting';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [RouteSettings] body:
-  Future<RouteSettings?> createRouteSettings(num version, { RouteSettings? body, }) async {
-    final response = await createRouteSettingsWithHttpInfo(version,  body: body, );
+  Future<RouteSettings?> createRouteSettings({ RouteSettings? body, }) async {
+    final response = await createRouteSettingsWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route setting to delete
-  Future<Response> deleteRouteSettingsWithHttpInfo(num version, int routeSettingsId,) async {
+  Future<Response> deleteRouteSettingsWithHttpInfo(int routeSettingsId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/setting/{routeSettingsId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/setting/{routeSettingsId}'
       .replaceAll('{routeSettingsId}', routeSettingsId.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route setting to delete
-  Future<Object?> deleteRouteSettings(num version, int routeSettingsId,) async {
-    final response = await deleteRouteSettingsWithHttpInfo(version, routeSettingsId,);
+  Future<Object?> deleteRouteSettings(int routeSettingsId,) async {
+    final response = await deleteRouteSettingsWithHttpInfo(routeSettingsId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -149,14 +139,11 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route settings to get
-  Future<Response> getRouteSettingsWithHttpInfo(num version, int routeSettingsId,) async {
+  Future<Response> getRouteSettingsWithHttpInfo(int routeSettingsId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/setting/{routeSettingsId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/setting/{routeSettingsId}'
       .replaceAll('{routeSettingsId}', routeSettingsId.toString());
 
     // ignore: prefer_final_locals
@@ -186,12 +173,10 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route settings to get
-  Future<RouteSettings?> getRouteSettings(num version, int routeSettingsId,) async {
-    final response = await getRouteSettingsWithHttpInfo(version, routeSettingsId,);
+  Future<RouteSettings?> getRouteSettings(int routeSettingsId,) async {
+    final response = await getRouteSettingsWithHttpInfo(routeSettingsId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -212,8 +197,6 @@ class RouteSettingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   The field to sort by
@@ -238,10 +221,9 @@ class RouteSettingApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for the route
-  Future<Response> searchRouteSettingsWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? hubId, int? programId, String? keyword, }) async {
+  Future<Response> searchRouteSettingsWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { int? hubId, int? programId, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/setting'
-      .replaceAll('{version}', version.toString());
+    final path = r'/route/setting';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -285,8 +267,6 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -310,8 +290,8 @@ class RouteSettingApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for the route
-  Future<List<RouteSettings>?> searchRouteSettings(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { int? hubId, int? programId, String? keyword, }) async {
-    final response = await searchRouteSettingsWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  hubId: hubId, programId: programId, keyword: keyword, );
+  Future<List<RouteSettings>?> searchRouteSettings(String sortField, bool descending, int start, int limit, bool activeOnly, { int? hubId, int? programId, String? keyword, }) async {
+    final response = await searchRouteSettingsWithHttpInfo(sortField, descending, start, limit, activeOnly,  hubId: hubId, programId: programId, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -336,16 +316,13 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route settings to update
   ///
   /// * [RouteSettings] body:
-  Future<Response> updateRouteSettingsWithHttpInfo(num version, int routeSettingsId, { RouteSettings? body, }) async {
+  Future<Response> updateRouteSettingsWithHttpInfo(int routeSettingsId, { RouteSettings? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/setting/{routeSettingsId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/setting/{routeSettingsId}'
       .replaceAll('{routeSettingsId}', routeSettingsId.toString());
 
     // ignore: prefer_final_locals
@@ -375,14 +352,12 @@ class RouteSettingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeSettingsId (required):
   ///   the id of the route settings to update
   ///
   /// * [RouteSettings] body:
-  Future<RouteSettings?> updateRouteSettings(num version, int routeSettingsId, { RouteSettings? body, }) async {
-    final response = await updateRouteSettingsWithHttpInfo(version, routeSettingsId,  body: body, );
+  Future<RouteSettings?> updateRouteSettings(int routeSettingsId, { RouteSettings? body, }) async {
+    final response = await updateRouteSettingsWithHttpInfo(routeSettingsId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

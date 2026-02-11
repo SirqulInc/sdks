@@ -24,8 +24,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] flagableType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
   ///
@@ -46,10 +44,9 @@ class FlagApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> createFlagWithHttpInfo(num version, String flagableType, int flagableId, { String? deviceId, int? accountId, String? flagDescription, double? latitude, double? longitude, }) async {
+  Future<Response> createFlagWithHttpInfo(String flagableType, int flagableId, { String? deviceId, int? accountId, String? flagDescription, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/flag/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/flag/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -96,8 +93,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] flagableType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
   ///
@@ -118,8 +113,8 @@ class FlagApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<SirqulResponse?> createFlag(num version, String flagableType, int flagableId, { String? deviceId, int? accountId, String? flagDescription, double? latitude, double? longitude, }) async {
-    final response = await createFlagWithHttpInfo(version, flagableType, flagableId,  deviceId: deviceId, accountId: accountId, flagDescription: flagDescription, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> createFlag(String flagableType, int flagableId, { String? deviceId, int? accountId, String? flagDescription, double? latitude, double? longitude, }) async {
+    final response = await createFlagWithHttpInfo(flagableType, flagableId,  deviceId: deviceId, accountId: accountId, flagDescription: flagDescription, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,8 +136,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -160,10 +153,9 @@ class FlagApi {
   ///
   /// * [int] flagableId:
   ///   The flagable object id
-  Future<Response> deleteFlagWithHttpInfo(num version, { String? deviceId, int? accountId, String? itemBeingFlaggedType, int? itemBeingFlaggedId, String? flagableType, int? flagableId, }) async {
+  Future<Response> deleteFlagWithHttpInfo({ String? deviceId, int? accountId, String? itemBeingFlaggedType, int? itemBeingFlaggedId, String? flagableType, int? flagableId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/flag/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/flag/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -211,8 +203,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -230,8 +220,8 @@ class FlagApi {
   ///
   /// * [int] flagableId:
   ///   The flagable object id
-  Future<SirqulResponse?> deleteFlag(num version, { String? deviceId, int? accountId, String? itemBeingFlaggedType, int? itemBeingFlaggedId, String? flagableType, int? flagableId, }) async {
-    final response = await deleteFlagWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, itemBeingFlaggedType: itemBeingFlaggedType, itemBeingFlaggedId: itemBeingFlaggedId, flagableType: flagableType, flagableId: flagableId, );
+  Future<SirqulResponse?> deleteFlag({ String? deviceId, int? accountId, String? itemBeingFlaggedType, int? itemBeingFlaggedId, String? flagableType, int? flagableId, }) async {
+    final response = await deleteFlagWithHttpInfo( deviceId: deviceId, accountId: accountId, itemBeingFlaggedType: itemBeingFlaggedType, itemBeingFlaggedId: itemBeingFlaggedId, flagableType: flagableType, flagableId: flagableId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -253,8 +243,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] flagableType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
   ///
@@ -272,10 +260,9 @@ class FlagApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> getFlagWithHttpInfo(num version, String flagableType, int flagableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> getFlagWithHttpInfo(String flagableType, int flagableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/flag/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/flag/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -319,8 +306,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] flagableType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
   ///
@@ -338,8 +323,8 @@ class FlagApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<FlagResponse?> getFlag(num version, String flagableType, int flagableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await getFlagWithHttpInfo(version, flagableType, flagableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<FlagResponse?> getFlag(String flagableType, int flagableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await getFlagWithHttpInfo(flagableType, flagableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -361,17 +346,14 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] itemBeingFlaggedType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
   ///
   /// * [String] appKey (required):
   ///   The application key
-  Future<Response> getFlagThresholdWithHttpInfo(num version, String itemBeingFlaggedType, String appKey,) async {
+  Future<Response> getFlagThresholdWithHttpInfo(String itemBeingFlaggedType, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/flag/threshold/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/flag/threshold/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -403,15 +385,13 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] itemBeingFlaggedType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
   ///
   /// * [String] appKey (required):
   ///   The application key
-  Future<CountResponse?> getFlagThreshold(num version, String itemBeingFlaggedType, String appKey,) async {
-    final response = await getFlagThresholdWithHttpInfo(version, itemBeingFlaggedType, appKey,);
+  Future<CountResponse?> getFlagThreshold(String itemBeingFlaggedType, String appKey,) async {
+    final response = await getFlagThresholdWithHttpInfo(itemBeingFlaggedType, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -433,8 +413,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] itemBeingFlaggedType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
   ///
@@ -449,10 +427,9 @@ class FlagApi {
   ///
   /// * [int] accountId:
   ///   The unique accountId that made the request (either deviceId or accountId must be used)
-  Future<Response> updateFlagThresholdWithHttpInfo(num version, String itemBeingFlaggedType, int threshold, String appKey, { String? deviceId, int? accountId, }) async {
+  Future<Response> updateFlagThresholdWithHttpInfo(String itemBeingFlaggedType, int threshold, String appKey, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/flag/threshold/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/flag/threshold/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -491,8 +468,6 @@ class FlagApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] itemBeingFlaggedType (required):
   ///   The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
   ///
@@ -507,8 +482,8 @@ class FlagApi {
   ///
   /// * [int] accountId:
   ///   The unique accountId that made the request (either deviceId or accountId must be used)
-  Future<CountResponse?> updateFlagThreshold(num version, String itemBeingFlaggedType, int threshold, String appKey, { String? deviceId, int? accountId, }) async {
-    final response = await updateFlagThresholdWithHttpInfo(version, itemBeingFlaggedType, threshold, appKey,  deviceId: deviceId, accountId: accountId, );
+  Future<CountResponse?> updateFlagThreshold(String itemBeingFlaggedType, int threshold, String appKey, { String? deviceId, int? accountId, }) async {
+    final response = await updateFlagThresholdWithHttpInfo(itemBeingFlaggedType, threshold, appKey,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

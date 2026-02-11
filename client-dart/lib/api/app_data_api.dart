@@ -24,8 +24,6 @@ class AppDataApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   start the search results at a record.
   ///
@@ -100,10 +98,9 @@ class AppDataApi {
   ///
   /// * [String] purchaseType:
   ///   the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
-  Future<Response> getAppDataWithHttpInfo(num version, int start, int limit, { String? deviceId, int? accountId, String? gameType, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
+  Future<Response> getAppDataWithHttpInfo(int start, int limit, { String? deviceId, int? accountId, String? gameType, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/app/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/app/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -204,8 +201,6 @@ class AppDataApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] start (required):
   ///   start the search results at a record.
   ///
@@ -280,8 +275,8 @@ class AppDataApi {
   ///
   /// * [String] purchaseType:
   ///   the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
-  Future<AppResponse?> getAppData(num version, int start, int limit, { String? deviceId, int? accountId, String? gameType, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
-    final response = await getAppDataWithHttpInfo(version, start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, );
+  Future<AppResponse?> getAppData(int start, int limit, { String? deviceId, int? accountId, String? gameType, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
+    final response = await getAppDataWithHttpInfo(start, limit,  deviceId: deviceId, accountId: accountId, gameType: gameType, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -302,8 +297,6 @@ class AppDataApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] gameType (required):
   ///   the game to retrieve the data for, use your application key.
@@ -382,10 +375,9 @@ class AppDataApi {
   ///
   /// * [String] purchaseType:
   ///   the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
-  Future<Response> postAppDataWithHttpInfo(num version, String gameType, int start, int limit, String data, { String? deviceId, int? accountId, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
+  Future<Response> postAppDataWithHttpInfo(String gameType, int start, int limit, String data, { String? deviceId, int? accountId, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/app/post'
-      .replaceAll('{version}', version.toString());
+    final path = r'/app/post';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -485,8 +477,6 @@ class AppDataApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] gameType (required):
   ///   the game to retrieve the data for, use your application key.
   ///
@@ -564,8 +554,8 @@ class AppDataApi {
   ///
   /// * [String] purchaseType:
   ///   the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
-  Future<AppResponse?> postAppData(num version, String gameType, int start, int limit, String data, { String? deviceId, int? accountId, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
-    final response = await postAppDataWithHttpInfo(version, gameType, start, limit, data,  deviceId: deviceId, accountId: accountId, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, );
+  Future<AppResponse?> postAppData(String gameType, int start, int limit, String data, { String? deviceId, int? accountId, bool? includeGameData, String? q, String? keyword, String? sortField, bool? descending, int? i, int? l, bool? gameObjectCount, String? filter, int? dateCreated, int? ownerId, String? missionIds, String? gameIds, String? packIds, String? gameLevelIds, String? appVersion, bool? includeHigherVersionPacks, bool? includeHigherVersionLevels, String? responseGroups, String? purchaseType, }) async {
+    final response = await postAppDataWithHttpInfo(gameType, start, limit, data,  deviceId: deviceId, accountId: accountId, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -587,8 +577,6 @@ class AppDataApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the account id of the user
   ///
@@ -600,10 +588,9 @@ class AppDataApi {
   ///
   /// * [String] apiVersion:
   ///   create a specific version, if null use current version. Be careful if processing all
-  Future<Response> regenAppDataWithHttpInfo(num version, { int? accountId, String? appKey, String? buildVersion, String? apiVersion, }) async {
+  Future<Response> regenAppDataWithHttpInfo({ int? accountId, String? appKey, String? buildVersion, String? apiVersion, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/app/regen'
-      .replaceAll('{version}', version.toString());
+    final path = r'/app/regen';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -645,8 +632,6 @@ class AppDataApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the account id of the user
   ///
@@ -658,8 +643,8 @@ class AppDataApi {
   ///
   /// * [String] apiVersion:
   ///   create a specific version, if null use current version. Be careful if processing all
-  Future<SirqulResponse?> regenAppData(num version, { int? accountId, String? appKey, String? buildVersion, String? apiVersion, }) async {
-    final response = await regenAppDataWithHttpInfo(version,  accountId: accountId, appKey: appKey, buildVersion: buildVersion, apiVersion: apiVersion, );
+  Future<SirqulResponse?> regenAppData({ int? accountId, String? appKey, String? buildVersion, String? apiVersion, }) async {
+    final response = await regenAppDataWithHttpInfo( accountId: accountId, appKey: appKey, buildVersion: buildVersion, apiVersion: apiVersion, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

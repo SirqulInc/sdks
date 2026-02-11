@@ -24,8 +24,6 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -58,10 +56,9 @@ class QuestionApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<Response> createQuestionWithHttpInfo(num version, int accountId, String question, String answers, bool active, bool allocateTickets, int ticketCount, { String? tags, String? videoURL, int? assetId, String? ticketType, int? points, }) async {
+  Future<Response> createQuestionWithHttpInfo(int accountId, String question, String answers, bool active, bool allocateTickets, int ticketCount, { String? tags, String? videoURL, int? assetId, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/question/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/question/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -112,8 +109,6 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -146,8 +141,8 @@ class QuestionApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<QuestionResponse?> createQuestion(num version, int accountId, String question, String answers, bool active, bool allocateTickets, int ticketCount, { String? tags, String? videoURL, int? assetId, String? ticketType, int? points, }) async {
-    final response = await createQuestionWithHttpInfo(version, accountId, question, answers, active, allocateTickets, ticketCount,  tags: tags, videoURL: videoURL, assetId: assetId, ticketType: ticketType, points: points, );
+  Future<QuestionResponse?> createQuestion(int accountId, String question, String answers, bool active, bool allocateTickets, int ticketCount, { String? tags, String? videoURL, int? assetId, String? ticketType, int? points, }) async {
+    final response = await createQuestionWithHttpInfo(accountId, question, answers, active, allocateTickets, ticketCount,  tags: tags, videoURL: videoURL, assetId: assetId, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -169,17 +164,14 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] questionId (required):
   ///   the id of the question to delete
   ///
   /// * [int] accountId (required):
   ///   the id of the account that can execute this request
-  Future<Response> deleteQuestionWithHttpInfo(num version, int questionId, int accountId,) async {
+  Future<Response> deleteQuestionWithHttpInfo(int questionId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/question/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/question/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -211,15 +203,13 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] questionId (required):
   ///   the id of the question to delete
   ///
   /// * [int] accountId (required):
   ///   the id of the account that can execute this request
-  Future<SirqulResponse?> deleteQuestion(num version, int questionId, int accountId,) async {
-    final response = await deleteQuestionWithHttpInfo(version, questionId, accountId,);
+  Future<SirqulResponse?> deleteQuestion(int questionId, int accountId,) async {
+    final response = await deleteQuestionWithHttpInfo(questionId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -241,17 +231,14 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] questionId (required):
   ///   the id of the question to get
   ///
   /// * [int] accountId (required):
   ///   the id of the account that can make this request
-  Future<Response> getQuestionWithHttpInfo(num version, int questionId, int accountId,) async {
+  Future<Response> getQuestionWithHttpInfo(int questionId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/question/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/question/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -283,15 +270,13 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] questionId (required):
   ///   the id of the question to get
   ///
   /// * [int] accountId (required):
   ///   the id of the account that can make this request
-  Future<QuestionResponse?> getQuestion(num version, int questionId, int accountId,) async {
-    final response = await getQuestionWithHttpInfo(version, questionId, accountId,);
+  Future<QuestionResponse?> getQuestion(int questionId, int accountId,) async {
+    final response = await getQuestionWithHttpInfo(questionId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -313,8 +298,6 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -335,10 +318,9 @@ class QuestionApi {
   ///
   /// * [String] keyword:
   ///   The keyword for searching questions with matching tags or question text.
-  Future<Response> searchQuestionsWithHttpInfo(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
+  Future<Response> searchQuestionsWithHttpInfo(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/question/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/question/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -377,8 +359,6 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -399,8 +379,8 @@ class QuestionApi {
   ///
   /// * [String] keyword:
   ///   The keyword for searching questions with matching tags or question text.
-  Future<List<QuestionResponse>?> searchQuestions(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
-    final response = await searchQuestionsWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit,  keyword: keyword, );
+  Future<List<QuestionResponse>?> searchQuestions(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
+    final response = await searchQuestionsWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -424,8 +404,6 @@ class QuestionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] questionId (required):
   ///   The id of the question to update.
@@ -462,10 +440,9 @@ class QuestionApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<Response> updateQuestionWithHttpInfo(num version, int questionId, int accountId, int ticketCount, { String? question, String? answers, String? tags, String? videoURL, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
+  Future<Response> updateQuestionWithHttpInfo(int questionId, int accountId, int ticketCount, { String? question, String? answers, String? tags, String? videoURL, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/question/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/question/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -525,8 +502,6 @@ class QuestionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] questionId (required):
   ///   The id of the question to update.
   ///
@@ -562,8 +537,8 @@ class QuestionApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<QuestionResponse?> updateQuestion(num version, int questionId, int accountId, int ticketCount, { String? question, String? answers, String? tags, String? videoURL, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
-    final response = await updateQuestionWithHttpInfo(version, questionId, accountId, ticketCount,  question: question, answers: answers, tags: tags, videoURL: videoURL, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, );
+  Future<QuestionResponse?> updateQuestion(int questionId, int accountId, int ticketCount, { String? question, String? answers, String? tags, String? videoURL, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
+    final response = await updateQuestionWithHttpInfo(questionId, accountId, ticketCount,  question: question, answers: answers, tags: tags, videoURL: videoURL, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

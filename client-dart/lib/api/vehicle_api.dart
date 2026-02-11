@@ -24,16 +24,13 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] vehicle (required):
   ///   A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
   ///
   /// * [Vehicle] body:
-  Future<Response> createVehicleWithHttpInfo(num version, String vehicle, { Vehicle? body, }) async {
+  Future<Response> createVehicleWithHttpInfo(String vehicle, { Vehicle? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vehicle'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vehicle';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -64,14 +61,12 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] vehicle (required):
   ///   A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
   ///
   /// * [Vehicle] body:
-  Future<Vehicle?> createVehicle(num version, String vehicle, { Vehicle? body, }) async {
-    final response = await createVehicleWithHttpInfo(version, vehicle,  body: body, );
+  Future<Vehicle?> createVehicle(String vehicle, { Vehicle? body, }) async {
+    final response = await createVehicleWithHttpInfo(vehicle,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -93,14 +88,11 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle to delete
-  Future<Response> deleteVehicleWithHttpInfo(num version, int id,) async {
+  Future<Response> deleteVehicleWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vehicle/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/vehicle/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -130,12 +122,10 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle to delete
-  Future<void> deleteVehicle(num version, int id,) async {
-    final response = await deleteVehicleWithHttpInfo(version, id,);
+  Future<void> deleteVehicle(int id,) async {
+    final response = await deleteVehicleWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -149,14 +139,11 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle requested
-  Future<Response> getVehicleWithHttpInfo(num version, int id,) async {
+  Future<Response> getVehicleWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vehicle/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/vehicle/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -186,12 +173,10 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle requested
-  Future<Vehicle?> getVehicle(num version, int id,) async {
-    final response = await getVehicleWithHttpInfo(version, id,);
+  Future<Vehicle?> getVehicle(int id,) async {
+    final response = await getVehicleWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -213,8 +198,6 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] hubId (required):
   ///   Filter by service hub
   ///
@@ -235,10 +218,9 @@ class VehicleApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for
-  Future<Response> searchVehicleWithHttpInfo(num version, int hubId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
+  Future<Response> searchVehicleWithHttpInfo(int hubId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vehicle'
-      .replaceAll('{version}', version.toString());
+    final path = r'/vehicle';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -277,8 +259,6 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] hubId (required):
   ///   Filter by service hub
   ///
@@ -299,8 +279,8 @@ class VehicleApi {
   ///
   /// * [String] keyword:
   ///   The keyword to search for
-  Future<List<Vehicle>?> searchVehicle(num version, int hubId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
-    final response = await searchVehicleWithHttpInfo(version, hubId, sortField, descending, start, limit, activeOnly,  keyword: keyword, );
+  Future<List<Vehicle>?> searchVehicle(int hubId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, }) async {
+    final response = await searchVehicleWithHttpInfo(hubId, sortField, descending, start, limit, activeOnly,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -325,8 +305,6 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle to update
   ///
@@ -334,10 +312,9 @@ class VehicleApi {
   ///   A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
   ///
   /// * [Vehicle] body:
-  Future<Response> updateVehicleWithHttpInfo(num version, int id, String vehicle, { Vehicle? body, }) async {
+  Future<Response> updateVehicleWithHttpInfo(int id, String vehicle, { Vehicle? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/vehicle/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/vehicle/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -369,8 +346,6 @@ class VehicleApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   The id of the vehicle to update
   ///
@@ -378,8 +353,8 @@ class VehicleApi {
   ///   A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
   ///
   /// * [Vehicle] body:
-  Future<Vehicle?> updateVehicle(num version, int id, String vehicle, { Vehicle? body, }) async {
-    final response = await updateVehicleWithHttpInfo(version, id, vehicle,  body: body, );
+  Future<Vehicle?> updateVehicle(int id, String vehicle, { Vehicle? body, }) async {
+    final response = await updateVehicleWithHttpInfo(id, vehicle,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

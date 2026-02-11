@@ -24,8 +24,6 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -52,10 +50,9 @@ class WordApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<Response> createWordWithHttpInfo(num version, int accountId, String word, String definition, bool active, bool allocateTickets, int ticketCount, { int? assetId, String? ticketType, int? points, }) async {
+  Future<Response> createWordWithHttpInfo(int accountId, String word, String definition, bool active, bool allocateTickets, int ticketCount, { int? assetId, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/word/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/word/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -100,8 +97,6 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -128,8 +123,8 @@ class WordApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<WordzWordResponse?> createWord(num version, int accountId, String word, String definition, bool active, bool allocateTickets, int ticketCount, { int? assetId, String? ticketType, int? points, }) async {
-    final response = await createWordWithHttpInfo(version, accountId, word, definition, active, allocateTickets, ticketCount,  assetId: assetId, ticketType: ticketType, points: points, );
+  Future<WordzWordResponse?> createWord(int accountId, String word, String definition, bool active, bool allocateTickets, int ticketCount, { int? assetId, String? ticketType, int? points, }) async {
+    final response = await createWordWithHttpInfo(accountId, word, definition, active, allocateTickets, ticketCount,  assetId: assetId, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -151,17 +146,14 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] wordId (required):
   ///   The id of the word to delete.
   ///
   /// * [int] accountId (required):
   ///   The account vor validating permission
-  Future<Response> deleteWordWithHttpInfo(num version, int wordId, int accountId,) async {
+  Future<Response> deleteWordWithHttpInfo(int wordId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/word/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/word/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -193,15 +185,13 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] wordId (required):
   ///   The id of the word to delete.
   ///
   /// * [int] accountId (required):
   ///   The account vor validating permission
-  Future<SirqulResponse?> deleteWord(num version, int wordId, int accountId,) async {
-    final response = await deleteWordWithHttpInfo(version, wordId, accountId,);
+  Future<SirqulResponse?> deleteWord(int wordId, int accountId,) async {
+    final response = await deleteWordWithHttpInfo(wordId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -223,17 +213,14 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] wordId (required):
   ///   The id of the word to get.
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
-  Future<Response> getWordWithHttpInfo(num version, int wordId, int accountId,) async {
+  Future<Response> getWordWithHttpInfo(int wordId, int accountId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/word/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/word/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -265,15 +252,13 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] wordId (required):
   ///   The id of the word to get.
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
-  Future<WordzWordResponse?> getWord(num version, int wordId, int accountId,) async {
-    final response = await getWordWithHttpInfo(version, wordId, accountId,);
+  Future<WordzWordResponse?> getWord(int wordId, int accountId,) async {
+    final response = await getWordWithHttpInfo(wordId, accountId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -295,8 +280,6 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -317,10 +300,9 @@ class WordApi {
   ///
   /// * [String] keyword:
   ///   The keyword for searching words with matching definition or word text.
-  Future<Response> getWordsWithHttpInfo(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
+  Future<Response> getWordsWithHttpInfo(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/word/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/word/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -359,8 +341,6 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -381,8 +361,8 @@ class WordApi {
   ///
   /// * [String] keyword:
   ///   The keyword for searching words with matching definition or word text.
-  Future<List<WordzWordResponse>?> getWords(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
-    final response = await getWordsWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit,  keyword: keyword, );
+  Future<List<WordzWordResponse>?> getWords(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { String? keyword, }) async {
+    final response = await getWordsWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -406,8 +386,6 @@ class WordApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] wordId (required):
   ///   The id of the word to update.
@@ -438,10 +416,9 @@ class WordApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<Response> updateWordWithHttpInfo(num version, int wordId, int accountId, int ticketCount, { String? wordText, String? definition, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
+  Future<Response> updateWordWithHttpInfo(int wordId, int accountId, int ticketCount, { String? wordText, String? definition, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/game/word/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/game/word/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -495,8 +472,6 @@ class WordApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] wordId (required):
   ///   The id of the word to update.
   ///
@@ -526,8 +501,8 @@ class WordApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a mission
-  Future<WordzWordResponse?> updateWord(num version, int wordId, int accountId, int ticketCount, { String? wordText, String? definition, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
-    final response = await updateWordWithHttpInfo(version, wordId, accountId, ticketCount,  wordText: wordText, definition: definition, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, );
+  Future<WordzWordResponse?> updateWord(int wordId, int accountId, int ticketCount, { String? wordText, String? definition, int? assetId, bool? active, bool? allocateTickets, String? ticketType, int? points, }) async {
+    final response = await updateWordWithHttpInfo(wordId, accountId, ticketCount,  wordText: wordText, definition: definition, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

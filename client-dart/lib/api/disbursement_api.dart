@@ -24,14 +24,11 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] disbursementId (required):
   ///   the ID of the disbursement being checked on
-  Future<Response> checkDisbursementsWithHttpInfo(num version, int disbursementId,) async {
+  Future<Response> checkDisbursementsWithHttpInfo(int disbursementId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/disbursement/check'
-      .replaceAll('{version}', version.toString());
+    final path = r'/disbursement/check';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -62,12 +59,10 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] disbursementId (required):
   ///   the ID of the disbursement being checked on
-  Future<DisbursementResponse?> checkDisbursements(num version, int disbursementId,) async {
-    final response = await checkDisbursementsWithHttpInfo(version, disbursementId,);
+  Future<DisbursementResponse?> checkDisbursements(int disbursementId,) async {
+    final response = await checkDisbursementsWithHttpInfo(disbursementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -88,8 +83,6 @@ class DisbursementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the ID of the logging in user (must be an EXECUTIVE account)
@@ -120,10 +113,9 @@ class DisbursementApi {
   ///
   /// * [String] introspectionParams:
   ///   This is for specifying parameters to make an http callback request for validating that the disbursement is valid
-  Future<Response> createDisbursementWithHttpInfo(num version, int accountId, int receiverAccountId, int originalSenderAccountId, num amount, String provider, { int? scheduledDate, String? title, String? comment, String? externalId, String? introspectionParams, }) async {
+  Future<Response> createDisbursementWithHttpInfo(int accountId, int receiverAccountId, int originalSenderAccountId, num amount, String provider, { int? scheduledDate, String? title, String? comment, String? externalId, String? introspectionParams, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/disbursement/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/disbursement/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -173,8 +165,6 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the ID of the logging in user (must be an EXECUTIVE account)
   ///
@@ -204,8 +194,8 @@ class DisbursementApi {
   ///
   /// * [String] introspectionParams:
   ///   This is for specifying parameters to make an http callback request for validating that the disbursement is valid
-  Future<DisbursementResponse?> createDisbursement(num version, int accountId, int receiverAccountId, int originalSenderAccountId, num amount, String provider, { int? scheduledDate, String? title, String? comment, String? externalId, String? introspectionParams, }) async {
-    final response = await createDisbursementWithHttpInfo(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider,  scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, introspectionParams: introspectionParams, );
+  Future<DisbursementResponse?> createDisbursement(int accountId, int receiverAccountId, int originalSenderAccountId, num amount, String provider, { int? scheduledDate, String? title, String? comment, String? externalId, String? introspectionParams, }) async {
+    final response = await createDisbursementWithHttpInfo(accountId, receiverAccountId, originalSenderAccountId, amount, provider,  scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, introspectionParams: introspectionParams, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -227,17 +217,14 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] disbursementId (required):
   ///   the id of the disbursement
-  Future<Response> getDisbursementWithHttpInfo(num version, int accountId, int disbursementId,) async {
+  Future<Response> getDisbursementWithHttpInfo(int accountId, int disbursementId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/disbursement/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/disbursement/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -269,15 +256,13 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] disbursementId (required):
   ///   the id of the disbursement
-  Future<DisbursementResponse?> getDisbursement(num version, int accountId, int disbursementId,) async {
-    final response = await getDisbursementWithHttpInfo(version, accountId, disbursementId,);
+  Future<DisbursementResponse?> getDisbursement(int accountId, int disbursementId,) async {
+    final response = await getDisbursementWithHttpInfo(accountId, disbursementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -298,8 +283,6 @@ class DisbursementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
@@ -330,10 +313,9 @@ class DisbursementApi {
   ///
   /// * [String] externalId:
   ///   search results by this external ID (that can be used to reference the disbursement)
-  Future<Response> searchDisbursementsWithHttpInfo(num version, int accountId, { int? receiverAccountId, String? statuses, String? providers, int? beforeDate, int? afterDate, int? start, int? limit, bool? activeOnly, String? externalId, }) async {
+  Future<Response> searchDisbursementsWithHttpInfo(int accountId, { int? receiverAccountId, String? statuses, String? providers, int? beforeDate, int? afterDate, int? start, int? limit, bool? activeOnly, String? externalId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/disbursement/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/disbursement/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -391,8 +373,6 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -422,8 +402,8 @@ class DisbursementApi {
   ///
   /// * [String] externalId:
   ///   search results by this external ID (that can be used to reference the disbursement)
-  Future<List<DisbursementResponse>?> searchDisbursements(num version, int accountId, { int? receiverAccountId, String? statuses, String? providers, int? beforeDate, int? afterDate, int? start, int? limit, bool? activeOnly, String? externalId, }) async {
-    final response = await searchDisbursementsWithHttpInfo(version, accountId,  receiverAccountId: receiverAccountId, statuses: statuses, providers: providers, beforeDate: beforeDate, afterDate: afterDate, start: start, limit: limit, activeOnly: activeOnly, externalId: externalId, );
+  Future<List<DisbursementResponse>?> searchDisbursements(int accountId, { int? receiverAccountId, String? statuses, String? providers, int? beforeDate, int? afterDate, int? start, int? limit, bool? activeOnly, String? externalId, }) async {
+    final response = await searchDisbursementsWithHttpInfo(accountId,  receiverAccountId: receiverAccountId, statuses: statuses, providers: providers, beforeDate: beforeDate, afterDate: afterDate, start: start, limit: limit, activeOnly: activeOnly, externalId: externalId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -447,8 +427,6 @@ class DisbursementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
@@ -479,10 +457,9 @@ class DisbursementApi {
   ///
   /// * [String] introspectionParams:
   ///   for specifying parameters to make an http callback request for validating that the disbursement is valid
-  Future<Response> updateDisbursementWithHttpInfo(num version, int accountId, int disbursementId, { num? amount, String? provider, int? scheduledDate, String? title, String? comment, String? externalId, bool? retry, String? introspectionParams, }) async {
+  Future<Response> updateDisbursementWithHttpInfo(int accountId, int disbursementId, { num? amount, String? provider, int? scheduledDate, String? title, String? comment, String? externalId, bool? retry, String? introspectionParams, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/disbursement/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/disbursement/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -538,8 +515,6 @@ class DisbursementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
@@ -569,8 +544,8 @@ class DisbursementApi {
   ///
   /// * [String] introspectionParams:
   ///   for specifying parameters to make an http callback request for validating that the disbursement is valid
-  Future<DisbursementResponse?> updateDisbursement(num version, int accountId, int disbursementId, { num? amount, String? provider, int? scheduledDate, String? title, String? comment, String? externalId, bool? retry, String? introspectionParams, }) async {
-    final response = await updateDisbursementWithHttpInfo(version, accountId, disbursementId,  amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, retry: retry, introspectionParams: introspectionParams, );
+  Future<DisbursementResponse?> updateDisbursement(int accountId, int disbursementId, { num? amount, String? provider, int? scheduledDate, String? title, String? comment, String? externalId, bool? retry, String? introspectionParams, }) async {
+    final response = await updateDisbursementWithHttpInfo(accountId, disbursementId,  amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, retry: retry, introspectionParams: introspectionParams, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

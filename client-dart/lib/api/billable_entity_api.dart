@@ -24,8 +24,6 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -61,10 +59,9 @@ class BillableEntityApi {
   ///
   /// * [String] authorizeNetTransactionKey:
   ///   Authorize Net Transaction Key
-  Future<Response> createBillableEntityWithHttpInfo(num version, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
+  Future<Response> createBillableEntityWithHttpInfo({ String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billable/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billable/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -130,8 +127,6 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -167,8 +162,8 @@ class BillableEntityApi {
   ///
   /// * [String] authorizeNetTransactionKey:
   ///   Authorize Net Transaction Key
-  Future<BillableEntityResponse?> createBillableEntity(num version, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
-    final response = await createBillableEntityWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, );
+  Future<BillableEntityResponse?> createBillableEntity({ String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
+    final response = await createBillableEntityWithHttpInfo( deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -190,17 +185,14 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the billable entity.
-  Future<Response> deleteBillableEntityWithHttpInfo(num version, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteBillableEntityWithHttpInfo({ String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billable/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billable/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -236,15 +228,13 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
   /// * [int] accountId:
   ///   The account used to perform the delete, must have rights to edit the billable entity.
-  Future<SirqulResponse?> deleteBillableEntity(num version, { String? deviceId, int? accountId, }) async {
-    final response = await deleteBillableEntityWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteBillableEntity({ String? deviceId, int? accountId, }) async {
+    final response = await deleteBillableEntityWithHttpInfo( deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -266,8 +256,6 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -279,10 +267,9 @@ class BillableEntityApi {
   ///
   /// * [bool] includePayments:
   ///   Whether to enable payments or not
-  Future<Response> getBillableEntityWithHttpInfo(num version, { String? deviceId, int? accountId, bool? includeCounts, bool? includePayments, }) async {
+  Future<Response> getBillableEntityWithHttpInfo({ String? deviceId, int? accountId, bool? includeCounts, bool? includePayments, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billable/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billable/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -324,8 +311,6 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -337,8 +322,8 @@ class BillableEntityApi {
   ///
   /// * [bool] includePayments:
   ///   Whether to enable payments or not
-  Future<BillableEntityResponse?> getBillableEntity(num version, { String? deviceId, int? accountId, bool? includeCounts, bool? includePayments, }) async {
-    final response = await getBillableEntityWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, includePayments: includePayments, );
+  Future<BillableEntityResponse?> getBillableEntity({ String? deviceId, int? accountId, bool? includeCounts, bool? includePayments, }) async {
+    final response = await getBillableEntityWithHttpInfo( deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, includePayments: includePayments, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -359,8 +344,6 @@ class BillableEntityApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -397,10 +380,9 @@ class BillableEntityApi {
   ///
   /// * [String] authorizeNetTransactionKey:
   ///   Authorize Net Transaction Key of the billable entity
-  Future<Response> updateBillableEntityWithHttpInfo(num version, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
+  Future<Response> updateBillableEntityWithHttpInfo({ String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billable/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billable/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -466,8 +448,6 @@ class BillableEntityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The unique device identifier that made the request (either deviceId or accountId must be used)
   ///
@@ -503,8 +483,8 @@ class BillableEntityApi {
   ///
   /// * [String] authorizeNetTransactionKey:
   ///   Authorize Net Transaction Key of the billable entity
-  Future<BillableEntityResponse?> updateBillableEntity(num version, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
-    final response = await updateBillableEntityWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, );
+  Future<BillableEntityResponse?> updateBillableEntity({ String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? businessPhone, String? businessPhoneExt, String? authorizeNetApiKey, String? authorizeNetTransactionKey, }) async {
+    final response = await updateBillableEntityWithHttpInfo( deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

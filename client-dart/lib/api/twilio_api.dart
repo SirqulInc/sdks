@@ -24,8 +24,6 @@ class TwilioApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
   ///
@@ -37,10 +35,9 @@ class TwilioApi {
   ///
   /// * [String] currencyType (required):
   ///   the type of currency
-  Future<Response> smsBuyOfferWithHttpInfo(num version, String appKey, String body, String from, String currencyType,) async {
+  Future<Response> smsBuyOfferWithHttpInfo(String appKey, String body, String from, String currencyType,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/sms/buyoffer/{appKey}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/sms/buyoffer/{appKey}'
       .replaceAll('{appKey}', appKey);
 
     // ignore: prefer_final_locals
@@ -74,8 +71,6 @@ class TwilioApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
   ///
@@ -87,8 +82,8 @@ class TwilioApi {
   ///
   /// * [String] currencyType (required):
   ///   the type of currency
-  Future<TwiMLResponse?> smsBuyOffer(num version, String appKey, String body, String from, String currencyType,) async {
-    final response = await smsBuyOfferWithHttpInfo(version, appKey, body, from, currencyType,);
+  Future<TwiMLResponse?> smsBuyOffer(String appKey, String body, String from, String currencyType,) async {
+    final response = await smsBuyOfferWithHttpInfo(appKey, body, from, currencyType,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

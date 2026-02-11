@@ -24,14 +24,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to approve
-  Future<Response> approveRouteWithHttpInfo(num version, int routeId,) async {
+  Future<Response> approveRouteWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/approve'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/approve'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -61,12 +58,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to approve
-  Future<Route?> approveRoute(num version, int routeId,) async {
-    final response = await approveRouteWithHttpInfo(version, routeId,);
+  Future<Route?> approveRoute(int routeId,) async {
+    final response = await approveRouteWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -88,16 +83,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to duplicate
   ///
   /// * [Route] body:
-  Future<Response> copyRouteWithHttpInfo(num version, int routeId, { Route? body, }) async {
+  Future<Response> copyRouteWithHttpInfo(int routeId, { Route? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/copy'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/copy'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -127,14 +119,12 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to duplicate
   ///
   /// * [Route] body:
-  Future<Route?> copyRoute(num version, int routeId, { Route? body, }) async {
-    final response = await copyRouteWithHttpInfo(version, routeId,  body: body, );
+  Future<Route?> copyRoute(int routeId, { Route? body, }) async {
+    final response = await copyRouteWithHttpInfo(routeId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -156,13 +146,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Route] body:
-  Future<Response> createRouteWithHttpInfo(num version, { Route? body, }) async {
+  Future<Response> createRouteWithHttpInfo({ Route? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route'
-      .replaceAll('{version}', version.toString());
+    final path = r'/route';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -191,11 +178,9 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Route] body:
-  Future<Route?> createRoute(num version, { Route? body, }) async {
-    final response = await createRouteWithHttpInfo(version,  body: body, );
+  Future<Route?> createRoute({ Route? body, }) async {
+    final response = await createRouteWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -217,14 +202,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to update directions for
-  Future<Response> createRouteDirectionsWithHttpInfo(num version, int routeId,) async {
+  Future<Response> createRouteDirectionsWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/directions'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/directions'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -254,12 +236,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to update directions for
-  Future<List<Direction>?> createRouteDirections(num version, int routeId,) async {
-    final response = await createRouteDirectionsWithHttpInfo(version, routeId,);
+  Future<List<Direction>?> createRouteDirections(int routeId,) async {
+    final response = await createRouteDirectionsWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -284,14 +264,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to create a polyline for
-  Future<Response> createRoutePolylineWithHttpInfo(num version, int routeId,) async {
+  Future<Response> createRoutePolylineWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/polyline'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/polyline'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -321,12 +298,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to create a polyline for
-  Future<Route?> createRoutePolyline(num version, int routeId,) async {
-    final response = await createRoutePolylineWithHttpInfo(version, routeId,);
+  Future<Route?> createRoutePolyline(int routeId,) async {
+    final response = await createRoutePolylineWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -348,14 +323,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
-  Future<Response> deleteRouteWithHttpInfo(num version, int routeId,) async {
+  Future<Response> deleteRouteWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -385,12 +357,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
-  Future<void> deleteRoute(num version, int routeId,) async {
-    final response = await deleteRouteWithHttpInfo(version, routeId,);
+  Future<void> deleteRoute(int routeId,) async {
+    final response = await deleteRouteWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -404,14 +374,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to reject
-  Future<Response> disapproveRouteWithHttpInfo(num version, int routeId,) async {
+  Future<Response> disapproveRouteWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/disapprove'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/disapprove'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -441,12 +408,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to reject
-  Future<Route?> disapproveRoute(num version, int routeId,) async {
-    final response = await disapproveRouteWithHttpInfo(version, routeId,);
+  Future<Route?> disapproveRoute(int routeId,) async {
+    final response = await disapproveRouteWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -468,17 +433,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get
   ///
   /// * [bool] showInheritedProperties (required):
   ///   return inherited properties from parent or not
-  Future<Response> getRouteWithHttpInfo(num version, int routeId, bool showInheritedProperties,) async {
+  Future<Response> getRouteWithHttpInfo(int routeId, bool showInheritedProperties,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -510,15 +472,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get
   ///
   /// * [bool] showInheritedProperties (required):
   ///   return inherited properties from parent or not
-  Future<Route?> getRoute(num version, int routeId, bool showInheritedProperties,) async {
-    final response = await getRouteWithHttpInfo(version, routeId, showInheritedProperties,);
+  Future<Route?> getRoute(int routeId, bool showInheritedProperties,) async {
+    final response = await getRouteWithHttpInfo(routeId, showInheritedProperties,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -540,14 +500,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get directions for
-  Future<Response> getRouteDirectionsWithHttpInfo(num version, int routeId,) async {
+  Future<Response> getRouteDirectionsWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/directions'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/directions'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -577,12 +534,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get directions for
-  Future<List<Direction>?> getRouteDirections(num version, int routeId,) async {
-    final response = await getRouteDirectionsWithHttpInfo(version, routeId,);
+  Future<List<Direction>?> getRouteDirections(int routeId,) async {
+    final response = await getRouteDirectionsWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -607,14 +562,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get shipments for
-  Future<Response> getRouteShipmentsWithHttpInfo(num version, int routeId,) async {
+  Future<Response> getRouteShipmentsWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/shipments'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/shipments'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -644,12 +596,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get shipments for
-  Future<List<Shipment>?> getRouteShipments(num version, int routeId,) async {
-    final response = await getRouteShipmentsWithHttpInfo(version, routeId,);
+  Future<List<Shipment>?> getRouteShipments(int routeId,) async {
+    final response = await getRouteShipmentsWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -674,17 +624,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get stops for
   ///
   /// * [int] stopId (required):
   ///   the id of the specific stop on the route
-  Future<Response> getRouteStopWithHttpInfo(num version, int routeId, int stopId,) async {
+  Future<Response> getRouteStopWithHttpInfo(int routeId, int stopId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stop/{stopId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stop/{stopId}'
       .replaceAll('{routeId}', routeId.toString())
       .replaceAll('{stopId}', stopId.toString());
 
@@ -715,15 +662,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to get stops for
   ///
   /// * [int] stopId (required):
   ///   the id of the specific stop on the route
-  Future<Stop?> getRouteStop(num version, int routeId, int stopId,) async {
-    final response = await getRouteStopWithHttpInfo(version, routeId, stopId,);
+  Future<Stop?> getRouteStop(int routeId, int stopId,) async {
+    final response = await getRouteStopWithHttpInfo(routeId, stopId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -745,17 +690,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [bool] confirmedOnly (required):
   ///   only get stops that have been confirmed or not
-  Future<Response> getRouteStopsWithHttpInfo(num version, int routeId, bool confirmedOnly,) async {
+  Future<Response> getRouteStopsWithHttpInfo(int routeId, bool confirmedOnly,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stops'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stops'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -787,15 +729,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [bool] confirmedOnly (required):
   ///   only get stops that have been confirmed or not
-  Future<List<Stop>?> getRouteStops(num version, int routeId, bool confirmedOnly,) async {
-    final response = await getRouteStopsWithHttpInfo(version, routeId, confirmedOnly,);
+  Future<List<Stop>?> getRouteStops(int routeId, bool confirmedOnly,) async {
+    final response = await getRouteStopsWithHttpInfo(routeId, confirmedOnly,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -820,17 +760,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [int] stopId (required):
   ///   the id of the stop to get shipments on
-  Future<Response> getShipmentsAtStopWithHttpInfo(num version, int routeId, int stopId,) async {
+  Future<Response> getShipmentsAtStopWithHttpInfo(int routeId, int stopId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stop/{stopId}/shipments'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stop/{stopId}/shipments'
       .replaceAll('{routeId}', routeId.toString())
       .replaceAll('{stopId}', stopId.toString());
 
@@ -861,15 +798,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [int] stopId (required):
   ///   the id of the stop to get shipments on
-  Future<List<Shipment>?> getShipmentsAtStop(num version, int routeId, int stopId,) async {
-    final response = await getShipmentsAtStopWithHttpInfo(version, routeId, stopId,);
+  Future<List<Shipment>?> getShipmentsAtStop(int routeId, int stopId,) async {
+    final response = await getShipmentsAtStopWithHttpInfo(routeId, stopId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -894,14 +829,11 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to optimize
-  Future<Response> optimizeRouteWithHttpInfo(num version, int routeId,) async {
+  Future<Response> optimizeRouteWithHttpInfo(int routeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/optimize'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/optimize'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -931,12 +863,10 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to optimize
-  Future<void> optimizeRoute(num version, int routeId,) async {
-    final response = await optimizeRouteWithHttpInfo(version, routeId,);
+  Future<void> optimizeRoute(int routeId,) async {
+    final response = await optimizeRouteWithHttpInfo(routeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -950,17 +880,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [int] stopId (required):
   ///   the id of the specific stop to delete on the route
-  Future<Response> removeStopWithHttpInfo(num version, int routeId, int stopId,) async {
+  Future<Response> removeStopWithHttpInfo(int routeId, int stopId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stop/{stopId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stop/{stopId}'
       .replaceAll('{routeId}', routeId.toString())
       .replaceAll('{stopId}', stopId.toString());
 
@@ -991,15 +918,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [int] stopId (required):
   ///   the id of the specific stop to delete on the route
-  Future<void> removeStop(num version, int routeId, int stopId,) async {
-    final response = await removeStopWithHttpInfo(version, routeId, stopId,);
+  Future<void> removeStop(int routeId, int stopId,) async {
+    final response = await removeStopWithHttpInfo(routeId, stopId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1013,16 +938,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [List<Stop>] body:
-  Future<Response> reorderRouteStopsPatchWithHttpInfo(num version, int routeId, { List<Stop>? body, }) async {
+  Future<Response> reorderRouteStopsPatchWithHttpInfo(int routeId, { List<Stop>? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stops/reorder'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stops/reorder'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -1052,14 +974,12 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [List<Stop>] body:
-  Future<List<Stop>?> reorderRouteStopsPatch(num version, int routeId, { List<Stop>? body, }) async {
-    final response = await reorderRouteStopsPatchWithHttpInfo(version, routeId,  body: body, );
+  Future<List<Stop>?> reorderRouteStopsPatch(int routeId, { List<Stop>? body, }) async {
+    final response = await reorderRouteStopsPatchWithHttpInfo(routeId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1084,16 +1004,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [List<Stop>] body:
-  Future<Response> reorderRouteStopsPostWithHttpInfo(num version, int routeId, { List<Stop>? body, }) async {
+  Future<Response> reorderRouteStopsPostWithHttpInfo(int routeId, { List<Stop>? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stops/reorder'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stops/reorder'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -1123,14 +1040,12 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [List<Stop>] body:
-  Future<List<Stop>?> reorderRouteStopsPost(num version, int routeId, { List<Stop>? body, }) async {
-    final response = await reorderRouteStopsPostWithHttpInfo(version, routeId,  body: body, );
+  Future<List<Stop>?> reorderRouteStopsPost(int routeId, { List<Stop>? body, }) async {
+    final response = await reorderRouteStopsPostWithHttpInfo(routeId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1154,8 +1069,6 @@ class RouteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   The field to sort by
@@ -1219,10 +1132,9 @@ class RouteApi {
   ///
   /// * [int] parentId:
   ///   If it is a recurring route based on the parent route
-  Future<Response> searchRoutesWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, { int? hubId, int? programId, int? scheduledStart, int? scheduledEnd, int? updatedStart, int? updatedEnd, bool? featured, int? seatCount, bool? approved, bool? started, bool? completed, bool? valid, int? parentId, }) async {
+  Future<Response> searchRoutesWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, { int? hubId, int? programId, int? scheduledStart, int? scheduledEnd, int? updatedStart, int? updatedEnd, bool? featured, int? seatCount, bool? approved, bool? started, bool? completed, bool? valid, int? parentId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route'
-      .replaceAll('{version}', version.toString());
+    final path = r'/route';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1299,8 +1211,6 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -1363,8 +1273,8 @@ class RouteApi {
   ///
   /// * [int] parentId:
   ///   If it is a recurring route based on the parent route
-  Future<List<Route>?> searchRoutes(num version, String sortField, bool descending, int start, int limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, { int? hubId, int? programId, int? scheduledStart, int? scheduledEnd, int? updatedStart, int? updatedEnd, bool? featured, int? seatCount, bool? approved, bool? started, bool? completed, bool? valid, int? parentId, }) async {
-    final response = await searchRoutesWithHttpInfo(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties,  hubId: hubId, programId: programId, scheduledStart: scheduledStart, scheduledEnd: scheduledEnd, updatedStart: updatedStart, updatedEnd: updatedEnd, featured: featured, seatCount: seatCount, approved: approved, started: started, completed: completed, valid: valid, parentId: parentId, );
+  Future<List<Route>?> searchRoutes(String sortField, bool descending, int start, int limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, { int? hubId, int? programId, int? scheduledStart, int? scheduledEnd, int? updatedStart, int? updatedEnd, bool? featured, int? seatCount, bool? approved, bool? started, bool? completed, bool? valid, int? parentId, }) async {
+    final response = await searchRoutesWithHttpInfo(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties,  hubId: hubId, programId: programId, scheduledStart: scheduledStart, scheduledEnd: scheduledEnd, updatedStart: updatedStart, updatedEnd: updatedEnd, featured: featured, seatCount: seatCount, approved: approved, started: started, completed: completed, valid: valid, parentId: parentId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1389,17 +1299,14 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the route
   ///
   /// * [int] driverId (required):
   ///   the id of the driver
-  Future<Response> setDriverWithHttpInfo(num version, int id, int driverId,) async {
+  Future<Response> setDriverWithHttpInfo(int id, int driverId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{id}/driver/{driverId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{id}/driver/{driverId}'
       .replaceAll('{id}', id.toString())
       .replaceAll('{driverId}', driverId.toString());
 
@@ -1430,15 +1337,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the route
   ///
   /// * [int] driverId (required):
   ///   the id of the driver
-  Future<void> setDriver(num version, int id, int driverId,) async {
-    final response = await setDriverWithHttpInfo(version, id, driverId,);
+  Future<void> setDriver(int id, int driverId,) async {
+    final response = await setDriverWithHttpInfo(id, driverId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1452,16 +1357,13 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [Route] body:
-  Future<Response> updateRouteWithHttpInfo(num version, int routeId, { Route? body, }) async {
+  Future<Response> updateRouteWithHttpInfo(int routeId, { Route? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}'
       .replaceAll('{routeId}', routeId.toString());
 
     // ignore: prefer_final_locals
@@ -1491,14 +1393,12 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route
   ///
   /// * [Route] body:
-  Future<Route?> updateRoute(num version, int routeId, { Route? body, }) async {
-    final response = await updateRouteWithHttpInfo(version, routeId,  body: body, );
+  Future<Route?> updateRoute(int routeId, { Route? body, }) async {
+    final response = await updateRouteWithHttpInfo(routeId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1520,8 +1420,6 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to update stops for
   ///
@@ -1529,10 +1427,9 @@ class RouteApi {
   ///   the id of the specific stop to update on the route
   ///
   /// * [Stop] body:
-  Future<Response> updateRouteStopWithHttpInfo(num version, int routeId, int stopId, { Stop? body, }) async {
+  Future<Response> updateRouteStopWithHttpInfo(int routeId, int stopId, { Stop? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/route/{routeId}/stop/{stopId}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/route/{routeId}/stop/{stopId}'
       .replaceAll('{routeId}', routeId.toString())
       .replaceAll('{stopId}', stopId.toString());
 
@@ -1563,8 +1460,6 @@ class RouteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] routeId (required):
   ///   the id of the route to update stops for
   ///
@@ -1572,8 +1467,8 @@ class RouteApi {
   ///   the id of the specific stop to update on the route
   ///
   /// * [Stop] body:
-  Future<void> updateRouteStop(num version, int routeId, int stopId, { Stop? body, }) async {
-    final response = await updateRouteStopWithHttpInfo(version, routeId, stopId,  body: body, );
+  Future<void> updateRouteStop(int routeId, int stopId, { Stop? body, }) async {
+    final response = await updateRouteStopWithHttpInfo(routeId, stopId,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

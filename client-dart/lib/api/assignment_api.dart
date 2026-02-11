@@ -24,17 +24,14 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id sending the request
   ///
   /// * [String] keyword:
   ///   The keyword to filter the returned results
-  Future<Response> assigmentAssigneeAccountSearchWithHttpInfo(num version, int accountId, { String? keyword, }) async {
+  Future<Response> assigmentAssigneeAccountSearchWithHttpInfo(int accountId, { String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/assignee/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/assignee/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -68,15 +65,13 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id sending the request
   ///
   /// * [String] keyword:
   ///   The keyword to filter the returned results
-  Future<List<AccountMiniResponse>?> assigmentAssigneeAccountSearch(num version, int accountId, { String? keyword, }) async {
-    final response = await assigmentAssigneeAccountSearchWithHttpInfo(version, accountId,  keyword: keyword, );
+  Future<List<AccountMiniResponse>?> assigmentAssigneeAccountSearch(int accountId, { String? keyword, }) async {
+    final response = await assigmentAssigneeAccountSearchWithHttpInfo(accountId,  keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -101,8 +96,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -123,10 +116,9 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment is active or inactive
-  Future<Response> assignmentCreateWithHttpInfo(num version, int accountId, String name, int assigneeAccountId, { String? description, int? retailerLocationId, String? tags, bool? active, }) async {
+  Future<Response> assignmentCreateWithHttpInfo(int accountId, String name, int assigneeAccountId, { String? description, int? retailerLocationId, String? tags, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -171,8 +163,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -193,8 +183,8 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment is active or inactive
-  Future<AssignmentResponse?> assignmentCreate(num version, int accountId, String name, int assigneeAccountId, { String? description, int? retailerLocationId, String? tags, bool? active, }) async {
-    final response = await assignmentCreateWithHttpInfo(version, accountId, name, assigneeAccountId,  description: description, retailerLocationId: retailerLocationId, tags: tags, active: active, );
+  Future<AssignmentResponse?> assignmentCreate(int accountId, String name, int assigneeAccountId, { String? description, int? retailerLocationId, String? tags, bool? active, }) async {
+    final response = await assignmentCreateWithHttpInfo(accountId, name, assigneeAccountId,  description: description, retailerLocationId: retailerLocationId, tags: tags, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -216,17 +206,14 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentId (required):
   ///   the assignment id
-  Future<Response> assignmentDeleteWithHttpInfo(num version, int accountId, int assignmentId,) async {
+  Future<Response> assignmentDeleteWithHttpInfo(int accountId, int assignmentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -258,15 +245,13 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentId (required):
   ///   the assignment id
-  Future<SirqulResponse?> assignmentDelete(num version, int accountId, int assignmentId,) async {
-    final response = await assignmentDeleteWithHttpInfo(version, accountId, assignmentId,);
+  Future<SirqulResponse?> assignmentDelete(int accountId, int assignmentId,) async {
+    final response = await assignmentDeleteWithHttpInfo(accountId, assignmentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -288,17 +273,14 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentId (required):
   ///   the assignment id
-  Future<Response> assignmentGetWithHttpInfo(num version, int accountId, int assignmentId,) async {
+  Future<Response> assignmentGetWithHttpInfo(int accountId, int assignmentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -330,15 +312,13 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentId (required):
   ///   the assignment id
-  Future<AssignmentResponse?> assignmentGet(num version, int accountId, int assignmentId,) async {
-    final response = await assignmentGetWithHttpInfo(version, accountId, assignmentId,);
+  Future<AssignmentResponse?> assignmentGet(int accountId, int assignmentId,) async {
+    final response = await assignmentGetWithHttpInfo(accountId, assignmentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -359,8 +339,6 @@ class AssignmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the account sending the request
@@ -394,10 +372,9 @@ class AssignmentApi {
   ///
   /// * [String] keyword:
   ///   filter results by keyword search that matches the assignee, creator, or retailer location name
-  Future<Response> assignmentSearchWithHttpInfo(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? creatorAccountId, String? assigneeAccountIds, String? retailerLocationIds, String? currentStatusType, String? keyword, }) async {
+  Future<Response> assignmentSearchWithHttpInfo(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? creatorAccountId, String? assigneeAccountIds, String? retailerLocationIds, String? currentStatusType, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -448,8 +425,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account sending the request
   ///
@@ -482,8 +457,8 @@ class AssignmentApi {
   ///
   /// * [String] keyword:
   ///   filter results by keyword search that matches the assignee, creator, or retailer location name
-  Future<List<AssignmentResponse>?> assignmentSearch(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? creatorAccountId, String? assigneeAccountIds, String? retailerLocationIds, String? currentStatusType, String? keyword, }) async {
-    final response = await assignmentSearchWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit,  creatorAccountId: creatorAccountId, assigneeAccountIds: assigneeAccountIds, retailerLocationIds: retailerLocationIds, currentStatusType: currentStatusType, keyword: keyword, );
+  Future<List<AssignmentResponse>?> assignmentSearch(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? creatorAccountId, String? assigneeAccountIds, String? retailerLocationIds, String? currentStatusType, String? keyword, }) async {
+    final response = await assignmentSearchWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit,  creatorAccountId: creatorAccountId, assigneeAccountIds: assigneeAccountIds, retailerLocationIds: retailerLocationIds, currentStatusType: currentStatusType, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -507,8 +482,6 @@ class AssignmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the user account id
@@ -542,10 +515,9 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment status is active or inactive
-  Future<Response> assignmentStatusCreateWithHttpInfo(num version, int accountId, int assignmentId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
+  Future<Response> assignmentStatusCreateWithHttpInfo(int accountId, int assignmentId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/status/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/status/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -604,8 +576,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -638,8 +608,8 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment status is active or inactive
-  Future<AssignmentStatusResponse?> assignmentStatusCreate(num version, int accountId, int assignmentId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
-    final response = await assignmentStatusCreateWithHttpInfo(version, accountId, assignmentId,  scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, );
+  Future<AssignmentStatusResponse?> assignmentStatusCreate(int accountId, int assignmentId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
+    final response = await assignmentStatusCreateWithHttpInfo(accountId, assignmentId,  scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -661,17 +631,14 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentStatusId (required):
   ///   the assignment status id
-  Future<Response> assignmentStatusDeleteWithHttpInfo(num version, int accountId, int assignmentStatusId,) async {
+  Future<Response> assignmentStatusDeleteWithHttpInfo(int accountId, int assignmentStatusId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/status/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/status/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -703,15 +670,13 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentStatusId (required):
   ///   the assignment status id
-  Future<SirqulResponse?> assignmentStatusDelete(num version, int accountId, int assignmentStatusId,) async {
-    final response = await assignmentStatusDeleteWithHttpInfo(version, accountId, assignmentStatusId,);
+  Future<SirqulResponse?> assignmentStatusDelete(int accountId, int assignmentStatusId,) async {
+    final response = await assignmentStatusDeleteWithHttpInfo(accountId, assignmentStatusId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -733,17 +698,14 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentStatusId (required):
   ///   the assignment status id
-  Future<Response> assignmentStatusGetWithHttpInfo(num version, int accountId, int assignmentStatusId,) async {
+  Future<Response> assignmentStatusGetWithHttpInfo(int accountId, int assignmentStatusId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/status/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/status/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -775,15 +737,13 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
   /// * [int] assignmentStatusId (required):
   ///   the assignment status id
-  Future<AssignmentStatusResponse?> assignmentStatusGet(num version, int accountId, int assignmentStatusId,) async {
-    final response = await assignmentStatusGetWithHttpInfo(version, accountId, assignmentStatusId,);
+  Future<AssignmentStatusResponse?> assignmentStatusGet(int accountId, int assignmentStatusId,) async {
+    final response = await assignmentStatusGetWithHttpInfo(accountId, assignmentStatusId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -804,8 +764,6 @@ class AssignmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the user account id
@@ -842,10 +800,9 @@ class AssignmentApi {
   ///
   /// * [String] keyword:
   ///   filter results by keyword search
-  Future<Response> assignmentStatusSearchWithHttpInfo(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? assignmentId, int? creatorAccountId, int? assigneeAccountId, int? retailerLocationId, String? statusType, String? keyword, }) async {
+  Future<Response> assignmentStatusSearchWithHttpInfo(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? assignmentId, int? creatorAccountId, int? assigneeAccountId, int? retailerLocationId, String? statusType, String? keyword, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/status/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/status/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -899,8 +856,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -936,8 +891,8 @@ class AssignmentApi {
   ///
   /// * [String] keyword:
   ///   filter results by keyword search
-  Future<List<AssignmentStatusResponse>?> assignmentStatusSearch(num version, int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? assignmentId, int? creatorAccountId, int? assigneeAccountId, int? retailerLocationId, String? statusType, String? keyword, }) async {
-    final response = await assignmentStatusSearchWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit,  assignmentId: assignmentId, creatorAccountId: creatorAccountId, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, statusType: statusType, keyword: keyword, );
+  Future<List<AssignmentStatusResponse>?> assignmentStatusSearch(int accountId, String sortField, bool descending, bool activeOnly, int start, int limit, { int? assignmentId, int? creatorAccountId, int? assigneeAccountId, int? retailerLocationId, String? statusType, String? keyword, }) async {
+    final response = await assignmentStatusSearchWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit,  assignmentId: assignmentId, creatorAccountId: creatorAccountId, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, statusType: statusType, keyword: keyword, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -961,8 +916,6 @@ class AssignmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the user account id
@@ -996,10 +949,9 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment status is active or inactive
-  Future<Response> assignmentStatusUpdateWithHttpInfo(num version, int accountId, int assignmentStatusId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
+  Future<Response> assignmentStatusUpdateWithHttpInfo(int accountId, int assignmentStatusId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/status/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/status/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1058,8 +1010,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -1092,8 +1042,8 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment status is active or inactive
-  Future<AssignmentStatusResponse?> assignmentStatusUpdate(num version, int accountId, int assignmentStatusId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
-    final response = await assignmentStatusUpdateWithHttpInfo(version, accountId, assignmentStatusId,  scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, );
+  Future<AssignmentStatusResponse?> assignmentStatusUpdate(int accountId, int assignmentStatusId, { int? scheduledNotificationId, String? toDo, String? connection, String? method, String? status, String? closure, String? message, int? followUp, bool? active, }) async {
+    final response = await assignmentStatusUpdateWithHttpInfo(accountId, assignmentStatusId,  scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1114,8 +1064,6 @@ class AssignmentApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the user account id
@@ -1140,10 +1088,9 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment is active or inactive
-  Future<Response> assignmentUpdateWithHttpInfo(num version, int accountId, int assignmentId, { String? name, String? description, int? assigneeAccountId, int? retailerLocationId, String? tags, bool? active, }) async {
+  Future<Response> assignmentUpdateWithHttpInfo(int accountId, int assignmentId, { String? name, String? description, int? assigneeAccountId, int? retailerLocationId, String? tags, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/assignment/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/assignment/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1193,8 +1140,6 @@ class AssignmentApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the user account id
   ///
@@ -1218,8 +1163,8 @@ class AssignmentApi {
   ///
   /// * [bool] active:
   ///   determines whether the assignment is active or inactive
-  Future<AssignmentResponse?> assignmentUpdate(num version, int accountId, int assignmentId, { String? name, String? description, int? assigneeAccountId, int? retailerLocationId, String? tags, bool? active, }) async {
-    final response = await assignmentUpdateWithHttpInfo(version, accountId, assignmentId,  name: name, description: description, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, tags: tags, active: active, );
+  Future<AssignmentResponse?> assignmentUpdate(int accountId, int assignmentId, { String? name, String? description, int? assigneeAccountId, int? retailerLocationId, String? tags, bool? active, }) async {
+    final response = await assignmentUpdateWithHttpInfo(accountId, assignmentId,  name: name, description: description, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, tags: tags, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

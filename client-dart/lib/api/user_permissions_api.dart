@@ -24,8 +24,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   the permissionable type of the object
   ///
@@ -76,10 +74,9 @@ class UserPermissionsApi {
   ///
   /// * [String] audienceIds:
   ///   comma separated list of audience ids. This is a feature only available to the permissionable's application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
-  Future<Response> addUsersToPermissionableWithHttpInfo(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? pending, bool? admin, bool? includeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
+  Future<Response> addUsersToPermissionableWithHttpInfo(String permissionableType, int permissionableId, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? pending, bool? admin, bool? includeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/permissions/add'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/permissions/add';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -156,8 +153,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   the permissionable type of the object
   ///
@@ -208,8 +203,8 @@ class UserPermissionsApi {
   ///
   /// * [String] audienceIds:
   ///   comma separated list of audience ids. This is a feature only available to the permissionable's application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
-  Future<SirqulResponse?> addUsersToPermissionable(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? pending, bool? admin, bool? includeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
-    final response = await addUsersToPermissionableWithHttpInfo(version, permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, pending: pending, admin: admin, includeFriendGroup: includeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, );
+  Future<SirqulResponse?> addUsersToPermissionable(String permissionableType, int permissionableId, { String? deviceId, int? accountId, bool? read, bool? write, bool? delete, bool? add, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? pending, bool? admin, bool? includeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
+    final response = await addUsersToPermissionableWithHttpInfo(permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, pending: pending, admin: admin, includeFriendGroup: includeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -231,8 +226,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   The permissionable type of the object
   ///
@@ -247,10 +240,9 @@ class UserPermissionsApi {
   ///
   /// * [String] approvalStatus:
   ///   The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
-  Future<Response> approvePermissionableWithHttpInfo(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? approvalStatus, }) async {
+  Future<Response> approvePermissionableWithHttpInfo(String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? approvalStatus, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/permissionable/approve'
-      .replaceAll('{version}', version.toString());
+    final path = r'/permissionable/approve';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -291,8 +283,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   The permissionable type of the object
   ///
@@ -307,8 +297,8 @@ class UserPermissionsApi {
   ///
   /// * [String] approvalStatus:
   ///   The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
-  Future<SirqulResponse?> approvePermissionable(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? approvalStatus, }) async {
-    final response = await approvePermissionableWithHttpInfo(version, permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, );
+  Future<SirqulResponse?> approvePermissionable(String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? approvalStatus, }) async {
+    final response = await approvePermissionableWithHttpInfo(permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -330,8 +320,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   the permissionable type PermissionableType
   ///
@@ -349,10 +337,9 @@ class UserPermissionsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> leaveFromPermissionableWithHttpInfo(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> leaveFromPermissionableWithHttpInfo(String permissionableType, int permissionableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/permissions/leave'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/permissions/leave';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -396,8 +383,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   the permissionable type PermissionableType
   ///
@@ -415,8 +400,8 @@ class UserPermissionsApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<SirqulResponse?> leaveFromPermissionable(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await leaveFromPermissionableWithHttpInfo(version, permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> leaveFromPermissionable(String permissionableType, int permissionableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await leaveFromPermissionableWithHttpInfo(permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -437,8 +422,6 @@ class UserPermissionsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] permissionableType (required):
   ///   the permissionable type of the object
@@ -472,10 +455,9 @@ class UserPermissionsApi {
   ///
   /// * [String] audienceIds:
   ///   comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
-  Future<Response> removeUsersFromPermissionableWithHttpInfo(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? removeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
+  Future<Response> removeUsersFromPermissionableWithHttpInfo(String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? removeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/consumer/permissions/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/consumer/permissions/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -534,8 +516,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] permissionableType (required):
   ///   the permissionable type of the object
   ///
@@ -568,8 +548,8 @@ class UserPermissionsApi {
   ///
   /// * [String] audienceIds:
   ///   comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
-  Future<SirqulResponse?> removeUsersFromPermissionable(num version, String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? removeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
-    final response = await removeUsersFromPermissionableWithHttpInfo(version, permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, removeFriendGroup: removeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, );
+  Future<SirqulResponse?> removeUsersFromPermissionable(String permissionableType, int permissionableId, { String? deviceId, int? accountId, String? connectionIds, String? connectionAccountIds, String? connectionGroupIds, bool? removeFriendGroup, double? latitude, double? longitude, String? audienceIds, }) async {
+    final response = await removeUsersFromPermissionableWithHttpInfo(permissionableType, permissionableId,  deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, removeFriendGroup: removeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -590,8 +570,6 @@ class UserPermissionsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   A unique ID given by the device (deviceId or accountId required)
@@ -631,10 +609,9 @@ class UserPermissionsApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> searchPermissionablesWithHttpInfo(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, String? keyword, String? sortField, bool? descending, bool? pending, bool? admin, int? start, int? limit, }) async {
+  Future<Response> searchPermissionablesWithHttpInfo({ String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, String? keyword, String? sortField, bool? descending, bool? pending, bool? admin, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/permissions/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/permissions/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -703,8 +680,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   A unique ID given by the device (deviceId or accountId required)
   ///
@@ -743,8 +718,8 @@ class UserPermissionsApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<List<UserPermissionsResponse>?> searchPermissionables(num version, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, String? keyword, String? sortField, bool? descending, bool? pending, bool? admin, int? start, int? limit, }) async {
-    final response = await searchPermissionablesWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, keyword: keyword, sortField: sortField, descending: descending, pending: pending, admin: admin, start: start, limit: limit, );
+  Future<List<UserPermissionsResponse>?> searchPermissionables({ String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, String? keyword, String? sortField, bool? descending, bool? pending, bool? admin, int? start, int? limit, }) async {
+    final response = await searchPermissionablesWithHttpInfo( deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, keyword: keyword, sortField: sortField, descending: descending, pending: pending, admin: admin, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -768,8 +743,6 @@ class UserPermissionsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [double] latitude (required):
   ///   The latitude of the current account
@@ -812,10 +785,9 @@ class UserPermissionsApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<Response> searchPermissionablesFollowingDistanceWithHttpInfo(num version, double latitude, double longitude, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, double? searchRange, String? keyword, bool? pending, bool? admin, int? start, int? limit, }) async {
+  Future<Response> searchPermissionablesFollowingDistanceWithHttpInfo(double latitude, double longitude, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, double? searchRange, String? keyword, bool? pending, bool? admin, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/permissions/distancesearch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/permissions/distancesearch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -883,8 +855,6 @@ class UserPermissionsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] latitude (required):
   ///   The latitude of the current account
   ///
@@ -926,8 +896,8 @@ class UserPermissionsApi {
   ///
   /// * [int] limit:
   ///   The limit for pagination
-  Future<List<UserPermissionsResponse>?> searchPermissionablesFollowingDistance(num version, double latitude, double longitude, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, double? searchRange, String? keyword, bool? pending, bool? admin, int? start, int? limit, }) async {
-    final response = await searchPermissionablesFollowingDistanceWithHttpInfo(version, latitude, longitude,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, searchRange: searchRange, keyword: keyword, pending: pending, admin: admin, start: start, limit: limit, );
+  Future<List<UserPermissionsResponse>?> searchPermissionablesFollowingDistance(double latitude, double longitude, { String? deviceId, int? accountId, int? connectionAccountId, String? connectionAccountIds, String? permissionableType, int? permissionableId, double? searchRange, String? keyword, bool? pending, bool? admin, int? start, int? limit, }) async {
+    final response = await searchPermissionablesFollowingDistanceWithHttpInfo(latitude, longitude,  deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, searchRange: searchRange, keyword: keyword, pending: pending, admin: admin, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

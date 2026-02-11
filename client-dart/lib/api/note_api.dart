@@ -24,8 +24,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] notableId (required):
   ///   The id of the notable object the batch operation will affect
   ///
@@ -40,10 +38,9 @@ class NoteApi {
   ///
   /// * [String] batchOperation:
   ///   The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
-  Future<Response> batchOperationWithHttpInfo(num version, int notableId, String notableType, { String? deviceId, int? accountId, String? batchOperation, }) async {
+  Future<Response> batchOperationWithHttpInfo(int notableId, String notableType, { String? deviceId, int? accountId, String? batchOperation, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/batch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/batch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -84,8 +81,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] notableId (required):
   ///   The id of the notable object the batch operation will affect
   ///
@@ -100,8 +95,8 @@ class NoteApi {
   ///
   /// * [String] batchOperation:
   ///   The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
-  Future<SirqulResponse?> batchOperation(num version, int notableId, String notableType, { String? deviceId, int? accountId, String? batchOperation, }) async {
-    final response = await batchOperationWithHttpInfo(version, notableId, notableType,  deviceId: deviceId, accountId: accountId, batchOperation: batchOperation, );
+  Future<SirqulResponse?> batchOperation(int notableId, String notableType, { String? deviceId, int? accountId, String? batchOperation, }) async {
+    final response = await batchOperationWithHttpInfo(notableId, notableType,  deviceId: deviceId, accountId: accountId, batchOperation: batchOperation, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -122,8 +117,6 @@ class NoteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] comment (required):
   ///   The message the user wishes to leave a comment on
@@ -250,10 +243,9 @@ class NoteApi {
   ///
   /// * [num] assetLongitude:
   ///   the longitude of the asset
-  Future<Response> createNoteWithHttpInfo(num version, String comment, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, String? receiverAccountIds, bool? returnFullResponse, bool? initializeAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, num? assetLongitude, }) async {
+  Future<Response> createNoteWithHttpInfo(String comment, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, String? receiverAccountIds, bool? returnFullResponse, bool? initializeAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, num? assetLongitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -407,8 +399,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] comment (required):
   ///   The message the user wishes to leave a comment on
   ///
@@ -534,8 +524,8 @@ class NoteApi {
   ///
   /// * [num] assetLongitude:
   ///   the longitude of the asset
-  Future<NoteResponse?> createNote(num version, String comment, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, String? receiverAccountIds, bool? returnFullResponse, bool? initializeAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, num? assetLongitude, }) async {
-    final response = await createNoteWithHttpInfo(version, comment,  deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, receiverAccountIds: receiverAccountIds, returnFullResponse: returnFullResponse, initializeAsset: initializeAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, );
+  Future<NoteResponse?> createNote(String comment, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, String? receiverAccountIds, bool? returnFullResponse, bool? initializeAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, num? assetLongitude, }) async {
+    final response = await createNoteWithHttpInfo(comment,  deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, receiverAccountIds: receiverAccountIds, returnFullResponse: returnFullResponse, initializeAsset: initializeAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -557,8 +547,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] noteId (required):
   ///   The ID of the note to delete
   ///
@@ -576,10 +564,9 @@ class NoteApi {
   ///
   /// * [String] appKey:
   ///   The application key used to identify the application
-  Future<Response> deleteNoteWithHttpInfo(num version, int noteId, { String? deviceId, int? accountId, double? latitude, double? longitude, String? appKey, }) async {
+  Future<Response> deleteNoteWithHttpInfo(int noteId, { String? deviceId, int? accountId, double? latitude, double? longitude, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -625,8 +612,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] noteId (required):
   ///   The ID of the note to delete
   ///
@@ -644,8 +629,8 @@ class NoteApi {
   ///
   /// * [String] appKey:
   ///   The application key used to identify the application
-  Future<SirqulResponse?> deleteNote(num version, int noteId, { String? deviceId, int? accountId, double? latitude, double? longitude, String? appKey, }) async {
-    final response = await deleteNoteWithHttpInfo(version, noteId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, );
+  Future<SirqulResponse?> deleteNote(int noteId, { String? deviceId, int? accountId, double? latitude, double? longitude, String? appKey, }) async {
+    final response = await deleteNoteWithHttpInfo(noteId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -667,8 +652,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] noteId (required):
   ///   the id of the note to get
   ///
@@ -680,10 +663,9 @@ class NoteApi {
   ///
   /// * [bool] returnFullResponse:
   ///   Determines whether to return the NoteFullResponse for the item
-  Future<Response> getNoteWithHttpInfo(num version, int noteId, { String? deviceId, int? accountId, bool? returnFullResponse, }) async {
+  Future<Response> getNoteWithHttpInfo(int noteId, { String? deviceId, int? accountId, bool? returnFullResponse, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -723,8 +705,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] noteId (required):
   ///   the id of the note to get
   ///
@@ -736,8 +716,8 @@ class NoteApi {
   ///
   /// * [bool] returnFullResponse:
   ///   Determines whether to return the NoteFullResponse for the item
-  Future<SirqulResponse?> getNote(num version, int noteId, { String? deviceId, int? accountId, bool? returnFullResponse, }) async {
-    final response = await getNoteWithHttpInfo(version, noteId,  deviceId: deviceId, accountId: accountId, returnFullResponse: returnFullResponse, );
+  Future<SirqulResponse?> getNote(int noteId, { String? deviceId, int? accountId, bool? returnFullResponse, }) async {
+    final response = await getNoteWithHttpInfo(noteId,  deviceId: deviceId, accountId: accountId, returnFullResponse: returnFullResponse, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -758,8 +738,6 @@ class NoteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -811,10 +789,9 @@ class NoteApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<Response> searchNotesWithHttpInfo(num version, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteTypes, String? appKey, String? keyword, int? flagCountMinimum, bool? flagsExceedThreshold, bool? includeInactive, String? sortField, bool? descending, bool? returnFullResponse, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
+  Future<Response> searchNotesWithHttpInfo({ String? deviceId, int? accountId, String? notableType, int? notableId, String? noteTypes, String? appKey, String? keyword, int? flagCountMinimum, bool? flagsExceedThreshold, bool? includeInactive, String? sortField, bool? descending, bool? returnFullResponse, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -895,8 +872,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -947,8 +922,8 @@ class NoteApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<List<NoteResponse>?> searchNotes(num version, { String? deviceId, int? accountId, String? notableType, int? notableId, String? noteTypes, String? appKey, String? keyword, int? flagCountMinimum, bool? flagsExceedThreshold, bool? includeInactive, String? sortField, bool? descending, bool? returnFullResponse, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
-    final response = await searchNotesWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteTypes: noteTypes, appKey: appKey, keyword: keyword, flagCountMinimum: flagCountMinimum, flagsExceedThreshold: flagsExceedThreshold, includeInactive: includeInactive, sortField: sortField, descending: descending, returnFullResponse: returnFullResponse, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, );
+  Future<List<NoteResponse>?> searchNotes({ String? deviceId, int? accountId, String? notableType, int? notableId, String? noteTypes, String? appKey, String? keyword, int? flagCountMinimum, bool? flagsExceedThreshold, bool? includeInactive, String? sortField, bool? descending, bool? returnFullResponse, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
+    final response = await searchNotesWithHttpInfo( deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteTypes: noteTypes, appKey: appKey, keyword: keyword, flagCountMinimum: flagCountMinimum, flagsExceedThreshold: flagsExceedThreshold, includeInactive: includeInactive, sortField: sortField, descending: descending, returnFullResponse: returnFullResponse, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -972,8 +947,6 @@ class NoteApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] noteId (required):
   ///   The id of the note, used when editing a comment
@@ -1097,10 +1070,9 @@ class NoteApi {
   ///
   /// * [double] assetLongitude:
   ///   the longitude of the asset
-  Future<Response> updateNoteWithHttpInfo(num version, int noteId, { String? deviceId, int? accountId, String? comment, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, bool? active, bool? updateAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, double? assetLongitude, }) async {
+  Future<Response> updateNoteWithHttpInfo(int noteId, { String? deviceId, int? accountId, String? comment, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, bool? active, bool? updateAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, double? assetLongitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/note/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/note/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1251,8 +1223,6 @@ class NoteApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] noteId (required):
   ///   The id of the note, used when editing a comment
   ///
@@ -1375,8 +1345,8 @@ class NoteApi {
   ///
   /// * [double] assetLongitude:
   ///   the longitude of the asset
-  Future<NoteResponse?> updateNote(num version, int noteId, { String? deviceId, int? accountId, String? comment, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, bool? active, bool? updateAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, double? assetLongitude, }) async {
-    final response = await updateNoteWithHttpInfo(version, noteId,  deviceId: deviceId, accountId: accountId, comment: comment, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, active: active, updateAsset: updateAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, );
+  Future<NoteResponse?> updateNote(int noteId, { String? deviceId, int? accountId, String? comment, String? noteType, String? assetIds, String? tags, String? permissionableType, int? permissionableId, String? appKey, String? locationDescription, double? latitude, double? longitude, String? metaData, bool? returnFullResponse, bool? active, bool? updateAsset, bool? assetReturnNulls, int? assetAlbumId, int? assetCollectionId, String? assetAddToDefaultAlbum, bool? assetAddToMediaLibrary, int? assetVersionCode, String? assetVersionName, String? assetMetaData, String? assetCaption, MultipartFile? assetMedia, String? assetMediaUrl, String? assetMediaString, String? assetMediaStringFileName, String? assetMediaStringContentType, MultipartFile? assetAttachedMedia, String? assetAttachedMediaUrl, String? assetAttachedMediaString, String? assetAttachedMediaStringFileName, String? assetAttachedMediaStringContentType, String? assetLocationDescription, String? assetApp, String? assetSearchTags, double? assetLatitude, double? assetLongitude, }) async {
+    final response = await updateNoteWithHttpInfo(noteId,  deviceId: deviceId, accountId: accountId, comment: comment, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, active: active, updateAsset: updateAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

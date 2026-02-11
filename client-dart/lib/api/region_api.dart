@@ -24,8 +24,6 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the account sending the request
   ///
@@ -88,10 +86,9 @@ class RegionApi {
   ///
   /// * [bool] active:
   ///   Active or inactive status of the region
-  Future<Response> createRegionWithHttpInfo(num version, int accountId, String regionClass, String shortName, { String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, }) async {
+  Future<Response> createRegionWithHttpInfo(int accountId, String regionClass, String shortName, { String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/region/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/region/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -178,8 +175,6 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the account sending the request
   ///
@@ -242,8 +237,8 @@ class RegionApi {
   ///
   /// * [bool] active:
   ///   Active or inactive status of the region
-  Future<RegionResponse?> createRegion(num version, int accountId, String regionClass, String shortName, { String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, }) async {
-    final response = await createRegionWithHttpInfo(version, accountId, regionClass, shortName,  fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, );
+  Future<RegionResponse?> createRegion(int accountId, String regionClass, String shortName, { String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, }) async {
+    final response = await createRegionWithHttpInfo(accountId, regionClass, shortName,  fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -265,17 +260,14 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
   ///
   /// * [int] regionId (required):
   ///   the id of the region
-  Future<Response> deleteRegionWithHttpInfo(num version, int accountId, int regionId,) async {
+  Future<Response> deleteRegionWithHttpInfo(int accountId, int regionId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/region/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/region/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -307,15 +299,13 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the account logged in
   ///
   /// * [int] regionId (required):
   ///   the id of the region
-  Future<RegionResponse?> deleteRegion(num version, int accountId, int regionId,) async {
-    final response = await deleteRegionWithHttpInfo(version, accountId, regionId,);
+  Future<RegionResponse?> deleteRegion(int accountId, int regionId,) async {
+    final response = await deleteRegionWithHttpInfo(accountId, regionId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -337,17 +327,14 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] regionId (required):
   ///   the id of the region to get
   ///
   /// * [int] accountId:
   ///   the id of the logged in user
-  Future<Response> getRegionWithHttpInfo(num version, int regionId, { int? accountId, }) async {
+  Future<Response> getRegionWithHttpInfo(int regionId, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/region/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/region/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -381,15 +368,13 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] regionId (required):
   ///   the id of the region to get
   ///
   /// * [int] accountId:
   ///   the id of the logged in user
-  Future<RegionResponse?> getRegion(num version, int regionId, { int? accountId, }) async {
-    final response = await getRegionWithHttpInfo(version, regionId,  accountId: accountId, );
+  Future<RegionResponse?> getRegion(int regionId, { int? accountId, }) async {
+    final response = await getRegionWithHttpInfo(regionId,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -410,8 +395,6 @@ class RegionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   the owner account id of the region to be created
@@ -478,10 +461,9 @@ class RegionApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> searchRegionsWithHttpInfo(num version, { int? accountId, String? query, String? keyword, double? latitude, double? longitude, double? range, String? regionClass, String? visibility, String? searchMode, String? sortField, bool? descending, bool? includeParent, bool? includeChildren, bool? includePostalCodes, String? categoryIds, String? filterIds, int? versionCode, bool? activeOnly, bool? showDeleted, int? lastUpdatedSince, int? start, int? limit, }) async {
+  Future<Response> searchRegionsWithHttpInfo({ int? accountId, String? query, String? keyword, double? latitude, double? longitude, double? range, String? regionClass, String? visibility, String? searchMode, String? sortField, bool? descending, bool? includeParent, bool? includeChildren, bool? includePostalCodes, String? categoryIds, String? filterIds, int? versionCode, bool? activeOnly, bool? showDeleted, int? lastUpdatedSince, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/region/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/region/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -577,8 +559,6 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   the owner account id of the region to be created
   ///
@@ -644,8 +624,8 @@ class RegionApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<List<RegionResponse>?> searchRegions(num version, { int? accountId, String? query, String? keyword, double? latitude, double? longitude, double? range, String? regionClass, String? visibility, String? searchMode, String? sortField, bool? descending, bool? includeParent, bool? includeChildren, bool? includePostalCodes, String? categoryIds, String? filterIds, int? versionCode, bool? activeOnly, bool? showDeleted, int? lastUpdatedSince, int? start, int? limit, }) async {
-    final response = await searchRegionsWithHttpInfo(version,  accountId: accountId, query: query, keyword: keyword, latitude: latitude, longitude: longitude, range: range, regionClass: regionClass, visibility: visibility, searchMode: searchMode, sortField: sortField, descending: descending, includeParent: includeParent, includeChildren: includeChildren, includePostalCodes: includePostalCodes, categoryIds: categoryIds, filterIds: filterIds, versionCode: versionCode, activeOnly: activeOnly, showDeleted: showDeleted, lastUpdatedSince: lastUpdatedSince, start: start, limit: limit, );
+  Future<List<RegionResponse>?> searchRegions({ int? accountId, String? query, String? keyword, double? latitude, double? longitude, double? range, String? regionClass, String? visibility, String? searchMode, String? sortField, bool? descending, bool? includeParent, bool? includeChildren, bool? includePostalCodes, String? categoryIds, String? filterIds, int? versionCode, bool? activeOnly, bool? showDeleted, int? lastUpdatedSince, int? start, int? limit, }) async {
+    final response = await searchRegionsWithHttpInfo( accountId: accountId, query: query, keyword: keyword, latitude: latitude, longitude: longitude, range: range, regionClass: regionClass, visibility: visibility, searchMode: searchMode, sortField: sortField, descending: descending, includeParent: includeParent, includeChildren: includeChildren, includePostalCodes: includePostalCodes, categoryIds: categoryIds, filterIds: filterIds, versionCode: versionCode, activeOnly: activeOnly, showDeleted: showDeleted, lastUpdatedSince: lastUpdatedSince, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -669,8 +649,6 @@ class RegionApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The id of the account sending the request
@@ -740,10 +718,9 @@ class RegionApi {
   ///
   /// * [bool] clearLists:
   ///   If true clear the children and postal code lists before add new ones, otherwise just append.
-  Future<Response> updateRegionWithHttpInfo(num version, int accountId, int regionId, { String? regionClass, String? shortName, String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, bool? clearLists, }) async {
+  Future<Response> updateRegionWithHttpInfo(int accountId, int regionId, { String? regionClass, String? shortName, String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, bool? clearLists, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/region/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/region/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -838,8 +815,6 @@ class RegionApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The id of the account sending the request
   ///
@@ -908,8 +883,8 @@ class RegionApi {
   ///
   /// * [bool] clearLists:
   ///   If true clear the children and postal code lists before add new ones, otherwise just append.
-  Future<RegionResponse?> updateRegion(num version, int accountId, int regionId, { String? regionClass, String? shortName, String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, bool? clearLists, }) async {
-    final response = await updateRegionWithHttpInfo(version, accountId, regionId,  regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, clearLists: clearLists, );
+  Future<RegionResponse?> updateRegion(int accountId, int regionId, { String? regionClass, String? shortName, String? fullName, String? parentIds, String? childrenIds, String? postalCodeIds, String? locations, int? retailerLocationId, String? visibility, String? categoryIds, String? filterIds, int? start, int? end, String? polygon, String? metaData, double? latitude, double? longitude, int? versionCode, bool? root, bool? active, bool? clearLists, }) async {
+    final response = await updateRegionWithHttpInfo(accountId, regionId,  regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, clearLists: clearLists, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

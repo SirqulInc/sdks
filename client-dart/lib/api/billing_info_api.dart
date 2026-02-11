@@ -24,8 +24,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -94,10 +92,9 @@ class BillingInfoApi {
   ///
   /// * [String] metaData:
   ///   Meta Data
-  Future<Response> addPaymentMethodWithHttpInfo(num version, int accountId, { int? paymentMethodId, String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, bool? defaultPaymentMethod, String? paymentMethodNickname, String? taxId, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, }) async {
+  Future<Response> addPaymentMethodWithHttpInfo(int accountId, { int? paymentMethodId, String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, bool? defaultPaymentMethod, String? paymentMethodNickname, String? taxId, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -194,8 +191,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -264,8 +259,8 @@ class BillingInfoApi {
   ///
   /// * [String] metaData:
   ///   Meta Data
-  Future<PaymentTypesResponse?> addPaymentMethod(num version, int accountId, { int? paymentMethodId, String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, bool? defaultPaymentMethod, String? paymentMethodNickname, String? taxId, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, }) async {
-    final response = await addPaymentMethodWithHttpInfo(version, accountId,  paymentMethodId: paymentMethodId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, defaultPaymentMethod: defaultPaymentMethod, paymentMethodNickname: paymentMethodNickname, taxId: taxId, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, );
+  Future<PaymentTypesResponse?> addPaymentMethod(int accountId, { int? paymentMethodId, String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, bool? defaultPaymentMethod, String? paymentMethodNickname, String? taxId, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, }) async {
+    final response = await addPaymentMethodWithHttpInfo(accountId,  paymentMethodId: paymentMethodId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, defaultPaymentMethod: defaultPaymentMethod, paymentMethodNickname: paymentMethodNickname, taxId: taxId, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -286,8 +281,6 @@ class BillingInfoApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
@@ -363,10 +356,9 @@ class BillingInfoApi {
   ///
   /// * [String] appKey:
   ///   Application Key
-  Future<Response> createPaymentMethodWithHttpInfo(num version, int accountId, { String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, String? paymentMethodNickname, String? taxId, bool? defaultPaymentMethod, String? authToken, String? provider, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, String? appKey, }) async {
+  Future<Response> createPaymentMethodWithHttpInfo(int accountId, { String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, String? paymentMethodNickname, String? taxId, bool? defaultPaymentMethod, String? authToken, String? provider, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -469,8 +461,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -545,8 +535,8 @@ class BillingInfoApi {
   ///
   /// * [String] appKey:
   ///   Application Key
-  Future<PaymentTypesResponse?> createPaymentMethod(num version, int accountId, { String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, String? paymentMethodNickname, String? taxId, bool? defaultPaymentMethod, String? authToken, String? provider, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, String? appKey, }) async {
-    final response = await createPaymentMethodWithHttpInfo(version, accountId,  accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, paymentMethodNickname: paymentMethodNickname, taxId: taxId, defaultPaymentMethod: defaultPaymentMethod, authToken: authToken, provider: provider, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, appKey: appKey, );
+  Future<PaymentTypesResponse?> createPaymentMethod(int accountId, { String? accountName, String? firstName, String? lastName, String? address, String? city, String? state, String? postalCode, String? country, String? phone, String? creditCardNumber, String? expirationDate, String? ccv, String? accountNumber, String? bankName, String? routingNumber, String? paymentMethodNickname, String? taxId, bool? defaultPaymentMethod, String? authToken, String? provider, String? providerCustomerProfileId, String? providerPaymentProfileId, String? metaData, String? appKey, }) async {
+    final response = await createPaymentMethodWithHttpInfo(accountId,  accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, paymentMethodNickname: paymentMethodNickname, taxId: taxId, defaultPaymentMethod: defaultPaymentMethod, authToken: authToken, provider: provider, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -568,8 +558,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -581,10 +569,9 @@ class BillingInfoApi {
   ///
   /// * [int] paymentMethodId:
   ///   The payment method to return details on. If this is not set, then the user's default payment method will be returned.
-  Future<Response> createSmartContractWithHttpInfo(num version, int accountId, String tokenName, String tokenSymbol, { int? paymentMethodId, }) async {
+  Future<Response> createSmartContractWithHttpInfo(int accountId, String tokenName, String tokenSymbol, { int? paymentMethodId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/crypto/transfer'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/crypto/transfer';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -620,8 +607,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -633,8 +618,8 @@ class BillingInfoApi {
   ///
   /// * [int] paymentMethodId:
   ///   The payment method to return details on. If this is not set, then the user's default payment method will be returned.
-  Future<PaymentTypesResponse?> createSmartContract(num version, int accountId, String tokenName, String tokenSymbol, { int? paymentMethodId, }) async {
-    final response = await createSmartContractWithHttpInfo(version, accountId, tokenName, tokenSymbol,  paymentMethodId: paymentMethodId, );
+  Future<PaymentTypesResponse?> createSmartContract(int accountId, String tokenName, String tokenSymbol, { int? paymentMethodId, }) async {
+    final response = await createSmartContractWithHttpInfo(accountId, tokenName, tokenSymbol,  paymentMethodId: paymentMethodId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -656,8 +641,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -666,10 +649,9 @@ class BillingInfoApi {
   ///
   /// * [int] paymentMethodId:
   ///   The payment method to return details on. If this is not set, then the user's default payment method will be returned.
-  Future<Response> getCryptoBalanceWithHttpInfo(num version, int accountId, { int? ownerAccountId, int? paymentMethodId, }) async {
+  Future<Response> getCryptoBalanceWithHttpInfo(int accountId, { int? ownerAccountId, int? paymentMethodId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/crypto/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/crypto/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -706,8 +688,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -716,8 +696,8 @@ class BillingInfoApi {
   ///
   /// * [int] paymentMethodId:
   ///   The payment method to return details on. If this is not set, then the user's default payment method will be returned.
-  Future<PaymentTypesResponse?> getCryptoBalance(num version, int accountId, { int? ownerAccountId, int? paymentMethodId, }) async {
-    final response = await getCryptoBalanceWithHttpInfo(version, accountId,  ownerAccountId: ownerAccountId, paymentMethodId: paymentMethodId, );
+  Future<PaymentTypesResponse?> getCryptoBalance(int accountId, { int? ownerAccountId, int? paymentMethodId, }) async {
+    final response = await getCryptoBalanceWithHttpInfo(accountId,  ownerAccountId: ownerAccountId, paymentMethodId: paymentMethodId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -739,8 +719,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -749,10 +727,9 @@ class BillingInfoApi {
   ///
   /// * [bool] getCurrentBalance:
   ///   Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)
-  Future<Response> getPaymentMethodWithHttpInfo(num version, int accountId, { int? paymentMethodId, bool? getCurrentBalance, }) async {
+  Future<Response> getPaymentMethodWithHttpInfo(int accountId, { int? paymentMethodId, bool? getCurrentBalance, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -789,8 +766,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account used to perform the the request
   ///
@@ -799,8 +774,8 @@ class BillingInfoApi {
   ///
   /// * [bool] getCurrentBalance:
   ///   Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)
-  Future<PaymentTypesResponse?> getPaymentMethod(num version, int accountId, { int? paymentMethodId, bool? getCurrentBalance, }) async {
-    final response = await getPaymentMethodWithHttpInfo(version, accountId,  paymentMethodId: paymentMethodId, getCurrentBalance: getCurrentBalance, );
+  Future<PaymentTypesResponse?> getPaymentMethod(int accountId, { int? paymentMethodId, bool? getCurrentBalance, }) async {
+    final response = await getPaymentMethodWithHttpInfo(accountId,  paymentMethodId: paymentMethodId, getCurrentBalance: getCurrentBalance, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -821,8 +796,6 @@ class BillingInfoApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   Account Id to search on
@@ -847,10 +820,9 @@ class BillingInfoApi {
   ///
   /// * [int] limit:
   ///   the limit of the search
-  Future<Response> searchPaymentMethodWithHttpInfo(num version, int accountId, { String? provider, String? type, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchPaymentMethodWithHttpInfo(int accountId, { String? provider, String? type, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/billing/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/billing/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -902,8 +874,6 @@ class BillingInfoApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   Account Id to search on
   ///
@@ -927,8 +897,8 @@ class BillingInfoApi {
   ///
   /// * [int] limit:
   ///   the limit of the search
-  Future<PaymentTypesResponse?> searchPaymentMethod(num version, int accountId, { String? provider, String? type, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchPaymentMethodWithHttpInfo(version, accountId,  provider: provider, type: type, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<PaymentTypesResponse?> searchPaymentMethod(int accountId, { String? provider, String? type, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchPaymentMethodWithHttpInfo(accountId,  provider: provider, type: type, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

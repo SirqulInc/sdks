@@ -24,14 +24,11 @@ class ActivityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [EntityReference] body (required):
   ///   The entity reference object
-  Future<Response> createEntityReferenceWithHttpInfo(num version, EntityReference body,) async {
+  Future<Response> createEntityReferenceWithHttpInfo(EntityReference body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/entity/reference'
-      .replaceAll('{version}', version.toString());
+    final path = r'/entity/reference';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -60,12 +57,10 @@ class ActivityApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [EntityReference] body (required):
   ///   The entity reference object
-  Future<ActivityResponse?> createEntityReference(num version, EntityReference body,) async {
-    final response = await createEntityReferenceWithHttpInfo(version, body,);
+  Future<ActivityResponse?> createEntityReference(EntityReference body,) async {
+    final response = await createEntityReferenceWithHttpInfo(body,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

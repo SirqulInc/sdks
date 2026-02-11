@@ -24,8 +24,6 @@ class LikeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] likableType (required):
   ///   The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
   ///
@@ -61,10 +59,9 @@ class LikeApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> registerLikeWithHttpInfo(num version, String likableType, int likableId, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, bool? like, String? app, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+  Future<Response> registerLikeWithHttpInfo(String likableType, int likableId, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, bool? like, String? app, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/like'
-      .replaceAll('{version}', version.toString());
+    final path = r'/like';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -126,8 +123,6 @@ class LikeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] likableType (required):
   ///   The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
   ///
@@ -163,8 +158,8 @@ class LikeApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<LikableResponse?> registerLike(num version, String likableType, int likableId, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, bool? like, String? app, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
-    final response = await registerLikeWithHttpInfo(version, likableType, likableId,  deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, like: like, app: app, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
+  Future<LikableResponse?> registerLike(String likableType, int likableId, { String? deviceId, int? accountId, String? permissionableType, int? permissionableId, bool? like, String? app, String? gameType, String? appKey, double? latitude, double? longitude, }) async {
+    final response = await registerLikeWithHttpInfo(likableType, likableId,  deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, like: like, app: app, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -186,8 +181,6 @@ class LikeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] likableType (required):
   ///   The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
   ///
@@ -205,10 +198,9 @@ class LikeApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> removeLikeWithHttpInfo(num version, String likableType, int likableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> removeLikeWithHttpInfo(String likableType, int likableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/like/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/like/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -252,8 +244,6 @@ class LikeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] likableType (required):
   ///   The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
   ///
@@ -271,8 +261,8 @@ class LikeApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<LikableResponse?> removeLike(num version, String likableType, int likableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await removeLikeWithHttpInfo(version, likableType, likableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<LikableResponse?> removeLike(String likableType, int likableId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await removeLikeWithHttpInfo(likableType, likableId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -293,8 +283,6 @@ class LikeApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] likableType (required):
   ///   The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
@@ -328,10 +316,9 @@ class LikeApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<Response> searchLikesWithHttpInfo(num version, String likableType, int likableId, { String? deviceId, int? accountId, String? connectionAccountIds, String? sortField, bool? descending, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
+  Future<Response> searchLikesWithHttpInfo(String likableType, int likableId, { String? deviceId, int? accountId, String? connectionAccountIds, String? sortField, bool? descending, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/like/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/like/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -390,8 +377,6 @@ class LikeApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] likableType (required):
   ///   The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
   ///
@@ -424,8 +409,8 @@ class LikeApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination
-  Future<SearchResponse?> searchLikes(num version, String likableType, int likableId, { String? deviceId, int? accountId, String? connectionAccountIds, String? sortField, bool? descending, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
-    final response = await searchLikesWithHttpInfo(version, likableType, likableId,  deviceId: deviceId, accountId: accountId, connectionAccountIds: connectionAccountIds, sortField: sortField, descending: descending, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, );
+  Future<SearchResponse?> searchLikes(String likableType, int likableId, { String? deviceId, int? accountId, String? connectionAccountIds, String? sortField, bool? descending, int? updatedSince, int? updatedBefore, int? start, int? limit, }) async {
+    final response = await searchLikesWithHttpInfo(likableType, likableId,  deviceId: deviceId, accountId: accountId, connectionAccountIds: connectionAccountIds, sortField: sortField, descending: descending, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

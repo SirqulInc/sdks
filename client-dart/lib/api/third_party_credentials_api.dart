@@ -24,8 +24,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] thirdPartyId (required):
   ///   the third party user account id
   ///
@@ -76,10 +74,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] audienceIdsToRemove:
   ///   audience ids to remove from the account
-  Future<Response> createCredentialWithHttpInfo(num version, String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, String? thirdPartyName, String? emailAddress, bool? signinOnlyMode, String? responseFilters, double? latitude, double? longitude, String? metaData, String? thirdPartyRefreshToken, String? audienceIdsToAdd, String? audienceIdsToRemove, }) async {
+  Future<Response> createCredentialWithHttpInfo(String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, String? thirdPartyName, String? emailAddress, bool? signinOnlyMode, String? responseFilters, double? latitude, double? longitude, String? metaData, String? thirdPartyRefreshToken, String? audienceIdsToAdd, String? audienceIdsToRemove, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -152,8 +149,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] thirdPartyId (required):
   ///   the third party user account id
   ///
@@ -204,8 +199,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] audienceIdsToRemove:
   ///   audience ids to remove from the account
-  Future<ProfileResponse?> createCredential(num version, String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, String? thirdPartyName, String? emailAddress, bool? signinOnlyMode, String? responseFilters, double? latitude, double? longitude, String? metaData, String? thirdPartyRefreshToken, String? audienceIdsToAdd, String? audienceIdsToRemove, }) async {
-    final response = await createCredentialWithHttpInfo(version, thirdPartyId, thirdPartyToken, networkUID, appKey,  accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyName: thirdPartyName, emailAddress: emailAddress, signinOnlyMode: signinOnlyMode, responseFilters: responseFilters, latitude: latitude, longitude: longitude, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, );
+  Future<ProfileResponse?> createCredential(String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, String? thirdPartyName, String? emailAddress, bool? signinOnlyMode, String? responseFilters, double? latitude, double? longitude, String? metaData, String? thirdPartyRefreshToken, String? audienceIdsToAdd, String? audienceIdsToRemove, }) async {
+    final response = await createCredentialWithHttpInfo(thirdPartyId, thirdPartyToken, networkUID, appKey,  accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyName: thirdPartyName, emailAddress: emailAddress, signinOnlyMode: signinOnlyMode, responseFilters: responseFilters, latitude: latitude, longitude: longitude, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -226,8 +221,6 @@ class ThirdPartyCredentialsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id making the request
@@ -278,10 +271,9 @@ class ThirdPartyCredentialsApi {
   ///   OAuth secret key
   ///
   /// * [String] body:
-  Future<Response> createNetworkWithHttpInfo(num version, int accountId, String name, bool enableIntrospection, { String? description, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
+  Future<Response> createNetworkWithHttpInfo(int accountId, String name, bool enableIntrospection, { String? description, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/network/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/network/create';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -353,8 +345,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
@@ -404,8 +394,8 @@ class ThirdPartyCredentialsApi {
   ///   OAuth secret key
   ///
   /// * [String] body:
-  Future<ThirdPartyNetworkResponse?> createNetwork(num version, int accountId, String name, bool enableIntrospection, { String? description, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
-    final response = await createNetworkWithHttpInfo(version, accountId, name, enableIntrospection,  description: description, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, );
+  Future<ThirdPartyNetworkResponse?> createNetwork(int accountId, String name, bool enableIntrospection, { String? description, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
+    final response = await createNetworkWithHttpInfo(accountId, name, enableIntrospection,  description: description, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -427,8 +417,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -440,10 +428,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] appKey (required):
   ///   the application key
-  Future<Response> deleteCredentialWithHttpInfo(num version, int accountId, String networkUID, String thirdPartyId, String appKey,) async {
+  Future<Response> deleteCredentialWithHttpInfo(int accountId, String networkUID, String thirdPartyId, String appKey,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -477,8 +464,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -490,8 +475,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] appKey (required):
   ///   the application key
-  Future<SirqulResponse?> deleteCredential(num version, int accountId, String networkUID, String thirdPartyId, String appKey,) async {
-    final response = await deleteCredentialWithHttpInfo(version, accountId, networkUID, thirdPartyId, appKey,);
+  Future<SirqulResponse?> deleteCredential(int accountId, String networkUID, String thirdPartyId, String appKey,) async {
+    final response = await deleteCredentialWithHttpInfo(accountId, networkUID, thirdPartyId, appKey,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -513,17 +498,14 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [String] networkUID (required):
   ///   The unique identifier for the third party network defined by Sirqul
-  Future<Response> deleteNetworkWithHttpInfo(num version, int accountId, String networkUID,) async {
+  Future<Response> deleteNetworkWithHttpInfo(int accountId, String networkUID,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/network/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/network/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -555,15 +537,13 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [String] networkUID (required):
   ///   The unique identifier for the third party network defined by Sirqul
-  Future<SirqulResponse?> deleteNetwork(num version, int accountId, String networkUID,) async {
-    final response = await deleteNetworkWithHttpInfo(version, accountId, networkUID,);
+  Future<SirqulResponse?> deleteNetwork(int accountId, String networkUID,) async {
+    final response = await deleteNetworkWithHttpInfo(accountId, networkUID,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -584,8 +564,6 @@ class ThirdPartyCredentialsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] networkUID (required):
   ///   the access provider to authenticate against
@@ -631,10 +609,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [int] referralAccountId:
   ///   account id of the referrer (inviter-invitee relationship)
-  Future<Response> getCredentialWithHttpInfo(num version, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, int? thirdPartyCredentialId, String? thirdPartyToken, String? thirdPartySecret, bool? createNewAccount, String? responseFilters, double? latitude, double? longitude, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, }) async {
+  Future<Response> getCredentialWithHttpInfo(String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, int? thirdPartyCredentialId, String? thirdPartyToken, String? thirdPartySecret, bool? createNewAccount, String? responseFilters, double? latitude, double? longitude, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -705,8 +682,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] networkUID (required):
   ///   the access provider to authenticate against
   ///
@@ -751,8 +726,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [int] referralAccountId:
   ///   account id of the referrer (inviter-invitee relationship)
-  Future<ProfileResponse?> getCredential(num version, String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, int? thirdPartyCredentialId, String? thirdPartyToken, String? thirdPartySecret, bool? createNewAccount, String? responseFilters, double? latitude, double? longitude, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, }) async {
-    final response = await getCredentialWithHttpInfo(version, networkUID, appKey,  accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyCredentialId: thirdPartyCredentialId, thirdPartyToken: thirdPartyToken, thirdPartySecret: thirdPartySecret, createNewAccount: createNewAccount, responseFilters: responseFilters, latitude: latitude, longitude: longitude, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, );
+  Future<ProfileResponse?> getCredential(String networkUID, String appKey, { int? accountId, String? deviceId, String? sessionId, int? thirdPartyCredentialId, String? thirdPartyToken, String? thirdPartySecret, bool? createNewAccount, String? responseFilters, double? latitude, double? longitude, String? audienceIdsToAdd, String? audienceIdsToRemove, int? referralAccountId, }) async {
+    final response = await getCredentialWithHttpInfo(networkUID, appKey,  accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyCredentialId: thirdPartyCredentialId, thirdPartyToken: thirdPartyToken, thirdPartySecret: thirdPartySecret, createNewAccount: createNewAccount, responseFilters: responseFilters, latitude: latitude, longitude: longitude, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -774,17 +749,14 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
   /// * [String] networkUID (required):
   ///   The unique identifier for the third party network defined by Sirqul
-  Future<Response> getNetworkWithHttpInfo(num version, int accountId, String networkUID,) async {
+  Future<Response> getNetworkWithHttpInfo(int accountId, String networkUID,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/network/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/network/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -816,15 +788,13 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
   /// * [String] networkUID (required):
   ///   The unique identifier for the third party network defined by Sirqul
-  Future<ThirdPartyNetworkResponse?> getNetwork(num version, int accountId, String networkUID,) async {
-    final response = await getNetworkWithHttpInfo(version, accountId, networkUID,);
+  Future<ThirdPartyNetworkResponse?> getNetwork(int accountId, String networkUID,) async {
+    final response = await getNetworkWithHttpInfo(accountId, networkUID,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -846,8 +816,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -865,10 +833,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<Response> searchCredentialsWithHttpInfo(num version, int accountId, { String? keyword, String? networkUID, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchCredentialsWithHttpInfo(int accountId, { String? keyword, String? networkUID, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -914,8 +881,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -933,8 +898,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [int] limit:
   ///   The limit of the pagination
-  Future<List<ThirdPartyCredentialResponse>?> searchCredentials(num version, int accountId, { String? keyword, String? networkUID, bool? descending, int? start, int? limit, }) async {
-    final response = await searchCredentialsWithHttpInfo(version, accountId,  keyword: keyword, networkUID: networkUID, descending: descending, start: start, limit: limit, );
+  Future<List<ThirdPartyCredentialResponse>?> searchCredentials(int accountId, { String? keyword, String? networkUID, bool? descending, int? start, int? limit, }) async {
+    final response = await searchCredentialsWithHttpInfo(accountId,  keyword: keyword, networkUID: networkUID, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -959,8 +924,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
@@ -984,10 +947,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [bool] filterBillable:
   ///   Determines whether to only return applications that the user has access to
-  Future<Response> searchNetworksWithHttpInfo(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, bool? filterBillable, }) async {
+  Future<Response> searchNetworksWithHttpInfo(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, bool? filterBillable, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/network/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/network/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1029,8 +991,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
@@ -1054,8 +1014,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [bool] filterBillable:
   ///   Determines whether to only return applications that the user has access to
-  Future<List<ThirdPartyNetworkShortResponse>?> searchNetworks(num version, int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, bool? filterBillable, }) async {
-    final response = await searchNetworksWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly,  keyword: keyword, filterBillable: filterBillable, );
+  Future<List<ThirdPartyNetworkShortResponse>?> searchNetworks(int accountId, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, bool? filterBillable, }) async {
+    final response = await searchNetworksWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly,  keyword: keyword, filterBillable: filterBillable, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1080,8 +1040,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] networkUID (required):
   ///   the third party network provider that has MFA enabled
   ///
@@ -1096,10 +1054,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request
-  Future<Response> sendMFAChallengeWithHttpInfo(num version, String networkUID, String appKey, { String? thirdPartyToken, int? thirdPartyCredentialId, String? deviceId, }) async {
+  Future<Response> sendMFAChallengeWithHttpInfo(String networkUID, String appKey, { String? thirdPartyToken, int? thirdPartyCredentialId, String? deviceId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/mfa/send'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/mfa/send';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1140,8 +1097,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] networkUID (required):
   ///   the third party network provider that has MFA enabled
   ///
@@ -1156,8 +1111,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] deviceId:
   ///   the unique id of the device making the request
-  Future<SirqulResponse?> sendMFAChallenge(num version, String networkUID, String appKey, { String? thirdPartyToken, int? thirdPartyCredentialId, String? deviceId, }) async {
-    final response = await sendMFAChallengeWithHttpInfo(version, networkUID, appKey,  thirdPartyToken: thirdPartyToken, thirdPartyCredentialId: thirdPartyCredentialId, deviceId: deviceId, );
+  Future<SirqulResponse?> sendMFAChallenge(String networkUID, String appKey, { String? thirdPartyToken, int? thirdPartyCredentialId, String? deviceId, }) async {
+    final response = await sendMFAChallengeWithHttpInfo(networkUID, appKey,  thirdPartyToken: thirdPartyToken, thirdPartyCredentialId: thirdPartyCredentialId, deviceId: deviceId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1178,8 +1133,6 @@ class ThirdPartyCredentialsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] networkUID (required):
   ///   the access provider to authenticate against
@@ -1207,10 +1160,9 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] thirdPartyRefreshToken:
   ///   optional refresh token for the third party
-  Future<Response> updateCredentialWithHttpInfo(num version, String networkUID, String thirdPartyId, String appKey, { String? deviceId, String? thirdPartyName, String? thirdPartyToken, String? responseFilters, String? metaData, String? thirdPartyRefreshToken, }) async {
+  Future<Response> updateCredentialWithHttpInfo(String networkUID, String thirdPartyId, String appKey, { String? deviceId, String? thirdPartyName, String? thirdPartyToken, String? responseFilters, String? metaData, String? thirdPartyRefreshToken, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/credential/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/credential/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1261,8 +1213,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] networkUID (required):
   ///   the access provider to authenticate against
   ///
@@ -1289,8 +1239,8 @@ class ThirdPartyCredentialsApi {
   ///
   /// * [String] thirdPartyRefreshToken:
   ///   optional refresh token for the third party
-  Future<ProfileResponse?> updateCredential(num version, String networkUID, String thirdPartyId, String appKey, { String? deviceId, String? thirdPartyName, String? thirdPartyToken, String? responseFilters, String? metaData, String? thirdPartyRefreshToken, }) async {
-    final response = await updateCredentialWithHttpInfo(version, networkUID, thirdPartyId, appKey,  deviceId: deviceId, thirdPartyName: thirdPartyName, thirdPartyToken: thirdPartyToken, responseFilters: responseFilters, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, );
+  Future<ProfileResponse?> updateCredential(String networkUID, String thirdPartyId, String appKey, { String? deviceId, String? thirdPartyName, String? thirdPartyToken, String? responseFilters, String? metaData, String? thirdPartyRefreshToken, }) async {
+    final response = await updateCredentialWithHttpInfo(networkUID, thirdPartyId, appKey,  deviceId: deviceId, thirdPartyName: thirdPartyName, thirdPartyToken: thirdPartyToken, responseFilters: responseFilters, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1311,8 +1261,6 @@ class ThirdPartyCredentialsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The account id making the request
@@ -1366,10 +1314,9 @@ class ThirdPartyCredentialsApi {
   ///   OAuth secret key
   ///
   /// * [String] body:
-  Future<Response> updateNetworkWithHttpInfo(num version, int accountId, String networkUID, { String? name, String? description, bool? enableIntrospection, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
+  Future<Response> updateNetworkWithHttpInfo(int accountId, String networkUID, { String? name, String? description, bool? enableIntrospection, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/thirdparty/network/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/thirdparty/network/update';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -1446,8 +1393,6 @@ class ThirdPartyCredentialsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id making the request
   ///
@@ -1500,8 +1445,8 @@ class ThirdPartyCredentialsApi {
   ///   OAuth secret key
   ///
   /// * [String] body:
-  Future<ThirdPartyNetworkResponse?> updateNetwork(num version, int accountId, String networkUID, { String? name, String? description, bool? enableIntrospection, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
-    final response = await updateNetworkWithHttpInfo(version, accountId, networkUID,  name: name, description: description, enableIntrospection: enableIntrospection, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, );
+  Future<ThirdPartyNetworkResponse?> updateNetwork(int accountId, String networkUID, { String? name, String? description, bool? enableIntrospection, String? introspectionMethod, String? introspectionURL, String? introspectionParams, String? requiredRootField, bool? enableMFA, int? sizeMFA, int? shelfLifeMFA, String? oauthTokenURL, MultipartFile? oauthPrivateKey, MultipartFile? oauthPublicKey, String? oauthClientId, String? oauthSecretKey, String? body, }) async {
+    final response = await updateNetworkWithHttpInfo(accountId, networkUID,  name: name, description: description, enableIntrospection: enableIntrospection, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

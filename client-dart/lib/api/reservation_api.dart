@@ -24,8 +24,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -49,10 +47,9 @@ class ReservationApi {
   ///
   /// * [String] metaData:
   ///   External custom client defined data
-  Future<Response> createReservationWithHttpInfo(num version, { String? deviceId, int? accountId, int? startDate, int? endDate, int? offerId, int? offerLocationId, String? appKey, String? metaData, }) async {
+  Future<Response> createReservationWithHttpInfo({ String? deviceId, int? accountId, int? startDate, int? endDate, int? offerId, int? offerLocationId, String? appKey, String? metaData, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservation/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservation/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -106,8 +103,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -131,8 +126,8 @@ class ReservationApi {
   ///
   /// * [String] metaData:
   ///   External custom client defined data
-  Future<void> createReservation(num version, { String? deviceId, int? accountId, int? startDate, int? endDate, int? offerId, int? offerLocationId, String? appKey, String? metaData, }) async {
-    final response = await createReservationWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, offerId: offerId, offerLocationId: offerLocationId, appKey: appKey, metaData: metaData, );
+  Future<void> createReservation({ String? deviceId, int? accountId, int? startDate, int? endDate, int? offerId, int? offerLocationId, String? appKey, String? metaData, }) async {
+    final response = await createReservationWithHttpInfo( deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, offerId: offerId, offerLocationId: offerLocationId, appKey: appKey, metaData: metaData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -146,8 +141,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservationId (required):
   ///   The reservation id
   ///
@@ -156,10 +149,9 @@ class ReservationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<Response> deleteReservationWithHttpInfo(num version, int reservationId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteReservationWithHttpInfo(int reservationId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservation/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservation/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -196,8 +188,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservationId (required):
   ///   The reservation id
   ///
@@ -206,8 +196,8 @@ class ReservationApi {
   ///
   /// * [int] accountId:
   ///   The account id of the user (deviceId or accountId required)
-  Future<void> deleteReservation(num version, int reservationId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteReservationWithHttpInfo(version, reservationId,  deviceId: deviceId, accountId: accountId, );
+  Future<void> deleteReservation(int reservationId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteReservationWithHttpInfo(reservationId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -218,8 +208,6 @@ class ReservationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
@@ -238,10 +226,9 @@ class ReservationApi {
   ///
   /// * [String] availabilitySummary:
   ///   Availability Summary
-  Future<Response> reservableAvailabilityWithHttpInfo(num version, int reservableId, String reservableType, { String? deviceId, int? accountId, String? availability, String? availabilitySummary, }) async {
+  Future<Response> reservableAvailabilityWithHttpInfo(int reservableId, String reservableType, { String? deviceId, int? accountId, String? availability, String? availabilitySummary, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservable/availability/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservable/availability/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -283,8 +270,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
   ///
@@ -302,8 +287,8 @@ class ReservationApi {
   ///
   /// * [String] availabilitySummary:
   ///   Availability Summary
-  Future<List<AvailabilityResponse>?> reservableAvailability(num version, int reservableId, String reservableType, { String? deviceId, int? accountId, String? availability, String? availabilitySummary, }) async {
-    final response = await reservableAvailabilityWithHttpInfo(version, reservableId, reservableType,  deviceId: deviceId, accountId: accountId, availability: availability, availabilitySummary: availabilitySummary, );
+  Future<List<AvailabilityResponse>?> reservableAvailability(int reservableId, String reservableType, { String? deviceId, int? accountId, String? availability, String? availabilitySummary, }) async {
+    final response = await reservableAvailabilityWithHttpInfo(reservableId, reservableType,  deviceId: deviceId, accountId: accountId, availability: availability, availabilitySummary: availabilitySummary, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -325,8 +310,6 @@ class ReservationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
@@ -351,10 +334,9 @@ class ReservationApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<Response> searchAvailabilityWithHttpInfo(num version, int reservableId, String reservableType, { String? deviceId, int? accountId, int? startDate, int? endDate, int? start, int? limit, }) async {
+  Future<Response> searchAvailabilityWithHttpInfo(int reservableId, String reservableType, { String? deviceId, int? accountId, int? startDate, int? endDate, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservable/availability/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservable/availability/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -402,8 +384,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
   ///
@@ -427,8 +407,8 @@ class ReservationApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<List<AvailabilityResponse>?> searchAvailability(num version, int reservableId, String reservableType, { String? deviceId, int? accountId, int? startDate, int? endDate, int? start, int? limit, }) async {
-    final response = await searchAvailabilityWithHttpInfo(version, reservableId, reservableType,  deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, start: start, limit: limit, );
+  Future<List<AvailabilityResponse>?> searchAvailability(int reservableId, String reservableType, { String? deviceId, int? accountId, int? startDate, int? endDate, int? start, int? limit, }) async {
+    final response = await searchAvailabilityWithHttpInfo(reservableId, reservableType,  deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -450,8 +430,6 @@ class ReservationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   Device Id
@@ -485,10 +463,9 @@ class ReservationApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<Response> searchReservationsWithHttpInfo(num version, { String? deviceId, String? appKey, int? accountId, int? filterAccountId, int? reservableId, String? reservableType, String? keyword, int? startDate, int? endDate, int? start, int? limit, }) async {
+  Future<Response> searchReservationsWithHttpInfo({ String? deviceId, String? appKey, int? accountId, int? filterAccountId, int? reservableId, String? reservableType, String? keyword, int? startDate, int? endDate, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservation/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservation/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -549,8 +526,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   Device Id
   ///
@@ -583,8 +558,8 @@ class ReservationApi {
   ///
   /// * [int] limit:
   ///   the limit of the index and/or pagination
-  Future<List<ReservationResponse>?> searchReservations(num version, { String? deviceId, String? appKey, int? accountId, int? filterAccountId, int? reservableId, String? reservableType, String? keyword, int? startDate, int? endDate, int? start, int? limit, }) async {
-    final response = await searchReservationsWithHttpInfo(version,  deviceId: deviceId, appKey: appKey, accountId: accountId, filterAccountId: filterAccountId, reservableId: reservableId, reservableType: reservableType, keyword: keyword, startDate: startDate, endDate: endDate, start: start, limit: limit, );
+  Future<List<ReservationResponse>?> searchReservations({ String? deviceId, String? appKey, int? accountId, int? filterAccountId, int? reservableId, String? reservableType, String? keyword, int? startDate, int? endDate, int? start, int? limit, }) async {
+    final response = await searchReservationsWithHttpInfo( deviceId: deviceId, appKey: appKey, accountId: accountId, filterAccountId: filterAccountId, reservableId: reservableId, reservableType: reservableType, keyword: keyword, startDate: startDate, endDate: endDate, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -607,8 +582,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
   ///
@@ -629,10 +602,9 @@ class ReservationApi {
   ///
   /// * [int] timeBucketMins:
   ///   the length of time in minutes to search on for reservation
-  Future<Response> searchScheduleWithHttpInfo(num version, int reservableId, String reservableType, int startDate, int endDate, { String? deviceId, int? accountId, int? timeBucketMins, }) async {
+  Future<Response> searchScheduleWithHttpInfo(int reservableId, String reservableType, int startDate, int endDate, { String? deviceId, int? accountId, int? timeBucketMins, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/reservable/schedule/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/reservable/schedule/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -673,8 +645,6 @@ class ReservationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] reservableId (required):
   ///   the id of the reservation
   ///
@@ -695,8 +665,8 @@ class ReservationApi {
   ///
   /// * [int] timeBucketMins:
   ///   the length of time in minutes to search on for reservation
-  Future<List<TimeSlotResponse>?> searchSchedule(num version, int reservableId, String reservableType, int startDate, int endDate, { String? deviceId, int? accountId, int? timeBucketMins, }) async {
-    final response = await searchScheduleWithHttpInfo(version, reservableId, reservableType, startDate, endDate,  deviceId: deviceId, accountId: accountId, timeBucketMins: timeBucketMins, );
+  Future<List<TimeSlotResponse>?> searchSchedule(int reservableId, String reservableType, int startDate, int endDate, { String? deviceId, int? accountId, int? timeBucketMins, }) async {
+    final response = await searchScheduleWithHttpInfo(reservableId, reservableType, startDate, endDate,  deviceId: deviceId, accountId: accountId, timeBucketMins: timeBucketMins, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

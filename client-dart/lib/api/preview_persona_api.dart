@@ -24,8 +24,6 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -52,10 +50,9 @@ class PreviewPersonaApi {
   ///
   /// * [double] longitude:
   ///   the specified longitude of the persona
-  Future<Response> createPersonaWithHttpInfo(num version, int accountId, String title, { String? previewAccounts, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
+  Future<Response> createPersonaWithHttpInfo(int accountId, String title, { String? previewAccounts, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/persona/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/persona/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -108,8 +105,6 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -136,8 +131,8 @@ class PreviewPersonaApi {
   ///
   /// * [double] longitude:
   ///   the specified longitude of the persona
-  Future<PreviewPersonaResponse?> createPersona(num version, int accountId, String title, { String? previewAccounts, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
-    final response = await createPersonaWithHttpInfo(version, accountId, title,  previewAccounts: previewAccounts, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, );
+  Future<PreviewPersonaResponse?> createPersona(int accountId, String title, { String? previewAccounts, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
+    final response = await createPersonaWithHttpInfo(accountId, title,  previewAccounts: previewAccounts, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -159,17 +154,14 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
   /// * [int] personaId (required):
   ///   the id of the persona to delete
-  Future<Response> deletePersonaWithHttpInfo(num version, int accountId, int personaId,) async {
+  Future<Response> deletePersonaWithHttpInfo(int accountId, int personaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/persona/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/persona/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -201,15 +193,13 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
   /// * [int] personaId (required):
   ///   the id of the persona to delete
-  Future<SirqulResponse?> deletePersona(num version, int accountId, int personaId,) async {
-    final response = await deletePersonaWithHttpInfo(version, accountId, personaId,);
+  Future<SirqulResponse?> deletePersona(int accountId, int personaId,) async {
+    final response = await deletePersonaWithHttpInfo(accountId, personaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -231,17 +221,14 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
   /// * [int] personaId (required):
   ///   the persona ID of the persona
-  Future<Response> getPersonaListWithHttpInfo(num version, int accountId, int personaId,) async {
+  Future<Response> getPersonaListWithHttpInfo(int accountId, int personaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/persona/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/persona/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -273,15 +260,13 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
   /// * [int] personaId (required):
   ///   the persona ID of the persona
-  Future<PreviewPersonaResponse?> getPersonaList(num version, int accountId, int personaId,) async {
-    final response = await getPersonaListWithHttpInfo(version, accountId, personaId,);
+  Future<PreviewPersonaResponse?> getPersonaList(int accountId, int personaId,) async {
+    final response = await getPersonaListWithHttpInfo(accountId, personaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -303,8 +288,6 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -313,10 +296,9 @@ class PreviewPersonaApi {
   ///
   /// * [int] limit (required):
   ///   the limit for pagination (There is a hard limit of 100)
-  Future<Response> searchPersonaWithHttpInfo(num version, int accountId, int start, int limit,) async {
+  Future<Response> searchPersonaWithHttpInfo(int accountId, int start, int limit,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/persona/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/persona/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -349,8 +331,6 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -359,8 +339,8 @@ class PreviewPersonaApi {
   ///
   /// * [int] limit (required):
   ///   the limit for pagination (There is a hard limit of 100)
-  Future<PreviewPersonaResponse?> searchPersona(num version, int accountId, int start, int limit,) async {
-    final response = await searchPersonaWithHttpInfo(version, accountId, start, limit,);
+  Future<PreviewPersonaResponse?> searchPersona(int accountId, int start, int limit,) async {
+    final response = await searchPersonaWithHttpInfo(accountId, start, limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -381,8 +361,6 @@ class PreviewPersonaApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the account ID of the user
@@ -416,10 +394,9 @@ class PreviewPersonaApi {
   ///
   /// * [double] longitude:
   ///   the specified longitude of the persona
-  Future<Response> updatePersonaWithHttpInfo(num version, int accountId, int personaId, { String? title, String? previewAccounts, bool? active, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
+  Future<Response> updatePersonaWithHttpInfo(int accountId, int personaId, { String? title, String? previewAccounts, bool? active, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/persona/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/persona/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -478,8 +455,6 @@ class PreviewPersonaApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -512,8 +487,8 @@ class PreviewPersonaApi {
   ///
   /// * [double] longitude:
   ///   the specified longitude of the persona
-  Future<PreviewPersonaResponse?> updatePersona(num version, int accountId, int personaId, { String? title, String? previewAccounts, bool? active, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
-    final response = await updatePersonaWithHttpInfo(version, accountId, personaId,  title: title, previewAccounts: previewAccounts, active: active, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, );
+  Future<PreviewPersonaResponse?> updatePersona(int accountId, int personaId, { String? title, String? previewAccounts, bool? active, int? date, int? age, String? gender, String? gameExperienceLevel, double? latitude, double? longitude, }) async {
+    final response = await updatePersonaWithHttpInfo(accountId, personaId,  title: title, previewAccounts: previewAccounts, active: active, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

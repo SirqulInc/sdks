@@ -24,8 +24,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] ratableType (required):
   ///   The ratable object type {RETAILER_LOCATION}
   ///
@@ -58,10 +56,9 @@ class RatingApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> createRatingWithHttpInfo(num version, String ratableType, int ratableId, int ratingValue, { String? deviceId, int? accountId, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
+  Future<Response> createRatingWithHttpInfo(String ratableType, int ratableId, int ratingValue, { String? deviceId, int? accountId, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/rating/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/rating/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -118,8 +115,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] ratableType (required):
   ///   The ratable object type {RETAILER_LOCATION}
   ///
@@ -152,8 +147,8 @@ class RatingApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<RatingResponse?> createRating(num version, String ratableType, int ratableId, int ratingValue, { String? deviceId, int? accountId, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
-    final response = await createRatingWithHttpInfo(version, ratableType, ratableId, ratingValue,  deviceId: deviceId, accountId: accountId, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
+  Future<RatingResponse?> createRating(String ratableType, int ratableId, int ratingValue, { String? deviceId, int? accountId, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
+    final response = await createRatingWithHttpInfo(ratableType, ratableId, ratingValue,  deviceId: deviceId, accountId: accountId, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -175,8 +170,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] ratingId (required):
   ///   The ID of the rating to delete
   ///
@@ -185,10 +178,9 @@ class RatingApi {
   ///
   /// * [int] accountId:
   ///   The unique accountId that made the request (either deviceId or accountId must be used)
-  Future<Response> deleteRatingWithHttpInfo(num version, int ratingId, { String? deviceId, int? accountId, }) async {
+  Future<Response> deleteRatingWithHttpInfo(int ratingId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/rating/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/rating/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -225,8 +217,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] ratingId (required):
   ///   The ID of the rating to delete
   ///
@@ -235,8 +225,8 @@ class RatingApi {
   ///
   /// * [int] accountId:
   ///   The unique accountId that made the request (either deviceId or accountId must be used)
-  Future<SirqulResponse?> deleteRating(num version, int ratingId, { String? deviceId, int? accountId, }) async {
-    final response = await deleteRatingWithHttpInfo(version, ratingId,  deviceId: deviceId, accountId: accountId, );
+  Future<SirqulResponse?> deleteRating(int ratingId, { String? deviceId, int? accountId, }) async {
+    final response = await deleteRatingWithHttpInfo(ratingId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -257,8 +247,6 @@ class RatingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] categoryIds:
   ///   Comma separated list of category ids to filter the results by
@@ -310,10 +298,9 @@ class RatingApi {
   ///
   /// * [bool] returnFilters:
   ///   whether to return the filters or not
-  Future<Response> searchLocationRatingIndexesWithHttpInfo(num version, { String? categoryIds, String? keyword, String? locationType, String? sortField, bool? descending, int? start, int? limit, double? searchRange, double? latitude, double? longitude, bool? returnOverallRating, String? distanceUnit, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, }) async {
+  Future<Response> searchLocationRatingIndexesWithHttpInfo({ String? categoryIds, String? keyword, String? locationType, String? sortField, bool? descending, int? start, int? limit, double? searchRange, double? latitude, double? longitude, bool? returnOverallRating, String? distanceUnit, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/rating/index/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/rating/index/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -394,8 +381,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] categoryIds:
   ///   Comma separated list of category ids to filter the results by
   ///
@@ -446,8 +431,8 @@ class RatingApi {
   ///
   /// * [bool] returnFilters:
   ///   whether to return the filters or not
-  Future<List<RatingIndexResponse>?> searchLocationRatingIndexes(num version, { String? categoryIds, String? keyword, String? locationType, String? sortField, bool? descending, int? start, int? limit, double? searchRange, double? latitude, double? longitude, bool? returnOverallRating, String? distanceUnit, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, }) async {
-    final response = await searchLocationRatingIndexesWithHttpInfo(version,  categoryIds: categoryIds, keyword: keyword, locationType: locationType, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, latitude: latitude, longitude: longitude, returnOverallRating: returnOverallRating, distanceUnit: distanceUnit, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, );
+  Future<List<RatingIndexResponse>?> searchLocationRatingIndexes({ String? categoryIds, String? keyword, String? locationType, String? sortField, bool? descending, int? start, int? limit, double? searchRange, double? latitude, double? longitude, bool? returnOverallRating, String? distanceUnit, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, }) async {
+    final response = await searchLocationRatingIndexesWithHttpInfo( categoryIds: categoryIds, keyword: keyword, locationType: locationType, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, latitude: latitude, longitude: longitude, returnOverallRating: returnOverallRating, distanceUnit: distanceUnit, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -471,8 +456,6 @@ class RatingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] ratableType (required):
   ///   Filter results by a ratable type {RETAILER_LOCATION}
@@ -512,10 +495,9 @@ class RatingApi {
   ///
   /// * [bool] returnOverallRating:
   ///   Determines whether to return the overall rating record instead
-  Future<Response> searchRatingIndexesWithHttpInfo(num version, String ratableType, { String? ratableIds, String? categoryIds, String? secondaryType, String? keyword, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, bool? returnRatable, bool? returnOverallRating, }) async {
+  Future<Response> searchRatingIndexesWithHttpInfo(String ratableType, { String? ratableIds, String? categoryIds, String? secondaryType, String? keyword, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, bool? returnRatable, bool? returnOverallRating, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/rating/index/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/rating/index/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -582,8 +564,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] ratableType (required):
   ///   Filter results by a ratable type {RETAILER_LOCATION}
   ///
@@ -622,8 +602,8 @@ class RatingApi {
   ///
   /// * [bool] returnOverallRating:
   ///   Determines whether to return the overall rating record instead
-  Future<List<RatingIndexResponse>?> searchRatingIndexes(num version, String ratableType, { String? ratableIds, String? categoryIds, String? secondaryType, String? keyword, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, bool? returnRatable, bool? returnOverallRating, }) async {
-    final response = await searchRatingIndexesWithHttpInfo(version, ratableType,  ratableIds: ratableIds, categoryIds: categoryIds, secondaryType: secondaryType, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, returnRatable: returnRatable, returnOverallRating: returnOverallRating, );
+  Future<List<RatingIndexResponse>?> searchRatingIndexes(String ratableType, { String? ratableIds, String? categoryIds, String? secondaryType, String? keyword, String? sortField, bool? descending, int? start, int? limit, double? latitude, double? longitude, bool? returnRatable, bool? returnOverallRating, }) async {
+    final response = await searchRatingIndexesWithHttpInfo(ratableType,  ratableIds: ratableIds, categoryIds: categoryIds, secondaryType: secondaryType, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, returnRatable: returnRatable, returnOverallRating: returnOverallRating, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -647,8 +627,6 @@ class RatingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -682,10 +660,9 @@ class RatingApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<Response> searchRatingsWithHttpInfo(num version, { String? deviceId, int? accountId, int? filterAccountId, String? ratableType, int? ratableId, String? categoryIds, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+  Future<Response> searchRatingsWithHttpInfo({ String? deviceId, int? accountId, int? filterAccountId, String? ratableType, int? ratableId, String? categoryIds, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/rating/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/rating/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -748,8 +725,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -782,8 +757,8 @@ class RatingApi {
   ///
   /// * [int] limit:
   ///   The number of records to return
-  Future<List<RatingResponse>?> searchRatings(num version, { String? deviceId, int? accountId, int? filterAccountId, String? ratableType, int? ratableId, String? categoryIds, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
-    final response = await searchRatingsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, filterAccountId: filterAccountId, ratableType: ratableType, ratableId: ratableId, categoryIds: categoryIds, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
+  Future<List<RatingResponse>?> searchRatings({ String? deviceId, int? accountId, int? filterAccountId, String? ratableType, int? ratableId, String? categoryIds, String? keyword, String? sortField, bool? descending, int? start, int? limit, }) async {
+    final response = await searchRatingsWithHttpInfo( deviceId: deviceId, accountId: accountId, filterAccountId: filterAccountId, ratableType: ratableType, ratableId: ratableId, categoryIds: categoryIds, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -807,8 +782,6 @@ class RatingApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] ratingId (required):
   ///   The id of the rating (Note: this is not the ratable object id)
@@ -839,10 +812,9 @@ class RatingApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<Response> updateRatingWithHttpInfo(num version, int ratingId, { String? deviceId, int? accountId, int? ratingValue, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
+  Future<Response> updateRatingWithHttpInfo(int ratingId, { String? deviceId, int? accountId, int? ratingValue, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/rating/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/rating/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -900,8 +872,6 @@ class RatingApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] ratingId (required):
   ///   The id of the rating (Note: this is not the ratable object id)
   ///
@@ -931,8 +901,8 @@ class RatingApi {
   ///
   /// * [double] longitude:
   ///   The current location of the user
-  Future<RatingResponse?> updateRating(num version, int ratingId, { String? deviceId, int? accountId, int? ratingValue, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
-    final response = await updateRatingWithHttpInfo(version, ratingId,  deviceId: deviceId, accountId: accountId, ratingValue: ratingValue, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
+  Future<RatingResponse?> updateRating(int ratingId, { String? deviceId, int? accountId, int? ratingValue, int? categoryId, String? display, String? description, String? locationDescription, double? latitude, double? longitude, }) async {
+    final response = await updateRatingWithHttpInfo(ratingId,  deviceId: deviceId, accountId: accountId, ratingValue: ratingValue, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

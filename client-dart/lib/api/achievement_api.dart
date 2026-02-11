@@ -24,8 +24,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -58,10 +56,9 @@ class AchievementApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination (has a hard limit of 1000)
-  Future<Response> apiVersionAchievementTierSearchPostWithHttpInfo(num version, { String? deviceId, int? accountId, String? appKey, String? keyword, int? achievementType, String? rankType, String? sortField, bool? descending, bool? descendingGoal, int? start, int? limit, }) async {
+  Future<Response> achievementTierSearchPostWithHttpInfo({ String? deviceId, int? accountId, String? appKey, String? keyword, int? achievementType, String? rankType, String? sortField, bool? descending, bool? descendingGoal, int? start, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tier/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tier/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -124,8 +121,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -158,8 +153,8 @@ class AchievementApi {
   ///
   /// * [int] limit:
   ///   the limit for pagination (has a hard limit of 1000)
-  Future<AchievementTierResponse?> apiVersionAchievementTierSearchPost(num version, { String? deviceId, int? accountId, String? appKey, String? keyword, int? achievementType, String? rankType, String? sortField, bool? descending, bool? descendingGoal, int? start, int? limit, }) async {
-    final response = await apiVersionAchievementTierSearchPostWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, sortField: sortField, descending: descending, descendingGoal: descendingGoal, start: start, limit: limit, );
+  Future<AchievementTierResponse?> achievementTierSearchPost({ String? deviceId, int? accountId, String? appKey, String? keyword, int? achievementType, String? rankType, String? sortField, bool? descending, bool? descendingGoal, int? start, int? limit, }) async {
+    final response = await achievementTierSearchPostWithHttpInfo( deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, sortField: sortField, descending: descending, descendingGoal: descendingGoal, start: start, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -180,8 +175,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   the application key the achievement is for
@@ -221,10 +214,9 @@ class AchievementApi {
   ///
   /// * [String] triggerDefinition:
   ///   if provided will define what triggers to run after a tier is completed
-  Future<Response> createAchievementWithHttpInfo(num version, String appKey, String title, { String? deviceId, int? accountId, String? analyticsTag, String? description, String? rankType, int? rankIncrement, int? minIncrement, int? maxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
+  Future<Response> createAchievementWithHttpInfo(String appKey, String title, { String? deviceId, int? accountId, String? analyticsTag, String? description, String? rankType, int? rankIncrement, int? minIncrement, int? maxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -289,8 +281,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key the achievement is for
   ///
@@ -329,8 +319,8 @@ class AchievementApi {
   ///
   /// * [String] triggerDefinition:
   ///   if provided will define what triggers to run after a tier is completed
-  Future<AchievementResponse?> createAchievement(num version, String appKey, String title, { String? deviceId, int? accountId, String? analyticsTag, String? description, String? rankType, int? rankIncrement, int? minIncrement, int? maxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
-    final response = await createAchievementWithHttpInfo(version, appKey, title,  deviceId: deviceId, accountId: accountId, analyticsTag: analyticsTag, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, maxIncrement: maxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, );
+  Future<AchievementResponse?> createAchievement(String appKey, String title, { String? deviceId, int? accountId, String? analyticsTag, String? description, String? rankType, int? rankIncrement, int? minIncrement, int? maxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
+    final response = await createAchievementWithHttpInfo(appKey, title,  deviceId: deviceId, accountId: accountId, analyticsTag: analyticsTag, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, maxIncrement: maxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -351,8 +341,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] achievementId (required):
   ///   the achievement id for adding a new tier
@@ -395,10 +383,9 @@ class AchievementApi {
   ///
   /// * [int] gameObjectId:
   ///   The ID of the game object to associate with the achievement
-  Future<Response> createAchievementTierWithHttpInfo(num version, int achievementId, bool scoreAllInstances, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
+  Future<Response> createAchievementTierWithHttpInfo(int achievementId, bool scoreAllInstances, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tier/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tier/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -466,8 +453,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementId (required):
   ///   the achievement id for adding a new tier
   ///
@@ -509,8 +494,8 @@ class AchievementApi {
   ///
   /// * [int] gameObjectId:
   ///   The ID of the game object to associate with the achievement
-  Future<AchievementTierResponse?> createAchievementTier(num version, int achievementId, bool scoreAllInstances, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
-    final response = await createAchievementTierWithHttpInfo(version, achievementId, scoreAllInstances,  deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, );
+  Future<AchievementTierResponse?> createAchievementTier(int achievementId, bool scoreAllInstances, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, }) async {
+    final response = await createAchievementTierWithHttpInfo(achievementId, scoreAllInstances,  deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -532,17 +517,14 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementId (required):
   ///   The ID of the achievement
   ///
   /// * [int] accountId:
   ///   the account id of the user (deviceId or accountId required)
-  Future<Response> deleteAchievementWithHttpInfo(num version, int achievementId, { int? accountId, }) async {
+  Future<Response> deleteAchievementWithHttpInfo(int achievementId, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -576,15 +558,13 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementId (required):
   ///   The ID of the achievement
   ///
   /// * [int] accountId:
   ///   the account id of the user (deviceId or accountId required)
-  Future<SirqulResponse?> deleteAchievement(num version, int achievementId, { int? accountId, }) async {
-    final response = await deleteAchievementWithHttpInfo(version, achievementId,  accountId: accountId, );
+  Future<SirqulResponse?> deleteAchievement(int achievementId, { int? accountId, }) async {
+    final response = await deleteAchievementWithHttpInfo(achievementId,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -606,17 +586,14 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementTierId (required):
   ///   the achievement id for deletion
   ///
   /// * [int] accountId:
   ///   the account id of the user (deviceId or accountId required).
-  Future<Response> deleteAchievementTierWithHttpInfo(num version, int achievementTierId, { int? accountId, }) async {
+  Future<Response> deleteAchievementTierWithHttpInfo(int achievementTierId, { int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tier/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tier/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -650,15 +627,13 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementTierId (required):
   ///   the achievement id for deletion
   ///
   /// * [int] accountId:
   ///   the account id of the user (deviceId or accountId required).
-  Future<SirqulResponse?> deleteAchievementTier(num version, int achievementTierId, { int? accountId, }) async {
-    final response = await deleteAchievementTierWithHttpInfo(version, achievementTierId,  accountId: accountId, );
+  Future<SirqulResponse?> deleteAchievementTier(int achievementTierId, { int? accountId, }) async {
+    final response = await deleteAchievementTierWithHttpInfo(achievementTierId,  accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -680,8 +655,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementId (required):
   ///   The ID of the achievement
   ///
@@ -693,10 +666,9 @@ class AchievementApi {
   ///
   /// * [String] achievementType:
   ///   achievementType
-  Future<Response> getAchievementWithHttpInfo(num version, int achievementId, { String? deviceId, int? accountId, String? achievementType, }) async {
+  Future<Response> getAchievementWithHttpInfo(int achievementId, { String? deviceId, int? accountId, String? achievementType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -736,8 +708,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementId (required):
   ///   The ID of the achievement
   ///
@@ -749,8 +719,8 @@ class AchievementApi {
   ///
   /// * [String] achievementType:
   ///   achievementType
-  Future<AchievementTierResponse?> getAchievement(num version, int achievementId, { String? deviceId, int? accountId, String? achievementType, }) async {
-    final response = await getAchievementWithHttpInfo(version, achievementId,  deviceId: deviceId, accountId: accountId, achievementType: achievementType, );
+  Future<AchievementTierResponse?> getAchievement(int achievementId, { String? deviceId, int? accountId, String? achievementType, }) async {
+    final response = await getAchievementWithHttpInfo(achievementId,  deviceId: deviceId, accountId: accountId, achievementType: achievementType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -772,17 +742,14 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user (deviceId or accountId required)
   ///
   /// * [int] achievementTierId (required):
   ///   the achievement tier id that is being retrieved
-  Future<Response> getAchievementTierWithHttpInfo(num version, int accountId, int achievementTierId,) async {
+  Future<Response> getAchievementTierWithHttpInfo(int accountId, int achievementTierId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tier/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tier/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -814,15 +781,13 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user (deviceId or accountId required)
   ///
   /// * [int] achievementTierId (required):
   ///   the achievement tier id that is being retrieved
-  Future<AchievementTierResponse?> getAchievementTier(num version, int accountId, int achievementTierId,) async {
-    final response = await getAchievementTierWithHttpInfo(version, accountId, achievementTierId,);
+  Future<AchievementTierResponse?> getAchievementTier(int accountId, int achievementTierId,) async {
+    final response = await getAchievementTierWithHttpInfo(accountId, achievementTierId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -843,8 +808,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls (required):
   ///   determines whether to return null fields in the response
@@ -878,10 +841,9 @@ class AchievementApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<Response> getUserAchievementsWithHttpInfo(num version, bool returnNulls, String appKey, bool includeUndiscovered, { String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? rankType, String? achievementType, double? latitude, double? longitude, }) async {
+  Future<Response> getUserAchievementsWithHttpInfo(bool returnNulls, String appKey, bool includeUndiscovered, { String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? rankType, String? achievementType, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/progress/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/progress/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -938,8 +900,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls (required):
   ///   determines whether to return null fields in the response
   ///
@@ -972,8 +932,8 @@ class AchievementApi {
   ///
   /// * [double] longitude:
   ///   the current longitude of the user
-  Future<List<AchievementProgressResponse>?> getUserAchievements(num version, bool returnNulls, String appKey, bool includeUndiscovered, { String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? rankType, String? achievementType, double? latitude, double? longitude, }) async {
-    final response = await getUserAchievementsWithHttpInfo(version, returnNulls, appKey, includeUndiscovered,  deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, rankType: rankType, achievementType: achievementType, latitude: latitude, longitude: longitude, );
+  Future<List<AchievementProgressResponse>?> getUserAchievements(bool returnNulls, String appKey, bool includeUndiscovered, { String? deviceId, int? accountId, String? connectionAccountEmail, int? connectionAccountId, String? rankType, String? achievementType, double? latitude, double? longitude, }) async {
+    final response = await getUserAchievementsWithHttpInfo(returnNulls, appKey, includeUndiscovered,  deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, rankType: rankType, achievementType: achievementType, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -998,14 +958,11 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey:
   ///   filter results by application key
-  Future<Response> listAchievementTagsWithHttpInfo(num version, { String? appKey, }) async {
+  Future<Response> listAchievementTagsWithHttpInfo({ String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tag/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tag/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1038,12 +995,10 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey:
   ///   filter results by application key
-  Future<SirqulResponse?> listAchievementTags(num version, { String? appKey, }) async {
-    final response = await listAchievementTagsWithHttpInfo(version,  appKey: appKey, );
+  Future<SirqulResponse?> listAchievementTags({ String? appKey, }) async {
+    final response = await listAchievementTagsWithHttpInfo( appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1064,8 +1019,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] sortField (required):
   ///   the field to sort by. See AchievementApiMap
@@ -1099,10 +1052,9 @@ class AchievementApi {
   ///
   /// * [String] rankType:
   ///   filter results by the rankType (these are exact case sensitive matches)
-  Future<Response> listAchievementsWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? appKey, String? keyword, String? achievementType, String? rankType, }) async {
+  Future<Response> listAchievementsWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? appKey, String? keyword, String? achievementType, String? rankType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/list'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1155,8 +1107,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   the field to sort by. See AchievementApiMap
   ///
@@ -1189,8 +1139,8 @@ class AchievementApi {
   ///
   /// * [String] rankType:
   ///   filter results by the rankType (these are exact case sensitive matches)
-  Future<List<AchievementShortResponse>?> listAchievements(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? appKey, String? keyword, String? achievementType, String? rankType, }) async {
-    final response = await listAchievementsWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, );
+  Future<List<AchievementShortResponse>?> listAchievements(String sortField, bool descending, int start, int limit, bool activeOnly, { String? deviceId, int? accountId, String? appKey, String? keyword, String? achievementType, String? rankType, }) async {
+    final response = await listAchievementsWithHttpInfo(sortField, descending, start, limit, activeOnly,  deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1214,8 +1164,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] appKey (required):
   ///   the application key
@@ -1252,10 +1200,9 @@ class AchievementApi {
   ///
   /// * [String] rankType:
   ///   filter results by the rankType (these are exact case sensitive matches)
-  Future<Response> searchAchievementsWithHttpInfo(num version, String appKey, String sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, { String? deviceId, int? accountId, String? keyword, String? achievementType, String? rankType, }) async {
+  Future<Response> searchAchievementsWithHttpInfo(String appKey, String sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, { String? deviceId, int? accountId, String? keyword, String? achievementType, String? rankType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1307,8 +1254,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
   ///
@@ -1344,8 +1289,8 @@ class AchievementApi {
   ///
   /// * [String] rankType:
   ///   filter results by the rankType (these are exact case sensitive matches)
-  Future<List<AchievementShortResponse>?> searchAchievements(num version, String appKey, String sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, { String? deviceId, int? accountId, String? keyword, String? achievementType, String? rankType, }) async {
-    final response = await searchAchievementsWithHttpInfo(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit,  deviceId: deviceId, accountId: accountId, keyword: keyword, achievementType: achievementType, rankType: rankType, );
+  Future<List<AchievementShortResponse>?> searchAchievements(String appKey, String sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, { String? deviceId, int? accountId, String? keyword, String? achievementType, String? rankType, }) async {
+    final response = await searchAchievementsWithHttpInfo(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit,  deviceId: deviceId, accountId: accountId, keyword: keyword, achievementType: achievementType, rankType: rankType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1369,8 +1314,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
@@ -1416,10 +1359,9 @@ class AchievementApi {
   ///
   /// * [String] triggerDefinition:
   ///   if provided will define what triggers to run after a tier is completed
-  Future<Response> updateAchievementWithHttpInfo(num version, { String? deviceId, int? accountId, int? achievementId, String? analyticsTag, String? title, String? description, String? rankType, int? rankIncrement, int? minIncrement, bool? nullMinIncrement, int? maxIncrement, bool? nullMaxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
+  Future<Response> updateAchievementWithHttpInfo({ String? deviceId, int? accountId, int? achievementId, String? analyticsTag, String? title, String? description, String? rankType, int? rankIncrement, int? minIncrement, bool? nullMinIncrement, int? maxIncrement, bool? nullMaxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1494,8 +1436,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique id given by the device (deviceId or accountId required)
   ///
@@ -1540,8 +1480,8 @@ class AchievementApi {
   ///
   /// * [String] triggerDefinition:
   ///   if provided will define what triggers to run after a tier is completed
-  Future<AchievementResponse?> updateAchievement(num version, { String? deviceId, int? accountId, int? achievementId, String? analyticsTag, String? title, String? description, String? rankType, int? rankIncrement, int? minIncrement, bool? nullMinIncrement, int? maxIncrement, bool? nullMaxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
-    final response = await updateAchievementWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, achievementId: achievementId, analyticsTag: analyticsTag, title: title, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, nullMinIncrement: nullMinIncrement, maxIncrement: maxIncrement, nullMaxIncrement: nullMaxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, );
+  Future<AchievementResponse?> updateAchievement({ String? deviceId, int? accountId, int? achievementId, String? analyticsTag, String? title, String? description, String? rankType, int? rankIncrement, int? minIncrement, bool? nullMinIncrement, int? maxIncrement, bool? nullMaxIncrement, bool? validate, bool? active, String? triggerDefinition, }) async {
+    final response = await updateAchievementWithHttpInfo( deviceId: deviceId, accountId: accountId, achievementId: achievementId, analyticsTag: analyticsTag, title: title, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, nullMinIncrement: nullMinIncrement, maxIncrement: maxIncrement, nullMaxIncrement: nullMaxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1562,8 +1502,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] achievementTierId (required):
   ///   the achievement tier id for updating
@@ -1606,10 +1544,9 @@ class AchievementApi {
   ///
   /// * [bool] scoreAllInstances:
   ///   score all instances
-  Future<Response> updateAchievementTierWithHttpInfo(num version, int achievementTierId, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, bool? scoreAllInstances, }) async {
+  Future<Response> updateAchievementTierWithHttpInfo(int achievementTierId, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, bool? scoreAllInstances, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/tier/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/tier/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1679,8 +1616,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] achievementTierId (required):
   ///   the achievement tier id for updating
   ///
@@ -1722,8 +1657,8 @@ class AchievementApi {
   ///
   /// * [bool] scoreAllInstances:
   ///   score all instances
-  Future<AchievementTierResponse?> updateAchievementTier(num version, int achievementTierId, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, bool? scoreAllInstances, }) async {
-    final response = await updateAchievementTierWithHttpInfo(version, achievementTierId,  deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreAllInstances: scoreAllInstances, );
+  Future<AchievementTierResponse?> updateAchievementTier(int achievementTierId, { String? deviceId, int? accountId, MultipartFile? icon, int? iconAssetId, String? title, String? description, int? goalCount, int? missionId, int? gameId, int? packId, int? gameLevelId, int? gameObjectId, bool? scoreAllInstances, }) async {
+    final response = await updateAchievementTierWithHttpInfo(achievementTierId,  deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreAllInstances: scoreAllInstances, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1744,8 +1679,6 @@ class AchievementApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   the account id of the user
@@ -1770,10 +1703,9 @@ class AchievementApi {
   ///
   /// * [bool] returnProgress:
   ///   determines whether to return the achievement progress response
-  Future<Response> updateUserAchievementWithHttpInfo(num version, int accountId, { int? achievementId, String? tag, int? customId, int? increment, int? startDate, int? endDate, bool? returnProgress, }) async {
+  Future<Response> updateUserAchievementWithHttpInfo(int accountId, { int? achievementId, String? tag, int? customId, int? increment, int? startDate, int? endDate, bool? returnProgress, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/achievement/progress/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/achievement/progress/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1825,8 +1757,6 @@ class AchievementApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account id of the user
   ///
@@ -1850,8 +1780,8 @@ class AchievementApi {
   ///
   /// * [bool] returnProgress:
   ///   determines whether to return the achievement progress response
-  Future<SirqulResponse?> updateUserAchievement(num version, int accountId, { int? achievementId, String? tag, int? customId, int? increment, int? startDate, int? endDate, bool? returnProgress, }) async {
-    final response = await updateUserAchievementWithHttpInfo(version, accountId,  achievementId: achievementId, tag: tag, customId: customId, increment: increment, startDate: startDate, endDate: endDate, returnProgress: returnProgress, );
+  Future<SirqulResponse?> updateUserAchievement(int accountId, { int? achievementId, String? tag, int? customId, int? increment, int? startDate, int? endDate, bool? returnProgress, }) async {
+    final response = await updateUserAchievementWithHttpInfo(accountId,  achievementId: achievementId, tag: tag, customId: customId, increment: increment, startDate: startDate, endDate: endDate, returnProgress: returnProgress, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

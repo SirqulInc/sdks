@@ -24,8 +24,6 @@ class WeatherApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] regionId:
   ///   Region Id
   ///
@@ -37,10 +35,9 @@ class WeatherApi {
   ///
   /// * [int] timezoneOffset:
   ///   Timezone Offset
-  Future<Response> searchWeatherWithHttpInfo(num version, { int? regionId, double? latitude, double? longitude, int? timezoneOffset, }) async {
+  Future<Response> searchWeatherWithHttpInfo({ int? regionId, double? latitude, double? longitude, int? timezoneOffset, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/weather/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/weather/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -82,8 +79,6 @@ class WeatherApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] regionId:
   ///   Region Id
   ///
@@ -95,8 +90,8 @@ class WeatherApi {
   ///
   /// * [int] timezoneOffset:
   ///   Timezone Offset
-  Future<WeatherResponse?> searchWeather(num version, { int? regionId, double? latitude, double? longitude, int? timezoneOffset, }) async {
-    final response = await searchWeatherWithHttpInfo(version,  regionId: regionId, latitude: latitude, longitude: longitude, timezoneOffset: timezoneOffset, );
+  Future<WeatherResponse?> searchWeather({ int? regionId, double? latitude, double? longitude, int? timezoneOffset, }) async {
+    final response = await searchWeatherWithHttpInfo( regionId: regionId, latitude: latitude, longitude: longitude, timezoneOffset: timezoneOffset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

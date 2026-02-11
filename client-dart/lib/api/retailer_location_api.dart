@@ -24,8 +24,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
   ///
@@ -112,10 +110,9 @@ class RetailerLocationApi {
   ///
   /// * [double] longitude:
   ///   The longitude to center the search on
-  Future<Response> createRetailerLocationConsumerWithHttpInfo(num version, String appKey, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? detailsHeader, String? detailsBody, String? hours, String? tags, int? logoAssetId, int? picture1AssetId, int? picture2AssetId, String? categoryIds, String? filterIds, String? metaData, bool? publicLocation, bool? active, String? locationType, double? latitude, double? longitude, }) async {
+  Future<Response> createRetailerLocationConsumerWithHttpInfo(String appKey, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? detailsHeader, String? detailsBody, String? hours, String? tags, int? logoAssetId, int? picture1AssetId, int? picture2AssetId, String? categoryIds, String? filterIds, String? metaData, bool? publicLocation, bool? active, String? locationType, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -228,8 +225,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] appKey (required):
   ///   the application key
   ///
@@ -316,8 +311,8 @@ class RetailerLocationApi {
   ///
   /// * [double] longitude:
   ///   The longitude to center the search on
-  Future<RetailerLocationResponse?> createRetailerLocationConsumer(num version, String appKey, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? detailsHeader, String? detailsBody, String? hours, String? tags, int? logoAssetId, int? picture1AssetId, int? picture2AssetId, String? categoryIds, String? filterIds, String? metaData, bool? publicLocation, bool? active, String? locationType, double? latitude, double? longitude, }) async {
-    final response = await createRetailerLocationConsumerWithHttpInfo(version, appKey, name,  deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, tags: tags, logoAssetId: logoAssetId, picture1AssetId: picture1AssetId, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, metaData: metaData, publicLocation: publicLocation, active: active, locationType: locationType, latitude: latitude, longitude: longitude, );
+  Future<RetailerLocationResponse?> createRetailerLocationConsumer(String appKey, String name, { String? deviceId, int? accountId, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? detailsHeader, String? detailsBody, String? hours, String? tags, int? logoAssetId, int? picture1AssetId, int? picture2AssetId, String? categoryIds, String? filterIds, String? metaData, bool? publicLocation, bool? active, String? locationType, double? latitude, double? longitude, }) async {
+    final response = await createRetailerLocationConsumerWithHttpInfo(appKey, name,  deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, tags: tags, logoAssetId: logoAssetId, picture1AssetId: picture1AssetId, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, metaData: metaData, publicLocation: publicLocation, active: active, locationType: locationType, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -338,8 +333,6 @@ class RetailerLocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] retailerId (required):
   ///   The ID of the retailer
@@ -457,10 +450,9 @@ class RetailerLocationApi {
   ///
   /// * [String] responseIncludes:
   ///   Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
-  Future<Response> createRetailerLocationsWithHttpInfo(num version, int retailerId, String name, String streetAddress, String city, String state, String postalCode, { String? deviceId, int? accountId, String? streetAddress2, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? responseIncludes, }) async {
+  Future<Response> createRetailerLocationsWithHttpInfo(int retailerId, String name, String streetAddress, String city, String state, String postalCode, { String? deviceId, int? accountId, String? streetAddress2, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? responseIncludes, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -595,8 +587,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerId (required):
   ///   The ID of the retailer
   ///
@@ -713,8 +703,8 @@ class RetailerLocationApi {
   ///
   /// * [String] responseIncludes:
   ///   Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
-  Future<RetailerLocationResponse?> createRetailerLocations(num version, int retailerId, String name, String streetAddress, String city, String state, String postalCode, { String? deviceId, int? accountId, String? streetAddress2, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? responseIncludes, }) async {
-    final response = await createRetailerLocationsWithHttpInfo(version, retailerId, name, streetAddress, city, state, postalCode,  deviceId: deviceId, accountId: accountId, streetAddress2: streetAddress2, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, responseIncludes: responseIncludes, );
+  Future<RetailerLocationResponse?> createRetailerLocations(int retailerId, String name, String streetAddress, String city, String state, String postalCode, { String? deviceId, int? accountId, String? streetAddress2, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? responseIncludes, }) async {
+    final response = await createRetailerLocationsWithHttpInfo(retailerId, name, streetAddress, city, state, postalCode,  deviceId: deviceId, accountId: accountId, streetAddress2: streetAddress2, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, responseIncludes: responseIncludes, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -736,8 +726,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id
   ///
@@ -746,10 +734,9 @@ class RetailerLocationApi {
   ///
   /// * [int] retailerLocationId:
   ///   the id of the retailer location to delete
-  Future<Response> deleteRetailerLocationWithHttpInfo(num version, { String? deviceId, int? accountId, int? retailerLocationId, }) async {
+  Future<Response> deleteRetailerLocationWithHttpInfo({ String? deviceId, int? accountId, int? retailerLocationId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -788,8 +775,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   the device id
   ///
@@ -798,8 +783,8 @@ class RetailerLocationApi {
   ///
   /// * [int] retailerLocationId:
   ///   the id of the retailer location to delete
-  Future<SirqulResponse?> deleteRetailerLocation(num version, { String? deviceId, int? accountId, int? retailerLocationId, }) async {
-    final response = await deleteRetailerLocationWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, retailerLocationId: retailerLocationId, );
+  Future<SirqulResponse?> deleteRetailerLocation({ String? deviceId, int? accountId, int? retailerLocationId, }) async {
+    final response = await deleteRetailerLocationWithHttpInfo( deviceId: deviceId, accountId: accountId, retailerLocationId: retailerLocationId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -821,8 +806,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerLocationId (required):
   ///   The ID of the retailer location
   ///
@@ -834,10 +817,9 @@ class RetailerLocationApi {
   ///
   /// * [String] retailerLocationToken:
   ///   the unique token of the retailer location
-  Future<Response> getRetailerLocationWithHttpInfo(num version, int retailerLocationId, { String? deviceId, int? accountId, String? retailerLocationToken, }) async {
+  Future<Response> getRetailerLocationWithHttpInfo(int retailerLocationId, { String? deviceId, int? accountId, String? retailerLocationToken, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -877,8 +859,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerLocationId (required):
   ///   The ID of the retailer location
   ///
@@ -890,8 +870,8 @@ class RetailerLocationApi {
   ///
   /// * [String] retailerLocationToken:
   ///   the unique token of the retailer location
-  Future<RetailerLocationResponse?> getRetailerLocation(num version, int retailerLocationId, { String? deviceId, int? accountId, String? retailerLocationToken, }) async {
-    final response = await getRetailerLocationWithHttpInfo(version, retailerLocationId,  deviceId: deviceId, accountId: accountId, retailerLocationToken: retailerLocationToken, );
+  Future<RetailerLocationResponse?> getRetailerLocation(int retailerLocationId, { String? deviceId, int? accountId, String? retailerLocationToken, }) async {
+    final response = await getRetailerLocationWithHttpInfo(retailerLocationId,  deviceId: deviceId, accountId: accountId, retailerLocationToken: retailerLocationToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -913,8 +893,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerLocationId (required):
   ///   The retailer location id
   ///
@@ -923,10 +901,9 @@ class RetailerLocationApi {
   ///
   /// * [int] accountId:
   ///   The account id for returning account information (i.e. favorites)
-  Future<Response> getRetailerLocationConsumerWithHttpInfo(num version, int retailerLocationId, { String? deviceId, int? accountId, }) async {
+  Future<Response> getRetailerLocationConsumerWithHttpInfo(int retailerLocationId, { String? deviceId, int? accountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -963,8 +940,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerLocationId (required):
   ///   The retailer location id
   ///
@@ -973,8 +948,8 @@ class RetailerLocationApi {
   ///
   /// * [int] accountId:
   ///   The account id for returning account information (i.e. favorites)
-  Future<RetailerLocationResponse?> getRetailerLocationConsumer(num version, int retailerLocationId, { String? deviceId, int? accountId, }) async {
-    final response = await getRetailerLocationConsumerWithHttpInfo(version, retailerLocationId,  deviceId: deviceId, accountId: accountId, );
+  Future<RetailerLocationResponse?> getRetailerLocationConsumer(int retailerLocationId, { String? deviceId, int? accountId, }) async {
+    final response = await getRetailerLocationConsumerWithHttpInfo(retailerLocationId,  deviceId: deviceId, accountId: accountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -995,8 +970,6 @@ class RetailerLocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [double] latitude (required):
   ///   The latitude to center the search on
@@ -1099,10 +1072,9 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<Response> indexedRetailerLocationDistanceSearchWithHttpInfo(num version, double latitude, double longitude, double searchRange, int start, int limit, { int? accountId, String? address, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, String? distanceUnit, bool? returnFavorited, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+  Future<Response> indexedRetailerLocationDistanceSearchWithHttpInfo(double latitude, double longitude, double searchRange, int start, int limit, { int? accountId, String? address, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, String? distanceUnit, bool? returnFavorited, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/idistancesearch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/idistancesearch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1224,8 +1196,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [double] latitude (required):
   ///   The latitude to center the search on
   ///
@@ -1327,8 +1297,8 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<List<RetailerLocationResponse>?> indexedRetailerLocationDistanceSearch(num version, double latitude, double longitude, double searchRange, int start, int limit, { int? accountId, String? address, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, String? distanceUnit, bool? returnFavorited, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
-    final response = await indexedRetailerLocationDistanceSearchWithHttpInfo(version, latitude, longitude, searchRange, start, limit,  accountId: accountId, address: address, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, distanceUnit: distanceUnit, returnFavorited: returnFavorited, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
+  Future<List<RetailerLocationResponse>?> indexedRetailerLocationDistanceSearch(double latitude, double longitude, double searchRange, int start, int limit, { int? accountId, String? address, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, String? distanceUnit, bool? returnFavorited, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+    final response = await indexedRetailerLocationDistanceSearchWithHttpInfo(latitude, longitude, searchRange, start, limit,  accountId: accountId, address: address, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, distanceUnit: distanceUnit, returnFavorited: returnFavorited, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1352,8 +1322,6 @@ class RetailerLocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId:
   ///   The account id of the user
@@ -1438,10 +1406,9 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<Response> indexedRetailerLocationSearchWithHttpInfo(num version, { int? accountId, int? start, int? limit, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+  Future<Response> indexedRetailerLocationSearchWithHttpInfo({ int? accountId, int? start, int? limit, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/isearch'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/isearch';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1555,8 +1522,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId:
   ///   The account id of the user
   ///
@@ -1640,8 +1605,8 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<List<RetailerLocationResponse>?> indexedRetailerLocationSearch(num version, { int? accountId, int? start, int? limit, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
-    final response = await indexedRetailerLocationSearchWithHttpInfo(version,  accountId: accountId, start: start, limit: limit, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
+  Future<List<RetailerLocationResponse>?> indexedRetailerLocationSearch({ int? accountId, int? start, int? limit, bool? hasOffers, String? categories, String? filters, String? audiences, String? retailerIds, String? retailerLocationIds, String? tags, String? locationType, String? sortField, bool? descending, String? q, String? keyword, String? keywordOperator, String? searchExpression, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? returnExternalCategoryData, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+    final response = await indexedRetailerLocationSearchWithHttpInfo( accountId: accountId, start: start, limit: limit, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1665,8 +1630,6 @@ class RetailerLocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
@@ -1742,10 +1705,9 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<Response> searchRetailerLocationsWithHttpInfo(num version, { String? deviceId, int? accountId, String? q, String? keyword, String? retailerIds, String? retailerLocationIds, String? locationType, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? showPublicLocations, bool? activeOnly, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+  Future<Response> searchRetailerLocationsWithHttpInfo({ String? deviceId, int? accountId, String? q, String? keyword, String? retailerIds, String? retailerLocationIds, String? locationType, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? showPublicLocations, bool? activeOnly, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1850,8 +1812,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   The device id (deviceId or accountId required)
   ///
@@ -1926,8 +1886,8 @@ class RetailerLocationApi {
   ///
   /// * [bool] includeRating:
   ///   Include rating info in response
-  Future<List<RetailerLocationResponse>?> searchRetailerLocations(num version, { String? deviceId, int? accountId, String? q, String? keyword, String? retailerIds, String? retailerLocationIds, String? locationType, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? showPublicLocations, bool? activeOnly, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
-    final response = await searchRetailerLocationsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, locationType: locationType, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, showPublicLocations: showPublicLocations, activeOnly: activeOnly, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
+  Future<List<RetailerLocationResponse>?> searchRetailerLocations({ String? deviceId, int? accountId, String? q, String? keyword, String? retailerIds, String? retailerLocationIds, String? locationType, String? sortField, bool? descending, int? i, int? start, int? l, int? limit, bool? showPublicLocations, bool? activeOnly, bool? returnRetailer, bool? returnAssets, bool? returnOffers, bool? returnCategories, bool? returnFilters, bool? returnAudiences, bool? returnQrCode, bool? includeFavorite, bool? includeLiked, bool? includeRating, }) async {
+    final response = await searchRetailerLocationsWithHttpInfo( deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, locationType: locationType, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, showPublicLocations: showPublicLocations, activeOnly: activeOnly, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1951,8 +1911,6 @@ class RetailerLocationApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] retailerLocationId (required):
   ///   The ID of the retailer location
@@ -2076,10 +2034,9 @@ class RetailerLocationApi {
   ///
   /// * [String] tags:
   ///   Custom string field for doing full-text searches
-  Future<Response> updateRetailerLocationsWithHttpInfo(num version, int retailerLocationId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, String? metaData, String? paymentProvider, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? tags, }) async {
+  Future<Response> updateRetailerLocationsWithHttpInfo(int retailerLocationId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, String? metaData, String? paymentProvider, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? tags, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/retailer/location/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/retailer/location/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2230,8 +2187,6 @@ class RetailerLocationApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] retailerLocationId (required):
   ///   The ID of the retailer location
   ///
@@ -2354,8 +2309,8 @@ class RetailerLocationApi {
   ///
   /// * [String] tags:
   ///   Custom string field for doing full-text searches
-  Future<RetailerLocationResponse?> updateRetailerLocations(num version, int retailerLocationId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, String? metaData, String? paymentProvider, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? tags, }) async {
-    final response = await updateRetailerLocationsWithHttpInfo(version, retailerLocationId,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, metaData: metaData, paymentProvider: paymentProvider, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, tags: tags, );
+  Future<RetailerLocationResponse?> updateRetailerLocations(int retailerLocationId, { String? deviceId, int? accountId, String? name, String? streetAddress, String? streetAddress2, String? city, String? state, String? postalCode, String? country, String? businessPhone, String? businessPhoneExt, String? website, String? email, String? internalId, String? detailsHeader, String? detailsBody, String? hours, MultipartFile? logo, int? logoAssetId, MultipartFile? picture1, int? picture1AssetId, MultipartFile? picture2, int? picture2AssetId, String? categoryIds, String? filterIds, double? latitude, double? longitude, String? building, String? googlePlaceId, String? yelpId, String? metaData, String? paymentProvider, bool? active, bool? publicLocation, String? locationType, String? audienceIds, String? audienceIdsToAdd, String? audienceIdsToRemove, String? responseFormat, String? tags, }) async {
+    final response = await updateRetailerLocationsWithHttpInfo(retailerLocationId,  deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, metaData: metaData, paymentProvider: paymentProvider, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, tags: tags, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

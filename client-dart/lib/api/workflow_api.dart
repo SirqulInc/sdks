@@ -24,8 +24,6 @@ class WorkflowApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -40,10 +38,9 @@ class WorkflowApi {
   ///
   /// * [String] parameters:
   ///   Override parameters in JSON format. Example: ```json {   \"arguments_81\": { \"filter\": \"PUBLIC\" },   \"arguments_87\": { \"tag\": \"custom_tag\" } } ``` 
-  Future<Response> runWorkflowWithHttpInfo(num version, int accountId, int workflowId, { int? skuId, int? versionCode, String? parameters, }) async {
+  Future<Response> runWorkflowWithHttpInfo(int accountId, int workflowId, { int? skuId, int? versionCode, String? parameters, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/workflow/run'
-      .replaceAll('{version}', version.toString());
+    final path = r'/workflow/run';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -84,8 +81,6 @@ class WorkflowApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the account ID of the user
   ///
@@ -100,8 +95,8 @@ class WorkflowApi {
   ///
   /// * [String] parameters:
   ///   Override parameters in JSON format. Example: ```json {   \"arguments_81\": { \"filter\": \"PUBLIC\" },   \"arguments_87\": { \"tag\": \"custom_tag\" } } ``` 
-  Future<SirqulResponse?> runWorkflow(num version, int accountId, int workflowId, { int? skuId, int? versionCode, String? parameters, }) async {
-    final response = await runWorkflowWithHttpInfo(version, accountId, workflowId,  skuId: skuId, versionCode: versionCode, parameters: parameters, );
+  Future<SirqulResponse?> runWorkflow(int accountId, int workflowId, { int? skuId, int? versionCode, String? parameters, }) async {
+    final response = await runWorkflowWithHttpInfo(accountId, workflowId,  skuId: skuId, versionCode: versionCode, parameters: parameters, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -24,13 +24,10 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [ServiceHub] body:
-  Future<Response> createServiceHubWithHttpInfo(num version, { ServiceHub? body, }) async {
+  Future<Response> createServiceHubWithHttpInfo({ ServiceHub? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub'
-      .replaceAll('{version}', version.toString());
+    final path = r'/hub';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [ServiceHub] body:
-  Future<ServiceHub?> createServiceHub(num version, { ServiceHub? body, }) async {
-    final response = await createServiceHubWithHttpInfo(version,  body: body, );
+  Future<ServiceHub?> createServiceHub({ ServiceHub? body, }) async {
+    final response = await createServiceHubWithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,14 +80,11 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub to delete
-  Future<Response> deleteServiceHubWithHttpInfo(num version, int id,) async {
+  Future<Response> deleteServiceHubWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/hub/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -122,12 +114,10 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub to delete
-  Future<void> deleteServiceHub(num version, int id,) async {
-    final response = await deleteServiceHubWithHttpInfo(version, id,);
+  Future<void> deleteServiceHub(int id,) async {
+    final response = await deleteServiceHubWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,14 +131,11 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub to get
-  Future<Response> getServiceHubWithHttpInfo(num version, int id,) async {
+  Future<Response> getServiceHubWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/hub/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -178,12 +165,10 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub to get
-  Future<Object?> getServiceHub(num version, int id,) async {
-    final response = await getServiceHubWithHttpInfo(version, id,);
+  Future<Object?> getServiceHub(int id,) async {
+    final response = await getServiceHubWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,16 +190,13 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub
   ///
   /// * [ServiceHub] body:
-  Future<Response> postServiceHubWithHttpInfo(num version, int id, { ServiceHub? body, }) async {
+  Future<Response> postServiceHubWithHttpInfo(int id, { ServiceHub? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/hub/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -244,14 +226,12 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub
   ///
   /// * [ServiceHub] body:
-  Future<ServiceHub?> postServiceHub(num version, int id, { ServiceHub? body, }) async {
-    final response = await postServiceHubWithHttpInfo(version, id,  body: body, );
+  Future<ServiceHub?> postServiceHub(int id, { ServiceHub? body, }) async {
+    final response = await postServiceHubWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -273,16 +253,13 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub
   ///
   /// * [ServiceHub] body:
-  Future<Response> putServiceHubWithHttpInfo(num version, int id, { ServiceHub? body, }) async {
+  Future<Response> putServiceHubWithHttpInfo(int id, { ServiceHub? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/hub/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -312,14 +289,12 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the service hub
   ///
   /// * [ServiceHub] body:
-  Future<ServiceHub?> putServiceHub(num version, int id, { ServiceHub? body, }) async {
-    final response = await putServiceHubWithHttpInfo(version, id,  body: body, );
+  Future<ServiceHub?> putServiceHub(int id, { ServiceHub? body, }) async {
+    final response = await putServiceHubWithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -341,8 +316,6 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -363,10 +336,9 @@ class ServiceHubApi {
   ///
   /// * [int] retailerId:
   ///   The retailer belongs to
-  Future<Response> searchServiceHubsWithHttpInfo(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, int? retailerId, }) async {
+  Future<Response> searchServiceHubsWithHttpInfo(String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, int? retailerId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/hub'
-      .replaceAll('{version}', version.toString());
+    final path = r'/hub';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -407,8 +379,6 @@ class ServiceHubApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] sortField (required):
   ///   The field to sort by
   ///
@@ -429,8 +399,8 @@ class ServiceHubApi {
   ///
   /// * [int] retailerId:
   ///   The retailer belongs to
-  Future<List<ServiceHub>?> searchServiceHubs(num version, String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, int? retailerId, }) async {
-    final response = await searchServiceHubsWithHttpInfo(version, sortField, descending, start, limit, activeOnly,  keyword: keyword, retailerId: retailerId, );
+  Future<List<ServiceHub>?> searchServiceHubs(String sortField, bool descending, int start, int limit, bool activeOnly, { String? keyword, int? retailerId, }) async {
+    final response = await searchServiceHubsWithHttpInfo(sortField, descending, start, limit, activeOnly,  keyword: keyword, retailerId: retailerId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

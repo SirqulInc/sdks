@@ -24,8 +24,6 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -61,10 +59,9 @@ class TaskApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Task is active or not (inactive Tasks are not processed)
-  Future<Response> createTaskWithHttpInfo(num version, int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
+  Future<Response> createTaskWithHttpInfo(int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/task/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/task/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -126,8 +123,6 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -163,8 +158,8 @@ class TaskApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Task is active or not (inactive Tasks are not processed)
-  Future<TaskResponse?> createTask(num version, int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
-    final response = await createTaskWithHttpInfo(version, accountId, name,  appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, );
+  Future<TaskResponse?> createTask(int accountId, String name, { String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
+    final response = await createTaskWithHttpInfo(accountId, name,  appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -186,17 +181,14 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] taskId (required):
   ///   The id of the Task to delete.
-  Future<Response> deleteTaskWithHttpInfo(num version, int accountId, int taskId,) async {
+  Future<Response> deleteTaskWithHttpInfo(int accountId, int taskId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/task/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/task/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -228,15 +220,13 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] taskId (required):
   ///   The id of the Task to delete.
-  Future<SirqulResponse?> deleteTask(num version, int accountId, int taskId,) async {
-    final response = await deleteTaskWithHttpInfo(version, accountId, taskId,);
+  Future<SirqulResponse?> deleteTask(int accountId, int taskId,) async {
+    final response = await deleteTaskWithHttpInfo(accountId, taskId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -258,17 +248,14 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] taskId (required):
   ///   The id of the Task to return.
-  Future<Response> getTaskWithHttpInfo(num version, int accountId, int taskId,) async {
+  Future<Response> getTaskWithHttpInfo(int accountId, int taskId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/task/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/task/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -300,15 +287,13 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
   /// * [int] taskId (required):
   ///   The id of the Task to return.
-  Future<TaskResponse?> getTask(num version, int accountId, int taskId,) async {
-    final response = await getTaskWithHttpInfo(version, accountId, taskId,);
+  Future<TaskResponse?> getTask(int accountId, int taskId,) async {
+    final response = await getTaskWithHttpInfo(accountId, taskId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -329,8 +314,6 @@ class TaskApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -367,10 +350,9 @@ class TaskApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results
-  Future<Response> searchTasksWithHttpInfo(num version, int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+  Future<Response> searchTasksWithHttpInfo(int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/task/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/task/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -434,8 +416,6 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -471,8 +451,8 @@ class TaskApi {
   ///
   /// * [bool] activeOnly:
   ///   Determines whether to return only active results
-  Future<List<TaskResponse>?> searchTasks(num version, int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
-    final response = await searchTasksWithHttpInfo(version, accountId,  groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
+  Future<List<TaskResponse>?> searchTasks(int accountId, { String? groupingId, String? filter, String? statuses, String? templateTypes, String? appKey, String? keyword, String? sortField, bool? descending, int? start, int? limit, bool? activeOnly, }) async {
+    final response = await searchTasksWithHttpInfo(accountId,  groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -496,8 +476,6 @@ class TaskApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] taskId (required):
   ///   Task Id
@@ -537,10 +515,9 @@ class TaskApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Task is active or not (inactive Tasks are not processed)
-  Future<Response> updateTaskWithHttpInfo(num version, int taskId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
+  Future<Response> updateTaskWithHttpInfo(int taskId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/task/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/task/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -605,8 +582,6 @@ class TaskApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] taskId (required):
   ///   Task Id
   ///
@@ -645,8 +620,8 @@ class TaskApi {
   ///
   /// * [bool] active:
   ///   Sets whether the Task is active or not (inactive Tasks are not processed)
-  Future<TaskResponse?> updateTask(num version, int taskId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
-    final response = await updateTaskWithHttpInfo(version, taskId, accountId,  name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, );
+  Future<TaskResponse?> updateTask(int taskId, int accountId, { String? name, String? appKey, String? groupingId, String? endpointURL, String? payload, int? scheduledDate, int? startDate, int? endDate, String? cronExpression, String? visibility, bool? active, }) async {
+    final response = await updateTaskWithHttpInfo(taskId, accountId,  name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

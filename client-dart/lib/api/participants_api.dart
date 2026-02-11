@@ -24,8 +24,6 @@ class ParticipantsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -34,10 +32,9 @@ class ParticipantsApi {
   ///
   /// * [bool] useShortNameAsID:
   ///   Whether to use short name as the participant ID
-  Future<Response> processAllParticipantsWithHttpInfo(num version, int accountId, { String? appKey, bool? useShortNameAsID, }) async {
+  Future<Response> processAllParticipantsWithHttpInfo(int accountId, { String? appKey, bool? useShortNameAsID, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/participant/process/all'
-      .replaceAll('{version}', version.toString());
+    final path = r'/participant/process/all';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -74,8 +71,6 @@ class ParticipantsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -84,8 +79,8 @@ class ParticipantsApi {
   ///
   /// * [bool] useShortNameAsID:
   ///   Whether to use short name as the participant ID
-  Future<SirqulResponse?> processAllParticipants(num version, int accountId, { String? appKey, bool? useShortNameAsID, }) async {
-    final response = await processAllParticipantsWithHttpInfo(version, accountId,  appKey: appKey, useShortNameAsID: useShortNameAsID, );
+  Future<SirqulResponse?> processAllParticipants(int accountId, { String? appKey, bool? useShortNameAsID, }) async {
+    final response = await processAllParticipantsWithHttpInfo(accountId,  appKey: appKey, useShortNameAsID: useShortNameAsID, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -107,8 +102,6 @@ class ParticipantsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -123,10 +116,9 @@ class ParticipantsApi {
   ///
   /// * [MultipartFile] file:
   ///   Multipart file containing participant feed contents
-  Future<Response> processParticipantsWithHttpInfo(num version, int accountId, String league, { String? appKey, bool? useShortNameAsID, MultipartFile? file, }) async {
+  Future<Response> processParticipantsWithHttpInfo(int accountId, String league, { String? appKey, bool? useShortNameAsID, MultipartFile? file, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/participant/process'
-      .replaceAll('{version}', version.toString());
+    final path = r'/participant/process';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -167,8 +159,6 @@ class ParticipantsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The account id of the user
   ///
@@ -183,8 +173,8 @@ class ParticipantsApi {
   ///
   /// * [MultipartFile] file:
   ///   Multipart file containing participant feed contents
-  Future<SirqulResponse?> processParticipants(num version, int accountId, String league, { String? appKey, bool? useShortNameAsID, MultipartFile? file, }) async {
-    final response = await processParticipantsWithHttpInfo(version, accountId, league,  appKey: appKey, useShortNameAsID: useShortNameAsID, file: file, );
+  Future<SirqulResponse?> processParticipants(int accountId, String league, { String? appKey, bool? useShortNameAsID, MultipartFile? file, }) async {
+    final response = await processParticipantsWithHttpInfo(accountId, league,  appKey: appKey, useShortNameAsID: useShortNameAsID, file: file, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

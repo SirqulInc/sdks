@@ -24,13 +24,10 @@ class LocationApiV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Location] body:
-  Future<Response> createLocationV2WithHttpInfo(num version, { Location? body, }) async {
+  Future<Response> createLocationV2WithHttpInfo({ Location? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location'
-      .replaceAll('{version}', version.toString());
+    final path = r'/location';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -59,11 +56,9 @@ class LocationApiV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [Location] body:
-  Future<SirqulResponse?> createLocationV2(num version, { Location? body, }) async {
-    final response = await createLocationV2WithHttpInfo(version,  body: body, );
+  Future<SirqulResponse?> createLocationV2({ Location? body, }) async {
+    final response = await createLocationV2WithHttpInfo( body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -85,16 +80,13 @@ class LocationApiV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the location to update
   ///
   /// * [Location] body:
-  Future<Response> updateLocationV2WithHttpInfo(num version, int id, { Location? body, }) async {
+  Future<Response> updateLocationV2WithHttpInfo(int id, { Location? body, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/location/{id}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/location/{id}'
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
@@ -124,14 +116,12 @@ class LocationApiV2Api {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] id (required):
   ///   the id of the location to update
   ///
   /// * [Location] body:
-  Future<SirqulResponse?> updateLocationV2(num version, int id, { Location? body, }) async {
-    final response = await updateLocationV2WithHttpInfo(version, id,  body: body, );
+  Future<SirqulResponse?> updateLocationV2(int id, { Location? body, }) async {
+    final response = await updateLocationV2WithHttpInfo(id,  body: body, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

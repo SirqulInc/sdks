@@ -24,14 +24,11 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] filename (required):
   ///   the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
-  Future<Response> assetDownloadWithHttpInfo(num version, String filename,) async {
+  Future<Response> assetDownloadWithHttpInfo(String filename,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/download/{filename}'
-      .replaceAll('{version}', version.toString())
+    final path = r'/asset/download/{filename}'
       .replaceAll('{filename}', filename);
 
     // ignore: prefer_final_locals
@@ -61,12 +58,10 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] filename (required):
   ///   the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
-  Future<SirqulResponse?> assetDownload(num version, String filename,) async {
-    final response = await assetDownloadWithHttpInfo(version, filename,);
+  Future<SirqulResponse?> assetDownload(String filename,) async {
+    final response = await assetDownloadWithHttpInfo(filename,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -88,8 +83,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   offer id used for inserting offer text/flavor
   ///
@@ -110,10 +103,9 @@ class AssetApi {
   ///
   /// * [String] template:
   ///   the template to use
-  Future<Response> assetMorphWithHttpInfo(num version, int offerId, String adSize, { int? creativeId, int? width, int? height, String? backgroundSize, String? template, }) async {
+  Future<Response> assetMorphWithHttpInfo(int offerId, String adSize, { int? creativeId, int? width, int? height, String? backgroundSize, String? template, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/morph'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/morph';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -160,8 +152,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] offerId (required):
   ///   offer id used for inserting offer text/flavor
   ///
@@ -182,8 +172,8 @@ class AssetApi {
   ///
   /// * [String] template:
   ///   the template to use
-  Future<AssetShortResponse?> assetMorph(num version, int offerId, String adSize, { int? creativeId, int? width, int? height, String? backgroundSize, String? template, }) async {
-    final response = await assetMorphWithHttpInfo(version, offerId, adSize,  creativeId: creativeId, width: width, height: height, backgroundSize: backgroundSize, template: template, );
+  Future<AssetShortResponse?> assetMorph(int offerId, String adSize, { int? creativeId, int? width, int? height, String? backgroundSize, String? template, }) async {
+    final response = await assetMorphWithHttpInfo(offerId, adSize,  creativeId: creativeId, width: width, height: height, backgroundSize: backgroundSize, template: template, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -204,8 +194,6 @@ class AssetApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [bool] returnNulls:
   ///   to return nulls
@@ -308,10 +296,9 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   the longitude (optional)
-  Future<Response> createAssetWithHttpInfo(num version, { bool? returnNulls, String? deviceId, int? accountId, int? albumId, int? collectionId, String? addToDefaultAlbum, bool? addToMediaLibrary, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? app, String? appKey, String? searchTags, double? latitude, double? longitude, }) async {
+  Future<Response> createAssetWithHttpInfo({ bool? returnNulls, String? deviceId, int? accountId, int? albumId, int? collectionId, String? addToDefaultAlbum, bool? addToMediaLibrary, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? app, String? appKey, String? searchTags, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -443,8 +430,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [bool] returnNulls:
   ///   to return nulls
   ///
@@ -546,8 +531,8 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   the longitude (optional)
-  Future<AssetResponse?> createAsset(num version, { bool? returnNulls, String? deviceId, int? accountId, int? albumId, int? collectionId, String? addToDefaultAlbum, bool? addToMediaLibrary, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? app, String? appKey, String? searchTags, double? latitude, double? longitude, }) async {
-    final response = await createAssetWithHttpInfo(version,  returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, addToDefaultAlbum: addToDefaultAlbum, addToMediaLibrary: addToMediaLibrary, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, app: app, appKey: appKey, searchTags: searchTags, latitude: latitude, longitude: longitude, );
+  Future<AssetResponse?> createAsset({ bool? returnNulls, String? deviceId, int? accountId, int? albumId, int? collectionId, String? addToDefaultAlbum, bool? addToMediaLibrary, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? app, String? appKey, String? searchTags, double? latitude, double? longitude, }) async {
+    final response = await createAssetWithHttpInfo( returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, addToDefaultAlbum: addToDefaultAlbum, addToMediaLibrary: addToMediaLibrary, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, app: app, appKey: appKey, searchTags: searchTags, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -569,8 +554,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] assetId (required):
   ///   the id of the asset to delete
   ///
@@ -585,10 +568,9 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> deleteAssetWithHttpInfo(num version, String assetId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+  Future<Response> deleteAssetWithHttpInfo(String assetId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -631,8 +613,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] assetId (required):
   ///   the id of the asset to delete
   ///
@@ -647,8 +627,8 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<SirqulResponse?> deleteAsset(num version, String assetId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
-    final response = await deleteAssetWithHttpInfo(version, assetId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> deleteAsset(String assetId, { String? deviceId, int? accountId, double? latitude, double? longitude, }) async {
+    final response = await deleteAssetWithHttpInfo(assetId,  deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -670,8 +650,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] assetId (required):
   ///   the asset ID
   ///
@@ -683,10 +661,9 @@ class AssetApi {
   ///
   /// * [bool] noteDescending:
   ///   determines whether the notes on the asset are in descending order
-  Future<Response> getAssetWithHttpInfo(num version, int assetId, { String? deviceId, int? accountId, bool? noteDescending, }) async {
+  Future<Response> getAssetWithHttpInfo(int assetId, { String? deviceId, int? accountId, bool? noteDescending, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -726,8 +703,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] assetId (required):
   ///   the asset ID
   ///
@@ -739,8 +714,8 @@ class AssetApi {
   ///
   /// * [bool] noteDescending:
   ///   determines whether the notes on the asset are in descending order
-  Future<AssetFullResponse?> getAsset(num version, int assetId, { String? deviceId, int? accountId, bool? noteDescending, }) async {
-    final response = await getAssetWithHttpInfo(version, assetId,  deviceId: deviceId, accountId: accountId, noteDescending: noteDescending, );
+  Future<AssetFullResponse?> getAsset(int assetId, { String? deviceId, int? accountId, bool? noteDescending, }) async {
+    final response = await getAssetWithHttpInfo(assetId,  deviceId: deviceId, accountId: accountId, noteDescending: noteDescending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -761,8 +736,6 @@ class AssetApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] assetId (required):
   ///   the id of the asset to remove
@@ -787,10 +760,9 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<Response> removeAssetWithHttpInfo(num version, String assetId, { String? deviceId, int? accountId, int? albumId, int? collectionId, bool? removeFromDefaultAlbums, double? latitude, double? longitude, }) async {
+  Future<Response> removeAssetWithHttpInfo(String assetId, { String? deviceId, int? accountId, int? albumId, int? collectionId, bool? removeFromDefaultAlbums, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/remove'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/remove';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -842,8 +814,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] assetId (required):
   ///   the id of the asset to remove
   ///
@@ -867,8 +837,8 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the user's current location
-  Future<SirqulResponse?> removeAsset(num version, String assetId, { String? deviceId, int? accountId, int? albumId, int? collectionId, bool? removeFromDefaultAlbums, double? latitude, double? longitude, }) async {
-    final response = await removeAssetWithHttpInfo(version, assetId,  deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, removeFromDefaultAlbums: removeFromDefaultAlbums, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> removeAsset(String assetId, { String? deviceId, int? accountId, int? albumId, int? collectionId, bool? removeFromDefaultAlbums, double? latitude, double? longitude, }) async {
+    final response = await removeAssetWithHttpInfo(assetId,  deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, removeFromDefaultAlbums: removeFromDefaultAlbums, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -889,8 +859,6 @@ class AssetApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
@@ -963,10 +931,9 @@ class AssetApi {
   ///
   /// * [int] assignedAccountId:
   ///   filter results by an assigned account id
-  Future<Response> searchAssetsWithHttpInfo(num version, { String? deviceId, int? accountId, String? albumIds, String? assetIds, String? appKey, String? mediaType, String? mimeType, String? keyword, int? versionCode, String? versionName, int? updatedSince, int? updatedBefore, String? sortField, bool? descending, bool? searchMediaLibrary, bool? filterByBillable, bool? activeOnly, bool? returnApp, int? start, int? limit, String? searchMode, String? assetType, String? approvalStatus, int? assignedAccountId, }) async {
+  Future<Response> searchAssetsWithHttpInfo({ String? deviceId, int? accountId, String? albumIds, String? assetIds, String? appKey, String? mediaType, String? mimeType, String? keyword, int? versionCode, String? versionName, int? updatedSince, int? updatedBefore, String? sortField, bool? descending, bool? searchMediaLibrary, bool? filterByBillable, bool? activeOnly, bool? returnApp, int? start, int? limit, String? searchMode, String? assetType, String? approvalStatus, int? assignedAccountId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1068,8 +1035,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [String] deviceId:
   ///   a unique ID given by the device (deviceId or accountId required)
   ///
@@ -1141,8 +1106,8 @@ class AssetApi {
   ///
   /// * [int] assignedAccountId:
   ///   filter results by an assigned account id
-  Future<List<AssetResponse>?> searchAssets(num version, { String? deviceId, int? accountId, String? albumIds, String? assetIds, String? appKey, String? mediaType, String? mimeType, String? keyword, int? versionCode, String? versionName, int? updatedSince, int? updatedBefore, String? sortField, bool? descending, bool? searchMediaLibrary, bool? filterByBillable, bool? activeOnly, bool? returnApp, int? start, int? limit, String? searchMode, String? assetType, String? approvalStatus, int? assignedAccountId, }) async {
-    final response = await searchAssetsWithHttpInfo(version,  deviceId: deviceId, accountId: accountId, albumIds: albumIds, assetIds: assetIds, appKey: appKey, mediaType: mediaType, mimeType: mimeType, keyword: keyword, versionCode: versionCode, versionName: versionName, updatedSince: updatedSince, updatedBefore: updatedBefore, sortField: sortField, descending: descending, searchMediaLibrary: searchMediaLibrary, filterByBillable: filterByBillable, activeOnly: activeOnly, returnApp: returnApp, start: start, limit: limit, searchMode: searchMode, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, );
+  Future<List<AssetResponse>?> searchAssets({ String? deviceId, int? accountId, String? albumIds, String? assetIds, String? appKey, String? mediaType, String? mimeType, String? keyword, int? versionCode, String? versionName, int? updatedSince, int? updatedBefore, String? sortField, bool? descending, bool? searchMediaLibrary, bool? filterByBillable, bool? activeOnly, bool? returnApp, int? start, int? limit, String? searchMode, String? assetType, String? approvalStatus, int? assignedAccountId, }) async {
+    final response = await searchAssetsWithHttpInfo( deviceId: deviceId, accountId: accountId, albumIds: albumIds, assetIds: assetIds, appKey: appKey, mediaType: mediaType, mimeType: mimeType, keyword: keyword, versionCode: versionCode, versionName: versionName, updatedSince: updatedSince, updatedBefore: updatedBefore, sortField: sortField, descending: descending, searchMediaLibrary: searchMediaLibrary, filterByBillable: filterByBillable, activeOnly: activeOnly, returnApp: returnApp, start: start, limit: limit, searchMode: searchMode, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1166,8 +1131,6 @@ class AssetApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] assetId (required):
   ///   the ID of the asset to update
@@ -1261,10 +1224,9 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the asset's location
-  Future<Response> updateAssetWithHttpInfo(num version, int assetId, { String? deviceId, int? accountId, int? albumId, int? attachedAssetId, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? searchTags, String? appKey, double? latitude, double? longitude, }) async {
+  Future<Response> updateAssetWithHttpInfo(int assetId, { String? deviceId, int? accountId, int? albumId, int? attachedAssetId, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? searchTags, String? appKey, double? latitude, double? longitude, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/asset/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/asset/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1385,8 +1347,6 @@ class AssetApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] assetId (required):
   ///   the ID of the asset to update
   ///
@@ -1479,8 +1439,8 @@ class AssetApi {
   ///
   /// * [double] longitude:
   ///   longitude used to update the asset's location
-  Future<SirqulResponse?> updateAsset(num version, int assetId, { String? deviceId, int? accountId, int? albumId, int? attachedAssetId, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? searchTags, String? appKey, double? latitude, double? longitude, }) async {
-    final response = await updateAssetWithHttpInfo(version, assetId,  deviceId: deviceId, accountId: accountId, albumId: albumId, attachedAssetId: attachedAssetId, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, searchTags: searchTags, appKey: appKey, latitude: latitude, longitude: longitude, );
+  Future<SirqulResponse?> updateAsset(int assetId, { String? deviceId, int? accountId, int? albumId, int? attachedAssetId, int? versionCode, String? versionName, String? metaData, String? caption, String? assetType, String? approvalStatus, int? assignedAccountId, MultipartFile? media, String? mediaUrl, String? mediaString, String? mediaStringFileName, String? mediaStringContentType, int? mediaHeight, int? mediaWidth, MultipartFile? attachedMedia, String? attachedMediaUrl, String? attachedMediaString, String? attachedMediaStringFileName, String? attachedMediaStringContentType, int? attachedMediaHeight, int? attachedMediaWidth, String? locationDescription, String? searchTags, String? appKey, double? latitude, double? longitude, }) async {
+    final response = await updateAssetWithHttpInfo(assetId,  deviceId: deviceId, accountId: accountId, albumId: albumId, attachedAssetId: attachedAssetId, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, searchTags: searchTags, appKey: appKey, latitude: latitude, longitude: longitude, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

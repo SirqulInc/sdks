@@ -24,8 +24,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -97,10 +95,9 @@ class PackApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a pack
-  Future<Response> createPackWithHttpInfo(num version, int accountId, String title, int packOrder, int price, bool highest, bool allocateTickets, int ticketCount, { String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, String? priceType, String? gameLevelIds, bool? inGame, String? ticketType, int? points, }) async {
+  Future<Response> createPackWithHttpInfo(int accountId, String title, int packOrder, int price, bool highest, bool allocateTickets, int ticketCount, { String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, String? priceType, String? gameLevelIds, bool? inGame, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pack/create'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pack/create';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -188,8 +185,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -261,8 +256,8 @@ class PackApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a pack
-  Future<PackResponse?> createPack(num version, int accountId, String title, int packOrder, int price, bool highest, bool allocateTickets, int ticketCount, { String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, String? priceType, String? gameLevelIds, bool? inGame, String? ticketType, int? points, }) async {
-    final response = await createPackWithHttpInfo(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount,  description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, ticketType: ticketType, points: points, );
+  Future<PackResponse?> createPack(int accountId, String title, int packOrder, int price, bool highest, bool allocateTickets, int ticketCount, { String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, String? priceType, String? gameLevelIds, bool? inGame, String? ticketType, int? points, }) async {
+    final response = await createPackWithHttpInfo(accountId, title, packOrder, price, highest, allocateTickets, ticketCount,  description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -284,17 +279,14 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] packId (required):
   ///   the id of the pack to delete
-  Future<Response> deletePackWithHttpInfo(num version, int accountId, int packId,) async {
+  Future<Response> deletePackWithHttpInfo(int accountId, int packId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pack/delete'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pack/delete';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -326,15 +318,13 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   the id of the logged in user
   ///
   /// * [int] packId (required):
   ///   the id of the pack to delete
-  Future<SirqulResponse?> deletePack(num version, int accountId, int packId,) async {
-    final response = await deletePackWithHttpInfo(version, accountId, packId,);
+  Future<SirqulResponse?> deletePack(int accountId, int packId,) async {
+    final response = await deletePackWithHttpInfo(accountId, packId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -356,8 +346,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -366,10 +354,9 @@ class PackApi {
   ///
   /// * [bool] includeGameData (required):
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<Response> getPackWithHttpInfo(num version, int accountId, int packId, bool includeGameData,) async {
+  Future<Response> getPackWithHttpInfo(int accountId, int packId, bool includeGameData,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pack/get'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pack/get';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -402,8 +389,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -412,8 +397,8 @@ class PackApi {
   ///
   /// * [bool] includeGameData (required):
   ///   If true include the game level data, otherwise don't. default is false.
-  Future<PackResponse?> getPack(num version, int accountId, int packId, bool includeGameData,) async {
-    final response = await getPackWithHttpInfo(version, accountId, packId, includeGameData,);
+  Future<PackResponse?> getPack(int accountId, int packId, bool includeGameData,) async {
+    final response = await getPackWithHttpInfo(accountId, packId, includeGameData,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -434,8 +419,6 @@ class PackApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -466,10 +449,9 @@ class PackApi {
   ///
   /// * [String] appKey:
   ///   The application to filter results on
-  Future<Response> searchPacksWithHttpInfo(num version, int accountId, String sortField, bool descending, { String? keyword, String? packType, int? start, int? limit, bool? includeGameData, bool? includeInactive, String? appKey, }) async {
+  Future<Response> searchPacksWithHttpInfo(int accountId, String sortField, bool descending, { String? keyword, String? packType, int? start, int? limit, bool? includeGameData, bool? includeInactive, String? appKey, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pack/search'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pack/search';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -523,8 +505,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -554,8 +534,8 @@ class PackApi {
   ///
   /// * [String] appKey:
   ///   The application to filter results on
-  Future<List<PackResponse>?> searchPacks(num version, int accountId, String sortField, bool descending, { String? keyword, String? packType, int? start, int? limit, bool? includeGameData, bool? includeInactive, String? appKey, }) async {
-    final response = await searchPacksWithHttpInfo(version, accountId, sortField, descending,  keyword: keyword, packType: packType, start: start, limit: limit, includeGameData: includeGameData, includeInactive: includeInactive, appKey: appKey, );
+  Future<List<PackResponse>?> searchPacks(int accountId, String sortField, bool descending, { String? keyword, String? packType, int? start, int? limit, bool? includeGameData, bool? includeInactive, String? appKey, }) async {
+    final response = await searchPacksWithHttpInfo(accountId, sortField, descending,  keyword: keyword, packType: packType, start: start, limit: limit, includeGameData: includeGameData, includeInactive: includeInactive, appKey: appKey, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -579,8 +559,6 @@ class PackApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
-  ///
-  /// * [num] version (required):
   ///
   /// * [int] accountId (required):
   ///   The logged in user.
@@ -656,10 +634,9 @@ class PackApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a pack
-  Future<Response> updatePackWithHttpInfo(num version, int accountId, int packId, bool allocateTickets, int ticketCount, { String? title, String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, int? packOrder, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, int? price, String? priceType, String? gameLevelIds, bool? inGame, bool? highest, String? ticketType, int? points, }) async {
+  Future<Response> updatePackWithHttpInfo(int accountId, int packId, bool allocateTickets, int ticketCount, { String? title, String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, int? packOrder, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, int? price, String? priceType, String? gameLevelIds, bool? inGame, bool? highest, String? ticketType, int? points, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/{version}/pack/update'
-      .replaceAll('{version}', version.toString());
+    final path = r'/pack/update';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -756,8 +733,6 @@ class PackApi {
   ///
   /// Parameters:
   ///
-  /// * [num] version (required):
-  ///
   /// * [int] accountId (required):
   ///   The logged in user.
   ///
@@ -832,8 +807,8 @@ class PackApi {
   ///
   /// * [int] points:
   ///   The number of points to award for completing a pack
-  Future<PackResponse?> updatePack(num version, int accountId, int packId, bool allocateTickets, int ticketCount, { String? title, String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, int? packOrder, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, int? price, String? priceType, String? gameLevelIds, bool? inGame, bool? highest, String? ticketType, int? points, }) async {
-    final response = await updatePackWithHttpInfo(version, accountId, packId, allocateTickets, ticketCount,  title: title, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, packOrder: packOrder, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, price: price, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, highest: highest, ticketType: ticketType, points: points, );
+  Future<PackResponse?> updatePack(int accountId, int packId, bool allocateTickets, int ticketCount, { String? title, String? description, String? searchTags, bool? active, String? gameType, String? appKey, String? packType, int? packOrder, String? sequenceType, int? backgroundId, int? imageId, int? startDate, int? endDate, String? authorOverride, int? price, String? priceType, String? gameLevelIds, bool? inGame, bool? highest, String? ticketType, int? points, }) async {
+    final response = await updatePackWithHttpInfo(accountId, packId, allocateTickets, ticketCount,  title: title, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, packOrder: packOrder, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, price: price, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, highest: highest, ticketType: ticketType, points: points, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
