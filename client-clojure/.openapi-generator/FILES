@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 git_push.sh
 project.clj
 src/sirqul_io_t_platform/api/account.clj
