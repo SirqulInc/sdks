@@ -28,7 +28,6 @@ public class OASGameApi {
     /**
      * Create a Game
      * Create a Game.
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -40,7 +39,6 @@ public class OASGameApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameResponse createGame(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -55,11 +53,9 @@ public class OASGameApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameResponse) client.invoke(
-            'POST', '/api/{version}/game/create', '',
+            'POST', '/game/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -70,14 +66,12 @@ public class OASGameApi {
     /**
      * Delete a Game
      * Delete a game.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game\&#39;s id. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteGame(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('gameId'), 'gameId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -89,11 +83,9 @@ public class OASGameApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/game/delete', '',
+            'POST', '/game/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -104,7 +96,6 @@ public class OASGameApi {
     /**
      * Get a Game by id
      * Get a Game by id.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game\&#39;s id. (required)
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false. (optional)
@@ -112,7 +103,6 @@ public class OASGameApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameResponse getGame(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('gameId'), 'gameId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -125,11 +115,9 @@ public class OASGameApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameResponse) client.invoke(
-            'GET', '/api/{version}/game/get', '',
+            'GET', '/game/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -140,7 +128,6 @@ public class OASGameApi {
     /**
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -153,7 +140,6 @@ public class OASGameApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameResponse searchGames(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('start'), 'start');
@@ -173,11 +159,9 @@ public class OASGameApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameResponse) client.invoke(
-            'GET', '/api/{version}/game/search', '',
+            'GET', '/game/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -188,7 +172,6 @@ public class OASGameApi {
     /**
      * Update a Game
      * Update a Game
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game\&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -201,7 +184,6 @@ public class OASGameApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameResponse updateGame(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -217,11 +199,9 @@ public class OASGameApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameResponse) client.invoke(
-            'POST', '/api/{version}/game/update', '',
+            'POST', '/game/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

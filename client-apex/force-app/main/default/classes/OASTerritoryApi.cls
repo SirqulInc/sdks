@@ -28,7 +28,6 @@ public class OASTerritoryApi {
     /**
      * Create Territory
      * Creates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the territory (required)
      * @param active If true set the game level as active. Default is true. (optional)
@@ -36,7 +35,6 @@ public class OASTerritoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTerritoryResponse createTerritory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -49,11 +47,9 @@ public class OASTerritoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTerritoryResponse) client.invoke(
-            'POST', '/api/{version}/territory/create', '',
+            'POST', '/territory/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -64,14 +60,12 @@ public class OASTerritoryApi {
     /**
      * Delete Territory
      * Deletes a territory.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param territoryId the id of the territory to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteTerritory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('territoryId'), 'territoryId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -83,11 +77,9 @@ public class OASTerritoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/territory/delete', '',
+            'POST', '/territory/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -98,13 +90,11 @@ public class OASTerritoryApi {
     /**
      * Get Territory
      * Get a territory.
-     * @param version  (required)
      * @param territoryId the id of the territory to get (required)
      * @return OASTerritoryResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTerritoryResponse getTerritory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('territoryId'), 'territoryId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -114,11 +104,9 @@ public class OASTerritoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTerritoryResponse) client.invoke(
-            'GET', '/api/{version}/territory/get', '',
+            'GET', '/territory/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -129,7 +117,6 @@ public class OASTerritoryApi {
     /**
      * Search Territories
      * Searches on territories.
-     * @param version  (required)
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param keyword Return results that match this keyword. (optional)
@@ -139,7 +126,6 @@ public class OASTerritoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTerritoryResponse> searchTerritories(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -154,11 +140,9 @@ public class OASTerritoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTerritoryResponse>) client.invoke(
-            'GET', '/api/{version}/territory/search', '',
+            'GET', '/territory/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -169,7 +153,6 @@ public class OASTerritoryApi {
     /**
      * Update Territory
      * Updates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param territoryId the id of the territory to update (required)
      * @param name The name of the territory (optional)
@@ -178,7 +161,6 @@ public class OASTerritoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTerritoryResponse updateTerritory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('territoryId'), 'territoryId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -192,11 +174,9 @@ public class OASTerritoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTerritoryResponse) client.invoke(
-            'POST', '/api/{version}/territory/update', '',
+            'POST', '/territory/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

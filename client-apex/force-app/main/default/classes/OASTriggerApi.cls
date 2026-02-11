@@ -28,7 +28,6 @@ public class OASTriggerApi {
     /**
      * Create Trigger
      * Create a trigger
-     * @param version  (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (required)
      * @param appKey The application to target (optional)
@@ -46,7 +45,6 @@ public class OASTriggerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTriggerResponse createTrigger(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -69,11 +67,9 @@ public class OASTriggerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTriggerResponse) client.invoke(
-            'POST', '/api/{version}/trigger/create', '',
+            'POST', '/trigger/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -84,14 +80,12 @@ public class OASTriggerApi {
     /**
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the trigger to delete. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteTrigger(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('triggerId'), 'triggerId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -103,11 +97,9 @@ public class OASTriggerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/trigger/delete', '',
+            'POST', '/trigger/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -118,14 +110,12 @@ public class OASTriggerApi {
     /**
      * Get Trigger
      * Get a trigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the Trigger to return. (required)
      * @return OASTriggerResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTriggerResponse getTrigger(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('triggerId'), 'triggerId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -137,11 +127,9 @@ public class OASTriggerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTriggerResponse) client.invoke(
-            'GET', '/api/{version}/trigger/get', '',
+            'GET', '/trigger/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -152,7 +140,6 @@ public class OASTriggerApi {
     /**
      * Search Triggers
      * Search for triggers
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters.\n* MINE - Return triggers that the user has created\n* SHARED - Return triggers that have been shared to the user\n* FOLLOWER - Return triggers that have been created by the user\&#39;\&#39;s followers (the content needs to have been APPROVED or FEATURED)\n* FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED)\n* PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED\n* ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status)\n* LIKED - Return all triggers that the user has liked\n* FEATURED - Return all triggers that have been featured\n* PENDING - Return all pending triggers\n (optional, default to 'MINE')
@@ -169,7 +156,6 @@ public class OASTriggerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTriggerResponse> searchTriggers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -190,11 +176,9 @@ public class OASTriggerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTriggerResponse>) client.invoke(
-            'GET', '/api/{version}/trigger/search', '',
+            'GET', '/trigger/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -205,7 +189,6 @@ public class OASTriggerApi {
     /**
      * Update Trigger
      * Update a trigger
-     * @param version  (required)
      * @param triggerId The trigger to update (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (optional)
@@ -224,7 +207,6 @@ public class OASTriggerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTriggerResponse updateTrigger(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('triggerId'), 'triggerId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -248,11 +230,9 @@ public class OASTriggerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTriggerResponse) client.invoke(
-            'POST', '/api/{version}/trigger/update', '',
+            'POST', '/trigger/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

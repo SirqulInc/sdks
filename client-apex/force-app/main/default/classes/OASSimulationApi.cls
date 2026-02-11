@@ -28,14 +28,12 @@ public class OASSimulationApi {
     /**
      * Routing Simulation
      * Simulates routing requests.
-     * @param version  (required)
      * @param data JSON string in the following format:\n&#x60;&#x60;&#x60;json\n{\n  &quot;startDate&quot;: 1474268400000,\n  &quot;endDate&quot;: 1474268700000,\n  &quot;checkoutStops&quot;: [\n    {\n      &quot;latitude&quot;: 25.060453943481615,\n      &quot;longitude&quot;: 121.57487118216957\n    }\n  ],\n  &quot;requests&quot;: [\n    {\n      &quot;vehicles&quot;: [\n        {\n          &quot;id&quot;: &quot;customer1&quot;,\n          &quot;name&quot;: &quot;Customer 1&quot;,\n          &quot;depot&quot;: {\n            &quot;latitude&quot;: 25.060453943481615,\n            &quot;longitude&quot;: 121.57487118216957\n          },\n          &quot;startWindow&quot;: 1474268464537\n        }\n      ],\n      &quot;items&quot;: [\n        {\n          &quot;id&quot;: 152712,\n          &quot;name&quot;: &quot;Appliance Product&quot;,\n          &quot;pickup&quot;: {\n            &quot;latitude&quot;: 25.060306635544144,\n            &quot;longitude&quot;: 121.5750770690688\n          }\n        },\n        {\n          &quot;id&quot;: 152711,\n          &quot;name&quot;: &quot;TV product&quot;,\n          &quot;pickup&quot;: {\n            &quot;latitude&quot;: 25.060126352576326,\n            &quot;longitude&quot;: 121.57505023621624\n          }\n        }\n      ]\n    }\n  ],\n  &quot;featuredItems&quot;: [],\n  &quot;floorPlan&quot;: {\n    &quot;metersPerX&quot;: 0.81493109028875,\n    &quot;metersPerY&quot;: 1.8525267552262,\n    &quot;width&quot;: 75,\n    &quot;height&quot;: 50,\n    &quot;exclusions&quot;: [\n      { &quot;x&quot;: 14, &quot;y&quot;: 49 }\n    ],\n    &quot;southwest&quot;: {\n      &quot;x&quot;: 0,\n      &quot;y&quot;: 0,\n      &quot;latitude&quot;: 25.05961539530497,\n      &quot;longitude&quot;: 121.57487591737885\n    }\n  }\n}\n&#x60;&#x60;&#x60;\n (required)
      * @param realTime determines whether to run the simulation and return the results in the same request (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse simulation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('data'), 'data');
         client.assertNotNull(params.get('realTime'), 'realTime');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -47,11 +45,9 @@ public class OASSimulationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/simulation/routing', '',
+            'POST', '/simulation/routing', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,13 +28,11 @@ public class OASDisbursementApi {
     /**
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version  (required)
      * @param disbursementId the ID of the disbursement being checked on (required)
      * @return OASDisbursementResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASDisbursementResponse checkDisbursements(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('disbursementId'), 'disbursementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -44,11 +42,9 @@ public class OASDisbursementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASDisbursementResponse) client.invoke(
-            'GET', '/api/{version}/disbursement/check', '',
+            'GET', '/disbursement/check', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -59,7 +55,6 @@ public class OASDisbursementApi {
     /**
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param version  (required)
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param receiverAccountId the ID of the account receiving the disbursement (required)
      * @param originalSenderAccountId the ID of the original sender account (required)
@@ -74,7 +69,6 @@ public class OASDisbursementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASDisbursementResponse createDisbursement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('receiverAccountId'), 'receiverAccountId');
         client.assertNotNull(params.get('originalSenderAccountId'), 'originalSenderAccountId');
@@ -97,11 +91,9 @@ public class OASDisbursementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASDisbursementResponse) client.invoke(
-            'POST', '/api/{version}/disbursement/create', '',
+            'POST', '/disbursement/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,14 +104,12 @@ public class OASDisbursementApi {
     /**
      * Get Disbursement
      * Get Disbursement details
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param disbursementId the id of the disbursement (required)
      * @return OASDisbursementResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASDisbursementResponse getDisbursement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('disbursementId'), 'disbursementId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -131,11 +121,9 @@ public class OASDisbursementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASDisbursementResponse) client.invoke(
-            'GET', '/api/{version}/disbursement/get', '',
+            'GET', '/disbursement/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -146,7 +134,6 @@ public class OASDisbursementApi {
     /**
      * Search Disbursements
      * Search Disbursements
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -161,7 +148,6 @@ public class OASDisbursementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASDisbursementResponse> searchDisbursements(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -180,11 +166,9 @@ public class OASDisbursementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASDisbursementResponse>) client.invoke(
-            'GET', '/api/{version}/disbursement/search', '',
+            'GET', '/disbursement/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -195,7 +179,6 @@ public class OASDisbursementApi {
     /**
      * Update Disbursement
      * Update Disbursement
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param disbursementId the id of the disbursement being updated (required)
      * @param amount the disbursement dollar amount being updated (optional)
@@ -210,7 +193,6 @@ public class OASDisbursementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASDisbursementResponse updateDisbursement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('disbursementId'), 'disbursementId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -230,11 +212,9 @@ public class OASDisbursementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASDisbursementResponse) client.invoke(
-            'POST', '/api/{version}/disbursement/update', '',
+            'POST', '/disbursement/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

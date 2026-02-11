@@ -28,24 +28,21 @@ public class OASDependentApi {
     /**
      * Create Dependent
      * Create dependent of the account
-     * @param version  (required)
      * @param accountId the id of the parent account to create a dependent for (required)
      * @param body  (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse create(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'PUT', '/api/{version}/cargo/dependent/{accountId}',
+            'PUT', '/cargo/dependent/{accountId}',
             (OASAccount) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'accountId' => (Long) params.get('accountId')
             },
             new Map<String, Object>(),
@@ -58,22 +55,19 @@ public class OASDependentApi {
     /**
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param version  (required)
      * @param accountId the id of the parent account to get a list of dependents (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse getDependents(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/cargo/dependent/{accountId}', '',
+            'GET', '/cargo/dependent/{accountId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'accountId' => (Long) params.get('accountId')
             },
             new Map<String, Object>(),
@@ -86,23 +80,20 @@ public class OASDependentApi {
     /**
      * Delete Dependent
      * Delete the Dependent
-     * @param version  (required)
      * @param accountId the id of the parent account tied to the dependent (required)
      * @param dependentId the id of the dependent to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void removeDependent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('dependentId'), 'dependentId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/cargo/dependent/{accountId}', '',
+            'DELETE', '/cargo/dependent/{accountId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'accountId' => (Long) params.get('accountId'),
                 'dependentId' => (Long) params.get('dependentId')
             },

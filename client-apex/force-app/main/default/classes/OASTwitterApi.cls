@@ -28,13 +28,11 @@ public class OASTwitterApi {
     /**
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse authorizeTwitter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -44,11 +42,9 @@ public class OASTwitterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/twitter/authorize', '',
+            'POST', '/twitter/authorize', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -59,7 +55,6 @@ public class OASTwitterApi {
     /**
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version  (required)
      * @param accessToken The access token (required)
      * @param accessTokenSecret The secret access token (required)
      * @param appKey The application key (required)
@@ -71,7 +66,6 @@ public class OASTwitterApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse loginTwitter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accessToken'), 'accessToken');
         client.assertNotNull(params.get('accessTokenSecret'), 'accessTokenSecret');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -90,11 +84,9 @@ public class OASTwitterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/twitter/login', '',
+            'POST', '/twitter/login', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

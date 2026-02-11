@@ -28,7 +28,6 @@ public class OASTicketApi {
     /**
      * Get Ticket Count
      * Gets the ticket count.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -38,7 +37,6 @@ public class OASTicketApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCountResponse getTicketCount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -51,11 +49,9 @@ public class OASTicketApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCountResponse) client.invoke(
-            'GET', '/api/{version}/ticket/count', '',
+            'GET', '/ticket/count', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -66,7 +62,6 @@ public class OASTicketApi {
     /**
      * Get Ticket List
      * Gets the list of tickets.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -80,7 +75,6 @@ public class OASTicketApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTicketListResponse getTicketList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -97,11 +91,9 @@ public class OASTicketApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTicketListResponse) client.invoke(
-            'GET', '/api/{version}/ticket/getList', '',
+            'GET', '/ticket/getList', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,7 +104,6 @@ public class OASTicketApi {
     /**
      * Gift Tickets
      * Gift tickets to another user.
-     * @param version  (required)
      * @param receiverAccountId the id of the account receiving the tickets (required)
      * @param ticketId the id of the tickets (required)
      * @param deviceId the id of the device (optional)
@@ -125,7 +116,6 @@ public class OASTicketApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse giftPurchase(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('receiverAccountId'), 'receiverAccountId');
         client.assertNotNull(params.get('ticketId'), 'ticketId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -143,11 +133,9 @@ public class OASTicketApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/purchase/gift', '',
+            'POST', '/purchase/gift', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -158,7 +146,6 @@ public class OASTicketApi {
     /**
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version  (required)
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param returnNulls whether to return nulls or not (optional)
@@ -181,7 +168,6 @@ public class OASTicketApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse saveTicket(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('actionType'), 'actionType');
         client.assertNotNull(params.get('ticketObjectType'), 'ticketObjectType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -209,11 +195,9 @@ public class OASTicketApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/ticket/save', '',
+            'POST', '/ticket/save', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -224,7 +208,6 @@ public class OASTicketApi {
     /**
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version  (required)
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -247,7 +230,6 @@ public class OASTicketApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse saveTicketViaFileUpload(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('actionType'), 'actionType');
         client.assertNotNull(params.get('ticketObjectType'), 'ticketObjectType');
         client.assertNotNull(params.get('receiptData'), 'receiptData');
@@ -276,11 +258,9 @@ public class OASTicketApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/ticket/save/fileUpload', '',
+            'POST', '/ticket/save/fileUpload', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -291,21 +271,17 @@ public class OASTicketApi {
     /**
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version  (required)
      * @return OASTicketOfferResponse
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASTicketOfferResponse ticketOffers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
+    public OASTicketOfferResponse ticketOffers() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTicketOfferResponse) client.invoke(
-            'GET', '/api/{version}/ticket/ticketoffers', '',
+            'GET', '/ticket/ticketoffers', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

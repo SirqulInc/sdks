@@ -28,7 +28,6 @@ public class OASLeaderboardApi {
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -46,7 +45,6 @@ public class OASLeaderboardApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLeaderboardResponse createLeaderboard(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -67,11 +65,9 @@ public class OASLeaderboardApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLeaderboardResponse) client.invoke(
-            'POST', '/api/{version}/leaderboard/create', '',
+            'POST', '/leaderboard/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,14 +78,12 @@ public class OASLeaderboardApi {
     /**
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to delete. (required)
      * @param accountId The account id of the user making the request. (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteLeaderboard(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('leaderboardId'), 'leaderboardId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -100,11 +94,9 @@ public class OASLeaderboardApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/leaderboard/delete', '',
+            'POST', '/leaderboard/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -115,7 +107,6 @@ public class OASLeaderboardApi {
     /**
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version  (required)
      * @param leaderboardId The leaderboard id. (required)
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard\&#39;s full ranking list (optional)
@@ -123,7 +114,6 @@ public class OASLeaderboardApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLeaderboardResponse getLeaderboard(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('leaderboardId'), 'leaderboardId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -135,11 +125,9 @@ public class OASLeaderboardApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLeaderboardResponse) client.invoke(
-            'GET', '/api/{version}/leaderboard/get', '',
+            'GET', '/leaderboard/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -150,7 +138,6 @@ public class OASLeaderboardApi {
     /**
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param version  (required)
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -167,7 +154,6 @@ public class OASLeaderboardApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLeaderboardResponse searchLeaderboards(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -187,11 +173,9 @@ public class OASLeaderboardApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLeaderboardResponse) client.invoke(
-            'GET', '/api/{version}/leaderboard/search', '',
+            'GET', '/leaderboard/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -202,7 +186,6 @@ public class OASLeaderboardApi {
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to update. (required)
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -222,7 +205,6 @@ public class OASLeaderboardApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLeaderboardResponse updateLeaderboard(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('leaderboardId'), 'leaderboardId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -246,11 +228,9 @@ public class OASLeaderboardApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLeaderboardResponse) client.invoke(
-            'POST', '/api/{version}/leaderboard/update', '',
+            'POST', '/leaderboard/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

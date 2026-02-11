@@ -28,7 +28,6 @@ public class OASAudienceApi {
     /**
      * Create Audience
      * Create a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the audience (required)
      * @param description The description of the audience (optional)
@@ -62,7 +61,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAudienceResponse createAudience(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -101,11 +99,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAudienceResponse) client.invoke(
-            'POST', '/api/{version}/audience/create', '',
+            'POST', '/audience/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -116,14 +112,12 @@ public class OASAudienceApi {
     /**
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to delete. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteAudience(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('audienceId'), 'audienceId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -135,11 +129,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/audience/delete', '',
+            'POST', '/audience/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -150,21 +142,17 @@ public class OASAudienceApi {
     /**
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version  (required)
      * @return List<OASAgeGroupResponse>
      * @throws OAS.ApiException if fails to make API call
      */
-    public List<OASAgeGroupResponse> getAgeGroups(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
+    public List<OASAgeGroupResponse> getAgeGroups() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAgeGroupResponse>) client.invoke(
-            'GET', '/api/{version}/audience/ageGroups', '',
+            'GET', '/audience/ageGroups', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -175,7 +163,6 @@ public class OASAudienceApi {
     /**
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to return. (required)
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -186,7 +173,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAudienceResponse getAudience(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('audienceId'), 'audienceId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -202,11 +188,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAudienceResponse) client.invoke(
-            'GET', '/api/{version}/audience/get', '',
+            'GET', '/audience/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -217,7 +201,6 @@ public class OASAudienceApi {
     /**
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -241,7 +224,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASSearchResponse> getAudienceList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -268,11 +250,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASSearchResponse>) client.invoke(
-            'GET', '/api/{version}/audience/search', '',
+            'GET', '/audience/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -283,13 +263,11 @@ public class OASAudienceApi {
     /**
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version  (required)
      * @param includeInactive If true return inactive record as well. default is false. (required)
      * @return List<OASAudienceDeviceResponse>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAudienceDeviceResponse> getDevices(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('includeInactive'), 'includeInactive');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -299,11 +277,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAudienceDeviceResponse>) client.invoke(
-            'GET', '/api/{version}/audience/devices', '',
+            'GET', '/audience/devices', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -314,21 +290,17 @@ public class OASAudienceApi {
     /**
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version  (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASSirqulResponse getExperiences(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
+    public OASSirqulResponse getExperiences() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/audience/experiences', '',
+            'GET', '/audience/experiences', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -339,14 +311,12 @@ public class OASAudienceApi {
     /**
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceGroupingId The audience grouping id to return. (required)
      * @return OASAudienceResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAudienceResponse getGroupedAudiences(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('audienceGroupingId'), 'audienceGroupingId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -358,11 +328,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAudienceResponse) client.invoke(
-            'GET', '/api/{version}/audience/grouped/get', '',
+            'GET', '/audience/grouped/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -373,7 +341,6 @@ public class OASAudienceApi {
     /**
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param r_limit the limit of the index (required)
      * @param suggestionType the type of suggestion (required)
@@ -381,7 +348,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferListResponse listByAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
         client.assertNotNull(params.get('suggestionType'), 'suggestionType');
@@ -395,11 +361,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferListResponse) client.invoke(
-            'POST', '/api/{version}/audience/suggestion/list', '',
+            'POST', '/audience/suggestion/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -410,7 +374,6 @@ public class OASAudienceApi {
     /**
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param version  (required)
      * @param r_limit this is the limit of the index (required)
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -421,7 +384,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferListResponse listByAudience(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -436,11 +398,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferListResponse) client.invoke(
-            'GET', '/api/{version}/audience/suggestion/offersByAudience', '',
+            'GET', '/audience/suggestion/offersByAudience', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -451,7 +411,6 @@ public class OASAudienceApi {
     /**
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param timeframe The timeframe in seconds of the latest suggestions (required)
      * @param suggestionType The type of trigger suggestions to return (required)
@@ -459,7 +418,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferListResponse listLastestByAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('timeframe'), 'timeframe');
         client.assertNotNull(params.get('suggestionType'), 'suggestionType');
@@ -473,11 +431,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferListResponse) client.invoke(
-            'GET', '/api/{version}/audience/suggestion/latest', '',
+            'GET', '/audience/suggestion/latest', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -488,7 +444,6 @@ public class OASAudienceApi {
     /**
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param latitude the latitude (required)
      * @param longitude the longitude (required)
@@ -496,7 +451,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse sendByAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
@@ -510,11 +464,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/audience/suggestion/send', '',
+            'POST', '/audience/suggestion/send', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -525,7 +477,6 @@ public class OASAudienceApi {
     /**
      * Update Audience
      * Update a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to update. (required)
      * @param name The name of the audience (optional)
@@ -561,7 +512,6 @@ public class OASAudienceApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAudienceResponse updateAudience(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('audienceId'), 'audienceId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -602,11 +552,9 @@ public class OASAudienceApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAudienceResponse) client.invoke(
-            'POST', '/api/{version}/audience/update', '',
+            'POST', '/audience/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

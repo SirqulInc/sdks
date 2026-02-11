@@ -28,7 +28,6 @@ public class OASMissionApi {
     /**
      * Create Mission
      * Create a user defined mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the mission (required)
      * @param description The description of the mission (optional)
@@ -59,7 +58,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse createMission(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('title'), 'title');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -95,11 +93,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'POST', '/api/{version}/mission/create', '',
+            'POST', '/mission/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -110,14 +106,12 @@ public class OASMissionApi {
     /**
      * Delete Mission
      * Delete a mission.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteMission(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -129,11 +123,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/mission/delete', '',
+            'POST', '/mission/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -144,7 +136,6 @@ public class OASMissionApi {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -168,7 +159,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse findMissions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -196,11 +186,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'GET', '/api/{version}/mission/find', '',
+            'GET', '/mission/find', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -211,7 +199,6 @@ public class OASMissionApi {
     /**
      * Get Mission
      * Get a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to return. (required)
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -219,7 +206,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse getMission(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -232,11 +218,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'GET', '/api/{version}/mission/get', '',
+            'GET', '/mission/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -247,7 +231,6 @@ public class OASMissionApi {
     /**
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param latitude The current location of the requesting device (required)
      * @param longitude The current location of the requesting device (required)
@@ -260,7 +243,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse importMission(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
@@ -280,11 +262,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/mission/import', '',
+            'POST', '/mission/import', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -295,7 +275,6 @@ public class OASMissionApi {
     /**
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param version  (required)
      * @param start The starting index in the result set to return. Default is 0. (required)
      * @param r_limit The total number of records to return. Default is 20. (required)
      * @param activeOnly Determines whether to return only active results. Default is false. (required)
@@ -303,7 +282,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMissionFormatResponse> searchMissionFormats(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
         client.assertNotNull(params.get('activeOnly'), 'activeOnly');
@@ -317,11 +295,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMissionFormatResponse>) client.invoke(
-            'GET', '/api/{version}/mission/format/search', '',
+            'GET', '/mission/format/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -332,7 +308,6 @@ public class OASMissionApi {
     /**
      * Search Missions
      * Get the list missions available to the account.  
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -348,7 +323,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMissionResponse> searchMissions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -368,11 +342,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMissionResponse>) client.invoke(
-            'GET', '/api/{version}/mission/search', '',
+            'GET', '/mission/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -383,7 +355,6 @@ public class OASMissionApi {
     /**
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -398,7 +369,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMissionResponse> searchMissionsByBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -417,11 +387,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMissionResponse>) client.invoke(
-            'GET', '/api/{version}/mission/searchByBillableEntity', '',
+            'GET', '/mission/searchByBillableEntity', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -432,7 +400,6 @@ public class OASMissionApi {
     /**
      * Update Mission
      * Update a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to update. (required)
      * @param title The title of the mission (optional)
@@ -462,7 +429,6 @@ public class OASMissionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse updateMission(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -497,11 +463,9 @@ public class OASMissionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'POST', '/api/{version}/mission/update', '',
+            'POST', '/mission/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

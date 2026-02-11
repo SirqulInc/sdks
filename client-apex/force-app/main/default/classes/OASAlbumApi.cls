@@ -28,7 +28,6 @@ public class OASAlbumApi {
     /**
      * Create Album
      * Create an Album.
-     * @param version  (required)
      * @param title the title of the album (required)
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user\&#39;s profile picture as the cover image (required)
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list (required)
@@ -79,7 +78,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSearchResponse addAlbumCollection(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('title'), 'title');
         client.assertNotNull(params.get('coverAssetNullable'), 'coverAssetNullable');
         client.assertNotNull(params.get('includeCoverInAssetList'), 'includeCoverInAssetList');
@@ -141,11 +139,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSearchResponse) client.invoke(
-            'POST', '/api/{version}/album/create', '',
+            'POST', '/album/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -156,7 +152,6 @@ public class OASAlbumApi {
     /**
      * Add Album Users
      * Add users to an album as participants.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param includeFriendGroup determines whether to include all friends as participants (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -171,7 +166,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse addAlbumUsers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         client.assertNotNull(params.get('includeFriendGroup'), 'includeFriendGroup');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -191,11 +185,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/album/user/add', '',
+            'POST', '/album/user/add', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -206,7 +198,6 @@ public class OASAlbumApi {
     /**
      * Approve Album
      * Sets the approval status of an Album.
-     * @param version  (required)
      * @param albumId The ID of the album (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -216,7 +207,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse approveAlbum(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -230,11 +220,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/album/approve', '',
+            'POST', '/album/approve', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -245,7 +233,6 @@ public class OASAlbumApi {
     /**
      *  Get Album
      * Get an Album.
-     * @param version  (required)
      * @param returnNulls This parameter is deprecated. (required)
      * @param albumId the album to look up (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -259,7 +246,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumFullResponse getAlbumCollection(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -278,11 +264,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumFullResponse) client.invoke(
-            'GET', '/api/{version}/album/get', '',
+            'GET', '/album/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -293,7 +277,6 @@ public class OASAlbumApi {
     /**
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -301,7 +284,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse leaveAlbum(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -313,11 +295,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/album/user/leave', '',
+            'POST', '/album/user/leave', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -328,7 +308,6 @@ public class OASAlbumApi {
     /**
      * Delete Album
      * Deletes an Album
-     * @param version  (required)
      * @param albumId the album ID to delete (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -336,7 +315,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeAlbum(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -348,11 +326,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/album/delete', '',
+            'POST', '/album/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -363,7 +339,6 @@ public class OASAlbumApi {
     /**
      * Remove Album Users
      * Remove participants of an album.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param removeFriendGroup remove friend group (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -374,7 +349,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeAlbumUsers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         client.assertNotNull(params.get('removeFriendGroup'), 'removeFriendGroup');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -390,11 +364,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/album/user/delete', '',
+            'POST', '/album/user/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -405,7 +377,6 @@ public class OASAlbumApi {
     /**
      * Search Albums
      * Searches on Albums.
-     * @param version  (required)
      * @param filter a comma separated list of filters:\n* MINE - Return albums that the user has created.\n* SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable .\n* FOLLOWER - Return albums that have been created by the user\&#39;s followers (the content needs to have been APPROVED or FEATURED).\n* FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED).\n* PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED.\n* ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status).\n* LIKED - Return all albums that the user has liked.\n* FEATURED - Return all albums that have been featured.\n* PENDING - Return all pending albums.\n (required)
      * @param albumTypeId id of custom albumType (required)
      * @param subType filter albums with this album sub type (required)
@@ -470,7 +441,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAlbumFullResponse> searchAlbums(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('filter'), 'filter');
         client.assertNotNull(params.get('albumTypeId'), 'albumTypeId');
         client.assertNotNull(params.get('subType'), 'subType');
@@ -555,11 +525,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAlbumFullResponse>) client.invoke(
-            'GET', '/api/{version}/album/search', '',
+            'GET', '/album/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -570,7 +538,6 @@ public class OASAlbumApi {
     /**
      * Update Album
      * Update an Album.
-     * @param version  (required)
      * @param albumId the ID of the album to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -620,7 +587,6 @@ public class OASAlbumApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumResponse updateAlbumCollection(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -674,11 +640,9 @@ public class OASAlbumApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumResponse) client.invoke(
-            'POST', '/api/{version}/album/update', '',
+            'POST', '/album/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

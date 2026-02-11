@@ -28,7 +28,6 @@ public class OASTwilioApi {
     /**
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param body the message of the text (required)
      * @param r_from the sender of the sms (required)
@@ -37,7 +36,6 @@ public class OASTwilioApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTwiMLResponse smsBuyOffer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('body'), 'body');
         client.assertNotNull(params.get('r_from'), 'r_from');
@@ -52,10 +50,9 @@ public class OASTwilioApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTwiMLResponse) client.invoke(
-            'POST', '/api/{version}/sms/buyoffer/{appKey}', '',
+            'POST', '/sms/buyoffer/{appKey}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'appKey' => (String) params.get('appKey')
             },
             new Map<String, Object>(),

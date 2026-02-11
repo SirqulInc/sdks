@@ -28,7 +28,6 @@ public class OASWalletApi {
     /**
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -44,7 +43,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferTransactionResponse> createOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -63,11 +61,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferTransactionResponse>) client.invoke(
-            'POST', '/api/{version}/wallet/create', '',
+            'POST', '/wallet/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -78,7 +74,6 @@ public class OASWalletApi {
     /**
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -86,7 +81,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('transactionId'), 'transactionId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -98,11 +92,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/wallet/delete', '',
+            'POST', '/wallet/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -113,7 +105,6 @@ public class OASWalletApi {
     /**
      * Get Wallet Offer
      * 
-     * @param version  (required)
      * @param transactionId The offer transaction id to get details of (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -125,7 +116,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferTransactionResponse getOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('transactionId'), 'transactionId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -141,11 +131,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferTransactionResponse) client.invoke(
-            'GET', '/api/{version}/wallet/get', '',
+            'GET', '/wallet/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -156,7 +144,6 @@ public class OASWalletApi {
     /**
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -171,7 +158,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferTransactionResponse> previewOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -189,11 +175,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferTransactionResponse>) client.invoke(
-            'POST', '/api/{version}/wallet/preview', '',
+            'POST', '/wallet/preview', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -204,7 +188,6 @@ public class OASWalletApi {
     /**
      * Search Wallet Offers
      * Search on active offers currently in the user\&#39;s wallet, or past offers the user has already redeemed.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -250,7 +233,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferTransactionResponse> searchOfferTransactions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -299,11 +281,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferTransactionResponse>) client.invoke(
-            'GET', '/api/{version}/wallet/search', '',
+            'GET', '/wallet/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -314,7 +294,6 @@ public class OASWalletApi {
     /**
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.\n\nNot redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet). \n\nRedeemable means the customer has chosen to use the offer and wishes to redeem it.\n\nRedeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param status The status value to change to (0 or 1) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -332,7 +311,6 @@ public class OASWalletApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferTransactionResponse updateOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('transactionId'), 'transactionId');
         client.assertNotNull(params.get('status'), 'status');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -355,11 +333,9 @@ public class OASWalletApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferTransactionResponse) client.invoke(
-            'POST', '/api/{version}/wallet/update', '',
+            'POST', '/wallet/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

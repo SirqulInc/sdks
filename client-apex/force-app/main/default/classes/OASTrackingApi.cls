@@ -28,7 +28,6 @@ public class OASTrackingApi {
     /**
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param version  (required)
      * @param data JSON array of tracking legs\n&#x60;&#x60;&#x60;json\n[\n  &quot;distance&quot;: &quot;0.08&quot;,\n  &quot;duration&quot;: &quot;10000&quot;,\n  &quot;startLatitude&quot;: &quot;47.614603&quot;,\n  &quot;startLongitude&quot;: &quot;-122.350518&quot;,\n  &quot;endLatitude&quot;: &quot;47.614384&quot;,\n  &quot;endLongitude&quot;: &quot;-122.349161&quot;,\n  &quot;startDate&quot;: &quot;1361924010000&quot;,\n  &quot;endDate&quot;: &quot;1361924020000&quot;,\n  &quot;steps&quot;: [\n    {\n      &quot;distance&quot;: &quot;0.03&quot;,\n      &quot;duration&quot;: &quot;5000&quot;,\n      &quot;startLat&quot;: &quot;47.614603&quot;,\n      &quot;startLng&quot;: &quot;-122.350518&quot;,\n      &quot;startDate&quot;: &quot;1361924010000&quot;,\n      &quot;endLat&quot;: &quot;47.614941&quot;,\n      &quot;endLng&quot;: &quot;-122.350062&quot;,\n      &quot;endDate&quot;: &quot;1361924015000&quot;\n    },{\n      &quot;distance&quot;: &quot;0.05&quot;,\n      &quot;duration&quot;: &quot;5000&quot;,\n      &quot;startLat&quot;: &quot;47.614941&quot;,\n      &quot;startLng&quot;: &quot;-122.350062&quot;,\n      &quot;startDate&quot;: &quot;1361924015000&quot;,\n      &quot;endLat&quot;: &quot;47.614384&quot;,\n      &quot;endLng&quot;: &quot;-122.349161&quot;,\n      &quot;endDate&quot;: &quot;1361924020000&quot;\n    }\n  ]\n]\n&#x60;&#x60;&#x60;\n (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -40,7 +39,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASLeg> batchSaveTracking(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('data'), 'data');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -56,11 +54,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASLeg>) client.invoke(
-            'POST', '/api/{version}/tracking/batch/create', '',
+            'POST', '/tracking/batch/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -71,7 +67,6 @@ public class OASTrackingApi {
     /**
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user\&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user\&#39;s current location (optional)
@@ -85,7 +80,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPredictedLocationResponse getPredictedLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -103,11 +97,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPredictedLocationResponse) client.invoke(
-            'GET', '/api/{version}/tracking/predicted/get', '',
+            'GET', '/tracking/predicted/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -118,7 +110,6 @@ public class OASTrackingApi {
     /**
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param startStepId The stepId to begin from (required)
      * @param endStepId The stepId to end with (required)
@@ -126,7 +117,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASStepResponse> getPredictedPath(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('startStepId'), 'startStepId');
         client.assertNotNull(params.get('endStepId'), 'endStepId');
@@ -140,11 +130,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASStepResponse>) client.invoke(
-            'GET', '/api/{version}/tracking/path/get', '',
+            'GET', '/tracking/path/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -155,7 +143,6 @@ public class OASTrackingApi {
     /**
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user\&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user\&#39;s current location (optional)
@@ -171,7 +158,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASPreferredLocationResponse> getPreferredLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -191,11 +177,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASPreferredLocationResponse>) client.invoke(
-            'GET', '/api/{version}/tracking/preferred/search', '',
+            'GET', '/tracking/preferred/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -206,7 +190,6 @@ public class OASTrackingApi {
     /**
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -219,7 +202,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASLegResponse> getTrackingLegs(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -235,11 +217,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASLegResponse>) client.invoke(
-            'GET', '/api/{version}/tracking/search', '',
+            'GET', '/tracking/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -250,7 +230,6 @@ public class OASTrackingApi {
     /**
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
      * @param startDate the start date (in UTC milliseconds) of the first point (required)
@@ -267,7 +246,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse saveTrackingLeg(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('startLat'), 'startLat');
         client.assertNotNull(params.get('startLng'), 'startLng');
         client.assertNotNull(params.get('startDate'), 'startDate');
@@ -293,11 +271,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tracking/leg/create', '',
+            'POST', '/tracking/leg/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -308,7 +284,6 @@ public class OASTrackingApi {
     /**
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param legId the leg to add the step to (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
@@ -324,7 +299,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse saveTrackingStep(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('legId'), 'legId');
         client.assertNotNull(params.get('startLat'), 'startLat');
         client.assertNotNull(params.get('startLng'), 'startLng');
@@ -350,11 +324,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tracking/step/create', '',
+            'POST', '/tracking/step/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -365,7 +337,6 @@ public class OASTrackingApi {
     /**
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -384,7 +355,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAccountMiniResponse> searchAccountsWithTrackingLegs(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -407,11 +377,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAccountMiniResponse>) client.invoke(
-            'GET', '/api/{version}/tracking/list', '',
+            'GET', '/tracking/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -422,7 +390,6 @@ public class OASTrackingApi {
     /**
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version  (required)
      * @param accountId The account id to search tracking for (required)
      * @param appKey The application key (required)
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -435,7 +402,6 @@ public class OASTrackingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASLegResponse> searchTrackingLegs(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -453,11 +419,9 @@ public class OASTrackingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASLegResponse>) client.invoke(
-            'GET', '/api/{version}/tracking/searchByBillable', '',
+            'GET', '/tracking/searchByBillable', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

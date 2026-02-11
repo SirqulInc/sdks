@@ -28,7 +28,6 @@ public class OASLocationApi {
     /**
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param udid The unique identifier of the source device (required)
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -38,7 +37,6 @@ public class OASLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse cacheTrilaterationData(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('udid'), 'udid');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -52,11 +50,9 @@ public class OASLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/location/trilaterate/cache', '',
+            'POST', '/location/trilaterate/cache', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -67,23 +63,19 @@ public class OASLocationApi {
     /**
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param body  (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse cacheTrilaterationDataGzip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/location/trilaterate/cache/submit',
+            'POST', '/location/trilaterate/cache/submit',
             (OASTrilatCacheRequest) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -94,13 +86,11 @@ public class OASLocationApi {
     /**
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param version  (required)
      * @param ip the ip address of the client device (optional)
      * @return OASCoordsResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCoordsResponse getLocationByIp(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -109,11 +99,9 @@ public class OASLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCoordsResponse) client.invoke(
-            'GET', '/api/{version}/location/ip', '',
+            'GET', '/location/ip', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -124,7 +112,6 @@ public class OASLocationApi {
     /**
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param version  (required)
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -134,7 +121,6 @@ public class OASLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGeoPointResponse getLocationByTrilateration(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -147,11 +133,9 @@ public class OASLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGeoPointResponse) client.invoke(
-            'GET', '/api/{version}/account/location/trilaterate', '',
+            'GET', '/account/location/trilaterate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -162,7 +146,6 @@ public class OASLocationApi {
     /**
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -186,7 +169,6 @@ public class OASLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLocationSearchResponse getLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -213,11 +195,9 @@ public class OASLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLocationSearchResponse) client.invoke(
-            'GET', '/api/{version}/location/search', '',
+            'GET', '/location/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

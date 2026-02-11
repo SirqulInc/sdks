@@ -28,7 +28,6 @@ public class OASBillableEntityApi {
     /**
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -45,7 +44,6 @@ public class OASBillableEntityApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBillableEntityResponse createBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -65,11 +63,9 @@ public class OASBillableEntityApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBillableEntityResponse) client.invoke(
-            'POST', '/api/{version}/billable/create', '',
+            'POST', '/billable/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -80,14 +76,12 @@ public class OASBillableEntityApi {
     /**
      * Delete Billable
      * Mark the billable as deleted
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -97,11 +91,9 @@ public class OASBillableEntityApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/billable/delete', '',
+            'POST', '/billable/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,7 +104,6 @@ public class OASBillableEntityApi {
     /**
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -121,7 +112,6 @@ public class OASBillableEntityApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBillableEntityResponse getBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -133,11 +123,9 @@ public class OASBillableEntityApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBillableEntityResponse) client.invoke(
-            'GET', '/api/{version}/billable/get', '',
+            'GET', '/billable/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -148,7 +136,6 @@ public class OASBillableEntityApi {
     /**
      * Update Billable
      * Updates the billable record for an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -165,7 +152,6 @@ public class OASBillableEntityApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBillableEntityResponse updateBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -185,11 +171,9 @@ public class OASBillableEntityApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBillableEntityResponse) client.invoke(
-            'POST', '/api/{version}/billable/update', '',
+            'POST', '/billable/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

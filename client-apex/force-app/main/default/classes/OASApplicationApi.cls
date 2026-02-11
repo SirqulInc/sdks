@@ -28,7 +28,6 @@ public class OASApplicationApi {
     /**
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version  (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -112,7 +111,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationResponse createApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appName'), 'appName');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -200,11 +198,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationResponse) client.invoke(
-            'POST', '/api/{version}/application/create', '',
+            'POST', '/application/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -215,7 +211,6 @@ public class OASApplicationApi {
     /**
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param version  (required)
      * @param appKey The appKey of the application the ad placement is for (required)
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -231,7 +226,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPlacementResponse createApplicationPlacement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('size'), 'size');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -252,11 +246,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPlacementResponse) client.invoke(
-            'POST', '/api/{version}/application/placement/create', '',
+            'POST', '/application/placement/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -267,14 +259,12 @@ public class OASApplicationApi {
     /**
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -284,11 +274,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/application/delete', '',
+            'POST', '/application/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -299,7 +287,6 @@ public class OASApplicationApi {
     /**
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -307,7 +294,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPlacementResponse deleteApplicationPlacement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('placementId'), 'placementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -319,11 +305,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPlacementResponse) client.invoke(
-            'POST', '/api/{version}/application/placement/delete', '',
+            'POST', '/application/placement/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -334,14 +318,12 @@ public class OASApplicationApi {
     /**
      * Get Application
      * Get a specific application by appKey
-     * @param version  (required)
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return OASApplicationResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationResponse getApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -351,11 +333,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationResponse) client.invoke(
-            'GET', '/api/{version}/application/get', '',
+            'GET', '/application/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -366,7 +346,6 @@ public class OASApplicationApi {
     /**
      * Get Ad Placement
      * Get details of an ad placement
-     * @param version  (required)
      * @param placementId The id of the placement (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -374,7 +353,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPlacementResponse getApplicationPlacement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('placementId'), 'placementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -386,11 +364,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPlacementResponse) client.invoke(
-            'GET', '/api/{version}/application/placement/get', '',
+            'GET', '/application/placement/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -401,21 +377,17 @@ public class OASApplicationApi {
     /**
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version  (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASSirqulResponse getApplicationVersions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
+    public OASSirqulResponse getApplicationVersions() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/application/versions', '',
+            'GET', '/application/versions', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -426,7 +398,6 @@ public class OASApplicationApi {
     /**
      * Search Application Users
      * Get a list of users per application
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -439,7 +410,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAccountListResponse getUniqueUsersByApp(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -456,11 +426,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAccountListResponse) client.invoke(
-            'GET', '/api/{version}/application/users', '',
+            'GET', '/application/users', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -471,7 +439,6 @@ public class OASApplicationApi {
     /**
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -496,7 +463,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASApplicationShortResponse> listApplications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -524,11 +490,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASApplicationShortResponse>) client.invoke(
-            'GET', '/api/{version}/application/list', '',
+            'GET', '/application/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -539,7 +503,6 @@ public class OASApplicationApi {
     /**
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -549,7 +512,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASPlacementResponse> searchApplicationPlacement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -563,11 +525,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASPlacementResponse>) client.invoke(
-            'GET', '/api/{version}/application/placement/search', '',
+            'GET', '/application/placement/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -578,7 +538,6 @@ public class OASApplicationApi {
     /**
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person\&#39;s account (optional)
@@ -591,7 +550,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationSettingsResponse searchApplicationSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -607,11 +565,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationSettingsResponse) client.invoke(
-            'GET', '/api/{version}/application/settings/search', '',
+            'GET', '/application/settings/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -622,7 +578,6 @@ public class OASApplicationApi {
     /**
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -643,7 +598,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASApplicationResponse> searchApplications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -667,11 +621,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASApplicationResponse>) client.invoke(
-            'GET', '/api/{version}/application/search', '',
+            'GET', '/application/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -682,7 +634,6 @@ public class OASApplicationApi {
     /**
      * Update Application
      * Update an application record
-     * @param version  (required)
      * @param appKey The application key for updating an existing application (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -767,7 +718,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationResponse updateApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('appName'), 'appName');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -857,11 +807,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationResponse) client.invoke(
-            'POST', '/api/{version}/application/update', '',
+            'POST', '/application/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -872,7 +820,6 @@ public class OASApplicationApi {
     /**
      * Change Appliation Status
      * Set the application\&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (required)
      * @param appKey The key of the application to be deleted (required)
      * @param active If true then set to active, false otherwise (required)
@@ -880,7 +827,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateApplicationActive(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('active'), 'active');
@@ -894,11 +840,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/application/active', '',
+            'POST', '/application/active', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -909,7 +853,6 @@ public class OASApplicationApi {
     /**
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -925,7 +868,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPlacementResponse updateApplicationPlacement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('placementId'), 'placementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -945,11 +887,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPlacementResponse) client.invoke(
-            'POST', '/api/{version}/application/placement/update', '',
+            'POST', '/application/placement/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -960,7 +900,6 @@ public class OASApplicationApi {
     /**
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -969,7 +908,6 @@ public class OASApplicationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse uploadApplicationCertificate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -982,11 +920,9 @@ public class OASApplicationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/application/certificate/create', '',
+            'POST', '/application/certificate/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

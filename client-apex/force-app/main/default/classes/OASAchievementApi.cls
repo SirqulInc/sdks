@@ -28,7 +28,6 @@ public class OASAchievementApi {
     /**
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -43,8 +42,7 @@ public class OASAchievementApi {
      * @return OASAchievementTierResponse
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASAchievementTierResponse apiVersionAchievementTierSearchPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
+    public OASAchievementTierResponse achievementTierSearchPost(Map<String, Object> params) {
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -63,11 +61,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementTierResponse) client.invoke(
-            'POST', '/api/{version}/achievement/tier/search', '',
+            'POST', '/achievement/tier/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -78,7 +74,6 @@ public class OASAchievementApi {
     /**
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param appKey the application key the achievement is for (required)
      * @param title the title of the achievement (255 character limit) (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -96,7 +91,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementResponse createAchievement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('title'), 'title');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -119,11 +113,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementResponse) client.invoke(
-            'POST', '/api/{version}/achievement/create', '',
+            'POST', '/achievement/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -134,7 +126,6 @@ public class OASAchievementApi {
     /**
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId the achievement id for adding a new tier (required)
      * @param scoreAllInstances score all instances (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -153,7 +144,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementTierResponse createAchievementTier(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('achievementId'), 'achievementId');
         client.assertNotNull(params.get('scoreAllInstances'), 'scoreAllInstances');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -177,11 +167,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementTierResponse) client.invoke(
-            'POST', '/api/{version}/achievement/tier/create', '',
+            'POST', '/achievement/tier/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -192,14 +180,12 @@ public class OASAchievementApi {
     /**
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteAchievement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('achievementId'), 'achievementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -210,11 +196,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/achievement/delete', '',
+            'POST', '/achievement/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -225,14 +209,12 @@ public class OASAchievementApi {
     /**
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementTierId the achievement id for deletion (required)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteAchievementTier(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('achievementTierId'), 'achievementTierId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -243,11 +225,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/achievement/tier/delete', '',
+            'POST', '/achievement/tier/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -258,7 +238,6 @@ public class OASAchievementApi {
     /**
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -267,7 +246,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementTierResponse getAchievement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('achievementId'), 'achievementId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -280,11 +258,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementTierResponse) client.invoke(
-            'GET', '/api/{version}/achievement/get', '',
+            'GET', '/achievement/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -295,14 +271,12 @@ public class OASAchievementApi {
     /**
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param achievementTierId the achievement tier id that is being retrieved (required)
      * @return OASAchievementTierResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementTierResponse getAchievementTier(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('achievementTierId'), 'achievementTierId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -314,11 +288,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementTierResponse) client.invoke(
-            'POST', '/api/{version}/achievement/tier/get', '',
+            'POST', '/achievement/tier/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -329,7 +301,6 @@ public class OASAchievementApi {
     /**
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param version  (required)
      * @param returnNulls determines whether to return null fields in the response (required)
      * @param appKey the application key for filtering results by application (required)
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -345,7 +316,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAchievementProgressResponse> getUserAchievements(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('includeUndiscovered'), 'includeUndiscovered');
@@ -367,11 +337,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAchievementProgressResponse>) client.invoke(
-            'GET', '/api/{version}/achievement/progress/get', '',
+            'GET', '/achievement/progress/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -382,13 +350,11 @@ public class OASAchievementApi {
     /**
      * List Achievement Tags
      * List achievement tags by application
-     * @param version  (required)
      * @param appKey filter results by application key (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse listAchievementTags(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -397,11 +363,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/achievement/tag/list', '',
+            'GET', '/achievement/tag/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -412,7 +376,6 @@ public class OASAchievementApi {
     /**
      * List Achievements
      * List achievements by billable.
-     * @param version  (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param start the start index for pagination (required)
@@ -428,7 +391,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAchievementShortResponse> listAchievements(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -452,11 +414,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAchievementShortResponse>) client.invoke(
-            'GET', '/api/{version}/achievement/list', '',
+            'GET', '/achievement/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -467,7 +427,6 @@ public class OASAchievementApi {
     /**
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -484,7 +443,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAchievementShortResponse> searchAchievements(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -511,11 +469,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAchievementShortResponse>) client.invoke(
-            'GET', '/api/{version}/achievement/search', '',
+            'GET', '/achievement/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -526,7 +482,6 @@ public class OASAchievementApi {
     /**
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -546,7 +501,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementResponse updateAchievement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -569,11 +523,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementResponse) client.invoke(
-            'POST', '/api/{version}/achievement/update', '',
+            'POST', '/achievement/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -584,7 +536,6 @@ public class OASAchievementApi {
     /**
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementTierId the achievement tier id for updating (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -603,7 +554,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAchievementTierResponse updateAchievementTier(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('achievementTierId'), 'achievementTierId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -626,11 +576,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAchievementTierResponse) client.invoke(
-            'POST', '/api/{version}/achievement/tier/update', '',
+            'POST', '/achievement/tier/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -641,7 +589,6 @@ public class OASAchievementApi {
     /**
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -654,7 +601,6 @@ public class OASAchievementApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateUserAchievement(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -671,11 +617,9 @@ public class OASAchievementApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/achievement/progress/update', '',
+            'POST', '/achievement/progress/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

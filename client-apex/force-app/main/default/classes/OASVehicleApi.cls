@@ -28,14 +28,12 @@ public class OASVehicleApi {
     /**
      * Create Vehicle
      * Create new vehicle
-     * @param version  (required)
      * @param vehicle A JSON representation of cargo type.\n&#x60;&#x60;&#x60;json\n{\n  &quot;name&quot;: &quot;Truck&quot;,\n  &quot;vehicleType&quot;: { &quot;id&quot;: 1 },\n  &quot;hub&quot;: { &quot;id&quot;: 1 }\n}\n&#x60;&#x60;&#x60;\n (required)
      * @param body  (optional)
      * @return OASVehicle
      * @throws OAS.ApiException if fails to make API call
      */
     public OASVehicle createVehicle(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('vehicle'), 'vehicle');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -45,12 +43,10 @@ public class OASVehicleApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASVehicle) client.invoke(
-            'POST', '/api/{version}/vehicle',
+            'POST', '/vehicle',
             (OASVehicle) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -61,21 +57,18 @@ public class OASVehicleApi {
     /**
      * Delete Vehicle
      * Delete an existing vehicle
-     * @param version  (required)
      * @param id The id of the vehicle to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteVehicle(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/vehicle/{id}', '',
+            'DELETE', '/vehicle/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -88,22 +81,19 @@ public class OASVehicleApi {
     /**
      * Get Vehicle
      * Get an existing vehicle
-     * @param version  (required)
      * @param id The id of the vehicle requested (required)
      * @return OASVehicle
      * @throws OAS.ApiException if fails to make API call
      */
     public OASVehicle getVehicle(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASVehicle) client.invoke(
-            'GET', '/api/{version}/vehicle/{id}', '',
+            'GET', '/vehicle/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -116,7 +106,6 @@ public class OASVehicleApi {
     /**
      * Search Vehicle
      * Search for vehicles
-     * @param version  (required)
      * @param hubId Filter by service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -128,7 +117,6 @@ public class OASVehicleApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASVehicle> searchVehicle(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('hubId'), 'hubId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -149,11 +137,9 @@ public class OASVehicleApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASVehicle>) client.invoke(
-            'GET', '/api/{version}/vehicle', '',
+            'GET', '/vehicle', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -164,7 +150,6 @@ public class OASVehicleApi {
     /**
      * Update Vehicle
      * Update an existing vehicle
-     * @param version  (required)
      * @param id The id of the vehicle to update (required)
      * @param vehicle A JSON representation of cargo type, for example:\n&#x60;&#x60;&#x60;json\n{\n  &quot;name&quot;: &quot;Truck&quot;,\n  &quot;vehicleType&quot;: { &quot;id&quot;: 1 },\n  &quot;hub&quot;: { &quot;id&quot;: 1 }\n}\n&#x60;&#x60;&#x60;\n (required)
      * @param body  (optional)
@@ -172,7 +157,6 @@ public class OASVehicleApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASVehicle updateVehicle(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('vehicle'), 'vehicle');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -183,11 +167,10 @@ public class OASVehicleApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASVehicle) client.invoke(
-            'PUT', '/api/{version}/vehicle/{id}',
+            'PUT', '/vehicle/{id}',
             (OASVehicle) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),

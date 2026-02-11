@@ -28,7 +28,6 @@ public class OASThemeDescriptorApi {
     /**
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version  (required)
      * @param publicRead determines whether the theme\&#39;s participants have read permissions (required)
      * @param publicWrite determines whether the theme\&#39;s participants have write permissions (required)
      * @param publicDelete determines whether the theme\&#39;s participants have delete permissions (required)
@@ -60,7 +59,6 @@ public class OASThemeDescriptorApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASThemeDescriptorResponse addOrUpdateThemeDescriptor(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('publicRead'), 'publicRead');
         client.assertNotNull(params.get('publicWrite'), 'publicWrite');
         client.assertNotNull(params.get('publicDelete'), 'publicDelete');
@@ -102,11 +100,9 @@ public class OASThemeDescriptorApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASThemeDescriptorResponse) client.invoke(
-            'POST', '/api/{version}/consumer/theme', '',
+            'POST', '/consumer/theme', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -117,7 +113,6 @@ public class OASThemeDescriptorApi {
     /**
      * Get Theme
      * Gets a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -128,7 +123,6 @@ public class OASThemeDescriptorApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPurchaseItemListResponse getThemeDescriptor(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('themeDescriptorId'), 'themeDescriptorId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -143,11 +137,9 @@ public class OASThemeDescriptorApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPurchaseItemListResponse) client.invoke(
-            'GET', '/api/{version}/consumer/theme/get', '',
+            'GET', '/consumer/theme/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -158,7 +150,6 @@ public class OASThemeDescriptorApi {
     /**
      * Search Themes
      * Searches for themes.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See ThemeDescriptorApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -181,7 +172,6 @@ public class OASThemeDescriptorApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPurchaseItemListResponse getThemeDescriptors(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('filter'), 'filter');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -212,11 +202,9 @@ public class OASThemeDescriptorApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPurchaseItemListResponse) client.invoke(
-            'GET', '/api/{version}/consumer/theme/search', '',
+            'GET', '/consumer/theme/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -227,7 +215,6 @@ public class OASThemeDescriptorApi {
     /**
      * Delete Theme
      * Removes a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id to remove (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -238,7 +225,6 @@ public class OASThemeDescriptorApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeThemeDescriptor(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('themeDescriptorId'), 'themeDescriptorId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -253,11 +239,9 @@ public class OASThemeDescriptorApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/theme/remove', '',
+            'POST', '/consumer/theme/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

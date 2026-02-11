@@ -28,7 +28,6 @@ public class OASAccountApi {
     /**
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -67,7 +66,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASUserLocationSearchResponse accountLocationSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -109,11 +107,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASUserLocationSearchResponse) client.invoke(
-            'GET', '/api/{version}/account/search', '',
+            'GET', '/account/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -124,7 +120,6 @@ public class OASAccountApi {
     /**
      * Block Account
      * Moves or removes an account into the user\&#39;s blocked group.
-     * @param version  (required)
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -136,7 +131,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse blockAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountIdBeingBlocked'), 'accountIdBeingBlocked');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -152,11 +146,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/block', '',
+            'POST', '/account/block', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -167,7 +159,6 @@ public class OASAccountApi {
     /**
      * Create Account
      * Create a new account by role.
-     * @param version  (required)
      * @param username The access token to authenticate with (ex: username) (required)
      * @param password The secret to authenticate with (ex: password) (required)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -244,7 +235,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAccountLoginResponse createAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('username'), 'username');
         client.assertNotNull(params.get('password'), 'password');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -326,11 +316,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAccountLoginResponse) client.invoke(
-            'POST', '/api/{version}/account/create', '',
+            'POST', '/account/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -341,7 +329,6 @@ public class OASAccountApi {
     /**
      * Update Account
      * Edit the user\&#39;s profile information
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person\&#39;s account (optional)
@@ -428,7 +415,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileInfoResponse editAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -518,11 +504,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileInfoResponse) client.invoke(
-            'POST', '/api/{version}/account/profile/update', '',
+            'POST', '/account/profile/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -533,7 +517,6 @@ public class OASAccountApi {
     /**
      * Update Username and Email
      * Update account\&#39;s own username and/or emailAddress
-     * @param version  (required)
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user\&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -542,7 +525,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse editUsername(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -554,11 +536,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/username/update', '',
+            'POST', '/account/username/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -569,7 +549,6 @@ public class OASAccountApi {
     /**
      * Get Account
      * Gets a user\&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version  (required)
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -586,7 +565,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse getAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -606,11 +584,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'GET', '/api/{version}/account/profile/get', '',
+            'GET', '/account/profile/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -621,7 +597,6 @@ public class OASAccountApi {
     /**
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version  (required)
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -640,7 +615,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssetListResponse getProfileAssets(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -662,11 +636,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssetListResponse) client.invoke(
-            'GET', '/api/{version}/account/profile/assets', '',
+            'GET', '/account/profile/assets', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -677,7 +649,6 @@ public class OASAccountApi {
     /**
      * Search Accounts
      * Gets a user\&#39;s account profile and their referral List.
-     * @param version  (required)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it\&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -692,7 +663,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getReferralList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -711,11 +681,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/account/referral/list', '',
+            'GET', '/account/referral/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -726,7 +694,6 @@ public class OASAccountApi {
     /**
      * Get Account Settings
      * Get the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -735,7 +702,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASUserSettingsResponse getSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -747,11 +713,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASUserSettingsResponse) client.invoke(
-            'GET', '/api/{version}/account/settings/get', '',
+            'GET', '/account/settings/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -762,7 +726,6 @@ public class OASAccountApi {
     /**
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version  (required)
      * @param accessToken  (required)
      * @param appKey  (required)
      * @param deviceId  (optional)
@@ -778,7 +741,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse loginDelegate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accessToken'), 'accessToken');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -799,11 +761,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/account/login/delegate', '',
+            'POST', '/account/login/delegate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -814,7 +774,6 @@ public class OASAccountApi {
     /**
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version  (required)
      * @param accessToken The access token to authenticate with (ex: username or fb token) (required)
      * @param networkUID The access provider to authenticate against. This can be custom \nnetworks created using the ThirdPartyApi as well. Supported values by default \ninclude: FACEBOOK, TWITTER, USERNAME, PHONE\n (required)
      * @param appKey The application key (required)
@@ -832,7 +791,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse loginGeneral(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accessToken'), 'accessToken');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -856,11 +814,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/account/login', '',
+            'POST', '/account/login', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -871,7 +827,6 @@ public class OASAccountApi {
     /**
      * Login Account (Username)
      * Login to system with an account
-     * @param version  (required)
      * @param username the user\&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional)
@@ -886,7 +841,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse loginUsername(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('username'), 'username');
         client.assertNotNull(params.get('password'), 'password');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -906,11 +860,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/account/get', '',
+            'POST', '/account/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -921,7 +873,6 @@ public class OASAccountApi {
     /**
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -931,7 +882,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse logout(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -944,11 +894,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/logout', '',
+            'POST', '/account/logout', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -959,7 +907,6 @@ public class OASAccountApi {
     /**
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version  (required)
      * @param mergeAccountId The id of the account to being merged (required)
      * @param appKey The application key (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -968,7 +915,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse mergeAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('mergeAccountId'), 'mergeAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -982,11 +928,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/merge', '',
+            'POST', '/account/merge', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -997,7 +941,6 @@ public class OASAccountApi {
     /**
      * Update Password
      * Update the account password.
-     * @param version  (required)
      * @param accountId The account to update (required)
      * @param oldPassword The current password, used to validate access (required)
      * @param newPassword The new password to set, cannot be empty (required)
@@ -1006,7 +949,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse passwordChange(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('oldPassword'), 'oldPassword');
         client.assertNotNull(params.get('newPassword'), 'newPassword');
@@ -1022,11 +964,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/passwordchange', '',
+            'POST', '/account/passwordchange', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1037,7 +977,6 @@ public class OASAccountApi {
     /**
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param password The new password to set, cannot be empty (required)
      * @param confirm The new password to confirm, must match newPassword (required)
@@ -1045,7 +984,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse passwordReset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('token'), 'token');
         client.assertNotNull(params.get('password'), 'password');
         client.assertNotNull(params.get('confirm'), 'confirm');
@@ -1059,11 +997,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/passwordreset', '',
+            'POST', '/account/passwordreset', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1074,7 +1010,6 @@ public class OASAccountApi {
     /**
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version  (required)
      * @param email The email/username of the account (required)
      * @param r_from this is the sender email (optional, default to 'Sirqul')
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -1084,7 +1019,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse requestPasswordReset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('email'), 'email');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1098,11 +1032,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/requestpasswordreset', '',
+            'POST', '/account/requestpasswordreset', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1113,13 +1045,11 @@ public class OASAccountApi {
     /**
      * Send Validation Request
      * Send an email to validate a user\&#39;s account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse requestValidateAccount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1129,11 +1059,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/requestValidateAccount', '',
+            'POST', '/account/requestValidateAccount', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1144,7 +1072,6 @@ public class OASAccountApi {
     /**
      * Search Accounts
      * Search for account profiles.
-     * @param version  (required)
      * @param accountId The id of the account requesting (required)
      * @param appKey The application key (required)
      * @param keyword The keyword for for querying the account (optional)
@@ -1167,7 +1094,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASProfileResponse> searchAccounts(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1195,11 +1121,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASProfileResponse>) client.invoke(
-            'GET', '/api/{version}/account/profile/search', '',
+            'GET', '/account/profile/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1210,7 +1134,6 @@ public class OASAccountApi {
     /**
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param version  (required)
      * @param username The user\&#39;s encrypted email address they used to sign-up (required)
      * @param password The encrypted password (required)
      * @param gameType The application key (required)
@@ -1224,7 +1147,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse secureLogin(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('username'), 'username');
         client.assertNotNull(params.get('password'), 'password');
         client.assertNotNull(params.get('gameType'), 'gameType');
@@ -1244,11 +1166,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/account/login/validate', '',
+            'POST', '/account/login/validate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1259,7 +1179,6 @@ public class OASAccountApi {
     /**
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version  (required)
      * @param deviceId The device id (required)
      * @param username The encrypted email of the user, this is what will be used when they login (required)
      * @param password The encrypted password of the user (required)
@@ -1325,7 +1244,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileInfoResponse secureSignup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('deviceId'), 'deviceId');
         client.assertNotNull(params.get('username'), 'username');
         client.assertNotNull(params.get('password'), 'password');
@@ -1397,11 +1315,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileInfoResponse) client.invoke(
-            'POST', '/api/{version}/account/create/validate', '',
+            'POST', '/account/create/validate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1412,7 +1328,6 @@ public class OASAccountApi {
     /**
      * Save Match Token
      * Save user\&#39;s match token to be used for profile match making
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -1424,7 +1339,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse setMatchToken(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -1439,11 +1353,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/profile/matchToken', '',
+            'POST', '/consumer/profile/matchToken', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1454,7 +1366,6 @@ public class OASAccountApi {
     /**
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param active true will activate the user and false will deactivate (required)
@@ -1464,7 +1375,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateActveStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('connectionAccountId'), 'connectionAccountId');
         client.assertNotNull(params.get('active'), 'active');
@@ -1480,11 +1390,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/active/update', '',
+            'POST', '/account/active/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1495,7 +1403,6 @@ public class OASAccountApi {
     /**
      * Update Location
      * Update the account location
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -1505,7 +1412,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateLocation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -1518,11 +1424,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/location/update', '',
+            'POST', '/account/location/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1533,7 +1437,6 @@ public class OASAccountApi {
     /**
      * Update Account Settings
      * Update the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -1550,7 +1453,6 @@ public class OASAccountApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASUserSettingsResponse updateSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -1570,11 +1472,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASUserSettingsResponse) client.invoke(
-            'POST', '/api/{version}/account/settings/update', '',
+            'POST', '/account/settings/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1585,13 +1485,11 @@ public class OASAccountApi {
     /**
      * Save Validation Status
      * Validate the account\&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return OASAccountLoginResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAccountLoginResponse validateAccountSignup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('token'), 'token');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1601,11 +1499,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAccountLoginResponse) client.invoke(
-            'POST', '/api/{version}/account/validateAccountSignup', '',
+            'POST', '/account/validateAccountSignup', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1616,13 +1512,11 @@ public class OASAccountApi {
     /**
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse validatePasswordReset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('token'), 'token');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1632,11 +1526,9 @@ public class OASAccountApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/account/validatepasswordreset', '',
+            'POST', '/account/validatepasswordreset', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASTournamentApi {
     /**
      * Create Tournament
      * Create a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The appKey the tournament is created for. (required)
      * @param title The title of the tournament (required)
@@ -68,7 +67,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTournamentResponse createTournament(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('title'), 'title');
@@ -116,11 +114,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTournamentResponse) client.invoke(
-            'POST', '/api/{version}/tournament/create', '',
+            'POST', '/tournament/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -131,14 +127,12 @@ public class OASTournamentApi {
     /**
      * Delete Tournament
      * Delete a tournament.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteTournament(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -150,11 +144,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tournament/delete', '',
+            'POST', '/tournament/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -165,7 +157,6 @@ public class OASTournamentApi {
     /**
      * Get Tournament
      * Get a tournament.
-     * @param version  (required)
      * @param accountId The id of the logged in user (required)
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -175,7 +166,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTournamentResponse getTournament(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -189,11 +179,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTournamentResponse) client.invoke(
-            'GET', '/api/{version}/tournament/get', '',
+            'GET', '/tournament/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -204,7 +192,6 @@ public class OASTournamentApi {
     /**
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param gameLevelId the game level id to filter results by (required)
      * @param sortField the field to sort by (optional, default to PLAYER_SCORE_COUNT)
@@ -215,7 +202,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse searchObjects(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('gameLevelId'), 'gameLevelId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -231,11 +217,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/tournament/object/search', '',
+            'GET', '/tournament/object/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -246,7 +230,6 @@ public class OASTournamentApi {
     /**
      * Search Tournament Rounds
      * Search for the user\&#39;s tournament games.
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param appKey the application key (required)
      * @param status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -259,7 +242,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse searchRounds(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -277,11 +259,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/tournament/round/search', '',
+            'GET', '/tournament/round/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -292,7 +272,6 @@ public class OASTournamentApi {
     /**
      * Search Tournaments
      * Search for tournaments
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application key (required)
      * @param keyword the keyword to search tournament on (optional)
@@ -309,7 +288,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionShortResponse searchTournaments(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -331,11 +309,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionShortResponse) client.invoke(
-            'GET', '/api/{version}/tournament/search', '',
+            'GET', '/tournament/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -346,7 +322,6 @@ public class OASTournamentApi {
     /**
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param version  (required)
      * @param accountId The logged in user account ID. (required)
      * @param appKey The application key. (required)
      * @param missionId The missionId to score for (required)
@@ -358,7 +333,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse submitTournamentScore(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('missionId'), 'missionId');
@@ -379,11 +353,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tournament/score', '',
+            'POST', '/tournament/score', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -394,7 +366,6 @@ public class OASTournamentApi {
     /**
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param missionId The tournament\&#39;s primary id (required)
@@ -405,7 +376,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse submitTournamentVote(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('missionId'), 'missionId');
@@ -423,11 +393,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tournament/vote', '',
+            'POST', '/tournament/vote', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -438,7 +406,6 @@ public class OASTournamentApi {
     /**
      * Substitute Tournament Player
      * Service to replace the user\&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission (required)
      * @param packId the id of the pack (required)
@@ -447,7 +414,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse substituteTournamentPlayer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         client.assertNotNull(params.get('packId'), 'packId');
@@ -463,11 +429,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/tournament/substitute', '',
+            'POST', '/tournament/substitute', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -478,7 +442,6 @@ public class OASTournamentApi {
     /**
      * Update Tournament
      * Update a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The mission/tournament to update (required)
      * @param title The title of the tournament (optional)
@@ -517,7 +480,6 @@ public class OASTournamentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTournamentResponse updateTournament(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('missionId'), 'missionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -561,11 +523,9 @@ public class OASTournamentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTournamentResponse) client.invoke(
-            'POST', '/api/{version}/tournament/update', '',
+            'POST', '/tournament/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

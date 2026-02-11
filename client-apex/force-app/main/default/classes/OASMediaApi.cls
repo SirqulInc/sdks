@@ -28,7 +28,6 @@ public class OASMediaApi {
     /**
      * Create Media
      * Create a media offering.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -90,7 +89,6 @@ public class OASMediaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMediaOfferResponse createMedia(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('title'), 'title');
         client.assertNotNull(params.get('barcodeType'), 'barcodeType');
@@ -170,11 +168,9 @@ public class OASMediaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMediaOfferResponse) client.invoke(
-            'POST', '/api/{version}/media/create', '',
+            'POST', '/media/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -185,14 +181,12 @@ public class OASMediaApi {
     /**
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the ID of the media to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteMedia(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('mediaId'), 'mediaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -204,11 +198,9 @@ public class OASMediaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/media/delete', '',
+            'POST', '/media/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -219,14 +211,12 @@ public class OASMediaApi {
     /**
      * Media Get
      * Get a media offering.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the id of the media to get (required)
      * @return OASMediaOfferResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMediaOfferResponse getMedia(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('mediaId'), 'mediaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -238,11 +228,9 @@ public class OASMediaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMediaOfferResponse) client.invoke(
-            'GET', '/api/{version}/media/get', '',
+            'GET', '/media/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -253,7 +241,6 @@ public class OASMediaApi {
     /**
      * Search Media
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param activeOnly Return only active results (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -267,7 +254,6 @@ public class OASMediaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMediaOfferResponse> searchMedia(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('activeOnly'), 'activeOnly');
         client.assertNotNull(params.get('sortField'), 'sortField');
@@ -288,11 +274,9 @@ public class OASMediaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMediaOfferResponse>) client.invoke(
-            'GET', '/api/{version}/media/search', '',
+            'GET', '/media/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -303,7 +287,6 @@ public class OASMediaApi {
     /**
      * Update Media
      * Update a media offering.
-     * @param version  (required)
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param mediaId  (required)
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -367,7 +350,6 @@ public class OASMediaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMediaOfferResponse updateMedia(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('mediaId'), 'mediaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -436,11 +418,9 @@ public class OASMediaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMediaOfferResponse) client.invoke(
-            'POST', '/api/{version}/media/update', '',
+            'POST', '/media/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

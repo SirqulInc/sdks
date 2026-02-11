@@ -28,7 +28,6 @@ public class OASRetailerApi {
     /**
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version  (required)
      * @param name The name of the retailer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -66,7 +65,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerFullResponse createRetailer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -108,11 +106,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerFullResponse) client.invoke(
-            'POST', '/api/{version}/retailer/create', '',
+            'POST', '/retailer/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -123,7 +119,6 @@ public class OASRetailerApi {
     /**
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -131,7 +126,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteRetailer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -142,11 +136,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/delete', '',
+            'POST', '/retailer/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -157,7 +149,6 @@ public class OASRetailerApi {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the ID of the retailer (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -166,7 +157,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerFullResponse getRetailer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerId'), 'retailerId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -179,11 +169,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerFullResponse) client.invoke(
-            'GET', '/api/{version}/retailer/get', '',
+            'GET', '/retailer/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -194,7 +182,6 @@ public class OASRetailerApi {
     /**
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param version  (required)
      * @param visibility  (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -213,7 +200,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRetailerResponse> getRetailers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('visibility'), 'visibility');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -241,11 +227,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRetailerResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/search', '',
+            'GET', '/retailer/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -256,7 +240,6 @@ public class OASRetailerApi {
     /**
      * Login Retailer
      * Retailer login check.
-     * @param version  (required)
      * @param username the user\&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional) (optional)
@@ -267,7 +250,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAccountLoginResponse retailerLoginCheck(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('username'), 'username');
         client.assertNotNull(params.get('password'), 'password');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -283,11 +265,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAccountLoginResponse) client.invoke(
-            'POST', '/api/{version}/retailer/login', '',
+            'POST', '/retailer/login', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -298,7 +278,6 @@ public class OASRetailerApi {
     /**
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version  (required)
      * @param retailerId The ID of the retailer to update (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -335,7 +314,6 @@ public class OASRetailerApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerFullResponse updateRetailer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerId'), 'retailerId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -376,11 +354,9 @@ public class OASRetailerApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerFullResponse) client.invoke(
-            'POST', '/api/{version}/retailer/update', '',
+            'POST', '/retailer/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

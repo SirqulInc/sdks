@@ -28,7 +28,6 @@ public class OASApplicationConfigApi {
     /**
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won\&#39;t be created.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key that the newly created applicationConfig will be associated to (required)
      * @param configVersion The application configuration, has to be unique within the application (required)
@@ -40,7 +39,6 @@ public class OASApplicationConfigApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationConfigResponse createApplicationConfig(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('configVersion'), 'configVersion');
@@ -59,11 +57,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationConfigResponse) client.invoke(
-            'POST', '/api/{version}/appconfig/create', '',
+            'POST', '/appconfig/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -74,14 +70,12 @@ public class OASApplicationConfigApi {
     /**
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteApplicationConfig(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('configId'), 'configId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -93,11 +87,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/appconfig/delete', '',
+            'POST', '/appconfig/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,14 +100,12 @@ public class OASApplicationConfigApi {
     /**
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration (required)
      * @return OASApplicationConfigResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationConfigResponse getApplicationConfig(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('configId'), 'configId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -127,11 +117,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationConfigResponse) client.invoke(
-            'GET', '/api/{version}/appconfig/get', '',
+            'GET', '/appconfig/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -142,7 +130,6 @@ public class OASApplicationConfigApi {
     /**
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param configVersion The version of the application configuration (required)
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -153,7 +140,6 @@ public class OASApplicationConfigApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationConfigResponse getApplicationConfigByConfigVersion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('configVersion'), 'configVersion');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -169,11 +155,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationConfigResponse) client.invoke(
-            'GET', '/api/{version}/appconfig/getbyversion', '',
+            'GET', '/appconfig/getbyversion', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -184,7 +168,6 @@ public class OASApplicationConfigApi {
     /**
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -199,7 +182,6 @@ public class OASApplicationConfigApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASApplicationConfigResponse> searchApplicationConfig(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -218,11 +200,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASApplicationConfigResponse>) client.invoke(
-            'GET', '/api/{version}/appconfig/search', '',
+            'GET', '/appconfig/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -233,7 +213,6 @@ public class OASApplicationConfigApi {
     /**
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won\&#39;t be updated.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to update (required)
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -246,7 +225,6 @@ public class OASApplicationConfigApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationConfigResponse updateApplicationConfig(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('configId'), 'configId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -264,11 +242,9 @@ public class OASApplicationConfigApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationConfigResponse) client.invoke(
-            'POST', '/api/{version}/appconfig/update', '',
+            'POST', '/appconfig/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

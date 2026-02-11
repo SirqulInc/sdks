@@ -28,7 +28,6 @@ public class OASContestApi {
     /**
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param version  (required)
      * @param publicRead determines whether the contest\&#39;s participants has read permissions (required)
      * @param publicWrite determines whether the contest\&#39;s participants has write permissions (required)
      * @param publicDelete determines whether the contest\&#39;s participants has delete permissions (required)
@@ -58,7 +57,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumContestResponse addOrUpdateAlbumContest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('publicRead'), 'publicRead');
         client.assertNotNull(params.get('publicWrite'), 'publicWrite');
         client.assertNotNull(params.get('publicDelete'), 'publicDelete');
@@ -97,11 +95,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumContestResponse) client.invoke(
-            'POST', '/api/{version}/consumer/album/contest', '',
+            'POST', '/consumer/album/contest', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,7 +108,6 @@ public class OASContestApi {
     /**
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param version  (required)
      * @param albumContestId The ID of the album contest (required)
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -121,7 +116,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse approveAlbumContest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumContestId'), 'albumContestId');
         client.assertNotNull(params.get('approvalStatus'), 'approvalStatus');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -135,11 +129,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/album/contest/approve', '',
+            'POST', '/consumer/album/contest/approve', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -150,7 +142,6 @@ public class OASContestApi {
     /**
      * Delete Contest
      * Deletes a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -160,7 +151,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteContest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumContestId'), 'albumContestId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -174,11 +164,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/album/contest/remove', '',
+            'POST', '/consumer/album/contest/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -189,7 +177,6 @@ public class OASContestApi {
     /**
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -199,7 +186,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumContestResponse getAlbumContest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumContestId'), 'albumContestId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -213,11 +199,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumContestResponse) client.invoke(
-            'GET', '/api/{version}/consumer/album/contest/get', '',
+            'GET', '/consumer/album/contest/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -228,7 +212,6 @@ public class OASContestApi {
     /**
      * Search Contests
      * Searches on contests.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See AlbumContestApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -252,7 +235,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumContestListResponse getAlbumContests(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('filter'), 'filter');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -284,11 +266,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumContestListResponse) client.invoke(
-            'GET', '/api/{version}/consumer/album/contest/search', '',
+            'GET', '/consumer/album/contest/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -299,7 +279,6 @@ public class OASContestApi {
     /**
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param albumId the ID of the album to vote on (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -311,7 +290,6 @@ public class OASContestApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAlbumContestResponse voteOnAlbumContest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('albumContestId'), 'albumContestId');
         client.assertNotNull(params.get('albumId'), 'albumId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -328,11 +306,9 @@ public class OASContestApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAlbumContestResponse) client.invoke(
-            'POST', '/api/{version}/consumer/album/contest/vote', '',
+            'POST', '/consumer/album/contest/vote', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

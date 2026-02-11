@@ -28,7 +28,6 @@ public class OASSecureAppApi {
     /**
      * Create Secure Application
      * Create a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param keyCert  (required)
@@ -43,7 +42,6 @@ public class OASSecureAppApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse createSecureApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('keyCert'), 'keyCert');
@@ -67,11 +65,9 @@ public class OASSecureAppApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/secure/application/create', '',
+            'POST', '/secure/application/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,14 +78,12 @@ public class OASSecureAppApi {
     /**
      * Delete Secure Application
      * Delete a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteSecureApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -101,11 +95,9 @@ public class OASSecureAppApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/secure/application/delete', '',
+            'POST', '/secure/application/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -116,7 +108,6 @@ public class OASSecureAppApi {
     /**
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version  (required)
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param biometricFile The data file used to perform authentication (required)
      * @param deviceId The unique id of the device making the request (optional)
@@ -130,7 +121,6 @@ public class OASSecureAppApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse loginSecure(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('biometricFile'), 'biometricFile');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -149,11 +139,9 @@ public class OASSecureAppApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/secure/login', '',
+            'POST', '/secure/login', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -164,24 +152,20 @@ public class OASSecureAppApi {
     /**
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version  (required)
      * @param body The payment request object (required)
      * @return OASProfileResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse purchaseSecure(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('body'), 'body');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/secure/purchase',
+            'POST', '/secure/purchase',
             (OASPaymentRequest) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
@@ -192,14 +176,12 @@ public class OASSecureAppApi {
     /**
      * Rest Secure Application
      * Reset a secure application client.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse resetSecure(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -211,11 +193,9 @@ public class OASSecureAppApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/secure/application/reset', '',
+            'POST', '/secure/application/reset', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -226,7 +206,6 @@ public class OASSecureAppApi {
     /**
      * Update Secure Application
      * Update a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param active  (optional)
@@ -241,7 +220,6 @@ public class OASSecureAppApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateSecureApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -261,11 +239,9 @@ public class OASSecureAppApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/secure/application/update', '',
+            'POST', '/secure/application/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASPackApi {
     /**
      * Create Pack
      * Create a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the pack (required)
      * @param packOrder The order of the pack (required)
@@ -57,7 +56,6 @@ public class OASPackApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPackResponse createPack(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('title'), 'title');
         client.assertNotNull(params.get('packOrder'), 'packOrder');
@@ -96,11 +94,9 @@ public class OASPackApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPackResponse) client.invoke(
-            'POST', '/api/{version}/pack/create', '',
+            'POST', '/pack/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -111,14 +107,12 @@ public class OASPackApi {
     /**
      * Delete Pack
      * Delete a pack.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param packId the id of the pack to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deletePack(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('packId'), 'packId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -130,11 +124,9 @@ public class OASPackApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/pack/delete', '',
+            'POST', '/pack/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -145,7 +137,6 @@ public class OASPackApi {
     /**
      * Get Pack
      * Get a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to return. (required)
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false. (required)
@@ -153,7 +144,6 @@ public class OASPackApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPackResponse getPack(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('packId'), 'packId');
         client.assertNotNull(params.get('includeGameData'), 'includeGameData');
@@ -167,11 +157,9 @@ public class OASPackApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPackResponse) client.invoke(
-            'GET', '/api/{version}/pack/get', '',
+            'GET', '/pack/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -182,7 +170,6 @@ public class OASPackApi {
     /**
      * Search Packs
      * Search on packs.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -197,7 +184,6 @@ public class OASPackApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASPackResponse> searchPacks(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -218,11 +204,9 @@ public class OASPackApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASPackResponse>) client.invoke(
-            'GET', '/api/{version}/pack/search', '',
+            'GET', '/pack/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -233,7 +217,6 @@ public class OASPackApi {
     /**
      * Update Pack
      * Update a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to update. (required)
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -263,7 +246,6 @@ public class OASPackApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPackResponse updatePack(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('packId'), 'packId');
         client.assertNotNull(params.get('allocateTickets'), 'allocateTickets');
@@ -300,11 +282,9 @@ public class OASPackApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPackResponse) client.invoke(
-            'POST', '/api/{version}/pack/update', '',
+            'POST', '/pack/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

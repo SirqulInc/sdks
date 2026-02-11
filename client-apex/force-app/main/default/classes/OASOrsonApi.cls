@@ -28,7 +28,6 @@ public class OASOrsonApi {
     /**
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param movieName Movie Name (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -40,7 +39,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiAddMovieResponse addMovie(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('movieName'), 'movieName');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -57,11 +55,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiAddMovieResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/addMovie', '',
+            'POST', '/orson/ai/addMovie', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -72,7 +68,6 @@ public class OASOrsonApi {
     /**
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param doc Doc (required)
      * @param returnTopics Return Topics (optional)
@@ -82,7 +77,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiProtoResponse aiDocs(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('doc'), 'doc');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -97,11 +91,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiProtoResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/docs', '',
+            'GET', '/orson/ai/docs', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,7 +104,6 @@ public class OASOrsonApi {
     /**
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param parseFlag Parse Flag (optional)
@@ -122,7 +113,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiProtoResponse aiFindImages(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('text'), 'text');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -137,11 +127,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiProtoResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/img', '',
+            'GET', '/orson/ai/img', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -152,7 +140,6 @@ public class OASOrsonApi {
     /**
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param tags Tags (required)
      * @param conditional Conditional (optional)
@@ -162,7 +149,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiProtoResponse aiTags(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('tags'), 'tags');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -177,11 +163,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiProtoResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/tags', '',
+            'GET', '/orson/ai/tags', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -192,7 +176,6 @@ public class OASOrsonApi {
     /**
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param terms Terms (required)
      * @param conditional Conditional (optional)
@@ -202,7 +185,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiProtoResponse aiText(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('terms'), 'terms');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -217,11 +199,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiProtoResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/text', '',
+            'GET', '/orson/ai/text', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -232,7 +212,6 @@ public class OASOrsonApi {
     /**
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param r_limit The number of topics to return (optional)
@@ -244,7 +223,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiBatchResponse batch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -260,11 +238,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiBatchResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/batch', '',
+            'POST', '/orson/ai/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -275,14 +251,12 @@ public class OASOrsonApi {
     /**
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return OASOrsonEpisodeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonEpisodeResponse createInstantEpisode(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('data'), 'data');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -294,11 +268,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonEpisodeResponse) client.invoke(
-            'POST', '/api/{version}/orson/stories/episodes/instant', '',
+            'POST', '/orson/stories/episodes/instant', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -309,7 +281,6 @@ public class OASOrsonApi {
     /**
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param dimensions Enum: &quot;256x256&quot; &quot;512x512&quot; &quot;1024x1024&quot; (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -323,7 +294,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiVoiceCanvasResponse createVoiceCanvas(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('dimensions'), 'dimensions');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -342,11 +312,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiVoiceCanvasResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/voiceCanvas', '',
+            'POST', '/orson/ai/voiceCanvas', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -357,7 +325,6 @@ public class OASOrsonApi {
     /**
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -367,7 +334,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiEmotionsResponse emotion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -381,11 +347,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiEmotionsResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/emotion', '',
+            'POST', '/orson/ai/emotion', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -396,14 +360,12 @@ public class OASOrsonApi {
     /**
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiAddMovieResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiAddMovieResponse getAddMovieResult(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -414,10 +376,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiAddMovieResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/addMovie/{requestId}', '',
+            'GET', '/orson/ai/addMovie/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -430,14 +391,12 @@ public class OASOrsonApi {
     /**
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiBatchResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiBatchResponse getBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -448,10 +407,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiBatchResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/batch/{requestId}', '',
+            'GET', '/orson/ai/batch/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -464,14 +422,12 @@ public class OASOrsonApi {
     /**
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiEmotionsResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiEmotionsResponse getEmotion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -482,10 +438,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiEmotionsResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/emotion/{requestId}', '',
+            'GET', '/orson/ai/emotion/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -498,14 +453,12 @@ public class OASOrsonApi {
     /**
      * Check episode status
      * Gets a summary of the episode\&#39;s status, including any renders.
-     * @param version  (required)
      * @param episodeId Episode ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonEpisodeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonEpisodeResponse getEpisodeStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('episodeId'), 'episodeId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -516,10 +469,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonEpisodeResponse) client.invoke(
-            'GET', '/api/{version}/orson/stories/episodes/{episodeId}/status', '',
+            'GET', '/orson/stories/episodes/{episodeId}/status', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'episodeId' => (Long) params.get('episodeId')
             },
             new Map<String, Object>(),
@@ -532,14 +484,12 @@ public class OASOrsonApi {
     /**
      * Check episode status
      * Gets a summary of the episode\&#39;s status, including any renders.
-     * @param version  (required)
      * @param renderId Render ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonRenderResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonRenderResponse getRenderStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('renderId'), 'renderId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -550,10 +500,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonRenderResponse) client.invoke(
-            'GET', '/api/{version}/orson/stories/renders/{renderId}/status', '',
+            'GET', '/orson/stories/renders/{renderId}/status', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'renderId' => (String) params.get('renderId')
             },
             new Map<String, Object>(),
@@ -566,14 +515,12 @@ public class OASOrsonApi {
     /**
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiSTTResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiSTTResponse getSTT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -584,10 +531,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiSTTResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/stt/{requestId}', '',
+            'GET', '/orson/ai/stt/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -600,14 +546,12 @@ public class OASOrsonApi {
     /**
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiTTSResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTTSResponse getTTS(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -618,10 +562,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTTSResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/tts/{requestId}', '',
+            'GET', '/orson/ai/tts/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -634,14 +577,12 @@ public class OASOrsonApi {
     /**
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiTechTuneResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTechTuneResponse getTechTune(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -652,10 +593,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTechTuneResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/techTune/{requestId}', '',
+            'GET', '/orson/ai/techTune/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -668,14 +608,12 @@ public class OASOrsonApi {
     /**
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiTopicsResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTopicsResponse getTopics(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -686,10 +624,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTopicsResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/topics/{requestId}', '',
+            'GET', '/orson/ai/topics/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -702,14 +639,12 @@ public class OASOrsonApi {
     /**
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OASOrsonAiVoiceCanvasResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiVoiceCanvasResponse getVoiceCanvas(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('requestId'), 'requestId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -720,10 +655,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiVoiceCanvasResponse) client.invoke(
-            'GET', '/api/{version}/orson/ai/voiceCanvas/{requestId}', '',
+            'GET', '/orson/ai/voiceCanvas/{requestId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'requestId' => (String) params.get('requestId')
             },
             new Map<String, Object>(),
@@ -736,14 +670,12 @@ public class OASOrsonApi {
     /**
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return OASOrsonRenderResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonRenderResponse startVideoRender(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('data'), 'data');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -755,11 +687,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonRenderResponse) client.invoke(
-            'POST', '/api/{version}/orson/stories/renders', '',
+            'POST', '/orson/stories/renders', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -770,7 +700,6 @@ public class OASOrsonApi {
     /**
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -782,7 +711,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiSTTResponse stt(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -798,11 +726,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiSTTResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/stt', '',
+            'POST', '/orson/ai/stt', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -813,7 +739,6 @@ public class OASOrsonApi {
     /**
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -826,7 +751,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTopicsResponse summarizeTopics(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -843,11 +767,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTopicsResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/topics', '',
+            'POST', '/orson/ai/topics', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -858,7 +780,6 @@ public class OASOrsonApi {
     /**
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param numFacesExpected Number of expected faces (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -869,7 +790,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTechTuneResponse techTune(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('numFacesExpected'), 'numFacesExpected');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -885,11 +805,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTechTuneResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/techTune', '',
+            'POST', '/orson/ai/techTune', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -900,7 +818,6 @@ public class OASOrsonApi {
     /**
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -911,7 +828,6 @@ public class OASOrsonApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrsonAiTTSResponse tts(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('text'), 'text');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -927,11 +843,9 @@ public class OASOrsonApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrsonAiTTSResponse) client.invoke(
-            'POST', '/api/{version}/orson/ai/tts', '',
+            'POST', '/orson/ai/tts', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

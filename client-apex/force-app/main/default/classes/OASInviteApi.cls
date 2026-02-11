@@ -28,7 +28,6 @@ public class OASInviteApi {
     /**
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter\&#39;s friend.
-     * @param version  (required)
      * @param token the invite token (required)
      * @param accountId the accountId of the user who is accepting the invite (required)
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -47,7 +46,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConsumerInviteResponse acceptInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('token'), 'token');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -71,11 +69,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConsumerInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/accept', '',
+            'POST', '/invite/accept', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -86,7 +82,6 @@ public class OASInviteApi {
     /**
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -98,7 +93,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse albumContestInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -113,11 +107,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/albumContest', '',
+            'POST', '/invite/albumContest', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -128,7 +120,6 @@ public class OASInviteApi {
     /**
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -140,7 +131,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse albumInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -155,11 +145,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/album', '',
+            'POST', '/invite/album', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -170,7 +158,6 @@ public class OASInviteApi {
     /**
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param listingId The ID of the event listing (required)
@@ -180,7 +167,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse eventInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('listingId'), 'listingId');
@@ -196,11 +182,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/event', '',
+            'POST', '/invite/event', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -211,7 +195,6 @@ public class OASInviteApi {
     /**
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -223,7 +206,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse gameInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -238,11 +220,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/gameLevel', '',
+            'POST', '/invite/gameLevel', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -253,7 +233,6 @@ public class OASInviteApi {
     /**
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version  (required)
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -267,7 +246,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse getInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -284,11 +262,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/invite/get', '',
+            'GET', '/invite/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -299,7 +275,6 @@ public class OASInviteApi {
     /**
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user\&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -311,7 +286,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse missionInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -326,11 +300,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/mission', '',
+            'POST', '/invite/mission', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -341,7 +313,6 @@ public class OASInviteApi {
     /**
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite\&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerId the ID of the offer used to invite to favorite (required)
@@ -349,7 +320,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse offerInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('offerId'), 'offerId');
@@ -363,11 +333,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/offer', '',
+            'POST', '/invite/offer', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -378,7 +346,6 @@ public class OASInviteApi {
     /**
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite\&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerLocationId the id of the offer location to share (required)
@@ -386,7 +353,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse offerLocationInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('offerLocationId'), 'offerLocationId');
@@ -400,11 +366,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/offerLocation', '',
+            'POST', '/invite/offerLocation', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -415,7 +379,6 @@ public class OASInviteApi {
     /**
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite\&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param retailerLocationId The retailer location id of where the event will take place (required)
@@ -424,7 +387,6 @@ public class OASInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASInviteResponse retailerLocationInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('retailerLocationId'), 'retailerLocationId');
@@ -439,11 +401,9 @@ public class OASInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASInviteResponse) client.invoke(
-            'POST', '/api/{version}/invite/retailerLocation', '',
+            'POST', '/invite/retailerLocation', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

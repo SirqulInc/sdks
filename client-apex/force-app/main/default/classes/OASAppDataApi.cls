@@ -28,7 +28,6 @@ public class OASAppDataApi {
     /**
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user\&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.   \n\nUsing the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user\&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version  (required)
      * @param start start the search results at a record. (required)
      * @param r_limit limit the search results to some number. (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -58,7 +57,6 @@ public class OASAppDataApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAppResponse getAppData(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -93,11 +91,9 @@ public class OASAppDataApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAppResponse) client.invoke(
-            'GET', '/api/{version}/app/get', '',
+            'GET', '/app/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,7 +104,6 @@ public class OASAppDataApi {
     /**
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.\n\nThe basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user\&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.    \n\nUsing the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user\&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version  (required)
      * @param gameType the game to retrieve the data for, use your application key. (required)
      * @param start start the search results at a record. (required)
      * @param r_limit limit the search results to some number. (required)
@@ -139,7 +134,6 @@ public class OASAppDataApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAppResponse postAppData(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('gameType'), 'gameType');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -177,11 +171,9 @@ public class OASAppDataApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAppResponse) client.invoke(
-            'POST', '/api/{version}/app/post', '',
+            'POST', '/app/post', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -192,7 +184,6 @@ public class OASAppDataApi {
     /**
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -201,7 +192,6 @@ public class OASAppDataApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse regenAppData(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -213,11 +203,9 @@ public class OASAppDataApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/app/regen', '',
+            'POST', '/app/regen', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASOfferStatusApi {
     /**
      * Create Offer Status
      * Create an offer status record
-     * @param version  (required)
      * @param name The name of the status (required)
      * @param code The status code, must be unique  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -43,7 +42,6 @@ public class OASOfferStatusApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferTransactionStatusResponse createOfferTransactionStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('code'), 'code');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -63,11 +61,9 @@ public class OASOfferStatusApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferTransactionStatusResponse) client.invoke(
-            'POST', '/api/{version}/offer/status/create', '',
+            'POST', '/offer/status/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -78,7 +74,6 @@ public class OASOfferStatusApi {
     /**
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param version  (required)
      * @param statusId The id of the record to delete (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -88,7 +83,6 @@ public class OASOfferStatusApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteOfferTransactionStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('statusId'), 'statusId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -102,11 +96,9 @@ public class OASOfferStatusApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/offer/status/delete', '',
+            'POST', '/offer/status/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -117,7 +109,6 @@ public class OASOfferStatusApi {
     /**
      * Get Offer Status
      * Get an offer status record
-     * @param version  (required)
      * @param statusId The id of the record to get  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -127,7 +118,6 @@ public class OASOfferStatusApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferTransactionStatusResponse getOfferTransactionStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('statusId'), 'statusId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -141,11 +131,9 @@ public class OASOfferStatusApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferTransactionStatusResponse) client.invoke(
-            'GET', '/api/{version}/offer/status/get', '',
+            'GET', '/offer/status/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -156,7 +144,6 @@ public class OASOfferStatusApi {
     /**
      * Search Offer Status
      * Search for the available offer statuses
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user\&#39;s current location (optional)
@@ -173,7 +160,6 @@ public class OASOfferStatusApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferTransactionStatusResponse> searchOfferTransactionStatuses(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -193,11 +179,9 @@ public class OASOfferStatusApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferTransactionStatusResponse>) client.invoke(
-            'GET', '/api/{version}/offer/status/search', '',
+            'GET', '/offer/status/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -208,7 +192,6 @@ public class OASOfferStatusApi {
     /**
      * Update Offer Status
      * Update an offer status record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user\&#39;s current location (optional)
@@ -224,7 +207,6 @@ public class OASOfferStatusApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferTransactionStatusResponse updateOfferTransactionStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -243,11 +225,9 @@ public class OASOfferStatusApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferTransactionStatusResponse) client.invoke(
-            'POST', '/api/{version}/offer/status/update', '',
+            'POST', '/offer/status/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASSubscriptionApi {
     /**
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version  (required)
      * @param accountId The account used to perform the create, must be the responsible manager (required)
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -36,7 +35,6 @@ public class OASSubscriptionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSubscriptionResponse createSubscription(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -48,11 +46,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSubscriptionResponse) client.invoke(
-            'POST', '/api/{version}/subscription/create', '',
+            'POST', '/subscription/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -63,13 +59,11 @@ public class OASSubscriptionApi {
     /**
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must be the responsible manager (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteSubscription(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -79,11 +73,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/subscription/delete', '',
+            'POST', '/subscription/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -94,13 +86,11 @@ public class OASSubscriptionApi {
     /**
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @return OASSubscriptionResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSubscriptionResponse getSubscription(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -110,11 +100,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSubscriptionResponse) client.invoke(
-            'GET', '/api/{version}/subscription/get', '',
+            'GET', '/subscription/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -125,13 +113,11 @@ public class OASSubscriptionApi {
     /**
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param version  (required)
      * @param planId The ID of the plan to get (required)
      * @return OASSubscriptionPlanResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSubscriptionPlanResponse getSubscriptionPlan(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('planId'), 'planId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -141,11 +127,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSubscriptionPlanResponse) client.invoke(
-            'GET', '/api/{version}/subscription/plan/get', '',
+            'GET', '/subscription/plan/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -156,14 +140,12 @@ public class OASSubscriptionApi {
     /**
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param version  (required)
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return List<OASSubscriptionPlanResponse>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASSubscriptionPlanResponse> getSubscriptionPlans(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -173,11 +155,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASSubscriptionPlanResponse>) client.invoke(
-            'GET', '/api/{version}/subscription/plan/list', '',
+            'GET', '/subscription/plan/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -188,7 +168,6 @@ public class OASSubscriptionApi {
     /**
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -197,7 +176,6 @@ public class OASSubscriptionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASApplicationUsageResponse getSubscriptionUsage(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -210,11 +188,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASApplicationUsageResponse) client.invoke(
-            'GET', '/api/{version}/subscription/usage/get', '',
+            'GET', '/subscription/usage/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -225,7 +201,6 @@ public class OASSubscriptionApi {
     /**
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param version  (required)
      * @param accountId The account used to perform the update, must be the responsible manager (required)
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -234,7 +209,6 @@ public class OASSubscriptionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSubscriptionResponse updateSubscription(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -247,11 +221,9 @@ public class OASSubscriptionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSubscriptionResponse) client.invoke(
-            'POST', '/api/{version}/subscription/update', '',
+            'POST', '/subscription/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

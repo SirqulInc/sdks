@@ -28,7 +28,6 @@ public class OASReportingApi {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param accountId The account id of the user for passing account related params (required)
      * @param status the status of the report (required)
      * @param previewLimit the limit on how much you can preview of the batch report (required)
@@ -44,7 +43,6 @@ public class OASReportingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASReportBatchResponse createBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('status'), 'status');
         client.assertNotNull(params.get('previewLimit'), 'previewLimit');
@@ -66,11 +64,9 @@ public class OASReportingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASReportBatchResponse) client.invoke(
-            'POST', '/api/{version}/report/batch/create', '',
+            'POST', '/report/batch/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -81,23 +77,19 @@ public class OASReportingApi {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param body  (optional)
      * @return OASReportRegionLegSummaryBatchRespon
      * @throws OAS.ApiException if fails to make API call
      */
     public OASReportRegionLegSummaryBatchRespon createRegionLegSummaryBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASReportRegionLegSummaryBatchRespon) client.invoke(
-            'POST', '/api/{version}/report/region/summary/batch',
+            'POST', '/report/region/summary/batch',
             (List<OASRegionLegSummary>) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,14 +100,12 @@ public class OASReportingApi {
     /**
      * Delete Offline Report
      * Deletes a batch report.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('batchId'), 'batchId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -127,11 +117,9 @@ public class OASReportingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/report/batch/delete', '',
+            'POST', '/report/batch/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -142,7 +130,6 @@ public class OASReportingApi {
     /**
      * Get Offline Report
      * Checks status of batch report.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId returned by /report/batch/create (required)
      * @param allResults whether to return all batch results or not (required)
@@ -150,7 +137,6 @@ public class OASReportingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASReportBatchResponse getReportBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('batchId'), 'batchId');
         client.assertNotNull(params.get('allResults'), 'allResults');
@@ -164,11 +150,9 @@ public class OASReportingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASReportBatchResponse) client.invoke(
-            'GET', '/api/{version}/report/batch/get', '',
+            'GET', '/report/batch/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -179,7 +163,6 @@ public class OASReportingApi {
     /**
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users\&#39; behavior as well as trends within your application.
-     * @param version  (required)
      * @param r_desc If true then descending order, false is ascending (required)
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -192,7 +175,6 @@ public class OASReportingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASReportResponse runReport(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('r_desc'), 'r_desc');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -209,11 +191,9 @@ public class OASReportingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASReportResponse) client.invoke(
-            'POST', '/api/{version}/report/run', '',
+            'POST', '/report/run', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -224,7 +204,6 @@ public class OASReportingApi {
     /**
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param start the start of the index and/or pagination (required)
      * @param r_limit the limit of the index and/or pagination (required)
@@ -238,7 +217,6 @@ public class OASReportingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASReportBatchResponse> searchBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -258,11 +236,9 @@ public class OASReportingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASReportBatchResponse>) client.invoke(
-            'GET', '/api/{version}/report/batch/search', '',
+            'GET', '/report/batch/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

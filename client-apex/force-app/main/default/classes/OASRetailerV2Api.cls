@@ -28,7 +28,6 @@ public class OASRetailerV2Api {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the id of the retailer (required)
      * @param activeOnly whether to return results that are active only or all (required)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -39,7 +38,6 @@ public class OASRetailerV2Api {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse getRetaokiler(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerId'), 'retailerId');
         client.assertNotNull(params.get('activeOnly'), 'activeOnly');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -55,11 +53,9 @@ public class OASRetailerV2Api {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/retailer', '',
+            'GET', '/retailer', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

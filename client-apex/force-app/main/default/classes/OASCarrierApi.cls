@@ -28,7 +28,6 @@ public class OASCarrierApi {
     /**
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version  (required)
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -38,7 +37,6 @@ public class OASCarrierApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASCellCarrierResponse> searchCarriers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -51,11 +49,9 @@ public class OASCarrierApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASCellCarrierResponse>) client.invoke(
-            'GET', '/api/{version}/carrier/search', '',
+            'GET', '/carrier/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

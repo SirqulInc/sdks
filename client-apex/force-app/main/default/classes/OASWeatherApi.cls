@@ -28,7 +28,6 @@ public class OASWeatherApi {
     /**
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param version  (required)
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -37,7 +36,6 @@ public class OASWeatherApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWeatherResponse searchWeather(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -49,11 +47,9 @@ public class OASWeatherApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWeatherResponse) client.invoke(
-            'GET', '/api/{version}/weather/search', '',
+            'GET', '/weather/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

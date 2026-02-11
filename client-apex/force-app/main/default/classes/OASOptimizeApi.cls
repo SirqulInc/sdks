@@ -28,7 +28,6 @@ public class OASOptimizeApi {
     /**
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param version  (required)
      * @param batchID The batchID for getting the import status of. (required)
      * @param start The start index for pagination (required)
      * @param r_limit The limit for pagination (required)
@@ -36,7 +35,6 @@ public class OASOptimizeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public Map<String, OASShipmentOrder> getOptimizationResult(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('batchID'), 'batchID');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -49,10 +47,9 @@ public class OASOptimizeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (Map<String, OASShipmentOrder>) client.invoke(
-            'GET', '/api/{version}/optimize/result/{batchID}', '',
+            'GET', '/optimize/result/{batchID}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'batchID' => (String) params.get('batchID')
             },
             new Map<String, Object>(),
@@ -65,23 +62,19 @@ public class OASOptimizeApi {
     /**
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version  (required)
      * @param body  (optional)
      * @return OASImportStatuses
      * @throws OAS.ApiException if fails to make API call
      */
     public OASImportStatuses requestOptimization(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASImportStatuses) client.invoke(
-            'POST', '/api/{version}/optimize/request',
+            'POST', '/optimize/request',
             (OASOrders) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

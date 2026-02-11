@@ -28,7 +28,6 @@ public class OASListingApi {
     /**
      * Create Listing
      * Creates a listing.
-     * @param version  (required)
      * @param accountId the user\&#39;s account ID (required)
      * @param name the name of the listing (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -47,7 +46,6 @@ public class OASListingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASListingFullResponse createListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -71,11 +69,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASListingFullResponse) client.invoke(
-            'POST', '/api/{version}/listing/create', '',
+            'POST', '/listing/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -86,14 +82,12 @@ public class OASListingApi {
     /**
      * Delete Listing
      * Delete a listing.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param listingId the id of the listing to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('listingId'), 'listingId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -105,11 +99,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/listing/delete', '',
+            'POST', '/listing/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -120,13 +112,11 @@ public class OASListingApi {
     /**
      * Get Listing
      * Get a listing by id.
-     * @param version  (required)
      * @param listingId the id of the listing to get (required)
      * @return OASListingFullResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASListingFullResponse getListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('listingId'), 'listingId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -136,11 +126,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASListingFullResponse) client.invoke(
-            'GET', '/api/{version}/listing/get', '',
+            'GET', '/listing/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -151,7 +139,6 @@ public class OASListingApi {
     /**
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -171,7 +158,6 @@ public class OASListingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASListingResponse> searchListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -194,11 +180,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASListingResponse>) client.invoke(
-            'GET', '/api/{version}/listing/search', '',
+            'GET', '/listing/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -209,7 +193,6 @@ public class OASListingApi {
     /**
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -219,7 +202,6 @@ public class OASListingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASListingGroupResponse> summaryListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -232,11 +214,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASListingGroupResponse>) client.invoke(
-            'GET', '/api/{version}/listing/summary', '',
+            'GET', '/listing/summary', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -247,7 +227,6 @@ public class OASListingApi {
     /**
      * Update Listing
      * Updates a listing.
-     * @param version  (required)
      * @param accountId the user\&#39;s account ID (required)
      * @param listingId the listing to update (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -267,7 +246,6 @@ public class OASListingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASListingFullResponse updateListing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('listingId'), 'listingId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -292,11 +270,9 @@ public class OASListingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASListingFullResponse) client.invoke(
-            'POST', '/api/{version}/listing/update', '',
+            'POST', '/listing/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

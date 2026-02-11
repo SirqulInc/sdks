@@ -28,24 +28,20 @@ public class OASActivityApi {
     /**
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param version  (required)
      * @param body The entity reference object (required)
      * @return OASActivityResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASActivityResponse createEntityReference(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('body'), 'body');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASActivityResponse) client.invoke(
-            'POST', '/api/{version}/entity/reference',
+            'POST', '/entity/reference',
             (OASEntityReference) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },

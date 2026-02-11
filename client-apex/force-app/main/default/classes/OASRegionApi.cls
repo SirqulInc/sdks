@@ -28,7 +28,6 @@ public class OASRegionApi {
     /**
      * Create Region
      * Create a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionClass RegionClass of this region (required)
      * @param shortName Short name of the region. This is optimized for search (required)
@@ -54,7 +53,6 @@ public class OASRegionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRegionResponse createRegion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('regionClass'), 'regionClass');
         client.assertNotNull(params.get('shortName'), 'shortName');
@@ -86,11 +84,9 @@ public class OASRegionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRegionResponse) client.invoke(
-            'POST', '/api/{version}/region/create', '',
+            'POST', '/region/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -101,14 +97,12 @@ public class OASRegionApi {
     /**
      * Delete Region
      * Delete a region.
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param regionId the id of the region (required)
      * @return OASRegionResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRegionResponse deleteRegion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('regionId'), 'regionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -120,11 +114,9 @@ public class OASRegionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRegionResponse) client.invoke(
-            'POST', '/api/{version}/region/delete', '',
+            'POST', '/region/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -135,14 +127,12 @@ public class OASRegionApi {
     /**
      * Get Region
      * Get a region.
-     * @param version  (required)
      * @param regionId the id of the region to get (required)
      * @param accountId the id of the logged in user (optional)
      * @return OASRegionResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRegionResponse getRegion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('regionId'), 'regionId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -153,11 +143,9 @@ public class OASRegionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRegionResponse) client.invoke(
-            'GET', '/api/{version}/region/get', '',
+            'GET', '/region/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -168,7 +156,6 @@ public class OASRegionApi {
     /**
      * Search Regions
      * Get the list of regions.
-     * @param version  (required)
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use &quot;keyword&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -195,7 +182,6 @@ public class OASRegionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRegionResponse> searchRegions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -225,11 +211,9 @@ public class OASRegionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRegionResponse>) client.invoke(
-            'GET', '/api/{version}/region/search', '',
+            'GET', '/region/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -240,7 +224,6 @@ public class OASRegionApi {
     /**
      * Update Region
      * Update a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionId The id of the region to be updated (required)
      * @param regionClass RegionClass of this region (optional)
@@ -268,7 +251,6 @@ public class OASRegionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRegionResponse updateRegion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('regionId'), 'regionId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -301,11 +283,9 @@ public class OASRegionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRegionResponse) client.invoke(
-            'POST', '/api/{version}/region/update', '',
+            'POST', '/region/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

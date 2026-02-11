@@ -28,7 +28,6 @@ public class OASFavoriteApi {
     /**
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version  (required)
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -39,7 +38,6 @@ public class OASFavoriteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWrappedResponse addFavorite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('favoritableId'), 'favoritableId');
         client.assertNotNull(params.get('favoritableType'), 'favoritableType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -55,11 +53,9 @@ public class OASFavoriteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWrappedResponse) client.invoke(
-            'POST', '/api/{version}/favorite/create', '',
+            'POST', '/favorite/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -70,7 +66,6 @@ public class OASFavoriteApi {
     /**
      * Delete Favorite
      * Removes a favorited item from the user\&#39;s favorites list.
-     * @param version  (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -80,7 +75,6 @@ public class OASFavoriteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteFavorite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -93,11 +87,9 @@ public class OASFavoriteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/favorite/delete', '',
+            'POST', '/favorite/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,7 +100,6 @@ public class OASFavoriteApi {
     /**
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param version  (required)
      * @param favoriteId The ID of the favorite reference record (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -118,7 +109,6 @@ public class OASFavoriteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWrappedResponse getFavorite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('favoriteId'), 'favoriteId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -132,11 +122,9 @@ public class OASFavoriteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWrappedResponse) client.invoke(
-            'GET', '/api/{version}/favorite/get', '',
+            'GET', '/favorite/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -147,7 +135,6 @@ public class OASFavoriteApi {
     /**
      * Search Favorites
      * Searches on the user\&#39;s favorites.
-     * @param version  (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
@@ -166,7 +153,6 @@ public class OASFavoriteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSearchResponse searchFavorites(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('favoritableType'), 'favoritableType');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -195,11 +181,9 @@ public class OASFavoriteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSearchResponse) client.invoke(
-            'GET', '/api/{version}/favorite/search', '',
+            'GET', '/favorite/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -210,7 +194,6 @@ public class OASFavoriteApi {
     /**
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param version  (required)
      * @param favoritableId The ID of the favoritableType to search on (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param start The start index for pagination (required)
@@ -224,7 +207,6 @@ public class OASFavoriteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAccountResponse> whoHasFavorited(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('favoritableId'), 'favoritableId');
         client.assertNotNull(params.get('favoritableType'), 'favoritableType');
         client.assertNotNull(params.get('start'), 'start');
@@ -245,11 +227,9 @@ public class OASFavoriteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAccountResponse>) client.invoke(
-            'GET', '/api/{version}/favorite/whois', '',
+            'GET', '/favorite/whois', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

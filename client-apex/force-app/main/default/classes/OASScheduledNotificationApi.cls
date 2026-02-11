@@ -28,7 +28,6 @@ public class OASScheduledNotificationApi {
     /**
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (required)
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -67,7 +66,6 @@ public class OASScheduledNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScheduledNotificationFullResponse createScheduledNotification(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('type'), 'type');
@@ -113,11 +111,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScheduledNotificationFullResponse) client.invoke(
-            'POST', '/api/{version}/notification/schedule/create', '',
+            'POST', '/notification/schedule/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -128,7 +124,6 @@ public class OASScheduledNotificationApi {
     /**
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param scheduledNotificationId the id of the scheduled notification to delete (required)
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -136,7 +131,6 @@ public class OASScheduledNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScheduledNotificationFullResponse deleteScheduledNotification(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('scheduledNotificationId'), 'scheduledNotificationId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -149,11 +143,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScheduledNotificationFullResponse) client.invoke(
-            'POST', '/api/{version}/notification/schedule/delete', '',
+            'POST', '/notification/schedule/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -164,14 +156,12 @@ public class OASScheduledNotificationApi {
     /**
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param scheduledNotificationId the id of the scheduled notification to get (required)
      * @return OASScheduledNotificationFullResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScheduledNotificationFullResponse getScheduledNotification(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('scheduledNotificationId'), 'scheduledNotificationId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -183,11 +173,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScheduledNotificationFullResponse) client.invoke(
-            'GET', '/api/{version}/notification/schedule/get', '',
+            'GET', '/notification/schedule/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -198,7 +186,6 @@ public class OASScheduledNotificationApi {
     /**
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -211,7 +198,6 @@ public class OASScheduledNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse scheduleNotificationListings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('reportName'), 'reportName');
@@ -233,11 +219,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/notification/schedule/generate', '',
+            'POST', '/notification/schedule/generate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -248,7 +232,6 @@ public class OASScheduledNotificationApi {
     /**
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.\n\nIn addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -273,7 +256,6 @@ public class OASScheduledNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScheduledNotificationFullResponse searchScheduledNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -302,11 +284,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScheduledNotificationFullResponse) client.invoke(
-            'GET', '/api/{version}/notification/schedule/search', '',
+            'GET', '/notification/schedule/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -317,7 +297,6 @@ public class OASScheduledNotificationApi {
     /**
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.\n\nOnly the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version  (required)
      * @param scheduledNotificationId The id of scheduled notification to update (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (optional)
@@ -360,7 +339,6 @@ public class OASScheduledNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScheduledNotificationFullResponse updateScheduledNotification(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('scheduledNotificationId'), 'scheduledNotificationId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -408,11 +386,9 @@ public class OASScheduledNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScheduledNotificationFullResponse) client.invoke(
-            'POST', '/api/{version}/notification/schedule/update', '',
+            'POST', '/notification/schedule/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

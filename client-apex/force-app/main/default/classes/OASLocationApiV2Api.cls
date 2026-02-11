@@ -28,23 +28,19 @@ public class OASLocationApiV2Api {
     /**
      * Create new location
      * Create a new location from a real object location.
-     * @param version  (required)
      * @param body  (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse createLocationV2(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/location',
+            'POST', '/location',
             (OASLocation) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,24 +51,21 @@ public class OASLocationApiV2Api {
     /**
      * Update an existing location
      * Update an existing location
-     * @param version  (required)
      * @param id the id of the location to update (required)
      * @param body  (optional)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateLocationV2(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/location/{id}',
+            'POST', '/location/{id}',
             (OASLocation) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),

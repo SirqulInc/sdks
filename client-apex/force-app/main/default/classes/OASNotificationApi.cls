@@ -28,7 +28,6 @@ public class OASNotificationApi {
     /**
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param title title of the notification template (required)
@@ -40,7 +39,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationTemplateResponse createNotificationTemplate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('conduit'), 'conduit');
         client.assertNotNull(params.get('title'), 'title');
@@ -59,11 +57,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationTemplateResponse) client.invoke(
-            'POST', '/api/{version}/notification/template/create', '',
+            'POST', '/notification/template/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -74,7 +70,6 @@ public class OASNotificationApi {
     /**
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param data batch data payload (application specific) (required)
      * @param accountId the account id of the user (optional)
@@ -82,7 +77,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBlockedNotificationResponse createOrUpdateBlockedNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('data'), 'data');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -95,11 +89,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBlockedNotificationResponse) client.invoke(
-            'POST', '/api/{version}/notification/blocked/batch', '',
+            'POST', '/notification/blocked/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -110,14 +102,12 @@ public class OASNotificationApi {
     /**
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param notificationTemplateId the id of the notification template to delete (required)
      * @return OASNotificationTemplateResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationTemplateResponse deleteNotificationTemplate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('notificationTemplateId'), 'notificationTemplateId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -129,11 +119,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationTemplateResponse) client.invoke(
-            'POST', '/api/{version}/notification/template/delete', '',
+            'POST', '/notification/template/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -144,14 +132,12 @@ public class OASNotificationApi {
     /**
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param notificationTemplateId the id of the notification template to get (required)
      * @return OASNotificationTemplateResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationTemplateResponse getNotificationTemplate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('notificationTemplateId'), 'notificationTemplateId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -163,11 +149,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationTemplateResponse) client.invoke(
-            'GET', '/api/{version}/notification/template/get', '',
+            'GET', '/notification/template/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -178,7 +162,6 @@ public class OASNotificationApi {
     /**
      * Get Notifications
      * Get a list of notifications for a user. If the &quot;markAsRead&quot; parameter is set to true, the returned notifications will be marked as &quot;read&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set &quot;returnReadMessages&quot; to true.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person\&#39;s notifications (optional)
@@ -204,7 +187,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationMessageListResponse getNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -233,11 +215,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationMessageListResponse) client.invoke(
-            'GET', '/api/{version}/notification/search', '',
+            'GET', '/notification/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -248,7 +228,6 @@ public class OASNotificationApi {
     /**
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version  (required)
      * @param token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param pushType The type of push notification. Possible values include: APNS, GCM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -263,7 +242,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse registerNotificationToken(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('token'), 'token');
         client.assertNotNull(params.get('pushType'), 'pushType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -283,11 +261,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/notification/token', '',
+            'POST', '/notification/token', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -298,7 +274,6 @@ public class OASNotificationApi {
     /**
      * Search on the user\&#39;s blocked notification settings
      * Search on the user\&#39;s blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -315,7 +290,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBlockedNotificationResponse searchBlockedNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -336,11 +310,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBlockedNotificationResponse) client.invoke(
-            'GET', '/api/{version}/notification/blocked/search', '',
+            'GET', '/notification/blocked/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -351,7 +323,6 @@ public class OASNotificationApi {
     /**
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (\&#39;global\&#39; templates will not have an application and will be returned last if \&#39;descending\&#39; is set to false. (required)
      * @param descending Specified whether the results are returned in descending or ascending order. (required)
@@ -367,7 +338,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationTemplateResponse searchNotificationTemplate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -391,11 +361,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationTemplateResponse) client.invoke(
-            'GET', '/api/{version}/notification/template/search', '',
+            'GET', '/notification/template/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -406,7 +374,6 @@ public class OASNotificationApi {
     /**
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param version  (required)
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -424,7 +391,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASNotificationRecipientResponse> searchRecipients(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -446,11 +412,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASNotificationRecipientResponse>) client.invoke(
-            'GET', '/api/{version}/notification/recipient/search', '',
+            'GET', '/notification/recipient/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -461,7 +425,6 @@ public class OASNotificationApi {
     /**
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -478,7 +441,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationRecipientResponseList searchRecipientsCount(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -498,11 +460,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationRecipientResponseList) client.invoke(
-            'GET', '/api/{version}/notification/recipient/search/count', '',
+            'GET', '/notification/recipient/search/count', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -513,7 +473,6 @@ public class OASNotificationApi {
     /**
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (required)
      * @param appKey The application key for updating an existing application (required)
      * @param customMessage Message string that will be displayed in on the notification (required)
@@ -527,7 +486,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse sendBatchNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('customMessage'), 'customMessage');
@@ -547,11 +505,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/notification/batch', '',
+            'POST', '/notification/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -562,7 +518,6 @@ public class OASNotificationApi {
     /**
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -585,7 +540,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse sendCustomNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -611,11 +565,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/notification/custom', '',
+            'POST', '/notification/custom', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -626,7 +578,6 @@ public class OASNotificationApi {
     /**
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param notificationTemplateId The notification template ID to update. (required)
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -636,7 +587,6 @@ public class OASNotificationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNotificationTemplateResponse updateNotificationTemplate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('notificationTemplateId'), 'notificationTemplateId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -651,11 +601,9 @@ public class OASNotificationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNotificationTemplateResponse) client.invoke(
-            'POST', '/api/{version}/notification/template/update', '',
+            'POST', '/notification/template/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

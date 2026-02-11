@@ -28,22 +28,19 @@ public class OASAssetApi {
     /**
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version  (required)
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse assetDownload(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('filename'), 'filename');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/asset/download/{filename}', '',
+            'GET', '/asset/download/{filename}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'filename' => (String) params.get('filename')
             },
             new Map<String, Object>(),
@@ -56,7 +53,6 @@ public class OASAssetApi {
     /**
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param version  (required)
      * @param offerId offer id used for inserting offer text/flavor (required)
      * @param adSize the ad size used for selecting a format for the creative image (required)
      * @param creativeId used for inserting the newly created image into (optional)
@@ -68,7 +64,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssetShortResponse assetMorph(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerId'), 'offerId');
         client.assertNotNull(params.get('adSize'), 'adSize');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -85,11 +80,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssetShortResponse) client.invoke(
-            'POST', '/api/{version}/asset/morph', '',
+            'POST', '/asset/morph', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -100,7 +93,6 @@ public class OASAssetApi {
     /**
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version  (required)
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -139,7 +131,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssetResponse createAsset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -181,11 +172,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssetResponse) client.invoke(
-            'POST', '/api/{version}/asset/create', '',
+            'POST', '/asset/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -196,7 +185,6 @@ public class OASAssetApi {
     /**
      * Delete Asset
      * Delete an asset.
-     * @param version  (required)
      * @param assetId the id of the asset to delete (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -206,7 +194,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteAsset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('assetId'), 'assetId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -220,11 +207,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/asset/delete', '',
+            'POST', '/asset/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -235,7 +220,6 @@ public class OASAssetApi {
     /**
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param version  (required)
      * @param assetId the asset ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -244,7 +228,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssetFullResponse getAsset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('assetId'), 'assetId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -257,11 +240,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssetFullResponse) client.invoke(
-            'GET', '/api/{version}/asset/get', '',
+            'GET', '/asset/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -272,7 +253,6 @@ public class OASAssetApi {
     /**
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param version  (required)
      * @param assetId the id of the asset to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -285,7 +265,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeAsset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('assetId'), 'assetId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -302,11 +281,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/asset/remove', '',
+            'POST', '/asset/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -317,7 +294,6 @@ public class OASAssetApi {
     /**
      * Search Assets
      * Searches for assets
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -346,7 +322,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAssetResponse> searchAssets(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -378,11 +353,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAssetResponse>) client.invoke(
-            'GET', '/api/{version}/asset/search', '',
+            'GET', '/asset/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -393,7 +366,6 @@ public class OASAssetApi {
     /**
      * Update Asset
      * Updates an asset\&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version  (required)
      * @param assetId the ID of the asset to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -429,7 +401,6 @@ public class OASAssetApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateAsset(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('assetId'), 'assetId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -469,11 +440,9 @@ public class OASAssetApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/asset/update', '',
+            'POST', '/asset/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

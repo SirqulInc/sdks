@@ -28,7 +28,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account. \n\nThe thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user\&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination. \n\n The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version  (required)
      * @param thirdPartyId the third party user account id (required)
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param networkUID the access provider to authenticate against (required)
@@ -50,7 +49,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse createCredential(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('thirdPartyId'), 'thirdPartyId');
         client.assertNotNull(params.get('thirdPartyToken'), 'thirdPartyToken');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
@@ -79,11 +77,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/credential/create', '',
+            'POST', '/thirdparty/credential/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -94,7 +90,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Create Network
      * Creates a custom third party network.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param name The name of the network (required)
      * @param enableIntrospection Whether the network uses introspection calls (required)
@@ -116,7 +111,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASThirdPartyNetworkResponse createNetwork(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('enableIntrospection'), 'enableIntrospection');
@@ -143,12 +137,10 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASThirdPartyNetworkResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/network/create',
+            'POST', '/thirdparty/network/create',
             (String) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -159,7 +151,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param networkUID The third party network identifier (required)
      * @param thirdPartyId The third party user id (required)
@@ -168,7 +159,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteCredential(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         client.assertNotNull(params.get('thirdPartyId'), 'thirdPartyId');
@@ -184,11 +174,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/credential/delete', '',
+            'POST', '/thirdparty/credential/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -199,14 +187,12 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteNetwork(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -218,11 +204,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/network/delete', '',
+            'POST', '/thirdparty/network/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -233,7 +217,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Get Credential
      * Gets the account information given a third party token.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param appKey the application key (required)
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -253,7 +236,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse getCredential(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -278,11 +260,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/credential/get', '',
+            'POST', '/thirdparty/credential/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -293,14 +273,12 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return OASThirdPartyNetworkResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASThirdPartyNetworkResponse getNetwork(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -312,11 +290,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASThirdPartyNetworkResponse) client.invoke(
-            'GET', '/api/{version}/thirdparty/network/get', '',
+            'GET', '/thirdparty/network/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -327,7 +303,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Search Credentials
      * Search on a user\&#39;s linked third party networks.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -338,7 +313,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASThirdPartyCredentialResponse> searchCredentials(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -353,11 +327,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASThirdPartyCredentialResponse>) client.invoke(
-            'GET', '/api/{version}/thirdparty/credential/search', '',
+            'GET', '/thirdparty/credential/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -368,7 +340,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param descending The order to return the search results (required)
@@ -381,7 +352,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASThirdPartyNetworkShortResponse> searchNetworks(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -403,11 +373,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASThirdPartyNetworkShortResponse>) client.invoke(
-            'GET', '/api/{version}/thirdparty/network/search', '',
+            'GET', '/thirdparty/network/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -418,7 +386,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version  (required)
      * @param networkUID the third party network provider that has MFA enabled (required)
      * @param appKey the application key (required)
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -428,7 +395,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse sendMFAChallenge(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -443,11 +409,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/credential/mfa/send', '',
+            'POST', '/thirdparty/credential/mfa/send', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -458,7 +422,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Update Credential
      * Updates a third-party login for an account.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param thirdPartyId the third party user account id (required)
      * @param appKey the application key (required)
@@ -472,7 +435,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProfileResponse updateCredential(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         client.assertNotNull(params.get('thirdPartyId'), 'thirdPartyId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -492,11 +454,9 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProfileResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/credential/update', '',
+            'POST', '/thirdparty/credential/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -507,7 +467,6 @@ public class OASThirdPartyCredentialsApi {
     /**
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param name The name of the network (optional)
@@ -530,7 +489,6 @@ public class OASThirdPartyCredentialsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASThirdPartyNetworkResponse updateNetwork(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('networkUID'), 'networkUID');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -557,12 +515,10 @@ public class OASThirdPartyCredentialsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASThirdPartyNetworkResponse) client.invoke(
-            'POST', '/api/{version}/thirdparty/network/update',
+            'POST', '/thirdparty/network/update',
             (String) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

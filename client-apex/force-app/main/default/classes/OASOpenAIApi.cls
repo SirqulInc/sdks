@@ -28,7 +28,6 @@ public class OASOpenAIApi {
     /**
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param postBody Post Body Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -36,7 +35,6 @@ public class OASOpenAIApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWrappedProxyItemResponse imageGeneration(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('postBody'), 'postBody');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -49,11 +47,9 @@ public class OASOpenAIApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWrappedProxyItemResponse) client.invoke(
-            'POST', '/api/{version}/openai/v1/images/generations', '',
+            'POST', '/openai/v1/images/generations', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

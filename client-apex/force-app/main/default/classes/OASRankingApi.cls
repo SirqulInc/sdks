@@ -28,7 +28,6 @@ public class OASRankingApi {
     /**
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param version  (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType the rank type to return (required)
      * @param startDate timestamp in milliseconds to filter results with (required)
@@ -43,7 +42,6 @@ public class OASRankingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRankFullResponse getHistoricalRankings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('rankType'), 'rankType');
         client.assertNotNull(params.get('startDate'), 'startDate');
@@ -65,11 +63,9 @@ public class OASRankingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRankFullResponse) client.invoke(
-            'GET', '/api/{version}/ranking/historical/search', '',
+            'GET', '/ranking/historical/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -80,7 +76,6 @@ public class OASRankingApi {
     /**
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -103,7 +98,6 @@ public class OASRankingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRankFullResponse getRankings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -129,11 +123,9 @@ public class OASRankingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRankFullResponse) client.invoke(
-            'GET', '/api/{version}/ranking/search', '',
+            'GET', '/ranking/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -144,7 +136,6 @@ public class OASRankingApi {
     /**
      * Get Personal Rankings
      * Returns the user\&#39;s ranks for one or more rank types and modes.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -160,7 +151,6 @@ public class OASRankingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public Object getUserRank(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -179,11 +169,9 @@ public class OASRankingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (Object) client.invoke(
-            'POST', '/api/{version}/ranking/personal/ranks', '',
+            'POST', '/ranking/personal/ranks', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -194,7 +182,6 @@ public class OASRankingApi {
     /**
      * Override User Rank
      * Allows an admin of an application to override a user\&#39;s scores for a leaderboard.
-     * @param version  (required)
      * @param accountId the logged in user\&#39;s account id (must have permissions to manage data for the application) (required)
      * @param ownerAccountId the end user\&#39;s account id to override (required)
      * @param appKey the application key the leaderboard is for (required)
@@ -221,7 +208,6 @@ public class OASRankingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse overrideUserRank(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('ownerAccountId'), 'ownerAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -255,11 +241,9 @@ public class OASRankingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/ranking/override', '',
+            'POST', '/ranking/override', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -270,7 +254,6 @@ public class OASRankingApi {
     /**
      * Update Ranking
      * Update the rank value 
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -285,7 +268,6 @@ public class OASRankingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateRankings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('rankType'), 'rankType');
@@ -306,11 +288,9 @@ public class OASRankingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/ranking/update', '',
+            'POST', '/ranking/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

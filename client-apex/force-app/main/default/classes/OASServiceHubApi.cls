@@ -28,23 +28,19 @@ public class OASServiceHubApi {
     /**
      * Create Service Hub
      * Create new service hub
-     * @param version  (required)
      * @param body  (optional)
      * @return OASServiceHub
      * @throws OAS.ApiException if fails to make API call
      */
     public OASServiceHub createServiceHub(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASServiceHub) client.invoke(
-            'POST', '/api/{version}/hub',
+            'POST', '/hub',
             (OASServiceHub) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,21 +51,18 @@ public class OASServiceHubApi {
     /**
      * Delete Service Hub
      * Delete an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteServiceHub(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/hub/{id}', '',
+            'DELETE', '/hub/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -82,22 +75,19 @@ public class OASServiceHubApi {
     /**
      * Get Service Hub
      * Get an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to get (required)
      * @return Object
      * @throws OAS.ApiException if fails to make API call
      */
     public Object getServiceHub(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (Object) client.invoke(
-            'GET', '/api/{version}/hub/{id}', '',
+            'GET', '/hub/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -110,24 +100,21 @@ public class OASServiceHubApi {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return OASServiceHub
      * @throws OAS.ApiException if fails to make API call
      */
     public OASServiceHub postServiceHub(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASServiceHub) client.invoke(
-            'POST', '/api/{version}/hub/{id}',
+            'POST', '/hub/{id}',
             (OASServiceHub) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -140,24 +127,21 @@ public class OASServiceHubApi {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return OASServiceHub
      * @throws OAS.ApiException if fails to make API call
      */
     public OASServiceHub putServiceHub(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASServiceHub) client.invoke(
-            'PUT', '/api/{version}/hub/{id}',
+            'PUT', '/hub/{id}',
             (OASServiceHub) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -170,7 +154,6 @@ public class OASServiceHubApi {
     /**
      * Search Service Hubs
      * Search for service hubs.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -182,7 +165,6 @@ public class OASServiceHubApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASServiceHub> searchServiceHubs(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -202,11 +184,9 @@ public class OASServiceHubApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASServiceHub>) client.invoke(
-            'GET', '/api/{version}/hub', '',
+            'GET', '/hub', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

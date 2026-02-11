@@ -28,7 +28,6 @@ public class OASQuestionApi {
     /**
      * Create Question
      * Create a question and related answers by the given params.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param question the text of the question (required)
      * @param answers &#x60;&#x60;&#x60;json\n[\n  {\n    &quot;text&quot;: &quot;1942&quot;,\n    &quot;image&quot;: 123,\n    &quot;videoURL&quot;: &quot;http://www.here.com&quot;,\n    &quot;correct&quot;: true\n  },\n  {\n    &quot;text&quot;: &quot;1943&quot;,\n    &quot;image&quot;: 124,\n    &quot;videoURL&quot;: &quot;http://www.there.com&quot;,\n    &quot;correct&quot;: false\n  }\n]\n&#x60;&#x60;&#x60;\n (required)
@@ -44,7 +43,6 @@ public class OASQuestionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQuestionResponse createQuestion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('question'), 'question');
         client.assertNotNull(params.get('answers'), 'answers');
@@ -69,11 +67,9 @@ public class OASQuestionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQuestionResponse) client.invoke(
-            'POST', '/api/{version}/game/question/create', '',
+            'POST', '/game/question/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -84,14 +80,12 @@ public class OASQuestionApi {
     /**
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param questionId the id of the question to delete (required)
      * @param accountId the id of the account that can execute this request (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteQuestion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('questionId'), 'questionId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -103,11 +97,9 @@ public class OASQuestionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/game/question/delete', '',
+            'POST', '/game/question/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -118,14 +110,12 @@ public class OASQuestionApi {
     /**
      * Get Question
      * Get a question by the given id.
-     * @param version  (required)
      * @param questionId the id of the question to get (required)
      * @param accountId the id of the account that can make this request (required)
      * @return OASQuestionResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQuestionResponse getQuestion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('questionId'), 'questionId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -137,11 +127,9 @@ public class OASQuestionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQuestionResponse) client.invoke(
-            'GET', '/api/{version}/game/question/get', '',
+            'GET', '/game/question/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -152,7 +140,6 @@ public class OASQuestionApi {
     /**
      * Search Questions
      * Search for questions by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -164,7 +151,6 @@ public class OASQuestionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASQuestionResponse> searchQuestions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -185,11 +171,9 @@ public class OASQuestionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASQuestionResponse>) client.invoke(
-            'GET', '/api/{version}/game/question/search', '',
+            'GET', '/game/question/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -200,7 +184,6 @@ public class OASQuestionApi {
     /**
      * Update Question
      * Update a question and related answers.
-     * @param version  (required)
      * @param questionId The id of the question to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -217,7 +200,6 @@ public class OASQuestionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQuestionResponse updateQuestion(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('questionId'), 'questionId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('ticketCount'), 'ticketCount');
@@ -240,11 +222,9 @@ public class OASQuestionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQuestionResponse) client.invoke(
-            'POST', '/api/{version}/game/question/update', '',
+            'POST', '/game/question/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

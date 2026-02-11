@@ -28,7 +28,6 @@ public class OASPreviewPersonaApi {
     /**
      * Create Persona
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param title the title of the persona (required)
      * @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -42,7 +41,6 @@ public class OASPreviewPersonaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPreviewPersonaResponse createPersona(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('title'), 'title');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -61,11 +59,9 @@ public class OASPreviewPersonaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPreviewPersonaResponse) client.invoke(
-            'POST', '/api/{version}/persona/create', '',
+            'POST', '/persona/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -76,14 +72,12 @@ public class OASPreviewPersonaApi {
     /**
      * Delete Persona
      * Mark the persona for deletion.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param personaId the id of the persona to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deletePersona(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('personaId'), 'personaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -95,11 +89,9 @@ public class OASPreviewPersonaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/persona/delete', '',
+            'POST', '/persona/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -110,14 +102,12 @@ public class OASPreviewPersonaApi {
     /**
      * Get Persona
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona (required)
      * @return OASPreviewPersonaResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPreviewPersonaResponse getPersonaList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('personaId'), 'personaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -129,11 +119,9 @@ public class OASPreviewPersonaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPreviewPersonaResponse) client.invoke(
-            'GET', '/api/{version}/persona/get', '',
+            'GET', '/persona/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -144,7 +132,6 @@ public class OASPreviewPersonaApi {
     /**
      * Search Personas
      * Search for persona that the account owns by the given account ID.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param start the start index for pagination (required)
      * @param r_limit the limit for pagination (There is a hard limit of 100) (required)
@@ -152,7 +139,6 @@ public class OASPreviewPersonaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPreviewPersonaResponse searchPersona(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -166,11 +152,9 @@ public class OASPreviewPersonaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPreviewPersonaResponse) client.invoke(
-            'GET', '/api/{version}/persona/search', '',
+            'GET', '/persona/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -181,7 +165,6 @@ public class OASPreviewPersonaApi {
     /**
      * Update Persona
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona to update (required)
      * @param title the title of the persona (optional)
@@ -197,7 +180,6 @@ public class OASPreviewPersonaApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPreviewPersonaResponse updatePersona(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('personaId'), 'personaId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -218,11 +200,9 @@ public class OASPreviewPersonaApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPreviewPersonaResponse) client.invoke(
-            'POST', '/api/{version}/persona/update', '',
+            'POST', '/persona/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

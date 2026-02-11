@@ -28,14 +28,12 @@ public class OASStripeApi {
     /**
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param version  (required)
      * @param appKey Sirqul Application Key (required)
      * @param stripeParameters Stripe Parameters (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse createStripeCheckoutSession(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('stripeParameters'), 'stripeParameters');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -47,11 +45,9 @@ public class OASStripeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/stripe/checkout/session/create', '',
+            'POST', '/stripe/checkout/session/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

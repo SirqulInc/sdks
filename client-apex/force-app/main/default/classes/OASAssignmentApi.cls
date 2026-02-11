@@ -28,14 +28,12 @@ public class OASAssignmentApi {
     /**
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param version  (required)
      * @param accountId The account id sending the request (required)
      * @param keyword The keyword to filter the returned results (optional)
      * @return List<OASAccountMiniResponse>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAccountMiniResponse> assigmentAssigneeAccountSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -46,11 +44,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAccountMiniResponse>) client.invoke(
-            'GET', '/api/{version}/assignment/assignee/search', '',
+            'GET', '/assignment/assignee/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -61,7 +57,6 @@ public class OASAssignmentApi {
     /**
      * Create Assignment
      * Create an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param name the name for the assignment (required)
      * @param assigneeAccountId the account id to assign to (required)
@@ -73,7 +68,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentResponse assignmentCreate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('assigneeAccountId'), 'assigneeAccountId');
@@ -91,11 +85,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentResponse) client.invoke(
-            'POST', '/api/{version}/assignment/create', '',
+            'POST', '/assignment/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -106,14 +98,12 @@ public class OASAssignmentApi {
     /**
      * Delete Assignment
      * Delete an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse assignmentDelete(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentId'), 'assignmentId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -125,11 +115,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/assignment/delete', '',
+            'POST', '/assignment/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -140,14 +128,12 @@ public class OASAssignmentApi {
     /**
      * Get Assignment
      * Get the details of an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return OASAssignmentResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentResponse assignmentGet(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentId'), 'assignmentId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -159,11 +145,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentResponse) client.invoke(
-            'GET', '/api/{version}/assignment/get', '',
+            'GET', '/assignment/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -174,7 +158,6 @@ public class OASAssignmentApi {
     /**
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param version  (required)
      * @param accountId the account sending the request (required)
      * @param sortField sort by table field (required)
      * @param descending return results in descending order or not (required)
@@ -190,7 +173,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAssignmentResponse> assignmentSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -215,11 +197,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAssignmentResponse>) client.invoke(
-            'GET', '/api/{version}/assignment/search', '',
+            'GET', '/assignment/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -230,7 +210,6 @@ public class OASAssignmentApi {
     /**
      * Create Assignment Status
      * Create an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -246,7 +225,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentStatusResponse assignmentStatusCreate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentId'), 'assignmentId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -267,11 +245,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentStatusResponse) client.invoke(
-            'POST', '/api/{version}/assignment/status/create', '',
+            'POST', '/assignment/status/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -282,14 +258,12 @@ public class OASAssignmentApi {
     /**
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse assignmentStatusDelete(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentStatusId'), 'assignmentStatusId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -301,11 +275,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/assignment/status/delete', '',
+            'POST', '/assignment/status/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -316,14 +288,12 @@ public class OASAssignmentApi {
     /**
      * Get Assignment Status
      * Get an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return OASAssignmentStatusResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentStatusResponse assignmentStatusGet(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentStatusId'), 'assignmentStatusId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -335,11 +305,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentStatusResponse) client.invoke(
-            'GET', '/api/{version}/assignment/status/get', '',
+            'GET', '/assignment/status/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -350,7 +318,6 @@ public class OASAssignmentApi {
     /**
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -367,7 +334,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAssignmentStatusResponse> assignmentStatusSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -393,11 +359,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAssignmentStatusResponse>) client.invoke(
-            'GET', '/api/{version}/assignment/status/search', '',
+            'GET', '/assignment/status/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -408,7 +372,6 @@ public class OASAssignmentApi {
     /**
      * Update Assignment Status
      * Updates an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -424,7 +387,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentStatusResponse assignmentStatusUpdate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentStatusId'), 'assignmentStatusId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -445,11 +407,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentStatusResponse) client.invoke(
-            'POST', '/api/{version}/assignment/status/update', '',
+            'POST', '/assignment/status/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -460,7 +420,6 @@ public class OASAssignmentApi {
     /**
      * Update Assignment
      * Updates an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param name the name of the assignment (optional)
@@ -473,7 +432,6 @@ public class OASAssignmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASAssignmentResponse assignmentUpdate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('assignmentId'), 'assignmentId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -491,11 +449,9 @@ public class OASAssignmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASAssignmentResponse) client.invoke(
-            'POST', '/api/{version}/assignment/update', '',
+            'POST', '/assignment/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

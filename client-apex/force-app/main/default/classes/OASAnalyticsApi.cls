@@ -28,7 +28,6 @@ public class OASAnalyticsApi {
     /**
      * Get User Activity
      * Get an activity feed by user.
-     * @param version  (required)
      * @param start The start of the pagination (required)
      * @param r_limit The limit of the pagination (required)
      * @param accountId the account id of the user (required)
@@ -36,7 +35,6 @@ public class OASAnalyticsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASUserActivityResponse> activities(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
         client.assertNotNull(params.get('accountId'), 'accountId');
@@ -50,11 +48,9 @@ public class OASAnalyticsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASUserActivityResponse>) client.invoke(
-            'GET', '/api/{version}/analytics/useractivity', '',
+            'GET', '/analytics/useractivity', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -65,7 +61,6 @@ public class OASAnalyticsApi {
     /**
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -101,7 +96,6 @@ public class OASAnalyticsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASChartData aggregatedFilteredUsage(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -140,11 +134,9 @@ public class OASAnalyticsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASChartData) client.invoke(
-            'GET', '/api/{version}/analytics/aggregatedFilteredUsage', '',
+            'GET', '/analytics/aggregatedFilteredUsage', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -155,7 +147,6 @@ public class OASAnalyticsApi {
     /**
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -199,7 +190,6 @@ public class OASAnalyticsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASChartData filteredUsage(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -246,11 +236,9 @@ public class OASAnalyticsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASChartData) client.invoke(
-            'GET', '/api/{version}/analytics/filteredUsage', '',
+            'GET', '/analytics/filteredUsage', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -261,7 +249,6 @@ public class OASAnalyticsApi {
     /**
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param version  (required)
      * @param tag The tag to apply: the name of the action or thing being logged. (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -297,7 +284,6 @@ public class OASAnalyticsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse usage(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('tag'), 'tag');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -337,11 +323,9 @@ public class OASAnalyticsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/analytics/usage', '',
+            'POST', '/analytics/usage', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -352,7 +336,6 @@ public class OASAnalyticsApi {
     /**
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user\&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param data The analytic data AnalyticListResponse (required)
@@ -368,7 +351,6 @@ public class OASAnalyticsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse usageBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('device'), 'device');
         client.assertNotNull(params.get('data'), 'data');
@@ -390,11 +372,9 @@ public class OASAnalyticsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/analytics/usage/batch', '',
+            'POST', '/analytics/usage/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

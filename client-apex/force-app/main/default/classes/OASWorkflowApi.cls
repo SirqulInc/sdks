@@ -28,7 +28,6 @@ public class OASWorkflowApi {
     /**
      * Run Workflow
      * Runs a published executable workflow
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param workflowId the workflow to run (required)
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -38,7 +37,6 @@ public class OASWorkflowApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse runWorkflow(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('workflowId'), 'workflowId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -53,11 +51,9 @@ public class OASWorkflowApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/workflow/run', '',
+            'POST', '/workflow/run', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

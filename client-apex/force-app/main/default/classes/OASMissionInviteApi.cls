@@ -28,7 +28,6 @@ public class OASMissionInviteApi {
     /**
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -38,7 +37,6 @@ public class OASMissionInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse createMissionInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -51,11 +49,9 @@ public class OASMissionInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'POST', '/api/{version}/mission/invite/create', '',
+            'POST', '/mission/invite/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -66,7 +62,6 @@ public class OASMissionInviteApi {
     /**
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -76,7 +71,6 @@ public class OASMissionInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteMissionInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -89,11 +83,9 @@ public class OASMissionInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/mission/invite/delete', '',
+            'POST', '/mission/invite/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -104,7 +96,6 @@ public class OASMissionInviteApi {
     /**
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -115,7 +106,6 @@ public class OASMissionInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse getMissionInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -129,11 +119,9 @@ public class OASMissionInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'GET', '/api/{version}/mission/invite/get', '',
+            'GET', '/mission/invite/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -144,7 +132,6 @@ public class OASMissionInviteApi {
     /**
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -162,7 +149,6 @@ public class OASMissionInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMissionResponse> searchMissionInvites(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -183,11 +169,9 @@ public class OASMissionInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMissionResponse>) client.invoke(
-            'GET', '/api/{version}/mission/invite/search', '',
+            'GET', '/mission/invite/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -198,7 +182,6 @@ public class OASMissionInviteApi {
     /**
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -214,7 +197,6 @@ public class OASMissionInviteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMissionResponse updateMissionInvite(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -233,11 +215,9 @@ public class OASMissionInviteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMissionResponse) client.invoke(
-            'POST', '/api/{version}/mission/invite/update', '',
+            'POST', '/mission/invite/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASUserPermissionsApi {
     /**
      * Add User
      * Adds a user to a permissionable object.
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -50,7 +49,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse addUsersToPermissionable(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('permissionableType'), 'permissionableType');
         client.assertNotNull(params.get('permissionableId'), 'permissionableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -77,11 +75,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/permissions/add', '',
+            'POST', '/consumer/permissions/add', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -92,7 +88,6 @@ public class OASUserPermissionsApi {
     /**
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param version  (required)
      * @param permissionableType The permissionable type of the object (required)
      * @param permissionableId The id of the permissionable object (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -102,7 +97,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse approvePermissionable(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('permissionableType'), 'permissionableType');
         client.assertNotNull(params.get('permissionableId'), 'permissionableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -117,11 +111,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/permissionable/approve', '',
+            'POST', '/permissionable/approve', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -132,7 +124,6 @@ public class OASUserPermissionsApi {
     /**
      * Leave
      * Used when the user wants to leave from someone else\&#39;s permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type PermissionableType (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -143,7 +134,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse leaveFromPermissionable(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('permissionableType'), 'permissionableType');
         client.assertNotNull(params.get('permissionableId'), 'permissionableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -159,11 +149,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/permissions/leave', '',
+            'POST', '/consumer/permissions/leave', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -174,7 +162,6 @@ public class OASUserPermissionsApi {
     /**
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -190,7 +177,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeUsersFromPermissionable(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('permissionableType'), 'permissionableType');
         client.assertNotNull(params.get('permissionableId'), 'permissionableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -211,11 +197,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/permissions/remove', '',
+            'POST', '/consumer/permissions/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -226,7 +210,6 @@ public class OASUserPermissionsApi {
     /**
      * Search Permissionables
      * Search on UserPermissions
-     * @param version  (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -244,7 +227,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASUserPermissionsResponse> searchPermissionables(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -265,11 +247,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASUserPermissionsResponse>) client.invoke(
-            'GET', '/api/{version}/permissions/search', '',
+            'GET', '/permissions/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -280,7 +260,6 @@ public class OASUserPermissionsApi {
     /**
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param version  (required)
      * @param latitude The latitude of the current account (required)
      * @param longitude The longitude of the current account (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -299,7 +278,6 @@ public class OASUserPermissionsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASUserPermissionsResponse> searchPermissionablesFollowingDistance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -323,11 +301,9 @@ public class OASUserPermissionsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASUserPermissionsResponse>) client.invoke(
-            'GET', '/api/{version}/permissions/distancesearch', '',
+            'GET', '/permissions/distancesearch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

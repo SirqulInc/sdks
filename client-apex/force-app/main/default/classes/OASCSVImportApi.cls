@@ -28,7 +28,6 @@ public class OASCSVImportApi {
     /**
      * Detail Status
      * 
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId the id of the batch (required)
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -38,7 +37,6 @@ public class OASCSVImportApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse getStatusCSV(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('batchId'), 'batchId');
         client.assertNotNull(params.get('responseGroup'), 'responseGroup');
@@ -56,11 +54,9 @@ public class OASCSVImportApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'GET', '/api/{version}/csvimport/batch/status/details', '',
+            'GET', '/csvimport/batch/status/details', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -71,7 +67,6 @@ public class OASCSVImportApi {
     /**
      * Search Status
      * Retrieves batches for a user.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param start the start of the pagination (required)
      * @param r_limit the limit of the pagination (required)
@@ -79,7 +74,6 @@ public class OASCSVImportApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCsvImportResponse listStatusCSV(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -93,11 +87,9 @@ public class OASCSVImportApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCsvImportResponse) client.invoke(
-            'GET', '/api/{version}/csvimport/batch/list', '',
+            'GET', '/csvimport/batch/list', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,14 +100,12 @@ public class OASCSVImportApi {
     /**
      * Batch Status
      * Checks status of batch upload.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to get its status (required)
      * @return OASCsvImportResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCsvImportResponse statusCSV(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('batchId'), 'batchId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -127,11 +117,9 @@ public class OASCSVImportApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCsvImportResponse) client.invoke(
-            'GET', '/api/{version}/csvimport/batch/status', '',
+            'GET', '/csvimport/batch/status', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -142,7 +130,6 @@ public class OASCSVImportApi {
     /**
      * Upload CSV
      * Uploads a CSV import file.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param importFile the import file to reference (required)
@@ -152,7 +139,6 @@ public class OASCSVImportApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCsvImportResponse uploadCSV(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('uploadType'), 'uploadType');
         client.assertNotNull(params.get('importFile'), 'importFile');
@@ -169,11 +155,9 @@ public class OASCSVImportApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCsvImportResponse) client.invoke(
-            'POST', '/api/{version}/csvimport/upload', '',
+            'POST', '/csvimport/upload', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

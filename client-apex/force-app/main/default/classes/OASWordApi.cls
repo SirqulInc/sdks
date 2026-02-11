@@ -28,7 +28,6 @@ public class OASWordApi {
     /**
      * Create Word
      * Create a word by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param word The text of the word. (required)
      * @param definition The definition of the word. (required)
@@ -42,7 +41,6 @@ public class OASWordApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWordzWordResponse createWord(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('word'), 'word');
         client.assertNotNull(params.get('definition'), 'definition');
@@ -65,11 +63,9 @@ public class OASWordApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWordzWordResponse) client.invoke(
-            'POST', '/api/{version}/game/word/create', '',
+            'POST', '/game/word/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -80,14 +76,12 @@ public class OASWordApi {
     /**
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param wordId The id of the word to delete. (required)
      * @param accountId The account vor validating permission (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteWord(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('wordId'), 'wordId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -99,11 +93,9 @@ public class OASWordApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'DELETE', '/api/{version}/game/word/delete', '',
+            'DELETE', '/game/word/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -114,14 +106,12 @@ public class OASWordApi {
     /**
      * Get Word
      * Get a word by the given id.
-     * @param version  (required)
      * @param wordId The id of the word to get. (required)
      * @param accountId The logged in user. (required)
      * @return OASWordzWordResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWordzWordResponse getWord(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('wordId'), 'wordId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -133,11 +123,9 @@ public class OASWordApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWordzWordResponse) client.invoke(
-            'GET', '/api/{version}/game/word/get', '',
+            'GET', '/game/word/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -148,7 +136,6 @@ public class OASWordApi {
     /**
      * Search Words
      * Search for words by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -160,7 +147,6 @@ public class OASWordApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASWordzWordResponse> getWords(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -181,11 +167,9 @@ public class OASWordApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASWordzWordResponse>) client.invoke(
-            'GET', '/api/{version}/game/word/search', '',
+            'GET', '/game/word/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -196,7 +180,6 @@ public class OASWordApi {
     /**
      * Update Word
      * Update a word by the given params.
-     * @param version  (required)
      * @param wordId The id of the word to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -211,7 +194,6 @@ public class OASWordApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWordzWordResponse updateWord(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('wordId'), 'wordId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('ticketCount'), 'ticketCount');
@@ -232,11 +214,9 @@ public class OASWordApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWordzWordResponse) client.invoke(
-            'POST', '/api/{version}/game/word/update', '',
+            'POST', '/game/word/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

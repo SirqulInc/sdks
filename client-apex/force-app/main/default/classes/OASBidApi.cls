@@ -28,7 +28,6 @@ public class OASBidApi {
     /**
      * Create Bid
      * Creates a bid on a biddable object
-     * @param version  (required)
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param biddableId The id of the biddable object (required)
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -41,7 +40,6 @@ public class OASBidApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBidResponse createBid(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('biddableType'), 'biddableType');
         client.assertNotNull(params.get('biddableId'), 'biddableId');
         client.assertNotNull(params.get('amountPerView'), 'amountPerView');
@@ -63,11 +61,9 @@ public class OASBidApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBidResponse) client.invoke(
-            'POST', '/api/{version}/bid/create', '',
+            'POST', '/bid/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -78,7 +74,6 @@ public class OASBidApi {
     /**
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -86,7 +81,6 @@ public class OASBidApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteBid(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('bidId'), 'bidId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -98,11 +92,9 @@ public class OASBidApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/bid/delete', '',
+            'POST', '/bid/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -113,7 +105,6 @@ public class OASBidApi {
     /**
      * Get Bid
      * Get the bid details of a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -121,7 +112,6 @@ public class OASBidApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBidResponse getBid(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('bidId'), 'bidId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -133,11 +123,9 @@ public class OASBidApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBidResponse) client.invoke(
-            'GET', '/api/{version}/bid/get', '',
+            'GET', '/bid/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -148,7 +136,6 @@ public class OASBidApi {
     /**
      * Update Bid
      * Updates a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -160,7 +147,6 @@ public class OASBidApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASBidResponse updateBid(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('bidId'), 'bidId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -176,11 +162,9 @@ public class OASBidApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASBidResponse) client.invoke(
-            'POST', '/api/{version}/bid/update', '',
+            'POST', '/bid/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

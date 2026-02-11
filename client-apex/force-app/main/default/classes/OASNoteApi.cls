@@ -28,7 +28,6 @@ public class OASNoteApi {
     /**
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE).\n
-     * @param version  (required)
      * @param notableId The id of the notable object the batch operation will affect (required)
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -38,7 +37,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse batchOperation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('notableId'), 'notableId');
         client.assertNotNull(params.get('notableType'), 'notableType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -53,11 +51,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/note/batch', '',
+            'POST', '/note/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -68,7 +64,6 @@ public class OASNoteApi {
     /**
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version  (required)
      * @param comment The message the user wishes to leave a comment on (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -115,7 +110,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNoteResponse createNote(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('comment'), 'comment');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -166,11 +160,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNoteResponse) client.invoke(
-            'POST', '/api/{version}/note/create', '',
+            'POST', '/note/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -181,7 +173,6 @@ public class OASNoteApi {
     /**
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param version  (required)
      * @param noteId The ID of the note to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -192,7 +183,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteNote(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('noteId'), 'noteId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -207,11 +197,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/note/delete', '',
+            'POST', '/note/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -222,7 +210,6 @@ public class OASNoteApi {
     /**
      * Get Note
      * Get for a note based on its Id.
-     * @param version  (required)
      * @param noteId the id of the note to get (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -231,7 +218,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse getNote(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('noteId'), 'noteId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -244,11 +230,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/note/get', '',
+            'POST', '/note/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -259,7 +243,6 @@ public class OASNoteApi {
     /**
      * Search Notes
      * Search for notes on a notable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -281,7 +264,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASNoteResponse> searchNotes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -306,11 +288,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASNoteResponse>) client.invoke(
-            'POST', '/api/{version}/note/search', '',
+            'POST', '/note/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -321,7 +301,6 @@ public class OASNoteApi {
     /**
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version  (required)
      * @param noteId The id of the note, used when editing a comment (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -367,7 +346,6 @@ public class OASNoteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASNoteResponse updateNote(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('noteId'), 'noteId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -417,11 +395,9 @@ public class OASNoteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASNoteResponse) client.invoke(
-            'POST', '/api/{version}/note/update', '',
+            'POST', '/note/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

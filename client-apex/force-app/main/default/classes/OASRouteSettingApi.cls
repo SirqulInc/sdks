@@ -28,23 +28,19 @@ public class OASRouteSettingApi {
     /**
      * Create Route Setting
      * Create a new route setting
-     * @param version  (required)
      * @param body  (optional)
      * @return OASRouteSettings
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRouteSettings createRouteSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRouteSettings) client.invoke(
-            'POST', '/api/{version}/route/setting',
+            'POST', '/route/setting',
             (OASRouteSettings) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,22 +51,19 @@ public class OASRouteSettingApi {
     /**
      * Delete Route Setting
      * Delete an existing route setting
-     * @param version  (required)
      * @param routeSettingsId the id of the route setting to delete (required)
      * @return Object
      * @throws OAS.ApiException if fails to make API call
      */
     public Object deleteRouteSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeSettingsId'), 'routeSettingsId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (Object) client.invoke(
-            'DELETE', '/api/{version}/route/setting/{routeSettingsId}', '',
+            'DELETE', '/route/setting/{routeSettingsId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeSettingsId' => (Long) params.get('routeSettingsId')
             },
             new Map<String, Object>(),
@@ -83,22 +76,19 @@ public class OASRouteSettingApi {
     /**
      * Get Route Setting
      * Get an existing route settings
-     * @param version  (required)
      * @param routeSettingsId the id of the route settings to get (required)
      * @return OASRouteSettings
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRouteSettings getRouteSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeSettingsId'), 'routeSettingsId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRouteSettings) client.invoke(
-            'GET', '/api/{version}/route/setting/{routeSettingsId}', '',
+            'GET', '/route/setting/{routeSettingsId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeSettingsId' => (Long) params.get('routeSettingsId')
             },
             new Map<String, Object>(),
@@ -111,7 +101,6 @@ public class OASRouteSettingApi {
     /**
      * Search Route Settings
      * Search for route settings
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -124,7 +113,6 @@ public class OASRouteSettingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRouteSettings> searchRouteSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -145,11 +133,9 @@ public class OASRouteSettingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRouteSettings>) client.invoke(
-            'GET', '/api/{version}/route/setting', '',
+            'GET', '/route/setting', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -160,24 +146,21 @@ public class OASRouteSettingApi {
     /**
      * Update Route Setting
      * Update an existing route setting
-     * @param version  (required)
      * @param routeSettingsId the id of the route settings to update (required)
      * @param body  (optional)
      * @return OASRouteSettings
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRouteSettings updateRouteSettings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeSettingsId'), 'routeSettingsId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRouteSettings) client.invoke(
-            'PUT', '/api/{version}/route/setting/{routeSettingsId}',
+            'PUT', '/route/setting/{routeSettingsId}',
             (OASRouteSettings) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeSettingsId' => (Long) params.get('routeSettingsId')
             },
             new Map<String, Object>(),

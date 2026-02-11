@@ -28,22 +28,19 @@ public class OASRouteApi {
     /**
      * Approve Route
      * Approve a route
-     * @param version  (required)
      * @param routeId the id of the route to approve (required)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute approveRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'POST', '/api/{version}/route/{routeId}/approve', '',
+            'POST', '/route/{routeId}/approve', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -56,24 +53,21 @@ public class OASRouteApi {
     /**
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param version  (required)
      * @param routeId the id of the route to duplicate (required)
      * @param body  (optional)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute copyRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'POST', '/api/{version}/route/{routeId}/copy',
+            'POST', '/route/{routeId}/copy',
             (OASRoute) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -86,23 +80,19 @@ public class OASRouteApi {
     /**
      * Create Route
      * Create new route
-     * @param version  (required)
      * @param body  (optional)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute createRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'POST', '/api/{version}/route',
+            'POST', '/route',
             (OASRoute) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -113,22 +103,19 @@ public class OASRouteApi {
     /**
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to update directions for (required)
      * @return List<OASDirection>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASDirection> createRouteDirections(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASDirection>) client.invoke(
-            'PUT', '/api/{version}/route/{routeId}/directions', '',
+            'PUT', '/route/{routeId}/directions', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -141,22 +128,19 @@ public class OASRouteApi {
     /**
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param version  (required)
      * @param routeId the id of the route to create a polyline for (required)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute createRoutePolyline(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'PUT', '/api/{version}/route/{routeId}/polyline', '',
+            'PUT', '/route/{routeId}/polyline', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -169,21 +153,18 @@ public class OASRouteApi {
     /**
      * Delete Route
      * Delete an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/route/{routeId}', '',
+            'DELETE', '/route/{routeId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -196,22 +177,19 @@ public class OASRouteApi {
     /**
      * Disapprove Route
      * Disapprove a route
-     * @param version  (required)
      * @param routeId the id of the route to reject (required)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute disapproveRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'POST', '/api/{version}/route/{routeId}/disapprove', '',
+            'POST', '/route/{routeId}/disapprove', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -224,14 +202,12 @@ public class OASRouteApi {
     /**
      * Get Route
      * Get an existing route
-     * @param version  (required)
      * @param routeId the id of the route to get (required)
      * @param showInheritedProperties return inherited properties from parent or not (required)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute getRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('showInheritedProperties'), 'showInheritedProperties');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -242,10 +218,9 @@ public class OASRouteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'GET', '/api/{version}/route/{routeId}', '',
+            'GET', '/route/{routeId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -258,22 +233,19 @@ public class OASRouteApi {
     /**
      * Get Route Directions
      * Get the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to get directions for (required)
      * @return List<OASDirection>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASDirection> getRouteDirections(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASDirection>) client.invoke(
-            'GET', '/api/{version}/route/{routeId}/directions', '',
+            'GET', '/route/{routeId}/directions', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -286,22 +258,19 @@ public class OASRouteApi {
     /**
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param version  (required)
      * @param routeId the id of the route to get shipments for (required)
      * @return List<OASShipment>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASShipment> getRouteShipments(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASShipment>) client.invoke(
-            'GET', '/api/{version}/route/{routeId}/shipments', '',
+            'GET', '/route/{routeId}/shipments', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -314,24 +283,21 @@ public class OASRouteApi {
     /**
      * Get Route Stop
      * Get the specific stop on a route
-     * @param version  (required)
      * @param routeId the id of the route to get stops for (required)
      * @param stopId the id of the specific stop on the route (required)
      * @return OASStop
      * @throws OAS.ApiException if fails to make API call
      */
     public OASStop getRouteStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('stopId'), 'stopId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASStop) client.invoke(
-            'GET', '/api/{version}/route/{routeId}/stop/{stopId}', '',
+            'GET', '/route/{routeId}/stop/{stopId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId'),
                 'stopId' => (Long) params.get('stopId')
             },
@@ -345,14 +311,12 @@ public class OASRouteApi {
     /**
      * Get Route Stops
      * The stops of the route requested
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param confirmedOnly only get stops that have been confirmed or not (required)
      * @return List<OASStop>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASStop> getRouteStops(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('confirmedOnly'), 'confirmedOnly');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -363,10 +327,9 @@ public class OASRouteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASStop>) client.invoke(
-            'GET', '/api/{version}/route/{routeId}/stops', '',
+            'GET', '/route/{routeId}/stops', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -379,24 +342,21 @@ public class OASRouteApi {
     /**
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the stop to get shipments on (required)
      * @return List<OASShipment>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASShipment> getShipmentsAtStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('stopId'), 'stopId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASShipment>) client.invoke(
-            'GET', '/api/{version}/route/{routeId}/stop/{stopId}/shipments', '',
+            'GET', '/route/{routeId}/stop/{stopId}/shipments', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId'),
                 'stopId' => (Long) params.get('stopId')
             },
@@ -410,21 +370,18 @@ public class OASRouteApi {
     /**
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version  (required)
      * @param routeId the id of the route to optimize (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void optimizeRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/route/{routeId}/optimize', '',
+            'POST', '/route/{routeId}/optimize', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -437,23 +394,20 @@ public class OASRouteApi {
     /**
      * Delete Stop
      * Delete a stop on a route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the specific stop to delete on the route (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void removeStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('stopId'), 'stopId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/route/{routeId}/stop/{stopId}', '',
+            'DELETE', '/route/{routeId}/stop/{stopId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId'),
                 'stopId' => (Long) params.get('stopId')
             },
@@ -467,24 +421,21 @@ public class OASRouteApi {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return List<OASStop>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASStop> reorderRouteStopsPatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASStop>) client.invoke(
-            'PATCH', '/api/{version}/route/{routeId}/stops/reorder',
+            'PATCH', '/route/{routeId}/stops/reorder',
             (List<OASStop>) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -497,24 +448,21 @@ public class OASRouteApi {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return List<OASStop>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASStop> reorderRouteStopsPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASStop>) client.invoke(
-            'POST', '/api/{version}/route/{routeId}/stops/reorder',
+            'POST', '/route/{routeId}/stops/reorder',
             (List<OASStop>) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -527,7 +475,6 @@ public class OASRouteApi {
     /**
      * Search Routes
      * Search for routes.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -553,7 +500,6 @@ public class OASRouteApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRoute> searchRoutes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -590,11 +536,9 @@ public class OASRouteApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRoute>) client.invoke(
-            'GET', '/api/{version}/route', '',
+            'GET', '/route', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -605,23 +549,20 @@ public class OASRouteApi {
     /**
      * Set Driver
      * Update the driver of the route.
-     * @param version  (required)
      * @param id the id of the route (required)
      * @param driverId the id of the driver (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void setDriver(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('driverId'), 'driverId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/route/{id}/driver/{driverId}', '',
+            'POST', '/route/{id}/driver/{driverId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id'),
                 'driverId' => (Long) params.get('driverId')
             },
@@ -635,24 +576,21 @@ public class OASRouteApi {
     /**
      * Update Route
      * Update an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return OASRoute
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRoute updateRoute(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRoute) client.invoke(
-            'PUT', '/api/{version}/route/{routeId}',
+            'PUT', '/route/{routeId}',
             (OASRoute) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId')
             },
             new Map<String, Object>(),
@@ -665,25 +603,22 @@ public class OASRouteApi {
     /**
      * Update Route Stop
      * Update a stop on a specified route
-     * @param version  (required)
      * @param routeId the id of the route to update stops for (required)
      * @param stopId the id of the specific stop to update on the route (required)
      * @param body  (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateRouteStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('routeId'), 'routeId');
         client.assertNotNull(params.get('stopId'), 'stopId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'PUT', '/api/{version}/route/{routeId}/stop/{stopId}',
+            'PUT', '/route/{routeId}/stop/{stopId}',
             (OASStop) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'routeId' => (Long) params.get('routeId'),
                 'stopId' => (Long) params.get('stopId')
             },

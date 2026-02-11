@@ -28,7 +28,6 @@ public class OASRetailerLocationApi {
     /**
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param name The name of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -62,7 +61,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerLocationResponse createRetailerLocationConsumer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -101,11 +99,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerLocationResponse) client.invoke(
-            'POST', '/api/{version}/location/create', '',
+            'POST', '/location/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -116,7 +112,6 @@ public class OASRetailerLocationApi {
     /**
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerId The ID of the retailer (required)
      * @param name The name of the retailer location (required)
      * @param streetAddress The street address of the retailer location (required)
@@ -160,7 +155,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerLocationResponse createRetailerLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerId'), 'retailerId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('streetAddress'), 'streetAddress');
@@ -213,11 +207,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerLocationResponse) client.invoke(
-            'POST', '/api/{version}/retailer/location/create', '',
+            'POST', '/retailer/location/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -228,7 +220,6 @@ public class OASRetailerLocationApi {
     /**
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -236,7 +227,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteRetailerLocation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -247,11 +237,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/location/delete', '',
+            'POST', '/retailer/location/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -262,7 +250,6 @@ public class OASRetailerLocationApi {
     /**
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -271,7 +258,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerLocationResponse getRetailerLocation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerLocationId'), 'retailerLocationId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -284,11 +270,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerLocationResponse) client.invoke(
-            'GET', '/api/{version}/retailer/location/get', '',
+            'GET', '/retailer/location/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -299,7 +283,6 @@ public class OASRetailerLocationApi {
     /**
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param version  (required)
      * @param retailerLocationId The retailer location id (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -307,7 +290,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerLocationResponse getRetailerLocationConsumer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerLocationId'), 'retailerLocationId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -319,11 +301,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerLocationResponse) client.invoke(
-            'GET', '/api/{version}/location/get', '',
+            'GET', '/location/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -334,7 +314,6 @@ public class OASRetailerLocationApi {
     /**
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version  (required)
      * @param latitude The latitude to center the search on (required)
      * @param longitude The longitude to center the search on (required)
      * @param searchRange The search range in the distanceUnit specified; default is MILES. (required)
@@ -373,7 +352,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRetailerLocationResponse> indexedRetailerLocationDistanceSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
         client.assertNotNull(params.get('searchRange'), 'searchRange');
@@ -420,11 +398,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRetailerLocationResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/location/idistancesearch', '',
+            'GET', '/retailer/location/idistancesearch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -435,7 +411,6 @@ public class OASRetailerLocationApi {
     /**
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param r_limit The limit for pagination (optional)
@@ -468,7 +443,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRetailerLocationResponse> indexedRetailerLocationSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -504,11 +478,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRetailerLocationResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/location/isearch', '',
+            'GET', '/retailer/location/isearch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -519,7 +491,6 @@ public class OASRetailerLocationApi {
     /**
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -549,7 +520,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRetailerLocationResponse> searchRetailerLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -582,11 +552,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRetailerLocationResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/location/search', '',
+            'GET', '/retailer/location/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -597,7 +565,6 @@ public class OASRetailerLocationApi {
     /**
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -643,7 +610,6 @@ public class OASRetailerLocationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerLocationResponse updateRetailerLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('retailerLocationId'), 'retailerLocationId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -693,11 +659,9 @@ public class OASRetailerLocationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerLocationResponse) client.invoke(
-            'POST', '/api/{version}/retailer/location/update', '',
+            'POST', '/retailer/location/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

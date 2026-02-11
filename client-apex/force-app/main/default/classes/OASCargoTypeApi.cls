@@ -28,23 +28,19 @@ public class OASCargoTypeApi {
     /**
      * Create Cargo Type
      * Create new cargo type
-     * @param version  (required)
      * @param body  (optional)
      * @return OASCargoType
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCargoType createCargoType(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCargoType) client.invoke(
-            'POST', '/api/{version}/cargo/type',
+            'POST', '/cargo/type',
             (OASCargoType) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,21 +51,18 @@ public class OASCargoTypeApi {
     /**
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteCargoType(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('cargoTypeId'), 'cargoTypeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/cargo/type/{cargoTypeId}', '',
+            'DELETE', '/cargo/type/{cargoTypeId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'cargoTypeId' => (Long) params.get('cargoTypeId')
             },
             new Map<String, Object>(),
@@ -82,22 +75,19 @@ public class OASCargoTypeApi {
     /**
      * Get Cargo Type
      * Get an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the cargo type ID (required)
      * @return OASCargoType
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCargoType getCargoType(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('cargoTypeId'), 'cargoTypeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCargoType) client.invoke(
-            'GET', '/api/{version}/cargo/type/{cargoTypeId}', '',
+            'GET', '/cargo/type/{cargoTypeId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'cargoTypeId' => (Long) params.get('cargoTypeId')
             },
             new Map<String, Object>(),
@@ -110,7 +100,6 @@ public class OASCargoTypeApi {
     /**
      * Search Cargo Type
      * Search for types of cargo
-     * @param version  (required)
      * @param sortField the sort field to use for the cargo type (required)
      * @param descending if the cargo type should be should be in descending order (required)
      * @param start the start of the search (required)
@@ -122,7 +111,6 @@ public class OASCargoTypeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASCargoType> searchCargoTypes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -142,11 +130,9 @@ public class OASCargoTypeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASCargoType>) client.invoke(
-            'GET', '/api/{version}/cargo/type', '',
+            'GET', '/cargo/type', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -157,24 +143,21 @@ public class OASCargoTypeApi {
     /**
      * Update Cargo Type
      * Update an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param body  (optional)
      * @return OASCargoType
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCargoType updateCargoType(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('cargoTypeId'), 'cargoTypeId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCargoType) client.invoke(
-            'PUT', '/api/{version}/cargo/type/{cargoTypeId}',
+            'PUT', '/cargo/type/{cargoTypeId}',
             (OASCargoType) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'cargoTypeId' => (Long) params.get('cargoTypeId')
             },
             new Map<String, Object>(),

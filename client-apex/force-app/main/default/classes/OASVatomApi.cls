@@ -28,14 +28,12 @@ public class OASVatomApi {
     /**
      * Create following
      * Create following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void createFollowing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -48,11 +46,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/me/rels/following/create', '',
+            'POST', '/vatom/me/rels/following/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -63,7 +59,6 @@ public class OASVatomApi {
     /**
      * Create Vatom Space
      * Create a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -71,7 +66,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void createSpace(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -86,11 +80,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/spaces/create', '',
+            'POST', '/vatom/b/spaces/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -101,7 +93,6 @@ public class OASVatomApi {
     /**
      * Create Vatom Event
      * Create a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -109,7 +100,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void createVatomEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -124,11 +114,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/events/create', '',
+            'POST', '/vatom/b/events/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -139,14 +127,12 @@ public class OASVatomApi {
     /**
      * Delete following
      * Delete following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomRelsKey Vatom Rels Key (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteFollowing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomRelsKey'), 'vatomRelsKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -159,11 +145,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/me/rels/following/delete', '',
+            'POST', '/vatom/me/rels/following/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -174,7 +158,6 @@ public class OASVatomApi {
     /**
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -182,7 +165,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void deletePointsBalance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -197,11 +179,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/campaign/points/delete', '',
+            'POST', '/vatom/b/campaign/points/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -212,7 +192,6 @@ public class OASVatomApi {
     /**
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -220,7 +199,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteSpace(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomSpaceId'), 'vatomSpaceId');
@@ -235,11 +213,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/spaces/delete', '',
+            'POST', '/vatom/b/spaces/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -250,7 +226,6 @@ public class OASVatomApi {
     /**
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -258,7 +233,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteVatomEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomEventId'), 'vatomEventId');
@@ -273,11 +247,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/events/delete', '',
+            'POST', '/vatom/b/events/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -288,14 +260,12 @@ public class OASVatomApi {
     /**
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteVatomNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomId'), 'vatomId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -308,11 +278,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/vatoms/delete', '',
+            'POST', '/vatom/vatoms/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -323,7 +291,6 @@ public class OASVatomApi {
     /**
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -331,7 +298,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void executeActionOnNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomId'), 'vatomId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -346,11 +312,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/vatoms/execute-action', '',
+            'POST', '/vatom/vatoms/execute-action', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -361,14 +325,12 @@ public class OASVatomApi {
     /**
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void geomapSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -381,11 +343,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/vatoms/geo-map/search', '',
+            'GET', '/vatom/vatoms/geo-map/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -396,14 +356,12 @@ public class OASVatomApi {
     /**
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getBusinessBehaviors(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -416,11 +374,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/behaviors', '',
+            'GET', '/vatom/b/behaviors', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -431,14 +387,12 @@ public class OASVatomApi {
     /**
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getBusinessCoinsBalance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -451,11 +405,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/coins/get', '',
+            'GET', '/vatom/b/coins/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -466,13 +418,11 @@ public class OASVatomApi {
     /**
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getBusinessIds(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -483,11 +433,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/me/businesses', '',
+            'GET', '/vatom/me/businesses', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -498,7 +446,6 @@ public class OASVatomApi {
     /**
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -506,7 +453,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getBusinessInfo(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -520,11 +466,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/get', '',
+            'GET', '/vatom/b/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -535,14 +479,12 @@ public class OASVatomApi {
     /**
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getBusinessUsers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -555,11 +497,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/users', '',
+            'GET', '/vatom/b/users', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -570,7 +510,6 @@ public class OASVatomApi {
     /**
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -578,7 +517,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getCampaignGroupEntities(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -593,11 +531,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign-groups/entities', '',
+            'GET', '/vatom/b/campaign-groups/entities', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -608,7 +544,6 @@ public class OASVatomApi {
     /**
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -616,7 +551,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getCampaignGroupRules(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -631,11 +565,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign-groups/rules', '',
+            'GET', '/vatom/b/campaign-groups/rules', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -646,7 +578,6 @@ public class OASVatomApi {
     /**
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -654,7 +585,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getCampaignGroupStats(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -669,11 +599,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign-groups/stats', '',
+            'GET', '/vatom/b/campaign-groups/stats', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -684,7 +612,6 @@ public class OASVatomApi {
     /**
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -692,7 +619,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getCampaignInfo(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -707,11 +633,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign-groups/get', '',
+            'GET', '/vatom/b/campaign-groups/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -722,7 +646,6 @@ public class OASVatomApi {
     /**
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -730,7 +653,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getEventGuestList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomEventId'), 'vatomEventId');
@@ -745,11 +667,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/events/guests/get', '',
+            'GET', '/vatom/b/events/guests/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -760,14 +680,12 @@ public class OASVatomApi {
     /**
      * Get Vatom User\&#39;s Inventory
      * Gets the logged in user\&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getInventory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -780,11 +698,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/me/inventory', '',
+            'GET', '/vatom/me/inventory', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -795,13 +711,11 @@ public class OASVatomApi {
     /**
      * Get following
      * Get following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getMyFollowing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -812,11 +726,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/me/rels/following', '',
+            'GET', '/vatom/me/rels/following', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -827,7 +739,6 @@ public class OASVatomApi {
     /**
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -835,7 +746,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getPointsBalance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -850,11 +760,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/u/campaign/points/get', '',
+            'GET', '/vatom/u/campaign/points/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -865,7 +773,6 @@ public class OASVatomApi {
     /**
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -874,7 +781,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getPointsBalanceAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
@@ -891,11 +797,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign/u/points/get', '',
+            'GET', '/vatom/b/campaign/u/points/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -906,7 +810,6 @@ public class OASVatomApi {
     /**
      * Get Vatom Space
      * Gets the details of a space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -914,7 +817,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getSpace(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomSpaceId'), 'vatomSpaceId');
@@ -929,11 +831,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/spaces/get', '',
+            'GET', '/vatom/b/spaces/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -944,7 +844,6 @@ public class OASVatomApi {
     /**
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -952,7 +851,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserCoinsAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -967,11 +865,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/users/coins/get', '',
+            'GET', '/vatom/b/users/coins/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -982,7 +878,6 @@ public class OASVatomApi {
     /**
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -990,7 +885,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserCoinsBalance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1004,11 +898,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/u/coins/get', '',
+            'GET', '/vatom/u/coins/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1019,14 +911,12 @@ public class OASVatomApi {
     /**
      * Get user followers
      * Get user followers.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserFollowers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1039,11 +929,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/users/rels/followers', '',
+            'GET', '/vatom/users/rels/followers', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1054,14 +942,12 @@ public class OASVatomApi {
     /**
      * Get user following
      * Get user following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserFollowing(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1074,11 +960,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/users/rels/following', '',
+            'GET', '/vatom/users/rels/following', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1089,14 +973,12 @@ public class OASVatomApi {
     /**
      * Get User Info
      * Get a User\&#39;s Info.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserInfo(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1109,11 +991,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/user/get', '',
+            'GET', '/vatom/user/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1124,13 +1004,11 @@ public class OASVatomApi {
     /**
      * Get Vatom User Profile
      * Gets the logged in user\&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getUserProfile(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1141,11 +1019,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/me/get', '',
+            'GET', '/vatom/me/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1156,7 +1032,6 @@ public class OASVatomApi {
     /**
      * Get Vatom Event
      * Gets the details of a event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1164,7 +1039,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void getVatomEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomEventId'), 'vatomEventId');
@@ -1179,11 +1053,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/events/get', '',
+            'GET', '/vatom/b/events/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1194,14 +1066,12 @@ public class OASVatomApi {
     /**
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void getVatomNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomId'), 'vatomId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1214,11 +1084,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/vatoms/get', '',
+            'GET', '/vatom/vatoms/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1229,7 +1097,6 @@ public class OASVatomApi {
     /**
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -1237,7 +1104,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void listCommunities(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1251,11 +1117,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/communities/search', '',
+            'GET', '/vatom/b/communities/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1266,7 +1130,6 @@ public class OASVatomApi {
     /**
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -1274,7 +1137,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void listEvents(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1288,11 +1150,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/events/search', '',
+            'GET', '/vatom/b/events/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1303,7 +1163,6 @@ public class OASVatomApi {
     /**
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -1311,7 +1170,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void listSpaces(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1325,11 +1183,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/spaces/search', '',
+            'GET', '/vatom/b/spaces/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1340,7 +1196,6 @@ public class OASVatomApi {
     /**
      * List Coin Transactions for a Vatom User
      * Gets the logged in user\&#39;s Vatom coin transactions.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -1348,7 +1203,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void listUserCoinTransactions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1362,11 +1216,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/u/coins/txns/search', '',
+            'GET', '/vatom/u/coins/txns/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1377,7 +1229,6 @@ public class OASVatomApi {
     /**
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -1386,7 +1237,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void listUserCoinTransactionsAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -1402,11 +1252,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/users/coins/txns/search', '',
+            'GET', '/vatom/b/users/coins/txns/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1417,7 +1265,6 @@ public class OASVatomApi {
     /**
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomAction Vatom Action (required)
@@ -1426,7 +1273,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void performActionOnNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomId'), 'vatomId');
         client.assertNotNull(params.get('vatomAction'), 'vatomAction');
@@ -1443,11 +1289,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/me/vatoms/actions', '',
+            'POST', '/vatom/me/vatoms/actions', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1458,7 +1302,6 @@ public class OASVatomApi {
     /**
      * Redeem NFT
      * Redeem an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1466,7 +1309,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void redeemNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -1481,11 +1323,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/redemptions', '',
+            'POST', '/vatom/b/redemptions', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1496,7 +1336,6 @@ public class OASVatomApi {
     /**
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -1505,7 +1344,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void redeemUserCoinsAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -1522,11 +1360,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/users/coins/redeem', '',
+            'POST', '/vatom/b/users/coins/redeem', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1537,14 +1373,12 @@ public class OASVatomApi {
     /**
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void searchBusinesses(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1556,11 +1390,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/search', '',
+            'GET', '/vatom/b/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1571,14 +1403,12 @@ public class OASVatomApi {
     /**
      * Search Campaign Groups
      * Search campaign groups.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void searchCampaignGroups(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1591,11 +1421,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/b/campaign-groups/search', '',
+            'GET', '/vatom/b/campaign-groups/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1606,13 +1434,11 @@ public class OASVatomApi {
     /**
      * Search User Identities
      * Search User Identities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void searchIdentities(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1623,11 +1449,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/me/identities/search', '',
+            'GET', '/vatom/me/identities/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1638,14 +1462,12 @@ public class OASVatomApi {
     /**
      * Search Vatom User\&#39;s Inventory
      * Searches the logged in user\&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void searchInventory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -1657,11 +1479,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'GET', '/api/{version}/vatom/user-inventory/search', '',
+            'GET', '/vatom/user-inventory/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1672,7 +1492,6 @@ public class OASVatomApi {
     /**
      * Send NFT
      * Send an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -1681,7 +1500,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void sendNFT(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomCampaignId'), 'vatomCampaignId');
@@ -1698,11 +1516,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/campaigns/send', '',
+            'POST', '/vatom/b/campaigns/send', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1713,7 +1529,6 @@ public class OASVatomApi {
     /**
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -1723,7 +1538,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void setPointsBalanceAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
@@ -1742,11 +1556,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/campaign/u/points/update', '',
+            'POST', '/vatom/b/campaign/u/points/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1757,7 +1569,6 @@ public class OASVatomApi {
     /**
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1765,7 +1576,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void transferUserCoins(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -1780,11 +1590,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/u/coins/transfer', '',
+            'POST', '/vatom/u/coins/transfer', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1795,7 +1603,6 @@ public class OASVatomApi {
     /**
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1803,7 +1610,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateBusinessCoins(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
@@ -1818,11 +1624,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/coins/update', '',
+            'POST', '/vatom/b/coins/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1833,7 +1637,6 @@ public class OASVatomApi {
     /**
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1842,7 +1645,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateEventGuestList(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomEventId'), 'vatomEventId');
@@ -1859,11 +1661,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/events/guests/update', '',
+            'POST', '/vatom/b/events/guests/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1874,7 +1674,6 @@ public class OASVatomApi {
     /**
      * Update Vatom Space
      * Update a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -1883,7 +1682,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateSpace(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomSpaceId'), 'vatomSpaceId');
@@ -1900,11 +1698,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/spaces/update', '',
+            'POST', '/vatom/b/spaces/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1915,7 +1711,6 @@ public class OASVatomApi {
     /**
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -1924,7 +1719,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateUserCoinsAsBusiness(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomUserId'), 'vatomUserId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -1941,11 +1735,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/users/coins/update', '',
+            'POST', '/vatom/b/users/coins/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1956,14 +1748,12 @@ public class OASVatomApi {
     /**
      * Update Vatom User Profile
      * Gets the logged in user\&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateUserProfile(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('vatomParameters'), 'vatomParameters');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1976,11 +1766,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/me/update', '',
+            'POST', '/vatom/me/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -1991,7 +1779,6 @@ public class OASVatomApi {
     /**
      * Update Vatom Event
      * Update a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -2000,7 +1787,6 @@ public class OASVatomApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateVatomEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('vatomEventId'), 'vatomEventId');
@@ -2017,11 +1803,9 @@ public class OASVatomApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/vatom/b/events/update', '',
+            'POST', '/vatom/b/events/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),

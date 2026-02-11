@@ -28,21 +28,18 @@ public class OASTripApi {
     /**
      * Delete Trip
      * Delete an existing trip
-     * @param version  (required)
      * @param id the id of the trip to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void callDelete(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/trip/{id}', '',
+            'DELETE', '/trip/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -55,23 +52,19 @@ public class OASTripApi {
     /**
      * Create Trip
      * Create a new trip
-     * @param version  (required)
      * @param body  (optional)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip createTrip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip',
+            'POST', '/trip',
             (OASTrip) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,14 +75,12 @@ public class OASTripApi {
     /**
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip driveTrip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('recurrence'), 'recurrence');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -100,10 +91,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/{id}/drive', '',
+            'POST', '/trip/{id}/drive', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -116,14 +106,12 @@ public class OASTripApi {
     /**
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip flexibleTrip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('recurrence'), 'recurrence');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -134,10 +122,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/{id}/flexible', '',
+            'POST', '/trip/{id}/flexible', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -150,22 +137,19 @@ public class OASTripApi {
     /**
      * Get Trip
      * Get an existing trip
-     * @param version  (required)
      * @param id the id of the trip to get (required)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip getTrip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'GET', '/api/{version}/trip/{id}', '',
+            'GET', '/trip/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -178,7 +162,6 @@ public class OASTripApi {
     /**
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param version  (required)
      * @param id The id The id of the trip to search for matches for (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -191,7 +174,6 @@ public class OASTripApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> getTripMatches(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -212,10 +194,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'GET', '/api/{version}/trip/{id}/match', '',
+            'GET', '/trip/{id}/match', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -228,7 +209,6 @@ public class OASTripApi {
     /**
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version  (required)
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -236,7 +216,6 @@ public class OASTripApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> processTripMatches(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -247,11 +226,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'POST', '/api/{version}/trip/match/process', '',
+            'POST', '/trip/match/process', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -262,14 +239,12 @@ public class OASTripApi {
     /**
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip ride(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         client.assertNotNull(params.get('recurrence'), 'recurrence');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -280,10 +255,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/{id}/ride', '',
+            'POST', '/trip/{id}/ride', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -296,7 +270,6 @@ public class OASTripApi {
     /**
      * Search Trips
      * Search for trips
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -310,7 +283,6 @@ public class OASTripApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> search(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -333,11 +305,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'GET', '/api/{version}/trip', '',
+            'GET', '/trip', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -348,7 +318,6 @@ public class OASTripApi {
     /**
      * Search Trips
      * Search for trips with matching information.
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -363,7 +332,6 @@ public class OASTripApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> searchTrips(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -387,11 +355,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'GET', '/api/{version}/trip/match', '',
+            'GET', '/trip/match', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -402,24 +368,21 @@ public class OASTripApi {
     /**
      * Update Trip Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip to update locations for (required)
      * @param body  (optional)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip updateLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/{id}/locations',
+            'POST', '/trip/{id}/locations',
             (OASTrip) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -432,24 +395,21 @@ public class OASTripApi {
     /**
      * Update Recurrence Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return List<OASTrip>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> updateRecurrenceLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'POST', '/api/{version}/trip/{id}/locations/recurrence',
+            'POST', '/trip/{id}/locations/recurrence',
             (OASTrip) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -462,24 +422,21 @@ public class OASTripApi {
     /**
      * Update Recurrence Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return List<OASTrip>
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTrip> updateRecurrenceShipments(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTrip>) client.invoke(
-            'POST', '/api/{version}/trip/{id}/shipments/recurrence',
+            'POST', '/trip/{id}/shipments/recurrence',
             (OASTrip) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -492,24 +449,21 @@ public class OASTripApi {
     /**
      * Update Trip Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip shipments to update (required)
      * @param body  (optional)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip updateShipments(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/{id}/shipments',
+            'POST', '/trip/{id}/shipments',
             (OASTrip) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -522,24 +476,21 @@ public class OASTripApi {
     /**
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param version  (required)
      * @param id the id of the trip to update (required)
      * @param body  (optional)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip updateTrip(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'PUT', '/api/{version}/trip/{id}',
+            'PUT', '/trip/{id}',
             (OASTrip) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -552,14 +503,12 @@ public class OASTripApi {
     /**
      * Trip Notifications
      * Update the trip notifications
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param notifications the notifications to update on the trip (optional)
      * @return OASTrip
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTrip updateTripNotifications(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -570,11 +519,9 @@ public class OASTripApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTrip) client.invoke(
-            'POST', '/api/{version}/trip/notifications', '',
+            'POST', '/trip/notifications', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

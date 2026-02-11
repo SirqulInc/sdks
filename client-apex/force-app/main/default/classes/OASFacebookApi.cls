@@ -28,7 +28,6 @@ public class OASFacebookApi {
     /**
      * Get Facebook Token
      * Gets a user\&#39;s Facebook token.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user\&#39;s current location (optional)
@@ -37,7 +36,6 @@ public class OASFacebookApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTokenResponse getToken(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -49,11 +47,9 @@ public class OASFacebookApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTokenResponse) client.invoke(
-            'GET', '/api/{version}/facebook/getfbtoken', '',
+            'GET', '/facebook/getfbtoken', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -64,7 +60,6 @@ public class OASFacebookApi {
     /**
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param version  (required)
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -79,7 +74,6 @@ public class OASFacebookApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse graphInterface(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('event'), 'event');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -98,11 +92,9 @@ public class OASFacebookApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/facebook/graph', '',
+            'POST', '/facebook/graph', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

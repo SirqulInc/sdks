@@ -28,7 +28,6 @@ public class OASEventApi {
     /**
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a &quot;check-in&quot; action.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -43,7 +42,6 @@ public class OASEventApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferResponse attendEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -61,11 +59,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferResponse) client.invoke(
-            'POST', '/api/{version}/event/attend', '',
+            'POST', '/event/attend', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -76,7 +72,6 @@ public class OASEventApi {
     /**
      * Create Event
      * Create a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The event title (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -93,7 +88,6 @@ public class OASEventApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferResponse createEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('title'), 'title');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -115,11 +109,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferResponse) client.invoke(
-            'POST', '/api/{version}/event/create', '',
+            'POST', '/event/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -130,14 +122,12 @@ public class OASEventApi {
     /**
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId the id of the event to update (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('eventId'), 'eventId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -149,11 +139,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/event/delete', '',
+            'POST', '/event/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -164,14 +152,12 @@ public class OASEventApi {
     /**
      * Get Event
      * Get an event.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId The id of the event to return (required)
      * @return OASOfferResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferResponse getEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('eventId'), 'eventId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -183,11 +169,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferResponse) client.invoke(
-            'GET', '/api/{version}/event/get', '',
+            'GET', '/event/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -198,7 +182,6 @@ public class OASEventApi {
     /**
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -222,7 +205,6 @@ public class OASEventApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASEventAttendanceResponse> searchEventTransactions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -249,11 +231,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASEventAttendanceResponse>) client.invoke(
-            'GET', '/api/{version}/event/attendance/search', '',
+            'GET', '/event/attendance/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -264,7 +244,6 @@ public class OASEventApi {
     /**
      * Search Events
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -282,7 +261,6 @@ public class OASEventApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferShortResponse> searchEvents(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -304,11 +282,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferShortResponse>) client.invoke(
-            'GET', '/api/{version}/event/search', '',
+            'GET', '/event/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -319,7 +295,6 @@ public class OASEventApi {
     /**
      * Update Event
      * Update a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param eventId The id of the event to update (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -336,7 +311,6 @@ public class OASEventApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferResponse updateEvent(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('eventId'), 'eventId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -358,11 +332,9 @@ public class OASEventApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferResponse) client.invoke(
-            'POST', '/api/{version}/event/update', '',
+            'POST', '/event/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASAMQPApi {
     /**
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param name The name of the queue to connect to (required)
      * @param hostname The hostname of the server the queue is hosted on (required)
@@ -47,7 +46,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse consumerCreate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('hostname'), 'hostname');
@@ -75,11 +73,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'POST', '/api/{version}/queue/consumer/create', '',
+            'POST', '/queue/consumer/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -90,7 +86,6 @@ public class OASAMQPApi {
     /**
      * Update Consumer
      * Update an existing amqp queue\&#39;s data mapping.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param queueId The queue to update (required)
      * @param dataMapping The data mapping information in the format of AMQPRequest (required)
@@ -101,7 +96,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse consumerUpdate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('queueId'), 'queueId');
         client.assertNotNull(params.get('dataMapping'), 'dataMapping');
@@ -118,11 +112,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'POST', '/api/{version}/queue/consumer/update', '',
+            'POST', '/queue/consumer/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -133,7 +125,6 @@ public class OASAMQPApi {
     /**
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param name The name of the queue to create (required)
      * @param deviceId The client deviceID (optional)
@@ -150,7 +141,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse queueCreate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -172,11 +162,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'POST', '/api/{version}/queue/create', '',
+            'POST', '/queue/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -187,7 +175,6 @@ public class OASAMQPApi {
     /**
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version  (required)
      * @param queueId The id of the queue to find (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -195,7 +182,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse queueDelete(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('queueId'), 'queueId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -207,11 +193,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/queue/delete', '',
+            'POST', '/queue/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -222,7 +206,6 @@ public class OASAMQPApi {
     /**
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -234,7 +217,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse queueGet(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -249,11 +231,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'GET', '/api/{version}/queue/get', '',
+            'GET', '/queue/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -264,7 +244,6 @@ public class OASAMQPApi {
     /**
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param message The payload to send to the queue (required)
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -275,7 +254,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse queuePublish(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('message'), 'message');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -290,11 +268,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/queue/publish', '',
+            'POST', '/queue/publish', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -305,7 +281,6 @@ public class OASAMQPApi {
     /**
      * Search Queue
      * Get the queues setup for the BillableEntity\&#39;s applications.
-     * @param version  (required)
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -316,7 +291,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse queueSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -330,11 +304,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'GET', '/api/{version}/queue/search', '',
+            'GET', '/queue/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -345,7 +317,6 @@ public class OASAMQPApi {
     /**
      * Update Queue
      * Update the basic AMQP queue.
-     * @param version  (required)
      * @param queueId The id of the queue to update (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -362,7 +333,6 @@ public class OASAMQPApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQueueResponse queueUpdate(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('queueId'), 'queueId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -383,11 +353,9 @@ public class OASAMQPApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQueueResponse) client.invoke(
-            'POST', '/api/{version}/queue/update', '',
+            'POST', '/queue/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

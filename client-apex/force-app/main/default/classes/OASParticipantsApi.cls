@@ -28,7 +28,6 @@ public class OASParticipantsApi {
     /**
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -36,7 +35,6 @@ public class OASParticipantsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse processAllParticipants(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -48,11 +46,9 @@ public class OASParticipantsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/participant/process/all', '',
+            'POST', '/participant/process/all', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -63,7 +59,6 @@ public class OASParticipantsApi {
     /**
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param league The league identifier to process (required)
      * @param appKey The application key used to identify the application (optional)
@@ -73,7 +68,6 @@ public class OASParticipantsApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse processParticipants(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('league'), 'league');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -88,11 +82,9 @@ public class OASParticipantsApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/participant/process', '',
+            'POST', '/participant/process', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

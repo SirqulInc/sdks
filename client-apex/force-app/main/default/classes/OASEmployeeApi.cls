@@ -28,7 +28,6 @@ public class OASEmployeeApi {
     /**
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param employeeAccountId The account id of the user to be assigned as employee (required)
@@ -37,7 +36,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASEmployeeResponse assignEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('managerAccountId'), 'managerAccountId');
         client.assertNotNull(params.get('employeeAccountId'), 'employeeAccountId');
@@ -52,11 +50,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASEmployeeResponse) client.invoke(
-            'POST', '/api/{version}/employee/assign', '',
+            'POST', '/employee/assign', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -67,7 +63,6 @@ public class OASEmployeeApi {
     /**
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param retailerLocationId The retailer location to apply the change to (required)
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -76,7 +71,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse assignToLocationEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('retailerLocationId'), 'retailerLocationId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -90,11 +84,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/employee/assignToLocation', '',
+            'POST', '/employee/assignToLocation', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -105,7 +97,6 @@ public class OASEmployeeApi {
     /**
      * Create Employee
      * Create a new account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -140,7 +131,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASEmployeeResponse createEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('managerAccountId'), 'managerAccountId');
         client.assertNotNull(params.get('username'), 'username');
@@ -182,11 +172,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASEmployeeResponse) client.invoke(
-            'POST', '/api/{version}/employee/create', '',
+            'POST', '/employee/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -197,14 +185,12 @@ public class OASEmployeeApi {
     /**
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param employeeAccountId the id of the employee to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('employeeAccountId'), 'employeeAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -216,11 +202,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/employee/delete', '',
+            'POST', '/employee/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -231,7 +215,6 @@ public class OASEmployeeApi {
     /**
      * Get Employee
      * Get the account record for the account id provided.
-     * @param version  (required)
      * @param accountId the id of logged in user (required)
      * @param employeeAccountId the id of the employee account to get (required)
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -239,7 +222,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASEmployeeResponse getEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('employeeAccountId'), 'employeeAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -252,11 +234,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASEmployeeResponse) client.invoke(
-            'POST', '/api/{version}/employee/get', '',
+            'POST', '/employee/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -267,7 +247,6 @@ public class OASEmployeeApi {
     /**
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -289,7 +268,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASEmployeeResponse> searchEmployees(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -315,11 +293,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASEmployeeResponse>) client.invoke(
-            'POST', '/api/{version}/employee/search', '',
+            'POST', '/employee/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -330,14 +306,12 @@ public class OASEmployeeApi {
     /**
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId The account id of the user to be unassigned (required)
      * @return OASEmployeeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASEmployeeResponse unassignEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('employeeAccountId'), 'employeeAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -349,11 +323,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASEmployeeResponse) client.invoke(
-            'POST', '/api/{version}/employee/unassign', '',
+            'POST', '/employee/unassign', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -364,7 +336,6 @@ public class OASEmployeeApi {
     /**
      * Update Employee
      * Update the account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId the id of the employee account (required)
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -399,7 +370,6 @@ public class OASEmployeeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASEmployeeResponse updateEmployee(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('employeeAccountId'), 'employeeAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -439,11 +409,9 @@ public class OASEmployeeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASEmployeeResponse) client.invoke(
-            'POST', '/api/{version}/employee/update', '',
+            'POST', '/employee/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

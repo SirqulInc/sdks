@@ -28,7 +28,6 @@ public class OASReservationApi {
     /**
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -40,7 +39,6 @@ public class OASReservationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public void createReservation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -56,11 +54,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/reservation/create', '',
+            'POST', '/reservation/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -71,14 +67,12 @@ public class OASReservationApi {
     /**
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param version  (required)
      * @param reservationId The reservation id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteReservation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('reservationId'), 'reservationId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -90,11 +84,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/reservation/delete', '',
+            'POST', '/reservation/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>(),
             new List<String>(),
@@ -105,7 +97,6 @@ public class OASReservationApi {
     /**
      * Update Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the type of reservation (required)
      * @param deviceId the device id of the reservation (optional)
@@ -116,7 +107,6 @@ public class OASReservationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAvailabilityResponse> reservableAvailability(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('reservableId'), 'reservableId');
         client.assertNotNull(params.get('reservableType'), 'reservableType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -132,11 +122,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAvailabilityResponse>) client.invoke(
-            'POST', '/api/{version}/reservable/availability/update', '',
+            'POST', '/reservable/availability/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -147,7 +135,6 @@ public class OASReservationApi {
     /**
      * Search Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservable type (required)
      * @param deviceId the device ID that the reservation is on (optional)
@@ -160,7 +147,6 @@ public class OASReservationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASAvailabilityResponse> searchAvailability(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('reservableId'), 'reservableId');
         client.assertNotNull(params.get('reservableType'), 'reservableType');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -178,11 +164,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASAvailabilityResponse>) client.invoke(
-            'GET', '/api/{version}/reservable/availability/search', '',
+            'GET', '/reservable/availability/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -193,7 +177,6 @@ public class OASReservationApi {
     /**
      * Search Reservations
      * 
-     * @param version  (required)
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -209,7 +192,6 @@ public class OASReservationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASReservationResponse> searchReservations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -228,11 +210,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASReservationResponse>) client.invoke(
-            'GET', '/api/{version}/reservation/search', '',
+            'GET', '/reservation/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -243,7 +223,6 @@ public class OASReservationApi {
     /**
      * Search Schedule
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservation type (required)
      * @param startDate the start date of the reservation (required)
@@ -255,7 +234,6 @@ public class OASReservationApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTimeSlotResponse> searchSchedule(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('reservableId'), 'reservableId');
         client.assertNotNull(params.get('reservableType'), 'reservableType');
         client.assertNotNull(params.get('startDate'), 'startDate');
@@ -274,11 +252,9 @@ public class OASReservationApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTimeSlotResponse>) client.invoke(
-            'GET', '/api/{version}/reservable/schedule/search', '',
+            'GET', '/reservable/schedule/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

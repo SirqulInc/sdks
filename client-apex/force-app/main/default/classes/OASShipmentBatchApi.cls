@@ -28,23 +28,19 @@ public class OASShipmentBatchApi {
     /**
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param version  (required)
      * @param body  (optional)
      * @return OASShipmentBatch
      * @throws OAS.ApiException if fails to make API call
      */
     public OASShipmentBatch createShipmentBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASShipmentBatch) client.invoke(
-            'POST', '/api/{version}/shipment/batch',
+            'POST', '/shipment/batch',
             (OASShipmentBatch) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,21 +51,18 @@ public class OASShipmentBatchApi {
     /**
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param batchId the id of the shipment batch to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteShipmentBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('batchId'), 'batchId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/shipment/batch/{batchId}', '',
+            'DELETE', '/shipment/batch/{batchId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'batchId' => (Long) params.get('batchId')
             },
             new Map<String, Object>(),
@@ -82,22 +75,19 @@ public class OASShipmentBatchApi {
     /**
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to get (required)
      * @return OASShipmentBatch
      * @throws OAS.ApiException if fails to make API call
      */
     public OASShipmentBatch getShipmentBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('batchId'), 'batchId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASShipmentBatch) client.invoke(
-            'GET', '/api/{version}/shipment/batch/{batchId}', '',
+            'GET', '/shipment/batch/{batchId}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'batchId' => (Long) params.get('batchId')
             },
             new Map<String, Object>(),
@@ -110,7 +100,6 @@ public class OASShipmentBatchApi {
     /**
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param version  (required)
      * @param batchId The id of the requested shipment batch (required)
      * @param accountId the id of the logged in user (required)
      * @param sortField The field to sort by (required)
@@ -127,7 +116,6 @@ public class OASShipmentBatchApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASShipmentImportStatus> getShipmentBatchStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('batchId'), 'batchId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('sortField'), 'sortField');
@@ -152,10 +140,9 @@ public class OASShipmentBatchApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASShipmentImportStatus>) client.invoke(
-            'GET', '/api/{version}/shipment/batch/{batchId}/status', '',
+            'GET', '/shipment/batch/{batchId}/status', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'batchId' => (Long) params.get('batchId')
             },
             new Map<String, Object>(),
@@ -168,7 +155,6 @@ public class OASShipmentBatchApi {
     /**
      * Search Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param hubId The associated service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -178,7 +164,6 @@ public class OASShipmentBatchApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASShipmentBatch> searchShipmentBatch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('hubId'), 'hubId');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -196,11 +181,9 @@ public class OASShipmentBatchApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASShipmentBatch>) client.invoke(
-            'GET', '/api/{version}/shipment/batch', '',
+            'GET', '/shipment/batch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

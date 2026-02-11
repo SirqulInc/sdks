@@ -28,14 +28,12 @@ public class OASCreativeApi {
     /**
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse addPreview(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('creativeId'), 'creativeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -47,11 +45,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/creative/addpreview', '',
+            'POST', '/creative/addpreview', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -62,7 +58,6 @@ public class OASCreativeApi {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads. (required)
@@ -83,7 +78,6 @@ public class OASCreativeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASMissionResponse> adsFind(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('randomize'), 'randomize');
         client.assertNotNull(params.get('targetedAdsOnly'), 'targetedAdsOnly');
@@ -110,11 +104,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASMissionResponse>) client.invoke(
-            'GET', '/api/{version}/ads/find', '',
+            'GET', '/ads/find', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -125,7 +117,6 @@ public class OASCreativeApi {
     /**
      * Create Creative
      * Create a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param active If true set the game level as active. Default is false. (required)
@@ -145,7 +136,6 @@ public class OASCreativeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCreativeResponse createCreative(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('active'), 'active');
@@ -172,11 +162,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCreativeResponse) client.invoke(
-            'POST', '/api/{version}/creative/create', '',
+            'POST', '/creative/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -187,14 +175,12 @@ public class OASCreativeApi {
     /**
      * Delete Creative
      * Delete a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the id of the creative to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteCreative(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('creativeId'), 'creativeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -206,11 +192,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/creative/delete', '',
+            'POST', '/creative/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -221,14 +205,12 @@ public class OASCreativeApi {
     /**
      * Get Creative
      * Get a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the ID of the creative to get (required)
      * @return OASCreativeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCreativeResponse getCreative(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('creativeId'), 'creativeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -240,11 +222,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCreativeResponse) client.invoke(
-            'GET', '/api/{version}/creative/get', '',
+            'GET', '/creative/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -255,7 +235,6 @@ public class OASCreativeApi {
     /**
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -266,7 +245,6 @@ public class OASCreativeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASCreativeResponse> getCreativesByApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('start'), 'start');
@@ -284,11 +262,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASCreativeResponse>) client.invoke(
-            'GET', '/api/{version}/creative/search', '',
+            'GET', '/creative/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -299,14 +275,12 @@ public class OASCreativeApi {
     /**
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the ID of the logged in user (required)
      * @param creativeId the ID of the creative to remove preview (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removePreview(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('creativeId'), 'creativeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -318,11 +292,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/creative/removepreview', '',
+            'POST', '/creative/removepreview', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -333,7 +305,6 @@ public class OASCreativeApi {
     /**
      * Update Creative
      * Update a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param creativeId the creative Id to upate. (required)
      * @param name The name of the level. (optional)
@@ -352,7 +323,6 @@ public class OASCreativeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCreativeResponse updateCreative(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('creativeId'), 'creativeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -376,11 +346,9 @@ public class OASCreativeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCreativeResponse) client.invoke(
-            'POST', '/api/{version}/creative/update', '',
+            'POST', '/creative/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

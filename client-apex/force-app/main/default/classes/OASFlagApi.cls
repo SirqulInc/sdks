@@ -28,7 +28,6 @@ public class OASFlagApi {
     /**
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -40,7 +39,6 @@ public class OASFlagApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse createFlag(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('flagableType'), 'flagableType');
         client.assertNotNull(params.get('flagableId'), 'flagableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -57,11 +55,9 @@ public class OASFlagApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/flag/create', '',
+            'POST', '/flag/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -72,7 +68,6 @@ public class OASFlagApi {
     /**
      * Delete Flag
      * Deletes a flag.
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -83,7 +78,6 @@ public class OASFlagApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteFlag(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -97,11 +91,9 @@ public class OASFlagApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/flag/delete', '',
+            'POST', '/flag/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,7 +104,6 @@ public class OASFlagApi {
     /**
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -123,7 +114,6 @@ public class OASFlagApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASFlagResponse getFlag(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('flagableType'), 'flagableType');
         client.assertNotNull(params.get('flagableId'), 'flagableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -139,11 +129,9 @@ public class OASFlagApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASFlagResponse) client.invoke(
-            'GET', '/api/{version}/flag/get', '',
+            'GET', '/flag/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -154,14 +142,12 @@ public class OASFlagApi {
     /**
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param appKey The application key (required)
      * @return OASCountResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCountResponse getFlagThreshold(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('itemBeingFlaggedType'), 'itemBeingFlaggedType');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -173,11 +159,9 @@ public class OASFlagApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCountResponse) client.invoke(
-            'GET', '/api/{version}/flag/threshold/get', '',
+            'GET', '/flag/threshold/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -188,7 +172,6 @@ public class OASFlagApi {
     /**
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param threshold The threshold value (required)
      * @param appKey The application key (required)
@@ -198,7 +181,6 @@ public class OASFlagApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCountResponse updateFlagThreshold(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('itemBeingFlaggedType'), 'itemBeingFlaggedType');
         client.assertNotNull(params.get('threshold'), 'threshold');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -214,11 +196,9 @@ public class OASFlagApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCountResponse) client.invoke(
-            'POST', '/api/{version}/flag/threshold/update', '',
+            'POST', '/flag/threshold/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

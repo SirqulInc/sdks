@@ -28,7 +28,6 @@ public class OASGameLevelApi {
     /**
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param gameData The game level data: xml, json, or other text based format. (required)
@@ -59,7 +58,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameLevelResponse createGameLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('gameData'), 'gameData');
@@ -97,11 +95,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameLevelResponse) client.invoke(
-            'POST', '/api/{version}/level/create', '',
+            'POST', '/level/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -112,14 +108,12 @@ public class OASGameLevelApi {
     /**
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteGameLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('levelId'), 'levelId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -131,11 +125,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/level/delete', '',
+            'POST', '/level/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -146,7 +138,6 @@ public class OASGameLevelApi {
     /**
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param includeGameData If true include the game level data, otherwise don\&#39;t. default is false. (optional)
@@ -154,7 +145,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameLevelResponse getGameLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('levelId'), 'levelId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -167,11 +157,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameLevelResponse) client.invoke(
-            'GET', '/api/{version}/level/get', '',
+            'GET', '/level/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -182,7 +170,6 @@ public class OASGameLevelApi {
     /**
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -197,7 +184,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameLevelListResponse getGameLevelsByApplication(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -217,11 +203,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameLevelListResponse) client.invoke(
-            'GET', '/api/{version}/level/search', '',
+            'GET', '/level/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -232,7 +216,6 @@ public class OASGameLevelApi {
     /**
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -245,7 +228,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameLevelResponse getGameLevelsByBillableEntity(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -262,11 +244,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameLevelResponse) client.invoke(
-            'GET', '/api/{version}/level/searchByBillableEntity', '',
+            'GET', '/level/searchByBillableEntity', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -277,14 +257,12 @@ public class OASGameLevelApi {
     /**
      * Get Level Questions
      * Get questions within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get questions from (required)
      * @param accountId the id of the logged in user (required)
      * @return OASQuestionResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASQuestionResponse getQuestionsInLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('levelId'), 'levelId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -296,11 +274,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASQuestionResponse) client.invoke(
-            'GET', '/api/{version}/level/questions/get', '',
+            'GET', '/level/questions/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -311,14 +287,12 @@ public class OASGameLevelApi {
     /**
      * Get Level Words
      * Get words within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get words for (required)
      * @param accountId the id of the logged in user (required)
      * @return OASWordzWordResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASWordzWordResponse getWordsInLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('levelId'), 'levelId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -330,11 +304,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASWordzWordResponse) client.invoke(
-            'GET', '/api/{version}/level/words/get', '',
+            'GET', '/level/words/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -345,7 +317,6 @@ public class OASGameLevelApi {
     /**
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId If update then include the level Id. (required)
      * @param appKey The game application key to save the level for. (optional)
@@ -377,7 +348,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASGameLevelResponse updateGameLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('levelId'), 'levelId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -414,11 +384,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASGameLevelResponse) client.invoke(
-            'POST', '/api/{version}/level/update', '',
+            'POST', '/level/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -429,7 +397,6 @@ public class OASGameLevelApi {
     /**
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update questions on (required)
      * @param accountId the id of the logged in user (required)
      * @param questionIds the IDs of the questions to update (required)
@@ -437,7 +404,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateQuestionsInLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('levelId'), 'levelId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('questionIds'), 'questionIds');
@@ -451,11 +417,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/level/questions/update', '',
+            'POST', '/level/questions/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -466,7 +430,6 @@ public class OASGameLevelApi {
     /**
      * Update Level Words
      * Updates a level with word game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update words for (required)
      * @param accountId the id of the logged in user (required)
      * @param wordIds the ids of the words to update for the level (required)
@@ -474,7 +437,6 @@ public class OASGameLevelApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateWordsInLevel(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('levelId'), 'levelId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('wordIds'), 'wordIds');
@@ -488,11 +450,9 @@ public class OASGameLevelApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/level/words/update', '',
+            'POST', '/level/words/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

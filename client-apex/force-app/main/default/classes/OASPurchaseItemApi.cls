@@ -28,7 +28,6 @@ public class OASPurchaseItemApi {
     /**
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param version  (required)
      * @param appKey The application key that the purchase can be used in (required)
      * @param name The name of the purchase item (required)
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -53,7 +52,6 @@ public class OASPurchaseItemApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPurchaseItemFullResponse createPurchaseItem(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('name'), 'name');
         client.assertNotNull(params.get('purchaseType'), 'purchaseType');
@@ -84,11 +82,9 @@ public class OASPurchaseItemApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPurchaseItemFullResponse) client.invoke(
-            'POST', '/api/{version}/purchase/create', '',
+            'POST', '/purchase/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -99,7 +95,6 @@ public class OASPurchaseItemApi {
     /**
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -107,7 +102,6 @@ public class OASPurchaseItemApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deletePurchaseItem(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('purchaseItemId'), 'purchaseItemId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -119,11 +113,9 @@ public class OASPurchaseItemApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/purchase/delete', '',
+            'POST', '/purchase/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -134,7 +126,6 @@ public class OASPurchaseItemApi {
     /**
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -142,7 +133,6 @@ public class OASPurchaseItemApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPurchaseItemFullResponse getPurchaseItem(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('purchaseItemId'), 'purchaseItemId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -154,11 +144,9 @@ public class OASPurchaseItemApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPurchaseItemFullResponse) client.invoke(
-            'GET', '/api/{version}/purchase/get', '',
+            'GET', '/purchase/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -169,7 +157,6 @@ public class OASPurchaseItemApi {
     /**
      * Search Purchases
      * Search for purchasable items from the system
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -186,7 +173,6 @@ public class OASPurchaseItemApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASPurchaseItemResponse> searchPurchaseItems(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -206,11 +192,9 @@ public class OASPurchaseItemApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASPurchaseItemResponse>) client.invoke(
-            'GET', '/api/{version}/purchase/search', '',
+            'GET', '/purchase/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -221,7 +205,6 @@ public class OASPurchaseItemApi {
     /**
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -247,7 +230,6 @@ public class OASPurchaseItemApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPurchaseItemFullResponse updatePurchaseItem(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('purchaseItemId'), 'purchaseItemId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -277,11 +259,9 @@ public class OASPurchaseItemApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPurchaseItemFullResponse) client.invoke(
-            'POST', '/api/{version}/purchase/update', '',
+            'POST', '/purchase/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

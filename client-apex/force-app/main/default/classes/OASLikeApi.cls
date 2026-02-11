@@ -28,7 +28,6 @@ public class OASLikeApi {
     /**
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\dislikes on the same object will replace the previous one.
-     * @param version  (required)
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -45,7 +44,6 @@ public class OASLikeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLikableResponse registerLike(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('likableType'), 'likableType');
         client.assertNotNull(params.get('likableId'), 'likableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -67,11 +65,9 @@ public class OASLikeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLikableResponse) client.invoke(
-            'POST', '/api/{version}/like', '',
+            'POST', '/like', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,7 +78,6 @@ public class OASLikeApi {
     /**
      * Delete Like
      * Removes a like. This will make the user &quot;neutral&quot;.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -93,7 +88,6 @@ public class OASLikeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASLikableResponse removeLike(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('likableType'), 'likableType');
         client.assertNotNull(params.get('likableId'), 'likableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -109,11 +103,9 @@ public class OASLikeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASLikableResponse) client.invoke(
-            'POST', '/api/{version}/like/delete', '',
+            'POST', '/like/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -124,7 +116,6 @@ public class OASLikeApi {
     /**
      * Search Likes
      * Search for likes on a likable object.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -140,7 +131,6 @@ public class OASLikeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSearchResponse searchLikes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('likableType'), 'likableType');
         client.assertNotNull(params.get('likableId'), 'likableId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -161,11 +151,9 @@ public class OASLikeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSearchResponse) client.invoke(
-            'GET', '/api/{version}/like/search', '',
+            'GET', '/like/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

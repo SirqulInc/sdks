@@ -28,7 +28,6 @@ public class OASTaskApi {
     /**
      * Create Task
      * Create a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (required)
      * @param appKey The application to target (optional)
@@ -45,7 +44,6 @@ public class OASTaskApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTaskResponse createTask(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -67,11 +65,9 @@ public class OASTaskApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTaskResponse) client.invoke(
-            'POST', '/api/{version}/task/create', '',
+            'POST', '/task/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,14 +78,12 @@ public class OASTaskApi {
     /**
      * Delete Task
      * Delete a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to delete. (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteTask(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('taskId'), 'taskId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -101,11 +95,9 @@ public class OASTaskApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/task/delete', '',
+            'POST', '/task/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -116,14 +108,12 @@ public class OASTaskApi {
     /**
      * Get Task
      * Get a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to return. (required)
      * @return OASTaskResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTaskResponse getTask(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('taskId'), 'taskId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -135,11 +125,9 @@ public class OASTaskApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTaskResponse) client.invoke(
-            'GET', '/api/{version}/task/get', '',
+            'GET', '/task/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -150,7 +138,6 @@ public class OASTaskApi {
     /**
      * Search Tasks
      * Search on Tasks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters: \n* MINE - Return tasks that the user has created\n* SHARED - Return tasks that have been shared to the user\n* FOLLOWER - Return tasks that have been created by the user\&#39;\&#39;s followers (the content needs to have been APPROVED or FEATURED)\n* FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED)\n* PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED\n* ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status)\n* LIKED - Return all tasks that the user has liked\n* FEATURED - Return all tasks that have been featured\n* PENDING - Return all pending tasks\n (optional, default to 'MINE')
@@ -167,7 +154,6 @@ public class OASTaskApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASTaskResponse> searchTasks(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -188,11 +174,9 @@ public class OASTaskApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASTaskResponse>) client.invoke(
-            'GET', '/api/{version}/task/search', '',
+            'GET', '/task/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -203,7 +187,6 @@ public class OASTaskApi {
     /**
      * Update Task
      * Update a Task
-     * @param version  (required)
      * @param taskId Task Id (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (optional)
@@ -221,7 +204,6 @@ public class OASTaskApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASTaskResponse updateTask(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('taskId'), 'taskId');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -244,11 +226,9 @@ public class OASTaskApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASTaskResponse) client.invoke(
-            'POST', '/api/{version}/task/update', '',
+            'POST', '/task/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

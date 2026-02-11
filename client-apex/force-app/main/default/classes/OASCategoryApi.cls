@@ -28,7 +28,6 @@ public class OASCategoryApi {
     /**
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -53,7 +52,6 @@ public class OASCategoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASCategoryResponse> categoryDistanceSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -81,11 +79,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASCategoryResponse>) client.invoke(
-            'GET', '/api/{version}/category/distancesearch', '',
+            'GET', '/category/distancesearch', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -96,7 +92,6 @@ public class OASCategoryApi {
     /**
      * Create Category
      * Create a new category.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the category (required)
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -115,7 +110,6 @@ public class OASCategoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCategoryTreeResponse createCategory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -139,11 +133,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCategoryTreeResponse) client.invoke(
-            'POST', '/api/{version}/category/create', '',
+            'POST', '/category/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -154,14 +146,12 @@ public class OASCategoryApi {
     /**
      * Delete Category
      * Delete a category.
-     * @param version  (required)
      * @param accountId the ID of the account (required)
      * @param categoryId the ID of the category (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteCategory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('categoryId'), 'categoryId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -173,11 +163,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/category/delete', '',
+            'POST', '/category/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -188,7 +176,6 @@ public class OASCategoryApi {
     /**
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param categoryId The category ID to duplicate (includes all children) (required)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -197,7 +184,6 @@ public class OASCategoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCategoryTreeResponse duplicateCategory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('categoryId'), 'categoryId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -211,11 +197,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCategoryTreeResponse) client.invoke(
-            'POST', '/api/{version}/category/duplicate', '',
+            'POST', '/category/duplicate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -226,14 +210,12 @@ public class OASCategoryApi {
     /**
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version  (required)
      * @param categoryId the ID of the category (required)
      * @param returnExternal Determines whether to return extra info about the category\&#39;s &quot;Participant&quot; reference (optional, default to true)
      * @return OASCategoryTreeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCategoryTreeResponse getCategory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('categoryId'), 'categoryId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -244,11 +226,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCategoryTreeResponse) client.invoke(
-            'GET', '/api/{version}/category/get', '',
+            'GET', '/category/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -259,7 +239,6 @@ public class OASCategoryApi {
     /**
      * Search Categories
      * Search for categories.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -285,7 +264,6 @@ public class OASCategoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASCategoryResponse> searchCategories(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -314,11 +292,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASCategoryResponse>) client.invoke(
-            'GET', '/api/{version}/category/search', '',
+            'GET', '/category/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -329,7 +305,6 @@ public class OASCategoryApi {
     /**
      * Update Category
      * Update a category.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param categoryId The ID of the category to edit (required)
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -348,7 +323,6 @@ public class OASCategoryApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASCategoryTreeResponse updateCategory(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('categoryId'), 'categoryId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -372,11 +346,9 @@ public class OASCategoryApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASCategoryTreeResponse) client.invoke(
-            'POST', '/api/{version}/category/update', '',
+            'POST', '/category/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

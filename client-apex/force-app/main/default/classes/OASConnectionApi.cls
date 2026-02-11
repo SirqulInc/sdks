@@ -28,7 +28,6 @@ public class OASConnectionApi {
     /**
      * Add Connection
      * Adds a connection to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -42,7 +41,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse addConnectionToGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('groupId'), 'groupId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -61,11 +59,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group/addConnection', '',
+            'POST', '/consumer/connection/group/addConnection', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -76,7 +72,6 @@ public class OASConnectionApi {
     /**
      * Add Connections
      * Adds a list of connections to a group.
-     * @param version  (required)
      * @param connectionGroupId the connection group ID (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -88,7 +83,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse addConnectionsToGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('connectionGroupId'), 'connectionGroupId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -104,11 +98,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/connection/group/addConnections', '',
+            'POST', '/connection/group/addConnections', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -119,7 +111,6 @@ public class OASConnectionApi {
     /**
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to add to the parent group (required)
@@ -131,7 +122,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionGroupResponse addSubGroups(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('groupId'), 'groupId');
         client.assertNotNull(params.get('subGroupIds'), 'subGroupIds');
@@ -149,11 +139,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionGroupResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group/addSubGroup', '',
+            'POST', '/consumer/connection/group/addSubGroup', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -164,7 +152,6 @@ public class OASConnectionApi {
     /**
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -183,7 +170,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionResponse createOrUpdateConnection(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -205,11 +191,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/add', '',
+            'POST', '/consumer/connection/add', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -220,7 +204,6 @@ public class OASConnectionApi {
     /**
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -239,7 +222,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse createOrUpdateGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -262,11 +244,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group', '',
+            'POST', '/consumer/connection/group', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -277,7 +257,6 @@ public class OASConnectionApi {
     /**
      * Accept Follow Request
      * Accept someone\&#39;s follow request.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -285,7 +264,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse followAccept(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('connectionAccountId'), 'connectionAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -299,11 +277,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/follow/accept', '',
+            'POST', '/consumer/follow/accept', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -314,7 +290,6 @@ public class OASConnectionApi {
     /**
      * Reject Follow Request
      * Reject someone\&#39;s follow request or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -322,7 +297,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse followReject(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('connectionAccountId'), 'connectionAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -336,11 +310,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/follow/reject', '',
+            'POST', '/consumer/follow/reject', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -351,7 +323,6 @@ public class OASConnectionApi {
     /**
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to unfollow (required)
      * @param appKey the application key for sending notifications (required)
@@ -359,7 +330,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse followRemove(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('connectionAccountId'), 'connectionAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -373,11 +343,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/follow/remove', '',
+            'POST', '/consumer/follow/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -388,7 +356,6 @@ public class OASConnectionApi {
     /**
      * Send Follow Request
      * Send a request to follow someone.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -397,7 +364,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse followRequest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('connectionAccountId'), 'connectionAccountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
@@ -412,11 +378,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/follow/request', '',
+            'POST', '/consumer/follow/request', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -427,7 +391,6 @@ public class OASConnectionApi {
     /**
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend\&#39;s account id (required)
      * @param notifyFriend determines whether to send a notification to the afflicting party (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -439,7 +402,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse friendAccept(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('friendAccountId'), 'friendAccountId');
         client.assertNotNull(params.get('notifyFriend'), 'notifyFriend');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -456,11 +418,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/friend/accept', '',
+            'POST', '/consumer/friend/accept', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -471,7 +431,6 @@ public class OASConnectionApi {
     /**
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend\&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -483,7 +442,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse friendReject(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('friendAccountId'), 'friendAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -499,11 +457,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/friend/reject', '',
+            'POST', '/consumer/friend/reject', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -514,7 +470,6 @@ public class OASConnectionApi {
     /**
      * Delete Friend
      * Removes a friend from the user\&#39;s friends list.
-     * @param version  (required)
      * @param friendAccountId the account ID of the friend to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -524,7 +479,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse friendRemove(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('friendAccountId'), 'friendAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -538,11 +492,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/friend/remove', '',
+            'POST', '/consumer/friend/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -553,7 +505,6 @@ public class OASConnectionApi {
     /**
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param version  (required)
      * @param friendAccountId the friend\&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -564,7 +515,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse friendRequest(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('friendAccountId'), 'friendAccountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -579,11 +529,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/friend/request', '',
+            'POST', '/consumer/friend/request', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -594,14 +542,12 @@ public class OASConnectionApi {
     /**
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param version  (required)
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return OASConnectionListResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionListResponse getConnectionSentFriendRequests(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -611,11 +557,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionListResponse) client.invoke(
-            'GET', '/api/{version}/consumer/connection/getRequested', '',
+            'GET', '/consumer/connection/getRequested', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -626,7 +570,6 @@ public class OASConnectionApi {
     /**
      * Search Connections
      * Gets the connections.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param sortField sorts the response list by ConnectionApiMap (required)
@@ -646,7 +589,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionListResponse getConnections(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('filter'), 'filter');
         client.assertNotNull(params.get('sortField'), 'sortField');
@@ -675,11 +617,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionListResponse) client.invoke(
-            'GET', '/api/{version}/consumer/connection/get', '',
+            'GET', '/consumer/connection/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -690,7 +630,6 @@ public class OASConnectionApi {
     /**
      * Get Connection Group
      * 
-     * @param version  (required)
      * @param combineConnections whether to combine connections or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -701,7 +640,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionGroupResponse getGroupDetails(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('combineConnections'), 'combineConnections');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -716,11 +654,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionGroupResponse) client.invoke(
-            'GET', '/api/{version}/consumer/connection/group/details/get', '',
+            'GET', '/consumer/connection/group/details/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -731,7 +667,6 @@ public class OASConnectionApi {
     /**
      * Search Connection Groups
      * Gets a user\&#39;s private groups and default groups.
-     * @param version  (required)
      * @param sortField the field to sort by (required)
      * @param descending whether to return results in descending or ascending order (required)
      * @param activeOnly to search on active only or not (required)
@@ -746,7 +681,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASConnectionInfoResponse> groupSearch(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('activeOnly'), 'activeOnly');
@@ -769,11 +703,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASConnectionInfoResponse>) client.invoke(
-            'GET', '/api/{version}/connection/group/search', '',
+            'GET', '/connection/group/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -784,7 +716,6 @@ public class OASConnectionApi {
     /**
      * Delete Connection
      * Removes the connection from group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -798,7 +729,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeConnectionFromGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('groupId'), 'groupId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -817,11 +747,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group/removeConnection', '',
+            'POST', '/consumer/connection/group/removeConnection', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -832,7 +760,6 @@ public class OASConnectionApi {
     /**
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param version  (required)
      * @param connectionGroupId connection group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -844,7 +771,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeConnectionsFromGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('connectionGroupId'), 'connectionGroupId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -860,11 +786,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/connection/group/removeConnections', '',
+            'POST', '/connection/group/removeConnections', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -875,7 +799,6 @@ public class OASConnectionApi {
     /**
      * Delete Connection Group
      * Remove a user\&#39;s group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -886,7 +809,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeGroup(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('groupId'), 'groupId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -902,11 +824,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group/remove', '',
+            'POST', '/consumer/connection/group/remove', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -917,7 +837,6 @@ public class OASConnectionApi {
     /**
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to remove from the parent group (required)
@@ -929,7 +848,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse removeSubGroups(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('groupId'), 'groupId');
         client.assertNotNull(params.get('subGroupIds'), 'subGroupIds');
@@ -947,11 +865,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/consumer/connection/group/removeSubGroup', '',
+            'POST', '/consumer/connection/group/removeSubGroup', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -962,7 +878,6 @@ public class OASConnectionApi {
     /**
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param version  (required)
      * @param returnNulls return all json attributes if true. defualt is true. (required)
      * @param start start index of the pagination (required)
      * @param r_limit limit of the pagination (required)
@@ -982,7 +897,6 @@ public class OASConnectionApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASConnectionListResponse searchConnections(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('returnNulls'), 'returnNulls');
         client.assertNotNull(params.get('start'), 'start');
         client.assertNotNull(params.get('r_limit'), 'r_limit');
@@ -1008,11 +922,9 @@ public class OASConnectionApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASConnectionListResponse) client.invoke(
-            'GET', '/api/{version}/connection/search', '',
+            'GET', '/connection/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASBillingInfoApi {
     /**
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -56,7 +55,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse addPaymentMethod(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -88,11 +86,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'POST', '/api/{version}/billing/update', '',
+            'POST', '/billing/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -103,7 +99,6 @@ public class OASBillingInfoApi {
     /**
      * Create Payment Method
      * Add a new method of payment.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -133,7 +128,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse createPaymentMethod(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -167,11 +161,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'POST', '/api/{version}/billing/create', '',
+            'POST', '/billing/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -182,7 +174,6 @@ public class OASBillingInfoApi {
     /**
      * Create Smart Contract
      * Adds a smart contract.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param tokenName The token name (required)
      * @param tokenSymbol The token symbol (required)
@@ -191,7 +182,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse createSmartContract(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('tokenName'), 'tokenName');
         client.assertNotNull(params.get('tokenSymbol'), 'tokenSymbol');
@@ -206,11 +196,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'POST', '/api/{version}/billing/crypto/transfer', '',
+            'POST', '/billing/crypto/transfer', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -221,7 +209,6 @@ public class OASBillingInfoApi {
     /**
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user\&#39;s default payment method will be returned. (optional)
@@ -229,7 +216,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse getCryptoBalance(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -241,11 +227,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'GET', '/api/{version}/billing/crypto/get', '',
+            'GET', '/billing/crypto/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -256,7 +240,6 @@ public class OASBillingInfoApi {
     /**
      * Get Payment Method
      * Get the details of the user\&#39;s payment method or their current default method of payment
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user\&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user\&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -264,7 +247,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse getPaymentMethod(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -276,11 +258,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'GET', '/api/{version}/billing/get', '',
+            'GET', '/billing/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -291,7 +271,6 @@ public class OASBillingInfoApi {
     /**
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param version  (required)
      * @param accountId Account Id to search on (required)
      * @param provider Provider to search on (optional, default to 'AUTHORIZE_NET')
      * @param type the type to search on (optional)
@@ -304,7 +283,6 @@ public class OASBillingInfoApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPaymentTypesResponse searchPaymentMethod(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -321,11 +299,9 @@ public class OASBillingInfoApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPaymentTypesResponse) client.invoke(
-            'GET', '/api/{version}/billing/search', '',
+            'GET', '/billing/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

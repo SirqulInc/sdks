@@ -28,7 +28,6 @@ public class OASFilterApi {
     /**
      * Create Filter
      * Create a filter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the filter (required)
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -42,7 +41,6 @@ public class OASFilterApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASFilterTreeResponse createFilter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('name'), 'name');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -61,11 +59,9 @@ public class OASFilterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASFilterTreeResponse) client.invoke(
-            'POST', '/api/{version}/filter/create', '',
+            'POST', '/filter/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -76,14 +72,12 @@ public class OASFilterApi {
     /**
      * Delete Filter
      * Delete a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the filter\&#39;s assigned application) (required)
      * @param filterId The ID of the filter to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteFilter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('filterId'), 'filterId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -95,11 +89,9 @@ public class OASFilterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/filter/delete', '',
+            'POST', '/filter/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -110,13 +102,11 @@ public class OASFilterApi {
     /**
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version  (required)
      * @param filterId the id of the filter to get (required)
      * @return OASFilterTreeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASFilterTreeResponse getFilter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('filterId'), 'filterId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -126,11 +116,9 @@ public class OASFilterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASFilterTreeResponse) client.invoke(
-            'GET', '/api/{version}/filter/get', '',
+            'GET', '/filter/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -141,7 +129,6 @@ public class OASFilterApi {
     /**
      * Search Filters
      * Search for filters.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -156,7 +143,6 @@ public class OASFilterApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASFilterResponse> searchFilters(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -174,11 +160,9 @@ public class OASFilterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASFilterResponse>) client.invoke(
-            'GET', '/api/{version}/filter/search', '',
+            'GET', '/filter/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -189,7 +173,6 @@ public class OASFilterApi {
     /**
      * Update Filter
      * Update a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param filterId The ID of the filter to edit (required)
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -203,7 +186,6 @@ public class OASFilterApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASFilterTreeResponse updateFilter(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('filterId'), 'filterId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -222,11 +204,9 @@ public class OASFilterApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASFilterTreeResponse) client.invoke(
-            'POST', '/api/{version}/filter/update', '',
+            'POST', '/filter/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

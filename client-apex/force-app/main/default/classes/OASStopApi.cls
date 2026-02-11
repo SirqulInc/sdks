@@ -28,22 +28,19 @@ public class OASStopApi {
     /**
      * Get Stop
      * Get an existing stop
-     * @param version  (required)
      * @param id the id of the stop to get (required)
      * @return OASStop
      * @throws OAS.ApiException if fails to make API call
      */
     public OASStop getStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASStop) client.invoke(
-            'GET', '/api/{version}/stop/{id}', '',
+            'GET', '/stop/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -56,24 +53,21 @@ public class OASStopApi {
     /**
      * Update Stop
      * Update an existing stop
-     * @param version  (required)
      * @param id the id of the stop to update (required)
      * @param body  (optional)
      * @return OASStop
      * @throws OAS.ApiException if fails to make API call
      */
     public OASStop updateStop(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASStop) client.invoke(
-            'PUT', '/api/{version}/stop/{id}',
+            'PUT', '/stop/{id}',
             (OASStop) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),

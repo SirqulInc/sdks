@@ -28,7 +28,6 @@ public class OASOfferApi {
     /**
      * Update Offer Locations
      * Batch update offer locations.
-     * @param version  (required)
      * @param data JSON string in the following format:\n&#x60;&#x60;&#x60;json\n[{\n  &quot;offerLocationId&quot;: 1705,\n  &quot;latitude&quot;: 54.0,\n  &quot;longitude&quot;: -122.0,\n  &quot;altitude&quot;: 1.0,\n  &quot;locationDetail&quot;: &quot;floor 1&quot;,\n  &quot;locationDescription&quot;: &quot;behind the Coke sign&quot;\n}, {\n  &quot;offerLocationId&quot;: 1704,\n  &quot;latitude&quot;: 54.1,\n  &quot;longitude&quot;: -122.1\n}]\n&#x60;&#x60;&#x60;\n (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -36,7 +35,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse batchUpdateOfferLocations(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('data'), 'data');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -48,11 +46,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/location/batchUpdate', '',
+            'POST', '/retailer/offer/location/batchUpdate', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -63,7 +59,6 @@ public class OASOfferApi {
     /**
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param version  (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -154,7 +149,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerOfferResponse createOffer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('includeOfferLocations'), 'includeOfferLocations');
         client.assertNotNull(params.get('title'), 'title');
         client.assertNotNull(params.get('barcodeType'), 'barcodeType');
@@ -264,11 +258,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerOfferResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/create', '',
+            'POST', '/retailer/offer/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -279,7 +271,6 @@ public class OASOfferApi {
     /**
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerId The ID of the offer to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -287,7 +278,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteOffer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerId'), 'offerId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -299,11 +289,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/delete', '',
+            'POST', '/retailer/offer/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -314,7 +302,6 @@ public class OASOfferApi {
     /**
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerLocationId The ID of the offer location to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -322,7 +309,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteOfferLocation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerLocationId'), 'offerLocationId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -334,11 +320,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/location/delete', '',
+            'POST', '/retailer/offer/location/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -349,7 +333,6 @@ public class OASOfferApi {
     /**
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param version  (required)
      * @param offerId The id of the offer (required)
      * @param includeOfferLocations  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -358,7 +341,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerOfferResponse getOffer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerId'), 'offerId');
         client.assertNotNull(params.get('includeOfferLocations'), 'includeOfferLocations');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -372,11 +354,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerOfferResponse) client.invoke(
-            'GET', '/api/{version}/retailer/offer/get', '',
+            'GET', '/retailer/offer/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -387,7 +367,6 @@ public class OASOfferApi {
     /**
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version  (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -402,7 +381,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferResponse getOfferDetails(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -420,11 +398,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferResponse) client.invoke(
-            'GET', '/api/{version}/offer/get', '',
+            'GET', '/offer/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -435,7 +411,6 @@ public class OASOfferApi {
     /**
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param searchRange The range of the search (optional, default to 5)
@@ -444,7 +419,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASListCountResponse getOfferListCounts(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -458,11 +432,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASListCountResponse) client.invoke(
-            'GET', '/api/{version}/offer/lists/count', '',
+            'GET', '/offer/lists/count', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -473,14 +445,12 @@ public class OASOfferApi {
     /**
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version  (required)
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return OASOfferShortResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferShortResponse getOfferLocation(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -490,11 +460,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferShortResponse) client.invoke(
-            'GET', '/api/{version}/offer/location/get', '',
+            'GET', '/offer/location/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -505,7 +473,6 @@ public class OASOfferApi {
     /**
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version  (required)
      * @param sortField The column to sort the results on. Default is &quot;TITLE&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param start The index into the record set to start with. Default is 0. (required)
@@ -530,7 +497,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferShortResponse> getOfferLocationsForRetailers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -564,11 +530,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferShortResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/offer/location/search', '',
+            'GET', '/retailer/offer/location/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -579,7 +543,6 @@ public class OASOfferApi {
     /**
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param version  (required)
      * @param offerVisibility  (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param descending The order to return the search results (required)
@@ -615,7 +578,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferResponse> getOffersForRetailers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerVisibility'), 'offerVisibility');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
@@ -664,11 +626,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/offer/search', '',
+            'GET', '/retailer/offer/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -679,7 +639,6 @@ public class OASOfferApi {
     /**
      * Update Offer Transaction
      * Redeems an offer.
-     * @param version  (required)
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed (required)
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -689,7 +648,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse redeemOfferTransaction(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerTransactionId'), 'offerTransactionId');
         client.assertNotNull(params.get('status'), 'status');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -704,11 +662,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/transaction/update', '',
+            'POST', '/retailer/offer/transaction/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -719,7 +675,6 @@ public class OASOfferApi {
     /**
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param version  (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
      * @param start The start index for pagination (required)
@@ -748,7 +703,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOfferTransactionResponse> searchOfferTransactionsForRetailers(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -785,11 +739,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOfferTransactionResponse>) client.invoke(
-            'GET', '/api/{version}/retailer/offer/transaction/search', '',
+            'GET', '/retailer/offer/transaction/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -800,7 +752,6 @@ public class OASOfferApi {
     /**
      * Search Offers
      * Searches for offers as a consumer.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -836,7 +787,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferListResponse searchOffersForConsumer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('latitude'), 'latitude');
         client.assertNotNull(params.get('longitude'), 'longitude');
         client.assertNotNull(params.get('recommendationType'), 'recommendationType');
@@ -883,11 +833,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferListResponse) client.invoke(
-            'GET', '/api/{version}/offer/lists', '',
+            'GET', '/offer/lists', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -898,14 +846,12 @@ public class OASOfferApi {
     /**
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param version  (required)
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param r_limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return OASOfferListResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOfferListResponse topOfferTransactions(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -915,11 +861,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOfferListResponse) client.invoke(
-            'GET', '/api/{version}/offer/top', '',
+            'GET', '/offer/top', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -930,7 +874,6 @@ public class OASOfferApi {
     /**
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version  (required)
      * @param offerId The offer to update (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1022,7 +965,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRetailerOfferResponse updateOffer(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerId'), 'offerId');
         client.assertNotNull(params.get('includeOfferLocations'), 'includeOfferLocations');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1119,11 +1061,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRetailerOfferResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/update', '',
+            'POST', '/retailer/offer/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -1134,7 +1074,6 @@ public class OASOfferApi {
     /**
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version  (required)
      * @param offerIds Comma separated list of offer ids (required)
      * @param active Determines whether to make the offer active as well (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1143,7 +1082,6 @@ public class OASOfferApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse updateOfferStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('offerIds'), 'offerIds');
         client.assertNotNull(params.get('active'), 'active');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -1157,11 +1095,9 @@ public class OASOfferApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/retailer/offer/status', '',
+            'POST', '/retailer/offer/status', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

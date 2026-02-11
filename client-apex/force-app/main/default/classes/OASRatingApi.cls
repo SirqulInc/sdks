@@ -28,7 +28,6 @@ public class OASRatingApi {
     /**
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version  (required)
      * @param ratableType The ratable object type {RETAILER_LOCATION} (required)
      * @param ratableId The id of the ratable object (required)
      * @param ratingValue The integer value of 0-100 (required)
@@ -44,7 +43,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRatingResponse createRating(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('ratableType'), 'ratableType');
         client.assertNotNull(params.get('ratableId'), 'ratableId');
         client.assertNotNull(params.get('ratingValue'), 'ratingValue');
@@ -66,11 +64,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRatingResponse) client.invoke(
-            'POST', '/api/{version}/rating/create', '',
+            'POST', '/rating/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -81,7 +77,6 @@ public class OASRatingApi {
     /**
      * Delete Rating
      * Sets a rating as deleted.
-     * @param version  (required)
      * @param ratingId The ID of the rating to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -89,7 +84,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteRating(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('ratingId'), 'ratingId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -101,11 +95,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/rating/delete', '',
+            'POST', '/rating/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -116,7 +108,6 @@ public class OASRatingApi {
     /**
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param version  (required)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -138,7 +129,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRatingIndexResponse> searchLocationRatingIndexes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -163,11 +153,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRatingIndexResponse>) client.invoke(
-            'GET', '/api/{version}/location/rating/index/search', '',
+            'GET', '/location/rating/index/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -178,7 +166,6 @@ public class OASRatingApi {
     /**
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param version  (required)
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -196,7 +183,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRatingIndexResponse> searchRatingIndexes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('ratableType'), 'ratableType');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -218,11 +204,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRatingIndexResponse>) client.invoke(
-            'GET', '/api/{version}/rating/index/search', '',
+            'GET', '/rating/index/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -233,7 +217,6 @@ public class OASRatingApi {
     /**
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -249,7 +232,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASRatingResponse> searchRatings(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -268,11 +250,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASRatingResponse>) client.invoke(
-            'GET', '/api/{version}/rating/search', '',
+            'GET', '/rating/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -283,7 +263,6 @@ public class OASRatingApi {
     /**
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version  (required)
      * @param ratingId The id of the rating (Note: this is not the ratable object id) (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -298,7 +277,6 @@ public class OASRatingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASRatingResponse updateRating(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('ratingId'), 'ratingId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -317,11 +295,9 @@ public class OASRatingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASRatingResponse) client.invoke(
-            'POST', '/api/{version}/rating/update', '',
+            'POST', '/rating/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

@@ -28,7 +28,6 @@ public class OASScoreApi {
     /**
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via \na list of {@link MessageResponse}.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to save the score for. (required)
      * @param points The score (required)
@@ -43,7 +42,6 @@ public class OASScoreApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScoreResponse createScore(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('points'), 'points');
@@ -64,11 +62,9 @@ public class OASScoreApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScoreResponse) client.invoke(
-            'POST', '/api/{version}/score/create', '',
+            'POST', '/score/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -79,7 +75,6 @@ public class OASScoreApi {
     /**
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -93,7 +88,6 @@ public class OASScoreApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASScoreResponse getScore(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -112,11 +106,9 @@ public class OASScoreApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASScoreResponse) client.invoke(
-            'GET', '/api/{version}/score/get', '',
+            'GET', '/score/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -127,7 +119,6 @@ public class OASScoreApi {
     /**
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -139,7 +130,6 @@ public class OASScoreApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASScoreResponse> searchScores(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -156,11 +146,9 @@ public class OASScoreApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASScoreResponse>) client.invoke(
-            'GET', '/api/{version}/score/search', '',
+            'GET', '/score/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

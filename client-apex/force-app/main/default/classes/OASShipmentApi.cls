@@ -28,21 +28,18 @@ public class OASShipmentApi {
     /**
      * Cancel Shipment
      * Remove shipment from route
-     * @param version  (required)
      * @param id the id of the shipment to cancel (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void cancelShipment(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/shipment/{id}/cancel', '',
+            'POST', '/shipment/{id}/cancel', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -55,23 +52,19 @@ public class OASShipmentApi {
     /**
      * Create Shipment
      * Create new shipment
-     * @param version  (required)
      * @param body  (optional)
      * @return OASShipment
      * @throws OAS.ApiException if fails to make API call
      */
     public OASShipment createShipment(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASShipment) client.invoke(
-            'POST', '/api/{version}/shipment',
+            'POST', '/shipment',
             (OASShipment) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,21 +75,18 @@ public class OASShipmentApi {
     /**
      * Delete Shipment
      * Delete an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to delete (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteShipment(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/shipment/{id}', '',
+            'DELETE', '/shipment/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -109,22 +99,19 @@ public class OASShipmentApi {
     /**
      * Get Shipment
      * Get an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to get (required)
      * @return OASShipment
      * @throws OAS.ApiException if fails to make API call
      */
     public OASShipment getShipment(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASShipment) client.invoke(
-            'GET', '/api/{version}/shipment/{id}', '',
+            'GET', '/shipment/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -137,7 +124,6 @@ public class OASShipmentApi {
     /**
      * Search Shipments
      * Search for shipments
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -150,7 +136,6 @@ public class OASShipmentApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASShipment> searchShipments(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -171,11 +156,9 @@ public class OASShipmentApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASShipment>) client.invoke(
-            'GET', '/api/{version}/shipment', '',
+            'GET', '/shipment', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -186,24 +169,21 @@ public class OASShipmentApi {
     /**
      * Update Shipment
      * Update an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update (required)
      * @param body  (optional)
      * @return OASShipment
      * @throws OAS.ApiException if fails to make API call
      */
     public OASShipment updateShipment(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASShipment) client.invoke(
-            'PUT', '/api/{version}/shipment/{id}',
+            'PUT', '/shipment/{id}',
             (OASShipment) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -216,23 +196,20 @@ public class OASShipmentApi {
     /**
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update status (required)
      * @param body  (optional)
      * @throws OAS.ApiException if fails to make API call
      */
     public void updateShipmentStatus(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'POST', '/api/{version}/shipment/{id}/status',
+            'POST', '/shipment/{id}/status',
             (Map<String, Boolean>) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),

@@ -28,23 +28,19 @@ public class OASProgramApi {
     /**
      * Create Program
      * Create a new program
-     * @param version  (required)
      * @param body  (optional)
      * @return OASProgram
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProgram createProgram(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProgram) client.invoke(
-            'POST', '/api/{version}/program',
+            'POST', '/program',
             (OASProgram) params.get('body'),
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -55,21 +51,18 @@ public class OASProgramApi {
     /**
      * Delete Program
      * Delete an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @throws OAS.ApiException if fails to make API call
      */
     public void deleteProgram(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         client.invoke(
-            'DELETE', '/api/{version}/program/{id}', '',
+            'DELETE', '/program/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -82,22 +75,19 @@ public class OASProgramApi {
     /**
      * Get Program
      * Get an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @return OASProgram
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProgram getProgram(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProgram) client.invoke(
-            'GET', '/api/{version}/program/{id}', '',
+            'GET', '/program/{id}', '',
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -110,24 +100,21 @@ public class OASProgramApi {
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return OASProgram
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProgram postProgram(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProgram) client.invoke(
-            'POST', '/api/{version}/program/{id}',
+            'POST', '/program/{id}',
             (OASProgram) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -140,24 +127,21 @@ public class OASProgramApi {
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return OASProgram
      * @throws OAS.ApiException if fails to make API call
      */
     public OASProgram putProgram(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('id'), 'id');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASProgram) client.invoke(
-            'PUT', '/api/{version}/program/{id}',
+            'PUT', '/program/{id}',
             (OASProgram) params.get('body'),
             query, form,
             new Map<String, Object>{
-                'version' => (Double) params.get('version'),
                 'id' => (Long) params.get('id')
             },
             new Map<String, Object>(),
@@ -170,7 +154,6 @@ public class OASProgramApi {
     /**
      * Search Programs
      * Search for programs
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -181,7 +164,6 @@ public class OASProgramApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASProgram> searchPrograms(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         client.assertNotNull(params.get('start'), 'start');
@@ -200,11 +182,9 @@ public class OASProgramApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASProgram>) client.invoke(
-            'GET', '/api/{version}/program', '',
+            'GET', '/program', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

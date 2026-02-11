@@ -28,7 +28,6 @@ public class OASPostalCodeApi {
     /**
      * Create Postal Code
      * Create a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param code the postal code (required)
      * @param latitude the latitude of the postal code (required)
@@ -40,7 +39,6 @@ public class OASPostalCodeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPostalCodeResponse createPostalCode(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('code'), 'code');
         client.assertNotNull(params.get('latitude'), 'latitude');
@@ -59,11 +57,9 @@ public class OASPostalCodeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPostalCodeResponse) client.invoke(
-            'POST', '/api/{version}/postalCode/create', '',
+            'POST', '/postalCode/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -74,14 +70,12 @@ public class OASPostalCodeApi {
     /**
      * Delete Postal Code
      * Delete a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to delete (required)
      * @return OASSirqulResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deletePostalCode(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('postalCodeId'), 'postalCodeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -93,11 +87,9 @@ public class OASPostalCodeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/postalCode/delete', '',
+            'POST', '/postalCode/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -108,13 +100,11 @@ public class OASPostalCodeApi {
     /**
      * Get Postal Code
      * Get a Postal Code
-     * @param version  (required)
      * @param postalCodeId the id of the postal code to get (required)
      * @return OASPostalCodeResponse
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPostalCodeResponse getPostalCode(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('postalCodeId'), 'postalCodeId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -124,11 +114,9 @@ public class OASPostalCodeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPostalCodeResponse) client.invoke(
-            'GET', '/api/{version}/postalCode/get', '',
+            'GET', '/postalCode/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -139,7 +127,6 @@ public class OASPostalCodeApi {
     /**
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version  (required)
      * @param sortField the field to sort the results on (required)
      * @param descending whether to order results in ascending or descending order (required)
      * @param latitude the latitude of the postal code to search on (optional)
@@ -152,7 +139,6 @@ public class OASPostalCodeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASPostalCodeResponse> getPostalCodes(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('sortField'), 'sortField');
         client.assertNotNull(params.get('descending'), 'descending');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -170,11 +156,9 @@ public class OASPostalCodeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASPostalCodeResponse>) client.invoke(
-            'GET', '/api/{version}/postalCode/search', '',
+            'GET', '/postalCode/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -185,7 +169,6 @@ public class OASPostalCodeApi {
     /**
      * Update Postal Code
      * Update a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to update (required)
      * @param code the postal code to update (optional)
@@ -198,7 +181,6 @@ public class OASPostalCodeApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPostalCodeResponse updatePostalCode(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('accountId'), 'accountId');
         client.assertNotNull(params.get('postalCodeId'), 'postalCodeId');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -216,11 +198,9 @@ public class OASPostalCodeApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPostalCodeResponse) client.invoke(
-            'POST', '/api/{version}/postalCode/update', '',
+            'POST', '/postalCode/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

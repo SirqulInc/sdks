@@ -28,7 +28,6 @@ public class OASPurchaseOrderApi {
     /**
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json\n[\n  { &quot;orderItemType&quot;: &quot;OFFER&quot;, &quot;orderItemId&quot;: 234, &quot;orderCustomType&quot;: &quot;OfferLocation&quot;, &quot;orderCustomId&quot;: 123, &quot;retailerLocationId&quot;: 1234, &quot;quantity&quot;: 2 },\n  { &quot;orderItemType&quot;: &quot;OFFER&quot;, &quot;orderItemId&quot;: 235, &quot;quantity&quot;: 2 },\n  { &quot;orderItemType&quot;: &quot;CUSTOM&quot;, &quot;amount&quot;: 10.50, &quot;orderCustomType&quot;: &quot;ServiceFee&quot; },\n  { &quot;orderItemType&quot;: &quot;CUSTOM&quot;, &quot;amount&quot;: 25.10, &quot;quantity&quot;: 2, &quot;orderCustomType&quot;: &quot;Hat&quot;, &quot;orderCustomId&quot;: 123 }\n]\n&#x60;&#x60;&#x60;\n (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -45,7 +44,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderResponse createOrder(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('cart'), 'cart');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -67,11 +65,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderResponse) client.invoke(
-            'POST', '/api/{version}/order/create', '',
+            'POST', '/order/create', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -82,7 +78,6 @@ public class OASPurchaseOrderApi {
     /**
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param orderId Order Id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -90,7 +85,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASSirqulResponse deleteOrder(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('orderId'), 'orderId');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -102,11 +96,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASSirqulResponse) client.invoke(
-            'POST', '/api/{version}/order/delete', '',
+            'POST', '/order/delete', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -117,7 +109,6 @@ public class OASPurchaseOrderApi {
     /**
      * Get Order
      * Get an order record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -126,7 +117,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderResponse getOrder(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -138,11 +128,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderResponse) client.invoke(
-            'GET', '/api/{version}/order/get', '',
+            'GET', '/order/get', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -153,7 +141,6 @@ public class OASPurchaseOrderApi {
     /**
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart A JSON list of items to purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -170,7 +157,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderResponse previewOrder(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('cart'), 'cart');
         List<OAS.Param> query = new List<OAS.Param>();
@@ -192,11 +178,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderResponse) client.invoke(
-            'POST', '/api/{version}/order/preview', '',
+            'POST', '/order/preview', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -207,7 +191,6 @@ public class OASPurchaseOrderApi {
     /**
      * Search Orders
      * Search on active orders by customer
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -243,7 +226,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public List<OASOrderResponse> searchOrders(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('appKey'), 'appKey');
         List<OAS.Param> query = new List<OAS.Param>();
 
@@ -283,11 +265,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (List<OASOrderResponse>) client.invoke(
-            'GET', '/api/{version}/order/search', '',
+            'GET', '/order/search', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
@@ -298,7 +278,6 @@ public class OASPurchaseOrderApi {
     /**
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version  (required)
      * @param orderId The order to add the purchase to, leave null for new order. (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json\n[\n  { &quot;orderItemType&quot;: &quot;OFFER&quot;, &quot;orderItemId&quot;: 234, &quot;orderCustomType&quot;: &quot;OfferLocation&quot;, &quot;orderCustomId&quot;: 123, &quot;retailerLocationId&quot;: 1234, &quot;quantity&quot;: 2 },\n  { &quot;orderItemType&quot;: &quot;OFFER&quot;, &quot;orderItemId&quot;: 235, &quot;quantity&quot;: 2 },\n  { &quot;orderItemType&quot;: &quot;CUSTOM&quot;, &quot;amount&quot;: 10.50, &quot;orderCustomType&quot;: &quot;ServiceFee&quot; },\n  { &quot;orderItemType&quot;: &quot;CUSTOM&quot;, &quot;amount&quot;: 25.10, &quot;quantity&quot;: 2, &quot;orderCustomType&quot;: &quot;Hat&quot;, &quot;orderCustomId&quot;: 123 }\n]\n&#x60;&#x60;&#x60;\n (required)
@@ -314,7 +293,6 @@ public class OASPurchaseOrderApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderResponse updateOrder(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('orderId'), 'orderId');
         client.assertNotNull(params.get('appKey'), 'appKey');
         client.assertNotNull(params.get('cart'), 'cart');
@@ -336,11 +314,9 @@ public class OASPurchaseOrderApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderResponse) client.invoke(
-            'POST', '/api/{version}/order/update', '',
+            'POST', '/order/update', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),

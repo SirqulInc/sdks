@@ -28,7 +28,6 @@ public class OASPathingApi {
     /**
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param version  (required)
      * @param data the data to with start, end point and exclusion points (required)
      * @param units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param reducePath determines whether to reduce the path to go in diagonal lines (required)
@@ -37,7 +36,6 @@ public class OASPathingApi {
      * @throws OAS.ApiException if fails to make API call
      */
     public OASPathingResponse computePath(Map<String, Object> params) {
-        client.assertNotNull(params.get('version'), 'version');
         client.assertNotNull(params.get('data'), 'data');
         client.assertNotNull(params.get('units'), 'units');
         client.assertNotNull(params.get('reducePath'), 'reducePath');
@@ -53,11 +51,9 @@ public class OASPathingApi {
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASPathingResponse) client.invoke(
-            'GET', '/api/{version}/pathing/compute', '',
+            'GET', '/pathing/compute', '',
             query, form,
-            new Map<String, Object>{
-                'version' => (Double) params.get('version')
-            },
+            new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ '*/*' },
             new List<String>(),
