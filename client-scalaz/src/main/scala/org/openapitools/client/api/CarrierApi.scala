@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CellCarrierResponse
 
 object CarrierApi {
@@ -30,10 +29,10 @@ object CarrierApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def searchCarriers(host: String, version: BigDecimal, keyword: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CellCarrierResponse]] = {
+  def searchCarriers(host: String, keyword: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CellCarrierResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CellCarrierResponse]] = jsonOf[List[CellCarrierResponse]]
 
-    val path = "/api/{version}/carrier/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/carrier/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceCarrierApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def searchCarriers(version: BigDecimal, keyword: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CellCarrierResponse]] = {
+  def searchCarriers(keyword: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CellCarrierResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CellCarrierResponse]] = jsonOf[List[CellCarrierResponse]]
 
-    val path = "/api/{version}/carrier/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/carrier/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

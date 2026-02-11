@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CargoType
 
 object CargoTypeApi {
@@ -30,10 +29,10 @@ object CargoTypeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createCargoType(host: String, version: BigDecimal, body: CargoType): Task[CargoType] = {
+  def createCargoType(host: String, body: CargoType): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/cargo/type"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object CargoTypeApi {
     } yield resp
   }
 
-  def deleteCargoType(host: String, version: BigDecimal, cargoTypeId: Long): Task[Unit] = {
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+  def deleteCargoType(host: String, cargoTypeId: Long): Task[Unit] = {
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object CargoTypeApi {
     } yield resp
   }
 
-  def getCargoType(host: String, version: BigDecimal, cargoTypeId: Long): Task[CargoType] = {
+  def getCargoType(host: String, cargoTypeId: Long): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object CargoTypeApi {
     } yield resp
   }
 
-  def searchCargoTypes(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CargoType]] = {
+  def searchCargoTypes(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CargoType]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CargoType]] = jsonOf[List[CargoType]]
 
-    val path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/cargo/type"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object CargoTypeApi {
     } yield resp
   }
 
-  def updateCargoType(host: String, version: BigDecimal, cargoTypeId: Long, body: CargoType): Task[CargoType] = {
+  def updateCargoType(host: String, cargoTypeId: Long, body: CargoType): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -140,10 +139,10 @@ class HttpServiceCargoTypeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createCargoType(version: BigDecimal, body: CargoType): Task[CargoType] = {
+  def createCargoType(body: CargoType): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/cargo/type"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,8 +160,8 @@ class HttpServiceCargoTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteCargoType(version: BigDecimal, cargoTypeId: Long): Task[Unit] = {
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+  def deleteCargoType(cargoTypeId: Long): Task[Unit] = {
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -180,10 +179,10 @@ class HttpServiceCargoTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def getCargoType(version: BigDecimal, cargoTypeId: Long): Task[CargoType] = {
+  def getCargoType(cargoTypeId: Long): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ class HttpServiceCargoTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def searchCargoTypes(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CargoType]] = {
+  def searchCargoTypes(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[CargoType]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CargoType]] = jsonOf[List[CargoType]]
 
-    val path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/cargo/type"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ class HttpServiceCargoTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def updateCargoType(version: BigDecimal, cargoTypeId: Long, body: CargoType): Task[CargoType] = {
+  def updateCargoType(cargoTypeId: Long, body: CargoType): Task[CargoType] = {
     implicit val returnTypeDecoder: EntityDecoder[CargoType] = jsonOf[CargoType]
 
-    val path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
+    val path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}",escape(cargoTypeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

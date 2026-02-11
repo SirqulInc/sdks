@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.TwiMLResponse
 
 object TwilioApi {
@@ -30,10 +29,10 @@ object TwilioApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def smsBuyOffer(host: String, version: BigDecimal, appKey: String, body: String, from: String, currencyType: String)(implicit bodyQuery: QueryParam[String], fromQuery: QueryParam[String], currencyTypeQuery: QueryParam[String]): Task[TwiMLResponse] = {
+  def smsBuyOffer(host: String, appKey: String, body: String, from: String, currencyType: String)(implicit bodyQuery: QueryParam[String], fromQuery: QueryParam[String], currencyTypeQuery: QueryParam[String]): Task[TwiMLResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TwiMLResponse] = jsonOf[TwiMLResponse]
 
-    val path = "/api/{version}/sms/buyoffer/{appKey}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "appKey" + "\\}",escape(appKey.toString))
+    val path = "/sms/buyoffer/{appKey}".replaceAll("\\{" + "appKey" + "\\}",escape(appKey.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceTwilioApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def smsBuyOffer(version: BigDecimal, appKey: String, body: String, from: String, currencyType: String)(implicit bodyQuery: QueryParam[String], fromQuery: QueryParam[String], currencyTypeQuery: QueryParam[String]): Task[TwiMLResponse] = {
+  def smsBuyOffer(appKey: String, body: String, from: String, currencyType: String)(implicit bodyQuery: QueryParam[String], fromQuery: QueryParam[String], currencyTypeQuery: QueryParam[String]): Task[TwiMLResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TwiMLResponse] = jsonOf[TwiMLResponse]
 
-    val path = "/api/{version}/sms/buyoffer/{appKey}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "appKey" + "\\}",escape(appKey.toString))
+    val path = "/sms/buyoffer/{appKey}".replaceAll("\\{" + "appKey" + "\\}",escape(appKey.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

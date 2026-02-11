@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.LikableResponse
 import org.openapitools.client.api.SearchResponse
 
@@ -31,10 +30,10 @@ object LikeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def registerLike(host: String, version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, like: Boolean, app: String, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], likeQuery: QueryParam[Boolean], appQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
+  def registerLike(host: String, likableType: String, likableId: Long, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, like: Boolean, app: String, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], likeQuery: QueryParam[Boolean], appQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LikableResponse] = jsonOf[LikableResponse]
 
-    val path = "/api/{version}/like".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object LikeApi {
     } yield resp
   }
 
-  def removeLike(host: String, version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
+  def removeLike(host: String, likableType: String, likableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LikableResponse] = jsonOf[LikableResponse]
 
-    val path = "/api/{version}/like/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object LikeApi {
     } yield resp
   }
 
-  def searchLikes(host: String, version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, connectionAccountIds: String, sortField: String = ID, descending: Boolean = true, updatedSince: Long, updatedBefore: Long, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SearchResponse] = {
+  def searchLikes(host: String, likableType: String, likableId: Long, deviceId: String, accountId: Long, connectionAccountIds: String, sortField: String = ID, descending: Boolean = true, updatedSince: Long, updatedBefore: Long, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SearchResponse] = jsonOf[SearchResponse]
 
-    val path = "/api/{version}/like/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -101,10 +100,10 @@ class HttpServiceLikeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def registerLike(version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, like: Boolean, app: String, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], likeQuery: QueryParam[Boolean], appQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
+  def registerLike(likableType: String, likableId: Long, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, like: Boolean, app: String, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], likeQuery: QueryParam[Boolean], appQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LikableResponse] = jsonOf[LikableResponse]
 
-    val path = "/api/{version}/like".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -122,10 +121,10 @@ class HttpServiceLikeApi(service: HttpService) {
     } yield resp
   }
 
-  def removeLike(version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
+  def removeLike(likableType: String, likableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[LikableResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LikableResponse] = jsonOf[LikableResponse]
 
-    val path = "/api/{version}/like/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceLikeApi(service: HttpService) {
     } yield resp
   }
 
-  def searchLikes(version: BigDecimal, likableType: String, likableId: Long, deviceId: String, accountId: Long, connectionAccountIds: String, sortField: String = ID, descending: Boolean = true, updatedSince: Long, updatedBefore: Long, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SearchResponse] = {
+  def searchLikes(likableType: String, likableId: Long, deviceId: String, accountId: Long, connectionAccountIds: String, sortField: String = ID, descending: Boolean = true, updatedSince: Long, updatedBefore: Long, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], likableTypeQuery: QueryParam[String], likableIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SearchResponse] = jsonOf[SearchResponse]
 
-    val path = "/api/{version}/like/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/like/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

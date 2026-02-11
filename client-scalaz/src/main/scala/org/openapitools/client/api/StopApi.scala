@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Stop
 
 object StopApi {
@@ -30,10 +29,10 @@ object StopApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getStop(host: String, version: BigDecimal, id: Long): Task[Stop] = {
+  def getStop(host: String, id: Long): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object StopApi {
     } yield resp
   }
 
-  def updateStop(host: String, version: BigDecimal, id: Long, body: Stop): Task[Stop] = {
+  def updateStop(host: String, id: Long, body: Stop): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -79,10 +78,10 @@ class HttpServiceStopApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getStop(version: BigDecimal, id: Long): Task[Stop] = {
+  def getStop(id: Long): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -100,10 +99,10 @@ class HttpServiceStopApi(service: HttpService) {
     } yield resp
   }
 
-  def updateStop(version: BigDecimal, id: Long, body: Stop): Task[Stop] = {
+  def updateStop(id: Long, body: Stop): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

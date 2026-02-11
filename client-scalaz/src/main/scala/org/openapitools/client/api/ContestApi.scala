@@ -23,7 +23,6 @@ import HelperCodecs._
 
 import org.openapitools.client.api.AlbumContestListResponse
 import org.openapitools.client.api.AlbumContestResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object ContestApi {
@@ -32,10 +31,10 @@ object ContestApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addOrUpdateAlbumContest(host: String, version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, contestType: String, albumContestId: Long, title: String, description: String, albumId1: Long, removeAlbum1: Boolean, albumId2: Long, removeAlbum2: Boolean, startDate: Long, endDate: Long, locationDescription: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], contestTypeQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], albumId1Query: QueryParam[Long], removeAlbum1Query: QueryParam[Boolean], albumId2Query: QueryParam[Long], removeAlbum2Query: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def addOrUpdateAlbumContest(host: String, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, contestType: String, albumContestId: Long, title: String, description: String, albumId1: Long, removeAlbum1: Boolean, albumId2: Long, removeAlbum2: Boolean, startDate: Long, endDate: Long, locationDescription: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], contestTypeQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], albumId1Query: QueryParam[Long], removeAlbum1Query: QueryParam[Boolean], albumId2Query: QueryParam[Long], removeAlbum2Query: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object ContestApi {
     } yield resp
   }
 
-  def approveAlbumContest(host: String, version: BigDecimal, albumContestId: Long, approvalStatus: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def approveAlbumContest(host: String, albumContestId: Long, approvalStatus: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/album/contest/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/approve"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object ContestApi {
     } yield resp
   }
 
-  def deleteContest(host: String, version: BigDecimal, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def deleteContest(host: String, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/album/contest/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object ContestApi {
     } yield resp
   }
 
-  def getAlbumContest(host: String, version: BigDecimal, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def getAlbumContest(host: String, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object ContestApi {
     } yield resp
   }
 
-  def getAlbumContests(host: String, version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, appKey: String, appType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], appTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestListResponse] = {
+  def getAlbumContests(host: String, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, appKey: String, appType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], appTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestListResponse] = jsonOf[AlbumContestListResponse]
 
-    val path = "/api/{version}/consumer/album/contest/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object ContestApi {
     } yield resp
   }
 
-  def voteOnAlbumContest(host: String, version: BigDecimal, albumContestId: Long, albumId: Long, deviceId: String, accountId: Long, contestType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], contestTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def voteOnAlbumContest(host: String, albumContestId: Long, albumId: Long, deviceId: String, accountId: Long, contestType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], contestTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest/vote".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/vote"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceContestApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addOrUpdateAlbumContest(version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, contestType: String, albumContestId: Long, title: String, description: String, albumId1: Long, removeAlbum1: Boolean, albumId2: Long, removeAlbum2: Boolean, startDate: Long, endDate: Long, locationDescription: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], contestTypeQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], albumId1Query: QueryParam[Long], removeAlbum1Query: QueryParam[Boolean], albumId2Query: QueryParam[Long], removeAlbum2Query: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def addOrUpdateAlbumContest(publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, contestType: String, albumContestId: Long, title: String, description: String, albumId1: Long, removeAlbum1: Boolean, albumId2: Long, removeAlbum2: Boolean, startDate: Long, endDate: Long, locationDescription: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], contestTypeQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], albumId1Query: QueryParam[Long], removeAlbum1Query: QueryParam[Boolean], albumId2Query: QueryParam[Long], removeAlbum2Query: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceContestApi(service: HttpService) {
     } yield resp
   }
 
-  def approveAlbumContest(version: BigDecimal, albumContestId: Long, approvalStatus: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def approveAlbumContest(albumContestId: Long, approvalStatus: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/album/contest/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/approve"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceContestApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteContest(version: BigDecimal, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def deleteContest(albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/album/contest/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceContestApi(service: HttpService) {
     } yield resp
   }
 
-  def getAlbumContest(version: BigDecimal, albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def getAlbumContest(albumContestId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceContestApi(service: HttpService) {
     } yield resp
   }
 
-  def getAlbumContests(version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, appKey: String, appType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], appTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestListResponse] = {
+  def getAlbumContests(filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, appKey: String, appType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], appTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestListResponse] = jsonOf[AlbumContestListResponse]
 
-    val path = "/api/{version}/consumer/album/contest/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceContestApi(service: HttpService) {
     } yield resp
   }
 
-  def voteOnAlbumContest(version: BigDecimal, albumContestId: Long, albumId: Long, deviceId: String, accountId: Long, contestType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], contestTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
+  def voteOnAlbumContest(albumContestId: Long, albumId: Long, deviceId: String, accountId: Long, contestType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], contestTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AlbumContestResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AlbumContestResponse] = jsonOf[AlbumContestResponse]
 
-    val path = "/api/{version}/consumer/album/contest/vote".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/album/contest/vote"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

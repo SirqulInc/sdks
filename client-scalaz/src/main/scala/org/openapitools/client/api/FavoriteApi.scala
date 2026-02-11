@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.AccountResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SearchResponse
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.WrappedResponse
@@ -33,10 +32,10 @@ object FavoriteApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addFavorite(host: String, version: BigDecimal, favoritableId: Long, favoritableType: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
+  def addFavorite(host: String, favoritableId: Long, favoritableType: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedResponse] = jsonOf[WrappedResponse]
 
-    val path = "/api/{version}/favorite/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object FavoriteApi {
     } yield resp
   }
 
-  def deleteFavorite(host: String, version: BigDecimal, deviceId: String, accountId: Long, favoriteId: Long, favoritableId: Long, favoritableType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteFavorite(host: String, deviceId: String, accountId: Long, favoriteId: Long, favoritableId: Long, favoritableType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/favorite/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object FavoriteApi {
     } yield resp
   }
 
-  def getFavorite(host: String, version: BigDecimal, favoriteId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
+  def getFavorite(host: String, favoriteId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedResponse] = jsonOf[WrappedResponse]
 
-    val path = "/api/{version}/favorite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object FavoriteApi {
     } yield resp
   }
 
-  def searchFavorites(host: String, version: BigDecimal, favoritableType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: String, accountId: Long, connectionAccountId: Long, secondaryType: String, keyword: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SearchResponse] = {
+  def searchFavorites(host: String, favoritableType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: String, accountId: Long, connectionAccountId: Long, secondaryType: String, keyword: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SearchResponse] = jsonOf[SearchResponse]
 
-    val path = "/api/{version}/favorite/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object FavoriteApi {
     } yield resp
   }
 
-  def whoHasFavorited(host: String, version: BigDecimal, favoritableId: Long, favoritableType: String, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AccountResponse]] = {
+  def whoHasFavorited(host: String, favoritableId: Long, favoritableType: String, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AccountResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountResponse]] = jsonOf[List[AccountResponse]]
 
-    val path = "/api/{version}/favorite/whois".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/whois"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -145,10 +144,10 @@ class HttpServiceFavoriteApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addFavorite(version: BigDecimal, favoritableId: Long, favoritableType: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
+  def addFavorite(favoritableId: Long, favoritableType: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedResponse] = jsonOf[WrappedResponse]
 
-    val path = "/api/{version}/favorite/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -166,10 +165,10 @@ class HttpServiceFavoriteApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteFavorite(version: BigDecimal, deviceId: String, accountId: Long, favoriteId: Long, favoritableId: Long, favoritableType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteFavorite(deviceId: String, accountId: Long, favoriteId: Long, favoritableId: Long, favoritableType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/favorite/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceFavoriteApi(service: HttpService) {
     } yield resp
   }
 
-  def getFavorite(version: BigDecimal, favoriteId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
+  def getFavorite(favoriteId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], favoriteIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[WrappedResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedResponse] = jsonOf[WrappedResponse]
 
-    val path = "/api/{version}/favorite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -208,10 +207,10 @@ class HttpServiceFavoriteApi(service: HttpService) {
     } yield resp
   }
 
-  def searchFavorites(version: BigDecimal, favoritableType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: String, accountId: Long, connectionAccountId: Long, secondaryType: String, keyword: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SearchResponse] = {
+  def searchFavorites(favoritableType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: String, accountId: Long, connectionAccountId: Long, secondaryType: String, keyword: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SearchResponse] = jsonOf[SearchResponse]
 
-    val path = "/api/{version}/favorite/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -229,10 +228,10 @@ class HttpServiceFavoriteApi(service: HttpService) {
     } yield resp
   }
 
-  def whoHasFavorited(version: BigDecimal, favoritableId: Long, favoritableType: String, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AccountResponse]] = {
+  def whoHasFavorited(favoritableId: Long, favoritableType: String, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], favoritableIdQuery: QueryParam[Long], favoritableTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AccountResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountResponse]] = jsonOf[List[AccountResponse]]
 
-    val path = "/api/{version}/favorite/whois".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/favorite/whois"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

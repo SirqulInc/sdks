@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ImportStatuses
 import org.openapitools.client.api.Orders
 import org.openapitools.client.api.ShipmentOrder
@@ -32,10 +31,10 @@ object OptimizeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getOptimizationResult(host: String, version: BigDecimal, batchID: String, start: Integer, limit: Integer)(implicit startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Map[String, ShipmentOrder]] = {
+  def getOptimizationResult(host: String, batchID: String, start: Integer, limit: Integer)(implicit startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Map[String, ShipmentOrder]] = {
     implicit val returnTypeDecoder: EntityDecoder[Map[String, ShipmentOrder]] = jsonOf[Map[String, ShipmentOrder]]
 
-    val path = "/api/{version}/optimize/result/{batchID}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchID" + "\\}",escape(batchID.toString))
+    val path = "/optimize/result/{batchID}".replaceAll("\\{" + "batchID" + "\\}",escape(batchID.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object OptimizeApi {
     } yield resp
   }
 
-  def requestOptimization(host: String, version: BigDecimal, body: Orders): Task[ImportStatuses] = {
+  def requestOptimization(host: String, body: Orders): Task[ImportStatuses] = {
     implicit val returnTypeDecoder: EntityDecoder[ImportStatuses] = jsonOf[ImportStatuses]
 
-    val path = "/api/{version}/optimize/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/optimize/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -81,10 +80,10 @@ class HttpServiceOptimizeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getOptimizationResult(version: BigDecimal, batchID: String, start: Integer, limit: Integer)(implicit startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Map[String, ShipmentOrder]] = {
+  def getOptimizationResult(batchID: String, start: Integer, limit: Integer)(implicit startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Map[String, ShipmentOrder]] = {
     implicit val returnTypeDecoder: EntityDecoder[Map[String, ShipmentOrder]] = jsonOf[Map[String, ShipmentOrder]]
 
-    val path = "/api/{version}/optimize/result/{batchID}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchID" + "\\}",escape(batchID.toString))
+    val path = "/optimize/result/{batchID}".replaceAll("\\{" + "batchID" + "\\}",escape(batchID.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -102,10 +101,10 @@ class HttpServiceOptimizeApi(service: HttpService) {
     } yield resp
   }
 
-  def requestOptimization(version: BigDecimal, body: Orders): Task[ImportStatuses] = {
+  def requestOptimization(body: Orders): Task[ImportStatuses] = {
     implicit val returnTypeDecoder: EntityDecoder[ImportStatuses] = jsonOf[ImportStatuses]
 
-    val path = "/api/{version}/optimize/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/optimize/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

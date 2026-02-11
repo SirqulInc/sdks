@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ListingFullResponse
 import org.openapitools.client.api.ListingGroupResponse
 import org.openapitools.client.api.ListingResponse
@@ -33,10 +32,10 @@ object ListingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createListing(host: String, version: BigDecimal, accountId: Long, name: String, filterIds: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean = false, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], filterIdsQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
+  def createListing(host: String, accountId: Long, name: String, filterIds: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean = false, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], filterIdsQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object ListingApi {
     } yield resp
   }
 
-  def deleteListing(host: String, version: BigDecimal, accountId: Long, listingId: Long)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteListing(host: String, accountId: Long, listingId: Long)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/listing/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object ListingApi {
     } yield resp
   }
 
-  def getListing(host: String, version: BigDecimal, listingId: Long)(implicit listingIdQuery: QueryParam[Long]): Task[ListingFullResponse] = {
+  def getListing(host: String, listingId: Long)(implicit listingIdQuery: QueryParam[Long]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object ListingApi {
     } yield resp
   }
 
-  def searchListing(host: String, version: BigDecimal, accountId: Long, keyword: String, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, latitude: Double, longitude: Double, startDate: Long, endDate: Long, categoryIds: String, filterIds: String, useListingOrderIds: Boolean = true, externalId: String, externalId2: String, externalGroupId: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], useListingOrderIdsQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String]): Task[List[ListingResponse]] = {
+  def searchListing(host: String, accountId: Long, keyword: String, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, latitude: Double, longitude: Double, startDate: Long, endDate: Long, categoryIds: String, filterIds: String, useListingOrderIds: Boolean = true, externalId: String, externalId2: String, externalGroupId: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], useListingOrderIdsQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String]): Task[List[ListingResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ListingResponse]] = jsonOf[List[ListingResponse]]
 
-    val path = "/api/{version}/listing/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object ListingApi {
     } yield resp
   }
 
-  def summaryListing(host: String, version: BigDecimal, accountId: Long, startDate: Long, categoryIds: String, daysToInclude: Integer = 15, useListingOrderIds: Boolean = true)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], daysToIncludeQuery: QueryParam[Integer], useListingOrderIdsQuery: QueryParam[Boolean]): Task[List[ListingGroupResponse]] = {
+  def summaryListing(host: String, accountId: Long, startDate: Long, categoryIds: String, daysToInclude: Integer = 15, useListingOrderIds: Boolean = true)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], daysToIncludeQuery: QueryParam[Integer], useListingOrderIdsQuery: QueryParam[Boolean]): Task[List[ListingGroupResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ListingGroupResponse]] = jsonOf[List[ListingGroupResponse]]
 
-    val path = "/api/{version}/listing/summary".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/summary"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,10 +137,10 @@ object ListingApi {
     } yield resp
   }
 
-  def updateListing(host: String, version: BigDecimal, accountId: Long, listingId: Long, filterIds: String, name: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], filterIdsQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
+  def updateListing(host: String, accountId: Long, listingId: Long, filterIds: String, name: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], filterIdsQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -166,10 +165,10 @@ class HttpServiceListingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createListing(version: BigDecimal, accountId: Long, name: String, filterIds: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean = false, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], filterIdsQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
+  def createListing(accountId: Long, name: String, filterIds: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean = false, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], filterIdsQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceListingApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteListing(version: BigDecimal, accountId: Long, listingId: Long)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteListing(accountId: Long, listingId: Long)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/listing/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -208,10 +207,10 @@ class HttpServiceListingApi(service: HttpService) {
     } yield resp
   }
 
-  def getListing(version: BigDecimal, listingId: Long)(implicit listingIdQuery: QueryParam[Long]): Task[ListingFullResponse] = {
+  def getListing(listingId: Long)(implicit listingIdQuery: QueryParam[Long]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -229,10 +228,10 @@ class HttpServiceListingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchListing(version: BigDecimal, accountId: Long, keyword: String, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, latitude: Double, longitude: Double, startDate: Long, endDate: Long, categoryIds: String, filterIds: String, useListingOrderIds: Boolean = true, externalId: String, externalId2: String, externalGroupId: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], useListingOrderIdsQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String]): Task[List[ListingResponse]] = {
+  def searchListing(accountId: Long, keyword: String, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, latitude: Double, longitude: Double, startDate: Long, endDate: Long, categoryIds: String, filterIds: String, useListingOrderIds: Boolean = true, externalId: String, externalId2: String, externalGroupId: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], useListingOrderIdsQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String]): Task[List[ListingResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ListingResponse]] = jsonOf[List[ListingResponse]]
 
-    val path = "/api/{version}/listing/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -250,10 +249,10 @@ class HttpServiceListingApi(service: HttpService) {
     } yield resp
   }
 
-  def summaryListing(version: BigDecimal, accountId: Long, startDate: Long, categoryIds: String, daysToInclude: Integer = 15, useListingOrderIds: Boolean = true)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], daysToIncludeQuery: QueryParam[Integer], useListingOrderIdsQuery: QueryParam[Boolean]): Task[List[ListingGroupResponse]] = {
+  def summaryListing(accountId: Long, startDate: Long, categoryIds: String, daysToInclude: Integer = 15, useListingOrderIds: Boolean = true)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], daysToIncludeQuery: QueryParam[Integer], useListingOrderIdsQuery: QueryParam[Boolean]): Task[List[ListingGroupResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ListingGroupResponse]] = jsonOf[List[ListingGroupResponse]]
 
-    val path = "/api/{version}/listing/summary".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/summary"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -271,10 +270,10 @@ class HttpServiceListingApi(service: HttpService) {
     } yield resp
   }
 
-  def updateListing(version: BigDecimal, accountId: Long, listingId: Long, filterIds: String, name: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], filterIdsQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
+  def updateListing(accountId: Long, listingId: Long, filterIds: String, name: String, description: String, start: Long, end: Long, locationName: String, locationDescription: String, isPrivate: Boolean, externalId: String, externalId2: String, externalGroupId: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], filterIdsQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], locationNameQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], isPrivateQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String], externalId2Query: QueryParam[String], externalGroupIdQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[ListingFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ListingFullResponse] = jsonOf[ListingFullResponse]
 
-    val path = "/api/{version}/listing/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/listing/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

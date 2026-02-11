@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.MissionShortResponse
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.TournamentResponse
@@ -32,10 +31,10 @@ object TournamentApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTournament(host: String, version: BigDecimal, accountId: Long, appKey: String, title: String, costToPlay: Integer, startDate: Long, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer = 600, secondsForTieBreaker: Integer = 600, secondsBetweenPacks: Integer = 86400, maximumLevelLength: Integer = 1800, costToPlayType: String, minimumToPlay: Integer = 1, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, audienceIds: String, active: Boolean, enableBuyBack: Boolean = false, offerIds: String, offerAssetId: Long, fixedReward: Boolean = false, splitReward: String = ALL, allocateTickets: Boolean, tournamentData: String, missionType: String = MULTISTAGE, visibility: String = PUBLIC, preliminaryGroups: Integer = 1, preliminaryGroupAdvancements: String = 1, enableMultipleEntries: Boolean = false, enableMultipleVotes: Boolean = false, featured: Boolean = false, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], missionTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
+  def createTournament(host: String, accountId: Long, appKey: String, title: String, costToPlay: Integer, startDate: Long, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer = 600, secondsForTieBreaker: Integer = 600, secondsBetweenPacks: Integer = 86400, maximumLevelLength: Integer = 1800, costToPlayType: String, minimumToPlay: Integer = 1, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, audienceIds: String, active: Boolean, enableBuyBack: Boolean = false, offerIds: String, offerAssetId: Long, fixedReward: Boolean = false, splitReward: String = ALL, allocateTickets: Boolean, tournamentData: String, missionType: String = MULTISTAGE, visibility: String = PUBLIC, preliminaryGroups: Integer = 1, preliminaryGroupAdvancements: String = 1, enableMultipleEntries: Boolean = false, enableMultipleVotes: Boolean = false, featured: Boolean = false, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], missionTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def deleteTournament(host: String, version: BigDecimal, accountId: Long, missionId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTournament(host: String, accountId: Long, missionId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def getTournament(host: String, version: BigDecimal, accountId: Long, missionId: Long, joinCode: String, includeScores: String, objectPreviewSize: Integer = 50)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeScoresQuery: QueryParam[String], objectPreviewSizeQuery: QueryParam[Integer]): Task[TournamentResponse] = {
+  def getTournament(host: String, accountId: Long, missionId: Long, joinCode: String, includeScores: String, objectPreviewSize: Integer = 50)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeScoresQuery: QueryParam[String], objectPreviewSizeQuery: QueryParam[Integer]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def searchObjects(host: String, version: BigDecimal, accountId: Long, gameLevelId: Long, sortField: String = PLAYER_SCORE_COUNT, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
+  def searchObjects(host: String, accountId: Long, gameLevelId: Long, sortField: String = PLAYER_SCORE_COUNT, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/object/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/object/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def searchRounds(host: String, version: BigDecimal, accountId: Long, appKey: String, status: String = ACCEPTED,ACTIVE, missionType: String, currentOnly: Boolean = true, visibilities: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], missionTypeQuery: QueryParam[String], currentOnlyQuery: QueryParam[Boolean], visibilitiesQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
+  def searchRounds(host: String, accountId: Long, appKey: String, status: String = ACCEPTED,ACTIVE, missionType: String, currentOnly: Boolean = true, visibilities: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], missionTypeQuery: QueryParam[String], currentOnlyQuery: QueryParam[Boolean], visibilitiesQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/round/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/round/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def searchTournaments(host: String, version: BigDecimal, accountId: Long, appKey: String, keyword: String, subType: String, includeInactive: Boolean = false, missionTypes: String = MULTISTAGE,TOURNAMENT,POOLPLAY, filter: String = UPCOMING, sortField: String = START_DATE, descending: Boolean, visibility: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], subTypeQuery: QueryParam[String], includeInactiveQuery: QueryParam[Boolean], missionTypesQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[MissionShortResponse] = {
+  def searchTournaments(host: String, accountId: Long, appKey: String, keyword: String, subType: String, includeInactive: Boolean = false, missionTypes: String = MULTISTAGE,TOURNAMENT,POOLPLAY, filter: String = UPCOMING, sortField: String = START_DATE, descending: Boolean, visibility: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], subTypeQuery: QueryParam[String], includeInactiveQuery: QueryParam[Boolean], missionTypesQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[MissionShortResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionShortResponse] = jsonOf[MissionShortResponse]
 
-    val path = "/api/{version}/tournament/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -158,10 +157,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def submitTournamentScore(host: String, version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], scoresQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def submitTournamentScore(host: String, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], scoresQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/score".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/score"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -179,10 +178,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def submitTournamentVote(host: String, version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: String, checkIfDeviceAlreadyVoted: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], checkIfDeviceAlreadyVotedQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def submitTournamentVote(host: String, accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: String, checkIfDeviceAlreadyVoted: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], checkIfDeviceAlreadyVotedQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/vote".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/vote"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -200,10 +199,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def substituteTournamentPlayer(host: String, version: BigDecimal, accountId: Long, missionId: Long, packId: Long, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def substituteTournamentPlayer(host: String, accountId: Long, missionId: Long, packId: Long, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/substitute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/substitute"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -221,10 +220,10 @@ object TournamentApi {
     } yield resp
   }
 
-  def updateTournament(host: String, version: BigDecimal, accountId: Long, missionId: Long, title: String, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer, secondsForTieBreaker: Integer, secondsBetweenPacks: Integer, maximumLevelLength: Integer, costToPlay: Integer, costToPlayType: String, minimumToPlay: Integer, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, startDate: Long, audienceIds: String, active: Boolean, enableBuyBack: Boolean, offerIds: String, offerAssetId: Long, fixedReward: Boolean, splitReward: String, allocateTickets: Boolean, tournamentData: String, visibility: String, preliminaryGroups: Integer, preliminaryGroupAdvancements: String, enableMultipleEntries: Boolean, enableMultipleVotes: Boolean, featured: Boolean, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
+  def updateTournament(host: String, accountId: Long, missionId: Long, title: String, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer, secondsForTieBreaker: Integer, secondsBetweenPacks: Integer, maximumLevelLength: Integer, costToPlay: Integer, costToPlayType: String, minimumToPlay: Integer, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, startDate: Long, audienceIds: String, active: Boolean, enableBuyBack: Boolean, offerIds: String, offerAssetId: Long, fixedReward: Boolean, splitReward: String, allocateTickets: Boolean, tournamentData: String, visibility: String, preliminaryGroups: Integer, preliminaryGroupAdvancements: String, enableMultipleEntries: Boolean, enableMultipleVotes: Boolean, featured: Boolean, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceTournamentApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTournament(version: BigDecimal, accountId: Long, appKey: String, title: String, costToPlay: Integer, startDate: Long, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer = 600, secondsForTieBreaker: Integer = 600, secondsBetweenPacks: Integer = 86400, maximumLevelLength: Integer = 1800, costToPlayType: String, minimumToPlay: Integer = 1, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, audienceIds: String, active: Boolean, enableBuyBack: Boolean = false, offerIds: String, offerAssetId: Long, fixedReward: Boolean = false, splitReward: String = ALL, allocateTickets: Boolean, tournamentData: String, missionType: String = MULTISTAGE, visibility: String = PUBLIC, preliminaryGroups: Integer = 1, preliminaryGroupAdvancements: String = 1, enableMultipleEntries: Boolean = false, enableMultipleVotes: Boolean = false, featured: Boolean = false, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], missionTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
+  def createTournament(accountId: Long, appKey: String, title: String, costToPlay: Integer, startDate: Long, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer = 600, secondsForTieBreaker: Integer = 600, secondsBetweenPacks: Integer = 86400, maximumLevelLength: Integer = 1800, costToPlayType: String, minimumToPlay: Integer = 1, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, audienceIds: String, active: Boolean, enableBuyBack: Boolean = false, offerIds: String, offerAssetId: Long, fixedReward: Boolean = false, splitReward: String = ALL, allocateTickets: Boolean, tournamentData: String, missionType: String = MULTISTAGE, visibility: String = PUBLIC, preliminaryGroups: Integer = 1, preliminaryGroupAdvancements: String = 1, enableMultipleEntries: Boolean = false, enableMultipleVotes: Boolean = false, featured: Boolean = false, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], missionTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteTournament(version: BigDecimal, accountId: Long, missionId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTournament(accountId: Long, missionId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -291,10 +290,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def getTournament(version: BigDecimal, accountId: Long, missionId: Long, joinCode: String, includeScores: String, objectPreviewSize: Integer = 50)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeScoresQuery: QueryParam[String], objectPreviewSizeQuery: QueryParam[Integer]): Task[TournamentResponse] = {
+  def getTournament(accountId: Long, missionId: Long, joinCode: String, includeScores: String, objectPreviewSize: Integer = 50)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeScoresQuery: QueryParam[String], objectPreviewSizeQuery: QueryParam[Integer]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -312,10 +311,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def searchObjects(version: BigDecimal, accountId: Long, gameLevelId: Long, sortField: String = PLAYER_SCORE_COUNT, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
+  def searchObjects(accountId: Long, gameLevelId: Long, sortField: String = PLAYER_SCORE_COUNT, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/object/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/object/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -333,10 +332,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRounds(version: BigDecimal, accountId: Long, appKey: String, status: String = ACCEPTED,ACTIVE, missionType: String, currentOnly: Boolean = true, visibilities: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], missionTypeQuery: QueryParam[String], currentOnlyQuery: QueryParam[Boolean], visibilitiesQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
+  def searchRounds(accountId: Long, appKey: String, status: String = ACCEPTED,ACTIVE, missionType: String, currentOnly: Boolean = true, visibilities: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], missionTypeQuery: QueryParam[String], currentOnlyQuery: QueryParam[Boolean], visibilitiesQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/round/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/round/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -354,10 +353,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def searchTournaments(version: BigDecimal, accountId: Long, appKey: String, keyword: String, subType: String, includeInactive: Boolean = false, missionTypes: String = MULTISTAGE,TOURNAMENT,POOLPLAY, filter: String = UPCOMING, sortField: String = START_DATE, descending: Boolean, visibility: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], subTypeQuery: QueryParam[String], includeInactiveQuery: QueryParam[Boolean], missionTypesQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[MissionShortResponse] = {
+  def searchTournaments(accountId: Long, appKey: String, keyword: String, subType: String, includeInactive: Boolean = false, missionTypes: String = MULTISTAGE,TOURNAMENT,POOLPLAY, filter: String = UPCOMING, sortField: String = START_DATE, descending: Boolean, visibility: String = PUBLIC, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], subTypeQuery: QueryParam[String], includeInactiveQuery: QueryParam[Boolean], missionTypesQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[MissionShortResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionShortResponse] = jsonOf[MissionShortResponse]
 
-    val path = "/api/{version}/tournament/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -375,10 +374,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def submitTournamentScore(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], scoresQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def submitTournamentScore(accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], scoresQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/score".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/score"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -396,10 +395,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def submitTournamentVote(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: String, checkIfDeviceAlreadyVoted: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], checkIfDeviceAlreadyVotedQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def submitTournamentVote(accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: String, checkIfDeviceAlreadyVoted: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], checkIfDeviceAlreadyVotedQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/vote".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/vote"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -417,10 +416,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def substituteTournamentPlayer(version: BigDecimal, accountId: Long, missionId: Long, packId: Long, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def substituteTournamentPlayer(accountId: Long, missionId: Long, packId: Long, gameLevelId: Long)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tournament/substitute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/substitute"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -438,10 +437,10 @@ class HttpServiceTournamentApi(service: HttpService) {
     } yield resp
   }
 
-  def updateTournament(version: BigDecimal, accountId: Long, missionId: Long, title: String, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer, secondsForTieBreaker: Integer, secondsBetweenPacks: Integer, maximumLevelLength: Integer, costToPlay: Integer, costToPlayType: String, minimumToPlay: Integer, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, startDate: Long, audienceIds: String, active: Boolean, enableBuyBack: Boolean, offerIds: String, offerAssetId: Long, fixedReward: Boolean, splitReward: String, allocateTickets: Boolean, tournamentData: String, visibility: String, preliminaryGroups: Integer, preliminaryGroupAdvancements: String, enableMultipleEntries: Boolean, enableMultipleVotes: Boolean, featured: Boolean, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
+  def updateTournament(accountId: Long, missionId: Long, title: String, subType: String, imageAssetId: Long, secondsBetweenLevels: Integer, secondsForTieBreaker: Integer, secondsBetweenPacks: Integer, maximumLevelLength: Integer, costToPlay: Integer, costToPlayType: String, minimumToPlay: Integer, startingLimit: Integer, availableLimit: Integer, description: String, metaData: String, startDate: Long, audienceIds: String, active: Boolean, enableBuyBack: Boolean, offerIds: String, offerAssetId: Long, fixedReward: Boolean, splitReward: String, allocateTickets: Boolean, tournamentData: String, visibility: String, preliminaryGroups: Integer, preliminaryGroupAdvancements: String, enableMultipleEntries: Boolean, enableMultipleVotes: Boolean, featured: Boolean, winnerTag: String, tieTag: String)(implicit accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], titleQuery: QueryParam[String], subTypeQuery: QueryParam[String], imageAssetIdQuery: QueryParam[Long], secondsBetweenLevelsQuery: QueryParam[Integer], secondsForTieBreakerQuery: QueryParam[Integer], secondsBetweenPacksQuery: QueryParam[Integer], maximumLevelLengthQuery: QueryParam[Integer], costToPlayQuery: QueryParam[Integer], costToPlayTypeQuery: QueryParam[String], minimumToPlayQuery: QueryParam[Integer], startingLimitQuery: QueryParam[Integer], availableLimitQuery: QueryParam[Integer], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String], startDateQuery: QueryParam[Long], audienceIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], enableBuyBackQuery: QueryParam[Boolean], offerIdsQuery: QueryParam[String], offerAssetIdQuery: QueryParam[Long], fixedRewardQuery: QueryParam[Boolean], splitRewardQuery: QueryParam[String], allocateTicketsQuery: QueryParam[Boolean], tournamentDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], preliminaryGroupsQuery: QueryParam[Integer], preliminaryGroupAdvancementsQuery: QueryParam[String], enableMultipleEntriesQuery: QueryParam[Boolean], enableMultipleVotesQuery: QueryParam[Boolean], featuredQuery: QueryParam[Boolean], winnerTagQuery: QueryParam[String], tieTagQuery: QueryParam[String]): Task[TournamentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TournamentResponse] = jsonOf[TournamentResponse]
 
-    val path = "/api/{version}/tournament/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tournament/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

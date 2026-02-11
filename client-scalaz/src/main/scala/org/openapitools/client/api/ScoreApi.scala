@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ScoreResponse
 
 object ScoreApi {
@@ -30,10 +29,10 @@ object ScoreApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createScore(host: String, version: BigDecimal, accountId: Long, appKey: String, points: Integer, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, timeTaken: Integer, highest: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], pointsQuery: QueryParam[Integer], timeTakenQuery: QueryParam[Integer], highestQuery: QueryParam[Boolean]): Task[ScoreResponse] = {
+  def createScore(host: String, accountId: Long, appKey: String, points: Integer, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, timeTaken: Integer, highest: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], pointsQuery: QueryParam[Integer], timeTakenQuery: QueryParam[Integer], highestQuery: QueryParam[Boolean]): Task[ScoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ScoreResponse] = jsonOf[ScoreResponse]
 
-    val path = "/api/{version}/score/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object ScoreApi {
     } yield resp
   }
 
-  def getScore(host: String, version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, scoreObjectType: String, scoreStatus: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], scoreObjectTypeQuery: QueryParam[String], scoreStatusQuery: QueryParam[String]): Task[ScoreResponse] = {
+  def getScore(host: String, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, scoreObjectType: String, scoreStatus: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], scoreObjectTypeQuery: QueryParam[String], scoreStatusQuery: QueryParam[String]): Task[ScoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ScoreResponse] = jsonOf[ScoreResponse]
 
-    val path = "/api/{version}/score/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +71,10 @@ object ScoreApi {
     } yield resp
   }
 
-  def searchScores(host: String, version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long]): Task[List[ScoreResponse]] = {
+  def searchScores(host: String, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long]): Task[List[ScoreResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ScoreResponse]] = jsonOf[List[ScoreResponse]]
 
-    val path = "/api/{version}/score/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -100,10 +99,10 @@ class HttpServiceScoreApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createScore(version: BigDecimal, accountId: Long, appKey: String, points: Integer, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, timeTaken: Integer, highest: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], pointsQuery: QueryParam[Integer], timeTakenQuery: QueryParam[Integer], highestQuery: QueryParam[Boolean]): Task[ScoreResponse] = {
+  def createScore(accountId: Long, appKey: String, points: Integer, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, timeTaken: Integer, highest: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], pointsQuery: QueryParam[Integer], timeTakenQuery: QueryParam[Integer], highestQuery: QueryParam[Boolean]): Task[ScoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ScoreResponse] = jsonOf[ScoreResponse]
 
-    val path = "/api/{version}/score/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -121,10 +120,10 @@ class HttpServiceScoreApi(service: HttpService) {
     } yield resp
   }
 
-  def getScore(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, scoreObjectType: String, scoreStatus: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], scoreObjectTypeQuery: QueryParam[String], scoreStatusQuery: QueryParam[String]): Task[ScoreResponse] = {
+  def getScore(accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long, scoreObjectType: String, scoreStatus: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long], scoreObjectTypeQuery: QueryParam[String], scoreStatusQuery: QueryParam[String]): Task[ScoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ScoreResponse] = jsonOf[ScoreResponse]
 
-    val path = "/api/{version}/score/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -142,10 +141,10 @@ class HttpServiceScoreApi(service: HttpService) {
     } yield resp
   }
 
-  def searchScores(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long]): Task[List[ScoreResponse]] = {
+  def searchScores(accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, gameLevelId: Long, gameObjectId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], gameIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], gameObjectIdQuery: QueryParam[Long]): Task[List[ScoreResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ScoreResponse]] = jsonOf[List[ScoreResponse]]
 
-    val path = "/api/{version}/score/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/score/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

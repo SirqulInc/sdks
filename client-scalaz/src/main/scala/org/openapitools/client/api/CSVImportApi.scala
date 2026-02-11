@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CsvImportResponse
 import java.io.File
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object CSVImportApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getStatusCSV(host: String, version: BigDecimal, accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], responseGroupQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def getStatusCSV(host: String, accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], responseGroupQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/csvimport/batch/status/details".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/status/details"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object CSVImportApi {
     } yield resp
   }
 
-  def listStatusCSV(host: String, version: BigDecimal, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[CsvImportResponse] = {
+  def listStatusCSV(host: String, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/batch/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object CSVImportApi {
     } yield resp
   }
 
-  def statusCSV(host: String, version: BigDecimal, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[CsvImportResponse] = {
+  def statusCSV(host: String, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/batch/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/status"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object CSVImportApi {
     } yield resp
   }
 
-  def uploadCSV(host: String, version: BigDecimal, accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], uploadTypeQuery: QueryParam[String], importFileQuery: QueryParam[File], appKeyQuery: QueryParam[String], fileFormatQuery: QueryParam[String]): Task[CsvImportResponse] = {
+  def uploadCSV(host: String, accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], uploadTypeQuery: QueryParam[String], importFileQuery: QueryParam[File], appKeyQuery: QueryParam[String], fileFormatQuery: QueryParam[String]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/upload".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/upload"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -123,10 +122,10 @@ class HttpServiceCSVImportApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getStatusCSV(version: BigDecimal, accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], responseGroupQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def getStatusCSV(accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], responseGroupQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/csvimport/batch/status/details".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/status/details"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -144,10 +143,10 @@ class HttpServiceCSVImportApi(service: HttpService) {
     } yield resp
   }
 
-  def listStatusCSV(version: BigDecimal, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[CsvImportResponse] = {
+  def listStatusCSV(accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/batch/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceCSVImportApi(service: HttpService) {
     } yield resp
   }
 
-  def statusCSV(version: BigDecimal, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[CsvImportResponse] = {
+  def statusCSV(accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/batch/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/batch/status"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceCSVImportApi(service: HttpService) {
     } yield resp
   }
 
-  def uploadCSV(version: BigDecimal, accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], uploadTypeQuery: QueryParam[String], importFileQuery: QueryParam[File], appKeyQuery: QueryParam[String], fileFormatQuery: QueryParam[String]): Task[CsvImportResponse] = {
+  def uploadCSV(accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], uploadTypeQuery: QueryParam[String], importFileQuery: QueryParam[File], appKeyQuery: QueryParam[String], fileFormatQuery: QueryParam[String]): Task[CsvImportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CsvImportResponse] = jsonOf[CsvImportResponse]
 
-    val path = "/api/{version}/csvimport/upload".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/csvimport/upload"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

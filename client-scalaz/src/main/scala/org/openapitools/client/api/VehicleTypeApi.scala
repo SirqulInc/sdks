@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.VehicleType
 
 object VehicleTypeApi {
@@ -30,10 +29,10 @@ object VehicleTypeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createVehicleType(host: String, version: BigDecimal, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
+  def createVehicleType(host: String, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle/type"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object VehicleTypeApi {
     } yield resp
   }
 
-  def deleteVehicleType(host: String, version: BigDecimal, vehicleTypeId: Long): Task[Unit] = {
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+  def deleteVehicleType(host: String, vehicleTypeId: Long): Task[Unit] = {
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object VehicleTypeApi {
     } yield resp
   }
 
-  def getVehicleType(host: String, version: BigDecimal, vehicleTypeId: Long): Task[VehicleType] = {
+  def getVehicleType(host: String, vehicleTypeId: Long): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object VehicleTypeApi {
     } yield resp
   }
 
-  def searchVehicleTypes(host: String, version: BigDecimal, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[VehicleType]] = {
+  def searchVehicleTypes(host: String, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[VehicleType]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[VehicleType]] = jsonOf[List[VehicleType]]
 
-    val path = "/api/{version}/vehicle/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle/type"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object VehicleTypeApi {
     } yield resp
   }
 
-  def updateVehicleType(host: String, version: BigDecimal, vehicleTypeId: Long, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
+  def updateVehicleType(host: String, vehicleTypeId: Long, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -140,10 +139,10 @@ class HttpServiceVehicleTypeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createVehicleType(version: BigDecimal, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
+  def createVehicleType(vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle/type"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,8 +160,8 @@ class HttpServiceVehicleTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteVehicleType(version: BigDecimal, vehicleTypeId: Long): Task[Unit] = {
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+  def deleteVehicleType(vehicleTypeId: Long): Task[Unit] = {
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -180,10 +179,10 @@ class HttpServiceVehicleTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def getVehicleType(version: BigDecimal, vehicleTypeId: Long): Task[VehicleType] = {
+  def getVehicleType(vehicleTypeId: Long): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ class HttpServiceVehicleTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def searchVehicleTypes(version: BigDecimal, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[VehicleType]] = {
+  def searchVehicleTypes(sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, retailerId: Long, hubId: Long)(implicit retailerIdQuery: QueryParam[Long], hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[VehicleType]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[VehicleType]] = jsonOf[List[VehicleType]]
 
-    val path = "/api/{version}/vehicle/type".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle/type"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ class HttpServiceVehicleTypeApi(service: HttpService) {
     } yield resp
   }
 
-  def updateVehicleType(version: BigDecimal, vehicleTypeId: Long, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
+  def updateVehicleType(vehicleTypeId: Long, vehicleType: String, body: VehicleType)(implicit vehicleTypeQuery: QueryParam[String]): Task[VehicleType] = {
     implicit val returnTypeDecoder: EntityDecoder[VehicleType] = jsonOf[VehicleType]
 
-    val path = "/api/{version}/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
+    val path = "/vehicle/type/{vehicleTypeId}".replaceAll("\\{" + "vehicleTypeId" + "\\}",escape(vehicleTypeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

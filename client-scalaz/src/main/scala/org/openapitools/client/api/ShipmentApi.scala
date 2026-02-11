@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Shipment
 
 object ShipmentApi {
@@ -30,8 +29,8 @@ object ShipmentApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def cancelShipment(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}/cancel".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def cancelShipment(host: String, id: Long): Task[Unit] = {
+    val path = "/shipment/{id}/cancel".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -49,10 +48,10 @@ object ShipmentApi {
     } yield resp
   }
 
-  def createShipment(host: String, version: BigDecimal, body: Shipment): Task[Shipment] = {
+  def createShipment(host: String, body: Shipment): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,8 +69,8 @@ object ShipmentApi {
     } yield resp
   }
 
-  def deleteShipment(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteShipment(host: String, id: Long): Task[Unit] = {
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -89,10 +88,10 @@ object ShipmentApi {
     } yield resp
   }
 
-  def getShipment(host: String, version: BigDecimal, id: Long): Task[Shipment] = {
+  def getShipment(host: String, id: Long): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -110,10 +109,10 @@ object ShipmentApi {
     } yield resp
   }
 
-  def searchShipments(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, ownerId: Long, riderId: Long, routeId: Long)(implicit ownerIdQuery: QueryParam[Long], riderIdQuery: QueryParam[Long], routeIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Shipment]] = {
+  def searchShipments(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, ownerId: Long, riderId: Long, routeId: Long)(implicit ownerIdQuery: QueryParam[Long], riderIdQuery: QueryParam[Long], routeIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -131,10 +130,10 @@ object ShipmentApi {
     } yield resp
   }
 
-  def updateShipment(host: String, version: BigDecimal, id: Long, body: Shipment): Task[Shipment] = {
+  def updateShipment(host: String, id: Long, body: Shipment): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -152,8 +151,8 @@ object ShipmentApi {
     } yield resp
   }
 
-  def updateShipmentStatus(host: String, version: BigDecimal, id: Long, body: Map[String, Boolean]): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def updateShipmentStatus(host: String, id: Long, body: Map[String, Boolean]): Task[Unit] = {
+    val path = "/shipment/{id}/status".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -178,8 +177,8 @@ class HttpServiceShipmentApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def cancelShipment(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}/cancel".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def cancelShipment(id: Long): Task[Unit] = {
+    val path = "/shipment/{id}/cancel".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -197,10 +196,10 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def createShipment(version: BigDecimal, body: Shipment): Task[Shipment] = {
+  def createShipment(body: Shipment): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -218,8 +217,8 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteShipment(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteShipment(id: Long): Task[Unit] = {
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -237,10 +236,10 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def getShipment(version: BigDecimal, id: Long): Task[Shipment] = {
+  def getShipment(id: Long): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -258,10 +257,10 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def searchShipments(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, ownerId: Long, riderId: Long, routeId: Long)(implicit ownerIdQuery: QueryParam[Long], riderIdQuery: QueryParam[Long], routeIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Shipment]] = {
+  def searchShipments(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, ownerId: Long, riderId: Long, routeId: Long)(implicit ownerIdQuery: QueryParam[Long], riderIdQuery: QueryParam[Long], routeIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -279,10 +278,10 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def updateShipment(version: BigDecimal, id: Long, body: Shipment): Task[Shipment] = {
+  def updateShipment(id: Long, body: Shipment): Task[Shipment] = {
     implicit val returnTypeDecoder: EntityDecoder[Shipment] = jsonOf[Shipment]
 
-    val path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -300,8 +299,8 @@ class HttpServiceShipmentApi(service: HttpService) {
     } yield resp
   }
 
-  def updateShipmentStatus(version: BigDecimal, id: Long, body: Map[String, Boolean]): Task[Unit] = {
-    val path = "/api/{version}/shipment/{id}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def updateShipmentStatus(id: Long, body: Map[String, Boolean]): Task[Unit] = {
+    val path = "/shipment/{id}/status".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PreviewPersonaResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object PreviewPersonaApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPersona(host: String, version: BigDecimal, accountId: Long, title: String, previewAccounts: String, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
+  def createPersona(host: String, accountId: Long, title: String, previewAccounts: String, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object PreviewPersonaApi {
     } yield resp
   }
 
-  def deletePersona(host: String, version: BigDecimal, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePersona(host: String, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/persona/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object PreviewPersonaApi {
     } yield resp
   }
 
-  def getPersonaList(host: String, version: BigDecimal, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[PreviewPersonaResponse] = {
+  def getPersonaList(host: String, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object PreviewPersonaApi {
     } yield resp
   }
 
-  def searchPersona(host: String, version: BigDecimal, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PreviewPersonaResponse] = {
+  def searchPersona(host: String, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object PreviewPersonaApi {
     } yield resp
   }
 
-  def updatePersona(host: String, version: BigDecimal, accountId: Long, personaId: Long, title: String, previewAccounts: String, active: Boolean, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
+  def updatePersona(host: String, accountId: Long, personaId: Long, title: String, previewAccounts: String, active: Boolean, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServicePreviewPersonaApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPersona(version: BigDecimal, accountId: Long, title: String, previewAccounts: String, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
+  def createPersona(accountId: Long, title: String, previewAccounts: String, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServicePreviewPersonaApi(service: HttpService) {
     } yield resp
   }
 
-  def deletePersona(version: BigDecimal, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePersona(accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/persona/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServicePreviewPersonaApi(service: HttpService) {
     } yield resp
   }
 
-  def getPersonaList(version: BigDecimal, accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[PreviewPersonaResponse] = {
+  def getPersonaList(accountId: Long, personaId: Long)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServicePreviewPersonaApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPersona(version: BigDecimal, accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PreviewPersonaResponse] = {
+  def searchPersona(accountId: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServicePreviewPersonaApi(service: HttpService) {
     } yield resp
   }
 
-  def updatePersona(version: BigDecimal, accountId: Long, personaId: Long, title: String, previewAccounts: String, active: Boolean, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
+  def updatePersona(accountId: Long, personaId: Long, title: String, previewAccounts: String, active: Boolean, date: Long, age: Integer, gender: String, gameExperienceLevel: String, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], personaIdQuery: QueryParam[Long], titleQuery: QueryParam[String], previewAccountsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], dateQuery: QueryParam[Long], ageQuery: QueryParam[Integer], genderQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PreviewPersonaResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PreviewPersonaResponse] = jsonOf[PreviewPersonaResponse]
 
-    val path = "/api/{version}/persona/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/persona/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

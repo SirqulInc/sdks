@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PathingResponse
 
 object PathingApi {
@@ -30,10 +29,10 @@ object PathingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def computePath(host: String, version: BigDecimal, data: String, units: String, reducePath: Boolean, directions: Boolean)(implicit dataQuery: QueryParam[String], unitsQuery: QueryParam[String], reducePathQuery: QueryParam[Boolean], directionsQuery: QueryParam[Boolean]): Task[PathingResponse] = {
+  def computePath(host: String, data: String, units: String, reducePath: Boolean, directions: Boolean)(implicit dataQuery: QueryParam[String], unitsQuery: QueryParam[String], reducePathQuery: QueryParam[Boolean], directionsQuery: QueryParam[Boolean]): Task[PathingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PathingResponse] = jsonOf[PathingResponse]
 
-    val path = "/api/{version}/pathing/compute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pathing/compute"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServicePathingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def computePath(version: BigDecimal, data: String, units: String, reducePath: Boolean, directions: Boolean)(implicit dataQuery: QueryParam[String], unitsQuery: QueryParam[String], reducePathQuery: QueryParam[Boolean], directionsQuery: QueryParam[Boolean]): Task[PathingResponse] = {
+  def computePath(data: String, units: String, reducePath: Boolean, directions: Boolean)(implicit dataQuery: QueryParam[String], unitsQuery: QueryParam[String], reducePathQuery: QueryParam[Boolean], directionsQuery: QueryParam[Boolean]): Task[PathingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PathingResponse] = jsonOf[PathingResponse]
 
-    val path = "/api/{version}/pathing/compute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pathing/compute"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

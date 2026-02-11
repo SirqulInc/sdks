@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Direction
 import org.openapitools.client.api.Route
 import org.openapitools.client.api.Shipment
@@ -33,10 +32,10 @@ object RouteApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def approveRoute(host: String, version: BigDecimal, routeId: Long): Task[Route] = {
+  def approveRoute(host: String, routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/approve".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object RouteApi {
     } yield resp
   }
 
-  def copyRoute(host: String, version: BigDecimal, routeId: Long, body: Route): Task[Route] = {
+  def copyRoute(host: String, routeId: Long, body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/copy".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/copy".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object RouteApi {
     } yield resp
   }
 
-  def createRoute(host: String, version: BigDecimal, body: Route): Task[Route] = {
+  def createRoute(host: String, body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object RouteApi {
     } yield resp
   }
 
-  def createRouteDirections(host: String, version: BigDecimal, routeId: Long): Task[List[Direction]] = {
+  def createRouteDirections(host: String, routeId: Long): Task[List[Direction]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Direction]] = jsonOf[List[Direction]]
 
-    val path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object RouteApi {
     } yield resp
   }
 
-  def createRoutePolyline(host: String, version: BigDecimal, routeId: Long): Task[Route] = {
+  def createRoutePolyline(host: String, routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/polyline".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/polyline".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,8 +137,8 @@ object RouteApi {
     } yield resp
   }
 
-  def deleteRoute(host: String, version: BigDecimal, routeId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+  def deleteRoute(host: String, routeId: Long): Task[Unit] = {
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -157,10 +156,10 @@ object RouteApi {
     } yield resp
   }
 
-  def disapproveRoute(host: String, version: BigDecimal, routeId: Long): Task[Route] = {
+  def disapproveRoute(host: String, routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/disapprove".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/disapprove".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -178,10 +177,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getRoute(host: String, version: BigDecimal, routeId: Long, showInheritedProperties: Boolean)(implicit showInheritedPropertiesQuery: QueryParam[Boolean]): Task[Route] = {
+  def getRoute(host: String, routeId: Long, showInheritedProperties: Boolean)(implicit showInheritedPropertiesQuery: QueryParam[Boolean]): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -199,10 +198,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getRouteDirections(host: String, version: BigDecimal, routeId: Long): Task[List[Direction]] = {
+  def getRouteDirections(host: String, routeId: Long): Task[List[Direction]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Direction]] = jsonOf[List[Direction]]
 
-    val path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -220,10 +219,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getRouteShipments(host: String, version: BigDecimal, routeId: Long): Task[List[Shipment]] = {
+  def getRouteShipments(host: String, routeId: Long): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/route/{routeId}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/shipments".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -241,10 +240,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getRouteStop(host: String, version: BigDecimal, routeId: Long, stopId: Long): Task[Stop] = {
+  def getRouteStop(host: String, routeId: Long, stopId: Long): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -262,10 +261,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getRouteStops(host: String, version: BigDecimal, routeId: Long, confirmedOnly: Boolean)(implicit confirmedOnlyQuery: QueryParam[Boolean]): Task[List[Stop]] = {
+  def getRouteStops(host: String, routeId: Long, confirmedOnly: Boolean)(implicit confirmedOnlyQuery: QueryParam[Boolean]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -283,10 +282,10 @@ object RouteApi {
     } yield resp
   }
 
-  def getShipmentsAtStop(host: String, version: BigDecimal, routeId: Long, stopId: Long): Task[List[Shipment]] = {
+  def getShipmentsAtStop(host: String, routeId: Long, stopId: Long): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+    val path = "/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -304,8 +303,8 @@ object RouteApi {
     } yield resp
   }
 
-  def optimizeRoute(host: String, version: BigDecimal, routeId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/optimize".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+  def optimizeRoute(host: String, routeId: Long): Task[Unit] = {
+    val path = "/route/{routeId}/optimize".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -323,8 +322,8 @@ object RouteApi {
     } yield resp
   }
 
-  def removeStop(host: String, version: BigDecimal, routeId: Long, stopId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+  def removeStop(host: String, routeId: Long, stopId: Long): Task[Unit] = {
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -342,10 +341,10 @@ object RouteApi {
     } yield resp
   }
 
-  def reorderRouteStopsPatch(host: String, version: BigDecimal, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
+  def reorderRouteStopsPatch(host: String, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PATCH
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -363,10 +362,10 @@ object RouteApi {
     } yield resp
   }
 
-  def reorderRouteStopsPost(host: String, version: BigDecimal, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
+  def reorderRouteStopsPost(host: String, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -384,10 +383,10 @@ object RouteApi {
     } yield resp
   }
 
-  def searchRoutes(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Long, programId: Long, scheduledStart: Long, scheduledEnd: Long, updatedStart: Long, updatedEnd: Long, featured: Boolean, seatCount: Integer, approved: Boolean, started: Boolean, completed: Boolean, valid: Boolean, parentId: Long)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], scheduledStartQuery: QueryParam[Long], scheduledEndQuery: QueryParam[Long], updatedStartQuery: QueryParam[Long], updatedEndQuery: QueryParam[Long], featuredQuery: QueryParam[Boolean], seatCountQuery: QueryParam[Integer], approvedQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], validQuery: QueryParam[Boolean], parentIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], includesEmptyQuery: QueryParam[Boolean], rootOnlyQuery: QueryParam[Boolean], showInheritedPropertiesQuery: QueryParam[Boolean]): Task[List[Route]] = {
+  def searchRoutes(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Long, programId: Long, scheduledStart: Long, scheduledEnd: Long, updatedStart: Long, updatedEnd: Long, featured: Boolean, seatCount: Integer, approved: Boolean, started: Boolean, completed: Boolean, valid: Boolean, parentId: Long)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], scheduledStartQuery: QueryParam[Long], scheduledEndQuery: QueryParam[Long], updatedStartQuery: QueryParam[Long], updatedEndQuery: QueryParam[Long], featuredQuery: QueryParam[Boolean], seatCountQuery: QueryParam[Integer], approvedQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], validQuery: QueryParam[Boolean], parentIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], includesEmptyQuery: QueryParam[Boolean], rootOnlyQuery: QueryParam[Boolean], showInheritedPropertiesQuery: QueryParam[Boolean]): Task[List[Route]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Route]] = jsonOf[List[Route]]
 
-    val path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -405,8 +404,8 @@ object RouteApi {
     } yield resp
   }
 
-  def setDriver(host: String, version: BigDecimal, id: Long, driverId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{id}/driver/{driverId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString)).replaceAll("\\{" + "driverId" + "\\}",escape(driverId.toString))
+  def setDriver(host: String, id: Long, driverId: Long): Task[Unit] = {
+    val path = "/route/{id}/driver/{driverId}".replaceAll("\\{" + "id" + "\\}",escape(id.toString)).replaceAll("\\{" + "driverId" + "\\}",escape(driverId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -424,10 +423,10 @@ object RouteApi {
     } yield resp
   }
 
-  def updateRoute(host: String, version: BigDecimal, routeId: Long, body: Route): Task[Route] = {
+  def updateRoute(host: String, routeId: Long, body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -445,8 +444,8 @@ object RouteApi {
     } yield resp
   }
 
-  def updateRouteStop(host: String, version: BigDecimal, routeId: Long, stopId: Long, body: Stop): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+  def updateRouteStop(host: String, routeId: Long, stopId: Long, body: Stop): Task[Unit] = {
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -471,10 +470,10 @@ class HttpServiceRouteApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def approveRoute(version: BigDecimal, routeId: Long): Task[Route] = {
+  def approveRoute(routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/approve".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -492,10 +491,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def copyRoute(version: BigDecimal, routeId: Long, body: Route): Task[Route] = {
+  def copyRoute(routeId: Long, body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/copy".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/copy".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -513,10 +512,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def createRoute(version: BigDecimal, body: Route): Task[Route] = {
+  def createRoute(body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -534,10 +533,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def createRouteDirections(version: BigDecimal, routeId: Long): Task[List[Direction]] = {
+  def createRouteDirections(routeId: Long): Task[List[Direction]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Direction]] = jsonOf[List[Direction]]
 
-    val path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -555,10 +554,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def createRoutePolyline(version: BigDecimal, routeId: Long): Task[Route] = {
+  def createRoutePolyline(routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/polyline".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/polyline".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -576,8 +575,8 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteRoute(version: BigDecimal, routeId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+  def deleteRoute(routeId: Long): Task[Unit] = {
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -595,10 +594,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def disapproveRoute(version: BigDecimal, routeId: Long): Task[Route] = {
+  def disapproveRoute(routeId: Long): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}/disapprove".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/disapprove".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -616,10 +615,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getRoute(version: BigDecimal, routeId: Long, showInheritedProperties: Boolean)(implicit showInheritedPropertiesQuery: QueryParam[Boolean]): Task[Route] = {
+  def getRoute(routeId: Long, showInheritedProperties: Boolean)(implicit showInheritedPropertiesQuery: QueryParam[Boolean]): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -637,10 +636,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getRouteDirections(version: BigDecimal, routeId: Long): Task[List[Direction]] = {
+  def getRouteDirections(routeId: Long): Task[List[Direction]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Direction]] = jsonOf[List[Direction]]
 
-    val path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -658,10 +657,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getRouteShipments(version: BigDecimal, routeId: Long): Task[List[Shipment]] = {
+  def getRouteShipments(routeId: Long): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/route/{routeId}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/shipments".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -679,10 +678,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getRouteStop(version: BigDecimal, routeId: Long, stopId: Long): Task[Stop] = {
+  def getRouteStop(routeId: Long, stopId: Long): Task[Stop] = {
     implicit val returnTypeDecoder: EntityDecoder[Stop] = jsonOf[Stop]
 
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -700,10 +699,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getRouteStops(version: BigDecimal, routeId: Long, confirmedOnly: Boolean)(implicit confirmedOnlyQuery: QueryParam[Boolean]): Task[List[Stop]] = {
+  def getRouteStops(routeId: Long, confirmedOnly: Boolean)(implicit confirmedOnlyQuery: QueryParam[Boolean]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -721,10 +720,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def getShipmentsAtStop(version: BigDecimal, routeId: Long, stopId: Long): Task[List[Shipment]] = {
+  def getShipmentsAtStop(routeId: Long, stopId: Long): Task[List[Shipment]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Shipment]] = jsonOf[List[Shipment]]
 
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+    val path = "/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -742,8 +741,8 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def optimizeRoute(version: BigDecimal, routeId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/optimize".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+  def optimizeRoute(routeId: Long): Task[Unit] = {
+    val path = "/route/{routeId}/optimize".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -761,8 +760,8 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def removeStop(version: BigDecimal, routeId: Long, stopId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+  def removeStop(routeId: Long, stopId: Long): Task[Unit] = {
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -780,10 +779,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def reorderRouteStopsPatch(version: BigDecimal, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
+  def reorderRouteStopsPatch(routeId: Long, body: List[Stop]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PATCH
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -801,10 +800,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def reorderRouteStopsPost(version: BigDecimal, routeId: Long, body: List[Stop]): Task[List[Stop]] = {
+  def reorderRouteStopsPost(routeId: Long, body: List[Stop]): Task[List[Stop]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Stop]] = jsonOf[List[Stop]]
 
-    val path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -822,10 +821,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRoutes(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Long, programId: Long, scheduledStart: Long, scheduledEnd: Long, updatedStart: Long, updatedEnd: Long, featured: Boolean, seatCount: Integer, approved: Boolean, started: Boolean, completed: Boolean, valid: Boolean, parentId: Long)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], scheduledStartQuery: QueryParam[Long], scheduledEndQuery: QueryParam[Long], updatedStartQuery: QueryParam[Long], updatedEndQuery: QueryParam[Long], featuredQuery: QueryParam[Boolean], seatCountQuery: QueryParam[Integer], approvedQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], validQuery: QueryParam[Boolean], parentIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], includesEmptyQuery: QueryParam[Boolean], rootOnlyQuery: QueryParam[Boolean], showInheritedPropertiesQuery: QueryParam[Boolean]): Task[List[Route]] = {
+  def searchRoutes(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Long, programId: Long, scheduledStart: Long, scheduledEnd: Long, updatedStart: Long, updatedEnd: Long, featured: Boolean, seatCount: Integer, approved: Boolean, started: Boolean, completed: Boolean, valid: Boolean, parentId: Long)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], scheduledStartQuery: QueryParam[Long], scheduledEndQuery: QueryParam[Long], updatedStartQuery: QueryParam[Long], updatedEndQuery: QueryParam[Long], featuredQuery: QueryParam[Boolean], seatCountQuery: QueryParam[Integer], approvedQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], validQuery: QueryParam[Boolean], parentIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], includesEmptyQuery: QueryParam[Boolean], rootOnlyQuery: QueryParam[Boolean], showInheritedPropertiesQuery: QueryParam[Boolean]): Task[List[Route]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Route]] = jsonOf[List[Route]]
 
-    val path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -843,8 +842,8 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def setDriver(version: BigDecimal, id: Long, driverId: Long): Task[Unit] = {
-    val path = "/api/{version}/route/{id}/driver/{driverId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString)).replaceAll("\\{" + "driverId" + "\\}",escape(driverId.toString))
+  def setDriver(id: Long, driverId: Long): Task[Unit] = {
+    val path = "/route/{id}/driver/{driverId}".replaceAll("\\{" + "id" + "\\}",escape(id.toString)).replaceAll("\\{" + "driverId" + "\\}",escape(driverId.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -862,10 +861,10 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRoute(version: BigDecimal, routeId: Long, body: Route): Task[Route] = {
+  def updateRoute(routeId: Long, body: Route): Task[Route] = {
     implicit val returnTypeDecoder: EntityDecoder[Route] = jsonOf[Route]
 
-    val path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
+    val path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -883,8 +882,8 @@ class HttpServiceRouteApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRouteStop(version: BigDecimal, routeId: Long, stopId: Long, body: Stop): Task[Unit] = {
-    val path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
+  def updateRouteStop(routeId: Long, stopId: Long, body: Stop): Task[Unit] = {
+    val path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}",escape(routeId.toString)).replaceAll("\\{" + "stopId" + "\\}",escape(stopId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

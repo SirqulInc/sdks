@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.PaymentRequest
 import org.openapitools.client.api.ProfileResponse
@@ -33,10 +32,10 @@ object SecureAppApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createSecureApplication(host: String, version: BigDecimal, accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Boolean = true, biometricType: String = FACIAL, biometricPosition: String = UNKNOWN, biometricPosition2: String = UNKNOWN)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
+  def createSecureApplication(host: String, accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Boolean = true, biometricType: String = FACIAL, biometricPosition: String = UNKNOWN, biometricPosition2: String = UNKNOWN)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object SecureAppApi {
     } yield resp
   }
 
-  def deleteSecureApplication(host: String, version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteSecureApplication(host: String, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object SecureAppApi {
     } yield resp
   }
 
-  def loginSecure(host: String, version: BigDecimal, appKey: String, biometricFile: File, deviceId: String, biometricFile2: File, ageRestriction: Integer = 0, returnProfile: Boolean = false, responseFilters: String = PROFILE, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], biometricFileQuery: QueryParam[File], biometricFile2Query: QueryParam[File], ageRestrictionQuery: QueryParam[Integer], returnProfileQuery: QueryParam[Boolean], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
+  def loginSecure(host: String, appKey: String, biometricFile: File, deviceId: String, biometricFile2: File, ageRestriction: Integer = 0, returnProfile: Boolean = false, responseFilters: String = PROFILE, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], biometricFileQuery: QueryParam[File], biometricFile2Query: QueryParam[File], ageRestrictionQuery: QueryParam[Integer], returnProfileQuery: QueryParam[Boolean], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/secure/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object SecureAppApi {
     } yield resp
   }
 
-  def purchaseSecure(host: String, version: BigDecimal, body: PaymentRequest): Task[ProfileResponse] = {
+  def purchaseSecure(host: String, body: PaymentRequest): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/secure/purchase".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/purchase"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object SecureAppApi {
     } yield resp
   }
 
-  def resetSecure(host: String, version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def resetSecure(host: String, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/reset".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/reset"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,10 +137,10 @@ object SecureAppApi {
     } yield resp
   }
 
-  def updateSecureApplication(host: String, version: BigDecimal, accountId: Long, appKey: String, active: Boolean, keyCert: File, trustStore: File, username: String, password: String, biometricType: String, biometricPosition: String, biometricPosition2: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
+  def updateSecureApplication(host: String, accountId: Long, appKey: String, active: Boolean, keyCert: File, trustStore: File, username: String, password: String, biometricType: String, biometricPosition: String, biometricPosition2: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -166,10 +165,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createSecureApplication(version: BigDecimal, accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Boolean = true, biometricType: String = FACIAL, biometricPosition: String = UNKNOWN, biometricPosition2: String = UNKNOWN)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
+  def createSecureApplication(accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Boolean = true, biometricType: String = FACIAL, biometricPosition: String = UNKNOWN, biometricPosition2: String = UNKNOWN)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteSecureApplication(version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteSecureApplication(accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -208,10 +207,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
     } yield resp
   }
 
-  def loginSecure(version: BigDecimal, appKey: String, biometricFile: File, deviceId: String, biometricFile2: File, ageRestriction: Integer = 0, returnProfile: Boolean = false, responseFilters: String = PROFILE, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], biometricFileQuery: QueryParam[File], biometricFile2Query: QueryParam[File], ageRestrictionQuery: QueryParam[Integer], returnProfileQuery: QueryParam[Boolean], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
+  def loginSecure(appKey: String, biometricFile: File, deviceId: String, biometricFile2: File, ageRestriction: Integer = 0, returnProfile: Boolean = false, responseFilters: String = PROFILE, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], biometricFileQuery: QueryParam[File], biometricFile2Query: QueryParam[File], ageRestrictionQuery: QueryParam[Integer], returnProfileQuery: QueryParam[Boolean], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/secure/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -229,10 +228,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
     } yield resp
   }
 
-  def purchaseSecure(version: BigDecimal, body: PaymentRequest): Task[ProfileResponse] = {
+  def purchaseSecure(body: PaymentRequest): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/secure/purchase".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/purchase"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -250,10 +249,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
     } yield resp
   }
 
-  def resetSecure(version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def resetSecure(accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/reset".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/reset"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -271,10 +270,10 @@ class HttpServiceSecureAppApi(service: HttpService) {
     } yield resp
   }
 
-  def updateSecureApplication(version: BigDecimal, accountId: Long, appKey: String, active: Boolean, keyCert: File, trustStore: File, username: String, password: String, biometricType: String, biometricPosition: String, biometricPosition2: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
+  def updateSecureApplication(accountId: Long, appKey: String, active: Boolean, keyCert: File, trustStore: File, username: String, password: String, biometricType: String, biometricPosition: String, biometricPosition2: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean], keyCertQuery: QueryParam[File], trustStoreQuery: QueryParam[File], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], biometricTypeQuery: QueryParam[String], biometricPositionQuery: QueryParam[String], biometricPosition2Query: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/secure/application/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/secure/application/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

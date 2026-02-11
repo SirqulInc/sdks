@@ -30,10 +30,10 @@ object DisbursementApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def checkDisbursements(host: String, version: BigDecimal, disbursementId: Long)(implicit disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
+  def checkDisbursements(host: String, disbursementId: Long)(implicit disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/check".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/check"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +51,10 @@ object DisbursementApi {
     } yield resp
   }
 
-  def createDisbursement(host: String, version: BigDecimal, accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], originalSenderAccountIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
+  def createDisbursement(host: String, accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], originalSenderAccountIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +72,10 @@ object DisbursementApi {
     } yield resp
   }
 
-  def getDisbursement(host: String, version: BigDecimal, accountId: Long, disbursementId: Long)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
+  def getDisbursement(host: String, accountId: Long, disbursementId: Long)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -93,10 +93,10 @@ object DisbursementApi {
     } yield resp
   }
 
-  def searchDisbursements(host: String, version: BigDecimal, accountId: Long, receiverAccountId: Long, statuses: String, providers: String, beforeDate: Long, afterDate: Long, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, externalId: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], statusesQuery: QueryParam[String], providersQuery: QueryParam[String], beforeDateQuery: QueryParam[Long], afterDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String]): Task[List[DisbursementResponse]] = {
+  def searchDisbursements(host: String, accountId: Long, receiverAccountId: Long, statuses: String, providers: String, beforeDate: Long, afterDate: Long, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, externalId: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], statusesQuery: QueryParam[String], providersQuery: QueryParam[String], beforeDateQuery: QueryParam[Long], afterDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String]): Task[List[DisbursementResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[DisbursementResponse]] = jsonOf[List[DisbursementResponse]]
 
-    val path = "/api/{version}/disbursement/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -114,10 +114,10 @@ object DisbursementApi {
     } yield resp
   }
 
-  def updateDisbursement(host: String, version: BigDecimal, accountId: Long, disbursementId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, retry: Boolean, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], retryQuery: QueryParam[Boolean], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
+  def updateDisbursement(host: String, accountId: Long, disbursementId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, retry: Boolean, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], retryQuery: QueryParam[Boolean], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -142,10 +142,10 @@ class HttpServiceDisbursementApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def checkDisbursements(version: BigDecimal, disbursementId: Long)(implicit disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
+  def checkDisbursements(disbursementId: Long)(implicit disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/check".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/check"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -163,10 +163,10 @@ class HttpServiceDisbursementApi(service: HttpService) {
     } yield resp
   }
 
-  def createDisbursement(version: BigDecimal, accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], originalSenderAccountIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
+  def createDisbursement(accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], originalSenderAccountIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -184,10 +184,10 @@ class HttpServiceDisbursementApi(service: HttpService) {
     } yield resp
   }
 
-  def getDisbursement(version: BigDecimal, accountId: Long, disbursementId: Long)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
+  def getDisbursement(accountId: Long, disbursementId: Long)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -205,10 +205,10 @@ class HttpServiceDisbursementApi(service: HttpService) {
     } yield resp
   }
 
-  def searchDisbursements(version: BigDecimal, accountId: Long, receiverAccountId: Long, statuses: String, providers: String, beforeDate: Long, afterDate: Long, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, externalId: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], statusesQuery: QueryParam[String], providersQuery: QueryParam[String], beforeDateQuery: QueryParam[Long], afterDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String]): Task[List[DisbursementResponse]] = {
+  def searchDisbursements(accountId: Long, receiverAccountId: Long, statuses: String, providers: String, beforeDate: Long, afterDate: Long, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false, externalId: String)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], statusesQuery: QueryParam[String], providersQuery: QueryParam[String], beforeDateQuery: QueryParam[Long], afterDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], externalIdQuery: QueryParam[String]): Task[List[DisbursementResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[DisbursementResponse]] = jsonOf[List[DisbursementResponse]]
 
-    val path = "/api/{version}/disbursement/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -226,10 +226,10 @@ class HttpServiceDisbursementApi(service: HttpService) {
     } yield resp
   }
 
-  def updateDisbursement(version: BigDecimal, accountId: Long, disbursementId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, retry: Boolean, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], retryQuery: QueryParam[Boolean], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
+  def updateDisbursement(accountId: Long, disbursementId: Long, amount: BigDecimal, provider: String, scheduledDate: Long, title: String, comment: String, externalId: String, retry: Boolean, introspectionParams: String)(implicit accountIdQuery: QueryParam[Long], disbursementIdQuery: QueryParam[Long], amountQuery: QueryParam[BigDecimal], providerQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], titleQuery: QueryParam[String], commentQuery: QueryParam[String], externalIdQuery: QueryParam[String], retryQuery: QueryParam[Boolean], introspectionParamsQuery: QueryParam[String]): Task[DisbursementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[DisbursementResponse] = jsonOf[DisbursementResponse]
 
-    val path = "/api/{version}/disbursement/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/disbursement/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object RetailerV2Api {
@@ -30,10 +29,10 @@ object RetailerV2Api {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getRetaokiler(host: String, version: BigDecimal, retailerId: Long, activeOnly: Boolean = true, keyword: String, sortField: String = id, start: Long = 0, limit: Long = 20)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], activeOnlyQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def getRetaokiler(host: String, retailerId: Long, activeOnly: Boolean = true, keyword: String, sortField: String = id, start: Long = 0, limit: Long = 20)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], activeOnlyQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/retailer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceRetailerV2Api(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getRetaokiler(version: BigDecimal, retailerId: Long, activeOnly: Boolean = true, keyword: String, sortField: String = id, start: Long = 0, limit: Long = 20)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], activeOnlyQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def getRetaokiler(retailerId: Long, activeOnly: Boolean = true, keyword: String, sortField: String = id, start: Long = 0, limit: Long = 20)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], activeOnlyQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/retailer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

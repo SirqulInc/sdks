@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PackResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object PackApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPack(host: String, version: BigDecimal, accountId: Long, title: String, packOrder: Long, price: Integer, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, priceType: String, gameLevelIds: String, inGame: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
+  def createPack(host: String, accountId: Long, title: String, packOrder: Long, price: Integer, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, priceType: String, gameLevelIds: String, inGame: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object PackApi {
     } yield resp
   }
 
-  def deletePack(host: String, version: BigDecimal, accountId: Long, packId: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePack(host: String, accountId: Long, packId: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/pack/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object PackApi {
     } yield resp
   }
 
-  def getPack(host: String, version: BigDecimal, accountId: Long, packId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[PackResponse] = {
+  def getPack(host: String, accountId: Long, packId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object PackApi {
     } yield resp
   }
 
-  def searchPacks(host: String, version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, keyword: String, packType: String, start: Integer, limit: Integer, includeGameData: Boolean, includeInactive: Boolean, appKey: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], packTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeGameDataQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String]): Task[List[PackResponse]] = {
+  def searchPacks(host: String, accountId: Long, sortField: String, descending: Boolean, keyword: String, packType: String, start: Integer, limit: Integer, includeGameData: Boolean, includeInactive: Boolean, appKey: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], packTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeGameDataQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String]): Task[List[PackResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PackResponse]] = jsonOf[List[PackResponse]]
 
-    val path = "/api/{version}/pack/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object PackApi {
     } yield resp
   }
 
-  def updatePack(host: String, version: BigDecimal, accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: String, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, packOrder: Long, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, price: Integer, priceType: String, gameLevelIds: String, inGame: Boolean, highest: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
+  def updatePack(host: String, accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: String, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, packOrder: Long, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, price: Integer, priceType: String, gameLevelIds: String, inGame: Boolean, highest: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServicePackApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPack(version: BigDecimal, accountId: Long, title: String, packOrder: Long, price: Integer, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, priceType: String, gameLevelIds: String, inGame: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
+  def createPack(accountId: Long, title: String, packOrder: Long, price: Integer, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, priceType: String, gameLevelIds: String, inGame: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServicePackApi(service: HttpService) {
     } yield resp
   }
 
-  def deletePack(version: BigDecimal, accountId: Long, packId: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePack(accountId: Long, packId: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/pack/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServicePackApi(service: HttpService) {
     } yield resp
   }
 
-  def getPack(version: BigDecimal, accountId: Long, packId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[PackResponse] = {
+  def getPack(accountId: Long, packId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServicePackApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPacks(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, keyword: String, packType: String, start: Integer, limit: Integer, includeGameData: Boolean, includeInactive: Boolean, appKey: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], packTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeGameDataQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String]): Task[List[PackResponse]] = {
+  def searchPacks(accountId: Long, sortField: String, descending: Boolean, keyword: String, packType: String, start: Integer, limit: Integer, includeGameData: Boolean, includeInactive: Boolean, appKey: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], packTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeGameDataQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String]): Task[List[PackResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PackResponse]] = jsonOf[List[PackResponse]]
 
-    val path = "/api/{version}/pack/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServicePackApi(service: HttpService) {
     } yield resp
   }
 
-  def updatePack(version: BigDecimal, accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: String, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, packOrder: Long, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, price: Integer, priceType: String, gameLevelIds: String, inGame: Boolean, highest: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
+  def updatePack(accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: String, description: String, searchTags: String, active: Boolean, gameType: String, appKey: String, packType: String, packOrder: Long, sequenceType: String, backgroundId: Long, imageId: Long, startDate: Long, endDate: Long, authorOverride: String, price: Integer, priceType: String, gameLevelIds: String, inGame: Boolean, highest: Boolean, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], packTypeQuery: QueryParam[String], packOrderQuery: QueryParam[Long], sequenceTypeQuery: QueryParam[String], backgroundIdQuery: QueryParam[Long], imageIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], authorOverrideQuery: QueryParam[String], priceQuery: QueryParam[Integer], priceTypeQuery: QueryParam[String], gameLevelIdsQuery: QueryParam[String], inGameQuery: QueryParam[Boolean], highestQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[PackResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PackResponse] = jsonOf[PackResponse]
 
-    val path = "/api/{version}/pack/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/pack/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

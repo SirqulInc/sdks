@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.ActivityResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.EntityReference
 
 object ActivityApi {
@@ -31,10 +30,10 @@ object ActivityApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createEntityReference(host: String, version: BigDecimal, body: EntityReference): Task[ActivityResponse] = {
+  def createEntityReference(host: String, body: EntityReference): Task[ActivityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ActivityResponse] = jsonOf[ActivityResponse]
 
-    val path = "/api/{version}/entity/reference".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/entity/reference"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -59,10 +58,10 @@ class HttpServiceActivityApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createEntityReference(version: BigDecimal, body: EntityReference): Task[ActivityResponse] = {
+  def createEntityReference(body: EntityReference): Task[ActivityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ActivityResponse] = jsonOf[ActivityResponse]
 
-    val path = "/api/{version}/entity/reference".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/entity/reference"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

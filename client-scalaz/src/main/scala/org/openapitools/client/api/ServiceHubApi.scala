@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ServiceHub
 
 object ServiceHubApi {
@@ -30,10 +29,10 @@ object ServiceHubApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createServiceHub(host: String, version: BigDecimal, body: ServiceHub): Task[ServiceHub] = {
+  def createServiceHub(host: String, body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/hub"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object ServiceHubApi {
     } yield resp
   }
 
-  def deleteServiceHub(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteServiceHub(host: String, id: Long): Task[Unit] = {
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object ServiceHubApi {
     } yield resp
   }
 
-  def getServiceHub(host: String, version: BigDecimal, id: Long): Task[Any] = {
+  def getServiceHub(host: String, id: Long): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object ServiceHubApi {
     } yield resp
   }
 
-  def postServiceHub(host: String, version: BigDecimal, id: Long, body: ServiceHub): Task[ServiceHub] = {
+  def postServiceHub(host: String, id: Long, body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object ServiceHubApi {
     } yield resp
   }
 
-  def putServiceHub(host: String, version: BigDecimal, id: Long, body: ServiceHub): Task[ServiceHub] = {
+  def putServiceHub(host: String, id: Long, body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -133,10 +132,10 @@ object ServiceHubApi {
     } yield resp
   }
 
-  def searchServiceHubs(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String, retailerId: Long)(implicit keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[ServiceHub]] = {
+  def searchServiceHubs(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String, retailerId: Long)(implicit keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[ServiceHub]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ServiceHub]] = jsonOf[List[ServiceHub]]
 
-    val path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/hub"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,10 +160,10 @@ class HttpServiceServiceHubApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createServiceHub(version: BigDecimal, body: ServiceHub): Task[ServiceHub] = {
+  def createServiceHub(body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/hub"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -182,8 +181,8 @@ class HttpServiceServiceHubApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteServiceHub(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteServiceHub(id: Long): Task[Unit] = {
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ class HttpServiceServiceHubApi(service: HttpService) {
     } yield resp
   }
 
-  def getServiceHub(version: BigDecimal, id: Long): Task[Any] = {
+  def getServiceHub(id: Long): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ class HttpServiceServiceHubApi(service: HttpService) {
     } yield resp
   }
 
-  def postServiceHub(version: BigDecimal, id: Long, body: ServiceHub): Task[ServiceHub] = {
+  def postServiceHub(id: Long, body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -243,10 +242,10 @@ class HttpServiceServiceHubApi(service: HttpService) {
     } yield resp
   }
 
-  def putServiceHub(version: BigDecimal, id: Long, body: ServiceHub): Task[ServiceHub] = {
+  def putServiceHub(id: Long, body: ServiceHub): Task[ServiceHub] = {
     implicit val returnTypeDecoder: EntityDecoder[ServiceHub] = jsonOf[ServiceHub]
 
-    val path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -264,10 +263,10 @@ class HttpServiceServiceHubApi(service: HttpService) {
     } yield resp
   }
 
-  def searchServiceHubs(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String, retailerId: Long)(implicit keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[ServiceHub]] = {
+  def searchServiceHubs(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String, retailerId: Long)(implicit keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[ServiceHub]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ServiceHub]] = jsonOf[List[ServiceHub]]
 
-    val path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/hub"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

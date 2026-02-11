@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PurchaseItemFullResponse
 import org.openapitools.client.api.PurchaseItemResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object PurchaseItemApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPurchaseItem(host: String, version: BigDecimal, appKey: String, name: String, purchaseType: String, deviceId: String, accountId: Long, description: String, tickets: Integer, price: Float, purchaseCode: String, secretKey: String, purchaseLimit: Integer = 0, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def createPurchaseItem(host: String, appKey: String, name: String, purchaseType: String, deviceId: String, accountId: Long, description: String, tickets: Integer, price: Float, purchaseCode: String, secretKey: String, purchaseLimit: Integer = 0, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object PurchaseItemApi {
     } yield resp
   }
 
-  def deletePurchaseItem(host: String, version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePurchaseItem(host: String, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/purchase/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object PurchaseItemApi {
     } yield resp
   }
 
-  def getPurchaseItem(host: String, version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def getPurchaseItem(host: String, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object PurchaseItemApi {
     } yield resp
   }
 
-  def searchPurchaseItems(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, filterByBillable: Boolean = false, purchaseType: String, serviceAction: String, keyword: String, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], purchaseTypeQuery: QueryParam[String], serviceActionQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[PurchaseItemResponse]] = {
+  def searchPurchaseItems(host: String, deviceId: String, accountId: Long, appKey: String, filterByBillable: Boolean = false, purchaseType: String, serviceAction: String, keyword: String, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], purchaseTypeQuery: QueryParam[String], serviceActionQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[PurchaseItemResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PurchaseItemResponse]] = jsonOf[List[PurchaseItemResponse]]
 
-    val path = "/api/{version}/purchase/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object PurchaseItemApi {
     } yield resp
   }
 
-  def updatePurchaseItem(host: String, version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long, name: String, description: String, tickets: Integer, price: Float, purchaseType: String, purchaseCode: String, secretKey: String, purchaseLimit: Integer, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, active: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def updatePurchaseItem(host: String, purchaseItemId: Long, deviceId: String, accountId: Long, name: String, description: String, tickets: Integer, price: Float, purchaseType: String, purchaseCode: String, secretKey: String, purchaseLimit: Integer, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, active: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -144,10 +143,10 @@ class HttpServicePurchaseItemApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPurchaseItem(version: BigDecimal, appKey: String, name: String, purchaseType: String, deviceId: String, accountId: Long, description: String, tickets: Integer, price: Float, purchaseCode: String, secretKey: String, purchaseLimit: Integer = 0, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def createPurchaseItem(appKey: String, name: String, purchaseType: String, deviceId: String, accountId: Long, description: String, tickets: Integer, price: Float, purchaseCode: String, secretKey: String, purchaseLimit: Integer = 0, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServicePurchaseItemApi(service: HttpService) {
     } yield resp
   }
 
-  def deletePurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePurchaseItem(purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/purchase/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServicePurchaseItemApi(service: HttpService) {
     } yield resp
   }
 
-  def getPurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def getPurchaseItem(purchaseItemId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServicePurchaseItemApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPurchaseItems(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, filterByBillable: Boolean = false, purchaseType: String, serviceAction: String, keyword: String, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], purchaseTypeQuery: QueryParam[String], serviceActionQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[PurchaseItemResponse]] = {
+  def searchPurchaseItems(deviceId: String, accountId: Long, appKey: String, filterByBillable: Boolean = false, purchaseType: String, serviceAction: String, keyword: String, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], purchaseTypeQuery: QueryParam[String], serviceActionQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[PurchaseItemResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PurchaseItemResponse]] = jsonOf[List[PurchaseItemResponse]]
 
-    val path = "/api/{version}/purchase/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServicePurchaseItemApi(service: HttpService) {
     } yield resp
   }
 
-  def updatePurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: String, accountId: Long, name: String, description: String, tickets: Integer, price: Float, purchaseType: String, purchaseCode: String, secretKey: String, purchaseLimit: Integer, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, active: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
+  def updatePurchaseItem(purchaseItemId: Long, deviceId: String, accountId: Long, name: String, description: String, tickets: Integer, price: Float, purchaseType: String, purchaseCode: String, secretKey: String, purchaseLimit: Integer, serviceAction: String, coverAssetId: Long, promoAssetId: Long, giftable: Boolean, assetable: Boolean, active: Boolean, allocateTickets: Boolean = false, ticketType: String, points: Long, offerLocationId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], purchaseItemIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], ticketsQuery: QueryParam[Integer], priceQuery: QueryParam[Float], purchaseTypeQuery: QueryParam[String], purchaseCodeQuery: QueryParam[String], secretKeyQuery: QueryParam[String], purchaseLimitQuery: QueryParam[Integer], serviceActionQuery: QueryParam[String], coverAssetIdQuery: QueryParam[Long], promoAssetIdQuery: QueryParam[Long], giftableQuery: QueryParam[Boolean], assetableQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long]): Task[PurchaseItemFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemFullResponse] = jsonOf[PurchaseItemFullResponse]
 
-    val path = "/api/{version}/purchase/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

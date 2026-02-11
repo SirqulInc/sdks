@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object ParticipantsApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def processAllParticipants(host: String, version: BigDecimal, accountId: Long, appKey: String, useShortNameAsID: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def processAllParticipants(host: String, accountId: Long, appKey: String, useShortNameAsID: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/participant/process/all".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/participant/process/all"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object ParticipantsApi {
     } yield resp
   }
 
-  def processParticipants(host: String, version: BigDecimal, accountId: Long, league: String, appKey: String, useShortNameAsID: Boolean, file: File)(implicit accountIdQuery: QueryParam[Long], leagueQuery: QueryParam[String], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean], fileQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def processParticipants(host: String, accountId: Long, league: String, appKey: String, useShortNameAsID: Boolean, file: File)(implicit accountIdQuery: QueryParam[Long], leagueQuery: QueryParam[String], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean], fileQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/participant/process".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/participant/process"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -80,10 +79,10 @@ class HttpServiceParticipantsApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def processAllParticipants(version: BigDecimal, accountId: Long, appKey: String, useShortNameAsID: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def processAllParticipants(accountId: Long, appKey: String, useShortNameAsID: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/participant/process/all".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/participant/process/all"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -101,10 +100,10 @@ class HttpServiceParticipantsApi(service: HttpService) {
     } yield resp
   }
 
-  def processParticipants(version: BigDecimal, accountId: Long, league: String, appKey: String, useShortNameAsID: Boolean, file: File)(implicit accountIdQuery: QueryParam[Long], leagueQuery: QueryParam[String], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean], fileQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def processParticipants(accountId: Long, league: String, appKey: String, useShortNameAsID: Boolean, file: File)(implicit accountIdQuery: QueryParam[Long], leagueQuery: QueryParam[String], appKeyQuery: QueryParam[String], useShortNameAsIDQuery: QueryParam[Boolean], fileQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/participant/process".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/participant/process"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

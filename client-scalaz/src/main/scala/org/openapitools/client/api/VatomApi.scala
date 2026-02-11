@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 
 object VatomApi {
 
@@ -29,8 +28,8 @@ object VatomApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFollowing(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createFollowing(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -48,8 +47,8 @@ object VatomApi {
     } yield resp
   }
 
-  def createSpace(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createSpace(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -67,8 +66,8 @@ object VatomApi {
     } yield resp
   }
 
-  def createVatomEvent(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createVatomEvent(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -86,8 +85,8 @@ object VatomApi {
     } yield resp
   }
 
-  def deleteFollowing(host: String, version: BigDecimal, accountId: Long, vatomRelsKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomRelsKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteFollowing(host: String, accountId: Long, vatomRelsKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomRelsKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -105,8 +104,8 @@ object VatomApi {
     } yield resp
   }
 
-  def deletePointsBalance(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/points/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deletePointsBalance(host: String, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/points/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -124,8 +123,8 @@ object VatomApi {
     } yield resp
   }
 
-  def deleteSpace(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteSpace(host: String, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,8 +142,8 @@ object VatomApi {
     } yield resp
   }
 
-  def deleteVatomEvent(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteVatomEvent(host: String, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -162,8 +161,8 @@ object VatomApi {
     } yield resp
   }
 
-  def deleteVatomNFT(host: String, version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteVatomNFT(host: String, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -181,8 +180,8 @@ object VatomApi {
     } yield resp
   }
 
-  def executeActionOnNFT(host: String, version: BigDecimal, accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/execute-action".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def executeActionOnNFT(host: String, accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/execute-action"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -200,8 +199,8 @@ object VatomApi {
     } yield resp
   }
 
-  def geomapSearch(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/geo-map/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def geomapSearch(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/geo-map/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -219,8 +218,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getBusinessBehaviors(host: String, version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/behaviors".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessBehaviors(host: String, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/behaviors"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -238,8 +237,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getBusinessCoinsBalance(host: String, version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessCoinsBalance(host: String, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -257,8 +256,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getBusinessIds(host: String, version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/businesses".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessIds(host: String, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/businesses"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -276,8 +275,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getBusinessInfo(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessInfo(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -295,8 +294,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getBusinessUsers(host: String, version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessUsers(host: String, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -314,8 +313,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getCampaignGroupEntities(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/entities".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupEntities(host: String, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/entities"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -333,8 +332,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getCampaignGroupRules(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/rules".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupRules(host: String, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/rules"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -352,8 +351,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getCampaignGroupStats(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/stats".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupStats(host: String, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/stats"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -371,8 +370,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getCampaignInfo(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignInfo(host: String, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -390,8 +389,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getEventGuestList(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/guests/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getEventGuestList(host: String, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/guests/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -409,8 +408,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getInventory(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/inventory".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getInventory(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/inventory"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -428,8 +427,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getMyFollowing(host: String, version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getMyFollowing(host: String, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -447,8 +446,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getPointsBalance(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/campaign/points/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getPointsBalance(host: String, accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/campaign/points/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -466,8 +465,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getPointsBalanceAsBusiness(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/u/points/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getPointsBalanceAsBusiness(host: String, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/u/points/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -485,8 +484,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getSpace(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getSpace(host: String, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -504,8 +503,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserCoinsAsBusiness(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserCoinsAsBusiness(host: String, accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -523,8 +522,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserCoinsBalance(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserCoinsBalance(host: String, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -542,8 +541,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserFollowers(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/users/rels/followers".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserFollowers(host: String, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/users/rels/followers"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -561,8 +560,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserFollowing(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/users/rels/following".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserFollowing(host: String, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/users/rels/following"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -580,8 +579,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserInfo(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/user/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserInfo(host: String, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/user/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -599,8 +598,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getUserProfile(host: String, version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserProfile(host: String, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -618,8 +617,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getVatomEvent(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getVatomEvent(host: String, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -637,8 +636,8 @@ object VatomApi {
     } yield resp
   }
 
-  def getVatomNFT(host: String, version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getVatomNFT(host: String, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -656,8 +655,8 @@ object VatomApi {
     } yield resp
   }
 
-  def listCommunities(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/communities/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listCommunities(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/communities/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -675,8 +674,8 @@ object VatomApi {
     } yield resp
   }
 
-  def listEvents(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listEvents(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -694,8 +693,8 @@ object VatomApi {
     } yield resp
   }
 
-  def listSpaces(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listSpaces(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -713,8 +712,8 @@ object VatomApi {
     } yield resp
   }
 
-  def listUserCoinTransactions(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/txns/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listUserCoinTransactions(host: String, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/txns/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -732,8 +731,8 @@ object VatomApi {
     } yield resp
   }
 
-  def listUserCoinTransactionsAsBusiness(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/txns/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listUserCoinTransactionsAsBusiness(host: String, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/txns/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -751,8 +750,8 @@ object VatomApi {
     } yield resp
   }
 
-  def performActionOnNFT(host: String, version: BigDecimal, accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomActionQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/vatoms/actions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def performActionOnNFT(host: String, accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomActionQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/vatoms/actions"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -770,8 +769,8 @@ object VatomApi {
     } yield resp
   }
 
-  def redeemNFT(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/redemptions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def redeemNFT(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/redemptions"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -789,8 +788,8 @@ object VatomApi {
     } yield resp
   }
 
-  def redeemUserCoinsAsBusiness(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/redeem".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def redeemUserCoinsAsBusiness(host: String, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/redeem"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -808,8 +807,8 @@ object VatomApi {
     } yield resp
   }
 
-  def searchBusinesses(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchBusinesses(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -827,8 +826,8 @@ object VatomApi {
     } yield resp
   }
 
-  def searchCampaignGroups(host: String, version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchCampaignGroups(host: String, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -846,8 +845,8 @@ object VatomApi {
     } yield resp
   }
 
-  def searchIdentities(host: String, version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/identities/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchIdentities(host: String, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/identities/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -865,8 +864,8 @@ object VatomApi {
     } yield resp
   }
 
-  def searchInventory(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/user-inventory/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchInventory(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/user-inventory/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -884,8 +883,8 @@ object VatomApi {
     } yield resp
   }
 
-  def sendNFT(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaigns/send".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def sendNFT(host: String, accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaigns/send"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -903,8 +902,8 @@ object VatomApi {
     } yield resp
   }
 
-  def setPointsBalanceAsBusiness(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/u/points/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def setPointsBalanceAsBusiness(host: String, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/u/points/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -922,8 +921,8 @@ object VatomApi {
     } yield resp
   }
 
-  def transferUserCoins(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/transfer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def transferUserCoins(host: String, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/transfer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -941,8 +940,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateBusinessCoins(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/coins/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateBusinessCoins(host: String, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/coins/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -960,8 +959,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateEventGuestList(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/guests/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateEventGuestList(host: String, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/guests/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -979,8 +978,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateSpace(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateSpace(host: String, accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -998,8 +997,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateUserCoinsAsBusiness(host: String, version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateUserCoinsAsBusiness(host: String, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1017,8 +1016,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateUserProfile(host: String, version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateUserProfile(host: String, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1036,8 +1035,8 @@ object VatomApi {
     } yield resp
   }
 
-  def updateVatomEvent(host: String, version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateVatomEvent(host: String, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1062,8 +1061,8 @@ class HttpServiceVatomApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFollowing(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createFollowing(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1081,8 +1080,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def createSpace(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createSpace(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1100,8 +1099,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def createVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def createVatomEvent(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1119,8 +1118,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteFollowing(version: BigDecimal, accountId: Long, vatomRelsKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomRelsKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteFollowing(accountId: Long, vatomRelsKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomRelsKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1138,8 +1137,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def deletePointsBalance(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/points/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deletePointsBalance(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/points/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1157,8 +1156,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteSpace(accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1176,8 +1175,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteVatomEvent(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1195,8 +1194,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteVatomNFT(version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def deleteVatomNFT(accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1214,8 +1213,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def executeActionOnNFT(version: BigDecimal, accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/execute-action".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def executeActionOnNFT(accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/execute-action"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1233,8 +1232,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def geomapSearch(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/geo-map/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def geomapSearch(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/geo-map/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1252,8 +1251,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getBusinessBehaviors(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/behaviors".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessBehaviors(accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/behaviors"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1271,8 +1270,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getBusinessCoinsBalance(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessCoinsBalance(accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1290,8 +1289,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getBusinessIds(version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/businesses".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessIds(accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/businesses"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1309,8 +1308,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getBusinessInfo(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessInfo(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1328,8 +1327,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getBusinessUsers(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getBusinessUsers(accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1347,8 +1346,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getCampaignGroupEntities(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/entities".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupEntities(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/entities"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1366,8 +1365,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getCampaignGroupRules(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/rules".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupRules(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/rules"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1385,8 +1384,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getCampaignGroupStats(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/stats".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignGroupStats(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/stats"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1404,8 +1403,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getCampaignInfo(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getCampaignInfo(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1423,8 +1422,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getEventGuestList(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/guests/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getEventGuestList(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/guests/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1442,8 +1441,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getInventory(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/inventory".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getInventory(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/inventory"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1461,8 +1460,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getMyFollowing(version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/rels/following".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getMyFollowing(accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/rels/following"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1480,8 +1479,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getPointsBalance(version: BigDecimal, accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/campaign/points/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getPointsBalance(accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/campaign/points/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1499,8 +1498,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getPointsBalanceAsBusiness(version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/u/points/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getPointsBalanceAsBusiness(accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/u/points/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1518,8 +1517,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getSpace(accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1537,8 +1536,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1556,8 +1555,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserCoinsBalance(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserCoinsBalance(accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1575,8 +1574,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserFollowers(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/users/rels/followers".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserFollowers(accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/users/rels/followers"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1594,8 +1593,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserFollowing(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/users/rels/following".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserFollowing(accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/users/rels/following"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1613,8 +1612,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserInfo(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/user/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserInfo(accountId: Long, vatomUserId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/user/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1632,8 +1631,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserProfile(version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getUserProfile(accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1651,8 +1650,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getVatomEvent(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1670,8 +1669,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def getVatomNFT(version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/vatoms/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def getVatomNFT(accountId: Long, vatomId: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/vatoms/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1689,8 +1688,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def listCommunities(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/communities/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listCommunities(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/communities/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1708,8 +1707,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def listEvents(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listEvents(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1727,8 +1726,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def listSpaces(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listSpaces(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1746,8 +1745,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def listUserCoinTransactions(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/txns/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listUserCoinTransactions(accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/txns/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1765,8 +1764,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def listUserCoinTransactionsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/txns/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def listUserCoinTransactionsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/txns/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1784,8 +1783,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def performActionOnNFT(version: BigDecimal, accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomActionQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/vatoms/actions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def performActionOnNFT(accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomIdQuery: QueryParam[String], vatomActionQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/vatoms/actions"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1803,8 +1802,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def redeemNFT(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/redemptions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def redeemNFT(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/redemptions"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1822,8 +1821,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def redeemUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/redeem".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def redeemUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/redeem"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1841,8 +1840,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def searchBusinesses(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchBusinesses(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1860,8 +1859,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def searchCampaignGroups(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign-groups/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchCampaignGroups(accountId: Long, appKey: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign-groups/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1879,8 +1878,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def searchIdentities(version: BigDecimal, accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/identities/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchIdentities(accountId: Long, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/identities/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1898,8 +1897,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def searchInventory(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/user-inventory/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def searchInventory(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/user-inventory/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1917,8 +1916,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def sendNFT(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaigns/send".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def sendNFT(accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaigns/send"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1936,8 +1935,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def setPointsBalanceAsBusiness(version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/campaign/u/points/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def setPointsBalanceAsBusiness(accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomUserIdQuery: QueryParam[String], vatomCampaignIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/campaign/u/points/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1955,8 +1954,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def transferUserCoins(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/u/coins/transfer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def transferUserCoins(accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/u/coins/transfer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1974,8 +1973,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateBusinessCoins(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/coins/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateBusinessCoins(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/coins/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1993,8 +1992,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateEventGuestList(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/guests/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateEventGuestList(accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/guests/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -2012,8 +2011,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/spaces/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateSpace(accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomSpaceIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/spaces/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -2031,8 +2030,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/users/coins/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomUserIdQuery: QueryParam[String], appKeyQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/users/coins/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -2050,8 +2049,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateUserProfile(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/me/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateUserProfile(accountId: Long, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/me/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -2069,8 +2068,8 @@ class HttpServiceVatomApi(service: HttpService) {
     } yield resp
   }
 
-  def updateVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
-    val path = "/api/{version}/vatom/b/events/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+  def updateVatomEvent(accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], vatomEventIdQuery: QueryParam[String], vatomParametersQuery: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[Unit] = {
+    val path = "/vatom/b/events/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

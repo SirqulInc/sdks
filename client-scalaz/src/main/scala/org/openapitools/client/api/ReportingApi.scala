@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RegionLegSummary
 import org.openapitools.client.api.ReportBatchResponse
 import org.openapitools.client.api.ReportRegionLegSummaryBatchResponse
@@ -34,10 +33,10 @@ object ReportingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBatch(host: String, version: BigDecimal, accountId: Long, status: String, previewLimit: Integer, appKey: String, endpoint: String, parameters: String, name: String, startDate: Long, endDate: Long, description: String, pageUrl: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], endpointQuery: QueryParam[String], parametersQuery: QueryParam[String], nameQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], descriptionQuery: QueryParam[String], previewLimitQuery: QueryParam[Integer], pageUrlQuery: QueryParam[String]): Task[ReportBatchResponse] = {
+  def createBatch(host: String, accountId: Long, status: String, previewLimit: Integer, appKey: String, endpoint: String, parameters: String, name: String, startDate: Long, endDate: Long, description: String, pageUrl: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], endpointQuery: QueryParam[String], parametersQuery: QueryParam[String], nameQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], descriptionQuery: QueryParam[String], previewLimitQuery: QueryParam[Integer], pageUrlQuery: QueryParam[String]): Task[ReportBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportBatchResponse] = jsonOf[ReportBatchResponse]
 
-    val path = "/api/{version}/report/batch/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -55,10 +54,10 @@ object ReportingApi {
     } yield resp
   }
 
-  def createRegionLegSummaryBatch(host: String, version: BigDecimal, body: List[RegionLegSummary]): Task[ReportRegionLegSummaryBatchResponse] = {
+  def createRegionLegSummaryBatch(host: String, body: List[RegionLegSummary]): Task[ReportRegionLegSummaryBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportRegionLegSummaryBatchResponse] = jsonOf[ReportRegionLegSummaryBatchResponse]
 
-    val path = "/api/{version}/report/region/summary/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/region/summary/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -76,10 +75,10 @@ object ReportingApi {
     } yield resp
   }
 
-  def deleteBatch(host: String, version: BigDecimal, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBatch(host: String, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/report/batch/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -97,10 +96,10 @@ object ReportingApi {
     } yield resp
   }
 
-  def getReportBatch(host: String, version: BigDecimal, accountId: Long, batchId: Long, allResults: Boolean)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], allResultsQuery: QueryParam[Boolean]): Task[ReportBatchResponse] = {
+  def getReportBatch(host: String, accountId: Long, batchId: Long, allResults: Boolean)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], allResultsQuery: QueryParam[Boolean]): Task[ReportBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportBatchResponse] = jsonOf[ReportBatchResponse]
 
-    val path = "/api/{version}/report/batch/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -118,10 +117,10 @@ object ReportingApi {
     } yield resp
   }
 
-  def runReport(host: String, version: BigDecimal, desc: Boolean, accountId: Long, query: String, parameters: String, order: String, start: Long, limit: Long, responseFormat: String)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], parametersQuery: QueryParam[String], orderQuery: QueryParam[String], descQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], responseFormatQuery: QueryParam[String]): Task[ReportResponse] = {
+  def runReport(host: String, desc: Boolean, accountId: Long, query: String, parameters: String, order: String, start: Long, limit: Long, responseFormat: String)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], parametersQuery: QueryParam[String], orderQuery: QueryParam[String], descQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], responseFormatQuery: QueryParam[String]): Task[ReportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportResponse] = jsonOf[ReportResponse]
 
-    val path = "/api/{version}/report/run".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/run"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -139,10 +138,10 @@ object ReportingApi {
     } yield resp
   }
 
-  def searchBatch(host: String, version: BigDecimal, accountId: Long, start: Integer, limit: Integer, names: String, appKey: String, status: String, globalAppSearch: Boolean, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], namesQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], globalAppSearchQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ReportBatchResponse]] = {
+  def searchBatch(host: String, accountId: Long, start: Integer, limit: Integer, names: String, appKey: String, status: String, globalAppSearch: Boolean, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], namesQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], globalAppSearchQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ReportBatchResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ReportBatchResponse]] = jsonOf[List[ReportBatchResponse]]
 
-    val path = "/api/{version}/report/batch/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -167,10 +166,10 @@ class HttpServiceReportingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBatch(version: BigDecimal, accountId: Long, status: String, previewLimit: Integer, appKey: String, endpoint: String, parameters: String, name: String, startDate: Long, endDate: Long, description: String, pageUrl: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], endpointQuery: QueryParam[String], parametersQuery: QueryParam[String], nameQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], descriptionQuery: QueryParam[String], previewLimitQuery: QueryParam[Integer], pageUrlQuery: QueryParam[String]): Task[ReportBatchResponse] = {
+  def createBatch(accountId: Long, status: String, previewLimit: Integer, appKey: String, endpoint: String, parameters: String, name: String, startDate: Long, endDate: Long, description: String, pageUrl: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], endpointQuery: QueryParam[String], parametersQuery: QueryParam[String], nameQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], descriptionQuery: QueryParam[String], previewLimitQuery: QueryParam[Integer], pageUrlQuery: QueryParam[String]): Task[ReportBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportBatchResponse] = jsonOf[ReportBatchResponse]
 
-    val path = "/api/{version}/report/batch/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -188,10 +187,10 @@ class HttpServiceReportingApi(service: HttpService) {
     } yield resp
   }
 
-  def createRegionLegSummaryBatch(version: BigDecimal, body: List[RegionLegSummary]): Task[ReportRegionLegSummaryBatchResponse] = {
+  def createRegionLegSummaryBatch(body: List[RegionLegSummary]): Task[ReportRegionLegSummaryBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportRegionLegSummaryBatchResponse] = jsonOf[ReportRegionLegSummaryBatchResponse]
 
-    val path = "/api/{version}/report/region/summary/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/region/summary/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -209,10 +208,10 @@ class HttpServiceReportingApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteBatch(version: BigDecimal, accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBatch(accountId: Long, batchId: Long)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/report/batch/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -230,10 +229,10 @@ class HttpServiceReportingApi(service: HttpService) {
     } yield resp
   }
 
-  def getReportBatch(version: BigDecimal, accountId: Long, batchId: Long, allResults: Boolean)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], allResultsQuery: QueryParam[Boolean]): Task[ReportBatchResponse] = {
+  def getReportBatch(accountId: Long, batchId: Long, allResults: Boolean)(implicit accountIdQuery: QueryParam[Long], batchIdQuery: QueryParam[Long], allResultsQuery: QueryParam[Boolean]): Task[ReportBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportBatchResponse] = jsonOf[ReportBatchResponse]
 
-    val path = "/api/{version}/report/batch/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -251,10 +250,10 @@ class HttpServiceReportingApi(service: HttpService) {
     } yield resp
   }
 
-  def runReport(version: BigDecimal, desc: Boolean, accountId: Long, query: String, parameters: String, order: String, start: Long, limit: Long, responseFormat: String)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], parametersQuery: QueryParam[String], orderQuery: QueryParam[String], descQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], responseFormatQuery: QueryParam[String]): Task[ReportResponse] = {
+  def runReport(desc: Boolean, accountId: Long, query: String, parameters: String, order: String, start: Long, limit: Long, responseFormat: String)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], parametersQuery: QueryParam[String], orderQuery: QueryParam[String], descQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], responseFormatQuery: QueryParam[String]): Task[ReportResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ReportResponse] = jsonOf[ReportResponse]
 
-    val path = "/api/{version}/report/run".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/run"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -272,10 +271,10 @@ class HttpServiceReportingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchBatch(version: BigDecimal, accountId: Long, start: Integer, limit: Integer, names: String, appKey: String, status: String, globalAppSearch: Boolean, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], namesQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], globalAppSearchQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ReportBatchResponse]] = {
+  def searchBatch(accountId: Long, start: Integer, limit: Integer, names: String, appKey: String, status: String, globalAppSearch: Boolean, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], namesQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[String], globalAppSearchQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ReportBatchResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ReportBatchResponse]] = jsonOf[List[ReportBatchResponse]]
 
-    val path = "/api/{version}/report/batch/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/report/batch/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

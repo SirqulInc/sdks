@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CoordsResponse
 import java.io.File
 import org.openapitools.client.api.GeoPointResponse
@@ -35,10 +34,10 @@ object LocationApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def cacheTrilaterationData(host: String, version: BigDecimal, udid: String, sourceTime: Long, minimumSampleSize: Integer, data: String, dataFile: File)(implicit udidQuery: QueryParam[String], sourceTimeQuery: QueryParam[Long], minimumSampleSizeQuery: QueryParam[Integer], dataQuery: QueryParam[String], dataFileQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def cacheTrilaterationData(host: String, udid: String, sourceTime: Long, minimumSampleSize: Integer, data: String, dataFile: File)(implicit udidQuery: QueryParam[String], sourceTimeQuery: QueryParam[Long], minimumSampleSizeQuery: QueryParam[Integer], dataQuery: QueryParam[String], dataFileQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/trilaterate/cache".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/trilaterate/cache"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -56,10 +55,10 @@ object LocationApi {
     } yield resp
   }
 
-  def cacheTrilaterationDataGzip(host: String, version: BigDecimal, body: TrilatCacheRequest): Task[SirqulResponse] = {
+  def cacheTrilaterationDataGzip(host: String, body: TrilatCacheRequest): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/trilaterate/cache/submit".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/trilaterate/cache/submit"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -77,10 +76,10 @@ object LocationApi {
     } yield resp
   }
 
-  def getLocationByIp(host: String, version: BigDecimal, ip: String)(implicit ipQuery: QueryParam[String]): Task[CoordsResponse] = {
+  def getLocationByIp(host: String, ip: String)(implicit ipQuery: QueryParam[String]): Task[CoordsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CoordsResponse] = jsonOf[CoordsResponse]
 
-    val path = "/api/{version}/location/ip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/ip"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -98,10 +97,10 @@ object LocationApi {
     } yield resp
   }
 
-  def getLocationByTrilateration(host: String, version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, data: String, responseFilters: String)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dataQuery: QueryParam[String], responseFiltersQuery: QueryParam[String]): Task[GeoPointResponse] = {
+  def getLocationByTrilateration(host: String, accountId: Long, latitude: Double, longitude: Double, data: String, responseFilters: String)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dataQuery: QueryParam[String], responseFiltersQuery: QueryParam[String]): Task[GeoPointResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GeoPointResponse] = jsonOf[GeoPointResponse]
 
-    val path = "/api/{version}/account/location/trilaterate".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/account/location/trilaterate"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -119,10 +118,10 @@ object LocationApi {
     } yield resp
   }
 
-  def getLocations(host: String, version: BigDecimal, deviceId: String, accountId: Long, currentlatitude: Double, currentlongitude: Double, currentLatitude: Double, currentLongitude: Double, query: String, zipcode: String, zipCode: String, selectedMaplatitude: Double, selectedMaplongitude: Double, selectedMapLatitude: Double, selectedMapLongitude: Double, searchRange: Double = 5, useGeocode: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], currentlatitudeQuery: QueryParam[Double], currentlongitudeQuery: QueryParam[Double], currentLatitudeQuery: QueryParam[Double], currentLongitudeQuery: QueryParam[Double], queryQuery: QueryParam[String], zipcodeQuery: QueryParam[String], zipCodeQuery: QueryParam[String], selectedMaplatitudeQuery: QueryParam[Double], selectedMaplongitudeQuery: QueryParam[Double], selectedMapLatitudeQuery: QueryParam[Double], selectedMapLongitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], useGeocodeQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LocationSearchResponse] = {
+  def getLocations(host: String, deviceId: String, accountId: Long, currentlatitude: Double, currentlongitude: Double, currentLatitude: Double, currentLongitude: Double, query: String, zipcode: String, zipCode: String, selectedMaplatitude: Double, selectedMaplongitude: Double, selectedMapLatitude: Double, selectedMapLongitude: Double, searchRange: Double = 5, useGeocode: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], currentlatitudeQuery: QueryParam[Double], currentlongitudeQuery: QueryParam[Double], currentLatitudeQuery: QueryParam[Double], currentLongitudeQuery: QueryParam[Double], queryQuery: QueryParam[String], zipcodeQuery: QueryParam[String], zipCodeQuery: QueryParam[String], selectedMaplatitudeQuery: QueryParam[Double], selectedMaplongitudeQuery: QueryParam[Double], selectedMapLatitudeQuery: QueryParam[Double], selectedMapLongitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], useGeocodeQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LocationSearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LocationSearchResponse] = jsonOf[LocationSearchResponse]
 
-    val path = "/api/{version}/location/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -147,10 +146,10 @@ class HttpServiceLocationApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def cacheTrilaterationData(version: BigDecimal, udid: String, sourceTime: Long, minimumSampleSize: Integer, data: String, dataFile: File)(implicit udidQuery: QueryParam[String], sourceTimeQuery: QueryParam[Long], minimumSampleSizeQuery: QueryParam[Integer], dataQuery: QueryParam[String], dataFileQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def cacheTrilaterationData(udid: String, sourceTime: Long, minimumSampleSize: Integer, data: String, dataFile: File)(implicit udidQuery: QueryParam[String], sourceTimeQuery: QueryParam[Long], minimumSampleSizeQuery: QueryParam[Integer], dataQuery: QueryParam[String], dataFileQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/trilaterate/cache".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/trilaterate/cache"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -168,10 +167,10 @@ class HttpServiceLocationApi(service: HttpService) {
     } yield resp
   }
 
-  def cacheTrilaterationDataGzip(version: BigDecimal, body: TrilatCacheRequest): Task[SirqulResponse] = {
+  def cacheTrilaterationDataGzip(body: TrilatCacheRequest): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/trilaterate/cache/submit".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/trilaterate/cache/submit"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -189,10 +188,10 @@ class HttpServiceLocationApi(service: HttpService) {
     } yield resp
   }
 
-  def getLocationByIp(version: BigDecimal, ip: String)(implicit ipQuery: QueryParam[String]): Task[CoordsResponse] = {
+  def getLocationByIp(ip: String)(implicit ipQuery: QueryParam[String]): Task[CoordsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CoordsResponse] = jsonOf[CoordsResponse]
 
-    val path = "/api/{version}/location/ip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/ip"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -210,10 +209,10 @@ class HttpServiceLocationApi(service: HttpService) {
     } yield resp
   }
 
-  def getLocationByTrilateration(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, data: String, responseFilters: String)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dataQuery: QueryParam[String], responseFiltersQuery: QueryParam[String]): Task[GeoPointResponse] = {
+  def getLocationByTrilateration(accountId: Long, latitude: Double, longitude: Double, data: String, responseFilters: String)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dataQuery: QueryParam[String], responseFiltersQuery: QueryParam[String]): Task[GeoPointResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GeoPointResponse] = jsonOf[GeoPointResponse]
 
-    val path = "/api/{version}/account/location/trilaterate".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/account/location/trilaterate"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -231,10 +230,10 @@ class HttpServiceLocationApi(service: HttpService) {
     } yield resp
   }
 
-  def getLocations(version: BigDecimal, deviceId: String, accountId: Long, currentlatitude: Double, currentlongitude: Double, currentLatitude: Double, currentLongitude: Double, query: String, zipcode: String, zipCode: String, selectedMaplatitude: Double, selectedMaplongitude: Double, selectedMapLatitude: Double, selectedMapLongitude: Double, searchRange: Double = 5, useGeocode: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], currentlatitudeQuery: QueryParam[Double], currentlongitudeQuery: QueryParam[Double], currentLatitudeQuery: QueryParam[Double], currentLongitudeQuery: QueryParam[Double], queryQuery: QueryParam[String], zipcodeQuery: QueryParam[String], zipCodeQuery: QueryParam[String], selectedMaplatitudeQuery: QueryParam[Double], selectedMaplongitudeQuery: QueryParam[Double], selectedMapLatitudeQuery: QueryParam[Double], selectedMapLongitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], useGeocodeQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LocationSearchResponse] = {
+  def getLocations(deviceId: String, accountId: Long, currentlatitude: Double, currentlongitude: Double, currentLatitude: Double, currentLongitude: Double, query: String, zipcode: String, zipCode: String, selectedMaplatitude: Double, selectedMaplongitude: Double, selectedMapLatitude: Double, selectedMapLongitude: Double, searchRange: Double = 5, useGeocode: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], currentlatitudeQuery: QueryParam[Double], currentlongitudeQuery: QueryParam[Double], currentLatitudeQuery: QueryParam[Double], currentLongitudeQuery: QueryParam[Double], queryQuery: QueryParam[String], zipcodeQuery: QueryParam[String], zipCodeQuery: QueryParam[String], selectedMaplatitudeQuery: QueryParam[Double], selectedMaplongitudeQuery: QueryParam[Double], selectedMapLatitudeQuery: QueryParam[Double], selectedMapLongitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], useGeocodeQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LocationSearchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LocationSearchResponse] = jsonOf[LocationSearchResponse]
 
-    val path = "/api/{version}/location/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

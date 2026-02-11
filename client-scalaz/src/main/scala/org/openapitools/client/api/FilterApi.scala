@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.FilterResponse
 import org.openapitools.client.api.FilterTreeResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object FilterApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFilter(host: String, version: BigDecimal, accountId: Long, name: String, appKey: String, parentFilterId: Long, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
+  def createFilter(host: String, accountId: Long, name: String, appKey: String, parentFilterId: Long, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object FilterApi {
     } yield resp
   }
 
-  def deleteFilter(host: String, version: BigDecimal, accountId: Long, filterId: Long)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteFilter(host: String, accountId: Long, filterId: Long)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/filter/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object FilterApi {
     } yield resp
   }
 
-  def getFilter(host: String, version: BigDecimal, filterId: Long)(implicit filterIdQuery: QueryParam[Long]): Task[FilterTreeResponse] = {
+  def getFilter(host: String, filterId: Long)(implicit filterIdQuery: QueryParam[Long]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object FilterApi {
     } yield resp
   }
 
-  def searchFilters(host: String, version: BigDecimal, accountId: Long, keyword: String, appKey: String, responseGroup: String, rootOnly: Boolean, sortField: String = DISPLAY, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseGroupQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[FilterResponse]] = {
+  def searchFilters(host: String, accountId: Long, keyword: String, appKey: String, responseGroup: String, rootOnly: Boolean, sortField: String = DISPLAY, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseGroupQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[FilterResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[FilterResponse]] = jsonOf[List[FilterResponse]]
 
-    val path = "/api/{version}/filter/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object FilterApi {
     } yield resp
   }
 
-  def updateFilter(host: String, version: BigDecimal, accountId: Long, filterId: Long, parentFilterId: Long, name: String, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
+  def updateFilter(host: String, accountId: Long, filterId: Long, parentFilterId: Long, name: String, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -144,10 +143,10 @@ class HttpServiceFilterApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFilter(version: BigDecimal, accountId: Long, name: String, appKey: String, parentFilterId: Long, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
+  def createFilter(accountId: Long, name: String, appKey: String, parentFilterId: Long, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceFilterApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteFilter(version: BigDecimal, accountId: Long, filterId: Long)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteFilter(accountId: Long, filterId: Long)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/filter/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceFilterApi(service: HttpService) {
     } yield resp
   }
 
-  def getFilter(version: BigDecimal, filterId: Long)(implicit filterIdQuery: QueryParam[Long]): Task[FilterTreeResponse] = {
+  def getFilter(filterId: Long)(implicit filterIdQuery: QueryParam[Long]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceFilterApi(service: HttpService) {
     } yield resp
   }
 
-  def searchFilters(version: BigDecimal, accountId: Long, keyword: String, appKey: String, responseGroup: String, rootOnly: Boolean, sortField: String = DISPLAY, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseGroupQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[FilterResponse]] = {
+  def searchFilters(accountId: Long, keyword: String, appKey: String, responseGroup: String, rootOnly: Boolean, sortField: String = DISPLAY, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseGroupQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[FilterResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[FilterResponse]] = jsonOf[List[FilterResponse]]
 
-    val path = "/api/{version}/filter/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceFilterApi(service: HttpService) {
     } yield resp
   }
 
-  def updateFilter(version: BigDecimal, accountId: Long, filterId: Long, parentFilterId: Long, name: String, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
+  def updateFilter(accountId: Long, filterId: Long, parentFilterId: Long, name: String, description: String, externalId: String, externalType: String, active: Boolean, metaData: String)(implicit accountIdQuery: QueryParam[Long], filterIdQuery: QueryParam[Long], parentFilterIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String]): Task[FilterTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FilterTreeResponse] = jsonOf[FilterTreeResponse]
 
-    val path = "/api/{version}/filter/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/filter/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

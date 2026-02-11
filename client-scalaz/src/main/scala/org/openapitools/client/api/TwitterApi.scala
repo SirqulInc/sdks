@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ProfileResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object TwitterApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def authorizeTwitter(host: String, version: BigDecimal, appKey: String)(implicit appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def authorizeTwitter(host: String, appKey: String)(implicit appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/twitter/authorize".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/twitter/authorize"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object TwitterApi {
     } yield resp
   }
 
-  def loginTwitter(host: String, version: BigDecimal, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accessTokenQuery: QueryParam[String], accessTokenSecretQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
+  def loginTwitter(host: String, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accessTokenQuery: QueryParam[String], accessTokenSecretQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/twitter/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/twitter/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -80,10 +79,10 @@ class HttpServiceTwitterApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def authorizeTwitter(version: BigDecimal, appKey: String)(implicit appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def authorizeTwitter(appKey: String)(implicit appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/twitter/authorize".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/twitter/authorize"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -101,10 +100,10 @@ class HttpServiceTwitterApi(service: HttpService) {
     } yield resp
   }
 
-  def loginTwitter(version: BigDecimal, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accessTokenQuery: QueryParam[String], accessTokenSecretQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
+  def loginTwitter(accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accessTokenQuery: QueryParam[String], accessTokenSecretQuery: QueryParam[String], appKeyQuery: QueryParam[String], responseFiltersQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/twitter/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/twitter/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

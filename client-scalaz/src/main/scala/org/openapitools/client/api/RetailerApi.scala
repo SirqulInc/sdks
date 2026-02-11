@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.AccountLoginResponse
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.RetailerFullResponse
 import org.openapitools.client.api.RetailerResponse
@@ -34,10 +33,10 @@ object RetailerApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRetailer(host: String, version: BigDecimal, name: String, deviceId: String, accountId: Long, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, categoryIdsToAdd: String, categoryIdsToRemove: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, createDefaultLocation: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], categoryIdsToAddQuery: QueryParam[String], categoryIdsToRemoveQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], createDefaultLocationQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
+  def createRetailer(host: String, name: String, deviceId: String, accountId: Long, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, categoryIdsToAdd: String, categoryIdsToRemove: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, createDefaultLocation: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], categoryIdsToAddQuery: QueryParam[String], categoryIdsToRemoveQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], createDefaultLocationQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -55,10 +54,10 @@ object RetailerApi {
     } yield resp
   }
 
-  def deleteRetailer(host: String, version: BigDecimal, deviceId: String, accountId: Long, retailerId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteRetailer(host: String, deviceId: String, accountId: Long, retailerId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/retailer/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -76,10 +75,10 @@ object RetailerApi {
     } yield resp
   }
 
-  def getRetailer(host: String, version: BigDecimal, retailerId: Long, deviceId: String, accountId: Long, includeCounts: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean]): Task[RetailerFullResponse] = {
+  def getRetailer(host: String, retailerId: Long, deviceId: String, accountId: Long, includeCounts: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -97,10 +96,10 @@ object RetailerApi {
     } yield resp
   }
 
-  def getRetailers(host: String, version: BigDecimal, visibility: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, deviceId: String, accountId: Long, q: String, keyword: String, categoryIds: String, filterIds: String, i: Integer, l: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], visibilityQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RetailerResponse]] = {
+  def getRetailers(host: String, visibility: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, deviceId: String, accountId: Long, q: String, keyword: String, categoryIds: String, filterIds: String, i: Integer, l: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], visibilityQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RetailerResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RetailerResponse]] = jsonOf[List[RetailerResponse]]
 
-    val path = "/api/{version}/retailer/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -118,10 +117,10 @@ object RetailerApi {
     } yield resp
   }
 
-  def retailerLoginCheck(host: String, version: BigDecimal, username: String, password: String, deviceId: String, latitude: Double, longitude: Double, appKey: String)(implicit usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], deviceIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], appKeyQuery: QueryParam[String]): Task[AccountLoginResponse] = {
+  def retailerLoginCheck(host: String, username: String, password: String, deviceId: String, latitude: Double, longitude: Double, appKey: String)(implicit usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], deviceIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], appKeyQuery: QueryParam[String]): Task[AccountLoginResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AccountLoginResponse] = jsonOf[AccountLoginResponse]
 
-    val path = "/api/{version}/retailer/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -139,10 +138,10 @@ object RetailerApi {
     } yield resp
   }
 
-  def updateRetailer(host: String, version: BigDecimal, retailerId: Long, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, active: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
+  def updateRetailer(host: String, retailerId: Long, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, active: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -167,10 +166,10 @@ class HttpServiceRetailerApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRetailer(version: BigDecimal, name: String, deviceId: String, accountId: Long, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, categoryIdsToAdd: String, categoryIdsToRemove: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, createDefaultLocation: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], categoryIdsToAddQuery: QueryParam[String], categoryIdsToRemoveQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], createDefaultLocationQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
+  def createRetailer(name: String, deviceId: String, accountId: Long, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, categoryIdsToAdd: String, categoryIdsToRemove: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, createDefaultLocation: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], categoryIdsToAddQuery: QueryParam[String], categoryIdsToRemoveQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], createDefaultLocationQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -188,10 +187,10 @@ class HttpServiceRetailerApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteRetailer(version: BigDecimal, deviceId: String, accountId: Long, retailerId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteRetailer(deviceId: String, accountId: Long, retailerId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/retailer/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -209,10 +208,10 @@ class HttpServiceRetailerApi(service: HttpService) {
     } yield resp
   }
 
-  def getRetailer(version: BigDecimal, retailerId: Long, deviceId: String, accountId: Long, includeCounts: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean]): Task[RetailerFullResponse] = {
+  def getRetailer(retailerId: Long, deviceId: String, accountId: Long, includeCounts: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -230,10 +229,10 @@ class HttpServiceRetailerApi(service: HttpService) {
     } yield resp
   }
 
-  def getRetailers(version: BigDecimal, visibility: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, deviceId: String, accountId: Long, q: String, keyword: String, categoryIds: String, filterIds: String, i: Integer, l: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], visibilityQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RetailerResponse]] = {
+  def getRetailers(visibility: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, deviceId: String, accountId: Long, q: String, keyword: String, categoryIds: String, filterIds: String, i: Integer, l: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], visibilityQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RetailerResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RetailerResponse]] = jsonOf[List[RetailerResponse]]
 
-    val path = "/api/{version}/retailer/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -251,10 +250,10 @@ class HttpServiceRetailerApi(service: HttpService) {
     } yield resp
   }
 
-  def retailerLoginCheck(version: BigDecimal, username: String, password: String, deviceId: String, latitude: Double, longitude: Double, appKey: String)(implicit usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], deviceIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], appKeyQuery: QueryParam[String]): Task[AccountLoginResponse] = {
+  def retailerLoginCheck(username: String, password: String, deviceId: String, latitude: Double, longitude: Double, appKey: String)(implicit usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], deviceIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], appKeyQuery: QueryParam[String]): Task[AccountLoginResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AccountLoginResponse] = jsonOf[AccountLoginResponse]
 
-    val path = "/api/{version}/retailer/login".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/login"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -272,10 +271,10 @@ class HttpServiceRetailerApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRetailer(version: BigDecimal, retailerId: Long, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, active: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
+  def updateRetailer(retailerId: Long, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, country: String, businessPhone: String, businessPhoneExt: String, website: String, email: String, facebookUrl: String, twitterUrl: String, logo: File, logoAssetId: Long, picture1: File, picture1AssetId: Long, picture2: File, picture2AssetId: Long, categoryIds: String, filterIds: String, latitude: Double, longitude: Double, metaData: String, searchTags: String, retailerType: String, visibility: String, active: Boolean, responseFormat: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], websiteQuery: QueryParam[String], emailQuery: QueryParam[String], facebookUrlQuery: QueryParam[String], twitterUrlQuery: QueryParam[String], logoQuery: QueryParam[File], logoAssetIdQuery: QueryParam[Long], picture1Query: QueryParam[File], picture1AssetIdQuery: QueryParam[Long], picture2Query: QueryParam[File], picture2AssetIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String], retailerTypeQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean], responseFormatQuery: QueryParam[String]): Task[RetailerFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RetailerFullResponse] = jsonOf[RetailerFullResponse]
 
-    val path = "/api/{version}/retailer/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/retailer/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.OrsonAiAddMovieResponse
 import org.openapitools.client.api.OrsonAiBatchResponse
@@ -41,10 +40,10 @@ object OrsonApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addMovie(host: String, version: BigDecimal, accountId: Long, movieName: String, thirdPartyAccountId: String, tags: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], tagsQuery: QueryParam[String], movieNameQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiAddMovieResponse] = {
+  def addMovie(host: String, accountId: Long, movieName: String, thirdPartyAccountId: String, tags: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], tagsQuery: QueryParam[String], movieNameQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiAddMovieResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiAddMovieResponse] = jsonOf[OrsonAiAddMovieResponse]
 
-    val path = "/api/{version}/orson/ai/addMovie".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/addMovie"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -62,10 +61,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def aiDocs(host: String, version: BigDecimal, accountId: Long, doc: String, returnTopics: Boolean, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], docQuery: QueryParam[String], returnTopicsQuery: QueryParam[Boolean], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiDocs(host: String, accountId: Long, doc: String, returnTopics: Boolean, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], docQuery: QueryParam[String], returnTopicsQuery: QueryParam[Boolean], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/docs".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/docs"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -83,10 +82,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def aiFindImages(host: String, version: BigDecimal, accountId: Long, text: String, parseFlag: String, fetchFlag: String, size: String)(implicit accountIdQuery: QueryParam[Long], textQuery: QueryParam[String], parseFlagQuery: QueryParam[String], fetchFlagQuery: QueryParam[String], sizeQuery: QueryParam[String]): Task[OrsonAiProtoResponse] = {
+  def aiFindImages(host: String, accountId: Long, text: String, parseFlag: String, fetchFlag: String, size: String)(implicit accountIdQuery: QueryParam[Long], textQuery: QueryParam[String], parseFlagQuery: QueryParam[String], fetchFlagQuery: QueryParam[String], sizeQuery: QueryParam[String]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/img".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/img"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -104,10 +103,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def aiTags(host: String, version: BigDecimal, accountId: Long, tags: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiTags(host: String, accountId: Long, tags: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/tags".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/tags"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -125,10 +124,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def aiText(host: String, version: BigDecimal, accountId: Long, terms: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], termsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiText(host: String, accountId: Long, terms: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], termsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/text".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/text"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -146,10 +145,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def batch(host: String, version: BigDecimal, accountId: Long, thirdPartyAccountId: String, limit: Integer, operations: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], limitQuery: QueryParam[Integer], operationsQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiBatchResponse] = {
+  def batch(host: String, accountId: Long, thirdPartyAccountId: String, limit: Integer, operations: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], limitQuery: QueryParam[Integer], operationsQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiBatchResponse] = jsonOf[OrsonAiBatchResponse]
 
-    val path = "/api/{version}/orson/ai/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -167,10 +166,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def createInstantEpisode(host: String, version: BigDecimal, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonEpisodeResponse] = {
+  def createInstantEpisode(host: String, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonEpisodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonEpisodeResponse] = jsonOf[OrsonEpisodeResponse]
 
-    val path = "/api/{version}/orson/stories/episodes/instant".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/stories/episodes/instant"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -188,10 +187,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def createVoiceCanvas(host: String, version: BigDecimal, accountId: Long, dimensions: String, thirdPartyAccountId: String, text: String, file: File, url: String, parseFlag: Boolean, fetchFlag: Boolean, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], dimensionsQuery: QueryParam[String], textQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], parseFlagQuery: QueryParam[Boolean], fetchFlagQuery: QueryParam[Boolean], callbackQuery: QueryParam[String]): Task[OrsonAiVoiceCanvasResponse] = {
+  def createVoiceCanvas(host: String, accountId: Long, dimensions: String, thirdPartyAccountId: String, text: String, file: File, url: String, parseFlag: Boolean, fetchFlag: Boolean, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], dimensionsQuery: QueryParam[String], textQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], parseFlagQuery: QueryParam[Boolean], fetchFlagQuery: QueryParam[Boolean], callbackQuery: QueryParam[String]): Task[OrsonAiVoiceCanvasResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiVoiceCanvasResponse] = jsonOf[OrsonAiVoiceCanvasResponse]
 
-    val path = "/api/{version}/orson/ai/voiceCanvas".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/voiceCanvas"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -209,10 +208,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def emotion(host: String, version: BigDecimal, accountId: Long, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiEmotionsResponse] = {
+  def emotion(host: String, accountId: Long, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiEmotionsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiEmotionsResponse] = jsonOf[OrsonAiEmotionsResponse]
 
-    val path = "/api/{version}/orson/ai/emotion".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/emotion"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -230,10 +229,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getAddMovieResult(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiAddMovieResponse] = {
+  def getAddMovieResult(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiAddMovieResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiAddMovieResponse] = jsonOf[OrsonAiAddMovieResponse]
 
-    val path = "/api/{version}/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -251,10 +250,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getBatch(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiBatchResponse] = {
+  def getBatch(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiBatchResponse] = jsonOf[OrsonAiBatchResponse]
 
-    val path = "/api/{version}/orson/ai/batch/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/batch/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -272,10 +271,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getEmotion(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiEmotionsResponse] = {
+  def getEmotion(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiEmotionsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiEmotionsResponse] = jsonOf[OrsonAiEmotionsResponse]
 
-    val path = "/api/{version}/orson/ai/emotion/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/emotion/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -293,10 +292,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getEpisodeStatus(host: String, version: BigDecimal, episodeId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonEpisodeResponse] = {
+  def getEpisodeStatus(host: String, episodeId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonEpisodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonEpisodeResponse] = jsonOf[OrsonEpisodeResponse]
 
-    val path = "/api/{version}/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "episodeId" + "\\}",escape(episodeId.toString))
+    val path = "/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "episodeId" + "\\}",escape(episodeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -314,10 +313,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getRenderStatus(host: String, version: BigDecimal, renderId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonRenderResponse] = {
+  def getRenderStatus(host: String, renderId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonRenderResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonRenderResponse] = jsonOf[OrsonRenderResponse]
 
-    val path = "/api/{version}/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "renderId" + "\\}",escape(renderId.toString))
+    val path = "/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "renderId" + "\\}",escape(renderId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -335,10 +334,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getSTT(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiSTTResponse] = {
+  def getSTT(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiSTTResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiSTTResponse] = jsonOf[OrsonAiSTTResponse]
 
-    val path = "/api/{version}/orson/ai/stt/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/stt/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -356,10 +355,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getTTS(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTTSResponse] = {
+  def getTTS(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTTSResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTTSResponse] = jsonOf[OrsonAiTTSResponse]
 
-    val path = "/api/{version}/orson/ai/tts/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/tts/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -377,10 +376,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getTechTune(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTechTuneResponse] = {
+  def getTechTune(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTechTuneResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTechTuneResponse] = jsonOf[OrsonAiTechTuneResponse]
 
-    val path = "/api/{version}/orson/ai/techTune/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/techTune/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -398,10 +397,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getTopics(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTopicsResponse] = {
+  def getTopics(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTopicsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTopicsResponse] = jsonOf[OrsonAiTopicsResponse]
 
-    val path = "/api/{version}/orson/ai/topics/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/topics/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -419,10 +418,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def getVoiceCanvas(host: String, version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiVoiceCanvasResponse] = {
+  def getVoiceCanvas(host: String, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiVoiceCanvasResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiVoiceCanvasResponse] = jsonOf[OrsonAiVoiceCanvasResponse]
 
-    val path = "/api/{version}/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -440,10 +439,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def startVideoRender(host: String, version: BigDecimal, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonRenderResponse] = {
+  def startVideoRender(host: String, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonRenderResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonRenderResponse] = jsonOf[OrsonRenderResponse]
 
-    val path = "/api/{version}/orson/stories/renders".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/stories/renders"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -461,10 +460,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def stt(host: String, version: BigDecimal, accountId: Long, thirdPartyAccountId: String, sourceLanguage: String, targetLanguage: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], sourceLanguageQuery: QueryParam[String], targetLanguageQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiSTTResponse] = {
+  def stt(host: String, accountId: Long, thirdPartyAccountId: String, sourceLanguage: String, targetLanguage: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], sourceLanguageQuery: QueryParam[String], targetLanguageQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiSTTResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiSTTResponse] = jsonOf[OrsonAiSTTResponse]
 
-    val path = "/api/{version}/orson/ai/stt".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/stt"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -482,10 +481,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def summarizeTopics(host: String, version: BigDecimal, accountId: Long, thirdPartyAccountId: String, doc: String, file: File, url: String, limit: Integer, offset: Integer, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], docQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], callbackQuery: QueryParam[String]): Task[OrsonAiTopicsResponse] = {
+  def summarizeTopics(host: String, accountId: Long, thirdPartyAccountId: String, doc: String, file: File, url: String, limit: Integer, offset: Integer, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], docQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], callbackQuery: QueryParam[String]): Task[OrsonAiTopicsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTopicsResponse] = jsonOf[OrsonAiTopicsResponse]
 
-    val path = "/api/{version}/orson/ai/topics".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/topics"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -503,10 +502,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def techTune(host: String, version: BigDecimal, accountId: Long, numFacesExpected: Integer, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], numFacesExpectedQuery: QueryParam[Integer], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTechTuneResponse] = {
+  def techTune(host: String, accountId: Long, numFacesExpected: Integer, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], numFacesExpectedQuery: QueryParam[Integer], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTechTuneResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTechTuneResponse] = jsonOf[OrsonAiTechTuneResponse]
 
-    val path = "/api/{version}/orson/ai/techTune".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/techTune"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -524,10 +523,10 @@ object OrsonApi {
     } yield resp
   }
 
-  def tts(host: String, version: BigDecimal, accountId: Long, text: String, thirdPartyAccountId: String, language: String, voice: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], textQuery: QueryParam[String], languageQuery: QueryParam[String], voiceQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTTSResponse] = {
+  def tts(host: String, accountId: Long, text: String, thirdPartyAccountId: String, language: String, voice: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], textQuery: QueryParam[String], languageQuery: QueryParam[String], voiceQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTTSResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTTSResponse] = jsonOf[OrsonAiTTSResponse]
 
-    val path = "/api/{version}/orson/ai/tts".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/tts"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -552,10 +551,10 @@ class HttpServiceOrsonApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addMovie(version: BigDecimal, accountId: Long, movieName: String, thirdPartyAccountId: String, tags: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], tagsQuery: QueryParam[String], movieNameQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiAddMovieResponse] = {
+  def addMovie(accountId: Long, movieName: String, thirdPartyAccountId: String, tags: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], tagsQuery: QueryParam[String], movieNameQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiAddMovieResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiAddMovieResponse] = jsonOf[OrsonAiAddMovieResponse]
 
-    val path = "/api/{version}/orson/ai/addMovie".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/addMovie"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -573,10 +572,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def aiDocs(version: BigDecimal, accountId: Long, doc: String, returnTopics: Boolean, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], docQuery: QueryParam[String], returnTopicsQuery: QueryParam[Boolean], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiDocs(accountId: Long, doc: String, returnTopics: Boolean, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], docQuery: QueryParam[String], returnTopicsQuery: QueryParam[Boolean], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/docs".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/docs"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -594,10 +593,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def aiFindImages(version: BigDecimal, accountId: Long, text: String, parseFlag: String, fetchFlag: String, size: String)(implicit accountIdQuery: QueryParam[Long], textQuery: QueryParam[String], parseFlagQuery: QueryParam[String], fetchFlagQuery: QueryParam[String], sizeQuery: QueryParam[String]): Task[OrsonAiProtoResponse] = {
+  def aiFindImages(accountId: Long, text: String, parseFlag: String, fetchFlag: String, size: String)(implicit accountIdQuery: QueryParam[Long], textQuery: QueryParam[String], parseFlagQuery: QueryParam[String], fetchFlagQuery: QueryParam[String], sizeQuery: QueryParam[String]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/img".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/img"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -615,10 +614,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def aiTags(version: BigDecimal, accountId: Long, tags: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiTags(accountId: Long, tags: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/tags".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/tags"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -636,10 +635,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def aiText(version: BigDecimal, accountId: Long, terms: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], termsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
+  def aiText(accountId: Long, terms: String, conditional: String, limit: Integer, offset: Integer)(implicit accountIdQuery: QueryParam[Long], termsQuery: QueryParam[String], conditionalQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[OrsonAiProtoResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiProtoResponse] = jsonOf[OrsonAiProtoResponse]
 
-    val path = "/api/{version}/orson/ai/text".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/text"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -657,10 +656,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def batch(version: BigDecimal, accountId: Long, thirdPartyAccountId: String, limit: Integer, operations: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], limitQuery: QueryParam[Integer], operationsQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiBatchResponse] = {
+  def batch(accountId: Long, thirdPartyAccountId: String, limit: Integer, operations: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], limitQuery: QueryParam[Integer], operationsQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiBatchResponse] = jsonOf[OrsonAiBatchResponse]
 
-    val path = "/api/{version}/orson/ai/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -678,10 +677,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def createInstantEpisode(version: BigDecimal, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonEpisodeResponse] = {
+  def createInstantEpisode(accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonEpisodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonEpisodeResponse] = jsonOf[OrsonEpisodeResponse]
 
-    val path = "/api/{version}/orson/stories/episodes/instant".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/stories/episodes/instant"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -699,10 +698,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def createVoiceCanvas(version: BigDecimal, accountId: Long, dimensions: String, thirdPartyAccountId: String, text: String, file: File, url: String, parseFlag: Boolean, fetchFlag: Boolean, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], dimensionsQuery: QueryParam[String], textQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], parseFlagQuery: QueryParam[Boolean], fetchFlagQuery: QueryParam[Boolean], callbackQuery: QueryParam[String]): Task[OrsonAiVoiceCanvasResponse] = {
+  def createVoiceCanvas(accountId: Long, dimensions: String, thirdPartyAccountId: String, text: String, file: File, url: String, parseFlag: Boolean, fetchFlag: Boolean, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], dimensionsQuery: QueryParam[String], textQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], parseFlagQuery: QueryParam[Boolean], fetchFlagQuery: QueryParam[Boolean], callbackQuery: QueryParam[String]): Task[OrsonAiVoiceCanvasResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiVoiceCanvasResponse] = jsonOf[OrsonAiVoiceCanvasResponse]
 
-    val path = "/api/{version}/orson/ai/voiceCanvas".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/voiceCanvas"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -720,10 +719,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def emotion(version: BigDecimal, accountId: Long, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiEmotionsResponse] = {
+  def emotion(accountId: Long, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiEmotionsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiEmotionsResponse] = jsonOf[OrsonAiEmotionsResponse]
 
-    val path = "/api/{version}/orson/ai/emotion".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/emotion"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -741,10 +740,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getAddMovieResult(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiAddMovieResponse] = {
+  def getAddMovieResult(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiAddMovieResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiAddMovieResponse] = jsonOf[OrsonAiAddMovieResponse]
 
-    val path = "/api/{version}/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -762,10 +761,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getBatch(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiBatchResponse] = {
+  def getBatch(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiBatchResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiBatchResponse] = jsonOf[OrsonAiBatchResponse]
 
-    val path = "/api/{version}/orson/ai/batch/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/batch/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -783,10 +782,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getEmotion(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiEmotionsResponse] = {
+  def getEmotion(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiEmotionsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiEmotionsResponse] = jsonOf[OrsonAiEmotionsResponse]
 
-    val path = "/api/{version}/orson/ai/emotion/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/emotion/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -804,10 +803,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getEpisodeStatus(version: BigDecimal, episodeId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonEpisodeResponse] = {
+  def getEpisodeStatus(episodeId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonEpisodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonEpisodeResponse] = jsonOf[OrsonEpisodeResponse]
 
-    val path = "/api/{version}/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "episodeId" + "\\}",escape(episodeId.toString))
+    val path = "/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "episodeId" + "\\}",escape(episodeId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -825,10 +824,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getRenderStatus(version: BigDecimal, renderId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonRenderResponse] = {
+  def getRenderStatus(renderId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonRenderResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonRenderResponse] = jsonOf[OrsonRenderResponse]
 
-    val path = "/api/{version}/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "renderId" + "\\}",escape(renderId.toString))
+    val path = "/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "renderId" + "\\}",escape(renderId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -846,10 +845,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getSTT(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiSTTResponse] = {
+  def getSTT(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiSTTResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiSTTResponse] = jsonOf[OrsonAiSTTResponse]
 
-    val path = "/api/{version}/orson/ai/stt/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/stt/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -867,10 +866,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getTTS(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTTSResponse] = {
+  def getTTS(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTTSResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTTSResponse] = jsonOf[OrsonAiTTSResponse]
 
-    val path = "/api/{version}/orson/ai/tts/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/tts/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -888,10 +887,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getTechTune(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTechTuneResponse] = {
+  def getTechTune(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTechTuneResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTechTuneResponse] = jsonOf[OrsonAiTechTuneResponse]
 
-    val path = "/api/{version}/orson/ai/techTune/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/techTune/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -909,10 +908,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getTopics(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTopicsResponse] = {
+  def getTopics(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiTopicsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTopicsResponse] = jsonOf[OrsonAiTopicsResponse]
 
-    val path = "/api/{version}/orson/ai/topics/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/topics/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -930,10 +929,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def getVoiceCanvas(version: BigDecimal, requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiVoiceCanvasResponse] = {
+  def getVoiceCanvas(requestId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[OrsonAiVoiceCanvasResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiVoiceCanvasResponse] = jsonOf[OrsonAiVoiceCanvasResponse]
 
-    val path = "/api/{version}/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
+    val path = "/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "requestId" + "\\}",escape(requestId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -951,10 +950,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def startVideoRender(version: BigDecimal, accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonRenderResponse] = {
+  def startVideoRender(accountId: Long, data: String)(implicit accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String]): Task[OrsonRenderResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonRenderResponse] = jsonOf[OrsonRenderResponse]
 
-    val path = "/api/{version}/orson/stories/renders".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/stories/renders"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -972,10 +971,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def stt(version: BigDecimal, accountId: Long, thirdPartyAccountId: String, sourceLanguage: String, targetLanguage: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], sourceLanguageQuery: QueryParam[String], targetLanguageQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiSTTResponse] = {
+  def stt(accountId: Long, thirdPartyAccountId: String, sourceLanguage: String, targetLanguage: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], sourceLanguageQuery: QueryParam[String], targetLanguageQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiSTTResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiSTTResponse] = jsonOf[OrsonAiSTTResponse]
 
-    val path = "/api/{version}/orson/ai/stt".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/stt"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -993,10 +992,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def summarizeTopics(version: BigDecimal, accountId: Long, thirdPartyAccountId: String, doc: String, file: File, url: String, limit: Integer, offset: Integer, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], docQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], callbackQuery: QueryParam[String]): Task[OrsonAiTopicsResponse] = {
+  def summarizeTopics(accountId: Long, thirdPartyAccountId: String, doc: String, file: File, url: String, limit: Integer, offset: Integer, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], docQuery: QueryParam[String], fileQuery: QueryParam[File], urlQuery: QueryParam[String], limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], callbackQuery: QueryParam[String]): Task[OrsonAiTopicsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTopicsResponse] = jsonOf[OrsonAiTopicsResponse]
 
-    val path = "/api/{version}/orson/ai/topics".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/topics"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1014,10 +1013,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def techTune(version: BigDecimal, accountId: Long, numFacesExpected: Integer, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], numFacesExpectedQuery: QueryParam[Integer], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTechTuneResponse] = {
+  def techTune(accountId: Long, numFacesExpected: Integer, thirdPartyAccountId: String, file: File, url: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], numFacesExpectedQuery: QueryParam[Integer], fileQuery: QueryParam[File], urlQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTechTuneResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTechTuneResponse] = jsonOf[OrsonAiTechTuneResponse]
 
-    val path = "/api/{version}/orson/ai/techTune".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/techTune"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -1035,10 +1034,10 @@ class HttpServiceOrsonApi(service: HttpService) {
     } yield resp
   }
 
-  def tts(version: BigDecimal, accountId: Long, text: String, thirdPartyAccountId: String, language: String, voice: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], textQuery: QueryParam[String], languageQuery: QueryParam[String], voiceQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTTSResponse] = {
+  def tts(accountId: Long, text: String, thirdPartyAccountId: String, language: String, voice: String, callback: String)(implicit accountIdQuery: QueryParam[Long], thirdPartyAccountIdQuery: QueryParam[String], textQuery: QueryParam[String], languageQuery: QueryParam[String], voiceQuery: QueryParam[String], callbackQuery: QueryParam[String]): Task[OrsonAiTTSResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OrsonAiTTSResponse] = jsonOf[OrsonAiTTSResponse]
 
-    val path = "/api/{version}/orson/ai/tts".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/orson/ai/tts"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

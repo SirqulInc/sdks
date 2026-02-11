@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.EmployeeResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object EmployeeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assignEmployee(host: String, version: BigDecimal, accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], roleQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def assignEmployee(host: String, accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], roleQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/assign".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/assign"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def assignToLocationEmployee(host: String, version: BigDecimal, accountId: Long, retailerLocationId: Long, employeeAccountId: Long, assign: Boolean = true)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], assignQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def assignToLocationEmployee(host: String, accountId: Long, retailerLocationId: Long, employeeAccountId: Long, assign: Boolean = true)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], assignQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/employee/assignToLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/assignToLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def createEmployee(host: String, version: BigDecimal, accountId: Long, managerAccountId: Long, username: String, password: String, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, aboutUs: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], aboutUsQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def createEmployee(host: String, accountId: Long, managerAccountId: Long, username: String, password: String, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, aboutUs: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], aboutUsQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def deleteEmployee(host: String, version: BigDecimal, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteEmployee(host: String, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/employee/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def getEmployee(host: String, version: BigDecimal, accountId: Long, employeeAccountId: Long, settingsAppKey: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], settingsAppKeyQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def getEmployee(host: String, accountId: Long, employeeAccountId: Long, settingsAppKey: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], settingsAppKeyQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/get"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -136,10 +135,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def searchEmployees(host: String, version: BigDecimal, accountId: Long, role: String, retailerId: Long, retailerLocationId: Long, q: String, keyword: String, sortField: String, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, activeOnly: Boolean = true, managedOnly: Boolean, settingsAppKey: String, categoryIds: String, query: String)(implicit accountIdQuery: QueryParam[Long], roleQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], managedOnlyQuery: QueryParam[Boolean], settingsAppKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], queryQuery: QueryParam[String]): Task[List[EmployeeResponse]] = {
+  def searchEmployees(host: String, accountId: Long, role: String, retailerId: Long, retailerLocationId: Long, q: String, keyword: String, sortField: String, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, activeOnly: Boolean = true, managedOnly: Boolean, settingsAppKey: String, categoryIds: String, query: String)(implicit accountIdQuery: QueryParam[Long], roleQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], managedOnlyQuery: QueryParam[Boolean], settingsAppKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], queryQuery: QueryParam[String]): Task[List[EmployeeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[EmployeeResponse]] = jsonOf[List[EmployeeResponse]]
 
-    val path = "/api/{version}/employee/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/search"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -157,10 +156,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def unassignEmployee(host: String, version: BigDecimal, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[EmployeeResponse] = {
+  def unassignEmployee(host: String, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/unassign".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/unassign"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -178,10 +177,10 @@ object EmployeeApi {
     } yield resp
   }
 
-  def updateEmployee(host: String, version: BigDecimal, accountId: Long, employeeAccountId: Long, managerAccountId: Long, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, active: Boolean, password: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], passwordQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def updateEmployee(host: String, accountId: Long, employeeAccountId: Long, managerAccountId: Long, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, active: Boolean, password: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], passwordQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assignEmployee(version: BigDecimal, accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], roleQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def assignEmployee(accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], roleQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/assign".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/assign"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def assignToLocationEmployee(version: BigDecimal, accountId: Long, retailerLocationId: Long, employeeAccountId: Long, assign: Boolean = true)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], assignQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def assignToLocationEmployee(accountId: Long, retailerLocationId: Long, employeeAccountId: Long, assign: Boolean = true)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], assignQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/employee/assignToLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/assignToLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -248,10 +247,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def createEmployee(version: BigDecimal, accountId: Long, managerAccountId: Long, username: String, password: String, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, aboutUs: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], aboutUsQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def createEmployee(accountId: Long, managerAccountId: Long, username: String, password: String, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, aboutUs: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], usernameQuery: QueryParam[String], passwordQuery: QueryParam[String], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], aboutUsQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -269,10 +268,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteEmployee(accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/employee/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -290,10 +289,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def getEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long, settingsAppKey: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], settingsAppKeyQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def getEmployee(accountId: Long, employeeAccountId: Long, settingsAppKey: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], settingsAppKeyQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/get"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -311,10 +310,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def searchEmployees(version: BigDecimal, accountId: Long, role: String, retailerId: Long, retailerLocationId: Long, q: String, keyword: String, sortField: String, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, activeOnly: Boolean = true, managedOnly: Boolean, settingsAppKey: String, categoryIds: String, query: String)(implicit accountIdQuery: QueryParam[Long], roleQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], managedOnlyQuery: QueryParam[Boolean], settingsAppKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], queryQuery: QueryParam[String]): Task[List[EmployeeResponse]] = {
+  def searchEmployees(accountId: Long, role: String, retailerId: Long, retailerLocationId: Long, q: String, keyword: String, sortField: String, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, activeOnly: Boolean = true, managedOnly: Boolean, settingsAppKey: String, categoryIds: String, query: String)(implicit accountIdQuery: QueryParam[Long], roleQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], managedOnlyQuery: QueryParam[Boolean], settingsAppKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], queryQuery: QueryParam[String]): Task[List[EmployeeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[EmployeeResponse]] = jsonOf[List[EmployeeResponse]]
 
-    val path = "/api/{version}/employee/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/search"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -332,10 +331,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def unassignEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[EmployeeResponse] = {
+  def unassignEmployee(accountId: Long, employeeAccountId: Long)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/unassign".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/unassign"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -353,10 +352,10 @@ class HttpServiceEmployeeApi(service: HttpService) {
     } yield resp
   }
 
-  def updateEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long, managerAccountId: Long, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, active: Boolean, password: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], passwordQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
+  def updateEmployee(accountId: Long, employeeAccountId: Long, managerAccountId: Long, name: String, prefixName: String, firstName: String, middleName: String, lastName: String, suffixName: String, title: String, assetId: Long, gender: String, homePhone: String, cellPhone: String, cellPhoneCarrier: String, businessPhone: String, emailAddress: String, streetAddress: String, streetAddress2: String, city: String, state: String, zipcode: String, country: String, role: String, active: Boolean, password: String, retailerLocationIds: String, settingsAppKey: String, appBlob: String, assignedDeviceId: String)(implicit accountIdQuery: QueryParam[Long], employeeAccountIdQuery: QueryParam[Long], managerAccountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], prefixNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], middleNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], suffixNameQuery: QueryParam[String], titleQuery: QueryParam[String], assetIdQuery: QueryParam[Long], genderQuery: QueryParam[String], homePhoneQuery: QueryParam[String], cellPhoneQuery: QueryParam[String], cellPhoneCarrierQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], emailAddressQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], zipcodeQuery: QueryParam[String], countryQuery: QueryParam[String], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], passwordQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], settingsAppKeyQuery: QueryParam[String], appBlobQuery: QueryParam[String], assignedDeviceIdQuery: QueryParam[String]): Task[EmployeeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[EmployeeResponse] = jsonOf[EmployeeResponse]
 
-    val path = "/api/{version}/employee/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/employee/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

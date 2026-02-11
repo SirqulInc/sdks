@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RankFullResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object RankingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getHistoricalRankings(host: String, version: BigDecimal, appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: String, accountId: Long, sortField: String = TOTAL, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
+  def getHistoricalRankings(host: String, appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: String, accountId: Long, sortField: String = TOTAL, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RankFullResponse] = jsonOf[RankFullResponse]
 
-    val path = "/api/{version}/ranking/historical/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/historical/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object RankingApi {
     } yield resp
   }
 
-  def getRankings(host: String, version: BigDecimal, deviceId: String, accountId: Long, gameType: String, appKey: String, q: String, keyword: String, rankType: String = POINTS,DOWNLOADS,INVITATIONS, leaderboardMode: String = GLOBAL, withinAccountIds: String, returnUserRank: Boolean = true, albumId: Long, audienceId: Long, sortField: String = TOTAL, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], withinAccountIdsQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], albumIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
+  def getRankings(host: String, deviceId: String, accountId: Long, gameType: String, appKey: String, q: String, keyword: String, rankType: String = POINTS,DOWNLOADS,INVITATIONS, leaderboardMode: String = GLOBAL, withinAccountIds: String, returnUserRank: Boolean = true, albumId: Long, audienceId: Long, sortField: String = TOTAL, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], withinAccountIdsQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], albumIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RankFullResponse] = jsonOf[RankFullResponse]
 
-    val path = "/api/{version}/ranking/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object RankingApi {
     } yield resp
   }
 
-  def getUserRank(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, rankType: String, returnUserRank: Boolean = false, leaderboardMode: String = GLOBAL, sortField: String = TOTAL, keyword: String, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Any] = {
+  def getUserRank(host: String, deviceId: String, accountId: Long, appKey: String, rankType: String, returnUserRank: Boolean = false, leaderboardMode: String = GLOBAL, sortField: String = TOTAL, keyword: String, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/ranking/personal/ranks".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/personal/ranks"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object RankingApi {
     } yield resp
   }
 
-  def overrideUserRank(host: String, version: BigDecimal, accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Long, totalCount: Long, totalTime: Long, dailyScore: Long, dailyCount: Long, dailyTime: Long, weeklyScore: Long, weeklyCount: Long, weeklyTime: Long, monthlyScore: Long, monthlyCount: Long, monthlyTime: Long, topScore: Long, lowestScore: Long, streakCount: Long, streakBestCount: Long, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], totalScoreQuery: QueryParam[Long], totalCountQuery: QueryParam[Long], totalTimeQuery: QueryParam[Long], dailyScoreQuery: QueryParam[Long], dailyCountQuery: QueryParam[Long], dailyTimeQuery: QueryParam[Long], weeklyScoreQuery: QueryParam[Long], weeklyCountQuery: QueryParam[Long], weeklyTimeQuery: QueryParam[Long], monthlyScoreQuery: QueryParam[Long], monthlyCountQuery: QueryParam[Long], monthlyTimeQuery: QueryParam[Long], topScoreQuery: QueryParam[Long], lowestScoreQuery: QueryParam[Long], streakCountQuery: QueryParam[Long], streakBestCountQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def overrideUserRank(host: String, accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Long, totalCount: Long, totalTime: Long, dailyScore: Long, dailyCount: Long, dailyTime: Long, weeklyScore: Long, weeklyCount: Long, weeklyTime: Long, monthlyScore: Long, monthlyCount: Long, monthlyTime: Long, topScore: Long, lowestScore: Long, streakCount: Long, streakBestCount: Long, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], totalScoreQuery: QueryParam[Long], totalCountQuery: QueryParam[Long], totalTimeQuery: QueryParam[Long], dailyScoreQuery: QueryParam[Long], dailyCountQuery: QueryParam[Long], dailyTimeQuery: QueryParam[Long], weeklyScoreQuery: QueryParam[Long], weeklyCountQuery: QueryParam[Long], weeklyTimeQuery: QueryParam[Long], monthlyScoreQuery: QueryParam[Long], monthlyCountQuery: QueryParam[Long], monthlyTimeQuery: QueryParam[Long], topScoreQuery: QueryParam[Long], lowestScoreQuery: QueryParam[Long], streakCountQuery: QueryParam[Long], streakBestCountQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/ranking/override".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/override"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object RankingApi {
     } yield resp
   }
 
-  def updateRankings(host: String, version: BigDecimal, accountId: Long, appKey: String, rankType: String, increment: Long = 1, timeIncrement: Long, tag: String, startDate: Long, endDate: Long, updateGlobal: Boolean, createLeaderboard: Boolean = false)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], incrementQuery: QueryParam[Long], timeIncrementQuery: QueryParam[Long], tagQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], updateGlobalQuery: QueryParam[Boolean], createLeaderboardQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def updateRankings(host: String, accountId: Long, appKey: String, rankType: String, increment: Long = 1, timeIncrement: Long, tag: String, startDate: Long, endDate: Long, updateGlobal: Boolean, createLeaderboard: Boolean = false)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], incrementQuery: QueryParam[Long], timeIncrementQuery: QueryParam[Long], tagQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], updateGlobalQuery: QueryParam[Boolean], createLeaderboardQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/ranking/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceRankingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getHistoricalRankings(version: BigDecimal, appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: String, accountId: Long, sortField: String = TOTAL, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
+  def getHistoricalRankings(appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: String, accountId: Long, sortField: String = TOTAL, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RankFullResponse] = jsonOf[RankFullResponse]
 
-    val path = "/api/{version}/ranking/historical/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/historical/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceRankingApi(service: HttpService) {
     } yield resp
   }
 
-  def getRankings(version: BigDecimal, deviceId: String, accountId: Long, gameType: String, appKey: String, q: String, keyword: String, rankType: String = POINTS,DOWNLOADS,INVITATIONS, leaderboardMode: String = GLOBAL, withinAccountIds: String, returnUserRank: Boolean = true, albumId: Long, audienceId: Long, sortField: String = TOTAL, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], withinAccountIdsQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], albumIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
+  def getRankings(deviceId: String, accountId: Long, gameType: String, appKey: String, q: String, keyword: String, rankType: String = POINTS,DOWNLOADS,INVITATIONS, leaderboardMode: String = GLOBAL, withinAccountIds: String, returnUserRank: Boolean = true, albumId: Long, audienceId: Long, sortField: String = TOTAL, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], withinAccountIdsQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], albumIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[RankFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RankFullResponse] = jsonOf[RankFullResponse]
 
-    val path = "/api/{version}/ranking/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceRankingApi(service: HttpService) {
     } yield resp
   }
 
-  def getUserRank(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, rankType: String, returnUserRank: Boolean = false, leaderboardMode: String = GLOBAL, sortField: String = TOTAL, keyword: String, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Any] = {
+  def getUserRank(deviceId: String, accountId: Long, appKey: String, rankType: String, returnUserRank: Boolean = false, leaderboardMode: String = GLOBAL, sortField: String = TOTAL, keyword: String, descending: Boolean = true, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], returnUserRankQuery: QueryParam[Boolean], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], keywordQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/ranking/personal/ranks".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/personal/ranks"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceRankingApi(service: HttpService) {
     } yield resp
   }
 
-  def overrideUserRank(version: BigDecimal, accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Long, totalCount: Long, totalTime: Long, dailyScore: Long, dailyCount: Long, dailyTime: Long, weeklyScore: Long, weeklyCount: Long, weeklyTime: Long, monthlyScore: Long, monthlyCount: Long, monthlyTime: Long, topScore: Long, lowestScore: Long, streakCount: Long, streakBestCount: Long, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], totalScoreQuery: QueryParam[Long], totalCountQuery: QueryParam[Long], totalTimeQuery: QueryParam[Long], dailyScoreQuery: QueryParam[Long], dailyCountQuery: QueryParam[Long], dailyTimeQuery: QueryParam[Long], weeklyScoreQuery: QueryParam[Long], weeklyCountQuery: QueryParam[Long], weeklyTimeQuery: QueryParam[Long], monthlyScoreQuery: QueryParam[Long], monthlyCountQuery: QueryParam[Long], monthlyTimeQuery: QueryParam[Long], topScoreQuery: QueryParam[Long], lowestScoreQuery: QueryParam[Long], streakCountQuery: QueryParam[Long], streakBestCountQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def overrideUserRank(accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Long, totalCount: Long, totalTime: Long, dailyScore: Long, dailyCount: Long, dailyTime: Long, weeklyScore: Long, weeklyCount: Long, weeklyTime: Long, monthlyScore: Long, monthlyCount: Long, monthlyTime: Long, topScore: Long, lowestScore: Long, streakCount: Long, streakBestCount: Long, startDate: Long, endDate: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], totalScoreQuery: QueryParam[Long], totalCountQuery: QueryParam[Long], totalTimeQuery: QueryParam[Long], dailyScoreQuery: QueryParam[Long], dailyCountQuery: QueryParam[Long], dailyTimeQuery: QueryParam[Long], weeklyScoreQuery: QueryParam[Long], weeklyCountQuery: QueryParam[Long], weeklyTimeQuery: QueryParam[Long], monthlyScoreQuery: QueryParam[Long], monthlyCountQuery: QueryParam[Long], monthlyTimeQuery: QueryParam[Long], topScoreQuery: QueryParam[Long], lowestScoreQuery: QueryParam[Long], streakCountQuery: QueryParam[Long], streakBestCountQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/ranking/override".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/override"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceRankingApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRankings(version: BigDecimal, accountId: Long, appKey: String, rankType: String, increment: Long = 1, timeIncrement: Long, tag: String, startDate: Long, endDate: Long, updateGlobal: Boolean, createLeaderboard: Boolean = false)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], incrementQuery: QueryParam[Long], timeIncrementQuery: QueryParam[Long], tagQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], updateGlobalQuery: QueryParam[Boolean], createLeaderboardQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def updateRankings(accountId: Long, appKey: String, rankType: String, increment: Long = 1, timeIncrement: Long, tag: String, startDate: Long, endDate: Long, updateGlobal: Boolean, createLeaderboard: Boolean = false)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], incrementQuery: QueryParam[Long], timeIncrementQuery: QueryParam[Long], tagQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], updateGlobalQuery: QueryParam[Boolean], createLeaderboardQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/ranking/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ranking/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

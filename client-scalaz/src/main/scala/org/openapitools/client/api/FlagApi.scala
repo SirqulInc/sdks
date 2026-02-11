@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CountResponse
 import org.openapitools.client.api.FlagResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object FlagApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFlag(host: String, version: BigDecimal, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, flagDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], flagDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def createFlag(host: String, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, flagDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], flagDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/flag/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object FlagApi {
     } yield resp
   }
 
-  def deleteFlag(host: String, version: BigDecimal, deviceId: String, accountId: Long, itemBeingFlaggedType: String, itemBeingFlaggedId: Long, flagableType: String, flagableId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], itemBeingFlaggedIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteFlag(host: String, deviceId: String, accountId: Long, itemBeingFlaggedType: String, itemBeingFlaggedId: Long, flagableType: String, flagableId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], itemBeingFlaggedIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/flag/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object FlagApi {
     } yield resp
   }
 
-  def getFlag(host: String, version: BigDecimal, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[FlagResponse] = {
+  def getFlag(host: String, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[FlagResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FlagResponse] = jsonOf[FlagResponse]
 
-    val path = "/api/{version}/flag/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object FlagApi {
     } yield resp
   }
 
-  def getFlagThreshold(host: String, version: BigDecimal, itemBeingFlaggedType: String, appKey: String)(implicit itemBeingFlaggedTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
+  def getFlagThreshold(host: String, itemBeingFlaggedType: String, appKey: String)(implicit itemBeingFlaggedTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/flag/threshold/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/threshold/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object FlagApi {
     } yield resp
   }
 
-  def updateFlagThreshold(host: String, version: BigDecimal, itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], thresholdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
+  def updateFlagThreshold(host: String, itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], thresholdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/flag/threshold/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/threshold/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -144,10 +143,10 @@ class HttpServiceFlagApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createFlag(version: BigDecimal, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, flagDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], flagDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def createFlag(flagableType: String, flagableId: Long, deviceId: String, accountId: Long, flagDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], flagDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/flag/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceFlagApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteFlag(version: BigDecimal, deviceId: String, accountId: Long, itemBeingFlaggedType: String, itemBeingFlaggedId: Long, flagableType: String, flagableId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], itemBeingFlaggedIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteFlag(deviceId: String, accountId: Long, itemBeingFlaggedType: String, itemBeingFlaggedId: Long, flagableType: String, flagableId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], itemBeingFlaggedIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/flag/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceFlagApi(service: HttpService) {
     } yield resp
   }
 
-  def getFlag(version: BigDecimal, flagableType: String, flagableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[FlagResponse] = {
+  def getFlag(flagableType: String, flagableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], flagableTypeQuery: QueryParam[String], flagableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[FlagResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[FlagResponse] = jsonOf[FlagResponse]
 
-    val path = "/api/{version}/flag/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceFlagApi(service: HttpService) {
     } yield resp
   }
 
-  def getFlagThreshold(version: BigDecimal, itemBeingFlaggedType: String, appKey: String)(implicit itemBeingFlaggedTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
+  def getFlagThreshold(itemBeingFlaggedType: String, appKey: String)(implicit itemBeingFlaggedTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/flag/threshold/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/threshold/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceFlagApi(service: HttpService) {
     } yield resp
   }
 
-  def updateFlagThreshold(version: BigDecimal, itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], thresholdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
+  def updateFlagThreshold(itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], itemBeingFlaggedTypeQuery: QueryParam[String], thresholdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/flag/threshold/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/flag/threshold/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

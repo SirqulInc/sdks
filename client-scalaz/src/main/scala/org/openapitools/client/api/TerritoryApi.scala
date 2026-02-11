@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.TerritoryResponse
 
@@ -31,10 +30,10 @@ object TerritoryApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTerritory(host: String, version: BigDecimal, accountId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
+  def createTerritory(host: String, accountId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object TerritoryApi {
     } yield resp
   }
 
-  def deleteTerritory(host: String, version: BigDecimal, accountId: Long, territoryId: Long)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTerritory(host: String, accountId: Long, territoryId: Long)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/territory/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object TerritoryApi {
     } yield resp
   }
 
-  def getTerritory(host: String, version: BigDecimal, territoryId: Long)(implicit territoryIdQuery: QueryParam[Long]): Task[TerritoryResponse] = {
+  def getTerritory(host: String, territoryId: Long)(implicit territoryIdQuery: QueryParam[Long]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object TerritoryApi {
     } yield resp
   }
 
-  def searchTerritories(host: String, version: BigDecimal, sortField: String, descending: Boolean, keyword: String, start: Integer, limit: Integer)(implicit keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[TerritoryResponse]] = {
+  def searchTerritories(host: String, sortField: String, descending: Boolean, keyword: String, start: Integer, limit: Integer)(implicit keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[TerritoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[TerritoryResponse]] = jsonOf[List[TerritoryResponse]]
 
-    val path = "/api/{version}/territory/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object TerritoryApi {
     } yield resp
   }
 
-  def updateTerritory(host: String, version: BigDecimal, accountId: Long, territoryId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
+  def updateTerritory(host: String, accountId: Long, territoryId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceTerritoryApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTerritory(version: BigDecimal, accountId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
+  def createTerritory(accountId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceTerritoryApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteTerritory(version: BigDecimal, accountId: Long, territoryId: Long)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTerritory(accountId: Long, territoryId: Long)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/territory/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceTerritoryApi(service: HttpService) {
     } yield resp
   }
 
-  def getTerritory(version: BigDecimal, territoryId: Long)(implicit territoryIdQuery: QueryParam[Long]): Task[TerritoryResponse] = {
+  def getTerritory(territoryId: Long)(implicit territoryIdQuery: QueryParam[Long]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceTerritoryApi(service: HttpService) {
     } yield resp
   }
 
-  def searchTerritories(version: BigDecimal, sortField: String, descending: Boolean, keyword: String, start: Integer, limit: Integer)(implicit keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[TerritoryResponse]] = {
+  def searchTerritories(sortField: String, descending: Boolean, keyword: String, start: Integer, limit: Integer)(implicit keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[TerritoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[TerritoryResponse]] = jsonOf[List[TerritoryResponse]]
 
-    val path = "/api/{version}/territory/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceTerritoryApi(service: HttpService) {
     } yield resp
   }
 
-  def updateTerritory(version: BigDecimal, accountId: Long, territoryId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
+  def updateTerritory(accountId: Long, territoryId: Long, name: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], territoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TerritoryResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TerritoryResponse] = jsonOf[TerritoryResponse]
 
-    val path = "/api/{version}/territory/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/territory/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

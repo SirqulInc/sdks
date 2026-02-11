@@ -24,7 +24,6 @@ import HelperCodecs._
 import org.openapitools.client.api.AgeGroupResponse
 import org.openapitools.client.api.AudienceDeviceResponse
 import org.openapitools.client.api.AudienceResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.OfferListResponse
 import org.openapitools.client.api.SearchResponse
 import org.openapitools.client.api.SirqulResponse
@@ -35,10 +34,10 @@ object AudienceApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createAudience(host: String, version: BigDecimal, accountId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, startTimeOffset: Integer, endTimeOffset: Integer, sendSuggestion: Boolean = true, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
+  def createAudience(host: String, accountId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, startTimeOffset: Integer, endTimeOffset: Integer, sendSuggestion: Boolean = true, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -56,10 +55,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def deleteAudience(host: String, version: BigDecimal, accountId: Long, audienceId: Long)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteAudience(host: String, accountId: Long, audienceId: Long)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -77,10 +76,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getAgeGroups(host: String, version: BigDecimal): Task[List[AgeGroupResponse]] = {
+  def getAgeGroups(host: String): Task[List[AgeGroupResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AgeGroupResponse]] = jsonOf[List[AgeGroupResponse]]
 
-    val path = "/api/{version}/audience/ageGroups".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/ageGroups"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -98,10 +97,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getAudience(host: String, version: BigDecimal, accountId: Long, audienceId: Long, appKey: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[AudienceResponse] = {
+  def getAudience(host: String, accountId: Long, audienceId: Long, appKey: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -119,10 +118,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getAudienceList(host: String, version: BigDecimal, accountId: Long, albumIds: String, keyword: String, keywordFields: String = SEARCH_TAGS,NAME,DESCRIPTION, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, sendSuggestion: Boolean, activeOnly: Boolean, groupByGroupingId: Boolean, appKey: String, returnGlobal: Boolean, exactKeyword: Boolean, audienceType: String, audienceTypes: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], keywordFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], groupByGroupingIdQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], returnGlobalQuery: QueryParam[Boolean], exactKeywordQuery: QueryParam[Boolean], audienceTypeQuery: QueryParam[String], audienceTypesQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[List[SearchResponse]] = {
+  def getAudienceList(host: String, accountId: Long, albumIds: String, keyword: String, keywordFields: String = SEARCH_TAGS,NAME,DESCRIPTION, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, sendSuggestion: Boolean, activeOnly: Boolean, groupByGroupingId: Boolean, appKey: String, returnGlobal: Boolean, exactKeyword: Boolean, audienceType: String, audienceTypes: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], keywordFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], groupByGroupingIdQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], returnGlobalQuery: QueryParam[Boolean], exactKeywordQuery: QueryParam[Boolean], audienceTypeQuery: QueryParam[String], audienceTypesQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[List[SearchResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[SearchResponse]] = jsonOf[List[SearchResponse]]
 
-    val path = "/api/{version}/audience/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -140,10 +139,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getDevices(host: String, version: BigDecimal, includeInactive: Boolean)(implicit includeInactiveQuery: QueryParam[Boolean]): Task[List[AudienceDeviceResponse]] = {
+  def getDevices(host: String, includeInactive: Boolean)(implicit includeInactiveQuery: QueryParam[Boolean]): Task[List[AudienceDeviceResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AudienceDeviceResponse]] = jsonOf[List[AudienceDeviceResponse]]
 
-    val path = "/api/{version}/audience/devices".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/devices"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,10 +160,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getExperiences(host: String, version: BigDecimal): Task[SirqulResponse] = {
+  def getExperiences(host: String): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/experiences".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/experiences"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -182,10 +181,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def getGroupedAudiences(host: String, version: BigDecimal, accountId: Long, audienceGroupingId: String)(implicit accountIdQuery: QueryParam[Long], audienceGroupingIdQuery: QueryParam[String]): Task[AudienceResponse] = {
+  def getGroupedAudiences(host: String, accountId: Long, audienceGroupingId: String)(implicit accountIdQuery: QueryParam[Long], audienceGroupingIdQuery: QueryParam[String]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/grouped/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/grouped/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -203,10 +202,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def listByAccount(host: String, version: BigDecimal, accountId: Long, limit: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], limitQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
+  def listByAccount(host: String, accountId: Long, limit: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], limitQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/list"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -224,10 +223,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def listByAudience(host: String, version: BigDecimal, limit: Integer, gender: String, age: Integer, categoryIds: String, latitude: Double, longitude: Double)(implicit genderQuery: QueryParam[String], ageQuery: QueryParam[Integer], categoryIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], limitQuery: QueryParam[Integer]): Task[OfferListResponse] = {
+  def listByAudience(host: String, limit: Integer, gender: String, age: Integer, categoryIds: String, latitude: Double, longitude: Double)(implicit genderQuery: QueryParam[String], ageQuery: QueryParam[Integer], categoryIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], limitQuery: QueryParam[Integer]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/offersByAudience".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/offersByAudience"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -245,10 +244,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def listLastestByAccount(host: String, version: BigDecimal, accountId: Long, timeframe: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], timeframeQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
+  def listLastestByAccount(host: String, accountId: Long, timeframe: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], timeframeQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/latest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/latest"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -266,10 +265,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def sendByAccount(host: String, version: BigDecimal, accountId: Long, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def sendByAccount(host: String, accountId: Long, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/suggestion/send".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/send"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -287,10 +286,10 @@ object AudienceApi {
     } yield resp
   }
 
-  def updateAudience(host: String, version: BigDecimal, accountId: Long, audienceId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, active: Boolean, sendSuggestion: Boolean, startTimeOffset: Integer, endTimeOffset: Integer, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], activeQuery: QueryParam[Boolean], sendSuggestionQuery: QueryParam[Boolean], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
+  def updateAudience(host: String, accountId: Long, audienceId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, active: Boolean, sendSuggestion: Boolean, startTimeOffset: Integer, endTimeOffset: Integer, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], activeQuery: QueryParam[Boolean], sendSuggestionQuery: QueryParam[Boolean], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -315,10 +314,10 @@ class HttpServiceAudienceApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createAudience(version: BigDecimal, accountId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, startTimeOffset: Integer, endTimeOffset: Integer, sendSuggestion: Boolean = true, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
+  def createAudience(accountId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, startTimeOffset: Integer, endTimeOffset: Integer, sendSuggestion: Boolean = true, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -336,10 +335,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteAudience(version: BigDecimal, accountId: Long, audienceId: Long)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteAudience(accountId: Long, audienceId: Long)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -357,10 +356,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getAgeGroups(version: BigDecimal): Task[List[AgeGroupResponse]] = {
+  def getAgeGroups(): Task[List[AgeGroupResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AgeGroupResponse]] = jsonOf[List[AgeGroupResponse]]
 
-    val path = "/api/{version}/audience/ageGroups".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/ageGroups"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -378,10 +377,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getAudience(version: BigDecimal, accountId: Long, audienceId: Long, appKey: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[AudienceResponse] = {
+  def getAudience(accountId: Long, audienceId: Long, appKey: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -399,10 +398,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getAudienceList(version: BigDecimal, accountId: Long, albumIds: String, keyword: String, keywordFields: String = SEARCH_TAGS,NAME,DESCRIPTION, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, sendSuggestion: Boolean, activeOnly: Boolean, groupByGroupingId: Boolean, appKey: String, returnGlobal: Boolean, exactKeyword: Boolean, audienceType: String, audienceTypes: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], keywordFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], groupByGroupingIdQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], returnGlobalQuery: QueryParam[Boolean], exactKeywordQuery: QueryParam[Boolean], audienceTypeQuery: QueryParam[String], audienceTypesQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[List[SearchResponse]] = {
+  def getAudienceList(accountId: Long, albumIds: String, keyword: String, keywordFields: String = SEARCH_TAGS,NAME,DESCRIPTION, sortField: String = NAME, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, sendSuggestion: Boolean, activeOnly: Boolean, groupByGroupingId: Boolean, appKey: String, returnGlobal: Boolean, exactKeyword: Boolean, audienceType: String, audienceTypes: String, returnAccountCount: Boolean = false, returnAlbumCount: Boolean = false, albumTypesForCount: String)(implicit accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], keywordFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sendSuggestionQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], groupByGroupingIdQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], returnGlobalQuery: QueryParam[Boolean], exactKeywordQuery: QueryParam[Boolean], audienceTypeQuery: QueryParam[String], audienceTypesQuery: QueryParam[String], returnAccountCountQuery: QueryParam[Boolean], returnAlbumCountQuery: QueryParam[Boolean], albumTypesForCountQuery: QueryParam[String]): Task[List[SearchResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[SearchResponse]] = jsonOf[List[SearchResponse]]
 
-    val path = "/api/{version}/audience/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -420,10 +419,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getDevices(version: BigDecimal, includeInactive: Boolean)(implicit includeInactiveQuery: QueryParam[Boolean]): Task[List[AudienceDeviceResponse]] = {
+  def getDevices(includeInactive: Boolean)(implicit includeInactiveQuery: QueryParam[Boolean]): Task[List[AudienceDeviceResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AudienceDeviceResponse]] = jsonOf[List[AudienceDeviceResponse]]
 
-    val path = "/api/{version}/audience/devices".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/devices"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -441,10 +440,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getExperiences(version: BigDecimal): Task[SirqulResponse] = {
+  def getExperiences(): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/experiences".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/experiences"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -462,10 +461,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def getGroupedAudiences(version: BigDecimal, accountId: Long, audienceGroupingId: String)(implicit accountIdQuery: QueryParam[Long], audienceGroupingIdQuery: QueryParam[String]): Task[AudienceResponse] = {
+  def getGroupedAudiences(accountId: Long, audienceGroupingId: String)(implicit accountIdQuery: QueryParam[Long], audienceGroupingIdQuery: QueryParam[String]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/grouped/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/grouped/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -483,10 +482,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def listByAccount(version: BigDecimal, accountId: Long, limit: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], limitQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
+  def listByAccount(accountId: Long, limit: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], limitQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/list"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -504,10 +503,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def listByAudience(version: BigDecimal, limit: Integer, gender: String, age: Integer, categoryIds: String, latitude: Double, longitude: Double)(implicit genderQuery: QueryParam[String], ageQuery: QueryParam[Integer], categoryIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], limitQuery: QueryParam[Integer]): Task[OfferListResponse] = {
+  def listByAudience(limit: Integer, gender: String, age: Integer, categoryIds: String, latitude: Double, longitude: Double)(implicit genderQuery: QueryParam[String], ageQuery: QueryParam[Integer], categoryIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], limitQuery: QueryParam[Integer]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/offersByAudience".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/offersByAudience"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -525,10 +524,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def listLastestByAccount(version: BigDecimal, accountId: Long, timeframe: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], timeframeQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
+  def listLastestByAccount(accountId: Long, timeframe: Integer, suggestionType: String)(implicit accountIdQuery: QueryParam[Long], timeframeQuery: QueryParam[Integer], suggestionTypeQuery: QueryParam[String]): Task[OfferListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferListResponse] = jsonOf[OfferListResponse]
 
-    val path = "/api/{version}/audience/suggestion/latest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/latest"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -546,10 +545,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def sendByAccount(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def sendByAccount(accountId: Long, latitude: Double, longitude: Double)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/audience/suggestion/send".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/suggestion/send"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -567,10 +566,10 @@ class HttpServiceAudienceApi(service: HttpService) {
     } yield resp
   }
 
-  def updateAudience(version: BigDecimal, accountId: Long, audienceId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, active: Boolean, sendSuggestion: Boolean, startTimeOffset: Integer, endTimeOffset: Integer, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], activeQuery: QueryParam[Boolean], sendSuggestionQuery: QueryParam[Boolean], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
+  def updateAudience(accountId: Long, audienceId: Long, name: String, description: String, searchTags: String, gender: String, ageGroups: String, categoryIds: String, applicationIds: String, gameExperienceLevel: String, devices: String, deviceIds: String, deviceVersions: String, locations: String, radius: String, active: Boolean, sendSuggestion: Boolean, startTimeOffset: Integer, endTimeOffset: Integer, associateDescription: String, associateType: String, associateId: Long, groupingId: String, metaData: String, visibility: String, audienceType: String, useOrder: Boolean, cohortRegionsData: String, appKey: String, trilaterationTypes: String, uniqueName: Boolean)(implicit accountIdQuery: QueryParam[Long], audienceIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], genderQuery: QueryParam[String], ageGroupsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], applicationIdsQuery: QueryParam[String], gameExperienceLevelQuery: QueryParam[String], devicesQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], locationsQuery: QueryParam[String], radiusQuery: QueryParam[String], activeQuery: QueryParam[Boolean], sendSuggestionQuery: QueryParam[Boolean], startTimeOffsetQuery: QueryParam[Integer], endTimeOffsetQuery: QueryParam[Integer], associateDescriptionQuery: QueryParam[String], associateTypeQuery: QueryParam[String], associateIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], visibilityQuery: QueryParam[String], audienceTypeQuery: QueryParam[String], useOrderQuery: QueryParam[Boolean], cohortRegionsDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], trilaterationTypesQuery: QueryParam[String], uniqueNameQuery: QueryParam[Boolean]): Task[AudienceResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AudienceResponse] = jsonOf[AudienceResponse]
 
-    val path = "/api/{version}/audience/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/audience/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

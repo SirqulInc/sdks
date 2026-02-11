@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RatingIndexResponse
 import org.openapitools.client.api.RatingResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object RatingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRating(host: String, version: BigDecimal, ratableType: String, ratableId: Long, ratingValue: Integer, deviceId: String, accountId: Long, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
+  def createRating(host: String, ratableType: String, ratableId: Long, ratingValue: Integer, deviceId: String, accountId: Long, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RatingResponse] = jsonOf[RatingResponse]
 
-    val path = "/api/{version}/rating/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object RatingApi {
     } yield resp
   }
 
-  def deleteRating(host: String, version: BigDecimal, ratingId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteRating(host: String, ratingId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/rating/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object RatingApi {
     } yield resp
   }
 
-  def searchLocationRatingIndexes(host: String, version: BigDecimal, categoryIds: String, keyword: String, locationType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, searchRange: Double, latitude: Double, longitude: Double, returnOverallRating: Boolean, distanceUnit: String, returnRetailer: Boolean, returnAssets: Boolean, returnOffers: Boolean, returnCategories: Boolean, returnFilters: Boolean)(implicit categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], locationTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnOverallRatingQuery: QueryParam[Boolean], distanceUnitQuery: QueryParam[String], returnRetailerQuery: QueryParam[Boolean], returnAssetsQuery: QueryParam[Boolean], returnOffersQuery: QueryParam[Boolean], returnCategoriesQuery: QueryParam[Boolean], returnFiltersQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
+  def searchLocationRatingIndexes(host: String, categoryIds: String, keyword: String, locationType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, searchRange: Double, latitude: Double, longitude: Double, returnOverallRating: Boolean, distanceUnit: String, returnRetailer: Boolean, returnAssets: Boolean, returnOffers: Boolean, returnCategories: Boolean, returnFilters: Boolean)(implicit categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], locationTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnOverallRatingQuery: QueryParam[Boolean], distanceUnitQuery: QueryParam[String], returnRetailerQuery: QueryParam[Boolean], returnAssetsQuery: QueryParam[Boolean], returnOffersQuery: QueryParam[Boolean], returnCategoriesQuery: QueryParam[Boolean], returnFiltersQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingIndexResponse]] = jsonOf[List[RatingIndexResponse]]
 
-    val path = "/api/{version}/location/rating/index/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/rating/index/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object RatingApi {
     } yield resp
   }
 
-  def searchRatingIndexes(host: String, version: BigDecimal, ratableType: String, ratableIds: String, categoryIds: String, secondaryType: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, latitude: Double, longitude: Double, returnRatable: Boolean, returnOverallRating: Boolean)(implicit ratableTypeQuery: QueryParam[String], ratableIdsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnRatableQuery: QueryParam[Boolean], returnOverallRatingQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
+  def searchRatingIndexes(host: String, ratableType: String, ratableIds: String, categoryIds: String, secondaryType: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, latitude: Double, longitude: Double, returnRatable: Boolean, returnOverallRating: Boolean)(implicit ratableTypeQuery: QueryParam[String], ratableIdsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnRatableQuery: QueryParam[Boolean], returnOverallRatingQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingIndexResponse]] = jsonOf[List[RatingIndexResponse]]
 
-    val path = "/api/{version}/rating/index/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/index/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object RatingApi {
     } yield resp
   }
 
-  def searchRatings(host: String, version: BigDecimal, deviceId: String, accountId: Long, filterAccountId: Long, ratableType: String, ratableId: Long, categoryIds: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], filterAccountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RatingResponse]] = {
+  def searchRatings(host: String, deviceId: String, accountId: Long, filterAccountId: Long, ratableType: String, ratableId: Long, categoryIds: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], filterAccountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RatingResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingResponse]] = jsonOf[List[RatingResponse]]
 
-    val path = "/api/{version}/rating/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object RatingApi {
     } yield resp
   }
 
-  def updateRating(host: String, version: BigDecimal, ratingId: Long, deviceId: String, accountId: Long, ratingValue: Integer, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
+  def updateRating(host: String, ratingId: Long, deviceId: String, accountId: Long, ratingValue: Integer, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RatingResponse] = jsonOf[RatingResponse]
 
-    val path = "/api/{version}/rating/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceRatingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRating(version: BigDecimal, ratableType: String, ratableId: Long, ratingValue: Integer, deviceId: String, accountId: Long, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
+  def createRating(ratableType: String, ratableId: Long, ratingValue: Integer, deviceId: String, accountId: Long, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RatingResponse] = jsonOf[RatingResponse]
 
-    val path = "/api/{version}/rating/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceRatingApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteRating(version: BigDecimal, ratingId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteRating(ratingId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/rating/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceRatingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchLocationRatingIndexes(version: BigDecimal, categoryIds: String, keyword: String, locationType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, searchRange: Double, latitude: Double, longitude: Double, returnOverallRating: Boolean, distanceUnit: String, returnRetailer: Boolean, returnAssets: Boolean, returnOffers: Boolean, returnCategories: Boolean, returnFilters: Boolean)(implicit categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], locationTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnOverallRatingQuery: QueryParam[Boolean], distanceUnitQuery: QueryParam[String], returnRetailerQuery: QueryParam[Boolean], returnAssetsQuery: QueryParam[Boolean], returnOffersQuery: QueryParam[Boolean], returnCategoriesQuery: QueryParam[Boolean], returnFiltersQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
+  def searchLocationRatingIndexes(categoryIds: String, keyword: String, locationType: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, searchRange: Double, latitude: Double, longitude: Double, returnOverallRating: Boolean, distanceUnit: String, returnRetailer: Boolean, returnAssets: Boolean, returnOffers: Boolean, returnCategories: Boolean, returnFilters: Boolean)(implicit categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], locationTypeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnOverallRatingQuery: QueryParam[Boolean], distanceUnitQuery: QueryParam[String], returnRetailerQuery: QueryParam[Boolean], returnAssetsQuery: QueryParam[Boolean], returnOffersQuery: QueryParam[Boolean], returnCategoriesQuery: QueryParam[Boolean], returnFiltersQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingIndexResponse]] = jsonOf[List[RatingIndexResponse]]
 
-    val path = "/api/{version}/location/rating/index/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location/rating/index/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceRatingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRatingIndexes(version: BigDecimal, ratableType: String, ratableIds: String, categoryIds: String, secondaryType: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, latitude: Double, longitude: Double, returnRatable: Boolean, returnOverallRating: Boolean)(implicit ratableTypeQuery: QueryParam[String], ratableIdsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnRatableQuery: QueryParam[Boolean], returnOverallRatingQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
+  def searchRatingIndexes(ratableType: String, ratableIds: String, categoryIds: String, secondaryType: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, latitude: Double, longitude: Double, returnRatable: Boolean, returnOverallRating: Boolean)(implicit ratableTypeQuery: QueryParam[String], ratableIdsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], secondaryTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnRatableQuery: QueryParam[Boolean], returnOverallRatingQuery: QueryParam[Boolean]): Task[List[RatingIndexResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingIndexResponse]] = jsonOf[List[RatingIndexResponse]]
 
-    val path = "/api/{version}/rating/index/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/index/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceRatingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRatings(version: BigDecimal, deviceId: String, accountId: Long, filterAccountId: Long, ratableType: String, ratableId: Long, categoryIds: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], filterAccountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RatingResponse]] = {
+  def searchRatings(deviceId: String, accountId: Long, filterAccountId: Long, ratableType: String, ratableId: Long, categoryIds: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], filterAccountIdQuery: QueryParam[Long], ratableTypeQuery: QueryParam[String], ratableIdQuery: QueryParam[Long], categoryIdsQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RatingResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RatingResponse]] = jsonOf[List[RatingResponse]]
 
-    val path = "/api/{version}/rating/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceRatingApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRating(version: BigDecimal, ratingId: Long, deviceId: String, accountId: Long, ratingValue: Integer, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
+  def updateRating(ratingId: Long, deviceId: String, accountId: Long, ratingValue: Integer, categoryId: Long, display: String, description: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ratingIdQuery: QueryParam[Long], ratingValueQuery: QueryParam[Integer], categoryIdQuery: QueryParam[Long], displayQuery: QueryParam[String], descriptionQuery: QueryParam[String], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[RatingResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RatingResponse] = jsonOf[RatingResponse]
 
-    val path = "/api/{version}/rating/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/rating/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

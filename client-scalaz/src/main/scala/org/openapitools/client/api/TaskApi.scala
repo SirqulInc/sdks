@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.TaskResponse
 
@@ -31,10 +30,10 @@ object TaskApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTask(host: String, version: BigDecimal, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean = true)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
+  def createTask(host: String, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean = true)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object TaskApi {
     } yield resp
   }
 
-  def deleteTask(host: String, version: BigDecimal, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTask(host: String, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/task/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object TaskApi {
     } yield resp
   }
 
-  def getTask(host: String, version: BigDecimal, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[TaskResponse] = {
+  def getTask(host: String, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object TaskApi {
     } yield resp
   }
 
-  def searchTasks(host: String, version: BigDecimal, accountId: Long, groupingId: String, filter: String = MINE, statuses: String = NEW,ERROR,COMPLETE,PROCESSING, templateTypes: String, appKey: String, keyword: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], filterQuery: QueryParam[String], statusesQuery: QueryParam[String], templateTypesQuery: QueryParam[String], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[TaskResponse]] = {
+  def searchTasks(host: String, accountId: Long, groupingId: String, filter: String = MINE, statuses: String = NEW,ERROR,COMPLETE,PROCESSING, templateTypes: String, appKey: String, keyword: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], filterQuery: QueryParam[String], statusesQuery: QueryParam[String], templateTypesQuery: QueryParam[String], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[TaskResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[TaskResponse]] = jsonOf[List[TaskResponse]]
 
-    val path = "/api/{version}/task/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object TaskApi {
     } yield resp
   }
 
-  def updateTask(host: String, version: BigDecimal, taskId: Long, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean)(implicit taskIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
+  def updateTask(host: String, taskId: Long, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean)(implicit taskIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceTaskApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTask(version: BigDecimal, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean = true)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
+  def createTask(accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean = true)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceTaskApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteTask(version: BigDecimal, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteTask(accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/task/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceTaskApi(service: HttpService) {
     } yield resp
   }
 
-  def getTask(version: BigDecimal, accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[TaskResponse] = {
+  def getTask(accountId: Long, taskId: Long)(implicit accountIdQuery: QueryParam[Long], taskIdQuery: QueryParam[Long]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceTaskApi(service: HttpService) {
     } yield resp
   }
 
-  def searchTasks(version: BigDecimal, accountId: Long, groupingId: String, filter: String = MINE, statuses: String = NEW,ERROR,COMPLETE,PROCESSING, templateTypes: String, appKey: String, keyword: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], filterQuery: QueryParam[String], statusesQuery: QueryParam[String], templateTypesQuery: QueryParam[String], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[TaskResponse]] = {
+  def searchTasks(accountId: Long, groupingId: String, filter: String = MINE, statuses: String = NEW,ERROR,COMPLETE,PROCESSING, templateTypes: String, appKey: String, keyword: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], groupingIdQuery: QueryParam[String], filterQuery: QueryParam[String], statusesQuery: QueryParam[String], templateTypesQuery: QueryParam[String], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[TaskResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[TaskResponse]] = jsonOf[List[TaskResponse]]
 
-    val path = "/api/{version}/task/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceTaskApi(service: HttpService) {
     } yield resp
   }
 
-  def updateTask(version: BigDecimal, taskId: Long, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean)(implicit taskIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
+  def updateTask(taskId: Long, accountId: Long, name: String, appKey: String, groupingId: String, endpointURL: String, payload: String, scheduledDate: Long, startDate: Long, endDate: Long, cronExpression: String, visibility: String, active: Boolean)(implicit taskIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], appKeyQuery: QueryParam[String], groupingIdQuery: QueryParam[String], endpointURLQuery: QueryParam[String], payloadQuery: QueryParam[String], scheduledDateQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], cronExpressionQuery: QueryParam[String], visibilityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[TaskResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TaskResponse] = jsonOf[TaskResponse]
 
-    val path = "/api/{version}/task/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/task/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

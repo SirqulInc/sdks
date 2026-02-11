@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object StripeApi {
@@ -30,10 +29,10 @@ object StripeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createStripeCheckoutSession(host: String, version: BigDecimal, appKey: String, stripeParameters: String)(implicit appKeyQuery: QueryParam[String], stripeParametersQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def createStripeCheckoutSession(host: String, appKey: String, stripeParameters: String)(implicit appKeyQuery: QueryParam[String], stripeParametersQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/stripe/checkout/session/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/stripe/checkout/session/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceStripeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createStripeCheckoutSession(version: BigDecimal, appKey: String, stripeParameters: String)(implicit appKeyQuery: QueryParam[String], stripeParametersQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def createStripeCheckoutSession(appKey: String, stripeParameters: String)(implicit appKeyQuery: QueryParam[String], stripeParametersQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/stripe/checkout/session/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/stripe/checkout/session/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

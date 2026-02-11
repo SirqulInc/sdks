@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CategoryResponse
 import org.openapitools.client.api.CategoryTreeResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object CategoryApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def categoryDistanceSearch(host: String, version: BigDecimal, accountId: Long, keyword: String, appKey: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean, exactMatch: Boolean, `type`: String, externalType: String, minOfferCount: Integer, latitude: Double, longitude: Double, range: Double)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], minOfferCountQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double]): Task[List[CategoryResponse]] = {
+  def categoryDistanceSearch(host: String, accountId: Long, keyword: String, appKey: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean, exactMatch: Boolean, `type`: String, externalType: String, minOfferCount: Integer, latitude: Double, longitude: Double, range: Double)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], minOfferCountQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double]): Task[List[CategoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CategoryResponse]] = jsonOf[List[CategoryResponse]]
 
-    val path = "/api/{version}/category/distancesearch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/distancesearch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def createCategory(host: String, version: BigDecimal, accountId: Long, name: String, appKey: String, parentCategoryId: Long, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
+  def createCategory(host: String, accountId: Long, name: String, appKey: String, parentCategoryId: Long, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def deleteCategory(host: String, version: BigDecimal, accountId: Long, categoryId: Long)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteCategory(host: String, accountId: Long, categoryId: Long)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/category/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def duplicateCategory(host: String, version: BigDecimal, accountId: Long, categoryId: Long, appKey: String, parentCategoryId: Long)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long]): Task[CategoryTreeResponse] = {
+  def duplicateCategory(host: String, accountId: Long, categoryId: Long, appKey: String, parentCategoryId: Long)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/duplicate".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/duplicate"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def getCategory(host: String, version: BigDecimal, categoryId: Long, returnExternal: Boolean = true)(implicit categoryIdQuery: QueryParam[Long], returnExternalQuery: QueryParam[Boolean]): Task[CategoryTreeResponse] = {
+  def getCategory(host: String, categoryId: Long, returnExternal: Boolean = true)(implicit categoryIdQuery: QueryParam[Long], returnExternalQuery: QueryParam[Boolean]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def searchCategories(host: String, version: BigDecimal, accountId: Long, keyword: String, appKey: String, categoryId: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean = true, exactMatch: Boolean = false, `type`: String, externalType: String, excludeExternalType: Boolean, minOfferCount: Integer, searchDepth: Integer = 4, searchMode: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], excludeExternalTypeQuery: QueryParam[Boolean], minOfferCountQuery: QueryParam[Integer], searchDepthQuery: QueryParam[Integer], searchModeQuery: QueryParam[String]): Task[List[CategoryResponse]] = {
+  def searchCategories(host: String, accountId: Long, keyword: String, appKey: String, categoryId: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean = true, exactMatch: Boolean = false, `type`: String, externalType: String, excludeExternalType: Boolean, minOfferCount: Integer, searchDepth: Integer = 4, searchMode: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], excludeExternalTypeQuery: QueryParam[Boolean], minOfferCountQuery: QueryParam[Integer], searchDepthQuery: QueryParam[Integer], searchModeQuery: QueryParam[String]): Task[List[CategoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CategoryResponse]] = jsonOf[List[CategoryResponse]]
 
-    val path = "/api/{version}/category/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -158,10 +157,10 @@ object CategoryApi {
     } yield resp
   }
 
-  def updateCategory(host: String, version: BigDecimal, accountId: Long, categoryId: Long, parentCategoryId: Long, name: String, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
+  def updateCategory(host: String, accountId: Long, categoryId: Long, parentCategoryId: Long, name: String, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceCategoryApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def categoryDistanceSearch(version: BigDecimal, accountId: Long, keyword: String, appKey: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean, exactMatch: Boolean, `type`: String, externalType: String, minOfferCount: Integer, latitude: Double, longitude: Double, range: Double)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], minOfferCountQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double]): Task[List[CategoryResponse]] = {
+  def categoryDistanceSearch(accountId: Long, keyword: String, appKey: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean, exactMatch: Boolean, `type`: String, externalType: String, minOfferCount: Integer, latitude: Double, longitude: Double, range: Double)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], minOfferCountQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double]): Task[List[CategoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CategoryResponse]] = jsonOf[List[CategoryResponse]]
 
-    val path = "/api/{version}/category/distancesearch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/distancesearch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def createCategory(version: BigDecimal, accountId: Long, name: String, appKey: String, parentCategoryId: Long, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
+  def createCategory(accountId: Long, name: String, appKey: String, parentCategoryId: Long, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteCategory(version: BigDecimal, accountId: Long, categoryId: Long)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteCategory(accountId: Long, categoryId: Long)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/category/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def duplicateCategory(version: BigDecimal, accountId: Long, categoryId: Long, appKey: String, parentCategoryId: Long)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long]): Task[CategoryTreeResponse] = {
+  def duplicateCategory(accountId: Long, categoryId: Long, appKey: String, parentCategoryId: Long)(implicit appKeyQuery: QueryParam[String], accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/duplicate".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/duplicate"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def getCategory(version: BigDecimal, categoryId: Long, returnExternal: Boolean = true)(implicit categoryIdQuery: QueryParam[Long], returnExternalQuery: QueryParam[Boolean]): Task[CategoryTreeResponse] = {
+  def getCategory(categoryId: Long, returnExternal: Boolean = true)(implicit categoryIdQuery: QueryParam[Long], returnExternalQuery: QueryParam[Boolean]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -291,10 +290,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def searchCategories(version: BigDecimal, accountId: Long, keyword: String, appKey: String, categoryId: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean = true, exactMatch: Boolean = false, `type`: String, externalType: String, excludeExternalType: Boolean, minOfferCount: Integer, searchDepth: Integer = 4, searchMode: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], excludeExternalTypeQuery: QueryParam[Boolean], minOfferCountQuery: QueryParam[Integer], searchDepthQuery: QueryParam[Integer], searchModeQuery: QueryParam[String]): Task[List[CategoryResponse]] = {
+  def searchCategories(accountId: Long, keyword: String, appKey: String, categoryId: String, categoryIds: String, parentCategoryIds: String, rootOnly: Boolean, sortField: String = DISPLAY, responseGroup: String, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, returnExternal: Boolean = true, exactMatch: Boolean = false, `type`: String, externalType: String, excludeExternalType: Boolean, minOfferCount: Integer, searchDepth: Integer = 4, searchMode: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], appKeyQuery: QueryParam[String], categoryIdQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], parentCategoryIdsQuery: QueryParam[String], rootOnlyQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], responseGroupQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], returnExternalQuery: QueryParam[Boolean], exactMatchQuery: QueryParam[Boolean], `type`Query: QueryParam[String], externalTypeQuery: QueryParam[String], excludeExternalTypeQuery: QueryParam[Boolean], minOfferCountQuery: QueryParam[Integer], searchDepthQuery: QueryParam[Integer], searchModeQuery: QueryParam[String]): Task[List[CategoryResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CategoryResponse]] = jsonOf[List[CategoryResponse]]
 
-    val path = "/api/{version}/category/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -312,10 +311,10 @@ class HttpServiceCategoryApi(service: HttpService) {
     } yield resp
   }
 
-  def updateCategory(version: BigDecimal, accountId: Long, categoryId: Long, parentCategoryId: Long, name: String, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
+  def updateCategory(accountId: Long, categoryId: Long, parentCategoryId: Long, name: String, description: String, `type`: String, assetId: Long, externalId: String, externalType: String, externalCategorySlug: String, sqootSlug: String, active: Boolean, metaData: String, searchTags: String)(implicit accountIdQuery: QueryParam[Long], categoryIdQuery: QueryParam[Long], parentCategoryIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], `type`Query: QueryParam[String], assetIdQuery: QueryParam[Long], externalIdQuery: QueryParam[String], externalTypeQuery: QueryParam[String], externalCategorySlugQuery: QueryParam[String], sqootSlugQuery: QueryParam[String], activeQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], searchTagsQuery: QueryParam[String]): Task[CategoryTreeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CategoryTreeResponse] = jsonOf[CategoryTreeResponse]
 
-    val path = "/api/{version}/category/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/category/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

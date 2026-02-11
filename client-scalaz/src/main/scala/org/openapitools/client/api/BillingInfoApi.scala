@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PaymentTypesResponse
 
 object BillingInfoApi {
@@ -30,10 +29,10 @@ object BillingInfoApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addPaymentMethod(host: String, version: BigDecimal, accountId: Long, paymentMethodId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, defaultPaymentMethod: Boolean, paymentMethodNickname: String, taxId: String, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def addPaymentMethod(host: String, accountId: Long, paymentMethodId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, defaultPaymentMethod: Boolean, paymentMethodNickname: String, taxId: String, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object BillingInfoApi {
     } yield resp
   }
 
-  def createPaymentMethod(host: String, version: BigDecimal, accountId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, paymentMethodNickname: String, taxId: String, defaultPaymentMethod: Boolean = true, authToken: String, provider: String = AUTHORIZE_NET, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], authTokenQuery: QueryParam[String], providerQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def createPaymentMethod(host: String, accountId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, paymentMethodNickname: String, taxId: String, defaultPaymentMethod: Boolean = true, authToken: String, provider: String = AUTHORIZE_NET, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], authTokenQuery: QueryParam[String], providerQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +71,10 @@ object BillingInfoApi {
     } yield resp
   }
 
-  def createSmartContract(host: String, version: BigDecimal, accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], tokenNameQuery: QueryParam[String], tokenSymbolQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def createSmartContract(host: String, accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], tokenNameQuery: QueryParam[String], tokenSymbolQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/crypto/transfer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/crypto/transfer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -93,10 +92,10 @@ object BillingInfoApi {
     } yield resp
   }
 
-  def getCryptoBalance(host: String, version: BigDecimal, accountId: Long, ownerAccountId: Long, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long]): Task[PaymentTypesResponse] = {
+  def getCryptoBalance(host: String, accountId: Long, ownerAccountId: Long, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/crypto/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/crypto/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -114,10 +113,10 @@ object BillingInfoApi {
     } yield resp
   }
 
-  def getPaymentMethod(host: String, version: BigDecimal, accountId: Long, paymentMethodId: Long, getCurrentBalance: Boolean)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], getCurrentBalanceQuery: QueryParam[Boolean]): Task[PaymentTypesResponse] = {
+  def getPaymentMethod(host: String, accountId: Long, paymentMethodId: Long, getCurrentBalance: Boolean)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], getCurrentBalanceQuery: QueryParam[Boolean]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -135,10 +134,10 @@ object BillingInfoApi {
     } yield resp
   }
 
-  def searchPaymentMethod(host: String, version: BigDecimal, accountId: Long, provider: String = AUTHORIZE_NET, `type`: String, keyword: String, sortField: String = UPDATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 5)(implicit accountIdQuery: QueryParam[Long], providerQuery: QueryParam[String], `type`Query: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PaymentTypesResponse] = {
+  def searchPaymentMethod(host: String, accountId: Long, provider: String = AUTHORIZE_NET, `type`: String, keyword: String, sortField: String = UPDATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 5)(implicit accountIdQuery: QueryParam[Long], providerQuery: QueryParam[String], `type`Query: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -163,10 +162,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addPaymentMethod(version: BigDecimal, accountId: Long, paymentMethodId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, defaultPaymentMethod: Boolean, paymentMethodNickname: String, taxId: String, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def addPaymentMethod(accountId: Long, paymentMethodId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, defaultPaymentMethod: Boolean, paymentMethodNickname: String, taxId: String, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -184,10 +183,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
     } yield resp
   }
 
-  def createPaymentMethod(version: BigDecimal, accountId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, paymentMethodNickname: String, taxId: String, defaultPaymentMethod: Boolean = true, authToken: String, provider: String = AUTHORIZE_NET, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], authTokenQuery: QueryParam[String], providerQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def createPaymentMethod(accountId: Long, accountName: String, firstName: String, lastName: String, address: String, city: String, state: String, postalCode: String, country: String, phone: String, creditCardNumber: String, expirationDate: String, ccv: String, accountNumber: String, bankName: String, routingNumber: String, paymentMethodNickname: String, taxId: String, defaultPaymentMethod: Boolean = true, authToken: String, provider: String = AUTHORIZE_NET, providerCustomerProfileId: String, providerPaymentProfileId: String, metaData: String, appKey: String)(implicit accountIdQuery: QueryParam[Long], accountNameQuery: QueryParam[String], firstNameQuery: QueryParam[String], lastNameQuery: QueryParam[String], addressQuery: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], countryQuery: QueryParam[String], phoneQuery: QueryParam[String], creditCardNumberQuery: QueryParam[String], expirationDateQuery: QueryParam[String], ccvQuery: QueryParam[String], accountNumberQuery: QueryParam[String], bankNameQuery: QueryParam[String], routingNumberQuery: QueryParam[String], paymentMethodNicknameQuery: QueryParam[String], taxIdQuery: QueryParam[String], defaultPaymentMethodQuery: QueryParam[Boolean], authTokenQuery: QueryParam[String], providerQuery: QueryParam[String], providerCustomerProfileIdQuery: QueryParam[String], providerPaymentProfileIdQuery: QueryParam[String], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -205,10 +204,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
     } yield resp
   }
 
-  def createSmartContract(version: BigDecimal, accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], tokenNameQuery: QueryParam[String], tokenSymbolQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
+  def createSmartContract(accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], tokenNameQuery: QueryParam[String], tokenSymbolQuery: QueryParam[String]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/crypto/transfer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/crypto/transfer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -226,10 +225,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
     } yield resp
   }
 
-  def getCryptoBalance(version: BigDecimal, accountId: Long, ownerAccountId: Long, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long]): Task[PaymentTypesResponse] = {
+  def getCryptoBalance(accountId: Long, ownerAccountId: Long, paymentMethodId: Long)(implicit accountIdQuery: QueryParam[Long], ownerAccountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/crypto/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/crypto/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -247,10 +246,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
     } yield resp
   }
 
-  def getPaymentMethod(version: BigDecimal, accountId: Long, paymentMethodId: Long, getCurrentBalance: Boolean)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], getCurrentBalanceQuery: QueryParam[Boolean]): Task[PaymentTypesResponse] = {
+  def getPaymentMethod(accountId: Long, paymentMethodId: Long, getCurrentBalance: Boolean)(implicit accountIdQuery: QueryParam[Long], paymentMethodIdQuery: QueryParam[Long], getCurrentBalanceQuery: QueryParam[Boolean]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -268,10 +267,10 @@ class HttpServiceBillingInfoApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPaymentMethod(version: BigDecimal, accountId: Long, provider: String = AUTHORIZE_NET, `type`: String, keyword: String, sortField: String = UPDATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 5)(implicit accountIdQuery: QueryParam[Long], providerQuery: QueryParam[String], `type`Query: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PaymentTypesResponse] = {
+  def searchPaymentMethod(accountId: Long, provider: String = AUTHORIZE_NET, `type`: String, keyword: String, sortField: String = UPDATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 5)(implicit accountIdQuery: QueryParam[Long], providerQuery: QueryParam[String], `type`Query: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[PaymentTypesResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PaymentTypesResponse] = jsonOf[PaymentTypesResponse]
 
-    val path = "/api/{version}/billing/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billing/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

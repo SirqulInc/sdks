@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.WrappedProxyItemResponse
 
 object OpenAIApi {
@@ -30,10 +29,10 @@ object OpenAIApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def imageGeneration(host: String, version: BigDecimal, accountId: Long, `postBody`: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], `postBody`Query: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[WrappedProxyItemResponse] = {
+  def imageGeneration(host: String, accountId: Long, `postBody`: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], `postBody`Query: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[WrappedProxyItemResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedProxyItemResponse] = jsonOf[WrappedProxyItemResponse]
 
-    val path = "/api/{version}/openai/v1/images/generations".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/openai/v1/images/generations"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceOpenAIApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def imageGeneration(version: BigDecimal, accountId: Long, `postBody`: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], `postBody`Query: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[WrappedProxyItemResponse] = {
+  def imageGeneration(accountId: Long, `postBody`: String, returnRawResponse: Boolean)(implicit accountIdQuery: QueryParam[Long], `postBody`Query: QueryParam[String], returnRawResponseQuery: QueryParam[Boolean]): Task[WrappedProxyItemResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WrappedProxyItemResponse] = jsonOf[WrappedProxyItemResponse]
 
-    val path = "/api/{version}/openai/v1/images/generations".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/openai/v1/images/generations"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

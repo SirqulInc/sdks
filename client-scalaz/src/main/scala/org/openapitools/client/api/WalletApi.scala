@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.OfferTransactionResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object WalletApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createOfferTransaction(host: String, version: BigDecimal, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String, status: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer]): Task[List[OfferTransactionResponse]] = {
+  def createOfferTransaction(host: String, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String, status: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object WalletApi {
     } yield resp
   }
 
-  def deleteOfferTransaction(host: String, version: BigDecimal, transactionId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteOfferTransaction(host: String, transactionId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/wallet/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object WalletApi {
     } yield resp
   }
 
-  def getOfferTransaction(host: String, version: BigDecimal, transactionId: Long, deviceId: String, accountId: Long, includeMission: Boolean = false, latitude: Double, longitude: Double, returnFullResponse: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], includeMissionQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnFullResponseQuery: QueryParam[Boolean]): Task[OfferTransactionResponse] = {
+  def getOfferTransaction(host: String, transactionId: Long, deviceId: String, accountId: Long, includeMission: Boolean = false, latitude: Double, longitude: Double, returnFullResponse: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], includeMissionQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnFullResponseQuery: QueryParam[Boolean]): Task[OfferTransactionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionResponse] = jsonOf[OfferTransactionResponse]
 
-    val path = "/api/{version}/wallet/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object WalletApi {
     } yield resp
   }
 
-  def previewOfferTransaction(host: String, version: BigDecimal, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[List[OfferTransactionResponse]] = {
+  def previewOfferTransaction(host: String, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/preview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/preview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object WalletApi {
     } yield resp
   }
 
-  def searchOfferTransactions(host: String, version: BigDecimal, deviceId: String, accountId: Long, keyword: String, retailerId: Long, retailerIds: String, retailerLocationId: Long, retailerLocationIds: String, excludeRetailerLocationIds: String, offerId: Long, offerIds: String, offerLocationId: Long, offerLocationIds: String, offerType: String, offerTypes: String, specialOfferType: String, specialOfferTypes: String, categoryIds: String, filterIds: String, offerAudienceIds: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, latitude: Double, longitude: Double, redeemableStartDate: Long, redeemableEndDate: Long, filterByParentOffer: Boolean = false, startedSince: Long, startedBefore: Long, endedSince: Long, endedBefore: Long, redeemed: Boolean = false, statuses: String, reservationsOnly: Boolean = false, activeOnly: Boolean = false, returnFullResponse: Boolean = false, recurringStartedSince: Long, recurringStartedBefore: Long, recurringExpirationSince: Long, recurringExpirationBefore: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerIdsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], excludeRetailerLocationIdsQuery: QueryParam[String], offerIdQuery: QueryParam[Long], offerIdsQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long], offerLocationIdsQuery: QueryParam[String], offerTypeQuery: QueryParam[String], offerTypesQuery: QueryParam[String], specialOfferTypeQuery: QueryParam[String], specialOfferTypesQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], redeemableStartDateQuery: QueryParam[Long], redeemableEndDateQuery: QueryParam[Long], filterByParentOfferQuery: QueryParam[Boolean], startedSinceQuery: QueryParam[Long], startedBeforeQuery: QueryParam[Long], endedSinceQuery: QueryParam[Long], endedBeforeQuery: QueryParam[Long], redeemedQuery: QueryParam[Boolean], statusesQuery: QueryParam[String], reservationsOnlyQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], recurringStartedSinceQuery: QueryParam[Long], recurringStartedBeforeQuery: QueryParam[Long], recurringExpirationSinceQuery: QueryParam[Long], recurringExpirationBeforeQuery: QueryParam[Long]): Task[List[OfferTransactionResponse]] = {
+  def searchOfferTransactions(host: String, deviceId: String, accountId: Long, keyword: String, retailerId: Long, retailerIds: String, retailerLocationId: Long, retailerLocationIds: String, excludeRetailerLocationIds: String, offerId: Long, offerIds: String, offerLocationId: Long, offerLocationIds: String, offerType: String, offerTypes: String, specialOfferType: String, specialOfferTypes: String, categoryIds: String, filterIds: String, offerAudienceIds: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, latitude: Double, longitude: Double, redeemableStartDate: Long, redeemableEndDate: Long, filterByParentOffer: Boolean = false, startedSince: Long, startedBefore: Long, endedSince: Long, endedBefore: Long, redeemed: Boolean = false, statuses: String, reservationsOnly: Boolean = false, activeOnly: Boolean = false, returnFullResponse: Boolean = false, recurringStartedSince: Long, recurringStartedBefore: Long, recurringExpirationSince: Long, recurringExpirationBefore: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerIdsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], excludeRetailerLocationIdsQuery: QueryParam[String], offerIdQuery: QueryParam[Long], offerIdsQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long], offerLocationIdsQuery: QueryParam[String], offerTypeQuery: QueryParam[String], offerTypesQuery: QueryParam[String], specialOfferTypeQuery: QueryParam[String], specialOfferTypesQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], redeemableStartDateQuery: QueryParam[Long], redeemableEndDateQuery: QueryParam[Long], filterByParentOfferQuery: QueryParam[Boolean], startedSinceQuery: QueryParam[Long], startedBeforeQuery: QueryParam[Long], endedSinceQuery: QueryParam[Long], endedBeforeQuery: QueryParam[Long], redeemedQuery: QueryParam[Boolean], statusesQuery: QueryParam[String], reservationsOnlyQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], recurringStartedSinceQuery: QueryParam[Long], recurringStartedBeforeQuery: QueryParam[Long], recurringExpirationSinceQuery: QueryParam[Long], recurringExpirationBeforeQuery: QueryParam[Long]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -136,10 +135,10 @@ object WalletApi {
     } yield resp
   }
 
-  def updateOfferTransaction(host: String, version: BigDecimal, transactionId: Long, status: Integer, deviceId: String, accountId: Long, offerLocationId: Long, currencyType: String = CASH, usePoints: Boolean, appKey: String, latitude: Double, longitude: Double, metaData: String, returnFullResponse: Boolean = false, exceptionMembershipOfferIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], returnFullResponseQuery: QueryParam[Boolean], exceptionMembershipOfferIdsQuery: QueryParam[String]): Task[OfferTransactionResponse] = {
+  def updateOfferTransaction(host: String, transactionId: Long, status: Integer, deviceId: String, accountId: Long, offerLocationId: Long, currencyType: String = CASH, usePoints: Boolean, appKey: String, latitude: Double, longitude: Double, metaData: String, returnFullResponse: Boolean = false, exceptionMembershipOfferIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], returnFullResponseQuery: QueryParam[Boolean], exceptionMembershipOfferIdsQuery: QueryParam[String]): Task[OfferTransactionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionResponse] = jsonOf[OfferTransactionResponse]
 
-    val path = "/api/{version}/wallet/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceWalletApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createOfferTransaction(version: BigDecimal, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String, status: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer]): Task[List[OfferTransactionResponse]] = {
+  def createOfferTransaction(deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String, status: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceWalletApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteOfferTransaction(version: BigDecimal, transactionId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteOfferTransaction(transactionId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/wallet/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceWalletApi(service: HttpService) {
     } yield resp
   }
 
-  def getOfferTransaction(version: BigDecimal, transactionId: Long, deviceId: String, accountId: Long, includeMission: Boolean = false, latitude: Double, longitude: Double, returnFullResponse: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], includeMissionQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnFullResponseQuery: QueryParam[Boolean]): Task[OfferTransactionResponse] = {
+  def getOfferTransaction(transactionId: Long, deviceId: String, accountId: Long, includeMission: Boolean = false, latitude: Double, longitude: Double, returnFullResponse: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], includeMissionQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], returnFullResponseQuery: QueryParam[Boolean]): Task[OfferTransactionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionResponse] = jsonOf[OfferTransactionResponse]
 
-    val path = "/api/{version}/wallet/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceWalletApi(service: HttpService) {
     } yield resp
   }
 
-  def previewOfferTransaction(version: BigDecimal, deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[List[OfferTransactionResponse]] = {
+  def previewOfferTransaction(deviceId: String, accountId: Long, offerId: Long, offerLocationId: Long, offerCart: String, promoCode: String, currencyType: String = CASH, usePoints: Boolean, metaData: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], offerCartQuery: QueryParam[String], promoCodeQuery: QueryParam[String], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], metaDataQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/preview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/preview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -248,10 +247,10 @@ class HttpServiceWalletApi(service: HttpService) {
     } yield resp
   }
 
-  def searchOfferTransactions(version: BigDecimal, deviceId: String, accountId: Long, keyword: String, retailerId: Long, retailerIds: String, retailerLocationId: Long, retailerLocationIds: String, excludeRetailerLocationIds: String, offerId: Long, offerIds: String, offerLocationId: Long, offerLocationIds: String, offerType: String, offerTypes: String, specialOfferType: String, specialOfferTypes: String, categoryIds: String, filterIds: String, offerAudienceIds: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, latitude: Double, longitude: Double, redeemableStartDate: Long, redeemableEndDate: Long, filterByParentOffer: Boolean = false, startedSince: Long, startedBefore: Long, endedSince: Long, endedBefore: Long, redeemed: Boolean = false, statuses: String, reservationsOnly: Boolean = false, activeOnly: Boolean = false, returnFullResponse: Boolean = false, recurringStartedSince: Long, recurringStartedBefore: Long, recurringExpirationSince: Long, recurringExpirationBefore: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerIdsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], excludeRetailerLocationIdsQuery: QueryParam[String], offerIdQuery: QueryParam[Long], offerIdsQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long], offerLocationIdsQuery: QueryParam[String], offerTypeQuery: QueryParam[String], offerTypesQuery: QueryParam[String], specialOfferTypeQuery: QueryParam[String], specialOfferTypesQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], redeemableStartDateQuery: QueryParam[Long], redeemableEndDateQuery: QueryParam[Long], filterByParentOfferQuery: QueryParam[Boolean], startedSinceQuery: QueryParam[Long], startedBeforeQuery: QueryParam[Long], endedSinceQuery: QueryParam[Long], endedBeforeQuery: QueryParam[Long], redeemedQuery: QueryParam[Boolean], statusesQuery: QueryParam[String], reservationsOnlyQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], recurringStartedSinceQuery: QueryParam[Long], recurringStartedBeforeQuery: QueryParam[Long], recurringExpirationSinceQuery: QueryParam[Long], recurringExpirationBeforeQuery: QueryParam[Long]): Task[List[OfferTransactionResponse]] = {
+  def searchOfferTransactions(deviceId: String, accountId: Long, keyword: String, retailerId: Long, retailerIds: String, retailerLocationId: Long, retailerLocationIds: String, excludeRetailerLocationIds: String, offerId: Long, offerIds: String, offerLocationId: Long, offerLocationIds: String, offerType: String, offerTypes: String, specialOfferType: String, specialOfferTypes: String, categoryIds: String, filterIds: String, offerAudienceIds: String, sortField: String = CREATED, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, latitude: Double, longitude: Double, redeemableStartDate: Long, redeemableEndDate: Long, filterByParentOffer: Boolean = false, startedSince: Long, startedBefore: Long, endedSince: Long, endedBefore: Long, redeemed: Boolean = false, statuses: String, reservationsOnly: Boolean = false, activeOnly: Boolean = false, returnFullResponse: Boolean = false, recurringStartedSince: Long, recurringStartedBefore: Long, recurringExpirationSince: Long, recurringExpirationBefore: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerIdsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], excludeRetailerLocationIdsQuery: QueryParam[String], offerIdQuery: QueryParam[Long], offerIdsQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long], offerLocationIdsQuery: QueryParam[String], offerTypeQuery: QueryParam[String], offerTypesQuery: QueryParam[String], specialOfferTypeQuery: QueryParam[String], specialOfferTypesQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], redeemableStartDateQuery: QueryParam[Long], redeemableEndDateQuery: QueryParam[Long], filterByParentOfferQuery: QueryParam[Boolean], startedSinceQuery: QueryParam[Long], startedBeforeQuery: QueryParam[Long], endedSinceQuery: QueryParam[Long], endedBeforeQuery: QueryParam[Long], redeemedQuery: QueryParam[Boolean], statusesQuery: QueryParam[String], reservationsOnlyQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnFullResponseQuery: QueryParam[Boolean], recurringStartedSinceQuery: QueryParam[Long], recurringStartedBeforeQuery: QueryParam[Long], recurringExpirationSinceQuery: QueryParam[Long], recurringExpirationBeforeQuery: QueryParam[Long]): Task[List[OfferTransactionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionResponse]] = jsonOf[List[OfferTransactionResponse]]
 
-    val path = "/api/{version}/wallet/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -269,10 +268,10 @@ class HttpServiceWalletApi(service: HttpService) {
     } yield resp
   }
 
-  def updateOfferTransaction(version: BigDecimal, transactionId: Long, status: Integer, deviceId: String, accountId: Long, offerLocationId: Long, currencyType: String = CASH, usePoints: Boolean, appKey: String, latitude: Double, longitude: Double, metaData: String, returnFullResponse: Boolean = false, exceptionMembershipOfferIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], returnFullResponseQuery: QueryParam[Boolean], exceptionMembershipOfferIdsQuery: QueryParam[String]): Task[OfferTransactionResponse] = {
+  def updateOfferTransaction(transactionId: Long, status: Integer, deviceId: String, accountId: Long, offerLocationId: Long, currencyType: String = CASH, usePoints: Boolean, appKey: String, latitude: Double, longitude: Double, metaData: String, returnFullResponse: Boolean = false, exceptionMembershipOfferIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], currencyTypeQuery: QueryParam[String], usePointsQuery: QueryParam[Boolean], appKeyQuery: QueryParam[String], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], metaDataQuery: QueryParam[String], returnFullResponseQuery: QueryParam[Boolean], exceptionMembershipOfferIdsQuery: QueryParam[String]): Task[OfferTransactionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionResponse] = jsonOf[OfferTransactionResponse]
 
-    val path = "/api/{version}/wallet/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/wallet/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

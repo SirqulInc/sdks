@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.EventAttendanceResponse
 import org.openapitools.client.api.OfferResponse
 import org.openapitools.client.api.OfferShortResponse
@@ -33,10 +32,10 @@ object EventApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def attendEvent(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, listingId: Long, retailerLocationId: Long, offerLocationId: Long, transactionId: Long, status: Integer, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[OfferResponse] = {
+  def attendEvent(host: String, deviceId: String, accountId: Long, appKey: String, listingId: Long, retailerLocationId: Long, offerLocationId: Long, transactionId: Long, status: Integer, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/attend".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/attend"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object EventApi {
     } yield resp
   }
 
-  def createEvent(host: String, version: BigDecimal, accountId: Long, title: String, retailerLocationIds: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[OfferResponse] = {
+  def createEvent(host: String, accountId: Long, title: String, retailerLocationIds: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object EventApi {
     } yield resp
   }
 
-  def deleteEvent(host: String, version: BigDecimal, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteEvent(host: String, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/event/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object EventApi {
     } yield resp
   }
 
-  def getEvent(host: String, version: BigDecimal, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[OfferResponse] = {
+  def getEvent(host: String, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object EventApi {
     } yield resp
   }
 
-  def searchEventTransactions(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, keyword: String, retailerId: Long, retailerLocationId: Long, excludeRetailerLocationId: Long, listingId: Long, offerId: Long, offerLocationId: Long, customerAccountIds: String, affiliatedCategoryIds: String, startDate: Long, endDate: Long, statuses: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], excludeRetailerLocationIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], customerAccountIdsQuery: QueryParam[String], affiliatedCategoryIdsQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], statusesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[EventAttendanceResponse]] = {
+  def searchEventTransactions(host: String, deviceId: String, accountId: Long, appKey: String, keyword: String, retailerId: Long, retailerLocationId: Long, excludeRetailerLocationId: Long, listingId: Long, offerId: Long, offerLocationId: Long, customerAccountIds: String, affiliatedCategoryIds: String, startDate: Long, endDate: Long, statuses: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], excludeRetailerLocationIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], customerAccountIdsQuery: QueryParam[String], affiliatedCategoryIdsQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], statusesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[EventAttendanceResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[EventAttendanceResponse]] = jsonOf[List[EventAttendanceResponse]]
 
-    val path = "/api/{version}/event/attendance/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/attendance/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,10 +137,10 @@ object EventApi {
     } yield resp
   }
 
-  def searchEvents(host: String, version: BigDecimal, accountId: Long, keyword: String, activeOnly: Boolean, categoryIds: String, filterIds: String, offerAudienceIds: String, transactionAudienceIds: String, sortField: String, descending: Boolean, startDate: Long, endDate: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], activeOnlyQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], transactionAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[OfferShortResponse]] = {
+  def searchEvents(host: String, accountId: Long, keyword: String, activeOnly: Boolean, categoryIds: String, filterIds: String, offerAudienceIds: String, transactionAudienceIds: String, sortField: String, descending: Boolean, startDate: Long, endDate: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], activeOnlyQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], transactionAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[OfferShortResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferShortResponse]] = jsonOf[List[OfferShortResponse]]
 
-    val path = "/api/{version}/event/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -159,10 +158,10 @@ object EventApi {
     } yield resp
   }
 
-  def updateEvent(host: String, version: BigDecimal, accountId: Long, eventId: Long, retailerLocationIds: String, title: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long]): Task[OfferResponse] = {
+  def updateEvent(host: String, accountId: Long, eventId: Long, retailerLocationIds: String, title: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceEventApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def attendEvent(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, listingId: Long, retailerLocationId: Long, offerLocationId: Long, transactionId: Long, status: Integer, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[OfferResponse] = {
+  def attendEvent(deviceId: String, accountId: Long, appKey: String, listingId: Long, retailerLocationId: Long, offerLocationId: Long, transactionId: Long, status: Integer, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], transactionIdQuery: QueryParam[Long], statusQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/attend".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/attend"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -208,10 +207,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def createEvent(version: BigDecimal, accountId: Long, title: String, retailerLocationIds: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[OfferResponse] = {
+  def createEvent(accountId: Long, title: String, retailerLocationIds: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -229,10 +228,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteEvent(version: BigDecimal, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteEvent(accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/event/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -250,10 +249,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def getEvent(version: BigDecimal, accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[OfferResponse] = {
+  def getEvent(accountId: Long, eventId: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -271,10 +270,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def searchEventTransactions(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, keyword: String, retailerId: Long, retailerLocationId: Long, excludeRetailerLocationId: Long, listingId: Long, offerId: Long, offerLocationId: Long, customerAccountIds: String, affiliatedCategoryIds: String, startDate: Long, endDate: Long, statuses: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], excludeRetailerLocationIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], customerAccountIdsQuery: QueryParam[String], affiliatedCategoryIdsQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], statusesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[EventAttendanceResponse]] = {
+  def searchEventTransactions(deviceId: String, accountId: Long, appKey: String, keyword: String, retailerId: Long, retailerLocationId: Long, excludeRetailerLocationId: Long, listingId: Long, offerId: Long, offerLocationId: Long, customerAccountIds: String, affiliatedCategoryIds: String, startDate: Long, endDate: Long, statuses: String, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], excludeRetailerLocationIdQuery: QueryParam[Long], listingIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], customerAccountIdsQuery: QueryParam[String], affiliatedCategoryIdsQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], statusesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[EventAttendanceResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[EventAttendanceResponse]] = jsonOf[List[EventAttendanceResponse]]
 
-    val path = "/api/{version}/event/attendance/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/attendance/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -292,10 +291,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def searchEvents(version: BigDecimal, accountId: Long, keyword: String, activeOnly: Boolean, categoryIds: String, filterIds: String, offerAudienceIds: String, transactionAudienceIds: String, sortField: String, descending: Boolean, startDate: Long, endDate: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], activeOnlyQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], transactionAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[OfferShortResponse]] = {
+  def searchEvents(accountId: Long, keyword: String, activeOnly: Boolean, categoryIds: String, filterIds: String, offerAudienceIds: String, transactionAudienceIds: String, sortField: String, descending: Boolean, startDate: Long, endDate: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], activeOnlyQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], offerAudienceIdsQuery: QueryParam[String], transactionAudienceIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[OfferShortResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferShortResponse]] = jsonOf[List[OfferShortResponse]]
 
-    val path = "/api/{version}/event/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -313,10 +312,10 @@ class HttpServiceEventApi(service: HttpService) {
     } yield resp
   }
 
-  def updateEvent(version: BigDecimal, accountId: Long, eventId: Long, retailerLocationIds: String, title: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long]): Task[OfferResponse] = {
+  def updateEvent(accountId: Long, eventId: Long, retailerLocationIds: String, title: String, subTitle: String, details: String, categoryIds: String, filterIds: String, active: Boolean, imageAssetId: Long, redeemableStart: Long, redeemableEnd: Long)(implicit accountIdQuery: QueryParam[Long], eventIdQuery: QueryParam[Long], retailerLocationIdsQuery: QueryParam[String], titleQuery: QueryParam[String], subTitleQuery: QueryParam[String], detailsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], activeQuery: QueryParam[Boolean], imageAssetIdQuery: QueryParam[Long], redeemableStartQuery: QueryParam[Long], redeemableEndQuery: QueryParam[Long]): Task[OfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferResponse] = jsonOf[OfferResponse]
 
-    val path = "/api/{version}/event/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/event/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

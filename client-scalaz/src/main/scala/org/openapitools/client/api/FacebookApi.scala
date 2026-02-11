@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.TokenResponse
 
@@ -31,10 +30,10 @@ object FacebookApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getToken(host: String, version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[TokenResponse] = {
+  def getToken(host: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[TokenResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TokenResponse] = jsonOf[TokenResponse]
 
-    val path = "/api/{version}/facebook/getfbtoken".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/facebook/getfbtoken"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object FacebookApi {
     } yield resp
   }
 
-  def graphInterface(host: String, version: BigDecimal, event: String, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, assetId: Long, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], eventQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def graphInterface(host: String, event: String, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, assetId: Long, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], eventQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/facebook/graph".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/facebook/graph"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -80,10 +79,10 @@ class HttpServiceFacebookApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getToken(version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[TokenResponse] = {
+  def getToken(deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[TokenResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TokenResponse] = jsonOf[TokenResponse]
 
-    val path = "/api/{version}/facebook/getfbtoken".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/facebook/getfbtoken"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -101,10 +100,10 @@ class HttpServiceFacebookApi(service: HttpService) {
     } yield resp
   }
 
-  def graphInterface(version: BigDecimal, event: String, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, assetId: Long, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], eventQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def graphInterface(event: String, deviceId: String, accountId: Long, permissionableType: String, permissionableId: Long, assetId: Long, gameType: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], eventQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/facebook/graph".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/facebook/graph"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

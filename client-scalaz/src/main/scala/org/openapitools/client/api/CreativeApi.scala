@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CreativeResponse
 import org.openapitools.client.api.MissionResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object CreativeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addPreview(host: String, version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def addPreview(host: String, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/addpreview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/addpreview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def adsFind(host: String, version: BigDecimal, appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: String, accountId: Long, appVersion: String, latitude: Double, longitude: Double, device: String, deviceIdentifier: Long, deviceVersion: String, start: Integer, limit: Integer, includeAudiences: Boolean, allocatesTickets: Boolean, missionIds: String)(implicit appKeyQuery: QueryParam[String], `type`Query: QueryParam[String], accountIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], deviceQuery: QueryParam[String], deviceIdentifierQuery: QueryParam[Long], deviceVersionQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeAudiencesQuery: QueryParam[Boolean], allocatesTicketsQuery: QueryParam[Boolean], randomizeQuery: QueryParam[Boolean], targetedAdsOnlyQuery: QueryParam[Boolean], missionIdsQuery: QueryParam[String]): Task[List[MissionResponse]] = {
+  def adsFind(host: String, appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: String, accountId: Long, appVersion: String, latitude: Double, longitude: Double, device: String, deviceIdentifier: Long, deviceVersion: String, start: Integer, limit: Integer, includeAudiences: Boolean, allocatesTickets: Boolean, missionIds: String)(implicit appKeyQuery: QueryParam[String], `type`Query: QueryParam[String], accountIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], deviceQuery: QueryParam[String], deviceIdentifierQuery: QueryParam[Long], deviceVersionQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeAudiencesQuery: QueryParam[Boolean], allocatesTicketsQuery: QueryParam[Boolean], randomizeQuery: QueryParam[Boolean], targetedAdsOnlyQuery: QueryParam[Boolean], missionIdsQuery: QueryParam[String]): Task[List[MissionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[MissionResponse]] = jsonOf[List[MissionResponse]]
 
-    val path = "/api/{version}/ads/find".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ads/find"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def createCreative(host: String, version: BigDecimal, accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, referenceId: Long, appVersion: String, missionId: Long, offerId: Long)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], waitForAssetQuery: QueryParam[Boolean]): Task[CreativeResponse] = {
+  def createCreative(host: String, accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, referenceId: Long, appVersion: String, missionId: Long, offerId: Long)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], waitForAssetQuery: QueryParam[Boolean]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def deleteCreative(host: String, version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteCreative(host: String, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def getCreative(host: String, version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
+  def getCreative(host: String, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def getCreativesByApplication(host: String, version: BigDecimal, accountId: Long, appKey: String, start: Integer, limit: Integer, missionId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[CreativeResponse]] = {
+  def getCreativesByApplication(host: String, accountId: Long, appKey: String, start: Integer, limit: Integer, missionId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[CreativeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CreativeResponse]] = jsonOf[List[CreativeResponse]]
 
-    val path = "/api/{version}/creative/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -158,10 +157,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def removePreview(host: String, version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def removePreview(host: String, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/removepreview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/removepreview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -179,10 +178,10 @@ object CreativeApi {
     } yield resp
   }
 
-  def updateCreative(host: String, version: BigDecimal, accountId: Long, creativeId: Long, name: String, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, active: Boolean, referenceId: Long, appVersion: String, missionId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
+  def updateCreative(host: String, accountId: Long, creativeId: Long, name: String, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, active: Boolean, referenceId: Long, appVersion: String, missionId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceCreativeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addPreview(version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def addPreview(accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/addpreview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/addpreview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def adsFind(version: BigDecimal, appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: String, accountId: Long, appVersion: String, latitude: Double, longitude: Double, device: String, deviceIdentifier: Long, deviceVersion: String, start: Integer, limit: Integer, includeAudiences: Boolean, allocatesTickets: Boolean, missionIds: String)(implicit appKeyQuery: QueryParam[String], `type`Query: QueryParam[String], accountIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], deviceQuery: QueryParam[String], deviceIdentifierQuery: QueryParam[Long], deviceVersionQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeAudiencesQuery: QueryParam[Boolean], allocatesTicketsQuery: QueryParam[Boolean], randomizeQuery: QueryParam[Boolean], targetedAdsOnlyQuery: QueryParam[Boolean], missionIdsQuery: QueryParam[String]): Task[List[MissionResponse]] = {
+  def adsFind(appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: String, accountId: Long, appVersion: String, latitude: Double, longitude: Double, device: String, deviceIdentifier: Long, deviceVersion: String, start: Integer, limit: Integer, includeAudiences: Boolean, allocatesTickets: Boolean, missionIds: String)(implicit appKeyQuery: QueryParam[String], `type`Query: QueryParam[String], accountIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], deviceQuery: QueryParam[String], deviceIdentifierQuery: QueryParam[Long], deviceVersionQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeAudiencesQuery: QueryParam[Boolean], allocatesTicketsQuery: QueryParam[Boolean], randomizeQuery: QueryParam[Boolean], targetedAdsOnlyQuery: QueryParam[Boolean], missionIdsQuery: QueryParam[String]): Task[List[MissionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[MissionResponse]] = jsonOf[List[MissionResponse]]
 
-    val path = "/api/{version}/ads/find".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ads/find"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def createCreative(version: BigDecimal, accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, referenceId: Long, appVersion: String, missionId: Long, offerId: Long)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], waitForAssetQuery: QueryParam[Boolean]): Task[CreativeResponse] = {
+  def createCreative(accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, referenceId: Long, appVersion: String, missionId: Long, offerId: Long)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], waitForAssetQuery: QueryParam[Boolean]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteCreative(version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteCreative(accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -291,10 +290,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def getCreative(version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
+  def getCreative(accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -312,10 +311,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def getCreativesByApplication(version: BigDecimal, accountId: Long, appKey: String, start: Integer, limit: Integer, missionId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[CreativeResponse]] = {
+  def getCreativesByApplication(accountId: Long, appKey: String, start: Integer, limit: Integer, missionId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[CreativeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[CreativeResponse]] = jsonOf[List[CreativeResponse]]
 
-    val path = "/api/{version}/creative/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -333,10 +332,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def removePreview(version: BigDecimal, accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def removePreview(accountId: Long, creativeId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/creative/removepreview".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/removepreview"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -354,10 +353,10 @@ class HttpServiceCreativeApi(service: HttpService) {
     } yield resp
   }
 
-  def updateCreative(version: BigDecimal, accountId: Long, creativeId: Long, name: String, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, active: Boolean, referenceId: Long, appVersion: String, missionId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
+  def updateCreative(accountId: Long, creativeId: Long, name: String, description: String, assetImageId: Long, action: String, data: String, suffix: String, `type`: String, balance: Double, active: Boolean, referenceId: Long, appVersion: String, missionId: Long)(implicit accountIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], actionQuery: QueryParam[String], dataQuery: QueryParam[String], suffixQuery: QueryParam[String], `type`Query: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], referenceIdQuery: QueryParam[Long], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long]): Task[CreativeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CreativeResponse] = jsonOf[CreativeResponse]
 
-    val path = "/api/{version}/creative/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/creative/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

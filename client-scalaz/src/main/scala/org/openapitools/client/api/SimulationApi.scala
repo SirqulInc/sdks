@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object SimulationApi {
@@ -30,10 +29,10 @@ object SimulationApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def simulation(host: String, version: BigDecimal, data: String, realTime: Boolean)(implicit dataQuery: QueryParam[String], realTimeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def simulation(host: String, data: String, realTime: Boolean)(implicit dataQuery: QueryParam[String], realTimeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/simulation/routing".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/simulation/routing"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceSimulationApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def simulation(version: BigDecimal, data: String, realTime: Boolean)(implicit dataQuery: QueryParam[String], realTimeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def simulation(data: String, realTime: Boolean)(implicit dataQuery: QueryParam[String], realTimeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/simulation/routing".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/simulation/routing"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

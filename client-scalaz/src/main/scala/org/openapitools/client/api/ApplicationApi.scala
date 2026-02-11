@@ -25,7 +25,6 @@ import org.openapitools.client.api.AccountListResponse
 import org.openapitools.client.api.ApplicationResponse
 import org.openapitools.client.api.ApplicationSettingsResponse
 import org.openapitools.client.api.ApplicationShortResponse
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.PlacementResponse
 import org.openapitools.client.api.SirqulResponse
@@ -36,10 +35,10 @@ object ApplicationApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createApplication(host: String, version: BigDecimal, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
+  def createApplication(host: String, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -57,10 +56,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def createApplicationPlacement(host: String, version: BigDecimal, appKey: String, size: String, deviceId: String, accountId: Long, name: String, description: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
+  def createApplicationPlacement(host: String, appKey: String, size: String, deviceId: String, accountId: Long, name: String, description: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -78,10 +77,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def deleteApplication(host: String, version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteApplication(host: String, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -99,10 +98,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def deleteApplicationPlacement(host: String, version: BigDecimal, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
+  def deleteApplicationPlacement(host: String, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -120,10 +119,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def getApplication(host: String, version: BigDecimal, appKey: String, applicationId: Long)(implicit appKeyQuery: QueryParam[String], applicationIdQuery: QueryParam[Long]): Task[ApplicationResponse] = {
+  def getApplication(host: String, appKey: String, applicationId: Long)(implicit appKeyQuery: QueryParam[String], applicationIdQuery: QueryParam[Long]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -141,10 +140,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def getApplicationPlacement(host: String, version: BigDecimal, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
+  def getApplicationPlacement(host: String, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -162,10 +161,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def getApplicationVersions(host: String, version: BigDecimal): Task[SirqulResponse] = {
+  def getApplicationVersions(host: String): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/versions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/versions"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -183,10 +182,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def getUniqueUsersByApp(host: String, version: BigDecimal, appKey: String, q: String, keyword: String, since: Long, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sinceQuery: QueryParam[Long], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[AccountListResponse] = {
+  def getUniqueUsersByApp(host: String, appKey: String, q: String, keyword: String, since: Long, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sinceQuery: QueryParam[Long], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[AccountListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AccountListResponse] = jsonOf[AccountListResponse]
 
-    val path = "/api/{version}/application/users".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/users"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -204,10 +203,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def listApplications(host: String, version: BigDecimal, accountId: Long, q: String, keyword: String, platforms: String, deviceIds: String, deviceVersions: String, categoryIds: String, sortField: String = UPDATED, hasAds: Boolean, publicNotifications: Boolean, filterBillable: Boolean, filterContentAdmin: Boolean, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, applicationIds: String, hasObjectStore: Boolean = false, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], platformsQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], filterBillableQuery: QueryParam[Boolean], filterContentAdminQuery: QueryParam[Boolean], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], applicationIdsQuery: QueryParam[String], hasObjectStoreQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationShortResponse]] = {
+  def listApplications(host: String, accountId: Long, q: String, keyword: String, platforms: String, deviceIds: String, deviceVersions: String, categoryIds: String, sortField: String = UPDATED, hasAds: Boolean, publicNotifications: Boolean, filterBillable: Boolean, filterContentAdmin: Boolean, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, applicationIds: String, hasObjectStore: Boolean = false, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], platformsQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], filterBillableQuery: QueryParam[Boolean], filterContentAdminQuery: QueryParam[Boolean], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], applicationIdsQuery: QueryParam[String], hasObjectStoreQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationShortResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationShortResponse]] = jsonOf[List[ApplicationShortResponse]]
 
-    val path = "/api/{version}/application/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -225,10 +224,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def searchApplicationPlacement(host: String, version: BigDecimal, appKey: String, deviceId: String, accountId: Long, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[PlacementResponse]] = {
+  def searchApplicationPlacement(host: String, appKey: String, deviceId: String, accountId: Long, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[PlacementResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PlacementResponse]] = jsonOf[List[PlacementResponse]]
 
-    val path = "/api/{version}/application/placement/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -246,10 +245,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def searchApplicationSettings(host: String, version: BigDecimal, deviceId: String, accountId: Long, connectionAccountId: Long, keyword: String, sortField: String = APPLICATION_TITLE, descending: Boolean = false, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[ApplicationSettingsResponse] = {
+  def searchApplicationSettings(host: String, deviceId: String, accountId: Long, connectionAccountId: Long, keyword: String, sortField: String = APPLICATION_TITLE, descending: Boolean = false, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[ApplicationSettingsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationSettingsResponse] = jsonOf[ApplicationSettingsResponse]
 
-    val path = "/api/{version}/application/settings/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/settings/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -267,10 +266,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def searchApplications(host: String, version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, q: String, keyword: String, qSearchFields: String = NAME,ABOUT,BILLABLE_ENTITY_NAME, sortField: String = APPLICATION_ID, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100, hasAds: Boolean, publicNotifications: Boolean, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], qQuery: QueryParam[String], keywordQuery: QueryParam[String], qSearchFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationResponse]] = {
+  def searchApplications(host: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double, q: String, keyword: String, qSearchFields: String = NAME,ABOUT,BILLABLE_ENTITY_NAME, sortField: String = APPLICATION_ID, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100, hasAds: Boolean, publicNotifications: Boolean, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], qQuery: QueryParam[String], keywordQuery: QueryParam[String], qSearchFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationResponse]] = jsonOf[List[ApplicationResponse]]
 
-    val path = "/api/{version}/application/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -288,10 +287,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def updateApplication(host: String, version: BigDecimal, appKey: String, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
+  def updateApplication(host: String, appKey: String, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -309,10 +308,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def updateApplicationActive(host: String, version: BigDecimal, accountId: Long, appKey: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def updateApplicationActive(host: String, accountId: Long, appKey: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/active".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/active"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -330,10 +329,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def updateApplicationPlacement(host: String, version: BigDecimal, placementId: Long, deviceId: String, accountId: Long, name: String, description: String, size: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
+  def updateApplicationPlacement(host: String, placementId: Long, deviceId: String, accountId: Long, name: String, description: String, size: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -351,10 +350,10 @@ object ApplicationApi {
     } yield resp
   }
 
-  def uploadApplicationCertificate(host: String, version: BigDecimal, appKey: String, deviceId: String, accountId: Long, certificate: File)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], certificateQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def uploadApplicationCertificate(host: String, appKey: String, deviceId: String, accountId: Long, certificate: File)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], certificateQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/certificate/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/certificate/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -379,10 +378,10 @@ class HttpServiceApplicationApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createApplication(version: BigDecimal, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
+  def createApplication(appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -400,10 +399,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def createApplicationPlacement(version: BigDecimal, appKey: String, size: String, deviceId: String, accountId: Long, name: String, description: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
+  def createApplicationPlacement(appKey: String, size: String, deviceId: String, accountId: Long, name: String, description: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -421,10 +420,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteApplication(version: BigDecimal, accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def deleteApplication(accountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -442,10 +441,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
+  def deleteApplicationPlacement(placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -463,10 +462,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def getApplication(version: BigDecimal, appKey: String, applicationId: Long)(implicit appKeyQuery: QueryParam[String], applicationIdQuery: QueryParam[Long]): Task[ApplicationResponse] = {
+  def getApplication(appKey: String, applicationId: Long)(implicit appKeyQuery: QueryParam[String], applicationIdQuery: QueryParam[Long]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -484,10 +483,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def getApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
+  def getApplicationPlacement(placementId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -505,10 +504,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def getApplicationVersions(version: BigDecimal): Task[SirqulResponse] = {
+  def getApplicationVersions(): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/versions".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/versions"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -526,10 +525,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def getUniqueUsersByApp(version: BigDecimal, appKey: String, q: String, keyword: String, since: Long, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sinceQuery: QueryParam[Long], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[AccountListResponse] = {
+  def getUniqueUsersByApp(appKey: String, q: String, keyword: String, since: Long, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20)(implicit appKeyQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sinceQuery: QueryParam[Long], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[AccountListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AccountListResponse] = jsonOf[AccountListResponse]
 
-    val path = "/api/{version}/application/users".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/users"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -547,10 +546,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def listApplications(version: BigDecimal, accountId: Long, q: String, keyword: String, platforms: String, deviceIds: String, deviceVersions: String, categoryIds: String, sortField: String = UPDATED, hasAds: Boolean, publicNotifications: Boolean, filterBillable: Boolean, filterContentAdmin: Boolean, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, applicationIds: String, hasObjectStore: Boolean = false, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], platformsQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], filterBillableQuery: QueryParam[Boolean], filterContentAdminQuery: QueryParam[Boolean], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], applicationIdsQuery: QueryParam[String], hasObjectStoreQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationShortResponse]] = {
+  def listApplications(accountId: Long, q: String, keyword: String, platforms: String, deviceIds: String, deviceVersions: String, categoryIds: String, sortField: String = UPDATED, hasAds: Boolean, publicNotifications: Boolean, filterBillable: Boolean, filterContentAdmin: Boolean, descending: Boolean = true, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 20, applicationIds: String, hasObjectStore: Boolean = false, activeOnly: Boolean = true)(implicit accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], platformsQuery: QueryParam[String], deviceIdsQuery: QueryParam[String], deviceVersionsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], filterBillableQuery: QueryParam[Boolean], filterContentAdminQuery: QueryParam[Boolean], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], applicationIdsQuery: QueryParam[String], hasObjectStoreQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationShortResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationShortResponse]] = jsonOf[List[ApplicationShortResponse]]
 
-    val path = "/api/{version}/application/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -568,10 +567,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def searchApplicationPlacement(version: BigDecimal, appKey: String, deviceId: String, accountId: Long, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[PlacementResponse]] = {
+  def searchApplicationPlacement(appKey: String, deviceId: String, accountId: Long, start: Integer = 0, limit: Integer = 100)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[PlacementResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PlacementResponse]] = jsonOf[List[PlacementResponse]]
 
-    val path = "/api/{version}/application/placement/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -589,10 +588,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def searchApplicationSettings(version: BigDecimal, deviceId: String, accountId: Long, connectionAccountId: Long, keyword: String, sortField: String = APPLICATION_TITLE, descending: Boolean = false, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[ApplicationSettingsResponse] = {
+  def searchApplicationSettings(deviceId: String, accountId: Long, connectionAccountId: Long, keyword: String, sortField: String = APPLICATION_TITLE, descending: Boolean = false, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[ApplicationSettingsResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationSettingsResponse] = jsonOf[ApplicationSettingsResponse]
 
-    val path = "/api/{version}/application/settings/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/settings/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -610,10 +609,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def searchApplications(version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, q: String, keyword: String, qSearchFields: String = NAME,ABOUT,BILLABLE_ENTITY_NAME, sortField: String = APPLICATION_ID, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100, hasAds: Boolean, publicNotifications: Boolean, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], qQuery: QueryParam[String], keywordQuery: QueryParam[String], qSearchFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationResponse]] = {
+  def searchApplications(deviceId: String, accountId: Long, latitude: Double, longitude: Double, q: String, keyword: String, qSearchFields: String = NAME,ABOUT,BILLABLE_ENTITY_NAME, sortField: String = APPLICATION_ID, descending: Boolean = false, i: Integer, start: Integer = 0, l: Integer, limit: Integer = 100, hasAds: Boolean, publicNotifications: Boolean, activeOnly: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], qQuery: QueryParam[String], keywordQuery: QueryParam[String], qSearchFieldsQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], hasAdsQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean]): Task[List[ApplicationResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationResponse]] = jsonOf[List[ApplicationResponse]]
 
-    val path = "/api/{version}/application/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -631,10 +630,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def updateApplication(version: BigDecimal, appKey: String, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
+  def updateApplication(appKey: String, appName: String, deviceId: String, accountId: Long, about: String, bundleId: String, appIconAssetId: Long, appLogoAssetId: Long, facebookAppId: String, facebookAppSecret: String, googleApiKey: String, updateEULADate: Boolean, eulaVersion: String, landingPageUrl: String, showInActivities: Boolean, activityDescription: String, inviteWelcomeText: String, invitePageUrl: String, urlScheme: String, platforms: String, downloadUrls: String, categoryIds: String, scoringType: String = GAME_LEVEL, hintCost: Integer = 11, maxScore: Integer = 125, ticketsPerPoint: Float = 0.037, hasGameData: Boolean = true, publicNotifications: Boolean, useMatchingAlgorithm: Boolean, globalTickets: Boolean = false, buildVersion: Float = 1, apiVersion: Float, placementName: String, placementDescription: String, placementSize: String, placementHeight: Integer, placementWidth: Integer, placementRefreshInterval: Integer, createObjectStore: Boolean = true, publicContentApproval: Boolean = false, productionMode: Boolean = false, minimumSessionLength: Integer, sessionGapLength: Integer, localAdsEnabled: Boolean = false, sqootApiKey: String, trilatProcessingType: String = FINGERPRINT, maxSampleSize: Integer, minRSSI: Double, modules: String = ALL, authorizedCount: Integer = 1, authorizedServers: String, defaultTimezone: String, smtpPass: String, metaData: String, placementMetaData: String, ipsFloor: Boolean = false, enableAPNSBadge: Boolean = true, includeInReport: Boolean = true, defaultAppFilterId: Long, enableWelcomeEmail: Boolean, appleAppId: String, appleTeamId: String, appleAuthKeyId: String, appleAuthKey: File, appleIssuerId: String, appStoreKeyId: String, appStoreKey: File, googlePrivateKeyFile: File, authorizeNetApiKey: String, authorizeNetTransactionKey: String, emailSender: String, smtpUser: String, smtpHost: String, vatomBusinessId: String, vatomRestClientId: String, vatomRestSecretKey: String, twilioAccountSID: String, twilioAuthToken: String, twilioSenderPhoneNumber: String, openAISecretKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appNameQuery: QueryParam[String], aboutQuery: QueryParam[String], bundleIdQuery: QueryParam[String], appIconAssetIdQuery: QueryParam[Long], appLogoAssetIdQuery: QueryParam[Long], facebookAppIdQuery: QueryParam[String], facebookAppSecretQuery: QueryParam[String], googleApiKeyQuery: QueryParam[String], updateEULADateQuery: QueryParam[Boolean], eulaVersionQuery: QueryParam[String], landingPageUrlQuery: QueryParam[String], showInActivitiesQuery: QueryParam[Boolean], activityDescriptionQuery: QueryParam[String], inviteWelcomeTextQuery: QueryParam[String], invitePageUrlQuery: QueryParam[String], urlSchemeQuery: QueryParam[String], platformsQuery: QueryParam[String], downloadUrlsQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], scoringTypeQuery: QueryParam[String], hintCostQuery: QueryParam[Integer], maxScoreQuery: QueryParam[Integer], ticketsPerPointQuery: QueryParam[Float], hasGameDataQuery: QueryParam[Boolean], publicNotificationsQuery: QueryParam[Boolean], useMatchingAlgorithmQuery: QueryParam[Boolean], globalTicketsQuery: QueryParam[Boolean], buildVersionQuery: QueryParam[Float], apiVersionQuery: QueryParam[Float], placementNameQuery: QueryParam[String], placementDescriptionQuery: QueryParam[String], placementSizeQuery: QueryParam[String], placementHeightQuery: QueryParam[Integer], placementWidthQuery: QueryParam[Integer], placementRefreshIntervalQuery: QueryParam[Integer], createObjectStoreQuery: QueryParam[Boolean], publicContentApprovalQuery: QueryParam[Boolean], productionModeQuery: QueryParam[Boolean], minimumSessionLengthQuery: QueryParam[Integer], sessionGapLengthQuery: QueryParam[Integer], localAdsEnabledQuery: QueryParam[Boolean], sqootApiKeyQuery: QueryParam[String], trilatProcessingTypeQuery: QueryParam[String], maxSampleSizeQuery: QueryParam[Integer], minRSSIQuery: QueryParam[Double], modulesQuery: QueryParam[String], authorizedCountQuery: QueryParam[Integer], authorizedServersQuery: QueryParam[String], defaultTimezoneQuery: QueryParam[String], smtpPassQuery: QueryParam[String], metaDataQuery: QueryParam[String], placementMetaDataQuery: QueryParam[String], ipsFloorQuery: QueryParam[Boolean], enableAPNSBadgeQuery: QueryParam[Boolean], includeInReportQuery: QueryParam[Boolean], defaultAppFilterIdQuery: QueryParam[Long], enableWelcomeEmailQuery: QueryParam[Boolean], appleAppIdQuery: QueryParam[String], appleTeamIdQuery: QueryParam[String], appleAuthKeyIdQuery: QueryParam[String], appleAuthKeyQuery: QueryParam[File], appleIssuerIdQuery: QueryParam[String], appStoreKeyIdQuery: QueryParam[String], appStoreKeyQuery: QueryParam[File], googlePrivateKeyFileQuery: QueryParam[File], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String], emailSenderQuery: QueryParam[String], smtpUserQuery: QueryParam[String], smtpHostQuery: QueryParam[String], vatomBusinessIdQuery: QueryParam[String], vatomRestClientIdQuery: QueryParam[String], vatomRestSecretKeyQuery: QueryParam[String], twilioAccountSIDQuery: QueryParam[String], twilioAuthTokenQuery: QueryParam[String], twilioSenderPhoneNumberQuery: QueryParam[String], openAISecretKeyQuery: QueryParam[String]): Task[ApplicationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationResponse] = jsonOf[ApplicationResponse]
 
-    val path = "/api/{version}/application/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -652,10 +651,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def updateApplicationActive(version: BigDecimal, accountId: Long, appKey: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def updateApplicationActive(accountId: Long, appKey: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/active".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/active"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -673,10 +672,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def updateApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: String, accountId: Long, name: String, description: String, size: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
+  def updateApplicationPlacement(placementId: Long, deviceId: String, accountId: Long, name: String, description: String, size: String, height: Integer, width: Integer, refreshInterval: Integer, defaultImageId: Long, active: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], placementIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], sizeQuery: QueryParam[String], heightQuery: QueryParam[Integer], widthQuery: QueryParam[Integer], refreshIntervalQuery: QueryParam[Integer], defaultImageIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[PlacementResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PlacementResponse] = jsonOf[PlacementResponse]
 
-    val path = "/api/{version}/application/placement/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/placement/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -694,10 +693,10 @@ class HttpServiceApplicationApi(service: HttpService) {
     } yield resp
   }
 
-  def uploadApplicationCertificate(version: BigDecimal, appKey: String, deviceId: String, accountId: Long, certificate: File)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], certificateQuery: QueryParam[File]): Task[SirqulResponse] = {
+  def uploadApplicationCertificate(appKey: String, deviceId: String, accountId: Long, certificate: File)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], certificateQuery: QueryParam[File]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/application/certificate/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/application/certificate/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

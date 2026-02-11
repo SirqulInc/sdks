@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Location
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object LocationApiV2Api {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createLocationV2(host: String, version: BigDecimal, body: Location): Task[SirqulResponse] = {
+  def createLocationV2(host: String, body: Location): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object LocationApiV2Api {
     } yield resp
   }
 
-  def updateLocationV2(host: String, version: BigDecimal, id: Long, body: Location): Task[SirqulResponse] = {
+  def updateLocationV2(host: String, id: Long, body: Location): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/location/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -80,10 +79,10 @@ class HttpServiceLocationApiV2Api(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createLocationV2(version: BigDecimal, body: Location): Task[SirqulResponse] = {
+  def createLocationV2(body: Location): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/location"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -101,10 +100,10 @@ class HttpServiceLocationApiV2Api(service: HttpService) {
     } yield resp
   }
 
-  def updateLocationV2(version: BigDecimal, id: Long, body: Location): Task[SirqulResponse] = {
+  def updateLocationV2(id: Long, body: Location): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/location/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/location/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

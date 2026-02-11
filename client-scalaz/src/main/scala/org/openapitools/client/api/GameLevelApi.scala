@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.GameLevelListResponse
 import org.openapitools.client.api.GameLevelResponse
 import org.openapitools.client.api.QuestionResponse
@@ -34,10 +33,10 @@ object GameLevelApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createGameLevel(host: String, version: BigDecimal, accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
+  def createGameLevel(host: String, accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -55,10 +54,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def deleteGameLevel(host: String, version: BigDecimal, accountId: Long, levelId: Long)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteGameLevel(host: String, accountId: Long, levelId: Long)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -76,10 +75,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def getGameLevel(host: String, version: BigDecimal, accountId: Long, levelId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[GameLevelResponse] = {
+  def getGameLevel(host: String, accountId: Long, levelId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -97,10 +96,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def getGameLevelsByApplication(host: String, version: BigDecimal, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, appVersion: String, includeGameData: Boolean, filters: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], appVersionQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean], filtersQuery: QueryParam[String]): Task[GameLevelListResponse] = {
+  def getGameLevelsByApplication(host: String, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, appVersion: String, includeGameData: Boolean, filters: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], appVersionQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean], filtersQuery: QueryParam[String]): Task[GameLevelListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelListResponse] = jsonOf[GameLevelListResponse]
 
-    val path = "/api/{version}/level/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -118,10 +117,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def getGameLevelsByBillableEntity(host: String, version: BigDecimal, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, activeOnly: Boolean, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[GameLevelResponse] = {
+  def getGameLevelsByBillableEntity(host: String, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, activeOnly: Boolean, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/searchByBillableEntity".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/searchByBillableEntity"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -139,10 +138,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def getQuestionsInLevel(host: String, version: BigDecimal, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[QuestionResponse] = {
+  def getQuestionsInLevel(host: String, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[QuestionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[QuestionResponse] = jsonOf[QuestionResponse]
 
-    val path = "/api/{version}/level/questions/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/questions/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -160,10 +159,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def getWordsInLevel(host: String, version: BigDecimal, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def getWordsInLevel(host: String, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/level/words/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/words/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -181,10 +180,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def updateGameLevel(host: String, version: BigDecimal, accountId: Long, levelId: Long, appKey: String, name: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, gameData: String, gameDataSuffix: String, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], levelIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
+  def updateGameLevel(host: String, accountId: Long, levelId: Long, appKey: String, name: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, gameData: String, gameDataSuffix: String, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], levelIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -202,10 +201,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def updateQuestionsInLevel(host: String, version: BigDecimal, levelId: Long, accountId: Long, questionIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], questionIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def updateQuestionsInLevel(host: String, levelId: Long, accountId: Long, questionIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], questionIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/questions/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/questions/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -223,10 +222,10 @@ object GameLevelApi {
     } yield resp
   }
 
-  def updateWordsInLevel(host: String, version: BigDecimal, levelId: Long, accountId: Long, wordIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def updateWordsInLevel(host: String, levelId: Long, accountId: Long, wordIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/words/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/words/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -251,10 +250,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createGameLevel(version: BigDecimal, accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
+  def createGameLevel(accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -272,10 +271,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteGameLevel(version: BigDecimal, accountId: Long, levelId: Long)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteGameLevel(accountId: Long, levelId: Long)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -293,10 +292,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def getGameLevel(version: BigDecimal, accountId: Long, levelId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[GameLevelResponse] = {
+  def getGameLevel(accountId: Long, levelId: Long, includeGameData: Boolean)(implicit accountIdQuery: QueryParam[Long], levelIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -314,10 +313,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def getGameLevelsByApplication(version: BigDecimal, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, appVersion: String, includeGameData: Boolean, filters: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], appVersionQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean], filtersQuery: QueryParam[String]): Task[GameLevelListResponse] = {
+  def getGameLevelsByApplication(accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, appVersion: String, includeGameData: Boolean, filters: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], appVersionQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean], filtersQuery: QueryParam[String]): Task[GameLevelListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelListResponse] = jsonOf[GameLevelListResponse]
 
-    val path = "/api/{version}/level/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -335,10 +334,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def getGameLevelsByBillableEntity(version: BigDecimal, accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, activeOnly: Boolean, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[GameLevelResponse] = {
+  def getGameLevelsByBillableEntity(accountId: Long, appKey: String, keyword: String, sortField: String, descending: Boolean, activeOnly: Boolean, start: Long, limit: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/searchByBillableEntity".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/searchByBillableEntity"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -356,10 +355,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def getQuestionsInLevel(version: BigDecimal, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[QuestionResponse] = {
+  def getQuestionsInLevel(levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[QuestionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[QuestionResponse] = jsonOf[QuestionResponse]
 
-    val path = "/api/{version}/level/questions/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/questions/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -377,10 +376,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def getWordsInLevel(version: BigDecimal, levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def getWordsInLevel(levelId: Long, accountId: Long)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/level/words/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/words/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -398,10 +397,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def updateGameLevel(version: BigDecimal, accountId: Long, levelId: Long, appKey: String, name: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, gameData: String, gameDataSuffix: String, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], levelIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
+  def updateGameLevel(accountId: Long, levelId: Long, appKey: String, name: String, description: String, difficulty: String, appVersion: String, assetImageId: Long, assetIconId: Long, gameData: String, gameDataSuffix: String, visibility: String, friendGroup: Boolean, connectionIds: String, connectionGroupIds: String, balance: Double, active: Boolean, allocateTickets: Boolean, ticketCount: Long, ticketType: String, points: Long, tutorialTitle: String, tutorialMessage: String, tutorialAlignment: String, tutorialImageAssetId: Long, offerId: Long, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], levelIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], difficultyQuery: QueryParam[String], appVersionQuery: QueryParam[String], assetImageIdQuery: QueryParam[Long], assetIconIdQuery: QueryParam[Long], gameDataQuery: QueryParam[String], gameDataSuffixQuery: QueryParam[String], visibilityQuery: QueryParam[String], friendGroupQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], balanceQuery: QueryParam[Double], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long], tutorialTitleQuery: QueryParam[String], tutorialMessageQuery: QueryParam[String], tutorialAlignmentQuery: QueryParam[String], tutorialImageAssetIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], metaDataQuery: QueryParam[String]): Task[GameLevelResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[GameLevelResponse] = jsonOf[GameLevelResponse]
 
-    val path = "/api/{version}/level/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -419,10 +418,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def updateQuestionsInLevel(version: BigDecimal, levelId: Long, accountId: Long, questionIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], questionIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def updateQuestionsInLevel(levelId: Long, accountId: Long, questionIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], questionIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/questions/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/questions/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -440,10 +439,10 @@ class HttpServiceGameLevelApi(service: HttpService) {
     } yield resp
   }
 
-  def updateWordsInLevel(version: BigDecimal, levelId: Long, accountId: Long, wordIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def updateWordsInLevel(levelId: Long, accountId: Long, wordIds: String)(implicit levelIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/level/words/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/level/words/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

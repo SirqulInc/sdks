@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ObjectStoreResponse
 
 object ObjectStoreApi {
@@ -30,10 +29,10 @@ object ObjectStoreApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addField(host: String, version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String], fieldTypeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def addField(host: String, accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String], fieldTypeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/field/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/field/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def createData(host: String, version: BigDecimal, objectName: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def createData(host: String, objectName: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
+    val path = "/object/data/{objectName}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +71,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def createObject(host: String, version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def createObject(host: String, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -93,10 +92,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def deleteData(host: String, version: BigDecimal, objectName: String, objectId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def deleteData(host: String, objectName: String, objectId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -114,10 +113,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def deleteField(host: String, version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def deleteField(host: String, accountId: Long, appKey: String, objectName: String, fieldName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/field/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/field/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -135,10 +134,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def deleteObject(host: String, version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def deleteObject(host: String, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -156,10 +155,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def getData(host: String, version: BigDecimal, objectName: String, objectId: String, accountId: Long, include: String)(implicit accountIdQuery: QueryParam[Long], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def getData(host: String, objectName: String, objectId: String, accountId: Long, include: String)(implicit accountIdQuery: QueryParam[Long], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -177,10 +176,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def getObject(host: String, version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def getObject(host: String, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -198,10 +197,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def searchData(host: String, version: BigDecimal, objectName: String, count: Boolean, start: Long, limit: Long, accountId: Long, criteria: String, order: String, include: String)(implicit accountIdQuery: QueryParam[Long], criteriaQuery: QueryParam[String], countQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], orderQuery: QueryParam[String], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def searchData(host: String, objectName: String, count: Boolean, start: Long, limit: Long, accountId: Long, criteria: String, order: String, include: String)(implicit accountIdQuery: QueryParam[Long], criteriaQuery: QueryParam[String], countQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], orderQuery: QueryParam[String], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
+    val path = "/object/data/{objectName}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -219,10 +218,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def searchObject(host: String, version: BigDecimal, accountId: Long, appKey: String, start: Long, limit: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def searchObject(host: String, accountId: Long, appKey: String, start: Long, limit: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -240,10 +239,10 @@ object ObjectStoreApi {
     } yield resp
   }
 
-  def updateData(host: String, version: BigDecimal, objectName: String, objectId: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def updateData(host: String, objectName: String, objectId: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -268,10 +267,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addField(version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String], fieldTypeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def addField(accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String], fieldTypeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/field/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/field/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -289,10 +288,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def createData(version: BigDecimal, objectName: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def createData(objectName: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
+    val path = "/object/data/{objectName}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -310,10 +309,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def createObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def createObject(accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -331,10 +330,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteData(version: BigDecimal, objectName: String, objectId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def deleteData(objectName: String, objectId: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -352,10 +351,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteField(version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def deleteField(accountId: Long, appKey: String, objectName: String, fieldName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String], fieldNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/field/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/field/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -373,10 +372,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def deleteObject(accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -394,10 +393,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def getData(version: BigDecimal, objectName: String, objectId: String, accountId: Long, include: String)(implicit accountIdQuery: QueryParam[Long], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def getData(objectName: String, objectId: String, accountId: Long, include: String)(implicit accountIdQuery: QueryParam[Long], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -415,10 +414,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def getObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def getObject(accountId: Long, appKey: String, objectName: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], objectNameQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -436,10 +435,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def searchData(version: BigDecimal, objectName: String, count: Boolean, start: Long, limit: Long, accountId: Long, criteria: String, order: String, include: String)(implicit accountIdQuery: QueryParam[Long], criteriaQuery: QueryParam[String], countQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], orderQuery: QueryParam[String], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
+  def searchData(objectName: String, count: Boolean, start: Long, limit: Long, accountId: Long, criteria: String, order: String, include: String)(implicit accountIdQuery: QueryParam[Long], criteriaQuery: QueryParam[String], countQuery: QueryParam[Boolean], startQuery: QueryParam[Long], limitQuery: QueryParam[Long], orderQuery: QueryParam[String], includeQuery: QueryParam[String]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
+    val path = "/object/data/{objectName}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -457,10 +456,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def searchObject(version: BigDecimal, accountId: Long, appKey: String, start: Long, limit: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def searchObject(accountId: Long, appKey: String, start: Long, limit: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], keywordQuery: QueryParam[String], startQuery: QueryParam[Long], limitQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/object/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -478,10 +477,10 @@ class HttpServiceObjectStoreApi(service: HttpService) {
     } yield resp
   }
 
-  def updateData(version: BigDecimal, objectName: String, objectId: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
+  def updateData(objectName: String, objectId: String, accountId: Long, body: String)(implicit accountIdQuery: QueryParam[Long]): Task[ObjectStoreResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ObjectStoreResponse] = jsonOf[ObjectStoreResponse]
 
-    val path = "/api/{version}/object/data/{objectName}/{objectId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
+    val path = "/object/data/{objectName}/{objectId}".replaceAll("\\{" + "objectName" + "\\}",escape(objectName.toString)).replaceAll("\\{" + "objectId" + "\\}",escape(objectId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

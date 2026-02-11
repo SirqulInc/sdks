@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.Account
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object DependentApi {
@@ -31,10 +30,10 @@ object DependentApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def create(host: String, version: BigDecimal, accountId: Long, body: Account): Task[SirqulResponse] = {
+  def create(host: String, accountId: Long, body: Account): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object DependentApi {
     } yield resp
   }
 
-  def getDependents(host: String, version: BigDecimal, accountId: Long): Task[SirqulResponse] = {
+  def getDependents(host: String, accountId: Long): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,8 +72,8 @@ object DependentApi {
     } yield resp
   }
 
-  def removeDependent(host: String, version: BigDecimal, accountId: Long, dependentId: Long): Task[Unit] = {
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString)).replaceAll("\\{" + "dependentId" + "\\}",escape(dependentId.toString))
+  def removeDependent(host: String, accountId: Long, dependentId: Long): Task[Unit] = {
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString)).replaceAll("\\{" + "dependentId" + "\\}",escape(dependentId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -99,10 +98,10 @@ class HttpServiceDependentApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def create(version: BigDecimal, accountId: Long, body: Account): Task[SirqulResponse] = {
+  def create(accountId: Long, body: Account): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -120,10 +119,10 @@ class HttpServiceDependentApi(service: HttpService) {
     } yield resp
   }
 
-  def getDependents(version: BigDecimal, accountId: Long): Task[SirqulResponse] = {
+  def getDependents(accountId: Long): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -141,8 +140,8 @@ class HttpServiceDependentApi(service: HttpService) {
     } yield resp
   }
 
-  def removeDependent(version: BigDecimal, accountId: Long, dependentId: Long): Task[Unit] = {
-    val path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString)).replaceAll("\\{" + "dependentId" + "\\}",escape(dependentId.toString))
+  def removeDependent(accountId: Long, dependentId: Long): Task[Unit] = {
+    val path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}",escape(accountId.toString)).replaceAll("\\{" + "dependentId" + "\\}",escape(dependentId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)

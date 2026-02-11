@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.BidResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object BidApi {
@@ -31,10 +30,10 @@ object BidApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBid(host: String, version: BigDecimal, biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], biddableTypeQuery: QueryParam[String], biddableIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
+  def createBid(host: String, biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], biddableTypeQuery: QueryParam[String], biddableIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object BidApi {
     } yield resp
   }
 
-  def deleteBid(host: String, version: BigDecimal, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBid(host: String, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/bid/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object BidApi {
     } yield resp
   }
 
-  def getBid(host: String, version: BigDecimal, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[BidResponse] = {
+  def getBid(host: String, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object BidApi {
     } yield resp
   }
 
-  def updateBid(host: String, version: BigDecimal, bidId: Long, deviceId: String, accountId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
+  def updateBid(host: String, bidId: Long, deviceId: String, accountId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -122,10 +121,10 @@ class HttpServiceBidApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBid(version: BigDecimal, biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], biddableTypeQuery: QueryParam[String], biddableIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
+  def createBid(biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], biddableTypeQuery: QueryParam[String], biddableIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceBidApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteBid(version: BigDecimal, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBid(bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/bid/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceBidApi(service: HttpService) {
     } yield resp
   }
 
-  def getBid(version: BigDecimal, bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[BidResponse] = {
+  def getBid(bidId: Long, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceBidApi(service: HttpService) {
     } yield resp
   }
 
-  def updateBid(version: BigDecimal, bidId: Long, deviceId: String, accountId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
+  def updateBid(bidId: Long, deviceId: String, accountId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], bidIdQuery: QueryParam[Long], amountPerViewQuery: QueryParam[Double], amountPerActionQuery: QueryParam[Double], budgetAmountQuery: QueryParam[Double], budgetScheduleQuery: QueryParam[String]): Task[BidResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BidResponse] = jsonOf[BidResponse]
 
-    val path = "/api/{version}/bid/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/bid/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

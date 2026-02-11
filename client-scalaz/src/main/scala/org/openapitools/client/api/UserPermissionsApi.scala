@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.UserPermissionsResponse
 
@@ -31,10 +30,10 @@ object UserPermissionsApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addUsersToPermissionable(host: String, version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, read: Boolean = true, write: Boolean = false, delete: Boolean = false, add: Boolean = false, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, pending: Boolean = false, admin: Boolean, includeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], readQuery: QueryParam[Boolean], writeQuery: QueryParam[Boolean], deleteQuery: QueryParam[Boolean], addQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def addUsersToPermissionable(host: String, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, read: Boolean = true, write: Boolean = false, delete: Boolean = false, add: Boolean = false, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, pending: Boolean = false, admin: Boolean, includeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], readQuery: QueryParam[Boolean], writeQuery: QueryParam[Boolean], deleteQuery: QueryParam[Boolean], addQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object UserPermissionsApi {
     } yield resp
   }
 
-  def approvePermissionable(host: String, version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, approvalStatus: String = APPROVED)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def approvePermissionable(host: String, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, approvalStatus: String = APPROVED)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/permissionable/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissionable/approve"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object UserPermissionsApi {
     } yield resp
   }
 
-  def leaveFromPermissionable(host: String, version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def leaveFromPermissionable(host: String, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/leave".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/leave"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object UserPermissionsApi {
     } yield resp
   }
 
-  def removeUsersFromPermissionable(host: String, version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, removeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], removeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def removeUsersFromPermissionable(host: String, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, removeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], removeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object UserPermissionsApi {
     } yield resp
   }
 
-  def searchPermissionables(host: String, version: BigDecimal, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, keyword: String, sortField: String, descending: Boolean, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
+  def searchPermissionables(host: String, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, keyword: String, sortField: String, descending: Boolean, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[UserPermissionsResponse]] = jsonOf[List[UserPermissionsResponse]]
 
-    val path = "/api/{version}/permissions/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissions/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -136,10 +135,10 @@ object UserPermissionsApi {
     } yield resp
   }
 
-  def searchPermissionablesFollowingDistance(host: String, version: BigDecimal, latitude: Double, longitude: Double, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, searchRange: Double = 5, keyword: String, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], keywordQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
+  def searchPermissionablesFollowingDistance(host: String, latitude: Double, longitude: Double, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, searchRange: Double = 5, keyword: String, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], keywordQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[UserPermissionsResponse]] = jsonOf[List[UserPermissionsResponse]]
 
-    val path = "/api/{version}/permissions/distancesearch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissions/distancesearch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addUsersToPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, read: Boolean = true, write: Boolean = false, delete: Boolean = false, add: Boolean = false, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, pending: Boolean = false, admin: Boolean, includeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], readQuery: QueryParam[Boolean], writeQuery: QueryParam[Boolean], deleteQuery: QueryParam[Boolean], addQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def addUsersToPermissionable(permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, read: Boolean = true, write: Boolean = false, delete: Boolean = false, add: Boolean = false, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, pending: Boolean = false, admin: Boolean, includeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], readQuery: QueryParam[Boolean], writeQuery: QueryParam[Boolean], deleteQuery: QueryParam[Boolean], addQuery: QueryParam[Boolean], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], includeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
     } yield resp
   }
 
-  def approvePermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, approvalStatus: String = APPROVED)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def approvePermissionable(permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, approvalStatus: String = APPROVED)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], approvalStatusQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/permissionable/approve".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissionable/approve"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
     } yield resp
   }
 
-  def leaveFromPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def leaveFromPermissionable(permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/leave".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/leave"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
     } yield resp
   }
 
-  def removeUsersFromPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, removeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], removeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def removeUsersFromPermissionable(permissionableType: String, permissionableId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, connectionGroupIds: String, removeFriendGroup: Boolean = false, latitude: Double, longitude: Double, audienceIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdsQuery: QueryParam[String], removeFriendGroupQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], audienceIdsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/permissions/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/permissions/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -248,10 +247,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPermissionables(version: BigDecimal, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, keyword: String, sortField: String, descending: Boolean, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
+  def searchPermissionables(deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, keyword: String, sortField: String, descending: Boolean, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[UserPermissionsResponse]] = jsonOf[List[UserPermissionsResponse]]
 
-    val path = "/api/{version}/permissions/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissions/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -269,10 +268,10 @@ class HttpServiceUserPermissionsApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPermissionablesFollowingDistance(version: BigDecimal, latitude: Double, longitude: Double, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, searchRange: Double = 5, keyword: String, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], keywordQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
+  def searchPermissionablesFollowingDistance(latitude: Double, longitude: Double, deviceId: String, accountId: Long, connectionAccountId: Long, connectionAccountIds: String, permissionableType: String, permissionableId: Long, searchRange: Double = 5, keyword: String, pending: Boolean, admin: Boolean, start: Integer = 0, limit: Integer = 20)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], connectionAccountIdsQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], searchRangeQuery: QueryParam[Double], keywordQuery: QueryParam[String], pendingQuery: QueryParam[Boolean], adminQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[UserPermissionsResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[UserPermissionsResponse]] = jsonOf[List[UserPermissionsResponse]]
 
-    val path = "/api/{version}/permissions/distancesearch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/permissions/distancesearch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

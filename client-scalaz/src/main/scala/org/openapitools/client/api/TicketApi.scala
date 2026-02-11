@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.CountResponse
 import java.io.File
 import org.openapitools.client.api.ProfileResponse
@@ -35,10 +34,10 @@ object TicketApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getTicketCount(host: String, version: BigDecimal, deviceId: String, accountId: Long, gameType: String, appKey: String, ticketType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], ticketTypeQuery: QueryParam[String]): Task[CountResponse] = {
+  def getTicketCount(host: String, deviceId: String, accountId: Long, gameType: String, appKey: String, ticketType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], ticketTypeQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/ticket/count".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/count"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -56,10 +55,10 @@ object TicketApi {
     } yield resp
   }
 
-  def getTicketList(host: String, version: BigDecimal, deviceId: String, accountId: Long, ticketObjectType: String, actionType: String, ticketIds: String, objectIds: String, receiptTokens: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ticketObjectTypeQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketIdsQuery: QueryParam[String], objectIdsQuery: QueryParam[String], receiptTokensQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[TicketListResponse] = {
+  def getTicketList(host: String, deviceId: String, accountId: Long, ticketObjectType: String, actionType: String, ticketIds: String, objectIds: String, receiptTokens: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ticketObjectTypeQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketIdsQuery: QueryParam[String], objectIdsQuery: QueryParam[String], receiptTokensQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[TicketListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TicketListResponse] = jsonOf[TicketListResponse]
 
-    val path = "/api/{version}/ticket/getList".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/getList"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -77,10 +76,10 @@ object TicketApi {
     } yield resp
   }
 
-  def giftPurchase(host: String, version: BigDecimal, receiverAccountId: Long, ticketId: Long, deviceId: String, accountId: Long, assetId: Long, customMessage: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], ticketIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], customMessageQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def giftPurchase(host: String, receiverAccountId: Long, ticketId: Long, deviceId: String, accountId: Long, assetId: Long, customMessage: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], ticketIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], customMessageQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/purchase/gift".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/gift"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -98,10 +97,10 @@ object TicketApi {
     } yield resp
   }
 
-  def saveTicket(host: String, version: BigDecimal, actionType: String, ticketObjectType: String, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, receiptData: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[String], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
+  def saveTicket(host: String, actionType: String, ticketObjectType: String, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, receiptData: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[String], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/ticket/save".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/save"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -119,10 +118,10 @@ object TicketApi {
     } yield resp
   }
 
-  def saveTicketViaFileUpload(host: String, version: BigDecimal, actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[File], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
+  def saveTicketViaFileUpload(host: String, actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[File], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/ticket/save/fileUpload".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/save/fileUpload"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -140,10 +139,10 @@ object TicketApi {
     } yield resp
   }
 
-  def ticketOffers(host: String, version: BigDecimal): Task[TicketOfferResponse] = {
+  def ticketOffers(host: String): Task[TicketOfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TicketOfferResponse] = jsonOf[TicketOfferResponse]
 
-    val path = "/api/{version}/ticket/ticketoffers".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/ticketoffers"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -168,10 +167,10 @@ class HttpServiceTicketApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getTicketCount(version: BigDecimal, deviceId: String, accountId: Long, gameType: String, appKey: String, ticketType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], ticketTypeQuery: QueryParam[String]): Task[CountResponse] = {
+  def getTicketCount(deviceId: String, accountId: Long, gameType: String, appKey: String, ticketType: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], ticketTypeQuery: QueryParam[String]): Task[CountResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[CountResponse] = jsonOf[CountResponse]
 
-    val path = "/api/{version}/ticket/count".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/count"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -189,10 +188,10 @@ class HttpServiceTicketApi(service: HttpService) {
     } yield resp
   }
 
-  def getTicketList(version: BigDecimal, deviceId: String, accountId: Long, ticketObjectType: String, actionType: String, ticketIds: String, objectIds: String, receiptTokens: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ticketObjectTypeQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketIdsQuery: QueryParam[String], objectIdsQuery: QueryParam[String], receiptTokensQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[TicketListResponse] = {
+  def getTicketList(deviceId: String, accountId: Long, ticketObjectType: String, actionType: String, ticketIds: String, objectIds: String, receiptTokens: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ticketObjectTypeQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketIdsQuery: QueryParam[String], objectIdsQuery: QueryParam[String], receiptTokensQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[TicketListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TicketListResponse] = jsonOf[TicketListResponse]
 
-    val path = "/api/{version}/ticket/getList".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/getList"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -210,10 +209,10 @@ class HttpServiceTicketApi(service: HttpService) {
     } yield resp
   }
 
-  def giftPurchase(version: BigDecimal, receiverAccountId: Long, ticketId: Long, deviceId: String, accountId: Long, assetId: Long, customMessage: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], ticketIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], customMessageQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def giftPurchase(receiverAccountId: Long, ticketId: Long, deviceId: String, accountId: Long, assetId: Long, customMessage: String, gameType: String, appKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], receiverAccountIdQuery: QueryParam[Long], ticketIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], customMessageQuery: QueryParam[String], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/purchase/gift".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/purchase/gift"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -231,10 +230,10 @@ class HttpServiceTicketApi(service: HttpService) {
     } yield resp
   }
 
-  def saveTicket(version: BigDecimal, actionType: String, ticketObjectType: String, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, receiptData: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[String], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
+  def saveTicket(actionType: String, ticketObjectType: String, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, receiptData: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[String], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/ticket/save".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/save"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -252,10 +251,10 @@ class HttpServiceTicketApi(service: HttpService) {
     } yield resp
   }
 
-  def saveTicketViaFileUpload(version: BigDecimal, actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[File], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
+  def saveTicketViaFileUpload(actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, objectId: Long, purchaseCode: String, receiptToken: String, count: Long, ticketType: String, purchaseProvider: String, purchaseType: String, returnProfileResponse: Boolean, includeProfileResponse: Boolean, appVersion: String)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], actionTypeQuery: QueryParam[String], ticketObjectTypeQuery: QueryParam[String], objectIdQuery: QueryParam[Long], purchaseCodeQuery: QueryParam[String], receiptTokenQuery: QueryParam[String], receiptDataQuery: QueryParam[File], countQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], purchaseProviderQuery: QueryParam[String], purchaseTypeQuery: QueryParam[String], returnProfileResponseQuery: QueryParam[Boolean], includeProfileResponseQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String]): Task[ProfileResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ProfileResponse] = jsonOf[ProfileResponse]
 
-    val path = "/api/{version}/ticket/save/fileUpload".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/save/fileUpload"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -273,10 +272,10 @@ class HttpServiceTicketApi(service: HttpService) {
     } yield resp
   }
 
-  def ticketOffers(version: BigDecimal): Task[TicketOfferResponse] = {
+  def ticketOffers(): Task[TicketOfferResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[TicketOfferResponse] = jsonOf[TicketOfferResponse]
 
-    val path = "/api/{version}/ticket/ticketoffers".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/ticket/ticketoffers"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

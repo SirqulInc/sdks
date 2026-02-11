@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.WeatherResponse
 
 object WeatherApi {
@@ -30,10 +29,10 @@ object WeatherApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def searchWeather(host: String, version: BigDecimal, regionId: Long, latitude: Double, longitude: Double, timezoneOffset: Long = -6)(implicit regionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], timezoneOffsetQuery: QueryParam[Long]): Task[WeatherResponse] = {
+  def searchWeather(host: String, regionId: Long, latitude: Double, longitude: Double, timezoneOffset: Long = -6)(implicit regionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], timezoneOffsetQuery: QueryParam[Long]): Task[WeatherResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WeatherResponse] = jsonOf[WeatherResponse]
 
-    val path = "/api/{version}/weather/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/weather/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceWeatherApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def searchWeather(version: BigDecimal, regionId: Long, latitude: Double, longitude: Double, timezoneOffset: Long = -6)(implicit regionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], timezoneOffsetQuery: QueryParam[Long]): Task[WeatherResponse] = {
+  def searchWeather(regionId: Long, latitude: Double, longitude: Double, timezoneOffset: Long = -6)(implicit regionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], timezoneOffsetQuery: QueryParam[Long]): Task[WeatherResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WeatherResponse] = jsonOf[WeatherResponse]
 
-    val path = "/api/{version}/weather/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/weather/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

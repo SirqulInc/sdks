@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ShipmentBatch
 import org.openapitools.client.api.ShipmentImportStatus
 
@@ -31,10 +30,10 @@ object ShipmentBatchApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createShipmentBatch(host: String, version: BigDecimal, body: ShipmentBatch): Task[ShipmentBatch] = {
+  def createShipmentBatch(host: String, body: ShipmentBatch): Task[ShipmentBatch] = {
     implicit val returnTypeDecoder: EntityDecoder[ShipmentBatch] = jsonOf[ShipmentBatch]
 
-    val path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,8 +51,8 @@ object ShipmentBatchApi {
     } yield resp
   }
 
-  def deleteShipmentBatch(host: String, version: BigDecimal, batchId: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+  def deleteShipmentBatch(host: String, batchId: Long): Task[Unit] = {
+    val path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -71,10 +70,10 @@ object ShipmentBatchApi {
     } yield resp
   }
 
-  def getShipmentBatch(host: String, version: BigDecimal, batchId: Long): Task[ShipmentBatch] = {
+  def getShipmentBatch(host: String, batchId: Long): Task[ShipmentBatch] = {
     implicit val returnTypeDecoder: EntityDecoder[ShipmentBatch] = jsonOf[ShipmentBatch]
 
-    val path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+    val path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -92,10 +91,10 @@ object ShipmentBatchApi {
     } yield resp
   }
 
-  def getShipmentBatchStatus(host: String, version: BigDecimal, batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, valid: Boolean, started: Boolean, completed: Boolean, hasShipment: Boolean, hasRoute: Boolean, keyword: String)(implicit accountIdQuery: QueryParam[Long], validQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], hasShipmentQuery: QueryParam[Boolean], hasRouteQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentImportStatus]] = {
+  def getShipmentBatchStatus(host: String, batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, valid: Boolean, started: Boolean, completed: Boolean, hasShipment: Boolean, hasRoute: Boolean, keyword: String)(implicit accountIdQuery: QueryParam[Long], validQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], hasShipmentQuery: QueryParam[Boolean], hasRouteQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentImportStatus]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ShipmentImportStatus]] = jsonOf[List[ShipmentImportStatus]]
 
-    val path = "/api/{version}/shipment/batch/{batchId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+    val path = "/shipment/batch/{batchId}/status".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -113,10 +112,10 @@ object ShipmentBatchApi {
     } yield resp
   }
 
-  def searchShipmentBatch(host: String, version: BigDecimal, hubId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentBatch]] = {
+  def searchShipmentBatch(host: String, hubId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentBatch]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ShipmentBatch]] = jsonOf[List[ShipmentBatch]]
 
-    val path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment/batch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -141,10 +140,10 @@ class HttpServiceShipmentBatchApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createShipmentBatch(version: BigDecimal, body: ShipmentBatch): Task[ShipmentBatch] = {
+  def createShipmentBatch(body: ShipmentBatch): Task[ShipmentBatch] = {
     implicit val returnTypeDecoder: EntityDecoder[ShipmentBatch] = jsonOf[ShipmentBatch]
 
-    val path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment/batch"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -162,8 +161,8 @@ class HttpServiceShipmentBatchApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteShipmentBatch(version: BigDecimal, batchId: Long): Task[Unit] = {
-    val path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+  def deleteShipmentBatch(batchId: Long): Task[Unit] = {
+    val path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -181,10 +180,10 @@ class HttpServiceShipmentBatchApi(service: HttpService) {
     } yield resp
   }
 
-  def getShipmentBatch(version: BigDecimal, batchId: Long): Task[ShipmentBatch] = {
+  def getShipmentBatch(batchId: Long): Task[ShipmentBatch] = {
     implicit val returnTypeDecoder: EntityDecoder[ShipmentBatch] = jsonOf[ShipmentBatch]
 
-    val path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+    val path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -202,10 +201,10 @@ class HttpServiceShipmentBatchApi(service: HttpService) {
     } yield resp
   }
 
-  def getShipmentBatchStatus(version: BigDecimal, batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, valid: Boolean, started: Boolean, completed: Boolean, hasShipment: Boolean, hasRoute: Boolean, keyword: String)(implicit accountIdQuery: QueryParam[Long], validQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], hasShipmentQuery: QueryParam[Boolean], hasRouteQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentImportStatus]] = {
+  def getShipmentBatchStatus(batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, valid: Boolean, started: Boolean, completed: Boolean, hasShipment: Boolean, hasRoute: Boolean, keyword: String)(implicit accountIdQuery: QueryParam[Long], validQuery: QueryParam[Boolean], startedQuery: QueryParam[Boolean], completedQuery: QueryParam[Boolean], hasShipmentQuery: QueryParam[Boolean], hasRouteQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentImportStatus]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ShipmentImportStatus]] = jsonOf[List[ShipmentImportStatus]]
 
-    val path = "/api/{version}/shipment/batch/{batchId}/status".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
+    val path = "/shipment/batch/{batchId}/status".replaceAll("\\{" + "batchId" + "\\}",escape(batchId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -223,10 +222,10 @@ class HttpServiceShipmentBatchApi(service: HttpService) {
     } yield resp
   }
 
-  def searchShipmentBatch(version: BigDecimal, hubId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentBatch]] = {
+  def searchShipmentBatch(hubId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer)(implicit hubIdQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ShipmentBatch]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ShipmentBatch]] = jsonOf[List[ShipmentBatch]]
 
-    val path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/shipment/batch"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

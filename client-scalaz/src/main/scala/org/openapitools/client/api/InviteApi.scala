@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ConsumerInviteResponse
 import org.openapitools.client.api.InviteResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object InviteApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def acceptInvite(host: String, version: BigDecimal, token: String, accountId: Long, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String, autoFriend: Boolean = true, autoAttendEvent: Boolean = false, autoFavoriteOffer: Boolean = false, autoFavoriteOfferLocation: Boolean = false, autoFavoriteRetailerLocation: Boolean = false)(implicit tokenQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], autoFriendQuery: QueryParam[Boolean], autoAttendEventQuery: QueryParam[Boolean], autoFavoriteOfferQuery: QueryParam[Boolean], autoFavoriteOfferLocationQuery: QueryParam[Boolean], autoFavoriteRetailerLocationQuery: QueryParam[Boolean]): Task[ConsumerInviteResponse] = {
+  def acceptInvite(host: String, token: String, accountId: Long, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String, autoFriend: Boolean = true, autoAttendEvent: Boolean = false, autoFavoriteOffer: Boolean = false, autoFavoriteOfferLocation: Boolean = false, autoFavoriteRetailerLocation: Boolean = false)(implicit tokenQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], autoFriendQuery: QueryParam[Boolean], autoAttendEventQuery: QueryParam[Boolean], autoFavoriteOfferQuery: QueryParam[Boolean], autoFavoriteOfferLocationQuery: QueryParam[Boolean], autoFavoriteRetailerLocationQuery: QueryParam[Boolean]): Task[ConsumerInviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConsumerInviteResponse] = jsonOf[ConsumerInviteResponse]
 
-    val path = "/api/{version}/invite/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object InviteApi {
     } yield resp
   }
 
-  def albumContestInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, albumContestId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def albumContestInvite(host: String, deviceId: String, accountId: Long, appId: Long, appKey: String, albumContestId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/albumContest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/albumContest"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object InviteApi {
     } yield resp
   }
 
-  def albumInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, albumId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def albumInvite(host: String, deviceId: String, accountId: Long, appId: Long, appKey: String, albumId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/album".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/album"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object InviteApi {
     } yield resp
   }
 
-  def eventInvite(host: String, version: BigDecimal, accountId: Long, appKey: String, listingId: Long, receiverAccountIds: String, retailerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def eventInvite(host: String, accountId: Long, appKey: String, listingId: Long, receiverAccountIds: String, retailerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/event".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/event"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object InviteApi {
     } yield resp
   }
 
-  def gameInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, gameLevelId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], gameLevelIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def gameInvite(host: String, deviceId: String, accountId: Long, appId: Long, appKey: String, gameLevelId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], gameLevelIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/gameLevel".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/gameLevel"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -137,10 +136,10 @@ object InviteApi {
     } yield resp
   }
 
-  def getInvite(host: String, version: BigDecimal, accountId: Long, token: String, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], tokenQuery: QueryParam[String], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def getInvite(host: String, accountId: Long, token: String, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], tokenQuery: QueryParam[String], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/invite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -158,10 +157,10 @@ object InviteApi {
     } yield resp
   }
 
-  def missionInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, missionId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def missionInvite(host: String, deviceId: String, accountId: Long, appId: Long, appKey: String, missionId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/mission".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/mission"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -179,10 +178,10 @@ object InviteApi {
     } yield resp
   }
 
-  def offerInvite(host: String, version: BigDecimal, accountId: Long, appKey: String, offerId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def offerInvite(host: String, accountId: Long, appKey: String, offerId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/offer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/offer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -200,10 +199,10 @@ object InviteApi {
     } yield resp
   }
 
-  def offerLocationInvite(host: String, version: BigDecimal, accountId: Long, appKey: String, offerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def offerLocationInvite(host: String, accountId: Long, appKey: String, offerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/offerLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/offerLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -221,10 +220,10 @@ object InviteApi {
     } yield resp
   }
 
-  def retailerLocationInvite(host: String, version: BigDecimal, accountId: Long, appKey: String, retailerLocationId: Long, albumId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def retailerLocationInvite(host: String, accountId: Long, appKey: String, retailerLocationId: Long, albumId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/retailerLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/retailerLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -249,10 +248,10 @@ class HttpServiceInviteApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def acceptInvite(version: BigDecimal, token: String, accountId: Long, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String, autoFriend: Boolean = true, autoAttendEvent: Boolean = false, autoFavoriteOffer: Boolean = false, autoFavoriteOfferLocation: Boolean = false, autoFavoriteRetailerLocation: Boolean = false)(implicit tokenQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], autoFriendQuery: QueryParam[Boolean], autoAttendEventQuery: QueryParam[Boolean], autoFavoriteOfferQuery: QueryParam[Boolean], autoFavoriteOfferLocationQuery: QueryParam[Boolean], autoFavoriteRetailerLocationQuery: QueryParam[Boolean]): Task[ConsumerInviteResponse] = {
+  def acceptInvite(token: String, accountId: Long, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String, autoFriend: Boolean = true, autoAttendEvent: Boolean = false, autoFavoriteOffer: Boolean = false, autoFavoriteOfferLocation: Boolean = false, autoFavoriteRetailerLocation: Boolean = false)(implicit tokenQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], autoFriendQuery: QueryParam[Boolean], autoAttendEventQuery: QueryParam[Boolean], autoFavoriteOfferQuery: QueryParam[Boolean], autoFavoriteOfferLocationQuery: QueryParam[Boolean], autoFavoriteRetailerLocationQuery: QueryParam[Boolean]): Task[ConsumerInviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConsumerInviteResponse] = jsonOf[ConsumerInviteResponse]
 
-    val path = "/api/{version}/invite/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -270,10 +269,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def albumContestInvite(version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, albumContestId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def albumContestInvite(deviceId: String, accountId: Long, appId: Long, appKey: String, albumContestId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumContestIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/albumContest".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/albumContest"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -291,10 +290,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def albumInvite(version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, albumId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def albumInvite(deviceId: String, accountId: Long, appId: Long, appKey: String, albumId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], albumIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/album".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/album"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -312,10 +311,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def eventInvite(version: BigDecimal, accountId: Long, appKey: String, listingId: Long, receiverAccountIds: String, retailerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def eventInvite(accountId: Long, appKey: String, listingId: Long, receiverAccountIds: String, retailerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], receiverAccountIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], listingIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/event".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/event"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -333,10 +332,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def gameInvite(version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, gameLevelId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], gameLevelIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def gameInvite(deviceId: String, accountId: Long, appId: Long, appKey: String, gameLevelId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], gameLevelIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/gameLevel".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/gameLevel"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -354,10 +353,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def getInvite(version: BigDecimal, accountId: Long, token: String, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], tokenQuery: QueryParam[String], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def getInvite(accountId: Long, token: String, albumId: Long, missionId: Long, albumContestId: Long, offerId: Long, offerLocationId: Long, retailerLocationId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], tokenQuery: QueryParam[String], albumIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], albumContestIdQuery: QueryParam[Long], offerIdQuery: QueryParam[Long], offerLocationIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/invite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -375,10 +374,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def missionInvite(version: BigDecimal, deviceId: String, accountId: Long, appId: Long, appKey: String, missionId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
+  def missionInvite(deviceId: String, accountId: Long, appId: Long, appKey: String, missionId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/mission".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/mission"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -396,10 +395,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def offerInvite(version: BigDecimal, accountId: Long, appKey: String, offerId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def offerInvite(accountId: Long, appKey: String, offerId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/offer".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/offer"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -417,10 +416,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def offerLocationInvite(version: BigDecimal, accountId: Long, appKey: String, offerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def offerLocationInvite(accountId: Long, appKey: String, offerLocationId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], offerLocationIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/offerLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/offerLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -438,10 +437,10 @@ class HttpServiceInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def retailerLocationInvite(version: BigDecimal, accountId: Long, appKey: String, retailerLocationId: Long, albumId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long]): Task[InviteResponse] = {
+  def retailerLocationInvite(accountId: Long, appKey: String, retailerLocationId: Long, albumId: Long)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long]): Task[InviteResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[InviteResponse] = jsonOf[InviteResponse]
 
-    val path = "/api/{version}/invite/retailerLocation".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/invite/retailerLocation"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

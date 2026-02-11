@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.BillableEntityResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object BillableEntityApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBillableEntity(host: String, version: BigDecimal, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
+  def createBillableEntity(host: String, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object BillableEntityApi {
     } yield resp
   }
 
-  def deleteBillableEntity(host: String, version: BigDecimal, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBillableEntity(host: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/billable/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object BillableEntityApi {
     } yield resp
   }
 
-  def getBillableEntity(host: String, version: BigDecimal, deviceId: String, accountId: Long, includeCounts: Boolean = false, includePayments: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean], includePaymentsQuery: QueryParam[Boolean]): Task[BillableEntityResponse] = {
+  def getBillableEntity(host: String, deviceId: String, accountId: Long, includeCounts: Boolean = false, includePayments: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean], includePaymentsQuery: QueryParam[Boolean]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object BillableEntityApi {
     } yield resp
   }
 
-  def updateBillableEntity(host: String, version: BigDecimal, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
+  def updateBillableEntity(host: String, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -122,10 +121,10 @@ class HttpServiceBillableEntityApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createBillableEntity(version: BigDecimal, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
+  def createBillableEntity(deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceBillableEntityApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteBillableEntity(version: BigDecimal, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteBillableEntity(deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/billable/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceBillableEntityApi(service: HttpService) {
     } yield resp
   }
 
-  def getBillableEntity(version: BigDecimal, deviceId: String, accountId: Long, includeCounts: Boolean = false, includePayments: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean], includePaymentsQuery: QueryParam[Boolean]): Task[BillableEntityResponse] = {
+  def getBillableEntity(deviceId: String, accountId: Long, includeCounts: Boolean = false, includePayments: Boolean = true)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], includeCountsQuery: QueryParam[Boolean], includePaymentsQuery: QueryParam[Boolean]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceBillableEntityApi(service: HttpService) {
     } yield resp
   }
 
-  def updateBillableEntity(version: BigDecimal, deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
+  def updateBillableEntity(deviceId: String, accountId: Long, name: String, streetAddress: String, streetAddress2: String, city: String, state: String, postalCode: String, businessPhone: String, businessPhoneExt: String, authorizeNetApiKey: String, authorizeNetTransactionKey: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], streetAddressQuery: QueryParam[String], streetAddress2Query: QueryParam[String], cityQuery: QueryParam[String], stateQuery: QueryParam[String], postalCodeQuery: QueryParam[String], businessPhoneQuery: QueryParam[String], businessPhoneExtQuery: QueryParam[String], authorizeNetApiKeyQuery: QueryParam[String], authorizeNetTransactionKeyQuery: QueryParam[String]): Task[BillableEntityResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[BillableEntityResponse] = jsonOf[BillableEntityResponse]
 
-    val path = "/api/{version}/billable/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/billable/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

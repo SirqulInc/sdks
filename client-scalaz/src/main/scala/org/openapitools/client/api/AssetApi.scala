@@ -24,7 +24,6 @@ import HelperCodecs._
 import org.openapitools.client.api.AssetFullResponse
 import org.openapitools.client.api.AssetResponse
 import org.openapitools.client.api.AssetShortResponse
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.SirqulResponse
 
@@ -34,10 +33,10 @@ object AssetApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assetDownload(host: String, version: BigDecimal, filename: String): Task[SirqulResponse] = {
+  def assetDownload(host: String, filename: String): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/download/{filename}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "filename" + "\\}",escape(filename.toString))
+    val path = "/asset/download/{filename}".replaceAll("\\{" + "filename" + "\\}",escape(filename.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -55,10 +54,10 @@ object AssetApi {
     } yield resp
   }
 
-  def assetMorph(host: String, version: BigDecimal, offerId: Long, adSize: String, creativeId: Long, width: Integer, height: Integer, backgroundSize: String, template: String)(implicit offerIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], adSizeQuery: QueryParam[String], widthQuery: QueryParam[Integer], heightQuery: QueryParam[Integer], backgroundSizeQuery: QueryParam[String], templateQuery: QueryParam[String]): Task[AssetShortResponse] = {
+  def assetMorph(host: String, offerId: Long, adSize: String, creativeId: Long, width: Integer, height: Integer, backgroundSize: String, template: String)(implicit offerIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], adSizeQuery: QueryParam[String], widthQuery: QueryParam[Integer], heightQuery: QueryParam[Integer], backgroundSizeQuery: QueryParam[String], templateQuery: QueryParam[String]): Task[AssetShortResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetShortResponse] = jsonOf[AssetShortResponse]
 
-    val path = "/api/{version}/asset/morph".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/morph"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -76,10 +75,10 @@ object AssetApi {
     } yield resp
   }
 
-  def createAsset(host: String, version: BigDecimal, returnNulls: Boolean, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, addToDefaultAlbum: String, addToMediaLibrary: Boolean, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, app: String, appKey: String, searchTags: String, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], addToDefaultAlbumQuery: QueryParam[String], addToMediaLibraryQuery: QueryParam[Boolean], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], appQuery: QueryParam[String], appKeyQuery: QueryParam[String], searchTagsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AssetResponse] = {
+  def createAsset(host: String, returnNulls: Boolean, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, addToDefaultAlbum: String, addToMediaLibrary: Boolean, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, app: String, appKey: String, searchTags: String, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], addToDefaultAlbumQuery: QueryParam[String], addToMediaLibraryQuery: QueryParam[Boolean], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], appQuery: QueryParam[String], appKeyQuery: QueryParam[String], searchTagsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AssetResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetResponse] = jsonOf[AssetResponse]
 
-    val path = "/api/{version}/asset/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -97,10 +96,10 @@ object AssetApi {
     } yield resp
   }
 
-  def deleteAsset(host: String, version: BigDecimal, assetId: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def deleteAsset(host: String, assetId: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -118,10 +117,10 @@ object AssetApi {
     } yield resp
   }
 
-  def getAsset(host: String, version: BigDecimal, assetId: Long, deviceId: String, accountId: Long, noteDescending: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], noteDescendingQuery: QueryParam[Boolean]): Task[AssetFullResponse] = {
+  def getAsset(host: String, assetId: Long, deviceId: String, accountId: Long, noteDescending: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], noteDescendingQuery: QueryParam[Boolean]): Task[AssetFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetFullResponse] = jsonOf[AssetFullResponse]
 
-    val path = "/api/{version}/asset/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -139,10 +138,10 @@ object AssetApi {
     } yield resp
   }
 
-  def removeAsset(host: String, version: BigDecimal, assetId: String, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, removeFromDefaultAlbums: Boolean, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], removeFromDefaultAlbumsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeAsset(host: String, assetId: String, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, removeFromDefaultAlbums: Boolean, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], removeFromDefaultAlbumsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -160,10 +159,10 @@ object AssetApi {
     } yield resp
   }
 
-  def searchAssets(host: String, version: BigDecimal, deviceId: String, accountId: Long, albumIds: String, assetIds: String, appKey: String, mediaType: String, mimeType: String, keyword: String, versionCode: Integer, versionName: String, updatedSince: Long, updatedBefore: Long, sortField: String, descending: Boolean, searchMediaLibrary: Boolean, filterByBillable: Boolean, activeOnly: Boolean, returnApp: Boolean, start: Integer, limit: Integer, searchMode: String, assetType: String, approvalStatus: String, assignedAccountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], assetIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], mediaTypeQuery: QueryParam[String], mimeTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], searchMediaLibraryQuery: QueryParam[Boolean], filterByBillableQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnAppQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchModeQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long]): Task[List[AssetResponse]] = {
+  def searchAssets(host: String, deviceId: String, accountId: Long, albumIds: String, assetIds: String, appKey: String, mediaType: String, mimeType: String, keyword: String, versionCode: Integer, versionName: String, updatedSince: Long, updatedBefore: Long, sortField: String, descending: Boolean, searchMediaLibrary: Boolean, filterByBillable: Boolean, activeOnly: Boolean, returnApp: Boolean, start: Integer, limit: Integer, searchMode: String, assetType: String, approvalStatus: String, assignedAccountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], assetIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], mediaTypeQuery: QueryParam[String], mimeTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], searchMediaLibraryQuery: QueryParam[Boolean], filterByBillableQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnAppQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchModeQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long]): Task[List[AssetResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssetResponse]] = jsonOf[List[AssetResponse]]
 
-    val path = "/api/{version}/asset/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -181,10 +180,10 @@ object AssetApi {
     } yield resp
   }
 
-  def updateAsset(host: String, version: BigDecimal, assetId: Long, deviceId: String, accountId: Long, albumId: Long, attachedAssetId: Long, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, searchTags: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], attachedAssetIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def updateAsset(host: String, assetId: Long, deviceId: String, accountId: Long, albumId: Long, attachedAssetId: Long, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, searchTags: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], attachedAssetIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -209,10 +208,10 @@ class HttpServiceAssetApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assetDownload(version: BigDecimal, filename: String): Task[SirqulResponse] = {
+  def assetDownload(filename: String): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/download/{filename}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "filename" + "\\}",escape(filename.toString))
+    val path = "/asset/download/{filename}".replaceAll("\\{" + "filename" + "\\}",escape(filename.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -230,10 +229,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def assetMorph(version: BigDecimal, offerId: Long, adSize: String, creativeId: Long, width: Integer, height: Integer, backgroundSize: String, template: String)(implicit offerIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], adSizeQuery: QueryParam[String], widthQuery: QueryParam[Integer], heightQuery: QueryParam[Integer], backgroundSizeQuery: QueryParam[String], templateQuery: QueryParam[String]): Task[AssetShortResponse] = {
+  def assetMorph(offerId: Long, adSize: String, creativeId: Long, width: Integer, height: Integer, backgroundSize: String, template: String)(implicit offerIdQuery: QueryParam[Long], creativeIdQuery: QueryParam[Long], adSizeQuery: QueryParam[String], widthQuery: QueryParam[Integer], heightQuery: QueryParam[Integer], backgroundSizeQuery: QueryParam[String], templateQuery: QueryParam[String]): Task[AssetShortResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetShortResponse] = jsonOf[AssetShortResponse]
 
-    val path = "/api/{version}/asset/morph".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/morph"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -251,10 +250,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def createAsset(version: BigDecimal, returnNulls: Boolean, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, addToDefaultAlbum: String, addToMediaLibrary: Boolean, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, app: String, appKey: String, searchTags: String, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], addToDefaultAlbumQuery: QueryParam[String], addToMediaLibraryQuery: QueryParam[Boolean], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], appQuery: QueryParam[String], appKeyQuery: QueryParam[String], searchTagsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AssetResponse] = {
+  def createAsset(returnNulls: Boolean, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, addToDefaultAlbum: String, addToMediaLibrary: Boolean, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, app: String, appKey: String, searchTags: String, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], addToDefaultAlbumQuery: QueryParam[String], addToMediaLibraryQuery: QueryParam[Boolean], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], appQuery: QueryParam[String], appKeyQuery: QueryParam[String], searchTagsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[AssetResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetResponse] = jsonOf[AssetResponse]
 
-    val path = "/api/{version}/asset/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -272,10 +271,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteAsset(version: BigDecimal, assetId: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def deleteAsset(assetId: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -293,10 +292,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def getAsset(version: BigDecimal, assetId: Long, deviceId: String, accountId: Long, noteDescending: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], noteDescendingQuery: QueryParam[Boolean]): Task[AssetFullResponse] = {
+  def getAsset(assetId: Long, deviceId: String, accountId: Long, noteDescending: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], noteDescendingQuery: QueryParam[Boolean]): Task[AssetFullResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssetFullResponse] = jsonOf[AssetFullResponse]
 
-    val path = "/api/{version}/asset/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -314,10 +313,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def removeAsset(version: BigDecimal, assetId: String, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, removeFromDefaultAlbums: Boolean, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], removeFromDefaultAlbumsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeAsset(assetId: String, deviceId: String, accountId: Long, albumId: Long, collectionId: Long, removeFromDefaultAlbums: Boolean, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], collectionIdQuery: QueryParam[Long], assetIdQuery: QueryParam[String], removeFromDefaultAlbumsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -335,10 +334,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def searchAssets(version: BigDecimal, deviceId: String, accountId: Long, albumIds: String, assetIds: String, appKey: String, mediaType: String, mimeType: String, keyword: String, versionCode: Integer, versionName: String, updatedSince: Long, updatedBefore: Long, sortField: String, descending: Boolean, searchMediaLibrary: Boolean, filterByBillable: Boolean, activeOnly: Boolean, returnApp: Boolean, start: Integer, limit: Integer, searchMode: String, assetType: String, approvalStatus: String, assignedAccountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], assetIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], mediaTypeQuery: QueryParam[String], mimeTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], searchMediaLibraryQuery: QueryParam[Boolean], filterByBillableQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnAppQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchModeQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long]): Task[List[AssetResponse]] = {
+  def searchAssets(deviceId: String, accountId: Long, albumIds: String, assetIds: String, appKey: String, mediaType: String, mimeType: String, keyword: String, versionCode: Integer, versionName: String, updatedSince: Long, updatedBefore: Long, sortField: String, descending: Boolean, searchMediaLibrary: Boolean, filterByBillable: Boolean, activeOnly: Boolean, returnApp: Boolean, start: Integer, limit: Integer, searchMode: String, assetType: String, approvalStatus: String, assignedAccountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], albumIdsQuery: QueryParam[String], assetIdsQuery: QueryParam[String], appKeyQuery: QueryParam[String], mediaTypeQuery: QueryParam[String], mimeTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], updatedSinceQuery: QueryParam[Long], updatedBeforeQuery: QueryParam[Long], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], searchMediaLibraryQuery: QueryParam[Boolean], filterByBillableQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], returnAppQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchModeQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long]): Task[List[AssetResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssetResponse]] = jsonOf[List[AssetResponse]]
 
-    val path = "/api/{version}/asset/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -356,10 +355,10 @@ class HttpServiceAssetApi(service: HttpService) {
     } yield resp
   }
 
-  def updateAsset(version: BigDecimal, assetId: Long, deviceId: String, accountId: Long, albumId: Long, attachedAssetId: Long, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, searchTags: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], attachedAssetIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def updateAsset(assetId: Long, deviceId: String, accountId: Long, albumId: Long, attachedAssetId: Long, versionCode: Integer, versionName: String, metaData: String, caption: String, assetType: String, approvalStatus: String, assignedAccountId: Long, media: File, mediaUrl: String, mediaString: String, mediaStringFileName: String, mediaStringContentType: String, mediaHeight: Integer, mediaWidth: Integer, attachedMedia: File, attachedMediaUrl: String, attachedMediaString: String, attachedMediaStringFileName: String, attachedMediaStringContentType: String, attachedMediaHeight: Integer, attachedMediaWidth: Integer, locationDescription: String, searchTags: String, appKey: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], albumIdQuery: QueryParam[Long], attachedAssetIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], versionNameQuery: QueryParam[String], metaDataQuery: QueryParam[String], captionQuery: QueryParam[String], assetTypeQuery: QueryParam[String], approvalStatusQuery: QueryParam[String], assignedAccountIdQuery: QueryParam[Long], mediaQuery: QueryParam[File], mediaUrlQuery: QueryParam[String], mediaStringQuery: QueryParam[String], mediaStringFileNameQuery: QueryParam[String], mediaStringContentTypeQuery: QueryParam[String], mediaHeightQuery: QueryParam[Integer], mediaWidthQuery: QueryParam[Integer], attachedMediaQuery: QueryParam[File], attachedMediaUrlQuery: QueryParam[String], attachedMediaStringQuery: QueryParam[String], attachedMediaStringFileNameQuery: QueryParam[String], attachedMediaStringContentTypeQuery: QueryParam[String], attachedMediaHeightQuery: QueryParam[Integer], attachedMediaWidthQuery: QueryParam[Integer], locationDescriptionQuery: QueryParam[String], searchTagsQuery: QueryParam[String], appKeyQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/asset/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/asset/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

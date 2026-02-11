@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RegionResponse
 
 object RegionApi {
@@ -30,10 +29,10 @@ object RegionApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRegion(host: String, version: BigDecimal, accountId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean)(implicit accountIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean]): Task[RegionResponse] = {
+  def createRegion(host: String, accountId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean)(implicit accountIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object RegionApi {
     } yield resp
   }
 
-  def deleteRegion(host: String, version: BigDecimal, accountId: Long, regionId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
+  def deleteRegion(host: String, accountId: Long, regionId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +71,10 @@ object RegionApi {
     } yield resp
   }
 
-  def getRegion(host: String, version: BigDecimal, regionId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
+  def getRegion(host: String, regionId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -93,10 +92,10 @@ object RegionApi {
     } yield resp
   }
 
-  def searchRegions(host: String, version: BigDecimal, accountId: Long, query: String, keyword: String, latitude: Double, longitude: Double, range: Double, regionClass: String, visibility: String, searchMode: String, sortField: String, descending: Boolean, includeParent: Boolean, includeChildren: Boolean, includePostalCodes: Boolean, categoryIds: String, filterIds: String, versionCode: Integer, activeOnly: Boolean, showDeleted: Boolean, lastUpdatedSince: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], regionClassQuery: QueryParam[String], visibilityQuery: QueryParam[String], searchModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeParentQuery: QueryParam[Boolean], includeChildrenQuery: QueryParam[Boolean], includePostalCodesQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], showDeletedQuery: QueryParam[Boolean], lastUpdatedSinceQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RegionResponse]] = {
+  def searchRegions(host: String, accountId: Long, query: String, keyword: String, latitude: Double, longitude: Double, range: Double, regionClass: String, visibility: String, searchMode: String, sortField: String, descending: Boolean, includeParent: Boolean, includeChildren: Boolean, includePostalCodes: Boolean, categoryIds: String, filterIds: String, versionCode: Integer, activeOnly: Boolean, showDeleted: Boolean, lastUpdatedSince: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], regionClassQuery: QueryParam[String], visibilityQuery: QueryParam[String], searchModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeParentQuery: QueryParam[Boolean], includeChildrenQuery: QueryParam[Boolean], includePostalCodesQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], showDeletedQuery: QueryParam[Boolean], lastUpdatedSinceQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RegionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RegionResponse]] = jsonOf[List[RegionResponse]]
 
-    val path = "/api/{version}/region/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -114,10 +113,10 @@ object RegionApi {
     } yield resp
   }
 
-  def updateRegion(host: String, version: BigDecimal, accountId: Long, regionId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean, clearLists: Boolean)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], clearListsQuery: QueryParam[Boolean]): Task[RegionResponse] = {
+  def updateRegion(host: String, accountId: Long, regionId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean, clearLists: Boolean)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], clearListsQuery: QueryParam[Boolean]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -142,10 +141,10 @@ class HttpServiceRegionApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRegion(version: BigDecimal, accountId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean)(implicit accountIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean]): Task[RegionResponse] = {
+  def createRegion(accountId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean)(implicit accountIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -163,10 +162,10 @@ class HttpServiceRegionApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteRegion(version: BigDecimal, accountId: Long, regionId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
+  def deleteRegion(accountId: Long, regionId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -184,10 +183,10 @@ class HttpServiceRegionApi(service: HttpService) {
     } yield resp
   }
 
-  def getRegion(version: BigDecimal, regionId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
+  def getRegion(regionId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -205,10 +204,10 @@ class HttpServiceRegionApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRegions(version: BigDecimal, accountId: Long, query: String, keyword: String, latitude: Double, longitude: Double, range: Double, regionClass: String, visibility: String, searchMode: String, sortField: String, descending: Boolean, includeParent: Boolean, includeChildren: Boolean, includePostalCodes: Boolean, categoryIds: String, filterIds: String, versionCode: Integer, activeOnly: Boolean, showDeleted: Boolean, lastUpdatedSince: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], regionClassQuery: QueryParam[String], visibilityQuery: QueryParam[String], searchModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeParentQuery: QueryParam[Boolean], includeChildrenQuery: QueryParam[Boolean], includePostalCodesQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], showDeletedQuery: QueryParam[Boolean], lastUpdatedSinceQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RegionResponse]] = {
+  def searchRegions(accountId: Long, query: String, keyword: String, latitude: Double, longitude: Double, range: Double, regionClass: String, visibility: String, searchMode: String, sortField: String, descending: Boolean, includeParent: Boolean, includeChildren: Boolean, includePostalCodes: Boolean, categoryIds: String, filterIds: String, versionCode: Integer, activeOnly: Boolean, showDeleted: Boolean, lastUpdatedSince: Long, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], queryQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], regionClassQuery: QueryParam[String], visibilityQuery: QueryParam[String], searchModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeParentQuery: QueryParam[Boolean], includeChildrenQuery: QueryParam[Boolean], includePostalCodesQuery: QueryParam[Boolean], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], versionCodeQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean], showDeletedQuery: QueryParam[Boolean], lastUpdatedSinceQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[RegionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RegionResponse]] = jsonOf[List[RegionResponse]]
 
-    val path = "/api/{version}/region/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -226,10 +225,10 @@ class HttpServiceRegionApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRegion(version: BigDecimal, accountId: Long, regionId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean, clearLists: Boolean)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], clearListsQuery: QueryParam[Boolean]): Task[RegionResponse] = {
+  def updateRegion(accountId: Long, regionId: Long, regionClass: String, shortName: String, fullName: String, parentIds: String, childrenIds: String, postalCodeIds: String, locations: String, retailerLocationId: Long, visibility: String, categoryIds: String, filterIds: String, start: Long, end: Long, polygon: String, metaData: String, latitude: Double, longitude: Double, versionCode: Integer, root: Boolean, active: Boolean, clearLists: Boolean)(implicit accountIdQuery: QueryParam[Long], regionIdQuery: QueryParam[Long], regionClassQuery: QueryParam[String], shortNameQuery: QueryParam[String], fullNameQuery: QueryParam[String], parentIdsQuery: QueryParam[String], childrenIdsQuery: QueryParam[String], postalCodeIdsQuery: QueryParam[String], locationsQuery: QueryParam[String], retailerLocationIdQuery: QueryParam[Long], visibilityQuery: QueryParam[String], categoryIdsQuery: QueryParam[String], filterIdsQuery: QueryParam[String], startQuery: QueryParam[Long], endQuery: QueryParam[Long], polygonQuery: QueryParam[String], metaDataQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], versionCodeQuery: QueryParam[Integer], rootQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], clearListsQuery: QueryParam[Boolean]): Task[RegionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RegionResponse] = jsonOf[RegionResponse]
 
-    val path = "/api/{version}/region/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/region/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

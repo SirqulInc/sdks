@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.LeaderboardResponse
 import org.openapitools.client.api.SirqulResponse
@@ -32,10 +31,10 @@ object LeaderboardApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createLeaderboard(host: String, version: BigDecimal, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, sortField: String, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
+  def createLeaderboard(host: String, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, sortField: String, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -53,10 +52,10 @@ object LeaderboardApi {
     } yield resp
   }
 
-  def deleteLeaderboard(host: String, version: BigDecimal, leaderboardId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteLeaderboard(host: String, leaderboardId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/leaderboard/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -74,10 +73,10 @@ object LeaderboardApi {
     } yield resp
   }
 
-  def getLeaderboard(host: String, version: BigDecimal, leaderboardId: Long, accountId: Long, includeFullRankingList: Boolean)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long], includeFullRankingListQuery: QueryParam[Boolean]): Task[LeaderboardResponse] = {
+  def getLeaderboard(host: String, leaderboardId: Long, accountId: Long, includeFullRankingList: Boolean)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long], includeFullRankingListQuery: QueryParam[Boolean]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -95,10 +94,10 @@ object LeaderboardApi {
     } yield resp
   }
 
-  def searchLeaderboards(host: String, version: BigDecimal, accountId: Long, appKey: String, globalOnly: Boolean, keyword: String, leaderboardIds: String, rankTypes: String, sortField: String, descending: Boolean, includeInactive: Boolean, includeAppResponse: Boolean, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], globalOnlyQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], leaderboardIdsQuery: QueryParam[String], rankTypesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], includeAppResponseQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LeaderboardResponse] = {
+  def searchLeaderboards(host: String, accountId: Long, appKey: String, globalOnly: Boolean, keyword: String, leaderboardIds: String, rankTypes: String, sortField: String, descending: Boolean, includeInactive: Boolean, includeAppResponse: Boolean, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], globalOnlyQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], leaderboardIdsQuery: QueryParam[String], rankTypesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], includeAppResponseQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -116,10 +115,10 @@ object LeaderboardApi {
     } yield resp
   }
 
-  def updateLeaderboard(host: String, version: BigDecimal, leaderboardId: Long, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, sortField: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, active: Boolean, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], leaderboardIdQuery: QueryParam[Long], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], activeQuery: QueryParam[Boolean], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
+  def updateLeaderboard(host: String, leaderboardId: Long, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, sortField: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, active: Boolean, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], leaderboardIdQuery: QueryParam[Long], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], activeQuery: QueryParam[Boolean], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -144,10 +143,10 @@ class HttpServiceLeaderboardApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createLeaderboard(version: BigDecimal, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, sortField: String, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
+  def createLeaderboard(accountId: Long, appKey: String, rankType: String, leaderboardMode: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, sortField: String, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -165,10 +164,10 @@ class HttpServiceLeaderboardApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteLeaderboard(leaderboardId: Long, accountId: Long)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/leaderboard/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -186,10 +185,10 @@ class HttpServiceLeaderboardApi(service: HttpService) {
     } yield resp
   }
 
-  def getLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Long, includeFullRankingList: Boolean)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long], includeFullRankingListQuery: QueryParam[Boolean]): Task[LeaderboardResponse] = {
+  def getLeaderboard(leaderboardId: Long, accountId: Long, includeFullRankingList: Boolean)(implicit accountIdQuery: QueryParam[Long], leaderboardIdQuery: QueryParam[Long], includeFullRankingListQuery: QueryParam[Boolean]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -207,10 +206,10 @@ class HttpServiceLeaderboardApi(service: HttpService) {
     } yield resp
   }
 
-  def searchLeaderboards(version: BigDecimal, accountId: Long, appKey: String, globalOnly: Boolean, keyword: String, leaderboardIds: String, rankTypes: String, sortField: String, descending: Boolean, includeInactive: Boolean, includeAppResponse: Boolean, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], globalOnlyQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], leaderboardIdsQuery: QueryParam[String], rankTypesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], includeAppResponseQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LeaderboardResponse] = {
+  def searchLeaderboards(accountId: Long, appKey: String, globalOnly: Boolean, keyword: String, leaderboardIds: String, rankTypes: String, sortField: String, descending: Boolean, includeInactive: Boolean, includeAppResponse: Boolean, start: Integer, limit: Integer)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], globalOnlyQuery: QueryParam[Boolean], keywordQuery: QueryParam[String], leaderboardIdsQuery: QueryParam[String], rankTypesQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], includeInactiveQuery: QueryParam[Boolean], includeAppResponseQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -228,10 +227,10 @@ class HttpServiceLeaderboardApi(service: HttpService) {
     } yield resp
   }
 
-  def updateLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, sortField: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, active: Boolean, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], leaderboardIdQuery: QueryParam[Long], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], activeQuery: QueryParam[Boolean], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
+  def updateLeaderboard(leaderboardId: Long, accountId: Long, appKey: String, rankType: String, leaderboardMode: String, sortField: String, iconMedia: File, iconAssetId: Long, bannerMedia: File, bannerAssetId: Long, limitation: Integer, active: Boolean, title: String, description: String, metaData: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], leaderboardIdQuery: QueryParam[Long], rankTypeQuery: QueryParam[String], leaderboardModeQuery: QueryParam[String], sortFieldQuery: QueryParam[String], iconMediaQuery: QueryParam[File], iconAssetIdQuery: QueryParam[Long], bannerMediaQuery: QueryParam[File], bannerAssetIdQuery: QueryParam[Long], limitationQuery: QueryParam[Integer], activeQuery: QueryParam[Boolean], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], metaDataQuery: QueryParam[String]): Task[LeaderboardResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[LeaderboardResponse] = jsonOf[LeaderboardResponse]
 
-    val path = "/api/{version}/leaderboard/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/leaderboard/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

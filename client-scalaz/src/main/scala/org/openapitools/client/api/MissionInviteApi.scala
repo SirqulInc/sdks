@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.MissionResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object MissionInviteApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createMissionInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, joinCode: String, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
+  def createMissionInvite(host: String, deviceId: String, accountId: Long, missionId: Long, joinCode: String, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object MissionInviteApi {
     } yield resp
   }
 
-  def deleteMissionInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def deleteMissionInvite(host: String, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/mission/invite/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object MissionInviteApi {
     } yield resp
   }
 
-  def getMissionInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean, includeScores: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean], includeScoresQuery: QueryParam[String]): Task[MissionResponse] = {
+  def getMissionInvite(host: String, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean, includeScores: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean], includeScoresQuery: QueryParam[String]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object MissionInviteApi {
     } yield resp
   }
 
-  def searchMissionInvites(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, appVersion: String, missionId: Long, status: String, lastUpdated: Long, start: Integer, limit: Integer, keyword: String, missionTypes: String, filterByBillable: Boolean, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], statusQuery: QueryParam[String], lastUpdatedQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], keywordQuery: QueryParam[String], missionTypesQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], includeGameDataQuery: QueryParam[Boolean]): Task[List[MissionResponse]] = {
+  def searchMissionInvites(host: String, deviceId: String, accountId: Long, appKey: String, appVersion: String, missionId: Long, status: String, lastUpdated: Long, start: Integer, limit: Integer, keyword: String, missionTypes: String, filterByBillable: Boolean, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], statusQuery: QueryParam[String], lastUpdatedQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], keywordQuery: QueryParam[String], missionTypesQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], includeGameDataQuery: QueryParam[Boolean]): Task[List[MissionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[MissionResponse]] = jsonOf[List[MissionResponse]]
 
-    val path = "/api/{version}/mission/invite/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object MissionInviteApi {
     } yield resp
   }
 
-  def updateMissionInvite(host: String, version: BigDecimal, deviceId: String, accountId: Long, appKey: String, missionId: Long, missionInviteId: Long, packId: Long, gameLevelId: Long, status: String, permissionableType: String, permissionableId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], statusQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
+  def updateMissionInvite(host: String, deviceId: String, accountId: Long, appKey: String, missionId: Long, missionInviteId: Long, packId: Long, gameLevelId: Long, status: String, permissionableType: String, permissionableId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], statusQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceMissionInviteApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createMissionInvite(version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, joinCode: String, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
+  def createMissionInvite(deviceId: String, accountId: Long, missionId: Long, joinCode: String, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], joinCodeQuery: QueryParam[String], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceMissionInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteMissionInvite(version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def deleteMissionInvite(deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/mission/invite/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceMissionInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def getMissionInvite(version: BigDecimal, deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean, includeScores: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean], includeScoresQuery: QueryParam[String]): Task[MissionResponse] = {
+  def getMissionInvite(deviceId: String, accountId: Long, missionId: Long, missionInviteId: Long, includeGameData: Boolean, includeScores: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean], includeScoresQuery: QueryParam[String]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceMissionInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def searchMissionInvites(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, appVersion: String, missionId: Long, status: String, lastUpdated: Long, start: Integer, limit: Integer, keyword: String, missionTypes: String, filterByBillable: Boolean, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], statusQuery: QueryParam[String], lastUpdatedQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], keywordQuery: QueryParam[String], missionTypesQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], includeGameDataQuery: QueryParam[Boolean]): Task[List[MissionResponse]] = {
+  def searchMissionInvites(deviceId: String, accountId: Long, appKey: String, appVersion: String, missionId: Long, status: String, lastUpdated: Long, start: Integer, limit: Integer, keyword: String, missionTypes: String, filterByBillable: Boolean, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], appVersionQuery: QueryParam[String], missionIdQuery: QueryParam[Long], statusQuery: QueryParam[String], lastUpdatedQuery: QueryParam[Long], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], keywordQuery: QueryParam[String], missionTypesQuery: QueryParam[String], filterByBillableQuery: QueryParam[Boolean], includeGameDataQuery: QueryParam[Boolean]): Task[List[MissionResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[MissionResponse]] = jsonOf[List[MissionResponse]]
 
-    val path = "/api/{version}/mission/invite/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceMissionInviteApi(service: HttpService) {
     } yield resp
   }
 
-  def updateMissionInvite(version: BigDecimal, deviceId: String, accountId: Long, appKey: String, missionId: Long, missionInviteId: Long, packId: Long, gameLevelId: Long, status: String, permissionableType: String, permissionableId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], statusQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
+  def updateMissionInvite(deviceId: String, accountId: Long, appKey: String, missionId: Long, missionInviteId: Long, packId: Long, gameLevelId: Long, status: String, permissionableType: String, permissionableId: Long, includeGameData: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], missionIdQuery: QueryParam[Long], missionInviteIdQuery: QueryParam[Long], packIdQuery: QueryParam[Long], gameLevelIdQuery: QueryParam[Long], statusQuery: QueryParam[String], permissionableTypeQuery: QueryParam[String], permissionableIdQuery: QueryParam[Long], includeGameDataQuery: QueryParam[Boolean]): Task[MissionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[MissionResponse] = jsonOf[MissionResponse]
 
-    val path = "/api/{version}/mission/invite/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/mission/invite/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

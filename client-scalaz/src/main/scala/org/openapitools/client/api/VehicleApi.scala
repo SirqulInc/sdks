@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Vehicle
 
 object VehicleApi {
@@ -30,10 +29,10 @@ object VehicleApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createVehicle(host: String, version: BigDecimal, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
+  def createVehicle(host: String, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object VehicleApi {
     } yield resp
   }
 
-  def deleteVehicle(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteVehicle(host: String, id: Long): Task[Unit] = {
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object VehicleApi {
     } yield resp
   }
 
-  def getVehicle(host: String, version: BigDecimal, id: Long): Task[Vehicle] = {
+  def getVehicle(host: String, id: Long): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object VehicleApi {
     } yield resp
   }
 
-  def searchVehicle(host: String, version: BigDecimal, hubId: Long, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, keyword: String)(implicit hubIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Vehicle]] = {
+  def searchVehicle(host: String, hubId: Long, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, keyword: String)(implicit hubIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Vehicle]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Vehicle]] = jsonOf[List[Vehicle]]
 
-    val path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object VehicleApi {
     } yield resp
   }
 
-  def updateVehicle(host: String, version: BigDecimal, id: Long, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
+  def updateVehicle(host: String, id: Long, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -140,10 +139,10 @@ class HttpServiceVehicleApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createVehicle(version: BigDecimal, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
+  def createVehicle(vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,8 +160,8 @@ class HttpServiceVehicleApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteVehicle(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteVehicle(id: Long): Task[Unit] = {
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -180,10 +179,10 @@ class HttpServiceVehicleApi(service: HttpService) {
     } yield resp
   }
 
-  def getVehicle(version: BigDecimal, id: Long): Task[Vehicle] = {
+  def getVehicle(id: Long): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ class HttpServiceVehicleApi(service: HttpService) {
     } yield resp
   }
 
-  def searchVehicle(version: BigDecimal, hubId: Long, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, keyword: String)(implicit hubIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Vehicle]] = {
+  def searchVehicle(hubId: Long, sortField: String = id, descending: Boolean = false, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = true, keyword: String)(implicit hubIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Vehicle]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Vehicle]] = jsonOf[List[Vehicle]]
 
-    val path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/vehicle"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ class HttpServiceVehicleApi(service: HttpService) {
     } yield resp
   }
 
-  def updateVehicle(version: BigDecimal, id: Long, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
+  def updateVehicle(id: Long, vehicle: String, body: Vehicle)(implicit vehicleQuery: QueryParam[String]): Task[Vehicle] = {
     implicit val returnTypeDecoder: EntityDecoder[Vehicle] = jsonOf[Vehicle]
 
-    val path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

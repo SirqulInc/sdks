@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.ApplicationUsageResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.SubscriptionPlanResponse
 import org.openapitools.client.api.SubscriptionResponse
@@ -33,10 +32,10 @@ object SubscriptionApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createSubscription(host: String, version: BigDecimal, accountId: Long, planId: Long, promoCode: String)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String]): Task[SubscriptionResponse] = {
+  def createSubscription(host: String, accountId: Long, planId: Long, promoCode: String)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def deleteSubscription(host: String, version: BigDecimal, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteSubscription(host: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/subscription/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def getSubscription(host: String, version: BigDecimal, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SubscriptionResponse] = {
+  def getSubscription(host: String, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def getSubscriptionPlan(host: String, version: BigDecimal, planId: Long)(implicit planIdQuery: QueryParam[Long]): Task[SubscriptionPlanResponse] = {
+  def getSubscriptionPlan(host: String, planId: Long)(implicit planIdQuery: QueryParam[Long]): Task[SubscriptionPlanResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionPlanResponse] = jsonOf[SubscriptionPlanResponse]
 
-    val path = "/api/{version}/subscription/plan/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/plan/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def getSubscriptionPlans(host: String, version: BigDecimal, visible: Boolean, role: String)(implicit visibleQuery: QueryParam[Boolean], roleQuery: QueryParam[String]): Task[List[SubscriptionPlanResponse]] = {
+  def getSubscriptionPlans(host: String, visible: Boolean, role: String)(implicit visibleQuery: QueryParam[Boolean], roleQuery: QueryParam[String]): Task[List[SubscriptionPlanResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[SubscriptionPlanResponse]] = jsonOf[List[SubscriptionPlanResponse]]
 
-    val path = "/api/{version}/subscription/plan/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/plan/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,10 +137,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def getSubscriptionUsage(host: String, version: BigDecimal, accountId: Long, applicationId: Long, start: Long, end: Long)(implicit accountIdQuery: QueryParam[Long], applicationIdQuery: QueryParam[Long], startQuery: QueryParam[Long], endQuery: QueryParam[Long]): Task[ApplicationUsageResponse] = {
+  def getSubscriptionUsage(host: String, accountId: Long, applicationId: Long, start: Long, end: Long)(implicit accountIdQuery: QueryParam[Long], applicationIdQuery: QueryParam[Long], startQuery: QueryParam[Long], endQuery: QueryParam[Long]): Task[ApplicationUsageResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationUsageResponse] = jsonOf[ApplicationUsageResponse]
 
-    val path = "/api/{version}/subscription/usage/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/usage/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -159,10 +158,10 @@ object SubscriptionApi {
     } yield resp
   }
 
-  def updateSubscription(host: String, version: BigDecimal, accountId: Long, planId: Long, promoCode: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SubscriptionResponse] = {
+  def updateSubscription(host: String, accountId: Long, planId: Long, promoCode: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createSubscription(version: BigDecimal, accountId: Long, planId: Long, promoCode: String)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String]): Task[SubscriptionResponse] = {
+  def createSubscription(accountId: Long, planId: Long, promoCode: String)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -208,10 +207,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteSubscription(version: BigDecimal, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteSubscription(accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/subscription/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -229,10 +228,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def getSubscription(version: BigDecimal, accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SubscriptionResponse] = {
+  def getSubscription(accountId: Long)(implicit accountIdQuery: QueryParam[Long]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -250,10 +249,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def getSubscriptionPlan(version: BigDecimal, planId: Long)(implicit planIdQuery: QueryParam[Long]): Task[SubscriptionPlanResponse] = {
+  def getSubscriptionPlan(planId: Long)(implicit planIdQuery: QueryParam[Long]): Task[SubscriptionPlanResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionPlanResponse] = jsonOf[SubscriptionPlanResponse]
 
-    val path = "/api/{version}/subscription/plan/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/plan/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -271,10 +270,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def getSubscriptionPlans(version: BigDecimal, visible: Boolean, role: String)(implicit visibleQuery: QueryParam[Boolean], roleQuery: QueryParam[String]): Task[List[SubscriptionPlanResponse]] = {
+  def getSubscriptionPlans(visible: Boolean, role: String)(implicit visibleQuery: QueryParam[Boolean], roleQuery: QueryParam[String]): Task[List[SubscriptionPlanResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[SubscriptionPlanResponse]] = jsonOf[List[SubscriptionPlanResponse]]
 
-    val path = "/api/{version}/subscription/plan/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/plan/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -292,10 +291,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def getSubscriptionUsage(version: BigDecimal, accountId: Long, applicationId: Long, start: Long, end: Long)(implicit accountIdQuery: QueryParam[Long], applicationIdQuery: QueryParam[Long], startQuery: QueryParam[Long], endQuery: QueryParam[Long]): Task[ApplicationUsageResponse] = {
+  def getSubscriptionUsage(accountId: Long, applicationId: Long, start: Long, end: Long)(implicit accountIdQuery: QueryParam[Long], applicationIdQuery: QueryParam[Long], startQuery: QueryParam[Long], endQuery: QueryParam[Long]): Task[ApplicationUsageResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationUsageResponse] = jsonOf[ApplicationUsageResponse]
 
-    val path = "/api/{version}/subscription/usage/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/usage/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -313,10 +312,10 @@ class HttpServiceSubscriptionApi(service: HttpService) {
     } yield resp
   }
 
-  def updateSubscription(version: BigDecimal, accountId: Long, planId: Long, promoCode: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SubscriptionResponse] = {
+  def updateSubscription(accountId: Long, planId: Long, promoCode: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], planIdQuery: QueryParam[Long], promoCodeQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[SubscriptionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SubscriptionResponse] = jsonOf[SubscriptionResponse]
 
-    val path = "/api/{version}/subscription/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/subscription/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

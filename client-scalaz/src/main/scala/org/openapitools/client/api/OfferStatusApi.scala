@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.OfferTransactionStatusResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object OfferStatusApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createOfferTransactionStatus(host: String, version: BigDecimal, name: String, code: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, description: String, role: String = ANY, active: Boolean = true, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
+  def createOfferTransactionStatus(host: String, name: String, code: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, description: String, role: String = ANY, active: Boolean = true, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object OfferStatusApi {
     } yield resp
   }
 
-  def deleteOfferTransactionStatus(host: String, version: BigDecimal, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteOfferTransactionStatus(host: String, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/offer/status/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object OfferStatusApi {
     } yield resp
   }
 
-  def getOfferTransactionStatus(host: String, version: BigDecimal, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[OfferTransactionStatusResponse] = {
+  def getOfferTransactionStatus(host: String, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object OfferStatusApi {
     } yield resp
   }
 
-  def searchOfferTransactionStatuses(host: String, version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String, role: String, appKey: String, sortField: String = CODE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, includeInactive: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], roleQuery: QueryParam[String], appKeyQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeInactiveQuery: QueryParam[Boolean]): Task[List[OfferTransactionStatusResponse]] = {
+  def searchOfferTransactionStatuses(host: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String, role: String, appKey: String, sortField: String = CODE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, includeInactive: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], roleQuery: QueryParam[String], appKeyQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeInactiveQuery: QueryParam[Boolean]): Task[List[OfferTransactionStatusResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionStatusResponse]] = jsonOf[List[OfferTransactionStatusResponse]]
 
-    val path = "/api/{version}/offer/status/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object OfferStatusApi {
     } yield resp
   }
 
-  def updateOfferTransactionStatus(host: String, version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, statusId: Long, name: String, description: String, code: Integer, role: String, active: Boolean, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
+  def updateOfferTransactionStatus(host: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double, statusId: Long, name: String, description: String, code: Integer, role: String, active: Boolean, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceOfferStatusApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createOfferTransactionStatus(version: BigDecimal, name: String, code: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, description: String, role: String = ANY, active: Boolean = true, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
+  def createOfferTransactionStatus(name: String, code: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, description: String, role: String = ANY, active: Boolean = true, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceOfferStatusApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteOfferTransactionStatus(version: BigDecimal, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteOfferTransactionStatus(statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/offer/status/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceOfferStatusApi(service: HttpService) {
     } yield resp
   }
 
-  def getOfferTransactionStatus(version: BigDecimal, statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[OfferTransactionStatusResponse] = {
+  def getOfferTransactionStatus(statusId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceOfferStatusApi(service: HttpService) {
     } yield resp
   }
 
-  def searchOfferTransactionStatuses(version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String, role: String, appKey: String, sortField: String = CODE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, includeInactive: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], roleQuery: QueryParam[String], appKeyQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeInactiveQuery: QueryParam[Boolean]): Task[List[OfferTransactionStatusResponse]] = {
+  def searchOfferTransactionStatuses(deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String, role: String, appKey: String, sortField: String = CODE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, includeInactive: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], roleQuery: QueryParam[String], appKeyQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], includeInactiveQuery: QueryParam[Boolean]): Task[List[OfferTransactionStatusResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[OfferTransactionStatusResponse]] = jsonOf[List[OfferTransactionStatusResponse]]
 
-    val path = "/api/{version}/offer/status/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceOfferStatusApi(service: HttpService) {
     } yield resp
   }
 
-  def updateOfferTransactionStatus(version: BigDecimal, deviceId: String, accountId: Long, latitude: Double, longitude: Double, statusId: Long, name: String, description: String, code: Integer, role: String, active: Boolean, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
+  def updateOfferTransactionStatus(deviceId: String, accountId: Long, latitude: Double, longitude: Double, statusId: Long, name: String, description: String, code: Integer, role: String, active: Boolean, applicationIds: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], statusIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], codeQuery: QueryParam[Integer], roleQuery: QueryParam[String], activeQuery: QueryParam[Boolean], applicationIdsQuery: QueryParam[String]): Task[OfferTransactionStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[OfferTransactionStatusResponse] = jsonOf[OfferTransactionStatusResponse]
 
-    val path = "/api/{version}/offer/status/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/offer/status/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

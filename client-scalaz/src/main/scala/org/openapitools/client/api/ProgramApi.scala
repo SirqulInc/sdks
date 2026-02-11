@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Program
 
 object ProgramApi {
@@ -30,10 +29,10 @@ object ProgramApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createProgram(host: String, version: BigDecimal, body: Program): Task[Program] = {
+  def createProgram(host: String, body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/program"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object ProgramApi {
     } yield resp
   }
 
-  def deleteProgram(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteProgram(host: String, id: Long): Task[Unit] = {
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object ProgramApi {
     } yield resp
   }
 
-  def getProgram(host: String, version: BigDecimal, id: Long): Task[Program] = {
+  def getProgram(host: String, id: Long): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object ProgramApi {
     } yield resp
   }
 
-  def postProgram(host: String, version: BigDecimal, id: Long, body: Program): Task[Program] = {
+  def postProgram(host: String, id: Long, body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object ProgramApi {
     } yield resp
   }
 
-  def putProgram(host: String, version: BigDecimal, id: Long, body: Program): Task[Program] = {
+  def putProgram(host: String, id: Long, body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -133,10 +132,10 @@ object ProgramApi {
     } yield resp
   }
 
-  def searchPrograms(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Program]] = {
+  def searchPrograms(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Program]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Program]] = jsonOf[List[Program]]
 
-    val path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/program"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -161,10 +160,10 @@ class HttpServiceProgramApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createProgram(version: BigDecimal, body: Program): Task[Program] = {
+  def createProgram(body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/program"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -182,8 +181,8 @@ class HttpServiceProgramApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteProgram(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def deleteProgram(id: Long): Task[Unit] = {
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ class HttpServiceProgramApi(service: HttpService) {
     } yield resp
   }
 
-  def getProgram(version: BigDecimal, id: Long): Task[Program] = {
+  def getProgram(id: Long): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ class HttpServiceProgramApi(service: HttpService) {
     } yield resp
   }
 
-  def postProgram(version: BigDecimal, id: Long, body: Program): Task[Program] = {
+  def postProgram(id: Long, body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -243,10 +242,10 @@ class HttpServiceProgramApi(service: HttpService) {
     } yield resp
   }
 
-  def putProgram(version: BigDecimal, id: Long, body: Program): Task[Program] = {
+  def putProgram(id: Long, body: Program): Task[Program] = {
     implicit val returnTypeDecoder: EntityDecoder[Program] = jsonOf[Program]
 
-    val path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/program/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -264,10 +263,10 @@ class HttpServiceProgramApi(service: HttpService) {
     } yield resp
   }
 
-  def searchPrograms(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Program]] = {
+  def searchPrograms(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, keyword: String)(implicit keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Program]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Program]] = jsonOf[List[Program]]
 
-    val path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/program"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

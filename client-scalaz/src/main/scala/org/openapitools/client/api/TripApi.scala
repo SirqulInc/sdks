@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Trip
 
 object TripApi {
@@ -30,10 +29,10 @@ object TripApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTrip(host: String, version: BigDecimal, body: Trip): Task[Trip] = {
+  def createTrip(host: String, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,8 +50,8 @@ object TripApi {
     } yield resp
   }
 
-  def delete(host: String, version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def delete(host: String, id: Long): Task[Unit] = {
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -70,10 +69,10 @@ object TripApi {
     } yield resp
   }
 
-  def driveTrip(host: String, version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def driveTrip(host: String, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/drive".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/drive".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -91,10 +90,10 @@ object TripApi {
     } yield resp
   }
 
-  def flexibleTrip(host: String, version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def flexibleTrip(host: String, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/flexible".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/flexible".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -112,10 +111,10 @@ object TripApi {
     } yield resp
   }
 
-  def getTrip(host: String, version: BigDecimal, id: Long): Task[Trip] = {
+  def getTrip(host: String, id: Long): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -133,10 +132,10 @@ object TripApi {
     } yield resp
   }
 
-  def getTripMatches(host: String, version: BigDecimal, id: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def getTripMatches(host: String, id: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/match".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/match".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -154,10 +153,10 @@ object TripApi {
     } yield resp
   }
 
-  def processTripMatches(host: String, version: BigDecimal, startDate: Long, endDate: Long, tripId: Long)(implicit startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tripIdQuery: QueryParam[Long]): Task[List[Trip]] = {
+  def processTripMatches(host: String, startDate: Long, endDate: Long, tripId: Long)(implicit startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tripIdQuery: QueryParam[Long]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/match/process".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/match/process"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -175,10 +174,10 @@ object TripApi {
     } yield resp
   }
 
-  def ride(host: String, version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def ride(host: String, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/ride".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/ride".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -196,10 +195,10 @@ object TripApi {
     } yield resp
   }
 
-  def search(host: String, version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, hasNotifications: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], hasNotificationsQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def search(host: String, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, hasNotifications: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], hasNotificationsQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -217,10 +216,10 @@ object TripApi {
     } yield resp
   }
 
-  def searchTrips(host: String, version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def searchTrips(host: String, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/match".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/match"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -238,10 +237,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateLocations(host: String, version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateLocations(host: String, id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/locations".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/locations".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -259,10 +258,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateRecurrenceLocations(host: String, version: BigDecimal, id: Long, body: Trip): Task[List[Trip]] = {
+  def updateRecurrenceLocations(host: String, id: Long, body: Trip): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/locations/recurrence".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/locations/recurrence".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -280,10 +279,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateRecurrenceShipments(host: String, version: BigDecimal, id: Long, body: Trip): Task[List[Trip]] = {
+  def updateRecurrenceShipments(host: String, id: Long, body: Trip): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/shipments/recurrence".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/shipments/recurrence".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -301,10 +300,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateShipments(host: String, version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateShipments(host: String, id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/shipments".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -322,10 +321,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateTrip(host: String, version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateTrip(host: String, id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -343,10 +342,10 @@ object TripApi {
     } yield resp
   }
 
-  def updateTripNotifications(host: String, version: BigDecimal, id: Long, notifications: String)(implicit idQuery: QueryParam[Long], notificationsQuery: QueryParam[String]): Task[Trip] = {
+  def updateTripNotifications(host: String, id: Long, notifications: String)(implicit idQuery: QueryParam[Long], notificationsQuery: QueryParam[String]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/notifications".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/notifications"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -371,10 +370,10 @@ class HttpServiceTripApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createTrip(version: BigDecimal, body: Trip): Task[Trip] = {
+  def createTrip(body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -392,8 +391,8 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def delete(version: BigDecimal, id: Long): Task[Unit] = {
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+  def delete(id: Long): Task[Unit] = {
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -411,10 +410,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def driveTrip(version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def driveTrip(id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/drive".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/drive".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -432,10 +431,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def flexibleTrip(version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def flexibleTrip(id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/flexible".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/flexible".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -453,10 +452,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def getTrip(version: BigDecimal, id: Long): Task[Trip] = {
+  def getTrip(id: Long): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -474,10 +473,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def getTripMatches(version: BigDecimal, id: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def getTripMatches(id: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/match".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/match".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -495,10 +494,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def processTripMatches(version: BigDecimal, startDate: Long, endDate: Long, tripId: Long)(implicit startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tripIdQuery: QueryParam[Long]): Task[List[Trip]] = {
+  def processTripMatches(startDate: Long, endDate: Long, tripId: Long)(implicit startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tripIdQuery: QueryParam[Long]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/match/process".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/match/process"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -516,10 +515,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def ride(version: BigDecimal, id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
+  def ride(id: Long, recurrence: Boolean)(implicit recurrenceQuery: QueryParam[Boolean]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/ride".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/ride".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -537,10 +536,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def search(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, hasNotifications: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], hasNotificationsQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def search(accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, hasNotifications: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], hasNotificationsQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -558,10 +557,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def searchTrips(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
+  def searchTrips(accountId: Long, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, startDate: Long, endDate: Long, matchedHasRoute: Boolean, matchedHasDriver: Boolean)(implicit accountIdQuery: QueryParam[Long], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], matchedHasRouteQuery: QueryParam[Boolean], matchedHasDriverQuery: QueryParam[Boolean], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/match".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/match"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -579,10 +578,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateLocations(version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateLocations(id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/locations".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/locations".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -600,10 +599,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRecurrenceLocations(version: BigDecimal, id: Long, body: Trip): Task[List[Trip]] = {
+  def updateRecurrenceLocations(id: Long, body: Trip): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/locations/recurrence".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/locations/recurrence".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -621,10 +620,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRecurrenceShipments(version: BigDecimal, id: Long, body: Trip): Task[List[Trip]] = {
+  def updateRecurrenceShipments(id: Long, body: Trip): Task[List[Trip]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Trip]] = jsonOf[List[Trip]]
 
-    val path = "/api/{version}/trip/{id}/shipments/recurrence".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/shipments/recurrence".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -642,10 +641,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateShipments(version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateShipments(id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}/shipments".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}/shipments".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -663,10 +662,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateTrip(version: BigDecimal, id: Long, body: Trip): Task[Trip] = {
+  def updateTrip(id: Long, body: Trip): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+    val path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -684,10 +683,10 @@ class HttpServiceTripApi(service: HttpService) {
     } yield resp
   }
 
-  def updateTripNotifications(version: BigDecimal, id: Long, notifications: String)(implicit idQuery: QueryParam[Long], notificationsQuery: QueryParam[String]): Task[Trip] = {
+  def updateTripNotifications(id: Long, notifications: String)(implicit idQuery: QueryParam[Long], notificationsQuery: QueryParam[String]): Task[Trip] = {
     implicit val returnTypeDecoder: EntityDecoder[Trip] = jsonOf[Trip]
 
-    val path = "/api/{version}/trip/notifications".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/trip/notifications"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

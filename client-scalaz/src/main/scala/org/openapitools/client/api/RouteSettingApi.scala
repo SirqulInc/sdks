@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RouteSettings
 
 object RouteSettingApi {
@@ -30,10 +29,10 @@ object RouteSettingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRouteSettings(host: String, version: BigDecimal, body: RouteSettings): Task[RouteSettings] = {
+  def createRouteSettings(host: String, body: RouteSettings): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route/setting"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -51,10 +50,10 @@ object RouteSettingApi {
     } yield resp
   }
 
-  def deleteRouteSettings(host: String, version: BigDecimal, routeSettingsId: Long): Task[Any] = {
+  def deleteRouteSettings(host: String, routeSettingsId: Long): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -72,10 +71,10 @@ object RouteSettingApi {
     } yield resp
   }
 
-  def getRouteSettings(host: String, version: BigDecimal, routeSettingsId: Long): Task[RouteSettings] = {
+  def getRouteSettings(host: String, routeSettingsId: Long): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -93,10 +92,10 @@ object RouteSettingApi {
     } yield resp
   }
 
-  def searchRouteSettings(host: String, version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, hubId: Long, programId: Long, keyword: String)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RouteSettings]] = {
+  def searchRouteSettings(host: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, hubId: Long, programId: Long, keyword: String)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RouteSettings]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RouteSettings]] = jsonOf[List[RouteSettings]]
 
-    val path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route/setting"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -114,10 +113,10 @@ object RouteSettingApi {
     } yield resp
   }
 
-  def updateRouteSettings(host: String, version: BigDecimal, routeSettingsId: Long, body: RouteSettings): Task[RouteSettings] = {
+  def updateRouteSettings(host: String, routeSettingsId: Long, body: RouteSettings): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -142,10 +141,10 @@ class HttpServiceRouteSettingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createRouteSettings(version: BigDecimal, body: RouteSettings): Task[RouteSettings] = {
+  def createRouteSettings(body: RouteSettings): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route/setting"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -163,10 +162,10 @@ class HttpServiceRouteSettingApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteRouteSettings(version: BigDecimal, routeSettingsId: Long): Task[Any] = {
+  def deleteRouteSettings(routeSettingsId: Long): Task[Any] = {
     implicit val returnTypeDecoder: EntityDecoder[Any] = jsonOf[Any]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -184,10 +183,10 @@ class HttpServiceRouteSettingApi(service: HttpService) {
     } yield resp
   }
 
-  def getRouteSettings(version: BigDecimal, routeSettingsId: Long): Task[RouteSettings] = {
+  def getRouteSettings(routeSettingsId: Long): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -205,10 +204,10 @@ class HttpServiceRouteSettingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchRouteSettings(version: BigDecimal, sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, hubId: Long, programId: Long, keyword: String)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RouteSettings]] = {
+  def searchRouteSettings(sortField: String, descending: Boolean, start: Integer, limit: Integer, activeOnly: Boolean, hubId: Long, programId: Long, keyword: String)(implicit hubIdQuery: QueryParam[Long], programIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[RouteSettings]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[RouteSettings]] = jsonOf[List[RouteSettings]]
 
-    val path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/route/setting"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -226,10 +225,10 @@ class HttpServiceRouteSettingApi(service: HttpService) {
     } yield resp
   }
 
-  def updateRouteSettings(version: BigDecimal, routeSettingsId: Long, body: RouteSettings): Task[RouteSettings] = {
+  def updateRouteSettings(routeSettingsId: Long, body: RouteSettings): Task[RouteSettings] = {
     implicit val returnTypeDecoder: EntityDecoder[RouteSettings] = jsonOf[RouteSettings]
 
-    val path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}",escape(version.toString)).replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
+    val path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}",escape(routeSettingsId.toString))
 
     val httpMethod = Method.PUT
     val contentType = `Content-Type`(MediaType.`application/json`)

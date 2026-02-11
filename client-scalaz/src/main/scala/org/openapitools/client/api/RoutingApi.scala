@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.RoutingListResponse
 
 object RoutingApi {
@@ -30,10 +29,10 @@ object RoutingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def computeRouting(host: String, version: BigDecimal, data: String)(implicit dataQuery: QueryParam[String]): Task[RoutingListResponse] = {
+  def computeRouting(host: String, data: String)(implicit dataQuery: QueryParam[String]): Task[RoutingListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RoutingListResponse] = jsonOf[RoutingListResponse]
 
-    val path = "/api/{version}/routing/compute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/routing/compute"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceRoutingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def computeRouting(version: BigDecimal, data: String)(implicit dataQuery: QueryParam[String]): Task[RoutingListResponse] = {
+  def computeRouting(data: String)(implicit dataQuery: QueryParam[String]): Task[RoutingListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[RoutingListResponse] = jsonOf[RoutingListResponse]
 
-    val path = "/api/{version}/routing/compute".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/routing/compute"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

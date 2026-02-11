@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.ApplicationConfigResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object ApplicationConfigApi {
@@ -31,10 +30,10 @@ object ApplicationConfigApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createApplicationConfig(host: String, version: BigDecimal, accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
+  def createApplicationConfig(host: String, accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object ApplicationConfigApi {
     } yield resp
   }
 
-  def deleteApplicationConfig(host: String, version: BigDecimal, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteApplicationConfig(host: String, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/appconfig/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object ApplicationConfigApi {
     } yield resp
   }
 
-  def getApplicationConfig(host: String, version: BigDecimal, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[ApplicationConfigResponse] = {
+  def getApplicationConfig(host: String, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object ApplicationConfigApi {
     } yield resp
   }
 
-  def getApplicationConfigByConfigVersion(host: String, version: BigDecimal, appKey: String, configVersion: String, retailerId: Long, retailerLocationId: Long, udid: String, allowOlderVersions: Boolean = false)(implicit appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], allowOlderVersionsQuery: QueryParam[Boolean]): Task[ApplicationConfigResponse] = {
+  def getApplicationConfigByConfigVersion(host: String, appKey: String, configVersion: String, retailerId: Long, retailerLocationId: Long, udid: String, allowOlderVersions: Boolean = false)(implicit appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], allowOlderVersionsQuery: QueryParam[Boolean]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/getbyversion".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/getbyversion"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object ApplicationConfigApi {
     } yield resp
   }
 
-  def searchApplicationConfig(host: String, version: BigDecimal, accountId: Long, appKey: String, retailerId: Long, retailerLocationId: Long, udid: String, configVersion: String, sortField: String = CONFIG_VERSION_INDEX, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], configVersionQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ApplicationConfigResponse]] = {
+  def searchApplicationConfig(host: String, accountId: Long, appKey: String, retailerId: Long, retailerLocationId: Long, udid: String, configVersion: String, sortField: String = CONFIG_VERSION_INDEX, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], configVersionQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ApplicationConfigResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationConfigResponse]] = jsonOf[List[ApplicationConfigResponse]]
 
-    val path = "/api/{version}/appconfig/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -136,10 +135,10 @@ object ApplicationConfigApi {
     } yield resp
   }
 
-  def updateApplicationConfig(host: String, version: BigDecimal, accountId: Long, configId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
+  def updateApplicationConfig(host: String, accountId: Long, configId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createApplicationConfig(version: BigDecimal, accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
+  def createApplicationConfig(accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteApplicationConfig(version: BigDecimal, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteApplicationConfig(accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/appconfig/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
     } yield resp
   }
 
-  def getApplicationConfig(version: BigDecimal, accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[ApplicationConfigResponse] = {
+  def getApplicationConfig(accountId: Long, configId: Long)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
     } yield resp
   }
 
-  def getApplicationConfigByConfigVersion(version: BigDecimal, appKey: String, configVersion: String, retailerId: Long, retailerLocationId: Long, udid: String, allowOlderVersions: Boolean = false)(implicit appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], allowOlderVersionsQuery: QueryParam[Boolean]): Task[ApplicationConfigResponse] = {
+  def getApplicationConfigByConfigVersion(appKey: String, configVersion: String, retailerId: Long, retailerLocationId: Long, udid: String, allowOlderVersions: Boolean = false)(implicit appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], allowOlderVersionsQuery: QueryParam[Boolean]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/getbyversion".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/getbyversion"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -248,10 +247,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
     } yield resp
   }
 
-  def searchApplicationConfig(version: BigDecimal, accountId: Long, appKey: String, retailerId: Long, retailerLocationId: Long, udid: String, configVersion: String, sortField: String = CONFIG_VERSION_INDEX, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], configVersionQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ApplicationConfigResponse]] = {
+  def searchApplicationConfig(accountId: Long, appKey: String, retailerId: Long, retailerLocationId: Long, udid: String, configVersion: String, sortField: String = CONFIG_VERSION_INDEX, descending: Boolean = true, start: Integer = 0, limit: Integer = 20)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String], configVersionQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ApplicationConfigResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ApplicationConfigResponse]] = jsonOf[List[ApplicationConfigResponse]]
 
-    val path = "/api/{version}/appconfig/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -269,10 +268,10 @@ class HttpServiceApplicationConfigApi(service: HttpService) {
     } yield resp
   }
 
-  def updateApplicationConfig(version: BigDecimal, accountId: Long, configId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
+  def updateApplicationConfig(accountId: Long, configId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Long, retailerLocationId: Long, udid: String)(implicit accountIdQuery: QueryParam[Long], configIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], configVersionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], retailerIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], udidQuery: QueryParam[String]): Task[ApplicationConfigResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ApplicationConfigResponse] = jsonOf[ApplicationConfigResponse]
 
-    val path = "/api/{version}/appconfig/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/appconfig/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

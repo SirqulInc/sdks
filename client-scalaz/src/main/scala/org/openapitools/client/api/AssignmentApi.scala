@@ -24,7 +24,6 @@ import HelperCodecs._
 import org.openapitools.client.api.AccountMiniResponse
 import org.openapitools.client.api.AssignmentResponse
 import org.openapitools.client.api.AssignmentStatusResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object AssignmentApi {
@@ -33,10 +32,10 @@ object AssignmentApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assigmentAssigneeAccountSearch(host: String, version: BigDecimal, accountId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String]): Task[List[AccountMiniResponse]] = {
+  def assigmentAssigneeAccountSearch(host: String, accountId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String]): Task[List[AccountMiniResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountMiniResponse]] = jsonOf[List[AccountMiniResponse]]
 
-    val path = "/api/{version}/assignment/assignee/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/assignee/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentCreate(host: String, version: BigDecimal, accountId: Long, name: String, assigneeAccountId: Long, description: String, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
+  def assignmentCreate(host: String, accountId: Long, name: String, assigneeAccountId: Long, description: String, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentDelete(host: String, version: BigDecimal, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def assignmentDelete(host: String, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/assignment/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentGet(host: String, version: BigDecimal, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[AssignmentResponse] = {
+  def assignmentGet(host: String, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -117,10 +116,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentSearch(host: String, version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, creatorAccountId: Long, assigneeAccountIds: String, retailerLocationIds: String, currentStatusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdsQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], currentStatusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentResponse]] = {
+  def assignmentSearch(host: String, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, creatorAccountId: Long, assigneeAccountIds: String, retailerLocationIds: String, currentStatusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdsQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], currentStatusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssignmentResponse]] = jsonOf[List[AssignmentResponse]]
 
-    val path = "/api/{version}/assignment/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -138,10 +137,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentStatusCreate(host: String, version: BigDecimal, accountId: Long, assignmentId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusCreate(host: String, accountId: Long, assignmentId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -159,10 +158,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentStatusDelete(host: String, version: BigDecimal, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def assignmentStatusDelete(host: String, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/assignment/status/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -180,10 +179,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentStatusGet(host: String, version: BigDecimal, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusGet(host: String, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -201,10 +200,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentStatusSearch(host: String, version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, assignmentId: Long, creatorAccountId: Long, assigneeAccountId: Long, retailerLocationId: Long, statusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], statusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentStatusResponse]] = {
+  def assignmentStatusSearch(host: String, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, assignmentId: Long, creatorAccountId: Long, assigneeAccountId: Long, retailerLocationId: Long, statusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], statusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentStatusResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssignmentStatusResponse]] = jsonOf[List[AssignmentStatusResponse]]
 
-    val path = "/api/{version}/assignment/status/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -222,10 +221,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentStatusUpdate(host: String, version: BigDecimal, accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusUpdate(host: String, accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -243,10 +242,10 @@ object AssignmentApi {
     } yield resp
   }
 
-  def assignmentUpdate(host: String, version: BigDecimal, accountId: Long, assignmentId: Long, name: String, description: String, assigneeAccountId: Long, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
+  def assignmentUpdate(host: String, accountId: Long, assignmentId: Long, name: String, description: String, assigneeAccountId: Long, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -271,10 +270,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def assigmentAssigneeAccountSearch(version: BigDecimal, accountId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String]): Task[List[AccountMiniResponse]] = {
+  def assigmentAssigneeAccountSearch(accountId: Long, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String]): Task[List[AccountMiniResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountMiniResponse]] = jsonOf[List[AccountMiniResponse]]
 
-    val path = "/api/{version}/assignment/assignee/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/assignee/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -292,10 +291,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentCreate(version: BigDecimal, accountId: Long, name: String, assigneeAccountId: Long, description: String, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
+  def assignmentCreate(accountId: Long, name: String, assigneeAccountId: Long, description: String, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -313,10 +312,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentDelete(version: BigDecimal, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def assignmentDelete(accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/assignment/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -334,10 +333,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentGet(version: BigDecimal, accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[AssignmentResponse] = {
+  def assignmentGet(accountId: Long, assignmentId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -355,10 +354,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentSearch(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, creatorAccountId: Long, assigneeAccountIds: String, retailerLocationIds: String, currentStatusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdsQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], currentStatusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentResponse]] = {
+  def assignmentSearch(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, creatorAccountId: Long, assigneeAccountIds: String, retailerLocationIds: String, currentStatusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdsQuery: QueryParam[String], retailerLocationIdsQuery: QueryParam[String], currentStatusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssignmentResponse]] = jsonOf[List[AssignmentResponse]]
 
-    val path = "/api/{version}/assignment/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -376,10 +375,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentStatusCreate(version: BigDecimal, accountId: Long, assignmentId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusCreate(accountId: Long, assignmentId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -397,10 +396,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentStatusDelete(version: BigDecimal, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def assignmentStatusDelete(accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/assignment/status/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -418,10 +417,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentStatusGet(version: BigDecimal, accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusGet(accountId: Long, assignmentStatusId: Long)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -439,10 +438,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentStatusSearch(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, assignmentId: Long, creatorAccountId: Long, assigneeAccountId: Long, retailerLocationId: Long, statusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], statusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentStatusResponse]] = {
+  def assignmentStatusSearch(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, assignmentId: Long, creatorAccountId: Long, assigneeAccountId: Long, retailerLocationId: Long, statusType: String, keyword: String)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], creatorAccountIdQuery: QueryParam[Long], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], statusTypeQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[AssignmentStatusResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AssignmentStatusResponse]] = jsonOf[List[AssignmentStatusResponse]]
 
-    val path = "/api/{version}/assignment/status/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -460,10 +459,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentStatusUpdate(version: BigDecimal, accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
+  def assignmentStatusUpdate(accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Long, toDo: String, connection: String, method: String, status: String, closure: String, message: String, followUp: Long, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentStatusIdQuery: QueryParam[Long], scheduledNotificationIdQuery: QueryParam[Long], toDoQuery: QueryParam[String], connectionQuery: QueryParam[String], methodQuery: QueryParam[String], statusQuery: QueryParam[String], closureQuery: QueryParam[String], messageQuery: QueryParam[String], followUpQuery: QueryParam[Long], activeQuery: QueryParam[Boolean]): Task[AssignmentStatusResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentStatusResponse] = jsonOf[AssignmentStatusResponse]
 
-    val path = "/api/{version}/assignment/status/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/status/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -481,10 +480,10 @@ class HttpServiceAssignmentApi(service: HttpService) {
     } yield resp
   }
 
-  def assignmentUpdate(version: BigDecimal, accountId: Long, assignmentId: Long, name: String, description: String, assigneeAccountId: Long, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
+  def assignmentUpdate(accountId: Long, assignmentId: Long, name: String, description: String, assigneeAccountId: Long, retailerLocationId: Long, tags: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], assignmentIdQuery: QueryParam[Long], nameQuery: QueryParam[String], descriptionQuery: QueryParam[String], assigneeAccountIdQuery: QueryParam[Long], retailerLocationIdQuery: QueryParam[Long], tagsQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[AssignmentResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[AssignmentResponse] = jsonOf[AssignmentResponse]
 
-    val path = "/api/{version}/assignment/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/assignment/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

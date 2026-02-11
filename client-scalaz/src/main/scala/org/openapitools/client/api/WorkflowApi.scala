@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 
 object WorkflowApi {
@@ -30,10 +29,10 @@ object WorkflowApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def runWorkflow(host: String, version: BigDecimal, accountId: Long, workflowId: Long, skuId: Long, versionCode: Integer, parameters: String)(implicit accountIdQuery: QueryParam[Long], workflowIdQuery: QueryParam[Long], skuIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], parametersQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def runWorkflow(host: String, accountId: Long, workflowId: Long, skuId: Long, versionCode: Integer, parameters: String)(implicit accountIdQuery: QueryParam[Long], workflowIdQuery: QueryParam[Long], skuIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], parametersQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/workflow/run".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/workflow/run"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -58,10 +57,10 @@ class HttpServiceWorkflowApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def runWorkflow(version: BigDecimal, accountId: Long, workflowId: Long, skuId: Long, versionCode: Integer, parameters: String)(implicit accountIdQuery: QueryParam[Long], workflowIdQuery: QueryParam[Long], skuIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], parametersQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def runWorkflow(accountId: Long, workflowId: Long, skuId: Long, versionCode: Integer, parameters: String)(implicit accountIdQuery: QueryParam[Long], workflowIdQuery: QueryParam[Long], skuIdQuery: QueryParam[Long], versionCodeQuery: QueryParam[Integer], parametersQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/workflow/run".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/workflow/run"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

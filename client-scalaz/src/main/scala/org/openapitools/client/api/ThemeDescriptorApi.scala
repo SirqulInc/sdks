@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import java.io.File
 import org.openapitools.client.api.PurchaseItemListResponse
 import org.openapitools.client.api.SirqulResponse
@@ -33,10 +32,10 @@ object ThemeDescriptorApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addOrUpdateThemeDescriptor(host: String, version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: String, accountId: Long, gameType: String, themeDescriptorId: Long, title: String, description: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, appVersion: String, colorValueJson: String, stringReplacerJson: String, customJsonObjects: String, iconImage: File, sceneAtlasImage: File, bgImage: File, bgSound: File, musicSelection: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String], colorValueJsonQuery: QueryParam[String], stringReplacerJsonQuery: QueryParam[String], customJsonObjectsQuery: QueryParam[String], iconImageQuery: QueryParam[File], sceneAtlasImageQuery: QueryParam[File], bgImageQuery: QueryParam[File], bgSoundQuery: QueryParam[File], musicSelectionQuery: QueryParam[String], completeWithDefaultValuesQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ThemeDescriptorResponse] = {
+  def addOrUpdateThemeDescriptor(host: String, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: String, accountId: Long, gameType: String, themeDescriptorId: Long, title: String, description: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, appVersion: String, colorValueJson: String, stringReplacerJson: String, customJsonObjects: String, iconImage: File, sceneAtlasImage: File, bgImage: File, bgSound: File, musicSelection: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String], colorValueJsonQuery: QueryParam[String], stringReplacerJsonQuery: QueryParam[String], customJsonObjectsQuery: QueryParam[String], iconImageQuery: QueryParam[File], sceneAtlasImageQuery: QueryParam[File], bgImageQuery: QueryParam[File], bgSoundQuery: QueryParam[File], musicSelectionQuery: QueryParam[String], completeWithDefaultValuesQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ThemeDescriptorResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ThemeDescriptorResponse] = jsonOf[ThemeDescriptorResponse]
 
-    val path = "/api/{version}/consumer/theme".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -54,10 +53,10 @@ object ThemeDescriptorApi {
     } yield resp
   }
 
-  def getThemeDescriptor(host: String, version: BigDecimal, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
+  def getThemeDescriptor(host: String, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemListResponse] = jsonOf[PurchaseItemListResponse]
 
-    val path = "/api/{version}/consumer/theme/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -75,10 +74,10 @@ object ThemeDescriptorApi {
     } yield resp
   }
 
-  def getThemeDescriptors(host: String, version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, appVersion: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
+  def getThemeDescriptors(host: String, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, appVersion: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemListResponse] = jsonOf[PurchaseItemListResponse]
 
-    val path = "/api/{version}/consumer/theme/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -96,10 +95,10 @@ object ThemeDescriptorApi {
     } yield resp
   }
 
-  def removeThemeDescriptor(host: String, version: BigDecimal, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeThemeDescriptor(host: String, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/theme/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -124,10 +123,10 @@ class HttpServiceThemeDescriptorApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addOrUpdateThemeDescriptor(version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: String, accountId: Long, gameType: String, themeDescriptorId: Long, title: String, description: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, appVersion: String, colorValueJson: String, stringReplacerJson: String, customJsonObjects: String, iconImage: File, sceneAtlasImage: File, bgImage: File, bgSound: File, musicSelection: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String], colorValueJsonQuery: QueryParam[String], stringReplacerJsonQuery: QueryParam[String], customJsonObjectsQuery: QueryParam[String], iconImageQuery: QueryParam[File], sceneAtlasImageQuery: QueryParam[File], bgImageQuery: QueryParam[File], bgSoundQuery: QueryParam[File], musicSelectionQuery: QueryParam[String], completeWithDefaultValuesQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ThemeDescriptorResponse] = {
+  def addOrUpdateThemeDescriptor(publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: String, accountId: Long, gameType: String, themeDescriptorId: Long, title: String, description: String, connectionIdsToAdd: String, connectionGroupIdsToAdd: String, appVersion: String, colorValueJson: String, stringReplacerJson: String, customJsonObjects: String, iconImage: File, sceneAtlasImage: File, bgImage: File, bgSound: File, musicSelection: String, locationDescription: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], titleQuery: QueryParam[String], descriptionQuery: QueryParam[String], publicReadQuery: QueryParam[Boolean], publicWriteQuery: QueryParam[Boolean], publicDeleteQuery: QueryParam[Boolean], publicAddQuery: QueryParam[Boolean], visibilityQuery: QueryParam[String], connectionIdsToAddQuery: QueryParam[String], connectionGroupIdsToAddQuery: QueryParam[String], includeFriendGroupQuery: QueryParam[Boolean], appVersionQuery: QueryParam[String], colorValueJsonQuery: QueryParam[String], stringReplacerJsonQuery: QueryParam[String], customJsonObjectsQuery: QueryParam[String], iconImageQuery: QueryParam[File], sceneAtlasImageQuery: QueryParam[File], bgImageQuery: QueryParam[File], bgSoundQuery: QueryParam[File], musicSelectionQuery: QueryParam[String], completeWithDefaultValuesQuery: QueryParam[Boolean], locationDescriptionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ThemeDescriptorResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ThemeDescriptorResponse] = jsonOf[ThemeDescriptorResponse]
 
-    val path = "/api/{version}/consumer/theme".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -145,10 +144,10 @@ class HttpServiceThemeDescriptorApi(service: HttpService) {
     } yield resp
   }
 
-  def getThemeDescriptor(version: BigDecimal, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
+  def getThemeDescriptor(themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemListResponse] = jsonOf[PurchaseItemListResponse]
 
-    val path = "/api/{version}/consumer/theme/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -166,10 +165,10 @@ class HttpServiceThemeDescriptorApi(service: HttpService) {
     } yield resp
   }
 
-  def getThemeDescriptors(version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, appVersion: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
+  def getThemeDescriptors(filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, gameType: String, contestType: String, ownerId: Long, q: String, keyword: String, i: Integer, l: Integer, dateCreated: Long, appVersion: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], contestTypeQuery: QueryParam[String], ownerIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], filterQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], dateCreatedQuery: QueryParam[Long], appVersionQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[PurchaseItemListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PurchaseItemListResponse] = jsonOf[PurchaseItemListResponse]
 
-    val path = "/api/{version}/consumer/theme/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -187,10 +186,10 @@ class HttpServiceThemeDescriptorApi(service: HttpService) {
     } yield resp
   }
 
-  def removeThemeDescriptor(version: BigDecimal, themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeThemeDescriptor(themeDescriptorId: Long, deviceId: String, accountId: Long, gameType: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], themeDescriptorIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/theme/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/theme/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

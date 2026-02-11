@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.PostalCodeResponse
 import org.openapitools.client.api.SirqulResponse
 
@@ -31,10 +30,10 @@ object PostalCodeApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPostalCode(host: String, version: BigDecimal, accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
+  def createPostalCode(host: String, accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object PostalCodeApi {
     } yield resp
   }
 
-  def deletePostalCode(host: String, version: BigDecimal, accountId: Long, postalCodeId: Long)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePostalCode(host: String, accountId: Long, postalCodeId: Long)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/postalCode/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object PostalCodeApi {
     } yield resp
   }
 
-  def getPostalCode(host: String, version: BigDecimal, postalCodeId: Long)(implicit postalCodeIdQuery: QueryParam[Long]): Task[PostalCodeResponse] = {
+  def getPostalCode(host: String, postalCodeId: Long)(implicit postalCodeIdQuery: QueryParam[Long]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object PostalCodeApi {
     } yield resp
   }
 
-  def getPostalCodes(host: String, version: BigDecimal, sortField: String, descending: Boolean, latitude: Double, longitude: Double, keyword: String, miles: Double, start: Integer, limit: Integer)(implicit latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], milesQuery: QueryParam[Double], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[PostalCodeResponse]] = {
+  def getPostalCodes(host: String, sortField: String, descending: Boolean, latitude: Double, longitude: Double, keyword: String, miles: Double, start: Integer, limit: Integer)(implicit latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], milesQuery: QueryParam[Double], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[PostalCodeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PostalCodeResponse]] = jsonOf[List[PostalCodeResponse]]
 
-    val path = "/api/{version}/postalCode/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object PostalCodeApi {
     } yield resp
   }
 
-  def updatePostalCode(host: String, version: BigDecimal, accountId: Long, postalCodeId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
+  def updatePostalCode(host: String, accountId: Long, postalCodeId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServicePostalCodeApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createPostalCode(version: BigDecimal, accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
+  def createPostalCode(accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServicePostalCodeApi(service: HttpService) {
     } yield resp
   }
 
-  def deletePostalCode(version: BigDecimal, accountId: Long, postalCodeId: Long)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deletePostalCode(accountId: Long, postalCodeId: Long)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/postalCode/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/delete"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServicePostalCodeApi(service: HttpService) {
     } yield resp
   }
 
-  def getPostalCode(version: BigDecimal, postalCodeId: Long)(implicit postalCodeIdQuery: QueryParam[Long]): Task[PostalCodeResponse] = {
+  def getPostalCode(postalCodeId: Long)(implicit postalCodeIdQuery: QueryParam[Long]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServicePostalCodeApi(service: HttpService) {
     } yield resp
   }
 
-  def getPostalCodes(version: BigDecimal, sortField: String, descending: Boolean, latitude: Double, longitude: Double, keyword: String, miles: Double, start: Integer, limit: Integer)(implicit latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], milesQuery: QueryParam[Double], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[PostalCodeResponse]] = {
+  def getPostalCodes(sortField: String, descending: Boolean, latitude: Double, longitude: Double, keyword: String, miles: Double, start: Integer, limit: Integer)(implicit latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], milesQuery: QueryParam[Double], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean]): Task[List[PostalCodeResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PostalCodeResponse]] = jsonOf[List[PostalCodeResponse]]
 
-    val path = "/api/{version}/postalCode/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServicePostalCodeApi(service: HttpService) {
     } yield resp
   }
 
-  def updatePostalCode(version: BigDecimal, accountId: Long, postalCodeId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
+  def updatePostalCode(accountId: Long, postalCodeId: Long, code: String, latitude: Double, longitude: Double, stateCode: String, city: String, active: Boolean)(implicit accountIdQuery: QueryParam[Long], postalCodeIdQuery: QueryParam[Long], codeQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], stateCodeQuery: QueryParam[String], cityQuery: QueryParam[String], activeQuery: QueryParam[Boolean]): Task[PostalCodeResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PostalCodeResponse] = jsonOf[PostalCodeResponse]
 
-    val path = "/api/{version}/postalCode/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/postalCode/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

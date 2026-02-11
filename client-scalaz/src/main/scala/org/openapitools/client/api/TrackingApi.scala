@@ -22,7 +22,6 @@ import scalaz.concurrent.Task
 import HelperCodecs._
 
 import org.openapitools.client.api.AccountMiniResponse
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.Leg
 import org.openapitools.client.api.LegResponse
 import org.openapitools.client.api.PredictedLocationResponse
@@ -36,10 +35,10 @@ object TrackingApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def batchSaveTracking(host: String, version: BigDecimal, data: String, deviceId: String, accountId: Long, generateAccounts: Boolean, updateAccountLocations: Boolean, defaultTag: String = PASSIVE, slaveUID: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String], generateAccountsQuery: QueryParam[Boolean], updateAccountLocationsQuery: QueryParam[Boolean], defaultTagQuery: QueryParam[String], slaveUIDQuery: QueryParam[String]): Task[List[Leg]] = {
+  def batchSaveTracking(host: String, data: String, deviceId: String, accountId: Long, generateAccounts: Boolean, updateAccountLocations: Boolean, defaultTag: String = PASSIVE, slaveUID: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String], generateAccountsQuery: QueryParam[Boolean], updateAccountLocationsQuery: QueryParam[Boolean], defaultTagQuery: QueryParam[String], slaveUIDQuery: QueryParam[String]): Task[List[Leg]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Leg]] = jsonOf[List[Leg]]
 
-    val path = "/api/{version}/tracking/batch/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/batch/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -57,10 +56,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def getPredictedLocations(host: String, version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, threshold: Long = 1, distanceUnit: String = MILES, searchRange: Double = 0, sortOrder: String = MATCHES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], thresholdQuery: QueryParam[Long], distanceUnitQuery: QueryParam[String], searchRangeQuery: QueryParam[Double], sortOrderQuery: QueryParam[String]): Task[PredictedLocationResponse] = {
+  def getPredictedLocations(host: String, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, threshold: Long = 1, distanceUnit: String = MILES, searchRange: Double = 0, sortOrder: String = MATCHES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], thresholdQuery: QueryParam[Long], distanceUnitQuery: QueryParam[String], searchRangeQuery: QueryParam[Double], sortOrderQuery: QueryParam[String]): Task[PredictedLocationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PredictedLocationResponse] = jsonOf[PredictedLocationResponse]
 
-    val path = "/api/{version}/tracking/predicted/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/predicted/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -78,10 +77,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def getPredictedPath(host: String, version: BigDecimal, accountId: Long, startStepId: Long, endStepId: Long)(implicit accountIdQuery: QueryParam[Long], startStepIdQuery: QueryParam[Long], endStepIdQuery: QueryParam[Long]): Task[List[StepResponse]] = {
+  def getPredictedPath(host: String, accountId: Long, startStepId: Long, endStepId: Long)(implicit accountIdQuery: QueryParam[Long], startStepIdQuery: QueryParam[Long], endStepIdQuery: QueryParam[Long]): Task[List[StepResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[StepResponse]] = jsonOf[List[StepResponse]]
 
-    val path = "/api/{version}/tracking/path/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/path/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -99,10 +98,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def getPreferredLocations(host: String, version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, sortField: String = PREFERRED_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, searchRange: Double = 0, distanceUnit: String = MILES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], distanceUnitQuery: QueryParam[String]): Task[List[PreferredLocationResponse]] = {
+  def getPreferredLocations(host: String, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, sortField: String = PREFERRED_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, searchRange: Double = 0, distanceUnit: String = MILES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], distanceUnitQuery: QueryParam[String]): Task[List[PreferredLocationResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PreferredLocationResponse]] = jsonOf[List[PreferredLocationResponse]]
 
-    val path = "/api/{version}/tracking/preferred/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/preferred/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -120,10 +119,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def getTrackingLegs(host: String, version: BigDecimal, deviceId: String, accountId: Long, ownerId: Long, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, getLastPoint: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ownerIdQuery: QueryParam[Long], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], getLastPointQuery: QueryParam[Boolean]): Task[List[LegResponse]] = {
+  def getTrackingLegs(host: String, deviceId: String, accountId: Long, ownerId: Long, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, getLastPoint: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ownerIdQuery: QueryParam[Long], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], getLastPointQuery: QueryParam[Boolean]): Task[List[LegResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[LegResponse]] = jsonOf[List[LegResponse]]
 
-    val path = "/api/{version}/tracking/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -141,10 +140,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def saveTrackingLeg(host: String, version: BigDecimal, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long, steps: String, tags: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long], stepsQuery: QueryParam[String], tagsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def saveTrackingLeg(host: String, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long, steps: String, tags: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long], stepsQuery: QueryParam[String], tagsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tracking/leg/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/leg/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -162,10 +161,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def saveTrackingStep(host: String, version: BigDecimal, legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], legIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def saveTrackingStep(host: String, legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], legIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tracking/step/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/step/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -183,10 +182,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def searchAccountsWithTrackingLegs(host: String, version: BigDecimal, accountId: Long, keyword: String, startDate: Long, endDate: Long, tags: String, audienceIds: String, latitude: Double, longitude: Double, range: Double = 5, sortField: String = LEG_START_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], audienceIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[AccountMiniResponse]] = {
+  def searchAccountsWithTrackingLegs(host: String, accountId: Long, keyword: String, startDate: Long, endDate: Long, tags: String, audienceIds: String, latitude: Double, longitude: Double, range: Double = 5, sortField: String = LEG_START_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], audienceIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[AccountMiniResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountMiniResponse]] = jsonOf[List[AccountMiniResponse]]
 
-    val path = "/api/{version}/tracking/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -204,10 +203,10 @@ object TrackingApi {
     } yield resp
   }
 
-  def searchTrackingLegs(host: String, version: BigDecimal, accountId: Long, appKey: String, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, start: Integer = 0, limit: Integer = 100)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[LegResponse]] = {
+  def searchTrackingLegs(host: String, accountId: Long, appKey: String, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, start: Integer = 0, limit: Integer = 100)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[LegResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[LegResponse]] = jsonOf[List[LegResponse]]
 
-    val path = "/api/{version}/tracking/searchByBillable".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/searchByBillable"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -232,10 +231,10 @@ class HttpServiceTrackingApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def batchSaveTracking(version: BigDecimal, data: String, deviceId: String, accountId: Long, generateAccounts: Boolean, updateAccountLocations: Boolean, defaultTag: String = PASSIVE, slaveUID: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String], generateAccountsQuery: QueryParam[Boolean], updateAccountLocationsQuery: QueryParam[Boolean], defaultTagQuery: QueryParam[String], slaveUIDQuery: QueryParam[String]): Task[List[Leg]] = {
+  def batchSaveTracking(data: String, deviceId: String, accountId: Long, generateAccounts: Boolean, updateAccountLocations: Boolean, defaultTag: String = PASSIVE, slaveUID: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], dataQuery: QueryParam[String], generateAccountsQuery: QueryParam[Boolean], updateAccountLocationsQuery: QueryParam[Boolean], defaultTagQuery: QueryParam[String], slaveUIDQuery: QueryParam[String]): Task[List[Leg]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[Leg]] = jsonOf[List[Leg]]
 
-    val path = "/api/{version}/tracking/batch/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/batch/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -253,10 +252,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def getPredictedLocations(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, threshold: Long = 1, distanceUnit: String = MILES, searchRange: Double = 0, sortOrder: String = MATCHES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], thresholdQuery: QueryParam[Long], distanceUnitQuery: QueryParam[String], searchRangeQuery: QueryParam[Double], sortOrderQuery: QueryParam[String]): Task[PredictedLocationResponse] = {
+  def getPredictedLocations(accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, threshold: Long = 1, distanceUnit: String = MILES, searchRange: Double = 0, sortOrder: String = MATCHES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], thresholdQuery: QueryParam[Long], distanceUnitQuery: QueryParam[String], searchRangeQuery: QueryParam[Double], sortOrderQuery: QueryParam[String]): Task[PredictedLocationResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[PredictedLocationResponse] = jsonOf[PredictedLocationResponse]
 
-    val path = "/api/{version}/tracking/predicted/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/predicted/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -274,10 +273,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def getPredictedPath(version: BigDecimal, accountId: Long, startStepId: Long, endStepId: Long)(implicit accountIdQuery: QueryParam[Long], startStepIdQuery: QueryParam[Long], endStepIdQuery: QueryParam[Long]): Task[List[StepResponse]] = {
+  def getPredictedPath(accountId: Long, startStepId: Long, endStepId: Long)(implicit accountIdQuery: QueryParam[Long], startStepIdQuery: QueryParam[Long], endStepIdQuery: QueryParam[Long]): Task[List[StepResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[StepResponse]] = jsonOf[List[StepResponse]]
 
-    val path = "/api/{version}/tracking/path/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/path/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -295,10 +294,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def getPreferredLocations(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, sortField: String = PREFERRED_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, searchRange: Double = 0, distanceUnit: String = MILES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], distanceUnitQuery: QueryParam[String]): Task[List[PreferredLocationResponse]] = {
+  def getPreferredLocations(accountId: Long, latitude: Double, longitude: Double, dateCheck: Long, hourCheck: String, sortField: String = PREFERRED_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, searchRange: Double = 0, distanceUnit: String = MILES)(implicit accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], dateCheckQuery: QueryParam[Long], hourCheckQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], searchRangeQuery: QueryParam[Double], distanceUnitQuery: QueryParam[String]): Task[List[PreferredLocationResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[PreferredLocationResponse]] = jsonOf[List[PreferredLocationResponse]]
 
-    val path = "/api/{version}/tracking/preferred/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/preferred/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -316,10 +315,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def getTrackingLegs(version: BigDecimal, deviceId: String, accountId: Long, ownerId: Long, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, getLastPoint: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ownerIdQuery: QueryParam[Long], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], getLastPointQuery: QueryParam[Boolean]): Task[List[LegResponse]] = {
+  def getTrackingLegs(deviceId: String, accountId: Long, ownerId: Long, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, getLastPoint: Boolean = false)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], ownerIdQuery: QueryParam[Long], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], getLastPointQuery: QueryParam[Boolean]): Task[List[LegResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[LegResponse]] = jsonOf[List[LegResponse]]
 
-    val path = "/api/{version}/tracking/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -337,10 +336,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def saveTrackingLeg(version: BigDecimal, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long, steps: String, tags: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long], stepsQuery: QueryParam[String], tagsQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def saveTrackingLeg(startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long, steps: String, tags: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long], stepsQuery: QueryParam[String], tagsQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tracking/leg/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/leg/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -358,10 +357,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def saveTrackingStep(version: BigDecimal, legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], legIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def saveTrackingStep(legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: String, accountId: Long, distance: Double, duration: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], legIdQuery: QueryParam[Long], distanceQuery: QueryParam[Double], durationQuery: QueryParam[Long], startLatQuery: QueryParam[Double], startLngQuery: QueryParam[Double], startDateQuery: QueryParam[Long], endLatQuery: QueryParam[Double], endLngQuery: QueryParam[Double], endDateQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/tracking/step/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/step/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -379,10 +378,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchAccountsWithTrackingLegs(version: BigDecimal, accountId: Long, keyword: String, startDate: Long, endDate: Long, tags: String, audienceIds: String, latitude: Double, longitude: Double, range: Double = 5, sortField: String = LEG_START_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], audienceIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[AccountMiniResponse]] = {
+  def searchAccountsWithTrackingLegs(accountId: Long, keyword: String, startDate: Long, endDate: Long, tags: String, audienceIds: String, latitude: Double, longitude: Double, range: Double = 5, sortField: String = LEG_START_DATE, descending: Boolean = true, start: Integer = 0, limit: Integer = 20, activeOnly: Boolean = false)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], audienceIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], rangeQuery: QueryParam[Double], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], activeOnlyQuery: QueryParam[Boolean]): Task[List[AccountMiniResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[AccountMiniResponse]] = jsonOf[List[AccountMiniResponse]]
 
-    val path = "/api/{version}/tracking/list".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/list"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -400,10 +399,10 @@ class HttpServiceTrackingApi(service: HttpService) {
     } yield resp
   }
 
-  def searchTrackingLegs(version: BigDecimal, accountId: Long, appKey: String, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, start: Integer = 0, limit: Integer = 100)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[LegResponse]] = {
+  def searchTrackingLegs(accountId: Long, appKey: String, trackingDeviceId: String, startDate: Long, endDate: Long, tags: String, start: Integer = 0, limit: Integer = 100)(implicit accountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], trackingDeviceIdQuery: QueryParam[String], startDateQuery: QueryParam[Long], endDateQuery: QueryParam[Long], tagsQuery: QueryParam[String], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[LegResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[LegResponse]] = jsonOf[List[LegResponse]]
 
-    val path = "/api/{version}/tracking/searchByBillable".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/tracking/searchByBillable"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)

@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.SirqulResponse
 import org.openapitools.client.api.WordzWordResponse
 
@@ -31,10 +30,10 @@ object WordApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createWord(host: String, version: BigDecimal, accountId: Long, word: String, definition: String, active: Boolean = false, allocateTickets: Boolean = false, ticketCount: Long = 0, assetId: Long, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], wordQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def createWord(host: String, accountId: Long, word: String, definition: String, active: Boolean = false, allocateTickets: Boolean = false, ticketCount: Long = 0, assetId: Long, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], wordQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -52,10 +51,10 @@ object WordApi {
     } yield resp
   }
 
-  def deleteWord(host: String, version: BigDecimal, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteWord(host: String, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/game/word/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/delete"
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -73,10 +72,10 @@ object WordApi {
     } yield resp
   }
 
-  def getWord(host: String, version: BigDecimal, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def getWord(host: String, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -94,10 +93,10 @@ object WordApi {
     } yield resp
   }
 
-  def getWords(host: String, version: BigDecimal, accountId: Long, sortField: String = id, descending: Boolean = false, activeOnly: Boolean = false, start: Integer = 0, limit: Integer = 20, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[WordzWordResponse]] = {
+  def getWords(host: String, accountId: Long, sortField: String = id, descending: Boolean = false, activeOnly: Boolean = false, start: Integer = 0, limit: Integer = 20, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[WordzWordResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[WordzWordResponse]] = jsonOf[List[WordzWordResponse]]
 
-    val path = "/api/{version}/game/word/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -115,10 +114,10 @@ object WordApi {
     } yield resp
   }
 
-  def updateWord(host: String, version: BigDecimal, wordId: Long, accountId: Long, ticketCount: Long = 0, wordText: String, definition: String, assetId: Long, active: Boolean, allocateTickets: Boolean, ticketType: String, points: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordTextQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def updateWord(host: String, wordId: Long, accountId: Long, ticketCount: Long = 0, wordText: String, definition: String, assetId: Long, active: Boolean, allocateTickets: Boolean, ticketType: String, points: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordTextQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -143,10 +142,10 @@ class HttpServiceWordApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def createWord(version: BigDecimal, accountId: Long, word: String, definition: String, active: Boolean = false, allocateTickets: Boolean = false, ticketCount: Long = 0, assetId: Long, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], wordQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def createWord(accountId: Long, word: String, definition: String, active: Boolean = false, allocateTickets: Boolean = false, ticketCount: Long = 0, assetId: Long, ticketType: String, points: Long)(implicit accountIdQuery: QueryParam[Long], wordQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/create".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/create"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -164,10 +163,10 @@ class HttpServiceWordApi(service: HttpService) {
     } yield resp
   }
 
-  def deleteWord(version: BigDecimal, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
+  def deleteWord(wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/game/word/delete".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/delete"
 
     val httpMethod = Method.DELETE
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -185,10 +184,10 @@ class HttpServiceWordApi(service: HttpService) {
     } yield resp
   }
 
-  def getWord(version: BigDecimal, wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def getWord(wordId: Long, accountId: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -206,10 +205,10 @@ class HttpServiceWordApi(service: HttpService) {
     } yield resp
   }
 
-  def getWords(version: BigDecimal, accountId: Long, sortField: String = id, descending: Boolean = false, activeOnly: Boolean = false, start: Integer = 0, limit: Integer = 20, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[WordzWordResponse]] = {
+  def getWords(accountId: Long, sortField: String = id, descending: Boolean = false, activeOnly: Boolean = false, start: Integer = 0, limit: Integer = 20, keyword: String)(implicit accountIdQuery: QueryParam[Long], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[WordzWordResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[WordzWordResponse]] = jsonOf[List[WordzWordResponse]]
 
-    val path = "/api/{version}/game/word/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -227,10 +226,10 @@ class HttpServiceWordApi(service: HttpService) {
     } yield resp
   }
 
-  def updateWord(version: BigDecimal, wordId: Long, accountId: Long, ticketCount: Long = 0, wordText: String, definition: String, assetId: Long, active: Boolean, allocateTickets: Boolean, ticketType: String, points: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordTextQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
+  def updateWord(wordId: Long, accountId: Long, ticketCount: Long = 0, wordText: String, definition: String, assetId: Long, active: Boolean, allocateTickets: Boolean, ticketType: String, points: Long)(implicit wordIdQuery: QueryParam[Long], accountIdQuery: QueryParam[Long], wordTextQuery: QueryParam[String], definitionQuery: QueryParam[String], assetIdQuery: QueryParam[Long], activeQuery: QueryParam[Boolean], allocateTicketsQuery: QueryParam[Boolean], ticketCountQuery: QueryParam[Long], ticketTypeQuery: QueryParam[String], pointsQuery: QueryParam[Long]): Task[WordzWordResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[WordzWordResponse] = jsonOf[WordzWordResponse]
 
-    val path = "/api/{version}/game/word/update".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/game/word/update"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)

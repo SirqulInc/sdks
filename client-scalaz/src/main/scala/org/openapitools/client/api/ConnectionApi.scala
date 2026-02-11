@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.BigDecimal
 import org.openapitools.client.api.ConnectionGroupResponse
 import org.openapitools.client.api.ConnectionInfoResponse
 import org.openapitools.client.api.ConnectionListResponse
@@ -34,10 +33,10 @@ object ConnectionApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addConnectionToGroup(host: String, version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def addConnectionToGroup(host: String, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/addConnection".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/addConnection"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -55,10 +54,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def addConnectionsToGroup(host: String, version: BigDecimal, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def addConnectionsToGroup(host: String, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/connection/group/addConnections".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/addConnections"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -76,10 +75,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def addSubGroups(host: String, version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
+  def addSubGroups(host: String, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionGroupResponse] = jsonOf[ConnectionGroupResponse]
 
-    val path = "/api/{version}/consumer/connection/group/addSubGroup".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/addSubGroup"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -97,10 +96,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def createOrUpdateConnection(host: String, version: BigDecimal, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, groupId: Long, gameType: String, appKey: String, isTrusted: Boolean, ignoreFriendRequest: Boolean, isContact: Boolean, isBlocked: Boolean, isFollowing: Boolean, connectionResponse: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], isTrustedQuery: QueryParam[Boolean], ignoreFriendRequestQuery: QueryParam[Boolean], isContactQuery: QueryParam[Boolean], isBlockedQuery: QueryParam[Boolean], isFollowingQuery: QueryParam[Boolean], connectionResponseQuery: QueryParam[Boolean]): Task[ConnectionResponse] = {
+  def createOrUpdateConnection(host: String, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, groupId: Long, gameType: String, appKey: String, isTrusted: Boolean, ignoreFriendRequest: Boolean, isContact: Boolean, isBlocked: Boolean, isFollowing: Boolean, connectionResponse: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], isTrustedQuery: QueryParam[Boolean], ignoreFriendRequestQuery: QueryParam[Boolean], isContactQuery: QueryParam[Boolean], isBlockedQuery: QueryParam[Boolean], isFollowingQuery: QueryParam[Boolean], connectionResponseQuery: QueryParam[Boolean]): Task[ConnectionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionResponse] = jsonOf[ConnectionResponse]
 
-    val path = "/api/{version}/consumer/connection/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -118,10 +117,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def createOrUpdateGroup(host: String, version: BigDecimal, returnNulls: Boolean, deviceId: String, accountId: Long, name: String, groupId: Long, assetId: Long, connections: String, description: String, canViewProfileInfo: Boolean, canViewGameInfo: Boolean, canViewFriendInfo: Boolean, active: Boolean, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], groupIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], connectionsQuery: QueryParam[String], descriptionQuery: QueryParam[String], canViewProfileInfoQuery: QueryParam[Boolean], canViewGameInfoQuery: QueryParam[Boolean], canViewFriendInfoQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def createOrUpdateGroup(host: String, returnNulls: Boolean, deviceId: String, accountId: Long, name: String, groupId: Long, assetId: Long, connections: String, description: String, canViewProfileInfo: Boolean, canViewGameInfo: Boolean, canViewFriendInfo: Boolean, active: Boolean, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], groupIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], connectionsQuery: QueryParam[String], descriptionQuery: QueryParam[String], canViewProfileInfoQuery: QueryParam[Boolean], canViewGameInfoQuery: QueryParam[Boolean], canViewFriendInfoQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -139,10 +138,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def followAccept(host: String, version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followAccept(host: String, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -160,10 +159,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def followReject(host: String, version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followReject(host: String, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/reject".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/reject"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -181,10 +180,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def followRemove(host: String, version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followRemove(host: String, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -202,10 +201,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def followRequest(host: String, version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Boolean = true)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], approvalNeededQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def followRequest(host: String, accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Boolean = true)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], approvalNeededQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -223,10 +222,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def friendAccept(host: String, version: BigDecimal, friendAccountId: Long, notifyFriend: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendAccept(host: String, friendAccountId: Long, notifyFriend: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -244,10 +243,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def friendReject(host: String, version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notifyFriend: Boolean, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendReject(host: String, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notifyFriend: Boolean, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/reject".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/reject"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -265,10 +264,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def friendRemove(host: String, version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, notifyFriend: Boolean, removeFromGroups: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], notifyFriendQuery: QueryParam[Boolean], removeFromGroupsQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def friendRemove(host: String, friendAccountId: Long, deviceId: String, accountId: Long, notifyFriend: Boolean, removeFromGroups: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], notifyFriendQuery: QueryParam[Boolean], removeFromGroupsQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -286,10 +285,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def friendRequest(host: String, version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendRequest(host: String, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -307,10 +306,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def getConnectionSentFriendRequests(host: String, version: BigDecimal, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[ConnectionListResponse] = {
+  def getConnectionSentFriendRequests(host: String, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/consumer/connection/getRequested".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/getRequested"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -328,10 +327,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def getConnections(host: String, version: BigDecimal, returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, connectionAccountId: Long, q: String, keyword: String, i: Integer, l: Integer, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], filterQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionListResponse] = {
+  def getConnections(host: String, returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, connectionAccountId: Long, q: String, keyword: String, i: Integer, l: Integer, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], filterQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/consumer/connection/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -349,10 +348,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def getGroupDetails(host: String, version: BigDecimal, combineConnections: Boolean, deviceId: String, accountId: Long, groupId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], combineConnectionsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
+  def getGroupDetails(host: String, combineConnections: Boolean, deviceId: String, accountId: Long, groupId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], combineConnectionsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionGroupResponse] = jsonOf[ConnectionGroupResponse]
 
-    val path = "/api/{version}/consumer/connection/group/details/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/details/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -370,10 +369,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def groupSearch(host: String, version: BigDecimal, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ConnectionInfoResponse]] = {
+  def groupSearch(host: String, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ConnectionInfoResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ConnectionInfoResponse]] = jsonOf[List[ConnectionInfoResponse]]
 
-    val path = "/api/{version}/connection/group/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -391,10 +390,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def removeConnectionFromGroup(host: String, version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeConnectionFromGroup(host: String, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/removeConnection".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/removeConnection"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -412,10 +411,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def removeConnectionsFromGroup(host: String, version: BigDecimal, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeConnectionsFromGroup(host: String, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/connection/group/removeConnections".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/removeConnections"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -433,10 +432,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def removeGroup(host: String, version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeGroup(host: String, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -454,10 +453,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def removeSubGroups(host: String, version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeSubGroups(host: String, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/removeSubGroup".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/removeSubGroup"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -475,10 +474,10 @@ object ConnectionApi {
     } yield resp
   }
 
-  def searchConnections(host: String, version: BigDecimal, returnNulls: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, q: String, keyword: String, latitude: Double, longitude: Double, gameType: String, appKey: String, i: Integer, l: Integer, sortField: String, hasLocation: Boolean)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], hasLocationQuery: QueryParam[Boolean]): Task[ConnectionListResponse] = {
+  def searchConnections(host: String, returnNulls: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, q: String, keyword: String, latitude: Double, longitude: Double, gameType: String, appKey: String, i: Integer, l: Integer, sortField: String, hasLocation: Boolean)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], hasLocationQuery: QueryParam[Boolean]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/connection/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -503,10 +502,10 @@ class HttpServiceConnectionApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def addConnectionToGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def addConnectionToGroup(returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/addConnection".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/addConnection"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -524,10 +523,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def addConnectionsToGroup(version: BigDecimal, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def addConnectionsToGroup(connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/connection/group/addConnections".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/addConnections"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -545,10 +544,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def addSubGroups(version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
+  def addSubGroups(returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionGroupResponse] = jsonOf[ConnectionGroupResponse]
 
-    val path = "/api/{version}/consumer/connection/group/addSubGroup".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/addSubGroup"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -566,10 +565,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def createOrUpdateConnection(version: BigDecimal, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, groupId: Long, gameType: String, appKey: String, isTrusted: Boolean, ignoreFriendRequest: Boolean, isContact: Boolean, isBlocked: Boolean, isFollowing: Boolean, connectionResponse: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], isTrustedQuery: QueryParam[Boolean], ignoreFriendRequestQuery: QueryParam[Boolean], isContactQuery: QueryParam[Boolean], isBlockedQuery: QueryParam[Boolean], isFollowingQuery: QueryParam[Boolean], connectionResponseQuery: QueryParam[Boolean]): Task[ConnectionResponse] = {
+  def createOrUpdateConnection(deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, groupId: Long, gameType: String, appKey: String, isTrusted: Boolean, ignoreFriendRequest: Boolean, isContact: Boolean, isBlocked: Boolean, isFollowing: Boolean, connectionResponse: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], isTrustedQuery: QueryParam[Boolean], ignoreFriendRequestQuery: QueryParam[Boolean], isContactQuery: QueryParam[Boolean], isBlockedQuery: QueryParam[Boolean], isFollowingQuery: QueryParam[Boolean], connectionResponseQuery: QueryParam[Boolean]): Task[ConnectionResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionResponse] = jsonOf[ConnectionResponse]
 
-    val path = "/api/{version}/consumer/connection/add".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/add"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -587,10 +586,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def createOrUpdateGroup(version: BigDecimal, returnNulls: Boolean, deviceId: String, accountId: Long, name: String, groupId: Long, assetId: Long, connections: String, description: String, canViewProfileInfo: Boolean, canViewGameInfo: Boolean, canViewFriendInfo: Boolean, active: Boolean, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], groupIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], connectionsQuery: QueryParam[String], descriptionQuery: QueryParam[String], canViewProfileInfoQuery: QueryParam[Boolean], canViewGameInfoQuery: QueryParam[Boolean], canViewFriendInfoQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def createOrUpdateGroup(returnNulls: Boolean, deviceId: String, accountId: Long, name: String, groupId: Long, assetId: Long, connections: String, description: String, canViewProfileInfo: Boolean, canViewGameInfo: Boolean, canViewFriendInfo: Boolean, active: Boolean, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], nameQuery: QueryParam[String], groupIdQuery: QueryParam[Long], assetIdQuery: QueryParam[Long], connectionsQuery: QueryParam[String], descriptionQuery: QueryParam[String], canViewProfileInfoQuery: QueryParam[Boolean], canViewGameInfoQuery: QueryParam[Boolean], canViewFriendInfoQuery: QueryParam[Boolean], activeQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -608,10 +607,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def followAccept(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followAccept(accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -629,10 +628,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def followReject(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followReject(accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/reject".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/reject"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -650,10 +649,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def followRemove(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def followRemove(accountId: Long, connectionAccountId: Long, appKey: String)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -671,10 +670,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def followRequest(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Boolean = true)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], approvalNeededQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def followRequest(accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Boolean = true)(implicit accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], appKeyQuery: QueryParam[String], approvalNeededQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/follow/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/follow/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -692,10 +691,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def friendAccept(version: BigDecimal, friendAccountId: Long, notifyFriend: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendAccept(friendAccountId: Long, notifyFriend: Boolean, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/accept".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/accept"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -713,10 +712,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def friendReject(version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notifyFriend: Boolean, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendReject(friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notifyFriend: Boolean, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notifyFriendQuery: QueryParam[Boolean], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/reject".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/reject"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -734,10 +733,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def friendRemove(version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, notifyFriend: Boolean, removeFromGroups: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], notifyFriendQuery: QueryParam[Boolean], removeFromGroupsQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
+  def friendRemove(friendAccountId: Long, deviceId: String, accountId: Long, notifyFriend: Boolean, removeFromGroups: Boolean)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], notifyFriendQuery: QueryParam[Boolean], removeFromGroupsQuery: QueryParam[Boolean]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -755,10 +754,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def friendRequest(version: BigDecimal, friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
+  def friendRequest(friendAccountId: Long, deviceId: String, accountId: Long, gameType: String, appKey: String, notificationMessage: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], friendAccountIdQuery: QueryParam[Long], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], notificationMessageQuery: QueryParam[String]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/friend/request".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/friend/request"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -776,10 +775,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def getConnectionSentFriendRequests(version: BigDecimal, deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[ConnectionListResponse] = {
+  def getConnectionSentFriendRequests(deviceId: String, accountId: Long)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/consumer/connection/getRequested".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/getRequested"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -797,10 +796,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def getConnections(version: BigDecimal, returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, connectionAccountId: Long, q: String, keyword: String, i: Integer, l: Integer, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], filterQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionListResponse] = {
+  def getConnections(returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, connectionAccountId: Long, q: String, keyword: String, i: Integer, l: Integer, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], filterQuery: QueryParam[String], qQuery: QueryParam[String], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/consumer/connection/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -818,10 +817,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def getGroupDetails(version: BigDecimal, combineConnections: Boolean, deviceId: String, accountId: Long, groupId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], combineConnectionsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
+  def getGroupDetails(combineConnections: Boolean, deviceId: String, accountId: Long, groupId: Long, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], combineConnectionsQuery: QueryParam[Boolean], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[ConnectionGroupResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionGroupResponse] = jsonOf[ConnectionGroupResponse]
 
-    val path = "/api/{version}/consumer/connection/group/details/get".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/details/get"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -839,10 +838,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def groupSearch(version: BigDecimal, sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ConnectionInfoResponse]] = {
+  def groupSearch(sortField: String, descending: Boolean, activeOnly: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, latitude: Double, longitude: Double, keyword: String)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], keywordQuery: QueryParam[String], sortFieldQuery: QueryParam[String], descendingQuery: QueryParam[Boolean], activeOnlyQuery: QueryParam[Boolean], startQuery: QueryParam[Integer], limitQuery: QueryParam[Integer]): Task[List[ConnectionInfoResponse]] = {
     implicit val returnTypeDecoder: EntityDecoder[List[ConnectionInfoResponse]] = jsonOf[List[ConnectionInfoResponse]]
 
-    val path = "/api/{version}/connection/group/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -860,10 +859,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def removeConnectionFromGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeConnectionFromGroup(returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, connectionId: Long, connectionAccountId: Long, pendingId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdQuery: QueryParam[Long], connectionAccountIdQuery: QueryParam[Long], pendingIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/removeConnection".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/removeConnection"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -881,10 +880,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def removeConnectionsFromGroup(version: BigDecimal, connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeConnectionsFromGroup(connectionGroupId: Long, deviceId: String, accountId: Long, connectionIds: String, connectionAccountIds: String, latitude: Double, longitude: Double)(implicit deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], connectionIdsQuery: QueryParam[String], connectionAccountIdsQuery: QueryParam[String], connectionGroupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/connection/group/removeConnections".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/group/removeConnections"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -902,10 +901,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def removeGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeGroup(returnNulls: Boolean, groupId: Long, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/remove".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/remove"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -923,10 +922,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def removeSubGroups(version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
+  def removeSubGroups(returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: String, accountId: Long, latitude: Double, longitude: Double)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], groupIdQuery: QueryParam[Long], subGroupIdsQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double]): Task[SirqulResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[SirqulResponse] = jsonOf[SirqulResponse]
 
-    val path = "/api/{version}/consumer/connection/group/removeSubGroup".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/consumer/connection/group/removeSubGroup"
 
     val httpMethod = Method.POST
     val contentType = `Content-Type`(MediaType.`application/json`)
@@ -944,10 +943,10 @@ class HttpServiceConnectionApi(service: HttpService) {
     } yield resp
   }
 
-  def searchConnections(version: BigDecimal, returnNulls: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, q: String, keyword: String, latitude: Double, longitude: Double, gameType: String, appKey: String, i: Integer, l: Integer, sortField: String, hasLocation: Boolean)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], hasLocationQuery: QueryParam[Boolean]): Task[ConnectionListResponse] = {
+  def searchConnections(returnNulls: Boolean, start: Integer, limit: Integer, deviceId: String, accountId: Long, q: String, keyword: String, latitude: Double, longitude: Double, gameType: String, appKey: String, i: Integer, l: Integer, sortField: String, hasLocation: Boolean)(implicit returnNullsQuery: QueryParam[Boolean], deviceIdQuery: QueryParam[String], accountIdQuery: QueryParam[Long], qQuery: QueryParam[String], keywordQuery: QueryParam[String], latitudeQuery: QueryParam[Double], longitudeQuery: QueryParam[Double], gameTypeQuery: QueryParam[String], appKeyQuery: QueryParam[String], iQuery: QueryParam[Integer], startQuery: QueryParam[Integer], lQuery: QueryParam[Integer], limitQuery: QueryParam[Integer], sortFieldQuery: QueryParam[String], hasLocationQuery: QueryParam[Boolean]): Task[ConnectionListResponse] = {
     implicit val returnTypeDecoder: EntityDecoder[ConnectionListResponse] = jsonOf[ConnectionListResponse]
 
-    val path = "/api/{version}/connection/search".replaceAll("\\{" + "version" + "\\}",escape(version.toString))
+    val path = "/connection/search"
 
     val httpMethod = Method.GET
     val contentType = `Content-Type`(MediaType.`application/json`)
