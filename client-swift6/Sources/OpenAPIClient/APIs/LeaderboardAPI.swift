@@ -12,7 +12,6 @@ open class LeaderboardAPI {
     /**
      Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user creating the leaderboard. (optional)
      - parameter appKey: (query) The application key (optional)
      - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -29,15 +28,14 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LeaderboardResponse
      */
-    open class func createLeaderboard(version: Double, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
-        return try await createLeaderboardWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, sortField: sortField, title: title, description: description, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createLeaderboard(accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
+        return try await createLeaderboardWithRequestBuilder(accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, sortField: sortField, title: title, description: description, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     - POST /api/{version}/leaderboard/create
+     - POST /leaderboard/create
      - Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user creating the leaderboard. (optional)
      - parameter appKey: (query) The application key (optional)
      - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -54,11 +52,8 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LeaderboardResponse> 
      */
-    open class func createLeaderboardWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
-        var localVariablePath = "/api/{version}/leaderboard/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createLeaderboardWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
+        let localVariablePath = "/leaderboard/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -93,31 +88,26 @@ open class LeaderboardAPI {
     /**
      Delete the Leader Board
      
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id to delete. 
      - parameter accountId: (query) The account id of the user making the request. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteLeaderboardWithRequestBuilder(version: version, leaderboardId: leaderboardId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteLeaderboard(leaderboardId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteLeaderboardWithRequestBuilder(leaderboardId: leaderboardId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete the Leader Board
-     - POST /api/{version}/leaderboard/delete
+     - POST /leaderboard/delete
      - Removes a leader board id.
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id to delete. 
      - parameter accountId: (query) The account id of the user making the request. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteLeaderboardWithRequestBuilder(version: Double, leaderboardId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/leaderboard/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteLeaderboardWithRequestBuilder(leaderboardId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/leaderboard/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -141,33 +131,28 @@ open class LeaderboardAPI {
     /**
      Read a leaderboard by id and retrieve the matching ranking list
      
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id. 
      - parameter accountId: (query) A valid account. (optional)
      - parameter includeFullRankingList: (query) set to true if need to return the leaderboard&#39;s full ranking list (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LeaderboardResponse
      */
-    open class func getLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
-        return try await getLeaderboardWithRequestBuilder(version: version, leaderboardId: leaderboardId, accountId: accountId, includeFullRankingList: includeFullRankingList, apiConfiguration: apiConfiguration).execute().body
+    open class func getLeaderboard(leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
+        return try await getLeaderboardWithRequestBuilder(leaderboardId: leaderboardId, accountId: accountId, includeFullRankingList: includeFullRankingList, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Read a leaderboard by id and retrieve the matching ranking list
-     - GET /api/{version}/leaderboard/get
+     - GET /leaderboard/get
      - Read a leaderboard by id and retrieve the matching ranking list
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id. 
      - parameter accountId: (query) A valid account. (optional)
      - parameter includeFullRankingList: (query) set to true if need to return the leaderboard&#39;s full ranking list (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LeaderboardResponse> 
      */
-    open class func getLeaderboardWithRequestBuilder(version: Double, leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
-        var localVariablePath = "/api/{version}/leaderboard/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getLeaderboardWithRequestBuilder(leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
+        let localVariablePath = "/leaderboard/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -192,7 +177,6 @@ open class LeaderboardAPI {
     /**
      Search leaderboard and retrieve the matching ranking list
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user requesting the search. (optional)
      - parameter appKey: (query) The application key. (optional)
      - parameter globalOnly: (query) only include global leaderboards (this overrides the appKey filter) (optional)
@@ -208,15 +192,14 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LeaderboardResponse
      */
-    open class func searchLeaderboards(version: Double, accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
-        return try await searchLeaderboardsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, globalOnly: globalOnly, keyword: keyword, leaderboardIds: leaderboardIds, rankTypes: rankTypes, sortField: sortField, descending: descending, includeInactive: includeInactive, includeAppResponse: includeAppResponse, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchLeaderboards(accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
+        return try await searchLeaderboardsWithRequestBuilder(accountId: accountId, appKey: appKey, globalOnly: globalOnly, keyword: keyword, leaderboardIds: leaderboardIds, rankTypes: rankTypes, sortField: sortField, descending: descending, includeInactive: includeInactive, includeAppResponse: includeAppResponse, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search leaderboard and retrieve the matching ranking list
-     - GET /api/{version}/leaderboard/search
+     - GET /leaderboard/search
      - Search leaderboard and retrieve the matching ranking list
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user requesting the search. (optional)
      - parameter appKey: (query) The application key. (optional)
      - parameter globalOnly: (query) only include global leaderboards (this overrides the appKey filter) (optional)
@@ -232,11 +215,8 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LeaderboardResponse> 
      */
-    open class func searchLeaderboardsWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
-        var localVariablePath = "/api/{version}/leaderboard/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchLeaderboardsWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
+        let localVariablePath = "/leaderboard/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -270,7 +250,6 @@ open class LeaderboardAPI {
     /**
      Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id to update. 
      - parameter accountId: (query) The account id of the user updating the leaderboard. (optional)
      - parameter appKey: (query) The application key (optional)
@@ -289,15 +268,14 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LeaderboardResponse
      */
-    open class func updateLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
-        return try await updateLeaderboardWithRequestBuilder(version: version, leaderboardId: leaderboardId, accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, sortField: sortField, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, active: active, title: title, description: description, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateLeaderboard(leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LeaderboardResponse {
+        return try await updateLeaderboardWithRequestBuilder(leaderboardId: leaderboardId, accountId: accountId, appKey: appKey, rankType: rankType, leaderboardMode: leaderboardMode, sortField: sortField, iconMedia: iconMedia, iconAssetId: iconAssetId, bannerMedia: bannerMedia, bannerAssetId: bannerAssetId, limitation: limitation, active: active, title: title, description: description, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     - POST /api/{version}/leaderboard/update
+     - POST /leaderboard/update
      - Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     - parameter version: (path)  
      - parameter leaderboardId: (query) The leaderboard id to update. 
      - parameter accountId: (query) The account id of the user updating the leaderboard. (optional)
      - parameter appKey: (query) The application key (optional)
@@ -316,11 +294,8 @@ open class LeaderboardAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LeaderboardResponse> 
      */
-    open class func updateLeaderboardWithRequestBuilder(version: Double, leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
-        var localVariablePath = "/api/{version}/leaderboard/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateLeaderboardWithRequestBuilder(leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: URL? = nil, iconAssetId: Int64? = nil, bannerMedia: URL? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LeaderboardResponse> {
+        let localVariablePath = "/leaderboard/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

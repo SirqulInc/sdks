@@ -42,7 +42,6 @@ open class TournamentAPI {
     /**
      Create Tournament
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The appKey the tournament is created for. 
      - parameter title: (query) The title of the tournament 
@@ -81,15 +80,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TournamentResponse
      */
-    open class func createTournament(version: Double, accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_createTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: MissionType_createTournament? = nil, visibility: Visibility_createTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
-        return try await createTournamentWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, title: title, costToPlay: costToPlay, startDate: startDate, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, missionType: missionType, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, apiConfiguration: apiConfiguration).execute().body
+    open class func createTournament(accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_createTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: MissionType_createTournament? = nil, visibility: Visibility_createTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
+        return try await createTournamentWithRequestBuilder(accountId: accountId, appKey: appKey, title: title, costToPlay: costToPlay, startDate: startDate, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, missionType: missionType, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Tournament
-     - POST /api/{version}/tournament/create
+     - POST /tournament/create
      - Create a tournament.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The appKey the tournament is created for. 
      - parameter title: (query) The title of the tournament 
@@ -128,11 +126,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TournamentResponse> 
      */
-    open class func createTournamentWithRequestBuilder(version: Double, accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_createTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: MissionType_createTournament? = nil, visibility: Visibility_createTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
-        var localVariablePath = "/api/{version}/tournament/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createTournamentWithRequestBuilder(accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_createTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: MissionType_createTournament? = nil, visibility: Visibility_createTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
+        let localVariablePath = "/tournament/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -189,31 +184,26 @@ open class TournamentAPI {
     /**
      Delete Tournament
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteTournament(version: Double, accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteTournamentWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteTournament(accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteTournamentWithRequestBuilder(accountId: accountId, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Tournament
-     - POST /api/{version}/tournament/delete
+     - POST /tournament/delete
      - Delete a tournament.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteTournamentWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteTournamentWithRequestBuilder(accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -245,7 +235,6 @@ open class TournamentAPI {
     /**
      Get Tournament
      
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the logged in user 
      - parameter missionId: (query) The id of the mission to return (either missionId or joinCode is required) (optional)
      - parameter joinCode: (query) Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -254,15 +243,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TournamentResponse
      */
-    open class func getTournament(version: Double, accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: IncludeScores_getTournament? = nil, objectPreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
-        return try await getTournamentWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, joinCode: joinCode, includeScores: includeScores, objectPreviewSize: objectPreviewSize, apiConfiguration: apiConfiguration).execute().body
+    open class func getTournament(accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: IncludeScores_getTournament? = nil, objectPreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
+        return try await getTournamentWithRequestBuilder(accountId: accountId, missionId: missionId, joinCode: joinCode, includeScores: includeScores, objectPreviewSize: objectPreviewSize, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Tournament
-     - GET /api/{version}/tournament/get
+     - GET /tournament/get
      - Get a tournament.
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the logged in user 
      - parameter missionId: (query) The id of the mission to return (either missionId or joinCode is required) (optional)
      - parameter joinCode: (query) Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -271,11 +259,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TournamentResponse> 
      */
-    open class func getTournamentWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: IncludeScores_getTournament? = nil, objectPreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
-        var localVariablePath = "/api/{version}/tournament/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTournamentWithRequestBuilder(accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: IncludeScores_getTournament? = nil, objectPreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
+        let localVariablePath = "/tournament/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -310,7 +295,6 @@ open class TournamentAPI {
     /**
      Search Tournament Objects
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID 
      - parameter gameLevelId: (query) the game level id to filter results by 
      - parameter sortField: (query) the field to sort by (optional, default to .playerScoreCount)
@@ -320,15 +304,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func searchObjects(version: Double, accountId: Int64, gameLevelId: Int64, sortField: SortField_searchObjects? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await searchObjectsWithRequestBuilder(version: version, accountId: accountId, gameLevelId: gameLevelId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchObjects(accountId: Int64, gameLevelId: Int64, sortField: SortField_searchObjects? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await searchObjectsWithRequestBuilder(accountId: accountId, gameLevelId: gameLevelId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tournament Objects
-     - GET /api/{version}/tournament/object/search
+     - GET /tournament/object/search
      - Search on game objects of tournaments
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID 
      - parameter gameLevelId: (query) the game level id to filter results by 
      - parameter sortField: (query) the field to sort by (optional, default to .playerScoreCount)
@@ -338,11 +321,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func searchObjectsWithRequestBuilder(version: Double, accountId: Int64, gameLevelId: Int64, sortField: SortField_searchObjects? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/object/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchObjectsWithRequestBuilder(accountId: Int64, gameLevelId: Int64, sortField: SortField_searchObjects? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/object/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -378,7 +358,6 @@ open class TournamentAPI {
     /**
      Search Tournament Rounds
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID 
      - parameter appKey: (query) the application key 
      - parameter status: (query) comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -390,15 +369,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func searchRounds(version: Double, accountId: Int64, appKey: String, status: String? = nil, missionType: MissionType_searchRounds? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await searchRoundsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, status: status, missionType: missionType, currentOnly: currentOnly, visibilities: visibilities, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRounds(accountId: Int64, appKey: String, status: String? = nil, missionType: MissionType_searchRounds? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await searchRoundsWithRequestBuilder(accountId: accountId, appKey: appKey, status: status, missionType: missionType, currentOnly: currentOnly, visibilities: visibilities, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tournament Rounds
-     - GET /api/{version}/tournament/round/search
+     - GET /tournament/round/search
      - Search for the user's tournament games.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID 
      - parameter appKey: (query) the application key 
      - parameter status: (query) comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -410,11 +388,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func searchRoundsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, status: String? = nil, missionType: MissionType_searchRounds? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/round/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRoundsWithRequestBuilder(accountId: Int64, appKey: String, status: String? = nil, missionType: MissionType_searchRounds? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/round/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -474,7 +449,6 @@ open class TournamentAPI {
     /**
      Search Tournaments
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The application key 
      - parameter keyword: (query) the keyword to search tournament on (optional)
@@ -490,15 +464,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionShortResponse
      */
-    open class func searchTournaments(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: Filter_searchTournaments? = nil, sortField: SortField_searchTournaments? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionShortResponse {
-        return try await searchTournamentsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, keyword: keyword, subType: subType, includeInactive: includeInactive, missionTypes: missionTypes, filter: filter, sortField: sortField, descending: descending, visibility: visibility, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTournaments(accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: Filter_searchTournaments? = nil, sortField: SortField_searchTournaments? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionShortResponse {
+        return try await searchTournamentsWithRequestBuilder(accountId: accountId, appKey: appKey, keyword: keyword, subType: subType, includeInactive: includeInactive, missionTypes: missionTypes, filter: filter, sortField: sortField, descending: descending, visibility: visibility, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tournaments
-     - GET /api/{version}/tournament/search
+     - GET /tournament/search
      - Search for tournaments
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The application key 
      - parameter keyword: (query) the keyword to search tournament on (optional)
@@ -514,11 +487,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionShortResponse> 
      */
-    open class func searchTournamentsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: Filter_searchTournaments? = nil, sortField: SortField_searchTournaments? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionShortResponse> {
-        var localVariablePath = "/api/{version}/tournament/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTournamentsWithRequestBuilder(accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: Filter_searchTournaments? = nil, sortField: SortField_searchTournaments? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionShortResponse> {
+        let localVariablePath = "/tournament/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -552,7 +522,6 @@ open class TournamentAPI {
     /**
      Submit Tournament Score
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user account ID. 
      - parameter appKey: (query) The application key. 
      - parameter missionId: (query) The missionId to score for 
@@ -563,15 +532,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func submitTournamentScore(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await submitTournamentScoreWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, scores: scores, gameLevelId: gameLevelId, apiConfiguration: apiConfiguration).execute().body
+    open class func submitTournamentScore(accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await submitTournamentScoreWithRequestBuilder(accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, scores: scores, gameLevelId: gameLevelId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Submit Tournament Score
-     - POST /api/{version}/tournament/score
+     - POST /tournament/score
      - Submit an array of scores for a tournament match. 
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user account ID. 
      - parameter appKey: (query) The application key. 
      - parameter missionId: (query) The missionId to score for 
@@ -582,11 +550,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func submitTournamentScoreWithRequestBuilder(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/score"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func submitTournamentScoreWithRequestBuilder(accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/score"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -615,7 +580,6 @@ open class TournamentAPI {
     /**
      Submit a vote for a multi-stage album tournament.
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The application to target 
      - parameter missionId: (query) The tournament&#39;s primary id 
@@ -625,15 +589,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func submitTournamentVote(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await submitTournamentVoteWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, missionId: missionId, gameObjectId: gameObjectId, deviceId: deviceId, checkIfDeviceAlreadyVoted: checkIfDeviceAlreadyVoted, apiConfiguration: apiConfiguration).execute().body
+    open class func submitTournamentVote(accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await submitTournamentVoteWithRequestBuilder(accountId: accountId, appKey: appKey, missionId: missionId, gameObjectId: gameObjectId, deviceId: deviceId, checkIfDeviceAlreadyVoted: checkIfDeviceAlreadyVoted, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Submit a vote for a multi-stage album tournament.
-     - POST /api/{version}/tournament/vote
+     - POST /tournament/vote
      - Submit a vote for a multi-stage album tournament.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The application to target 
      - parameter missionId: (query) The tournament&#39;s primary id 
@@ -643,11 +606,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func submitTournamentVoteWithRequestBuilder(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/vote"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func submitTournamentVoteWithRequestBuilder(accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/vote"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -675,7 +635,6 @@ open class TournamentAPI {
     /**
      Substitute Tournament Player
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission 
      - parameter packId: (query) the id of the pack 
@@ -683,15 +642,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func substituteTournamentPlayer(version: Double, accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await substituteTournamentPlayerWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, packId: packId, gameLevelId: gameLevelId, apiConfiguration: apiConfiguration).execute().body
+    open class func substituteTournamentPlayer(accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await substituteTournamentPlayerWithRequestBuilder(accountId: accountId, missionId: missionId, packId: packId, gameLevelId: gameLevelId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Substitute Tournament Player
-     - POST /api/{version}/tournament/substitute
+     - POST /tournament/substitute
      - Service to replace the user's opponent in the current level - pack - mission with an AI account.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission 
      - parameter packId: (query) the id of the pack 
@@ -699,11 +657,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func substituteTournamentPlayerWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tournament/substitute"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func substituteTournamentPlayerWithRequestBuilder(accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tournament/substitute"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -750,7 +705,6 @@ open class TournamentAPI {
     /**
      Update Tournament
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The mission/tournament to update 
      - parameter title: (query) The title of the tournament (optional)
@@ -788,15 +742,14 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TournamentResponse
      */
-    open class func updateTournament(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_updateTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: Visibility_updateTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
-        return try await updateTournamentWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, title: title, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlay: costToPlay, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, startDate: startDate, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTournament(accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_updateTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: Visibility_updateTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TournamentResponse {
+        return try await updateTournamentWithRequestBuilder(accountId: accountId, missionId: missionId, title: title, subType: subType, imageAssetId: imageAssetId, secondsBetweenLevels: secondsBetweenLevels, secondsForTieBreaker: secondsForTieBreaker, secondsBetweenPacks: secondsBetweenPacks, maximumLevelLength: maximumLevelLength, costToPlay: costToPlay, costToPlayType: costToPlayType, minimumToPlay: minimumToPlay, startingLimit: startingLimit, availableLimit: availableLimit, description: description, metaData: metaData, startDate: startDate, audienceIds: audienceIds, active: active, enableBuyBack: enableBuyBack, offerIds: offerIds, offerAssetId: offerAssetId, fixedReward: fixedReward, splitReward: splitReward, allocateTickets: allocateTickets, tournamentData: tournamentData, visibility: visibility, preliminaryGroups: preliminaryGroups, preliminaryGroupAdvancements: preliminaryGroupAdvancements, enableMultipleEntries: enableMultipleEntries, enableMultipleVotes: enableMultipleVotes, featured: featured, winnerTag: winnerTag, tieTag: tieTag, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Tournament
-     - POST /api/{version}/tournament/update
+     - POST /tournament/update
      - Update a tournament.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The mission/tournament to update 
      - parameter title: (query) The title of the tournament (optional)
@@ -834,11 +787,8 @@ open class TournamentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TournamentResponse> 
      */
-    open class func updateTournamentWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_updateTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: Visibility_updateTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
-        var localVariablePath = "/api/{version}/tournament/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTournamentWithRequestBuilder(accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: SplitReward_updateTournament? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: Visibility_updateTournament? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TournamentResponse> {
+        let localVariablePath = "/tournament/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

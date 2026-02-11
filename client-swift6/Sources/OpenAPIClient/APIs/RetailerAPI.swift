@@ -31,7 +31,6 @@ open class RetailerAPI {
     /**
      Create Retailer
      
-     - parameter version: (path)  
      - parameter name: (query) The name of the retailer 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -68,15 +67,14 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerFullResponse
      */
-    open class func createRetailer(version: Double, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, categoryIdsToAdd: String? = nil, categoryIdsToRemove: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_createRetailer? = nil, createDefaultLocation: Bool? = nil, responseFormat: ResponseFormat_createRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
-        return try await createRetailerWithRequestBuilder(version: version, name: name, deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, categoryIdsToAdd: categoryIdsToAdd, categoryIdsToRemove: categoryIdsToRemove, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, createDefaultLocation: createDefaultLocation, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
+    open class func createRetailer(name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, categoryIdsToAdd: String? = nil, categoryIdsToRemove: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_createRetailer? = nil, createDefaultLocation: Bool? = nil, responseFormat: ResponseFormat_createRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
+        return try await createRetailerWithRequestBuilder(name: name, deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, categoryIdsToAdd: categoryIdsToAdd, categoryIdsToRemove: categoryIdsToRemove, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, createDefaultLocation: createDefaultLocation, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Retailer
-     - POST /api/{version}/retailer/create
+     - POST /retailer/create
      - Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     - parameter version: (path)  
      - parameter name: (query) The name of the retailer 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -113,11 +111,8 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerFullResponse> 
      */
-    open class func createRetailerWithRequestBuilder(version: Double, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, categoryIdsToAdd: String? = nil, categoryIdsToRemove: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_createRetailer? = nil, createDefaultLocation: Bool? = nil, responseFormat: ResponseFormat_createRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
-        var localVariablePath = "/api/{version}/retailer/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRetailerWithRequestBuilder(name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, categoryIdsToAdd: String? = nil, categoryIdsToRemove: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_createRetailer? = nil, createDefaultLocation: Bool? = nil, responseFormat: ResponseFormat_createRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
+        let localVariablePath = "/retailer/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -172,33 +167,28 @@ open class RetailerAPI {
     /**
      Delete Retailer
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the retailer. (optional)
      - parameter retailerId: (query) The ID of the retailer to be deleted (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteRetailer(version: Double, deviceId: String? = nil, accountId: Int64? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteRetailerWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, retailerId: retailerId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRetailer(deviceId: String? = nil, accountId: Int64? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteRetailerWithRequestBuilder(deviceId: deviceId, accountId: accountId, retailerId: retailerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Retailer
-     - POST /api/{version}/retailer/delete
+     - POST /retailer/delete
      - Set the deleted timestamp to current time.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the retailer. (optional)
      - parameter retailerId: (query) The ID of the retailer to be deleted (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteRetailerWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRetailerWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -223,7 +213,6 @@ open class RetailerAPI {
     /**
      Get Retailer
      
-     - parameter version: (path)  
      - parameter retailerId: (query) the ID of the retailer 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -231,15 +220,14 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerFullResponse
      */
-    open class func getRetailer(version: Double, retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
-        return try await getRetailerWithRequestBuilder(version: version, retailerId: retailerId, deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, apiConfiguration: apiConfiguration).execute().body
+    open class func getRetailer(retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
+        return try await getRetailerWithRequestBuilder(retailerId: retailerId, deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Retailer
-     - GET /api/{version}/retailer/get
+     - GET /retailer/get
      - Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     - parameter version: (path)  
      - parameter retailerId: (query) the ID of the retailer 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -247,11 +235,8 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerFullResponse> 
      */
-    open class func getRetailerWithRequestBuilder(version: Double, retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
-        var localVariablePath = "/api/{version}/retailer/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRetailerWithRequestBuilder(retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
+        let localVariablePath = "/retailer/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -310,7 +295,6 @@ open class RetailerAPI {
     /**
      Search Retailers
      
-     - parameter version: (path)  
      - parameter visibility: (query)  
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -328,15 +312,14 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RetailerResponse]
      */
-    open class func getRetailers(version: Double, visibility: Visibility_getRetailers, sortField: SortField_getRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerResponse] {
-        return try await getRetailersWithRequestBuilder(version: version, visibility: visibility, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, i: i, l: l, apiConfiguration: apiConfiguration).execute().body
+    open class func getRetailers(visibility: Visibility_getRetailers, sortField: SortField_getRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerResponse] {
+        return try await getRetailersWithRequestBuilder(visibility: visibility, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, i: i, l: l, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Retailers
-     - GET /api/{version}/retailer/search
+     - GET /retailer/search
      - earches on retailers that the account has access to.
-     - parameter version: (path)  
      - parameter visibility: (query)  
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -354,11 +337,8 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RetailerResponse]> 
      */
-    open class func getRetailersWithRequestBuilder(version: Double, visibility: Visibility_getRetailers, sortField: SortField_getRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerResponse]> {
-        var localVariablePath = "/api/{version}/retailer/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRetailersWithRequestBuilder(visibility: Visibility_getRetailers, sortField: SortField_getRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerResponse]> {
+        let localVariablePath = "/retailer/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -394,7 +374,6 @@ open class RetailerAPI {
     /**
      Login Retailer
      
-     - parameter version: (path)  
      - parameter username: (query) the user&#39;s email address they used to sign-up 
      - parameter password: (query) the password 
      - parameter deviceId: (query) the device id (optional) (optional)
@@ -404,15 +383,14 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountLoginResponse
      */
-    open class func retailerLoginCheck(version: Double, username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
-        return try await retailerLoginCheckWithRequestBuilder(version: version, username: username, password: password, deviceId: deviceId, latitude: latitude, longitude: longitude, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func retailerLoginCheck(username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
+        return try await retailerLoginCheckWithRequestBuilder(username: username, password: password, deviceId: deviceId, latitude: latitude, longitude: longitude, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Retailer
-     - POST /api/{version}/retailer/login
+     - POST /retailer/login
      - Retailer login check.
-     - parameter version: (path)  
      - parameter username: (query) the user&#39;s email address they used to sign-up 
      - parameter password: (query) the password 
      - parameter deviceId: (query) the device id (optional) (optional)
@@ -422,11 +400,8 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountLoginResponse> 
      */
-    open class func retailerLoginCheckWithRequestBuilder(version: Double, username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
-        var localVariablePath = "/api/{version}/retailer/login"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func retailerLoginCheckWithRequestBuilder(username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
+        let localVariablePath = "/retailer/login"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -473,7 +448,6 @@ open class RetailerAPI {
     /**
      Update Retailer
      
-     - parameter version: (path)  
      - parameter retailerId: (query) The ID of the retailer to update 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -509,15 +483,14 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerFullResponse
      */
-    open class func updateRetailer(version: Double, retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_updateRetailer? = nil, active: Bool? = nil, responseFormat: ResponseFormat_updateRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
-        return try await updateRetailerWithRequestBuilder(version: version, retailerId: retailerId, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, active: active, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRetailer(retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_updateRetailer? = nil, active: Bool? = nil, responseFormat: ResponseFormat_updateRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerFullResponse {
+        return try await updateRetailerWithRequestBuilder(retailerId: retailerId, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, facebookUrl: facebookUrl, twitterUrl: twitterUrl, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, metaData: metaData, searchTags: searchTags, retailerType: retailerType, visibility: visibility, active: active, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Retailer
-     - POST /api/{version}/retailer/update
+     - POST /retailer/update
      - Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     - parameter version: (path)  
      - parameter retailerId: (query) The ID of the retailer to update 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -553,11 +526,8 @@ open class RetailerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerFullResponse> 
      */
-    open class func updateRetailerWithRequestBuilder(version: Double, retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_updateRetailer? = nil, active: Bool? = nil, responseFormat: ResponseFormat_updateRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
-        var localVariablePath = "/api/{version}/retailer/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRetailerWithRequestBuilder(retailerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, facebookUrl: String? = nil, twitterUrl: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, searchTags: String? = nil, retailerType: String? = nil, visibility: Visibility_updateRetailer? = nil, active: Bool? = nil, responseFormat: ResponseFormat_updateRetailer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerFullResponse> {
+        let localVariablePath = "/retailer/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

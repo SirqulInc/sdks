@@ -12,7 +12,6 @@ open class FilterAPI {
     /**
      Create Filter
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter name: (query) The name of the filter 
      - parameter appKey: (query) The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -25,15 +24,14 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: FilterTreeResponse
      */
-    open class func createFilter(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
-        return try await createFilterWithRequestBuilder(version: version, accountId: accountId, name: name, appKey: appKey, parentFilterId: parentFilterId, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createFilter(accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
+        return try await createFilterWithRequestBuilder(accountId: accountId, name: name, appKey: appKey, parentFilterId: parentFilterId, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Filter
-     - POST /api/{version}/filter/create
+     - POST /filter/create
      - Create a filter
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter name: (query) The name of the filter 
      - parameter appKey: (query) The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -46,11 +44,8 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<FilterTreeResponse> 
      */
-    open class func createFilterWithRequestBuilder(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
-        var localVariablePath = "/api/{version}/filter/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createFilterWithRequestBuilder(accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
+        let localVariablePath = "/filter/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -81,31 +76,26 @@ open class FilterAPI {
     /**
      Delete Filter
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the filter&#39;s assigned application) 
      - parameter filterId: (query) The ID of the filter to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteFilter(version: Double, accountId: Int64, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteFilterWithRequestBuilder(version: version, accountId: accountId, filterId: filterId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteFilter(accountId: Int64, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteFilterWithRequestBuilder(accountId: accountId, filterId: filterId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Filter
-     - POST /api/{version}/filter/delete
+     - POST /filter/delete
      - Delete a filter.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the filter&#39;s assigned application) 
      - parameter filterId: (query) The ID of the filter to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteFilterWithRequestBuilder(version: Double, accountId: Int64, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/filter/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteFilterWithRequestBuilder(accountId: Int64, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/filter/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,29 +119,24 @@ open class FilterAPI {
     /**
      Get Filter
      
-     - parameter version: (path)  
      - parameter filterId: (query) the id of the filter to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: FilterTreeResponse
      */
-    open class func getFilter(version: Double, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
-        return try await getFilterWithRequestBuilder(version: version, filterId: filterId, apiConfiguration: apiConfiguration).execute().body
+    open class func getFilter(filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
+        return try await getFilterWithRequestBuilder(filterId: filterId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Filter
-     - GET /api/{version}/filter/get
+     - GET /filter/get
      - Get the details of a specific filter. Recursively include all child filters and their children.
-     - parameter version: (path)  
      - parameter filterId: (query) the id of the filter to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<FilterTreeResponse> 
      */
-    open class func getFilterWithRequestBuilder(version: Double, filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
-        var localVariablePath = "/api/{version}/filter/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getFilterWithRequestBuilder(filterId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
+        let localVariablePath = "/filter/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -197,7 +182,6 @@ open class FilterAPI {
     /**
      Search Filters
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve filters for (optional)
@@ -211,15 +195,14 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [FilterResponse]
      */
-    open class func searchFilters(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: ResponseGroup_searchFilters? = nil, rootOnly: Bool? = nil, sortField: SortField_searchFilters? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [FilterResponse] {
-        return try await searchFiltersWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, appKey: appKey, responseGroup: responseGroup, rootOnly: rootOnly, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchFilters(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: ResponseGroup_searchFilters? = nil, rootOnly: Bool? = nil, sortField: SortField_searchFilters? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [FilterResponse] {
+        return try await searchFiltersWithRequestBuilder(accountId: accountId, keyword: keyword, appKey: appKey, responseGroup: responseGroup, rootOnly: rootOnly, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Filters
-     - GET /api/{version}/filter/search
+     - GET /filter/search
      - Search for filters.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve filters for (optional)
@@ -233,11 +216,8 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[FilterResponse]> 
      */
-    open class func searchFiltersWithRequestBuilder(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: ResponseGroup_searchFilters? = nil, rootOnly: Bool? = nil, sortField: SortField_searchFilters? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[FilterResponse]> {
-        var localVariablePath = "/api/{version}/filter/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchFiltersWithRequestBuilder(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: ResponseGroup_searchFilters? = nil, rootOnly: Bool? = nil, sortField: SortField_searchFilters? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[FilterResponse]> {
+        let localVariablePath = "/filter/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -269,7 +249,6 @@ open class FilterAPI {
     /**
      Update Filter
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter filterId: (query) The ID of the filter to edit 
      - parameter parentFilterId: (query) The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -282,15 +261,14 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: FilterTreeResponse
      */
-    open class func updateFilter(version: Double, accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
-        return try await updateFilterWithRequestBuilder(version: version, accountId: accountId, filterId: filterId, parentFilterId: parentFilterId, name: name, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateFilter(accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FilterTreeResponse {
+        return try await updateFilterWithRequestBuilder(accountId: accountId, filterId: filterId, parentFilterId: parentFilterId, name: name, description: description, externalId: externalId, externalType: externalType, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Filter
-     - POST /api/{version}/filter/update
+     - POST /filter/update
      - Update a filter.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter filterId: (query) The ID of the filter to edit 
      - parameter parentFilterId: (query) The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -303,11 +281,8 @@ open class FilterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<FilterTreeResponse> 
      */
-    open class func updateFilterWithRequestBuilder(version: Double, accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
-        var localVariablePath = "/api/{version}/filter/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateFilterWithRequestBuilder(accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FilterTreeResponse> {
+        let localVariablePath = "/filter/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

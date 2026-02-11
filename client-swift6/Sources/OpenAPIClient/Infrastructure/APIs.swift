@@ -25,7 +25,7 @@ open class OpenAPIClientAPIConfiguration: @unchecked Sendable {
     public var interceptor: OpenAPIInterceptor
 
     public init(
-        basePath: String = "http://localhost",
+        basePath: String = "https://dev.sirqul.com/api/3.18",
         customHeaders: [String: String] = [:],
         credential: URLCredential? = nil,
         requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory(),

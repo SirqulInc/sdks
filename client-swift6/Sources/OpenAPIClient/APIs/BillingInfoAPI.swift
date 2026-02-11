@@ -12,7 +12,6 @@ open class BillingInfoAPI {
     /**
      Update Payment Method
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter paymentMethodId: (query) Payment Method Id (optional)
      - parameter accountName: (query) the name of the account (optional)
@@ -39,15 +38,14 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func addPaymentMethod(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await addPaymentMethodWithRequestBuilder(version: version, accountId: accountId, paymentMethodId: paymentMethodId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, defaultPaymentMethod: defaultPaymentMethod, paymentMethodNickname: paymentMethodNickname, taxId: taxId, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func addPaymentMethod(accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await addPaymentMethodWithRequestBuilder(accountId: accountId, paymentMethodId: paymentMethodId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, defaultPaymentMethod: defaultPaymentMethod, paymentMethodNickname: paymentMethodNickname, taxId: taxId, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Payment Method
-     - POST /api/{version}/billing/update
+     - POST /billing/update
      - Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter paymentMethodId: (query) Payment Method Id (optional)
      - parameter accountName: (query) the name of the account (optional)
@@ -74,11 +72,8 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func addPaymentMethodWithRequestBuilder(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addPaymentMethodWithRequestBuilder(accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -123,7 +118,6 @@ open class BillingInfoAPI {
     /**
      Create Payment Method
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter accountName: (query) Account Name of the credit card user (optional)
      - parameter firstName: (query) The first name on the credit card (optional)
@@ -152,15 +146,14 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func createPaymentMethod(version: Double, accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await createPaymentMethodWithRequestBuilder(version: version, accountId: accountId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, paymentMethodNickname: paymentMethodNickname, taxId: taxId, defaultPaymentMethod: defaultPaymentMethod, authToken: authToken, provider: provider, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func createPaymentMethod(accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await createPaymentMethodWithRequestBuilder(accountId: accountId, accountName: accountName, firstName: firstName, lastName: lastName, address: address, city: city, state: state, postalCode: postalCode, country: country, phone: phone, creditCardNumber: creditCardNumber, expirationDate: expirationDate, ccv: ccv, accountNumber: accountNumber, bankName: bankName, routingNumber: routingNumber, paymentMethodNickname: paymentMethodNickname, taxId: taxId, defaultPaymentMethod: defaultPaymentMethod, authToken: authToken, provider: provider, providerCustomerProfileId: providerCustomerProfileId, providerPaymentProfileId: providerPaymentProfileId, metaData: metaData, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Payment Method
-     - POST /api/{version}/billing/create
+     - POST /billing/create
      - Add a new method of payment.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter accountName: (query) Account Name of the credit card user (optional)
      - parameter firstName: (query) The first name on the credit card (optional)
@@ -189,11 +182,8 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func createPaymentMethodWithRequestBuilder(version: Double, accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createPaymentMethodWithRequestBuilder(accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -240,7 +230,6 @@ open class BillingInfoAPI {
     /**
      Create Smart Contract
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter tokenName: (query) The token name 
      - parameter tokenSymbol: (query) The token symbol 
@@ -248,15 +237,14 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func createSmartContract(version: Double, accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await createSmartContractWithRequestBuilder(version: version, accountId: accountId, tokenName: tokenName, tokenSymbol: tokenSymbol, paymentMethodId: paymentMethodId, apiConfiguration: apiConfiguration).execute().body
+    open class func createSmartContract(accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await createSmartContractWithRequestBuilder(accountId: accountId, tokenName: tokenName, tokenSymbol: tokenSymbol, paymentMethodId: paymentMethodId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Smart Contract
-     - POST /api/{version}/billing/crypto/transfer
+     - POST /billing/crypto/transfer
      - Adds a smart contract.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter tokenName: (query) The token name 
      - parameter tokenSymbol: (query) The token symbol 
@@ -264,11 +252,8 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func createSmartContractWithRequestBuilder(version: Double, accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/crypto/transfer"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createSmartContractWithRequestBuilder(accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/crypto/transfer"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -294,33 +279,28 @@ open class BillingInfoAPI {
     /**
      Get Crypto Balances
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter ownerAccountId: (query) The account to retreive balances for (optional)
      - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func getCryptoBalance(version: Double, accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await getCryptoBalanceWithRequestBuilder(version: version, accountId: accountId, ownerAccountId: ownerAccountId, paymentMethodId: paymentMethodId, apiConfiguration: apiConfiguration).execute().body
+    open class func getCryptoBalance(accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await getCryptoBalanceWithRequestBuilder(accountId: accountId, ownerAccountId: ownerAccountId, paymentMethodId: paymentMethodId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Crypto Balances
-     - GET /api/{version}/billing/crypto/get
+     - GET /billing/crypto/get
      - Get the cypto balance details for a user
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter ownerAccountId: (query) The account to retreive balances for (optional)
      - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func getCryptoBalanceWithRequestBuilder(version: Double, accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/crypto/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCryptoBalanceWithRequestBuilder(accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/crypto/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -345,33 +325,28 @@ open class BillingInfoAPI {
     /**
      Get Payment Method
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      - parameter getCurrentBalance: (query) Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func getPaymentMethod(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await getPaymentMethodWithRequestBuilder(version: version, accountId: accountId, paymentMethodId: paymentMethodId, getCurrentBalance: getCurrentBalance, apiConfiguration: apiConfiguration).execute().body
+    open class func getPaymentMethod(accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await getPaymentMethodWithRequestBuilder(accountId: accountId, paymentMethodId: paymentMethodId, getCurrentBalance: getCurrentBalance, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Payment Method
-     - GET /api/{version}/billing/get
+     - GET /billing/get
      - Get the details of the user's payment method or their current default method of payment
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the the request 
      - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      - parameter getCurrentBalance: (query) Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func getPaymentMethodWithRequestBuilder(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPaymentMethodWithRequestBuilder(accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -396,7 +371,6 @@ open class BillingInfoAPI {
     /**
      Search Payment Methods
      
-     - parameter version: (path)  
      - parameter accountId: (query) Account Id to search on 
      - parameter provider: (query) Provider to search on (optional, default to "AUTHORIZE_NET")
      - parameter type: (query) the type to search on (optional)
@@ -408,15 +382,14 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaymentTypesResponse
      */
-    open class func searchPaymentMethod(version: Double, accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
-        return try await searchPaymentMethodWithRequestBuilder(version: version, accountId: accountId, provider: provider, type: type, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPaymentMethod(accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaymentTypesResponse {
+        return try await searchPaymentMethodWithRequestBuilder(accountId: accountId, provider: provider, type: type, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Payment Methods
-     - GET /api/{version}/billing/search
+     - GET /billing/search
      - Search the payment methods of an account
-     - parameter version: (path)  
      - parameter accountId: (query) Account Id to search on 
      - parameter provider: (query) Provider to search on (optional, default to "AUTHORIZE_NET")
      - parameter type: (query) the type to search on (optional)
@@ -428,11 +401,8 @@ open class BillingInfoAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaymentTypesResponse> 
      */
-    open class func searchPaymentMethodWithRequestBuilder(version: Double, accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
-        var localVariablePath = "/api/{version}/billing/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPaymentMethodWithRequestBuilder(accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaymentTypesResponse> {
+        let localVariablePath = "/billing/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -12,7 +12,6 @@ open class TwilioAPI {
     /**
      Buy Offer by SMS
      
-     - parameter version: (path)  
      - parameter appKey: (path) the application key 
      - parameter body: (query) the message of the text 
      - parameter from: (query) the sender of the sms 
@@ -20,15 +19,14 @@ open class TwilioAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TwiMLResponse
      */
-    open class func smsBuyOffer(version: Double, appKey: String, body: String, from: String, currencyType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TwiMLResponse {
-        return try await smsBuyOfferWithRequestBuilder(version: version, appKey: appKey, body: body, from: from, currencyType: currencyType, apiConfiguration: apiConfiguration).execute().body
+    open class func smsBuyOffer(appKey: String, body: String, from: String, currencyType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TwiMLResponse {
+        return try await smsBuyOfferWithRequestBuilder(appKey: appKey, body: body, from: from, currencyType: currencyType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Buy Offer by SMS
-     - POST /api/{version}/sms/buyoffer/{appKey}
+     - POST /sms/buyoffer/{appKey}
      - Recieve an SMS payload from Twillio to purchase an offer.
-     - parameter version: (path)  
      - parameter appKey: (path) the application key 
      - parameter body: (query) the message of the text 
      - parameter from: (query) the sender of the sms 
@@ -36,11 +34,8 @@ open class TwilioAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TwiMLResponse> 
      */
-    open class func smsBuyOfferWithRequestBuilder(version: Double, appKey: String, body: String, from: String, currencyType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TwiMLResponse> {
-        var localVariablePath = "/api/{version}/sms/buyoffer/{appKey}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func smsBuyOfferWithRequestBuilder(appKey: String, body: String, from: String, currencyType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TwiMLResponse> {
+        var localVariablePath = "/sms/buyoffer/{appKey}"
         let appKeyPreEscape = "\(APIHelper.mapValueToPathItem(appKey))"
         let appKeyPostEscape = appKeyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{appKey}", with: appKeyPostEscape, options: .literal, range: nil)

@@ -22,7 +22,6 @@ open class CSVImportAPI {
     /**
      Detail Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter batchId: (query) the id of the batch 
      - parameter responseGroup: (query) The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL 
@@ -31,14 +30,13 @@ open class CSVImportAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getStatusCSV(version: Double, accountId: Int64, batchId: Int64, responseGroup: ResponseGroup_getStatusCSV, start: Int64, limit: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getStatusCSVWithRequestBuilder(version: version, accountId: accountId, batchId: batchId, responseGroup: responseGroup, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getStatusCSV(accountId: Int64, batchId: Int64, responseGroup: ResponseGroup_getStatusCSV, start: Int64, limit: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getStatusCSVWithRequestBuilder(accountId: accountId, batchId: batchId, responseGroup: responseGroup, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Detail Status
-     - GET /api/{version}/csvimport/batch/status/details
-     - parameter version: (path)  
+     - GET /csvimport/batch/status/details
      - parameter accountId: (query) the id of the logged in user 
      - parameter batchId: (query) the id of the batch 
      - parameter responseGroup: (query) The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL 
@@ -47,11 +45,8 @@ open class CSVImportAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getStatusCSVWithRequestBuilder(version: Double, accountId: Int64, batchId: Int64, responseGroup: ResponseGroup_getStatusCSV, start: Int64, limit: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/csvimport/batch/status/details"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getStatusCSVWithRequestBuilder(accountId: Int64, batchId: Int64, responseGroup: ResponseGroup_getStatusCSV, start: Int64, limit: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/csvimport/batch/status/details"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -78,33 +73,28 @@ open class CSVImportAPI {
     /**
      Search Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter start: (query) the start of the pagination 
      - parameter limit: (query) the limit of the pagination 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CsvImportResponse
      */
-    open class func listStatusCSV(version: Double, accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
-        return try await listStatusCSVWithRequestBuilder(version: version, accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func listStatusCSV(accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
+        return try await listStatusCSVWithRequestBuilder(accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Status
-     - GET /api/{version}/csvimport/batch/list
+     - GET /csvimport/batch/list
      - Retrieves batches for a user.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter start: (query) the start of the pagination 
      - parameter limit: (query) the limit of the pagination 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CsvImportResponse> 
      */
-    open class func listStatusCSVWithRequestBuilder(version: Double, accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
-        var localVariablePath = "/api/{version}/csvimport/batch/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listStatusCSVWithRequestBuilder(accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
+        let localVariablePath = "/csvimport/batch/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,31 +119,26 @@ open class CSVImportAPI {
     /**
      Batch Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter batchId: (query) the id of the batch to get its status 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CsvImportResponse
      */
-    open class func statusCSV(version: Double, accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
-        return try await statusCSVWithRequestBuilder(version: version, accountId: accountId, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
+    open class func statusCSV(accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
+        return try await statusCSVWithRequestBuilder(accountId: accountId, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Batch Status
-     - GET /api/{version}/csvimport/batch/status
+     - GET /csvimport/batch/status
      - Checks status of batch upload.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter batchId: (query) the id of the batch to get its status 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CsvImportResponse> 
      */
-    open class func statusCSVWithRequestBuilder(version: Double, accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
-        var localVariablePath = "/api/{version}/csvimport/batch/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func statusCSVWithRequestBuilder(accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
+        let localVariablePath = "/csvimport/batch/status"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -198,7 +183,6 @@ open class CSVImportAPI {
     /**
      Upload CSV
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter uploadType: (query) the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS 
      - parameter importFile: (query) the import file to reference 
@@ -207,15 +191,14 @@ open class CSVImportAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CsvImportResponse
      */
-    open class func uploadCSV(version: Double, accountId: Int64, uploadType: UploadType_uploadCSV, importFile: URL, fileFormat: FileFormat_uploadCSV, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
-        return try await uploadCSVWithRequestBuilder(version: version, accountId: accountId, uploadType: uploadType, importFile: importFile, fileFormat: fileFormat, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func uploadCSV(accountId: Int64, uploadType: UploadType_uploadCSV, importFile: URL, fileFormat: FileFormat_uploadCSV, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CsvImportResponse {
+        return try await uploadCSVWithRequestBuilder(accountId: accountId, uploadType: uploadType, importFile: importFile, fileFormat: fileFormat, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Upload CSV
-     - POST /api/{version}/csvimport/upload
+     - POST /csvimport/upload
      - Uploads a CSV import file.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter uploadType: (query) the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS 
      - parameter importFile: (query) the import file to reference 
@@ -224,11 +207,8 @@ open class CSVImportAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CsvImportResponse> 
      */
-    open class func uploadCSVWithRequestBuilder(version: Double, accountId: Int64, uploadType: UploadType_uploadCSV, importFile: URL, fileFormat: FileFormat_uploadCSV, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
-        var localVariablePath = "/api/{version}/csvimport/upload"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func uploadCSVWithRequestBuilder(accountId: Int64, uploadType: UploadType_uploadCSV, importFile: URL, fileFormat: FileFormat_uploadCSV, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CsvImportResponse> {
+        let localVariablePath = "/csvimport/upload"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

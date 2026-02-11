@@ -12,7 +12,6 @@ open class ConnectionAPI {
     /**
      Add Connection
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -25,15 +24,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func addConnectionToGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await addConnectionToGroupWithRequestBuilder(version: version, returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addConnectionToGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await addConnectionToGroupWithRequestBuilder(returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Connection
-     - POST /api/{version}/consumer/connection/group/addConnection
+     - POST /consumer/connection/group/addConnection
      - Adds a connection to a group.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -46,11 +44,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func addConnectionToGroupWithRequestBuilder(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/addConnection"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addConnectionToGroupWithRequestBuilder(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/connection/group/addConnection"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -81,7 +76,6 @@ open class ConnectionAPI {
     /**
      Add Connections
      
-     - parameter version: (path)  
      - parameter connectionGroupId: (query) the connection group ID 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -92,15 +86,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func addConnectionsToGroup(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await addConnectionsToGroupWithRequestBuilder(version: version, connectionGroupId: connectionGroupId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addConnectionsToGroup(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await addConnectionsToGroupWithRequestBuilder(connectionGroupId: connectionGroupId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Connections
-     - POST /api/{version}/connection/group/addConnections
+     - POST /connection/group/addConnections
      - Adds a list of connections to a group.
-     - parameter version: (path)  
      - parameter connectionGroupId: (query) the connection group ID 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -111,11 +104,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func addConnectionsToGroupWithRequestBuilder(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/connection/group/addConnections"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addConnectionsToGroupWithRequestBuilder(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/connection/group/addConnections"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -144,7 +134,6 @@ open class ConnectionAPI {
     /**
      Add Connection Groups
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the parent group id 
      - parameter subGroupIds: (query) comma separated list of group IDs to add to the parent group 
@@ -155,15 +144,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionGroupResponse
      */
-    open class func addSubGroups(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionGroupResponse {
-        return try await addSubGroupsWithRequestBuilder(version: version, returnNulls: returnNulls, groupId: groupId, subGroupIds: subGroupIds, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addSubGroups(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionGroupResponse {
+        return try await addSubGroupsWithRequestBuilder(returnNulls: returnNulls, groupId: groupId, subGroupIds: subGroupIds, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Connection Groups
-     - POST /api/{version}/consumer/connection/group/addSubGroup
+     - POST /consumer/connection/group/addSubGroup
      - Add sub groups to a group.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the parent group id 
      - parameter subGroupIds: (query) comma separated list of group IDs to add to the parent group 
@@ -174,11 +162,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionGroupResponse> 
      */
-    open class func addSubGroupsWithRequestBuilder(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionGroupResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/addSubGroup"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addSubGroupsWithRequestBuilder(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionGroupResponse> {
+        let localVariablePath = "/consumer/connection/group/addSubGroup"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -207,7 +192,6 @@ open class ConnectionAPI {
     /**
      Create or Update Connection
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter connectionId: (query) the connection id for editing (optional)
@@ -225,15 +209,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionResponse
      */
-    open class func createOrUpdateConnection(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionResponse {
-        return try await createOrUpdateConnectionWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, groupId: groupId, gameType: gameType, appKey: appKey, isTrusted: isTrusted, ignoreFriendRequest: ignoreFriendRequest, isContact: isContact, isBlocked: isBlocked, isFollowing: isFollowing, connectionResponse: connectionResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func createOrUpdateConnection(deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionResponse {
+        return try await createOrUpdateConnectionWithRequestBuilder(deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, groupId: groupId, gameType: gameType, appKey: appKey, isTrusted: isTrusted, ignoreFriendRequest: ignoreFriendRequest, isContact: isContact, isBlocked: isBlocked, isFollowing: isFollowing, connectionResponse: connectionResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create or Update Connection
-     - POST /api/{version}/consumer/connection/add
+     - POST /consumer/connection/add
      - Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter connectionId: (query) the connection id for editing (optional)
@@ -251,11 +234,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionResponse> 
      */
-    open class func createOrUpdateConnectionWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/add"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOrUpdateConnectionWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionResponse> {
+        let localVariablePath = "/consumer/connection/add"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -291,7 +271,6 @@ open class ConnectionAPI {
     /**
      Create or Update Connection Group
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -309,15 +288,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func createOrUpdateGroup(version: Double, returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await createOrUpdateGroupWithRequestBuilder(version: version, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, name: name, groupId: groupId, assetId: assetId, connections: connections, description: description, canViewProfileInfo: canViewProfileInfo, canViewGameInfo: canViewGameInfo, canViewFriendInfo: canViewFriendInfo, active: active, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createOrUpdateGroup(returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await createOrUpdateGroupWithRequestBuilder(returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, name: name, groupId: groupId, assetId: assetId, connections: connections, description: description, canViewProfileInfo: canViewProfileInfo, canViewGameInfo: canViewGameInfo, canViewFriendInfo: canViewFriendInfo, active: active, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create or Update Connection Group
-     - POST /api/{version}/consumer/connection/group
+     - POST /consumer/connection/group
      - Creates a new private group.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -335,11 +313,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func createOrUpdateGroupWithRequestBuilder(version: Double, returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOrUpdateGroupWithRequestBuilder(returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/connection/group"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -375,33 +350,28 @@ open class ConnectionAPI {
     /**
      Accept Follow Request
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func followAccept(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await followAcceptWithRequestBuilder(version: version, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func followAccept(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await followAcceptWithRequestBuilder(accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Accept Follow Request
-     - POST /api/{version}/consumer/follow/accept
+     - POST /consumer/follow/accept
      - Accept someone's follow request.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func followAcceptWithRequestBuilder(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/follow/accept"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func followAcceptWithRequestBuilder(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/follow/accept"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -426,33 +396,28 @@ open class ConnectionAPI {
     /**
      Reject Follow Request
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func followReject(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await followRejectWithRequestBuilder(version: version, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func followReject(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await followRejectWithRequestBuilder(accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Reject Follow Request
-     - POST /api/{version}/consumer/follow/reject
+     - POST /consumer/follow/reject
      - Reject someone's follow request or remove them as a follower.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func followRejectWithRequestBuilder(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/follow/reject"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func followRejectWithRequestBuilder(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/follow/reject"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -477,33 +442,28 @@ open class ConnectionAPI {
     /**
      Remove Follower / Unfollow
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who you want to unfollow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func followRemove(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await followRemoveWithRequestBuilder(version: version, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func followRemove(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await followRemoveWithRequestBuilder(accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Follower / Unfollow
-     - POST /api/{version}/consumer/follow/remove
+     - POST /consumer/follow/remove
      - Unfollow someone you are following or remove them as a follower.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who you want to unfollow 
      - parameter appKey: (query) the application key for sending notifications 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func followRemoveWithRequestBuilder(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/follow/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func followRemoveWithRequestBuilder(accountId: Int64, connectionAccountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/follow/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -528,7 +488,6 @@ open class ConnectionAPI {
     /**
      Send Follow Request
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who you want to follow 
      - parameter appKey: (query) the application key for sending notifications 
@@ -536,15 +495,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func followRequest(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await followRequestWithRequestBuilder(version: version, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, approvalNeeded: approvalNeeded, apiConfiguration: apiConfiguration).execute().body
+    open class func followRequest(accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await followRequestWithRequestBuilder(accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, approvalNeeded: approvalNeeded, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send Follow Request
-     - POST /api/{version}/consumer/follow/request
+     - POST /consumer/follow/request
      - Send a request to follow someone.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter connectionAccountId: (query) the account ID of the user who you want to follow 
      - parameter appKey: (query) the application key for sending notifications 
@@ -552,11 +510,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func followRequestWithRequestBuilder(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/follow/request"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func followRequestWithRequestBuilder(accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/follow/request"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -582,7 +537,6 @@ open class ConnectionAPI {
     /**
      Accept Friend
      
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter notifyFriend: (query) determines whether to send a notification to the afflicting party 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -593,15 +547,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func friendAccept(version: Double, friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await friendAcceptWithRequestBuilder(version: version, friendAccountId: friendAccountId, notifyFriend: notifyFriend, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
+    open class func friendAccept(friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await friendAcceptWithRequestBuilder(friendAccountId: friendAccountId, notifyFriend: notifyFriend, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Accept Friend
-     - POST /api/{version}/consumer/friend/accept
+     - POST /consumer/friend/accept
      - Accept a friend request and optionally sends a notification.
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter notifyFriend: (query) determines whether to send a notification to the afflicting party 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -612,11 +565,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func friendAcceptWithRequestBuilder(version: Double, friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/friend/accept"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func friendAcceptWithRequestBuilder(friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/friend/accept"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -645,7 +595,6 @@ open class ConnectionAPI {
     /**
      Decline Friend
      
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -656,15 +605,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func friendReject(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await friendRejectWithRequestBuilder(version: version, friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notifyFriend: notifyFriend, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
+    open class func friendReject(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await friendRejectWithRequestBuilder(friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notifyFriend: notifyFriend, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Decline Friend
-     - POST /api/{version}/consumer/friend/reject
+     - POST /consumer/friend/reject
      - Request a friend request and optionally sends a notification.
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -675,11 +623,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func friendRejectWithRequestBuilder(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/friend/reject"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func friendRejectWithRequestBuilder(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/friend/reject"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -708,7 +653,6 @@ open class ConnectionAPI {
     /**
      Delete Friend
      
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the account ID of the friend to remove 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -717,15 +661,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func friendRemove(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await friendRemoveWithRequestBuilder(version: version, friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, notifyFriend: notifyFriend, removeFromGroups: removeFromGroups, apiConfiguration: apiConfiguration).execute().body
+    open class func friendRemove(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await friendRemoveWithRequestBuilder(friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, notifyFriend: notifyFriend, removeFromGroups: removeFromGroups, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Friend
-     - POST /api/{version}/consumer/friend/remove
+     - POST /consumer/friend/remove
      - Removes a friend from the user's friends list.
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the account ID of the friend to remove 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -734,11 +677,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func friendRemoveWithRequestBuilder(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/friend/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func friendRemoveWithRequestBuilder(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/friend/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -765,7 +705,6 @@ open class ConnectionAPI {
     /**
      Request Friend
      
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -775,15 +714,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func friendRequest(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await friendRequestWithRequestBuilder(version: version, friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
+    open class func friendRequest(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await friendRequestWithRequestBuilder(friendAccountId: friendAccountId, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, notificationMessage: notificationMessage, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Request Friend
-     - POST /api/{version}/consumer/friend/request
+     - POST /consumer/friend/request
      - Sends a friend request notification to another user.
-     - parameter version: (path)  
      - parameter friendAccountId: (query) the friend&#39;s account id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -793,11 +731,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func friendRequestWithRequestBuilder(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/friend/request"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func friendRequestWithRequestBuilder(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/friend/request"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -825,31 +760,26 @@ open class ConnectionAPI {
     /**
      Get Sent Friend Requests
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the ID of the device (optional)
      - parameter accountId: (query) the id of the account (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionListResponse
      */
-    open class func getConnectionSentFriendRequests(version: Double, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
-        return try await getConnectionSentFriendRequestsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getConnectionSentFriendRequests(deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
+        return try await getConnectionSentFriendRequestsWithRequestBuilder(deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Sent Friend Requests
-     - GET /api/{version}/consumer/connection/getRequested
+     - GET /consumer/connection/getRequested
      - Gets the connection sent friend requests.
-     - parameter version: (path)  
      - parameter deviceId: (query) the ID of the device (optional)
      - parameter accountId: (query) the id of the account (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionListResponse> 
      */
-    open class func getConnectionSentFriendRequestsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/getRequested"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getConnectionSentFriendRequestsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
+        let localVariablePath = "/consumer/connection/getRequested"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -873,7 +803,6 @@ open class ConnectionAPI {
     /**
      Search Connections
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter filter: (query) a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) 
      - parameter sortField: (query) sorts the response list by ConnectionApiMap 
@@ -892,15 +821,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionListResponse
      */
-    open class func getConnections(version: Double, returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
-        return try await getConnectionsWithRequestBuilder(version: version, returnNulls: returnNulls, filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, q: q, keyword: keyword, i: i, l: l, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getConnections(returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
+        return try await getConnectionsWithRequestBuilder(returnNulls: returnNulls, filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, q: q, keyword: keyword, i: i, l: l, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Connections
-     - GET /api/{version}/consumer/connection/get
+     - GET /consumer/connection/get
      - Gets the connections.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter filter: (query) a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) 
      - parameter sortField: (query) sorts the response list by ConnectionApiMap 
@@ -919,11 +847,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionListResponse> 
      */
-    open class func getConnectionsWithRequestBuilder(version: Double, returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getConnectionsWithRequestBuilder(returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
+        let localVariablePath = "/consumer/connection/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -960,7 +885,6 @@ open class ConnectionAPI {
     /**
      Get Connection Group
      
-     - parameter version: (path)  
      - parameter combineConnections: (query) whether to combine connections or not 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -970,14 +894,13 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionGroupResponse
      */
-    open class func getGroupDetails(version: Double, combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionGroupResponse {
-        return try await getGroupDetailsWithRequestBuilder(version: version, combineConnections: combineConnections, deviceId: deviceId, accountId: accountId, groupId: groupId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getGroupDetails(combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionGroupResponse {
+        return try await getGroupDetailsWithRequestBuilder(combineConnections: combineConnections, deviceId: deviceId, accountId: accountId, groupId: groupId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Connection Group
-     - GET /api/{version}/consumer/connection/group/details/get
-     - parameter version: (path)  
+     - GET /consumer/connection/group/details/get
      - parameter combineConnections: (query) whether to combine connections or not 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -987,11 +910,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionGroupResponse> 
      */
-    open class func getGroupDetailsWithRequestBuilder(version: Double, combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionGroupResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/details/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGroupDetailsWithRequestBuilder(combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionGroupResponse> {
+        let localVariablePath = "/consumer/connection/group/details/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1036,7 +956,6 @@ open class ConnectionAPI {
     /**
      Search Connection Groups
      
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by 
      - parameter descending: (query) whether to return results in descending or ascending order 
      - parameter activeOnly: (query) to search on active only or not 
@@ -1050,15 +969,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ConnectionInfoResponse]
      */
-    open class func groupSearch(version: Double, sortField: SortField_groupSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ConnectionInfoResponse] {
-        return try await groupSearchWithRequestBuilder(version: version, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func groupSearch(sortField: SortField_groupSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ConnectionInfoResponse] {
+        return try await groupSearchWithRequestBuilder(sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Connection Groups
-     - GET /api/{version}/connection/group/search
+     - GET /connection/group/search
      - Gets a user's private groups and default groups.
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by 
      - parameter descending: (query) whether to return results in descending or ascending order 
      - parameter activeOnly: (query) to search on active only or not 
@@ -1072,11 +990,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ConnectionInfoResponse]> 
      */
-    open class func groupSearchWithRequestBuilder(version: Double, sortField: SortField_groupSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ConnectionInfoResponse]> {
-        var localVariablePath = "/api/{version}/connection/group/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func groupSearchWithRequestBuilder(sortField: SortField_groupSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ConnectionInfoResponse]> {
+        let localVariablePath = "/connection/group/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1108,7 +1023,6 @@ open class ConnectionAPI {
     /**
      Delete Connection
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1121,15 +1035,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeConnectionFromGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeConnectionFromGroupWithRequestBuilder(version: version, returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeConnectionFromGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeConnectionFromGroupWithRequestBuilder(returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, connectionId: connectionId, connectionAccountId: connectionAccountId, pendingId: pendingId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Connection
-     - POST /api/{version}/consumer/connection/group/removeConnection
+     - POST /consumer/connection/group/removeConnection
      - Removes the connection from group.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1142,11 +1055,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeConnectionFromGroupWithRequestBuilder(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/removeConnection"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeConnectionFromGroupWithRequestBuilder(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/connection/group/removeConnection"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1177,7 +1087,6 @@ open class ConnectionAPI {
     /**
      Remove Connections
      
-     - parameter version: (path)  
      - parameter connectionGroupId: (query) connection group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -1188,15 +1097,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeConnectionsFromGroup(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeConnectionsFromGroupWithRequestBuilder(version: version, connectionGroupId: connectionGroupId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeConnectionsFromGroup(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeConnectionsFromGroupWithRequestBuilder(connectionGroupId: connectionGroupId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Connections
-     - POST /api/{version}/connection/group/removeConnections
+     - POST /connection/group/removeConnections
      - Remove a list of connections from a group.
-     - parameter version: (path)  
      - parameter connectionGroupId: (query) connection group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -1207,11 +1115,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeConnectionsFromGroupWithRequestBuilder(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/connection/group/removeConnections"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeConnectionsFromGroupWithRequestBuilder(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/connection/group/removeConnections"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1240,7 +1145,6 @@ open class ConnectionAPI {
     /**
      Delete Connection Group
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1250,15 +1154,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeGroupWithRequestBuilder(version: version, returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeGroupWithRequestBuilder(returnNulls: returnNulls, groupId: groupId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Connection Group
-     - POST /api/{version}/consumer/connection/group/remove
+     - POST /consumer/connection/group/remove
      - Remove a user's group.
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the group id 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1268,11 +1171,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeGroupWithRequestBuilder(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeGroupWithRequestBuilder(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/connection/group/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1300,7 +1200,6 @@ open class ConnectionAPI {
     /**
      Remove Connection Groups
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the parent group id 
      - parameter subGroupIds: (query) comma separated list of group IDs to remove from the parent group 
@@ -1311,15 +1210,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeSubGroups(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeSubGroupsWithRequestBuilder(version: version, returnNulls: returnNulls, groupId: groupId, subGroupIds: subGroupIds, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeSubGroups(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeSubGroupsWithRequestBuilder(returnNulls: returnNulls, groupId: groupId, subGroupIds: subGroupIds, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Connection Groups
-     - POST /api/{version}/consumer/connection/group/removeSubGroup
+     - POST /consumer/connection/group/removeSubGroup
      - Remove sub groups from a group
-     - parameter version: (path)  
      - parameter returnNulls: (query) whether to return nulls or not 
      - parameter groupId: (query) the parent group id 
      - parameter subGroupIds: (query) comma separated list of group IDs to remove from the parent group 
@@ -1330,11 +1228,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeSubGroupsWithRequestBuilder(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/connection/group/removeSubGroup"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeSubGroupsWithRequestBuilder(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/connection/group/removeSubGroup"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1363,7 +1258,6 @@ open class ConnectionAPI {
     /**
      Search Possible Connections
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) return all json attributes if true. defualt is true. 
      - parameter start: (query) start index of the pagination 
      - parameter limit: (query) limit of the pagination 
@@ -1382,15 +1276,14 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConnectionListResponse
      */
-    open class func searchConnections(version: Double, returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
-        return try await searchConnectionsWithRequestBuilder(version: version, returnNulls: returnNulls, start: start, limit: limit, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, latitude: latitude, longitude: longitude, gameType: gameType, appKey: appKey, i: i, l: l, sortField: sortField, hasLocation: hasLocation, apiConfiguration: apiConfiguration).execute().body
+    open class func searchConnections(returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConnectionListResponse {
+        return try await searchConnectionsWithRequestBuilder(returnNulls: returnNulls, start: start, limit: limit, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, latitude: latitude, longitude: longitude, gameType: gameType, appKey: appKey, i: i, l: l, sortField: sortField, hasLocation: hasLocation, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Possible Connections
-     - GET /api/{version}/connection/search
+     - GET /connection/search
      - Search for accounts that the user may not have a connection with.
-     - parameter version: (path)  
      - parameter returnNulls: (query) return all json attributes if true. defualt is true. 
      - parameter start: (query) start index of the pagination 
      - parameter limit: (query) limit of the pagination 
@@ -1409,11 +1302,8 @@ open class ConnectionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConnectionListResponse> 
      */
-    open class func searchConnectionsWithRequestBuilder(version: Double, returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
-        var localVariablePath = "/api/{version}/connection/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchConnectionsWithRequestBuilder(returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConnectionListResponse> {
+        let localVariablePath = "/connection/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

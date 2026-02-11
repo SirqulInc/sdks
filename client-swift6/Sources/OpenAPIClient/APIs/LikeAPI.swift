@@ -12,7 +12,6 @@ open class LikeAPI {
     /**
      Create Like
      
-     - parameter version: (path)  
      - parameter likableType: (query) The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -28,15 +27,14 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LikableResponse
      */
-    open class func registerLike(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LikableResponse {
-        return try await registerLikeWithRequestBuilder(version: version, likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, like: like, app: app, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func registerLike(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LikableResponse {
+        return try await registerLikeWithRequestBuilder(likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, like: like, app: app, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Like
-     - POST /api/{version}/like
+     - POST /like
      - Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     - parameter version: (path)  
      - parameter likableType: (query) The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -52,11 +50,8 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LikableResponse> 
      */
-    open class func registerLikeWithRequestBuilder(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LikableResponse> {
-        var localVariablePath = "/api/{version}/like"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func registerLikeWithRequestBuilder(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LikableResponse> {
+        let localVariablePath = "/like"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -90,7 +85,6 @@ open class LikeAPI {
     /**
      Delete Like
      
-     - parameter version: (path)  
      - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -100,15 +94,14 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LikableResponse
      */
-    open class func removeLike(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LikableResponse {
-        return try await removeLikeWithRequestBuilder(version: version, likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeLike(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LikableResponse {
+        return try await removeLikeWithRequestBuilder(likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Like
-     - POST /api/{version}/like/delete
+     - POST /like/delete
      - Removes a like. This will make the user \"neutral\".
-     - parameter version: (path)  
      - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -118,11 +111,8 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LikableResponse> 
      */
-    open class func removeLikeWithRequestBuilder(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LikableResponse> {
-        var localVariablePath = "/api/{version}/like/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeLikeWithRequestBuilder(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LikableResponse> {
+        let localVariablePath = "/like/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -150,7 +140,6 @@ open class LikeAPI {
     /**
      Search Likes
      
-     - parameter version: (path)  
      - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -165,15 +154,14 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SearchResponse
      */
-    open class func searchLikes(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
-        return try await searchLikesWithRequestBuilder(version: version, likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, connectionAccountIds: connectionAccountIds, sortField: sortField, descending: descending, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchLikes(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
+        return try await searchLikesWithRequestBuilder(likableType: likableType, likableId: likableId, deviceId: deviceId, accountId: accountId, connectionAccountIds: connectionAccountIds, sortField: sortField, descending: descending, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Likes
-     - GET /api/{version}/like/search
+     - GET /like/search
      - Search for likes on a likable object.
-     - parameter version: (path)  
      - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
      - parameter likableId: (query) The id of the likable object 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -188,11 +176,8 @@ open class LikeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SearchResponse> 
      */
-    open class func searchLikesWithRequestBuilder(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
-        var localVariablePath = "/api/{version}/like/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchLikesWithRequestBuilder(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
+        let localVariablePath = "/like/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

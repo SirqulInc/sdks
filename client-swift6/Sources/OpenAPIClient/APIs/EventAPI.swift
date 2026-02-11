@@ -12,7 +12,6 @@ open class EventAPI {
     /**
      Attend Event
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application of where to send notifications about the attend action (optional)
@@ -26,15 +25,14 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferResponse
      */
-    open class func attendEvent(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
-        return try await attendEventWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, listingId: listingId, retailerLocationId: retailerLocationId, offerLocationId: offerLocationId, transactionId: transactionId, status: status, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func attendEvent(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
+        return try await attendEventWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, listingId: listingId, retailerLocationId: retailerLocationId, offerLocationId: offerLocationId, transactionId: transactionId, status: status, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Attend Event
-     - POST /api/{version}/event/attend
+     - POST /event/attend
      -  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application of where to send notifications about the attend action (optional)
@@ -48,11 +46,8 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferResponse> 
      */
-    open class func attendEventWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
-        var localVariablePath = "/api/{version}/event/attend"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func attendEventWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
+        let localVariablePath = "/event/attend"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -84,7 +79,6 @@ open class EventAPI {
     /**
      Create Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The event title 
      - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -100,15 +94,14 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferResponse
      */
-    open class func createEvent(version: Double, accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
-        return try await createEventWithRequestBuilder(version: version, accountId: accountId, title: title, retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createEvent(accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
+        return try await createEventWithRequestBuilder(accountId: accountId, title: title, retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Event
-     - POST /api/{version}/event/create
+     - POST /event/create
      - Create a private event to share with associates.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The event title 
      - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -124,11 +117,8 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferResponse> 
      */
-    open class func createEventWithRequestBuilder(version: Double, accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
-        var localVariablePath = "/api/{version}/event/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createEventWithRequestBuilder(accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
+        let localVariablePath = "/event/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -162,31 +152,26 @@ open class EventAPI {
     /**
      Delete Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter eventId: (query) the id of the event to update 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteEvent(version: Double, accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteEventWithRequestBuilder(version: version, accountId: accountId, eventId: eventId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteEvent(accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteEventWithRequestBuilder(accountId: accountId, eventId: eventId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Event
-     - POST /api/{version}/event/delete
+     - POST /event/delete
      - Delete an event that the user has permissions to.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter eventId: (query) the id of the event to update 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteEventWithRequestBuilder(version: Double, accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/event/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteEventWithRequestBuilder(accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/event/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -210,31 +195,26 @@ open class EventAPI {
     /**
      Get Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter eventId: (query) The id of the event to return 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferResponse
      */
-    open class func getEvent(version: Double, accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
-        return try await getEventWithRequestBuilder(version: version, accountId: accountId, eventId: eventId, apiConfiguration: apiConfiguration).execute().body
+    open class func getEvent(accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
+        return try await getEventWithRequestBuilder(accountId: accountId, eventId: eventId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Event
-     - GET /api/{version}/event/get
+     - GET /event/get
      - Get an event.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter eventId: (query) The id of the event to return 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferResponse> 
      */
-    open class func getEventWithRequestBuilder(version: Double, accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
-        var localVariablePath = "/api/{version}/event/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getEventWithRequestBuilder(accountId: Int64, eventId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
+        let localVariablePath = "/event/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -289,7 +269,6 @@ open class EventAPI {
     /**
      Search Event Attendance
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key (optional)
@@ -312,15 +291,14 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [EventAttendanceResponse]
      */
-    open class func searchEventTransactions(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SortField_searchEventTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [EventAttendanceResponse] {
-        return try await searchEventTransactionsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, excludeRetailerLocationId: excludeRetailerLocationId, listingId: listingId, offerId: offerId, offerLocationId: offerLocationId, customerAccountIds: customerAccountIds, affiliatedCategoryIds: affiliatedCategoryIds, startDate: startDate, endDate: endDate, statuses: statuses, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchEventTransactions(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SortField_searchEventTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [EventAttendanceResponse] {
+        return try await searchEventTransactionsWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, excludeRetailerLocationId: excludeRetailerLocationId, listingId: listingId, offerId: offerId, offerLocationId: offerLocationId, customerAccountIds: customerAccountIds, affiliatedCategoryIds: affiliatedCategoryIds, startDate: startDate, endDate: endDate, statuses: statuses, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Event Attendance
-     - GET /api/{version}/event/attendance/search
+     - GET /event/attendance/search
      - Searches on event type transactions. This can be used to see who is attending an event.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key (optional)
@@ -343,11 +321,8 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[EventAttendanceResponse]> 
      */
-    open class func searchEventTransactionsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SortField_searchEventTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[EventAttendanceResponse]> {
-        var localVariablePath = "/api/{version}/event/attendance/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchEventTransactionsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SortField_searchEventTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[EventAttendanceResponse]> {
+        let localVariablePath = "/event/attendance/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -425,7 +400,6 @@ open class EventAPI {
     /**
      Search Events
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) The keyword used to search (optional)
      - parameter activeOnly: (query) Return only active results (optional)
@@ -442,15 +416,14 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferShortResponse]
      */
-    open class func searchEvents(version: Double, accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SortField_searchEvents? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferShortResponse] {
-        return try await searchEventsWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, activeOnly: activeOnly, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, sortField: sortField, descending: descending, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchEvents(accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SortField_searchEvents? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferShortResponse] {
+        return try await searchEventsWithRequestBuilder(accountId: accountId, keyword: keyword, activeOnly: activeOnly, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, sortField: sortField, descending: descending, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Events
-     - GET /api/{version}/event/search
+     - GET /event/search
      - Searches on events that the account has access to.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) The keyword used to search (optional)
      - parameter activeOnly: (query) Return only active results (optional)
@@ -467,11 +440,8 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferShortResponse]> 
      */
-    open class func searchEventsWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SortField_searchEvents? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferShortResponse]> {
-        var localVariablePath = "/api/{version}/event/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchEventsWithRequestBuilder(accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SortField_searchEvents? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferShortResponse]> {
+        let localVariablePath = "/event/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -506,7 +476,6 @@ open class EventAPI {
     /**
      Update Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter eventId: (query) The id of the event to update 
      - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -522,15 +491,14 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferResponse
      */
-    open class func updateEvent(version: Double, accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
-        return try await updateEventWithRequestBuilder(version: version, accountId: accountId, eventId: eventId, retailerLocationIds: retailerLocationIds, title: title, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, apiConfiguration: apiConfiguration).execute().body
+    open class func updateEvent(accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
+        return try await updateEventWithRequestBuilder(accountId: accountId, eventId: eventId, retailerLocationIds: retailerLocationIds, title: title, subTitle: subTitle, details: details, categoryIds: categoryIds, filterIds: filterIds, active: active, imageAssetId: imageAssetId, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Event
-     - POST /api/{version}/event/update
+     - POST /event/update
      - Update a private event to share with associates.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter eventId: (query) The id of the event to update 
      - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -546,11 +514,8 @@ open class EventAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferResponse> 
      */
-    open class func updateEventWithRequestBuilder(version: Double, accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
-        var localVariablePath = "/api/{version}/event/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateEventWithRequestBuilder(accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
+        let localVariablePath = "/event/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

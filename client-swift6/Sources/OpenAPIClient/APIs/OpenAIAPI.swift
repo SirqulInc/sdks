@@ -12,33 +12,28 @@ open class OpenAIAPI {
     /**
      Generate images with OpenAI
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter postBody: (query) Post Body Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WrappedProxyItemResponse
      */
-    open class func imageGeneration(version: Double, accountId: Int64, postBody: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedProxyItemResponse {
-        return try await imageGenerationWithRequestBuilder(version: version, accountId: accountId, postBody: postBody, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func imageGeneration(accountId: Int64, postBody: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedProxyItemResponse {
+        return try await imageGenerationWithRequestBuilder(accountId: accountId, postBody: postBody, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Generate images with OpenAI
-     - POST /api/{version}/openai/v1/images/generations
+     - POST /openai/v1/images/generations
      - Generate images with OpenAI.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter postBody: (query) Post Body Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WrappedProxyItemResponse> 
      */
-    open class func imageGenerationWithRequestBuilder(version: Double, accountId: Int64, postBody: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedProxyItemResponse> {
-        var localVariablePath = "/api/{version}/openai/v1/images/generations"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func imageGenerationWithRequestBuilder(accountId: Int64, postBody: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedProxyItemResponse> {
+        let localVariablePath = "/openai/v1/images/generations"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

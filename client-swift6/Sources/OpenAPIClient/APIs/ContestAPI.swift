@@ -21,7 +21,6 @@ open class ContestAPI {
     /**
      Create or Update Contest
      
-     - parameter version: (path)  
      - parameter publicRead: (query) determines whether the contest&#39;s participants has read permissions 
      - parameter publicWrite: (query) determines whether the contest&#39;s participants has write permissions 
      - parameter publicDelete: (query) determines whether the contest&#39;s participants has delete permissions 
@@ -50,15 +49,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumContestResponse
      */
-    open class func addOrUpdateAlbumContest(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateAlbumContest, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
-        return try await addOrUpdateAlbumContestWithRequestBuilder(version: version, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, visibility: visibility, includeFriendGroup: includeFriendGroup, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, contestType: contestType, albumContestId: albumContestId, title: title, description: description, albumId1: albumId1, removeAlbum1: removeAlbum1, albumId2: albumId2, removeAlbum2: removeAlbum2, startDate: startDate, endDate: endDate, locationDescription: locationDescription, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addOrUpdateAlbumContest(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateAlbumContest, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
+        return try await addOrUpdateAlbumContestWithRequestBuilder(publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, visibility: visibility, includeFriendGroup: includeFriendGroup, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, contestType: contestType, albumContestId: albumContestId, title: title, description: description, albumId1: albumId1, removeAlbum1: removeAlbum1, albumId2: albumId2, removeAlbum2: removeAlbum2, startDate: startDate, endDate: endDate, locationDescription: locationDescription, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create or Update Contest
-     - POST /api/{version}/consumer/album/contest
+     - POST /consumer/album/contest
      - Creates or updates a contest.
-     - parameter version: (path)  
      - parameter publicRead: (query) determines whether the contest&#39;s participants has read permissions 
      - parameter publicWrite: (query) determines whether the contest&#39;s participants has write permissions 
      - parameter publicDelete: (query) determines whether the contest&#39;s participants has delete permissions 
@@ -87,11 +85,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumContestResponse> 
      */
-    open class func addOrUpdateAlbumContestWithRequestBuilder(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateAlbumContest, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addOrUpdateAlbumContestWithRequestBuilder(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateAlbumContest, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
+        let localVariablePath = "/consumer/album/contest"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -148,7 +143,6 @@ open class ContestAPI {
     /**
      Approve Contest
      
-     - parameter version: (path)  
      - parameter albumContestId: (query) The ID of the album contest 
      - parameter approvalStatus: (query) The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -156,15 +150,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func approveAlbumContest(version: Double, albumContestId: Int64, approvalStatus: ApprovalStatus_approveAlbumContest, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await approveAlbumContestWithRequestBuilder(version: version, albumContestId: albumContestId, approvalStatus: approvalStatus, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func approveAlbumContest(albumContestId: Int64, approvalStatus: ApprovalStatus_approveAlbumContest, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await approveAlbumContestWithRequestBuilder(albumContestId: albumContestId, approvalStatus: approvalStatus, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Approve Contest
-     - POST /api/{version}/consumer/album/contest/approve
+     - POST /consumer/album/contest/approve
      - Sets the approval status of a contest.
-     - parameter version: (path)  
      - parameter albumContestId: (query) The ID of the album contest 
      - parameter approvalStatus: (query) The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -172,11 +165,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func approveAlbumContestWithRequestBuilder(version: Double, albumContestId: Int64, approvalStatus: ApprovalStatus_approveAlbumContest, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest/approve"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func approveAlbumContestWithRequestBuilder(albumContestId: Int64, approvalStatus: ApprovalStatus_approveAlbumContest, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/album/contest/approve"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -202,7 +192,6 @@ open class ContestAPI {
     /**
      Delete Contest
      
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -211,15 +200,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteContest(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteContestWithRequestBuilder(version: version, albumContestId: albumContestId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteContest(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteContestWithRequestBuilder(albumContestId: albumContestId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Contest
-     - POST /api/{version}/consumer/album/contest/remove
+     - POST /consumer/album/contest/remove
      - Deletes a contest.
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -228,11 +216,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteContestWithRequestBuilder(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteContestWithRequestBuilder(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/album/contest/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -259,7 +244,6 @@ open class ContestAPI {
     /**
      Get Contest
      
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -268,15 +252,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumContestResponse
      */
-    open class func getAlbumContest(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
-        return try await getAlbumContestWithRequestBuilder(version: version, albumContestId: albumContestId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getAlbumContest(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
+        return try await getAlbumContestWithRequestBuilder(albumContestId: albumContestId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Contest
-     - GET /api/{version}/consumer/album/contest/get
+     - GET /consumer/album/contest/get
      - Gets the contest object including the likes and notes
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -285,11 +268,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumContestResponse> 
      */
-    open class func getAlbumContestWithRequestBuilder(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAlbumContestWithRequestBuilder(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
+        let localVariablePath = "/consumer/album/contest/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -316,7 +296,6 @@ open class ContestAPI {
     /**
      Search Contests
      
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of Ownership 
      - parameter sortField: (query) the field to sort by. See AlbumContestApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -339,15 +318,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumContestListResponse
      */
-    open class func getAlbumContests(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestListResponse {
-        return try await getAlbumContestsWithRequestBuilder(version: version, filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, appType: appType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getAlbumContests(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestListResponse {
+        return try await getAlbumContestsWithRequestBuilder(filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, appType: appType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Contests
-     - GET /api/{version}/consumer/album/contest/search
+     - GET /consumer/album/contest/search
      - Searches on contests.
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of Ownership 
      - parameter sortField: (query) the field to sort by. See AlbumContestApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -370,11 +348,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumContestListResponse> 
      */
-    open class func getAlbumContestsWithRequestBuilder(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestListResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAlbumContestsWithRequestBuilder(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestListResponse> {
+        let localVariablePath = "/consumer/album/contest/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -415,7 +390,6 @@ open class ContestAPI {
     /**
      Vote on Contest
      
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter albumId: (query) the ID of the album to vote on 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -426,15 +400,14 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumContestResponse
      */
-    open class func voteOnAlbumContest(version: Double, albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
-        return try await voteOnAlbumContestWithRequestBuilder(version: version, albumContestId: albumContestId, albumId: albumId, deviceId: deviceId, accountId: accountId, contestType: contestType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func voteOnAlbumContest(albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumContestResponse {
+        return try await voteOnAlbumContestWithRequestBuilder(albumContestId: albumContestId, albumId: albumId, deviceId: deviceId, accountId: accountId, contestType: contestType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Vote on Contest
-     - POST /api/{version}/consumer/album/contest/vote
+     - POST /consumer/album/contest/vote
      - Vote on a collection in a contest.
-     - parameter version: (path)  
      - parameter albumContestId: (query) the album contest ID 
      - parameter albumId: (query) the ID of the album to vote on 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -445,11 +418,8 @@ open class ContestAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumContestResponse> 
      */
-    open class func voteOnAlbumContestWithRequestBuilder(version: Double, albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
-        var localVariablePath = "/api/{version}/consumer/album/contest/vote"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func voteOnAlbumContestWithRequestBuilder(albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumContestResponse> {
+        let localVariablePath = "/consumer/album/contest/vote"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

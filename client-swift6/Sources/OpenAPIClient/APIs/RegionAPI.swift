@@ -21,7 +21,6 @@ open class RegionAPI {
     /**
      Create Region
      
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account sending the request 
      - parameter regionClass: (query) RegionClass of this region 
      - parameter shortName: (query) Short name of the region. This is optimized for search 
@@ -46,15 +45,14 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RegionResponse
      */
-    open class func createRegion(version: Double, accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_createRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
-        return try await createRegionWithRequestBuilder(version: version, accountId: accountId, regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createRegion(accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_createRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
+        return try await createRegionWithRequestBuilder(accountId: accountId, regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Region
-     - POST /api/{version}/region/create
+     - POST /region/create
      - Create a region.
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account sending the request 
      - parameter regionClass: (query) RegionClass of this region 
      - parameter shortName: (query) Short name of the region. This is optimized for search 
@@ -79,11 +77,8 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RegionResponse> 
      */
-    open class func createRegionWithRequestBuilder(version: Double, accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_createRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
-        var localVariablePath = "/api/{version}/region/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRegionWithRequestBuilder(accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_createRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
+        let localVariablePath = "/region/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -126,31 +121,26 @@ open class RegionAPI {
     /**
      Delete Region
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account logged in 
      - parameter regionId: (query) the id of the region 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RegionResponse
      */
-    open class func deleteRegion(version: Double, accountId: Int64, regionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
-        return try await deleteRegionWithRequestBuilder(version: version, accountId: accountId, regionId: regionId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRegion(accountId: Int64, regionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
+        return try await deleteRegionWithRequestBuilder(accountId: accountId, regionId: regionId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Region
-     - POST /api/{version}/region/delete
+     - POST /region/delete
      - Delete a region.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account logged in 
      - parameter regionId: (query) the id of the region 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RegionResponse> 
      */
-    open class func deleteRegionWithRequestBuilder(version: Double, accountId: Int64, regionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
-        var localVariablePath = "/api/{version}/region/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRegionWithRequestBuilder(accountId: Int64, regionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
+        let localVariablePath = "/region/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -174,31 +164,26 @@ open class RegionAPI {
     /**
      Get Region
      
-     - parameter version: (path)  
      - parameter regionId: (query) the id of the region to get 
      - parameter accountId: (query) the id of the logged in user (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RegionResponse
      */
-    open class func getRegion(version: Double, regionId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
-        return try await getRegionWithRequestBuilder(version: version, regionId: regionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRegion(regionId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
+        return try await getRegionWithRequestBuilder(regionId: regionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Region
-     - GET /api/{version}/region/get
+     - GET /region/get
      - Get a region.
-     - parameter version: (path)  
      - parameter regionId: (query) the id of the region to get 
      - parameter accountId: (query) the id of the logged in user (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RegionResponse> 
      */
-    open class func getRegionWithRequestBuilder(version: Double, regionId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
-        var localVariablePath = "/api/{version}/region/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRegionWithRequestBuilder(regionId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
+        let localVariablePath = "/region/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -265,7 +250,6 @@ open class RegionAPI {
     /**
      Search Regions
      
-     - parameter version: (path)  
      - parameter accountId: (query) the owner account id of the region to be created (optional)
      - parameter query: (query) This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      - parameter keyword: (query) the keyword to filter results on (optional)
@@ -291,15 +275,14 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RegionResponse]
      */
-    open class func searchRegions(version: Double, accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: RegionClass_searchRegions? = nil, visibility: Visibility_searchRegions? = nil, searchMode: SearchMode_searchRegions? = nil, sortField: SortField_searchRegions? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RegionResponse] {
-        return try await searchRegionsWithRequestBuilder(version: version, accountId: accountId, query: query, keyword: keyword, latitude: latitude, longitude: longitude, range: range, regionClass: regionClass, visibility: visibility, searchMode: searchMode, sortField: sortField, descending: descending, includeParent: includeParent, includeChildren: includeChildren, includePostalCodes: includePostalCodes, categoryIds: categoryIds, filterIds: filterIds, versionCode: versionCode, activeOnly: activeOnly, showDeleted: showDeleted, lastUpdatedSince: lastUpdatedSince, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRegions(accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: RegionClass_searchRegions? = nil, visibility: Visibility_searchRegions? = nil, searchMode: SearchMode_searchRegions? = nil, sortField: SortField_searchRegions? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RegionResponse] {
+        return try await searchRegionsWithRequestBuilder(accountId: accountId, query: query, keyword: keyword, latitude: latitude, longitude: longitude, range: range, regionClass: regionClass, visibility: visibility, searchMode: searchMode, sortField: sortField, descending: descending, includeParent: includeParent, includeChildren: includeChildren, includePostalCodes: includePostalCodes, categoryIds: categoryIds, filterIds: filterIds, versionCode: versionCode, activeOnly: activeOnly, showDeleted: showDeleted, lastUpdatedSince: lastUpdatedSince, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Regions
-     - GET /api/{version}/region/search
+     - GET /region/search
      - Get the list of regions.
-     - parameter version: (path)  
      - parameter accountId: (query) the owner account id of the region to be created (optional)
      - parameter query: (query) This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      - parameter keyword: (query) the keyword to filter results on (optional)
@@ -325,11 +308,8 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RegionResponse]> 
      */
-    open class func searchRegionsWithRequestBuilder(version: Double, accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: RegionClass_searchRegions? = nil, visibility: Visibility_searchRegions? = nil, searchMode: SearchMode_searchRegions? = nil, sortField: SortField_searchRegions? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RegionResponse]> {
-        var localVariablePath = "/api/{version}/region/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRegionsWithRequestBuilder(accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: RegionClass_searchRegions? = nil, visibility: Visibility_searchRegions? = nil, searchMode: SearchMode_searchRegions? = nil, sortField: SortField_searchRegions? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RegionResponse]> {
+        let localVariablePath = "/region/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -382,7 +362,6 @@ open class RegionAPI {
     /**
      Update Region
      
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account sending the request 
      - parameter regionId: (query) The id of the region to be updated 
      - parameter regionClass: (query) RegionClass of this region (optional)
@@ -409,15 +388,14 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RegionResponse
      */
-    open class func updateRegion(version: Double, accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_updateRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
-        return try await updateRegionWithRequestBuilder(version: version, accountId: accountId, regionId: regionId, regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, clearLists: clearLists, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRegion(accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_updateRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RegionResponse {
+        return try await updateRegionWithRequestBuilder(accountId: accountId, regionId: regionId, regionClass: regionClass, shortName: shortName, fullName: fullName, parentIds: parentIds, childrenIds: childrenIds, postalCodeIds: postalCodeIds, locations: locations, retailerLocationId: retailerLocationId, visibility: visibility, categoryIds: categoryIds, filterIds: filterIds, start: start, end: end, polygon: polygon, metaData: metaData, latitude: latitude, longitude: longitude, versionCode: versionCode, root: root, active: active, clearLists: clearLists, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Region
-     - POST /api/{version}/region/update
+     - POST /region/update
      - Update a region.
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account sending the request 
      - parameter regionId: (query) The id of the region to be updated 
      - parameter regionClass: (query) RegionClass of this region (optional)
@@ -444,11 +422,8 @@ open class RegionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RegionResponse> 
      */
-    open class func updateRegionWithRequestBuilder(version: Double, accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_updateRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
-        var localVariablePath = "/api/{version}/region/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRegionWithRequestBuilder(accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: Visibility_updateRegion? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RegionResponse> {
+        let localVariablePath = "/region/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

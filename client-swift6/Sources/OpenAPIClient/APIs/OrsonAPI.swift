@@ -12,7 +12,6 @@ open class OrsonAPI {
     /**
      Add Movie
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter movieName: (query) Movie Name 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -23,15 +22,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiAddMovieResponse
      */
-    open class func addMovie(version: Double, accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiAddMovieResponse {
-        return try await addMovieWithRequestBuilder(version: version, accountId: accountId, movieName: movieName, thirdPartyAccountId: thirdPartyAccountId, tags: tags, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func addMovie(accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiAddMovieResponse {
+        return try await addMovieWithRequestBuilder(accountId: accountId, movieName: movieName, thirdPartyAccountId: thirdPartyAccountId, tags: tags, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Movie
-     - POST /api/{version}/orson/ai/addMovie
+     - POST /orson/ai/addMovie
      - Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter movieName: (query) Movie Name 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -42,11 +40,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiAddMovieResponse> 
      */
-    open class func addMovieWithRequestBuilder(version: Double, accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiAddMovieResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/addMovie"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addMovieWithRequestBuilder(accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiAddMovieResponse> {
+        let localVariablePath = "/orson/ai/addMovie"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,7 +70,6 @@ open class OrsonAPI {
     /**
      Search Docs
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter doc: (query) Doc 
      - parameter returnTopics: (query) Return Topics (optional)
@@ -84,15 +78,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiProtoResponse
      */
-    open class func aiDocs(version: Double, accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
-        return try await aiDocsWithRequestBuilder(version: version, accountId: accountId, doc: doc, returnTopics: returnTopics, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
+    open class func aiDocs(accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
+        return try await aiDocsWithRequestBuilder(accountId: accountId, doc: doc, returnTopics: returnTopics, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Docs
-     - GET /api/{version}/orson/ai/docs
+     - GET /orson/ai/docs
      - Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter doc: (query) Doc 
      - parameter returnTopics: (query) Return Topics (optional)
@@ -101,11 +94,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiProtoResponse> 
      */
-    open class func aiDocsWithRequestBuilder(version: Double, accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/docs"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func aiDocsWithRequestBuilder(accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
+        let localVariablePath = "/orson/ai/docs"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -132,7 +122,6 @@ open class OrsonAPI {
     /**
      Find images
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter text: (query) Text 
      - parameter parseFlag: (query) Parse Flag (optional)
@@ -141,15 +130,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiProtoResponse
      */
-    open class func aiFindImages(version: Double, accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
-        return try await aiFindImagesWithRequestBuilder(version: version, accountId: accountId, text: text, parseFlag: parseFlag, fetchFlag: fetchFlag, size: size, apiConfiguration: apiConfiguration).execute().body
+    open class func aiFindImages(accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
+        return try await aiFindImagesWithRequestBuilder(accountId: accountId, text: text, parseFlag: parseFlag, fetchFlag: fetchFlag, size: size, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Find images
-     - GET /api/{version}/orson/ai/img
+     - GET /orson/ai/img
      - Returns a list of URIs of images that match the text.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter text: (query) Text 
      - parameter parseFlag: (query) Parse Flag (optional)
@@ -158,11 +146,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiProtoResponse> 
      */
-    open class func aiFindImagesWithRequestBuilder(version: Double, accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/img"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func aiFindImagesWithRequestBuilder(accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
+        let localVariablePath = "/orson/ai/img"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -189,7 +174,6 @@ open class OrsonAPI {
     /**
      Search Tags
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter tags: (query) Tags 
      - parameter conditional: (query) Conditional (optional)
@@ -198,15 +182,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiProtoResponse
      */
-    open class func aiTags(version: Double, accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
-        return try await aiTagsWithRequestBuilder(version: version, accountId: accountId, tags: tags, conditional: conditional, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
+    open class func aiTags(accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
+        return try await aiTagsWithRequestBuilder(accountId: accountId, tags: tags, conditional: conditional, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tags
-     - GET /api/{version}/orson/ai/tags
+     - GET /orson/ai/tags
      - Search the tags column of user provided tags using this endpoint.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter tags: (query) Tags 
      - parameter conditional: (query) Conditional (optional)
@@ -215,11 +198,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiProtoResponse> 
      */
-    open class func aiTagsWithRequestBuilder(version: Double, accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/tags"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func aiTagsWithRequestBuilder(accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
+        let localVariablePath = "/orson/ai/tags"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -246,7 +226,6 @@ open class OrsonAPI {
     /**
      Search Text
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter terms: (query) Terms 
      - parameter conditional: (query) Conditional (optional)
@@ -255,15 +234,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiProtoResponse
      */
-    open class func aiText(version: Double, accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
-        return try await aiTextWithRequestBuilder(version: version, accountId: accountId, terms: terms, conditional: conditional, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
+    open class func aiText(accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiProtoResponse {
+        return try await aiTextWithRequestBuilder(accountId: accountId, terms: terms, conditional: conditional, limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Text
-     - GET /api/{version}/orson/ai/text
+     - GET /orson/ai/text
      - Search the movie text column of movie text using this endpoint.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter terms: (query) Terms 
      - parameter conditional: (query) Conditional (optional)
@@ -272,11 +250,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiProtoResponse> 
      */
-    open class func aiTextWithRequestBuilder(version: Double, accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/text"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func aiTextWithRequestBuilder(accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiProtoResponse> {
+        let localVariablePath = "/orson/ai/text"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -303,7 +278,6 @@ open class OrsonAPI {
     /**
      Batch Analysis
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter limit: (query) The number of topics to return (optional)
@@ -314,15 +288,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiBatchResponse
      */
-    open class func batch(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiBatchResponse {
-        return try await batchWithRequestBuilder(version: version, accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, limit: limit, operations: operations, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func batch(accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiBatchResponse {
+        return try await batchWithRequestBuilder(accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, limit: limit, operations: operations, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Batch Analysis
-     - POST /api/{version}/orson/ai/batch
+     - POST /orson/ai/batch
      - Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter limit: (query) The number of topics to return (optional)
@@ -333,11 +306,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiBatchResponse> 
      */
-    open class func batchWithRequestBuilder(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiBatchResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func batchWithRequestBuilder(accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiBatchResponse> {
+        let localVariablePath = "/orson/ai/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -366,31 +336,26 @@ open class OrsonAPI {
     /**
      Creates an instant episode
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter data: (query) Request Data String 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonEpisodeResponse
      */
-    open class func createInstantEpisode(version: Double, accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonEpisodeResponse {
-        return try await createInstantEpisodeWithRequestBuilder(version: version, accountId: accountId, data: data, apiConfiguration: apiConfiguration).execute().body
+    open class func createInstantEpisode(accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonEpisodeResponse {
+        return try await createInstantEpisodeWithRequestBuilder(accountId: accountId, data: data, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Creates an instant episode
-     - POST /api/{version}/orson/stories/episodes/instant
+     - POST /orson/stories/episodes/instant
      - Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter data: (query) Request Data String 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonEpisodeResponse> 
      */
-    open class func createInstantEpisodeWithRequestBuilder(version: Double, accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonEpisodeResponse> {
-        var localVariablePath = "/api/{version}/orson/stories/episodes/instant"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createInstantEpisodeWithRequestBuilder(accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonEpisodeResponse> {
+        let localVariablePath = "/orson/stories/episodes/instant"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -414,7 +379,6 @@ open class OrsonAPI {
     /**
      Create VoiceCanvas images
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter dimensions: (query) Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -427,15 +391,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiVoiceCanvasResponse
      */
-    open class func createVoiceCanvas(version: Double, accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: URL? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiVoiceCanvasResponse {
-        return try await createVoiceCanvasWithRequestBuilder(version: version, accountId: accountId, dimensions: dimensions, thirdPartyAccountId: thirdPartyAccountId, text: text, file: file, url: url, parseFlag: parseFlag, fetchFlag: fetchFlag, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func createVoiceCanvas(accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: URL? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiVoiceCanvasResponse {
+        return try await createVoiceCanvasWithRequestBuilder(accountId: accountId, dimensions: dimensions, thirdPartyAccountId: thirdPartyAccountId, text: text, file: file, url: url, parseFlag: parseFlag, fetchFlag: fetchFlag, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create VoiceCanvas images
-     - POST /api/{version}/orson/ai/voiceCanvas
+     - POST /orson/ai/voiceCanvas
      - Create VoiceCanvas images for provided text, file upload, or file URL
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter dimensions: (query) Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -448,11 +411,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiVoiceCanvasResponse> 
      */
-    open class func createVoiceCanvasWithRequestBuilder(version: Double, accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: URL? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiVoiceCanvasResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/voiceCanvas"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createVoiceCanvasWithRequestBuilder(accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: URL? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiVoiceCanvasResponse> {
+        let localVariablePath = "/orson/ai/voiceCanvas"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -483,7 +443,6 @@ open class OrsonAPI {
     /**
      Detect emotions
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter file: (query) An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -492,15 +451,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiEmotionsResponse
      */
-    open class func emotion(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiEmotionsResponse {
-        return try await emotionWithRequestBuilder(version: version, accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func emotion(accountId: Int64, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiEmotionsResponse {
+        return try await emotionWithRequestBuilder(accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Detect emotions
-     - POST /api/{version}/orson/ai/emotion
+     - POST /orson/ai/emotion
      - Detects emotions in an audio or video recording.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter file: (query) An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -509,11 +467,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiEmotionsResponse> 
      */
-    open class func emotionWithRequestBuilder(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiEmotionsResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/emotion"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func emotionWithRequestBuilder(accountId: Int64, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiEmotionsResponse> {
+        let localVariablePath = "/orson/ai/emotion"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -540,31 +495,26 @@ open class OrsonAPI {
     /**
      Get Add Movie Result
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiAddMovieResponse
      */
-    open class func getAddMovieResult(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiAddMovieResponse {
-        return try await getAddMovieResultWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getAddMovieResult(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiAddMovieResponse {
+        return try await getAddMovieResultWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Add Movie Result
-     - GET /api/{version}/orson/ai/addMovie/{requestId}
+     - GET /orson/ai/addMovie/{requestId}
      - Get the result of an in progress Add Movie request from an earlier POST.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiAddMovieResponse> 
      */
-    open class func getAddMovieResultWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiAddMovieResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/addMovie/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAddMovieResultWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiAddMovieResponse> {
+        var localVariablePath = "/orson/ai/addMovie/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -590,31 +540,26 @@ open class OrsonAPI {
     /**
      Get Batch Analysis Results
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiBatchResponse
      */
-    open class func getBatch(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiBatchResponse {
-        return try await getBatchWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getBatch(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiBatchResponse {
+        return try await getBatchWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Batch Analysis Results
-     - GET /api/{version}/orson/ai/batch/{requestId}
+     - GET /orson/ai/batch/{requestId}
      - Gets the completed Video Batch results, if done, or an error or status update if not.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiBatchResponse> 
      */
-    open class func getBatchWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiBatchResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/batch/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBatchWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiBatchResponse> {
+        var localVariablePath = "/orson/ai/batch/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -640,31 +585,26 @@ open class OrsonAPI {
     /**
      Get Emotion Results
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiEmotionsResponse
      */
-    open class func getEmotion(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiEmotionsResponse {
-        return try await getEmotionWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getEmotion(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiEmotionsResponse {
+        return try await getEmotionWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Emotion Results
-     - GET /api/{version}/orson/ai/emotion/{requestId}
+     - GET /orson/ai/emotion/{requestId}
      - Checks the Emotion analysis and returns in progress, results, or error.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiEmotionsResponse> 
      */
-    open class func getEmotionWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiEmotionsResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/emotion/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getEmotionWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiEmotionsResponse> {
+        var localVariablePath = "/orson/ai/emotion/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -690,31 +630,26 @@ open class OrsonAPI {
     /**
      Check episode status
      
-     - parameter version: (path)  
      - parameter episodeId: (path) Episode ID 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonEpisodeResponse
      */
-    open class func getEpisodeStatus(version: Double, episodeId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonEpisodeResponse {
-        return try await getEpisodeStatusWithRequestBuilder(version: version, episodeId: episodeId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getEpisodeStatus(episodeId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonEpisodeResponse {
+        return try await getEpisodeStatusWithRequestBuilder(episodeId: episodeId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Check episode status
-     - GET /api/{version}/orson/stories/episodes/{episodeId}/status
+     - GET /orson/stories/episodes/{episodeId}/status
      - Gets a summary of the episode's status, including any renders.
-     - parameter version: (path)  
      - parameter episodeId: (path) Episode ID 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonEpisodeResponse> 
      */
-    open class func getEpisodeStatusWithRequestBuilder(version: Double, episodeId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonEpisodeResponse> {
-        var localVariablePath = "/api/{version}/orson/stories/episodes/{episodeId}/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getEpisodeStatusWithRequestBuilder(episodeId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonEpisodeResponse> {
+        var localVariablePath = "/orson/stories/episodes/{episodeId}/status"
         let episodeIdPreEscape = "\(APIHelper.mapValueToPathItem(episodeId))"
         let episodeIdPostEscape = episodeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{episodeId}", with: episodeIdPostEscape, options: .literal, range: nil)
@@ -740,31 +675,26 @@ open class OrsonAPI {
     /**
      Check episode status
      
-     - parameter version: (path)  
      - parameter renderId: (path) Render ID 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonRenderResponse
      */
-    open class func getRenderStatus(version: Double, renderId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonRenderResponse {
-        return try await getRenderStatusWithRequestBuilder(version: version, renderId: renderId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRenderStatus(renderId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonRenderResponse {
+        return try await getRenderStatusWithRequestBuilder(renderId: renderId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Check episode status
-     - GET /api/{version}/orson/stories/renders/{renderId}/status
+     - GET /orson/stories/renders/{renderId}/status
      - Gets a summary of the episode's status, including any renders.
-     - parameter version: (path)  
      - parameter renderId: (path) Render ID 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonRenderResponse> 
      */
-    open class func getRenderStatusWithRequestBuilder(version: Double, renderId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonRenderResponse> {
-        var localVariablePath = "/api/{version}/orson/stories/renders/{renderId}/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRenderStatusWithRequestBuilder(renderId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonRenderResponse> {
+        var localVariablePath = "/orson/stories/renders/{renderId}/status"
         let renderIdPreEscape = "\(APIHelper.mapValueToPathItem(renderId))"
         let renderIdPostEscape = renderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{renderId}", with: renderIdPostEscape, options: .literal, range: nil)
@@ -790,31 +720,26 @@ open class OrsonAPI {
     /**
      Get Speach to Text Result
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiSTTResponse
      */
-    open class func getSTT(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiSTTResponse {
-        return try await getSTTWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getSTT(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiSTTResponse {
+        return try await getSTTWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Speach to Text Result
-     - GET /api/{version}/orson/ai/stt/{requestId}
+     - GET /orson/ai/stt/{requestId}
      - The results of the video transcription and optional translation.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiSTTResponse> 
      */
-    open class func getSTTWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiSTTResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/stt/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSTTWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiSTTResponse> {
+        var localVariablePath = "/orson/ai/stt/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -840,31 +765,26 @@ open class OrsonAPI {
     /**
      Get Text to Speach Result
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTTSResponse
      */
-    open class func getTTS(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTTSResponse {
-        return try await getTTSWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTTS(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTTSResponse {
+        return try await getTTSWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Text to Speach Result
-     - GET /api/{version}/orson/ai/tts/{requestId}
+     - GET /orson/ai/tts/{requestId}
      - Check the status of an in progress Text-to-Speech call or download the result.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTTSResponse> 
      */
-    open class func getTTSWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTTSResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/tts/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTTSWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTTSResponse> {
+        var localVariablePath = "/orson/ai/tts/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -890,31 +810,26 @@ open class OrsonAPI {
     /**
      Get TechTune Results
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTechTuneResponse
      */
-    open class func getTechTune(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTechTuneResponse {
-        return try await getTechTuneWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTechTune(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTechTuneResponse {
+        return try await getTechTuneWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get TechTune Results
-     - GET /api/{version}/orson/ai/techTune/{requestId}
+     - GET /orson/ai/techTune/{requestId}
      - Get a result or continue waiting for a pending request for TechTune analysis.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTechTuneResponse> 
      */
-    open class func getTechTuneWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTechTuneResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/techTune/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTechTuneWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTechTuneResponse> {
+        var localVariablePath = "/orson/ai/techTune/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -940,31 +855,26 @@ open class OrsonAPI {
     /**
      Get Topics
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTopicsResponse
      */
-    open class func getTopics(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTopicsResponse {
-        return try await getTopicsWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTopics(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTopicsResponse {
+        return try await getTopicsWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Topics
-     - GET /api/{version}/orson/ai/topics/{requestId}
+     - GET /orson/ai/topics/{requestId}
      - Get the result of an in progress Topics Analysis from an earlier POST.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTopicsResponse> 
      */
-    open class func getTopicsWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTopicsResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/topics/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTopicsWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTopicsResponse> {
+        var localVariablePath = "/orson/ai/topics/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -990,31 +900,26 @@ open class OrsonAPI {
     /**
      Get VoiceCanvas images
      
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiVoiceCanvasResponse
      */
-    open class func getVoiceCanvas(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiVoiceCanvasResponse {
-        return try await getVoiceCanvasWithRequestBuilder(version: version, requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getVoiceCanvas(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiVoiceCanvasResponse {
+        return try await getVoiceCanvasWithRequestBuilder(requestId: requestId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get VoiceCanvas images
-     - GET /api/{version}/orson/ai/voiceCanvas/{requestId}
+     - GET /orson/ai/voiceCanvas/{requestId}
      - Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     - parameter version: (path)  
      - parameter requestId: (path) Orson Request Id 
      - parameter accountId: (query) Sirqul Account Id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiVoiceCanvasResponse> 
      */
-    open class func getVoiceCanvasWithRequestBuilder(version: Double, requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiVoiceCanvasResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getVoiceCanvasWithRequestBuilder(requestId: String, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiVoiceCanvasResponse> {
+        var localVariablePath = "/orson/ai/voiceCanvas/{requestId}"
         let requestIdPreEscape = "\(APIHelper.mapValueToPathItem(requestId))"
         let requestIdPostEscape = requestIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{requestId}", with: requestIdPostEscape, options: .literal, range: nil)
@@ -1040,31 +945,26 @@ open class OrsonAPI {
     /**
      Starts a StoryStitch video render
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter data: (query) Request Data String 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonRenderResponse
      */
-    open class func startVideoRender(version: Double, accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonRenderResponse {
-        return try await startVideoRenderWithRequestBuilder(version: version, accountId: accountId, data: data, apiConfiguration: apiConfiguration).execute().body
+    open class func startVideoRender(accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonRenderResponse {
+        return try await startVideoRenderWithRequestBuilder(accountId: accountId, data: data, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Starts a StoryStitch video render
-     - POST /api/{version}/orson/stories/renders
+     - POST /orson/stories/renders
      - Starts a StoryStitch video render to produce your final video, returning the status details.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter data: (query) Request Data String 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonRenderResponse> 
      */
-    open class func startVideoRenderWithRequestBuilder(version: Double, accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonRenderResponse> {
-        var localVariablePath = "/api/{version}/orson/stories/renders"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func startVideoRenderWithRequestBuilder(accountId: Int64, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonRenderResponse> {
+        let localVariablePath = "/orson/stories/renders"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1088,7 +988,6 @@ open class OrsonAPI {
     /**
      Speach to Text
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter sourceLanguage: (query) Source Language (optional)
@@ -1099,15 +998,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiSTTResponse
      */
-    open class func stt(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiSTTResponse {
-        return try await sttWithRequestBuilder(version: version, accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func stt(accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiSTTResponse {
+        return try await sttWithRequestBuilder(accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Speach to Text
-     - POST /api/{version}/orson/ai/stt
+     - POST /orson/ai/stt
      - Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter sourceLanguage: (query) Source Language (optional)
@@ -1118,11 +1016,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiSTTResponse> 
      */
-    open class func sttWithRequestBuilder(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiSTTResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/stt"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sttWithRequestBuilder(accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiSTTResponse> {
+        let localVariablePath = "/orson/ai/stt"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1151,7 +1046,6 @@ open class OrsonAPI {
     /**
      Summarize Topics
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter doc: (query) The text to get topics for. (optional)
@@ -1163,15 +1057,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTopicsResponse
      */
-    open class func summarizeTopics(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: URL? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTopicsResponse {
-        return try await summarizeTopicsWithRequestBuilder(version: version, accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, doc: doc, file: file, url: url, limit: limit, offset: offset, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func summarizeTopics(accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: URL? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTopicsResponse {
+        return try await summarizeTopicsWithRequestBuilder(accountId: accountId, thirdPartyAccountId: thirdPartyAccountId, doc: doc, file: file, url: url, limit: limit, offset: offset, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Summarize Topics
-     - POST /api/{version}/orson/ai/topics
+     - POST /orson/ai/topics
      - Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
      - parameter doc: (query) The text to get topics for. (optional)
@@ -1183,11 +1076,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTopicsResponse> 
      */
-    open class func summarizeTopicsWithRequestBuilder(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: URL? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTopicsResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/topics"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func summarizeTopicsWithRequestBuilder(accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: URL? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTopicsResponse> {
+        let localVariablePath = "/orson/ai/topics"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1217,7 +1107,6 @@ open class OrsonAPI {
     /**
      Detect Technical Issues
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter numFacesExpected: (query) Number of expected faces 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -1227,15 +1116,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTechTuneResponse
      */
-    open class func techTune(version: Double, accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTechTuneResponse {
-        return try await techTuneWithRequestBuilder(version: version, accountId: accountId, numFacesExpected: numFacesExpected, thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func techTune(accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTechTuneResponse {
+        return try await techTuneWithRequestBuilder(accountId: accountId, numFacesExpected: numFacesExpected, thirdPartyAccountId: thirdPartyAccountId, file: file, url: url, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Detect Technical Issues
-     - POST /api/{version}/orson/ai/techTune
+     - POST /orson/ai/techTune
      - Analyses a movie file to detect technical issues, such as too few people in frame.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter numFacesExpected: (query) Number of expected faces 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -1245,11 +1133,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTechTuneResponse> 
      */
-    open class func techTuneWithRequestBuilder(version: Double, accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTechTuneResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/techTune"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func techTuneWithRequestBuilder(accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: URL? = nil, url: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTechTuneResponse> {
+        let localVariablePath = "/orson/ai/techTune"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1277,7 +1162,6 @@ open class OrsonAPI {
     /**
      Text to Speach
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter text: (query) Text 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -1287,15 +1171,14 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrsonAiTTSResponse
      */
-    open class func tts(version: Double, accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTTSResponse {
-        return try await ttsWithRequestBuilder(version: version, accountId: accountId, text: text, thirdPartyAccountId: thirdPartyAccountId, language: language, voice: voice, callback: callback, apiConfiguration: apiConfiguration).execute().body
+    open class func tts(accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrsonAiTTSResponse {
+        return try await ttsWithRequestBuilder(accountId: accountId, text: text, thirdPartyAccountId: thirdPartyAccountId, language: language, voice: voice, callback: callback, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Text to Speach
-     - POST /api/{version}/orson/ai/tts
+     - POST /orson/ai/tts
      - Creates an audio file for the given text, with the option of language and voice selection.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter text: (query) Text 
      - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -1305,11 +1188,8 @@ open class OrsonAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrsonAiTTSResponse> 
      */
-    open class func ttsWithRequestBuilder(version: Double, accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTTSResponse> {
-        var localVariablePath = "/api/{version}/orson/ai/tts"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func ttsWithRequestBuilder(accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrsonAiTTSResponse> {
+        let localVariablePath = "/orson/ai/tts"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

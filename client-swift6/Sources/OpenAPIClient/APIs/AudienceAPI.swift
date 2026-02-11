@@ -12,7 +12,6 @@ open class AudienceAPI {
     /**
      Create Audience
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the audience 
      - parameter description: (query) The description of the audience (optional)
@@ -45,15 +44,14 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AudienceResponse
      */
-    open class func createAudience(version: Double, accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
-        return try await createAudienceWithRequestBuilder(version: version, accountId: accountId, name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, sendSuggestion: sendSuggestion, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, apiConfiguration: apiConfiguration).execute().body
+    open class func createAudience(accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
+        return try await createAudienceWithRequestBuilder(accountId: accountId, name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, sendSuggestion: sendSuggestion, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Audience
-     - POST /api/{version}/audience/create
+     - POST /audience/create
      - Create a user defined audience.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the audience 
      - parameter description: (query) The description of the audience (optional)
@@ -86,11 +84,8 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AudienceResponse> 
      */
-    open class func createAudienceWithRequestBuilder(version: Double, accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
-        var localVariablePath = "/api/{version}/audience/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createAudienceWithRequestBuilder(accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
+        let localVariablePath = "/audience/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -141,31 +136,26 @@ open class AudienceAPI {
     /**
      Delete Audience
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteAudience(version: Double, accountId: Int64, audienceId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteAudienceWithRequestBuilder(version: version, accountId: accountId, audienceId: audienceId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteAudience(accountId: Int64, audienceId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteAudienceWithRequestBuilder(accountId: accountId, audienceId: audienceId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Audience
-     - POST /api/{version}/audience/delete
+     - POST /audience/delete
      - Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteAudienceWithRequestBuilder(version: Double, accountId: Int64, audienceId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/audience/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteAudienceWithRequestBuilder(accountId: Int64, audienceId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/audience/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -189,27 +179,22 @@ open class AudienceAPI {
     /**
      Get Age Groups
      
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AgeGroupResponse]
      */
-    open class func getAgeGroups(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AgeGroupResponse] {
-        return try await getAgeGroupsWithRequestBuilder(version: version, apiConfiguration: apiConfiguration).execute().body
+    open class func getAgeGroups(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AgeGroupResponse] {
+        return try await getAgeGroupsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Age Groups
-     - GET /api/{version}/audience/ageGroups
+     - GET /audience/ageGroups
      - Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AgeGroupResponse]> 
      */
-    open class func getAgeGroupsWithRequestBuilder(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AgeGroupResponse]> {
-        var localVariablePath = "/api/{version}/audience/ageGroups"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAgeGroupsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AgeGroupResponse]> {
+        let localVariablePath = "/audience/ageGroups"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -229,7 +214,6 @@ open class AudienceAPI {
     /**
      Get Audience
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to return. 
      - parameter appKey: (query) The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -239,15 +223,14 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AudienceResponse
      */
-    open class func getAudience(version: Double, accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
-        return try await getAudienceWithRequestBuilder(version: version, accountId: accountId, audienceId: audienceId, appKey: appKey, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, apiConfiguration: apiConfiguration).execute().body
+    open class func getAudience(accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
+        return try await getAudienceWithRequestBuilder(accountId: accountId, audienceId: audienceId, appKey: appKey, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Audience
-     - GET /api/{version}/audience/get
+     - GET /audience/get
      - Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to return. 
      - parameter appKey: (query) The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -257,11 +240,8 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AudienceResponse> 
      */
-    open class func getAudienceWithRequestBuilder(version: Double, accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
-        var localVariablePath = "/api/{version}/audience/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAudienceWithRequestBuilder(accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
+        let localVariablePath = "/audience/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -307,7 +287,6 @@ open class AudienceAPI {
     /**
      Search Audiences
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter albumIds: (query) Comma separated list of album IDs to filter results with (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -330,15 +309,14 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [SearchResponse]
      */
-    open class func getAudienceList(version: Double, accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: SortField_getAudienceList? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [SearchResponse] {
-        return try await getAudienceListWithRequestBuilder(version: version, accountId: accountId, albumIds: albumIds, keyword: keyword, keywordFields: keywordFields, sortField: sortField, descending: descending, start: start, limit: limit, sendSuggestion: sendSuggestion, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, appKey: appKey, returnGlobal: returnGlobal, exactKeyword: exactKeyword, audienceType: audienceType, audienceTypes: audienceTypes, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, apiConfiguration: apiConfiguration).execute().body
+    open class func getAudienceList(accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: SortField_getAudienceList? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [SearchResponse] {
+        return try await getAudienceListWithRequestBuilder(accountId: accountId, albumIds: albumIds, keyword: keyword, keywordFields: keywordFields, sortField: sortField, descending: descending, start: start, limit: limit, sendSuggestion: sendSuggestion, activeOnly: activeOnly, groupByGroupingId: groupByGroupingId, appKey: appKey, returnGlobal: returnGlobal, exactKeyword: exactKeyword, audienceType: audienceType, audienceTypes: audienceTypes, returnAccountCount: returnAccountCount, returnAlbumCount: returnAlbumCount, albumTypesForCount: albumTypesForCount, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Audiences
-     - GET /api/{version}/audience/search
+     - GET /audience/search
      - Get the list audiences owned by the account
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter albumIds: (query) Comma separated list of album IDs to filter results with (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -361,11 +339,8 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[SearchResponse]> 
      */
-    open class func getAudienceListWithRequestBuilder(version: Double, accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: SortField_getAudienceList? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[SearchResponse]> {
-        var localVariablePath = "/api/{version}/audience/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAudienceListWithRequestBuilder(accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: SortField_getAudienceList? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[SearchResponse]> {
+        let localVariablePath = "/audience/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -406,29 +381,24 @@ open class AudienceAPI {
     /**
      Get Devices
      
-     - parameter version: (path)  
      - parameter includeInactive: (query) If true return inactive record as well. default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AudienceDeviceResponse]
      */
-    open class func getDevices(version: Double, includeInactive: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AudienceDeviceResponse] {
-        return try await getDevicesWithRequestBuilder(version: version, includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
+    open class func getDevices(includeInactive: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AudienceDeviceResponse] {
+        return try await getDevicesWithRequestBuilder(includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Devices
-     - GET /api/{version}/audience/devices
+     - GET /audience/devices
      - Gets the list of available devices that can be selected by consumers and retailers.
-     - parameter version: (path)  
      - parameter includeInactive: (query) If true return inactive record as well. default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AudienceDeviceResponse]> 
      */
-    open class func getDevicesWithRequestBuilder(version: Double, includeInactive: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AudienceDeviceResponse]> {
-        var localVariablePath = "/api/{version}/audience/devices"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getDevicesWithRequestBuilder(includeInactive: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AudienceDeviceResponse]> {
+        let localVariablePath = "/audience/devices"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -451,27 +421,22 @@ open class AudienceAPI {
     /**
      Get Experiences
      
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getExperiences(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getExperiencesWithRequestBuilder(version: version, apiConfiguration: apiConfiguration).execute().body
+    open class func getExperiences(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getExperiencesWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Experiences
-     - GET /api/{version}/audience/experiences
+     - GET /audience/experiences
      - Gets the list of available experiences that can be selected by consumers and retailers.
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getExperiencesWithRequestBuilder(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/audience/experiences"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getExperiencesWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/audience/experiences"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -491,31 +456,26 @@ open class AudienceAPI {
     /**
      Get GroupedAudiences
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceGroupingId: (query) The audience grouping id to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AudienceResponse
      */
-    open class func getGroupedAudiences(version: Double, accountId: Int64, audienceGroupingId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
-        return try await getGroupedAudiencesWithRequestBuilder(version: version, accountId: accountId, audienceGroupingId: audienceGroupingId, apiConfiguration: apiConfiguration).execute().body
+    open class func getGroupedAudiences(accountId: Int64, audienceGroupingId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
+        return try await getGroupedAudiencesWithRequestBuilder(accountId: accountId, audienceGroupingId: audienceGroupingId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get GroupedAudiences
-     - GET /api/{version}/audience/grouped/get
+     - GET /audience/grouped/get
      - Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceGroupingId: (query) The audience grouping id to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AudienceResponse> 
      */
-    open class func getGroupedAudiencesWithRequestBuilder(version: Double, accountId: Int64, audienceGroupingId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
-        var localVariablePath = "/api/{version}/audience/grouped/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGroupedAudiencesWithRequestBuilder(accountId: Int64, audienceGroupingId: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
+        let localVariablePath = "/audience/grouped/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -539,33 +499,28 @@ open class AudienceAPI {
     /**
      List Suggestions by Audience
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter limit: (query) the limit of the index 
      - parameter suggestionType: (query) the type of suggestion 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferListResponse
      */
-    open class func listByAccount(version: Double, accountId: Int64, limit: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
-        return try await listByAccountWithRequestBuilder(version: version, accountId: accountId, limit: limit, suggestionType: suggestionType, apiConfiguration: apiConfiguration).execute().body
+    open class func listByAccount(accountId: Int64, limit: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
+        return try await listByAccountWithRequestBuilder(accountId: accountId, limit: limit, suggestionType: suggestionType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Suggestions by Audience
-     - POST /api/{version}/audience/suggestion/list
+     - POST /audience/suggestion/list
      - List either Missions or Offers that the user matches the assigned audience.
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter limit: (query) the limit of the index 
      - parameter suggestionType: (query) the type of suggestion 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferListResponse> 
      */
-    open class func listByAccountWithRequestBuilder(version: Double, accountId: Int64, limit: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
-        var localVariablePath = "/api/{version}/audience/suggestion/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listByAccountWithRequestBuilder(accountId: Int64, limit: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
+        let localVariablePath = "/audience/suggestion/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -590,7 +545,6 @@ open class AudienceAPI {
     /**
      List Offers by Audience
      
-     - parameter version: (path)  
      - parameter limit: (query) this is the limit of the index 
      - parameter gender: (query) this is the gender to list offers by (optional)
      - parameter age: (query) this is the age to list offers by (optional)
@@ -600,15 +554,14 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferListResponse
      */
-    open class func listByAudience(version: Double, limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
-        return try await listByAudienceWithRequestBuilder(version: version, limit: limit, gender: gender, age: age, categoryIds: categoryIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func listByAudience(limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
+        return try await listByAudienceWithRequestBuilder(limit: limit, gender: gender, age: age, categoryIds: categoryIds, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Offers by Audience
-     - GET /api/{version}/audience/suggestion/offersByAudience
+     - GET /audience/suggestion/offersByAudience
      - Get a list of offer locations based on audience information provided.
-     - parameter version: (path)  
      - parameter limit: (query) this is the limit of the index 
      - parameter gender: (query) this is the gender to list offers by (optional)
      - parameter age: (query) this is the age to list offers by (optional)
@@ -618,11 +571,8 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferListResponse> 
      */
-    open class func listByAudienceWithRequestBuilder(version: Double, limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
-        var localVariablePath = "/api/{version}/audience/suggestion/offersByAudience"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listByAudienceWithRequestBuilder(limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
+        let localVariablePath = "/audience/suggestion/offersByAudience"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -650,33 +600,28 @@ open class AudienceAPI {
     /**
      List Sent Suggestions 
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter timeframe: (query) The timeframe in seconds of the latest suggestions 
      - parameter suggestionType: (query) The type of trigger suggestions to return 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferListResponse
      */
-    open class func listLastestByAccount(version: Double, accountId: Int64, timeframe: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
-        return try await listLastestByAccountWithRequestBuilder(version: version, accountId: accountId, timeframe: timeframe, suggestionType: suggestionType, apiConfiguration: apiConfiguration).execute().body
+    open class func listLastestByAccount(accountId: Int64, timeframe: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
+        return try await listLastestByAccountWithRequestBuilder(accountId: accountId, timeframe: timeframe, suggestionType: suggestionType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Sent Suggestions 
-     - GET /api/{version}/audience/suggestion/latest
+     - GET /audience/suggestion/latest
      - Return list of recent trigger suggestions that have been sent to the user.
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter timeframe: (query) The timeframe in seconds of the latest suggestions 
      - parameter suggestionType: (query) The type of trigger suggestions to return 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferListResponse> 
      */
-    open class func listLastestByAccountWithRequestBuilder(version: Double, accountId: Int64, timeframe: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
-        var localVariablePath = "/api/{version}/audience/suggestion/latest"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listLastestByAccountWithRequestBuilder(accountId: Int64, timeframe: Int, suggestionType: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
+        let localVariablePath = "/audience/suggestion/latest"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -701,33 +646,28 @@ open class AudienceAPI {
     /**
      Send Suggestions
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter latitude: (query) the latitude 
      - parameter longitude: (query) the longitude 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func sendByAccount(version: Double, accountId: Int64, latitude: Double, longitude: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await sendByAccountWithRequestBuilder(version: version, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func sendByAccount(accountId: Int64, latitude: Double, longitude: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await sendByAccountWithRequestBuilder(accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send Suggestions
-     - POST /api/{version}/audience/suggestion/send
+     - POST /audience/suggestion/send
      - Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     - parameter version: (path)  
      - parameter accountId: (query) The account to match offers for. 
      - parameter latitude: (query) the latitude 
      - parameter longitude: (query) the longitude 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func sendByAccountWithRequestBuilder(version: Double, accountId: Int64, latitude: Double, longitude: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/audience/suggestion/send"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sendByAccountWithRequestBuilder(accountId: Int64, latitude: Double, longitude: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/audience/suggestion/send"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -752,7 +692,6 @@ open class AudienceAPI {
     /**
      Update Audience
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to update. 
      - parameter name: (query) The name of the audience (optional)
@@ -787,15 +726,14 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AudienceResponse
      */
-    open class func updateAudience(version: Double, accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
-        return try await updateAudienceWithRequestBuilder(version: version, accountId: accountId, audienceId: audienceId, name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, active: active, sendSuggestion: sendSuggestion, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, apiConfiguration: apiConfiguration).execute().body
+    open class func updateAudience(accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AudienceResponse {
+        return try await updateAudienceWithRequestBuilder(accountId: accountId, audienceId: audienceId, name: name, description: description, searchTags: searchTags, gender: gender, ageGroups: ageGroups, categoryIds: categoryIds, applicationIds: applicationIds, gameExperienceLevel: gameExperienceLevel, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, active: active, sendSuggestion: sendSuggestion, startTimeOffset: startTimeOffset, endTimeOffset: endTimeOffset, associateDescription: associateDescription, associateType: associateType, associateId: associateId, groupingId: groupingId, metaData: metaData, visibility: visibility, audienceType: audienceType, useOrder: useOrder, cohortRegionsData: cohortRegionsData, appKey: appKey, trilaterationTypes: trilaterationTypes, uniqueName: uniqueName, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Audience
-     - POST /api/{version}/audience/update
+     - POST /audience/update
      - Update a user defined audience.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter audienceId: (query) The id of the audience to update. 
      - parameter name: (query) The name of the audience (optional)
@@ -830,11 +768,8 @@ open class AudienceAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AudienceResponse> 
      */
-    open class func updateAudienceWithRequestBuilder(version: Double, accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
-        var localVariablePath = "/api/{version}/audience/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateAudienceWithRequestBuilder(accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AudienceResponse> {
+        let localVariablePath = "/audience/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

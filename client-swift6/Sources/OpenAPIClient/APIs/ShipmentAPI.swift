@@ -12,29 +12,24 @@ open class ShipmentAPI {
     /**
      Cancel Shipment
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to cancel 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func cancelShipment(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await cancelShipmentWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func cancelShipment(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await cancelShipmentWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Cancel Shipment
-     - POST /api/{version}/shipment/{id}/cancel
+     - POST /shipment/{id}/cancel
      - Remove shipment from route
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to cancel 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func cancelShipmentWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/shipment/{id}/cancel"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func cancelShipmentWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/shipment/{id}/cancel"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -57,29 +52,24 @@ open class ShipmentAPI {
     /**
      Create Shipment
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Shipment
      */
-    open class func createShipment(version: Double, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
-        return try await createShipmentWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createShipment(body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
+        return try await createShipmentWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Shipment
-     - POST /api/{version}/shipment
+     - POST /shipment
      - Create new shipment
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Shipment> 
      */
-    open class func createShipmentWithRequestBuilder(version: Double, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
-        var localVariablePath = "/api/{version}/shipment"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createShipmentWithRequestBuilder(body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
+        let localVariablePath = "/shipment"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -99,29 +89,24 @@ open class ShipmentAPI {
     /**
      Delete Shipment
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteShipment(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteShipmentWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteShipment(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteShipmentWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Shipment
-     - DELETE /api/{version}/shipment/{id}
+     - DELETE /shipment/{id}
      - Delete an existing shipment
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteShipmentWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/shipment/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteShipmentWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/shipment/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -144,29 +129,24 @@ open class ShipmentAPI {
     /**
      Get Shipment
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Shipment
      */
-    open class func getShipment(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
-        return try await getShipmentWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func getShipment(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
+        return try await getShipmentWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Shipment
-     - GET /api/{version}/shipment/{id}
+     - GET /shipment/{id}
      - Get an existing shipment
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Shipment> 
      */
-    open class func getShipmentWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
-        var localVariablePath = "/api/{version}/shipment/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getShipmentWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
+        var localVariablePath = "/shipment/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -189,7 +169,6 @@ open class ShipmentAPI {
     /**
      Search Shipments
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -201,15 +180,14 @@ open class ShipmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Shipment]
      */
-    open class func searchShipments(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
-        return try await searchShipmentsWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, ownerId: ownerId, riderId: riderId, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchShipments(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
+        return try await searchShipmentsWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, ownerId: ownerId, riderId: riderId, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Shipments
-     - GET /api/{version}/shipment
+     - GET /shipment
      - Search for shipments
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -221,11 +199,8 @@ open class ShipmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Shipment]> 
      */
-    open class func searchShipmentsWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
-        var localVariablePath = "/api/{version}/shipment"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchShipmentsWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
+        let localVariablePath = "/shipment"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -255,31 +230,26 @@ open class ShipmentAPI {
     /**
      Update Shipment
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Shipment
      */
-    open class func updateShipment(version: Double, id: Int64, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
-        return try await updateShipmentWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateShipment(id: Int64, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Shipment {
+        return try await updateShipmentWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Shipment
-     - PUT /api/{version}/shipment/{id}
+     - PUT /shipment/{id}
      - Update an existing shipment
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Shipment> 
      */
-    open class func updateShipmentWithRequestBuilder(version: Double, id: Int64, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
-        var localVariablePath = "/api/{version}/shipment/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateShipmentWithRequestBuilder(id: Int64, body: Shipment? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Shipment> {
+        var localVariablePath = "/shipment/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -302,31 +272,26 @@ open class ShipmentAPI {
     /**
      Uupdate Shipment Status
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to update status 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateShipmentStatus(version: Double, id: Int64, body: [String: Bool]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateShipmentStatusWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateShipmentStatus(id: Int64, body: [String: Bool]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateShipmentStatusWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Uupdate Shipment Status
-     - POST /api/{version}/shipment/{id}/status
+     - POST /shipment/{id}/status
      - Update status of an existing shipment
-     - parameter version: (path)  
      - parameter id: (path) the id of the shipment to update status 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateShipmentStatusWithRequestBuilder(version: Double, id: Int64, body: [String: Bool]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/shipment/{id}/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateShipmentStatusWithRequestBuilder(id: Int64, body: [String: Bool]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/shipment/{id}/status"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

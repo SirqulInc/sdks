@@ -31,7 +31,6 @@ open class AlbumAPI {
     /**
      Create Album
      
-     - parameter version: (path)  
      - parameter title: (query) the title of the album 
      - parameter coverAssetNullable: (query) determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image 
      - parameter includeCoverInAssetList: (query) determines whether the cover image should be added to the album asset list 
@@ -81,15 +80,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SearchResponse
      */
-    open class func addAlbumCollection(version: Double, title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: URL? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: URL? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_addAlbumCollection? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: ApprovalStatus_addAlbumCollection? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
-        return try await addAlbumCollectionWithRequestBuilder(version: version, title: title, coverAssetNullable: coverAssetNullable, includeCoverInAssetList: includeCoverInAssetList, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, anonymous: anonymous, deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, media: media, mediaURL: mediaURL, assetId: assetId, attachedMedia: attachedMedia, attachedMediaURL: attachedMediaURL, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, gameType: gameType, appKey: appKey, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, approvalStatus: approvalStatus, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, apiConfiguration: apiConfiguration).execute().body
+    open class func addAlbumCollection(title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: URL? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: URL? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_addAlbumCollection? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: ApprovalStatus_addAlbumCollection? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
+        return try await addAlbumCollectionWithRequestBuilder(title: title, coverAssetNullable: coverAssetNullable, includeCoverInAssetList: includeCoverInAssetList, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, anonymous: anonymous, deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, media: media, mediaURL: mediaURL, assetId: assetId, attachedMedia: attachedMedia, attachedMediaURL: attachedMediaURL, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, gameType: gameType, appKey: appKey, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, approvalStatus: approvalStatus, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Album
-     - POST /api/{version}/album/create
+     - POST /album/create
      - Create an Album.
-     - parameter version: (path)  
      - parameter title: (query) the title of the album 
      - parameter coverAssetNullable: (query) determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image 
      - parameter includeCoverInAssetList: (query) determines whether the cover image should be added to the album asset list 
@@ -139,11 +137,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SearchResponse> 
      */
-    open class func addAlbumCollectionWithRequestBuilder(version: Double, title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: URL? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: URL? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_addAlbumCollection? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: ApprovalStatus_addAlbumCollection? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
-        var localVariablePath = "/api/{version}/album/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addAlbumCollectionWithRequestBuilder(title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: URL? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: URL? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_addAlbumCollection? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: ApprovalStatus_addAlbumCollection? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
+        let localVariablePath = "/album/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -211,7 +206,6 @@ open class AlbumAPI {
     /**
      Add Album Users
      
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter includeFriendGroup: (query) determines whether to include all friends as participants 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -225,15 +219,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func addAlbumUsers(version: Double, albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await addAlbumUsersWithRequestBuilder(version: version, albumId: albumId, includeFriendGroup: includeFriendGroup, deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connections: connections, connectionGroups: connectionGroups, apiConfiguration: apiConfiguration).execute().body
+    open class func addAlbumUsers(albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await addAlbumUsersWithRequestBuilder(albumId: albumId, includeFriendGroup: includeFriendGroup, deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connections: connections, connectionGroups: connectionGroups, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Album Users
-     - POST /api/{version}/album/user/add
+     - POST /album/user/add
      - Add users to an album as participants.
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter includeFriendGroup: (query) determines whether to include all friends as participants 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -247,11 +240,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func addAlbumUsersWithRequestBuilder(version: Double, albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/album/user/add"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addAlbumUsersWithRequestBuilder(albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/album/user/add"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -293,7 +283,6 @@ open class AlbumAPI {
     /**
      Approve Album
      
-     - parameter version: (path)  
      - parameter albumId: (query) The ID of the album 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
@@ -302,15 +291,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func approveAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approveAlbum? = nil, verified: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await approveAlbumWithRequestBuilder(version: version, albumId: albumId, deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, verified: verified, apiConfiguration: apiConfiguration).execute().body
+    open class func approveAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approveAlbum? = nil, verified: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await approveAlbumWithRequestBuilder(albumId: albumId, deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, verified: verified, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Approve Album
-     - POST /api/{version}/album/approve
+     - POST /album/approve
      - Sets the approval status of an Album.
-     - parameter version: (path)  
      - parameter albumId: (query) The ID of the album 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
@@ -319,11 +307,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func approveAlbumWithRequestBuilder(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approveAlbum? = nil, verified: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/album/approve"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func approveAlbumWithRequestBuilder(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approveAlbum? = nil, verified: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/album/approve"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -350,7 +335,6 @@ open class AlbumAPI {
     /**
       Get Album
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) This parameter is deprecated. 
      - parameter albumId: (query) the album to look up 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -363,15 +347,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumFullResponse
      */
-    open class func getAlbumCollection(version: Double, returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumFullResponse {
-        return try await getAlbumCollectionWithRequestBuilder(version: version, returnNulls: returnNulls, albumId: albumId, deviceId: deviceId, accountId: accountId, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, apiConfiguration: apiConfiguration).execute().body
+    open class func getAlbumCollection(returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumFullResponse {
+        return try await getAlbumCollectionWithRequestBuilder(returnNulls: returnNulls, albumId: albumId, deviceId: deviceId, accountId: accountId, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
       Get Album
-     - GET /api/{version}/album/get
+     - GET /album/get
      - Get an Album.
-     - parameter version: (path)  
      - parameter returnNulls: (query) This parameter is deprecated. 
      - parameter albumId: (query) the album to look up 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -384,11 +367,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumFullResponse> 
      */
-    open class func getAlbumCollectionWithRequestBuilder(version: Double, returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumFullResponse> {
-        var localVariablePath = "/api/{version}/album/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAlbumCollectionWithRequestBuilder(returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumFullResponse> {
+        let localVariablePath = "/album/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -419,33 +399,28 @@ open class AlbumAPI {
     /**
      Leave Album
      
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func leaveAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await leaveAlbumWithRequestBuilder(version: version, albumId: albumId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func leaveAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await leaveAlbumWithRequestBuilder(albumId: albumId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Leave Album
-     - POST /api/{version}/album/user/leave
+     - POST /album/user/leave
      -  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func leaveAlbumWithRequestBuilder(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/album/user/leave"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func leaveAlbumWithRequestBuilder(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/album/user/leave"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -470,33 +445,28 @@ open class AlbumAPI {
     /**
      Delete Album
      
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID to delete 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeAlbumWithRequestBuilder(version: version, albumId: albumId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func removeAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeAlbumWithRequestBuilder(albumId: albumId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Album
-     - POST /api/{version}/album/delete
+     - POST /album/delete
      - Deletes an Album
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID to delete 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeAlbumWithRequestBuilder(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/album/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeAlbumWithRequestBuilder(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/album/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -521,7 +491,6 @@ open class AlbumAPI {
     /**
      Remove Album Users
      
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter removeFriendGroup: (query) remove friend group 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -531,15 +500,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeAlbumUsers(version: Double, albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeAlbumUsersWithRequestBuilder(version: version, albumId: albumId, removeFriendGroup: removeFriendGroup, deviceId: deviceId, accountId: accountId, connections: connections, connectionGroups: connectionGroups, apiConfiguration: apiConfiguration).execute().body
+    open class func removeAlbumUsers(albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeAlbumUsersWithRequestBuilder(albumId: albumId, removeFriendGroup: removeFriendGroup, deviceId: deviceId, accountId: accountId, connections: connections, connectionGroups: connectionGroups, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Album Users
-     - POST /api/{version}/album/user/delete
+     - POST /album/user/delete
      - Remove participants of an album.
-     - parameter version: (path)  
      - parameter albumId: (query) the album ID 
      - parameter removeFriendGroup: (query) remove friend group 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -549,11 +517,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeAlbumUsersWithRequestBuilder(version: Double, albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/album/user/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeAlbumUsersWithRequestBuilder(albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/album/user/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -581,7 +546,6 @@ open class AlbumAPI {
     /**
      Search Albums
      
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  
      - parameter albumTypeId: (query) id of custom albumType 
      - parameter subType: (query) filter albums with this album sub type 
@@ -645,15 +609,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AlbumFullResponse]
      */
-    open class func searchAlbums(version: Double, filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AlbumFullResponse] {
-        return try await searchAlbumsWithRequestBuilder(version: version, filter: filter, albumTypeId: albumTypeId, subType: subType, includeInactive: includeInactive, sortField: sortField, descending: descending, start: start, limit: limit, range: range, includeLiked: includeLiked, includeFavorited: includeFavorited, includePermissions: includePermissions, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, ownerId: ownerId, albumIds: albumIds, excludeAlbumIds: excludeAlbumIds, mediaId: mediaId, keyword: keyword, albumType: albumType, limitPerAlbumType: limitPerAlbumType, dateCreated: dateCreated, updatedSince: updatedSince, updatedBefore: updatedBefore, createdSince: createdSince, createdBefore: createdBefore, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, latitude: latitude, longitude: longitude, appKey: appKey, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, excludeAudienceIds: excludeAudienceIds, includeCompletable: includeCompletable, includeRating: includeRating, searchMode: searchMode, stackSearch: stackSearch, stackWindowSize: stackWindowSize, minStackPerPage: minStackPerPage, stackPaginationIdentifier: stackPaginationIdentifier, stackDetails: stackDetails, flagCountMinimum: flagCountMinimum, removeFlaggedContent: removeFlaggedContent, verifiedFilter: verifiedFilter, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, orderAudienceId: orderAudienceId, ignoreDefaultAppFilter: ignoreDefaultAppFilter, searchExpression: searchExpression, generateAlbums: generateAlbums, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAlbums(filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AlbumFullResponse] {
+        return try await searchAlbumsWithRequestBuilder(filter: filter, albumTypeId: albumTypeId, subType: subType, includeInactive: includeInactive, sortField: sortField, descending: descending, start: start, limit: limit, range: range, includeLiked: includeLiked, includeFavorited: includeFavorited, includePermissions: includePermissions, likePreviewSize: likePreviewSize, assetPreviewSize: assetPreviewSize, notePreviewSize: notePreviewSize, connectionPreviewSize: connectionPreviewSize, audiencePreviewSize: audiencePreviewSize, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, ownerId: ownerId, albumIds: albumIds, excludeAlbumIds: excludeAlbumIds, mediaId: mediaId, keyword: keyword, albumType: albumType, limitPerAlbumType: limitPerAlbumType, dateCreated: dateCreated, updatedSince: updatedSince, updatedBefore: updatedBefore, createdSince: createdSince, createdBefore: createdBefore, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, latitude: latitude, longitude: longitude, appKey: appKey, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, excludeAudienceIds: excludeAudienceIds, includeCompletable: includeCompletable, includeRating: includeRating, searchMode: searchMode, stackSearch: stackSearch, stackWindowSize: stackWindowSize, minStackPerPage: minStackPerPage, stackPaginationIdentifier: stackPaginationIdentifier, stackDetails: stackDetails, flagCountMinimum: flagCountMinimum, removeFlaggedContent: removeFlaggedContent, verifiedFilter: verifiedFilter, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, orderAudienceId: orderAudienceId, ignoreDefaultAppFilter: ignoreDefaultAppFilter, searchExpression: searchExpression, generateAlbums: generateAlbums, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Albums
-     - GET /api/{version}/album/search
+     - GET /album/search
      - Searches on Albums.
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  
      - parameter albumTypeId: (query) id of custom albumType 
      - parameter subType: (query) filter albums with this album sub type 
@@ -717,11 +680,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AlbumFullResponse]> 
      */
-    open class func searchAlbumsWithRequestBuilder(version: Double, filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AlbumFullResponse]> {
-        var localVariablePath = "/api/{version}/album/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAlbumsWithRequestBuilder(filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AlbumFullResponse]> {
+        let localVariablePath = "/album/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -812,7 +772,6 @@ open class AlbumAPI {
     /**
      Update Album
      
-     - parameter version: (path)  
      - parameter albumId: (query) the ID of the album to update 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -861,15 +820,14 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AlbumResponse
      */
-    open class func updateAlbumCollection(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: URL? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_updateAlbumCollection? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumResponse {
-        return try await updateAlbumCollectionWithRequestBuilder(version: version, albumId: albumId, deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, assetsToRemove: assetsToRemove, assetId: assetId, media: media, mediaURL: mediaURL, active: active, title: title, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, anonymous: anonymous, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, indexNow: indexNow, apiConfiguration: apiConfiguration).execute().body
+    open class func updateAlbumCollection(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: URL? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_updateAlbumCollection? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AlbumResponse {
+        return try await updateAlbumCollectionWithRequestBuilder(albumId: albumId, deviceId: deviceId, accountId: accountId, assetsToAdd: assetsToAdd, assetsToRemove: assetsToRemove, assetId: assetId, media: media, mediaURL: mediaURL, active: active, title: title, startDate: startDate, endDate: endDate, tags: tags, description: description, albumType: albumType, albumTypeId: albumTypeId, subType: subType, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, latitude: latitude, longitude: longitude, locationDescription: locationDescription, visibility: visibility, cellPhone: cellPhone, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, fullAddress: fullAddress, anonymous: anonymous, metaData: metaData, categoryIds: categoryIds, categoryFilterIds: categoryFilterIds, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, includeAllAppUsersAsMembers: includeAllAppUsersAsMembers, includeAudiencesAsMembers: includeAudiencesAsMembers, audienceOperator: audienceOperator, linkedObjectType: linkedObjectType, linkedObjectId: linkedObjectId, indexNow: indexNow, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Album
-     - POST /api/{version}/album/update
+     - POST /album/update
      - Update an Album.
-     - parameter version: (path)  
      - parameter albumId: (query) the ID of the album to update 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -918,11 +876,8 @@ open class AlbumAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AlbumResponse> 
      */
-    open class func updateAlbumCollectionWithRequestBuilder(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: URL? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_updateAlbumCollection? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumResponse> {
-        var localVariablePath = "/api/{version}/album/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateAlbumCollectionWithRequestBuilder(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: URL? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: Visibility_updateAlbumCollection? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AlbumResponse> {
+        let localVariablePath = "/album/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

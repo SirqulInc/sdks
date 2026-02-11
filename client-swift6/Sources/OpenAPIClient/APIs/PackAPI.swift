@@ -32,7 +32,6 @@ open class PackAPI {
     /**
      Create Pack
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The title of the pack 
      - parameter packOrder: (query) The order of the pack 
@@ -60,15 +59,14 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PackResponse
      */
-    open class func createPack(version: Double, accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_createPack? = nil, sequenceType: SequenceType_createPack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
-        return try await createPackWithRequestBuilder(version: version, accountId: accountId, title: title, packOrder: packOrder, price: price, highest: highest, allocateTickets: allocateTickets, ticketCount: ticketCount, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func createPack(accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_createPack? = nil, sequenceType: SequenceType_createPack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
+        return try await createPackWithRequestBuilder(accountId: accountId, title: title, packOrder: packOrder, price: price, highest: highest, allocateTickets: allocateTickets, ticketCount: ticketCount, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Pack
-     - POST /api/{version}/pack/create
+     - POST /pack/create
      - Create a pack.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The title of the pack 
      - parameter packOrder: (query) The order of the pack 
@@ -96,11 +94,8 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PackResponse> 
      */
-    open class func createPackWithRequestBuilder(version: Double, accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_createPack? = nil, sequenceType: SequenceType_createPack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
-        var localVariablePath = "/api/{version}/pack/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createPackWithRequestBuilder(accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_createPack? = nil, sequenceType: SequenceType_createPack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
+        let localVariablePath = "/pack/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -146,31 +141,26 @@ open class PackAPI {
     /**
      Delete Pack
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter packId: (query) the id of the pack to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deletePack(version: Double, accountId: Int64, packId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deletePackWithRequestBuilder(version: version, accountId: accountId, packId: packId, apiConfiguration: apiConfiguration).execute().body
+    open class func deletePack(accountId: Int64, packId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deletePackWithRequestBuilder(accountId: accountId, packId: packId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Pack
-     - POST /api/{version}/pack/delete
+     - POST /pack/delete
      - Delete a pack.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter packId: (query) the id of the pack to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deletePackWithRequestBuilder(version: Double, accountId: Int64, packId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/pack/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deletePackWithRequestBuilder(accountId: Int64, packId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/pack/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -194,33 +184,28 @@ open class PackAPI {
     /**
      Get Pack
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter packId: (query) The id of the pack to return. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PackResponse
      */
-    open class func getPack(version: Double, accountId: Int64, packId: Int64, includeGameData: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
-        return try await getPackWithRequestBuilder(version: version, accountId: accountId, packId: packId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func getPack(accountId: Int64, packId: Int64, includeGameData: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
+        return try await getPackWithRequestBuilder(accountId: accountId, packId: packId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Pack
-     - GET /api/{version}/pack/get
+     - GET /pack/get
      - Get a pack.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter packId: (query) The id of the pack to return. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PackResponse> 
      */
-    open class func getPackWithRequestBuilder(version: Double, accountId: Int64, packId: Int64, includeGameData: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
-        var localVariablePath = "/api/{version}/pack/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPackWithRequestBuilder(accountId: Int64, packId: Int64, includeGameData: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
+        let localVariablePath = "/pack/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -267,7 +252,6 @@ open class PackAPI {
     /**
      Search Packs
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -281,15 +265,14 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PackResponse]
      */
-    open class func searchPacks(version: Double, accountId: Int64, sortField: SortField_searchPacks, descending: Bool, keyword: String? = nil, packType: PackType_searchPacks? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PackResponse] {
-        return try await searchPacksWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, keyword: keyword, packType: packType, start: start, limit: limit, includeGameData: includeGameData, includeInactive: includeInactive, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPacks(accountId: Int64, sortField: SortField_searchPacks, descending: Bool, keyword: String? = nil, packType: PackType_searchPacks? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PackResponse] {
+        return try await searchPacksWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, keyword: keyword, packType: packType, start: start, limit: limit, includeGameData: includeGameData, includeInactive: includeInactive, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Packs
-     - GET /api/{version}/pack/search
+     - GET /pack/search
      - Search on packs.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -303,11 +286,8 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PackResponse]> 
      */
-    open class func searchPacksWithRequestBuilder(version: Double, accountId: Int64, sortField: SortField_searchPacks, descending: Bool, keyword: String? = nil, packType: PackType_searchPacks? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PackResponse]> {
-        var localVariablePath = "/api/{version}/pack/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPacksWithRequestBuilder(accountId: Int64, sortField: SortField_searchPacks, descending: Bool, keyword: String? = nil, packType: PackType_searchPacks? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PackResponse]> {
+        let localVariablePath = "/pack/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -359,7 +339,6 @@ open class PackAPI {
     /**
      Update Pack
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter packId: (query) The id of the pack to update. 
      - parameter allocateTickets: (query) Flag to indicate owner should receive tickets for completed packs 
@@ -388,15 +367,14 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PackResponse
      */
-    open class func updatePack(version: Double, accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_updatePack? = nil, packOrder: Int64? = nil, sequenceType: SequenceType_updatePack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
-        return try await updatePackWithRequestBuilder(version: version, accountId: accountId, packId: packId, allocateTickets: allocateTickets, ticketCount: ticketCount, title: title, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, packOrder: packOrder, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, price: price, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, highest: highest, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func updatePack(accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_updatePack? = nil, packOrder: Int64? = nil, sequenceType: SequenceType_updatePack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PackResponse {
+        return try await updatePackWithRequestBuilder(accountId: accountId, packId: packId, allocateTickets: allocateTickets, ticketCount: ticketCount, title: title, description: description, searchTags: searchTags, active: active, gameType: gameType, appKey: appKey, packType: packType, packOrder: packOrder, sequenceType: sequenceType, backgroundId: backgroundId, imageId: imageId, startDate: startDate, endDate: endDate, authorOverride: authorOverride, price: price, priceType: priceType, gameLevelIds: gameLevelIds, inGame: inGame, highest: highest, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Pack
-     - POST /api/{version}/pack/update
+     - POST /pack/update
      - Update a pack.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter packId: (query) The id of the pack to update. 
      - parameter allocateTickets: (query) Flag to indicate owner should receive tickets for completed packs 
@@ -425,11 +403,8 @@ open class PackAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PackResponse> 
      */
-    open class func updatePackWithRequestBuilder(version: Double, accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_updatePack? = nil, packOrder: Int64? = nil, sequenceType: SequenceType_updatePack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
-        var localVariablePath = "/api/{version}/pack/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updatePackWithRequestBuilder(accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: PackType_updatePack? = nil, packOrder: Int64? = nil, sequenceType: SequenceType_updatePack? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PackResponse> {
+        let localVariablePath = "/pack/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

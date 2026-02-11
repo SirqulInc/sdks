@@ -12,29 +12,24 @@ open class ServiceHubAPI {
     /**
      Create Service Hub
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ServiceHub
      */
-    open class func createServiceHub(version: Double, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
-        return try await createServiceHubWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createServiceHub(body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
+        return try await createServiceHubWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Service Hub
-     - POST /api/{version}/hub
+     - POST /hub
      - Create new service hub
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ServiceHub> 
      */
-    open class func createServiceHubWithRequestBuilder(version: Double, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
-        var localVariablePath = "/api/{version}/hub"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createServiceHubWithRequestBuilder(body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
+        let localVariablePath = "/hub"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class ServiceHubAPI {
     /**
      Delete Service Hub
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteServiceHub(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteServiceHubWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteServiceHub(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteServiceHubWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Service Hub
-     - DELETE /api/{version}/hub/{id}
+     - DELETE /hub/{id}
      - Delete an existing service hub
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteServiceHubWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/hub/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteServiceHubWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/hub/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -99,29 +89,24 @@ open class ServiceHubAPI {
     /**
      Get Service Hub
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: JSONValue
      */
-    open class func getServiceHub(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
-        return try await getServiceHubWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func getServiceHub(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
+        return try await getServiceHubWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Service Hub
-     - GET /api/{version}/hub/{id}
+     - GET /hub/{id}
      - Get an existing service hub
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func getServiceHubWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
-        var localVariablePath = "/api/{version}/hub/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getServiceHubWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
+        var localVariablePath = "/hub/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -144,31 +129,26 @@ open class ServiceHubAPI {
     /**
      Update Service Hub
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ServiceHub
      */
-    open class func postServiceHub(version: Double, id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
-        return try await postServiceHubWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func postServiceHub(id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
+        return try await postServiceHubWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Service Hub
-     - POST /api/{version}/hub/{id}
+     - POST /hub/{id}
      - Update an existing service hub
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ServiceHub> 
      */
-    open class func postServiceHubWithRequestBuilder(version: Double, id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
-        var localVariablePath = "/api/{version}/hub/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func postServiceHubWithRequestBuilder(id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
+        var localVariablePath = "/hub/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -191,31 +171,26 @@ open class ServiceHubAPI {
     /**
      Update Service Hub
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ServiceHub
      */
-    open class func putServiceHub(version: Double, id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
-        return try await putServiceHubWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func putServiceHub(id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ServiceHub {
+        return try await putServiceHubWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Service Hub
-     - PUT /api/{version}/hub/{id}
+     - PUT /hub/{id}
      - Update an existing service hub
-     - parameter version: (path)  
      - parameter id: (path) the id of the service hub 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ServiceHub> 
      */
-    open class func putServiceHubWithRequestBuilder(version: Double, id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
-        var localVariablePath = "/api/{version}/hub/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func putServiceHubWithRequestBuilder(id: Int64, body: ServiceHub? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ServiceHub> {
+        var localVariablePath = "/hub/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -238,7 +213,6 @@ open class ServiceHubAPI {
     /**
      Search Service Hubs
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -249,15 +223,14 @@ open class ServiceHubAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ServiceHub]
      */
-    open class func searchServiceHubs(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ServiceHub] {
-        return try await searchServiceHubsWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, retailerId: retailerId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchServiceHubs(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ServiceHub] {
+        return try await searchServiceHubsWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, retailerId: retailerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Service Hubs
-     - GET /api/{version}/hub
+     - GET /hub
      - Search for service hubs.
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -268,11 +241,8 @@ open class ServiceHubAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ServiceHub]> 
      */
-    open class func searchServiceHubsWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ServiceHub]> {
-        var localVariablePath = "/api/{version}/hub"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchServiceHubsWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ServiceHub]> {
+        let localVariablePath = "/hub"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

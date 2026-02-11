@@ -35,7 +35,6 @@ open class CategoryAPI {
     /**
      Search Categories by Distance
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The keyword string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -59,15 +58,14 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [CategoryResponse]
      */
-    open class func categoryDistanceSearch(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_categoryDistanceSearch? = nil, responseGroup: ResponseGroup_categoryDistanceSearch? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CategoryResponse] {
-        return try await categoryDistanceSearchWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, appKey: appKey, categoryIds: categoryIds, parentCategoryIds: parentCategoryIds, rootOnly: rootOnly, sortField: sortField, responseGroup: responseGroup, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnExternal: returnExternal, exactMatch: exactMatch, type: type, externalType: externalType, minOfferCount: minOfferCount, latitude: latitude, longitude: longitude, range: range, apiConfiguration: apiConfiguration).execute().body
+    open class func categoryDistanceSearch(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_categoryDistanceSearch? = nil, responseGroup: ResponseGroup_categoryDistanceSearch? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CategoryResponse] {
+        return try await categoryDistanceSearchWithRequestBuilder(accountId: accountId, keyword: keyword, appKey: appKey, categoryIds: categoryIds, parentCategoryIds: parentCategoryIds, rootOnly: rootOnly, sortField: sortField, responseGroup: responseGroup, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnExternal: returnExternal, exactMatch: exactMatch, type: type, externalType: externalType, minOfferCount: minOfferCount, latitude: latitude, longitude: longitude, range: range, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Categories by Distance
-     - GET /api/{version}/category/distancesearch
+     - GET /category/distancesearch
      - Search for categories by distance.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The keyword string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -91,11 +89,8 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[CategoryResponse]> 
      */
-    open class func categoryDistanceSearchWithRequestBuilder(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_categoryDistanceSearch? = nil, responseGroup: ResponseGroup_categoryDistanceSearch? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CategoryResponse]> {
-        var localVariablePath = "/api/{version}/category/distancesearch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func categoryDistanceSearchWithRequestBuilder(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_categoryDistanceSearch? = nil, responseGroup: ResponseGroup_categoryDistanceSearch? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CategoryResponse]> {
+        let localVariablePath = "/category/distancesearch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -137,7 +132,6 @@ open class CategoryAPI {
     /**
      Create Category
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter name: (query) The name of the category 
      - parameter appKey: (query) The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -155,15 +149,14 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryTreeResponse
      */
-    open class func createCategory(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
-        return try await createCategoryWithRequestBuilder(version: version, accountId: accountId, name: name, appKey: appKey, parentCategoryId: parentCategoryId, description: description, type: type, assetId: assetId, externalId: externalId, externalType: externalType, externalCategorySlug: externalCategorySlug, sqootSlug: sqootSlug, active: active, metaData: metaData, searchTags: searchTags, apiConfiguration: apiConfiguration).execute().body
+    open class func createCategory(accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
+        return try await createCategoryWithRequestBuilder(accountId: accountId, name: name, appKey: appKey, parentCategoryId: parentCategoryId, description: description, type: type, assetId: assetId, externalId: externalId, externalType: externalType, externalCategorySlug: externalCategorySlug, sqootSlug: sqootSlug, active: active, metaData: metaData, searchTags: searchTags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Category
-     - POST /api/{version}/category/create
+     - POST /category/create
      - Create a new category.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter name: (query) The name of the category 
      - parameter appKey: (query) The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -181,11 +174,8 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryTreeResponse> 
      */
-    open class func createCategoryWithRequestBuilder(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
-        var localVariablePath = "/api/{version}/category/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createCategoryWithRequestBuilder(accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
+        let localVariablePath = "/category/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -221,31 +211,26 @@ open class CategoryAPI {
     /**
      Delete Category
      
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the account 
      - parameter categoryId: (query) the ID of the category 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteCategory(version: Double, accountId: Int64, categoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteCategoryWithRequestBuilder(version: version, accountId: accountId, categoryId: categoryId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteCategory(accountId: Int64, categoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteCategoryWithRequestBuilder(accountId: accountId, categoryId: categoryId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Category
-     - POST /api/{version}/category/delete
+     - POST /category/delete
      - Delete a category.
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the account 
      - parameter categoryId: (query) the ID of the category 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteCategoryWithRequestBuilder(version: Double, accountId: Int64, categoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/category/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteCategoryWithRequestBuilder(accountId: Int64, categoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/category/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -269,7 +254,6 @@ open class CategoryAPI {
     /**
      Duplicate Category
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter categoryId: (query) The category ID to duplicate (includes all children) 
      - parameter appKey: (query) The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -277,15 +261,14 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryTreeResponse
      */
-    open class func duplicateCategory(version: Double, accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
-        return try await duplicateCategoryWithRequestBuilder(version: version, accountId: accountId, categoryId: categoryId, appKey: appKey, parentCategoryId: parentCategoryId, apiConfiguration: apiConfiguration).execute().body
+    open class func duplicateCategory(accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
+        return try await duplicateCategoryWithRequestBuilder(accountId: accountId, categoryId: categoryId, appKey: appKey, parentCategoryId: parentCategoryId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Duplicate Category
-     - POST /api/{version}/category/duplicate
+     - POST /category/duplicate
      - Duplicate a category, including all its children.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
      - parameter categoryId: (query) The category ID to duplicate (includes all children) 
      - parameter appKey: (query) The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -293,11 +276,8 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryTreeResponse> 
      */
-    open class func duplicateCategoryWithRequestBuilder(version: Double, accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
-        var localVariablePath = "/api/{version}/category/duplicate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func duplicateCategoryWithRequestBuilder(accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
+        let localVariablePath = "/category/duplicate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -323,31 +303,26 @@ open class CategoryAPI {
     /**
      Get Category
      
-     - parameter version: (path)  
      - parameter categoryId: (query) the ID of the category 
      - parameter returnExternal: (query) Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryTreeResponse
      */
-    open class func getCategory(version: Double, categoryId: Int64, returnExternal: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
-        return try await getCategoryWithRequestBuilder(version: version, categoryId: categoryId, returnExternal: returnExternal, apiConfiguration: apiConfiguration).execute().body
+    open class func getCategory(categoryId: Int64, returnExternal: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
+        return try await getCategoryWithRequestBuilder(categoryId: categoryId, returnExternal: returnExternal, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Category
-     - GET /api/{version}/category/get
+     - GET /category/get
      - Get the details of a specific category. Recursively include all child categories and their children.
-     - parameter version: (path)  
      - parameter categoryId: (query) the ID of the category 
      - parameter returnExternal: (query) Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryTreeResponse> 
      */
-    open class func getCategoryWithRequestBuilder(version: Double, categoryId: Int64, returnExternal: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
-        var localVariablePath = "/api/{version}/category/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCategoryWithRequestBuilder(categoryId: Int64, returnExternal: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
+        let localVariablePath = "/category/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -394,7 +369,6 @@ open class CategoryAPI {
     /**
      Search Categories
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -419,15 +393,14 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [CategoryResponse]
      */
-    open class func searchCategories(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_searchCategories? = nil, responseGroup: ResponseGroup_searchCategories? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CategoryResponse] {
-        return try await searchCategoriesWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, appKey: appKey, categoryId: categoryId, categoryIds: categoryIds, parentCategoryIds: parentCategoryIds, rootOnly: rootOnly, sortField: sortField, responseGroup: responseGroup, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnExternal: returnExternal, exactMatch: exactMatch, type: type, externalType: externalType, excludeExternalType: excludeExternalType, minOfferCount: minOfferCount, searchDepth: searchDepth, searchMode: searchMode, apiConfiguration: apiConfiguration).execute().body
+    open class func searchCategories(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_searchCategories? = nil, responseGroup: ResponseGroup_searchCategories? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CategoryResponse] {
+        return try await searchCategoriesWithRequestBuilder(accountId: accountId, keyword: keyword, appKey: appKey, categoryId: categoryId, categoryIds: categoryIds, parentCategoryIds: parentCategoryIds, rootOnly: rootOnly, sortField: sortField, responseGroup: responseGroup, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnExternal: returnExternal, exactMatch: exactMatch, type: type, externalType: externalType, excludeExternalType: excludeExternalType, minOfferCount: minOfferCount, searchDepth: searchDepth, searchMode: searchMode, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Categories
-     - GET /api/{version}/category/search
+     - GET /category/search
      - Search for categories.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter keyword: (query) The string to search on (optional)
      - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -452,11 +425,8 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[CategoryResponse]> 
      */
-    open class func searchCategoriesWithRequestBuilder(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_searchCategories? = nil, responseGroup: ResponseGroup_searchCategories? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CategoryResponse]> {
-        var localVariablePath = "/api/{version}/category/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchCategoriesWithRequestBuilder(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SortField_searchCategories? = nil, responseGroup: ResponseGroup_searchCategories? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CategoryResponse]> {
+        let localVariablePath = "/category/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -499,7 +469,6 @@ open class CategoryAPI {
     /**
      Update Category
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter categoryId: (query) The ID of the category to edit 
      - parameter parentCategoryId: (query) The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -517,15 +486,14 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CategoryTreeResponse
      */
-    open class func updateCategory(version: Double, accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
-        return try await updateCategoryWithRequestBuilder(version: version, accountId: accountId, categoryId: categoryId, parentCategoryId: parentCategoryId, name: name, description: description, type: type, assetId: assetId, externalId: externalId, externalType: externalType, externalCategorySlug: externalCategorySlug, sqootSlug: sqootSlug, active: active, metaData: metaData, searchTags: searchTags, apiConfiguration: apiConfiguration).execute().body
+    open class func updateCategory(accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CategoryTreeResponse {
+        return try await updateCategoryWithRequestBuilder(accountId: accountId, categoryId: categoryId, parentCategoryId: parentCategoryId, name: name, description: description, type: type, assetId: assetId, externalId: externalId, externalType: externalType, externalCategorySlug: externalCategorySlug, sqootSlug: sqootSlug, active: active, metaData: metaData, searchTags: searchTags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Category
-     - POST /api/{version}/category/update
+     - POST /category/update
      - Update a category.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter categoryId: (query) The ID of the category to edit 
      - parameter parentCategoryId: (query) The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -543,11 +511,8 @@ open class CategoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CategoryTreeResponse> 
      */
-    open class func updateCategoryWithRequestBuilder(version: Double, accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
-        var localVariablePath = "/api/{version}/category/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateCategoryWithRequestBuilder(accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CategoryTreeResponse> {
+        let localVariablePath = "/category/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

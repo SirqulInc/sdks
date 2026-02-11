@@ -12,29 +12,24 @@ open class CargoTypeAPI {
     /**
      Create Cargo Type
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CargoType
      */
-    open class func createCargoType(version: Double, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
-        return try await createCargoTypeWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createCargoType(body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
+        return try await createCargoTypeWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Cargo Type
-     - POST /api/{version}/cargo/type
+     - POST /cargo/type
      - Create new cargo type
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CargoType> 
      */
-    open class func createCargoTypeWithRequestBuilder(version: Double, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
-        var localVariablePath = "/api/{version}/cargo/type"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createCargoTypeWithRequestBuilder(body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
+        let localVariablePath = "/cargo/type"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class CargoTypeAPI {
     /**
      Delete Cargo Type
      
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the ID of the cargo type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteCargoType(version: Double, cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteCargoTypeWithRequestBuilder(version: version, cargoTypeId: cargoTypeId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteCargoType(cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteCargoTypeWithRequestBuilder(cargoTypeId: cargoTypeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Cargo Type
-     - DELETE /api/{version}/cargo/type/{cargoTypeId}
+     - DELETE /cargo/type/{cargoTypeId}
      - Delete a type of cargo
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the ID of the cargo type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteCargoTypeWithRequestBuilder(version: Double, cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/cargo/type/{cargoTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteCargoTypeWithRequestBuilder(cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/cargo/type/{cargoTypeId}"
         let cargoTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(cargoTypeId))"
         let cargoTypeIdPostEscape = cargoTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cargoTypeId}", with: cargoTypeIdPostEscape, options: .literal, range: nil)
@@ -99,29 +89,24 @@ open class CargoTypeAPI {
     /**
      Get Cargo Type
      
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the cargo type ID 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CargoType
      */
-    open class func getCargoType(version: Double, cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
-        return try await getCargoTypeWithRequestBuilder(version: version, cargoTypeId: cargoTypeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getCargoType(cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
+        return try await getCargoTypeWithRequestBuilder(cargoTypeId: cargoTypeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Cargo Type
-     - GET /api/{version}/cargo/type/{cargoTypeId}
+     - GET /cargo/type/{cargoTypeId}
      - Get an existing cargo type
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the cargo type ID 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CargoType> 
      */
-    open class func getCargoTypeWithRequestBuilder(version: Double, cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
-        var localVariablePath = "/api/{version}/cargo/type/{cargoTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCargoTypeWithRequestBuilder(cargoTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
+        var localVariablePath = "/cargo/type/{cargoTypeId}"
         let cargoTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(cargoTypeId))"
         let cargoTypeIdPostEscape = cargoTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cargoTypeId}", with: cargoTypeIdPostEscape, options: .literal, range: nil)
@@ -144,7 +129,6 @@ open class CargoTypeAPI {
     /**
      Search Cargo Type
      
-     - parameter version: (path)  
      - parameter sortField: (query) the sort field to use for the cargo type 
      - parameter descending: (query) if the cargo type should be should be in descending order 
      - parameter start: (query) the start of the search 
@@ -155,15 +139,14 @@ open class CargoTypeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [CargoType]
      */
-    open class func searchCargoTypes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CargoType] {
-        return try await searchCargoTypesWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, retailerId: retailerId, hubId: hubId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchCargoTypes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CargoType] {
+        return try await searchCargoTypesWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, retailerId: retailerId, hubId: hubId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Cargo Type
-     - GET /api/{version}/cargo/type
+     - GET /cargo/type
      - Search for types of cargo
-     - parameter version: (path)  
      - parameter sortField: (query) the sort field to use for the cargo type 
      - parameter descending: (query) if the cargo type should be should be in descending order 
      - parameter start: (query) the start of the search 
@@ -174,11 +157,8 @@ open class CargoTypeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[CargoType]> 
      */
-    open class func searchCargoTypesWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CargoType]> {
-        var localVariablePath = "/api/{version}/cargo/type"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchCargoTypesWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CargoType]> {
+        let localVariablePath = "/cargo/type"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -207,31 +187,26 @@ open class CargoTypeAPI {
     /**
      Update Cargo Type
      
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the ID of the cargo type 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CargoType
      */
-    open class func updateCargoType(version: Double, cargoTypeId: Int64, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
-        return try await updateCargoTypeWithRequestBuilder(version: version, cargoTypeId: cargoTypeId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateCargoType(cargoTypeId: Int64, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CargoType {
+        return try await updateCargoTypeWithRequestBuilder(cargoTypeId: cargoTypeId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Cargo Type
-     - PUT /api/{version}/cargo/type/{cargoTypeId}
+     - PUT /cargo/type/{cargoTypeId}
      - Update an existing cargo type
-     - parameter version: (path)  
      - parameter cargoTypeId: (path) the ID of the cargo type 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CargoType> 
      */
-    open class func updateCargoTypeWithRequestBuilder(version: Double, cargoTypeId: Int64, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
-        var localVariablePath = "/api/{version}/cargo/type/{cargoTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateCargoTypeWithRequestBuilder(cargoTypeId: Int64, body: CargoType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CargoType> {
+        var localVariablePath = "/cargo/type/{cargoTypeId}"
         let cargoTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(cargoTypeId))"
         let cargoTypeIdPostEscape = cargoTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{cargoTypeId}", with: cargoTypeIdPostEscape, options: .literal, range: nil)

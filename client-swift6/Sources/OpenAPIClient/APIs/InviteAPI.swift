@@ -12,7 +12,6 @@ open class InviteAPI {
     /**
      Accept Invite
      
-     - parameter version: (path)  
      - parameter token: (query) the invite token 
      - parameter accountId: (query) the accountId of the user who is accepting the invite 
      - parameter albumId: (query) the album id associated with this invite (if applicable) (optional)
@@ -30,15 +29,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ConsumerInviteResponse
      */
-    open class func acceptInvite(version: Double, token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConsumerInviteResponse {
-        return try await acceptInviteWithRequestBuilder(version: version, token: token, accountId: accountId, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, autoFriend: autoFriend, autoAttendEvent: autoAttendEvent, autoFavoriteOffer: autoFavoriteOffer, autoFavoriteOfferLocation: autoFavoriteOfferLocation, autoFavoriteRetailerLocation: autoFavoriteRetailerLocation, apiConfiguration: apiConfiguration).execute().body
+    open class func acceptInvite(token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ConsumerInviteResponse {
+        return try await acceptInviteWithRequestBuilder(token: token, accountId: accountId, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, autoFriend: autoFriend, autoAttendEvent: autoAttendEvent, autoFavoriteOffer: autoFavoriteOffer, autoFavoriteOfferLocation: autoFavoriteOfferLocation, autoFavoriteRetailerLocation: autoFavoriteRetailerLocation, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Accept Invite
-     - POST /api/{version}/invite/accept
+     - POST /invite/accept
      - Allows a user to accept an invite. The user could also become the inviter's friend.
-     - parameter version: (path)  
      - parameter token: (query) the invite token 
      - parameter accountId: (query) the accountId of the user who is accepting the invite 
      - parameter albumId: (query) the album id associated with this invite (if applicable) (optional)
@@ -56,11 +54,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ConsumerInviteResponse> 
      */
-    open class func acceptInviteWithRequestBuilder(version: Double, token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConsumerInviteResponse> {
-        var localVariablePath = "/api/{version}/invite/accept"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func acceptInviteWithRequestBuilder(token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ConsumerInviteResponse> {
+        let localVariablePath = "/invite/accept"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -96,7 +91,6 @@ open class InviteAPI {
     /**
      Invite to Contest
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -107,15 +101,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func albumContestInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await albumContestInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumContestId: albumContestId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func albumContestInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await albumContestInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumContestId: albumContestId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Contest
-     - POST /api/{version}/invite/albumContest
+     - POST /invite/albumContest
      - Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -126,11 +119,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func albumContestInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/albumContest"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func albumContestInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/albumContest"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -159,7 +149,6 @@ open class InviteAPI {
     /**
      Invite to Collection
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -170,15 +159,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func albumInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await albumInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumId: albumId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func albumInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await albumInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, albumId: albumId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Collection
-     - POST /api/{version}/invite/album
+     - POST /invite/album
      - Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -189,11 +177,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func albumInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/album"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func albumInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/album"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -222,7 +207,6 @@ open class InviteAPI {
     /**
      Invite to Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter listingId: (query) The ID of the event listing 
@@ -231,15 +215,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func eventInvite(version: Double, accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await eventInviteWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, listingId: listingId, receiverAccountIds: receiverAccountIds, retailerLocationId: retailerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func eventInvite(accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await eventInviteWithRequestBuilder(accountId: accountId, appKey: appKey, listingId: listingId, receiverAccountIds: receiverAccountIds, retailerLocationId: retailerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Event
-     - POST /api/{version}/invite/event
+     - POST /invite/event
      - Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter listingId: (query) The ID of the event listing 
@@ -248,11 +231,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func eventInviteWithRequestBuilder(version: Double, accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/event"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func eventInviteWithRequestBuilder(accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/event"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -279,7 +259,6 @@ open class InviteAPI {
     /**
      Invite to Game Level
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -290,15 +269,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func gameInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await gameInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, gameLevelId: gameLevelId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func gameInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await gameInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, gameLevelId: gameLevelId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Game Level
-     - POST /api/{version}/invite/gameLevel
+     - POST /invite/gameLevel
      - Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -309,11 +287,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func gameInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/gameLevel"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func gameInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/gameLevel"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -342,7 +317,6 @@ open class InviteAPI {
     /**
      Get Invite
      
-     - parameter version: (path)  
      - parameter accountId: (query) Account ID of the user if they are logged in (optional)
      - parameter token: (query) the invite token (optional)
      - parameter albumId: (query) album id to match the invite against (if applicable) (optional)
@@ -355,15 +329,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getInvite(version: Double, accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getInviteWithRequestBuilder(version: version, accountId: accountId, token: token, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func getInvite(accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getInviteWithRequestBuilder(accountId: accountId, token: token, albumId: albumId, missionId: missionId, albumContestId: albumContestId, offerId: offerId, offerLocationId: offerLocationId, retailerLocationId: retailerLocationId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Invite
-     - GET /api/{version}/invite/get
+     - GET /invite/get
      - This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     - parameter version: (path)  
      - parameter accountId: (query) Account ID of the user if they are logged in (optional)
      - parameter token: (query) the invite token (optional)
      - parameter albumId: (query) album id to match the invite against (if applicable) (optional)
@@ -376,11 +349,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getInviteWithRequestBuilder(version: Double, accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/invite/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getInviteWithRequestBuilder(accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/invite/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -411,7 +381,6 @@ open class InviteAPI {
     /**
      Invite to Mission
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -422,15 +391,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func missionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await missionInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, missionId: missionId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func missionInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await missionInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, appId: appId, appKey: appKey, missionId: missionId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Mission
-     - POST /api/{version}/invite/mission
+     - POST /invite/mission
      - Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter appId: (query) This parameter is deprecated. (optional)
@@ -441,11 +409,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func missionInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/mission"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func missionInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/mission"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -474,33 +439,28 @@ open class InviteAPI {
     /**
      Invite to Offer
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter offerId: (query) the ID of the offer used to invite to favorite 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func offerInvite(version: Double, accountId: Int64, appKey: String, offerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await offerInviteWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, offerId: offerId, apiConfiguration: apiConfiguration).execute().body
+    open class func offerInvite(accountId: Int64, appKey: String, offerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await offerInviteWithRequestBuilder(accountId: accountId, appKey: appKey, offerId: offerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Offer
-     - POST /api/{version}/invite/offer
+     - POST /invite/offer
      - Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter offerId: (query) the ID of the offer used to invite to favorite 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func offerInviteWithRequestBuilder(version: Double, accountId: Int64, appKey: String, offerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/offer"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func offerInviteWithRequestBuilder(accountId: Int64, appKey: String, offerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/offer"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -525,33 +485,28 @@ open class InviteAPI {
     /**
      Invite to Offer Location
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter offerLocationId: (query) the id of the offer location to share 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func offerLocationInvite(version: Double, accountId: Int64, appKey: String, offerLocationId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await offerLocationInviteWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func offerLocationInvite(accountId: Int64, appKey: String, offerLocationId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await offerLocationInviteWithRequestBuilder(accountId: accountId, appKey: appKey, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Offer Location
-     - POST /api/{version}/invite/offerLocation
+     - POST /invite/offerLocation
      - Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter offerLocationId: (query) the id of the offer location to share 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func offerLocationInviteWithRequestBuilder(version: Double, accountId: Int64, appKey: String, offerLocationId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/offerLocation"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func offerLocationInviteWithRequestBuilder(accountId: Int64, appKey: String, offerLocationId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/offerLocation"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -576,7 +531,6 @@ open class InviteAPI {
     /**
      Invite to Retailer Location
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter retailerLocationId: (query) The retailer location id of where the event will take place 
@@ -584,15 +538,14 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: InviteResponse
      */
-    open class func retailerLocationInvite(version: Double, accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
-        return try await retailerLocationInviteWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, retailerLocationId: retailerLocationId, albumId: albumId, apiConfiguration: apiConfiguration).execute().body
+    open class func retailerLocationInvite(accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> InviteResponse {
+        return try await retailerLocationInviteWithRequestBuilder(accountId: accountId, appKey: appKey, retailerLocationId: retailerLocationId, albumId: albumId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Invite to Retailer Location
-     - POST /api/{version}/invite/retailerLocation
+     - POST /invite/retailerLocation
      - Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user making the share 
      - parameter appKey: (query) the application key 
      - parameter retailerLocationId: (query) The retailer location id of where the event will take place 
@@ -600,11 +553,8 @@ open class InviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<InviteResponse> 
      */
-    open class func retailerLocationInviteWithRequestBuilder(version: Double, accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
-        var localVariablePath = "/api/{version}/invite/retailerLocation"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func retailerLocationInviteWithRequestBuilder(accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<InviteResponse> {
+        let localVariablePath = "/invite/retailerLocation"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

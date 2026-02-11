@@ -12,7 +12,6 @@ open class MissionInviteAPI {
     /**
      Create Mission Invite
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for. (optional)
@@ -21,15 +20,14 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func createMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await createMissionInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, missionId: missionId, joinCode: joinCode, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func createMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await createMissionInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, missionId: missionId, joinCode: joinCode, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Mission Invite
-     - POST /api/{version}/mission/invite/create
+     - POST /mission/invite/create
      - Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for. (optional)
@@ -38,11 +36,8 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func createMissionInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/invite/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createMissionInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/invite/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -69,7 +64,6 @@ open class MissionInviteAPI {
     /**
      Delete Mission Invite
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -78,15 +72,14 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteMissionInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteMissionInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Mission Invite
-     - POST /api/{version}/mission/invite/delete
+     - POST /mission/invite/delete
      - Update the mission invite status to quit.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -95,11 +88,8 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteMissionInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/mission/invite/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteMissionInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/mission/invite/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -126,7 +116,6 @@ open class MissionInviteAPI {
     /**
      Get Mission Invite
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -136,15 +125,14 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func getMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await getMissionInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, includeScores: includeScores, apiConfiguration: apiConfiguration).execute().body
+    open class func getMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await getMissionInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, missionId: missionId, missionInviteId: missionInviteId, includeGameData: includeGameData, includeScores: includeScores, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Mission Invite
-     - GET /api/{version}/mission/invite/get
+     - GET /mission/invite/get
      - Get the mission invite. An account can only be invited to a mission one time.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -154,11 +142,8 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func getMissionInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/invite/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getMissionInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/invite/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -186,7 +171,6 @@ open class MissionInviteAPI {
     /**
      Search Mission Invites
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter appKey: (query) the app to retrieve the data for, use your application key. (optional)
@@ -203,15 +187,14 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MissionResponse]
      */
-    open class func searchMissionInvites(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
-        return try await searchMissionInvitesWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, appVersion: appVersion, missionId: missionId, status: status, lastUpdated: lastUpdated, start: start, limit: limit, keyword: keyword, missionTypes: missionTypes, filterByBillable: filterByBillable, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func searchMissionInvites(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
+        return try await searchMissionInvitesWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, appVersion: appVersion, missionId: missionId, status: status, lastUpdated: lastUpdated, start: start, limit: limit, keyword: keyword, missionTypes: missionTypes, filterByBillable: filterByBillable, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Mission Invites
-     - GET /api/{version}/mission/invite/search
+     - GET /mission/invite/search
      - Get a list of mission invites that the account has.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter appKey: (query) the app to retrieve the data for, use your application key. (optional)
@@ -228,11 +211,8 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MissionResponse]> 
      */
-    open class func searchMissionInvitesWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
-        var localVariablePath = "/api/{version}/mission/invite/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchMissionInvitesWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
+        let localVariablePath = "/mission/invite/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -267,7 +247,6 @@ open class MissionInviteAPI {
     /**
      Update Mission Invite
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter appKey: (query) the application key (optional)
@@ -282,15 +261,14 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func updateMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await updateMissionInviteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, missionId: missionId, missionInviteId: missionInviteId, packId: packId, gameLevelId: gameLevelId, status: status, permissionableType: permissionableType, permissionableId: permissionableId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await updateMissionInviteWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, missionId: missionId, missionInviteId: missionInviteId, packId: packId, gameLevelId: gameLevelId, status: status, permissionableType: permissionableType, permissionableId: permissionableId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Mission Invite
-     - POST /api/{version}/mission/invite/update
+     - POST /mission/invite/update
      - Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter appKey: (query) the application key (optional)
@@ -305,11 +283,8 @@ open class MissionInviteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func updateMissionInviteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/invite/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateMissionInviteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/invite/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

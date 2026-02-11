@@ -12,33 +12,28 @@ open class OfferAPI {
     /**
      Update Offer Locations
      
-     - parameter version: (path)  
      - parameter data: (query) JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func batchUpdateOfferLocations(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await batchUpdateOfferLocationsWithRequestBuilder(version: version, data: data, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func batchUpdateOfferLocations(data: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await batchUpdateOfferLocationsWithRequestBuilder(data: data, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Offer Locations
-     - POST /api/{version}/retailer/offer/location/batchUpdate
+     - POST /retailer/offer/location/batchUpdate
      - Batch update offer locations.
-     - parameter version: (path)  
      - parameter data: (query) JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func batchUpdateOfferLocationsWithRequestBuilder(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/location/batchUpdate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func batchUpdateOfferLocationsWithRequestBuilder(data: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/offer/location/batchUpdate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -192,7 +187,6 @@ open class OfferAPI {
     /**
      Create Offer
      
-     - parameter version: (path)  
      - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
      - parameter title: (query) The title (255 char limit) 
      - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -282,15 +276,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerOfferResponse
      */
-    open class func createOffer(version: Double, includeOfferLocations: Bool, title: String, barcodeType: BarcodeType_createOffer, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: OfferType_createOffer, specialOfferType: SpecialOfferType_createOffer, offerVisibility: OfferVisibility_createOffer, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_createOffer? = nil, conditionType: ConditionType_createOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_createOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_createOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
-        return try await createOfferWithRequestBuilder(version: version, includeOfferLocations: includeOfferLocations, title: title, barcodeType: barcodeType, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, active: active, deviceId: deviceId, accountId: accountId, tags: tags, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
+    open class func createOffer(includeOfferLocations: Bool, title: String, barcodeType: BarcodeType_createOffer, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: OfferType_createOffer, specialOfferType: SpecialOfferType_createOffer, offerVisibility: OfferVisibility_createOffer, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_createOffer? = nil, conditionType: ConditionType_createOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_createOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_createOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
+        return try await createOfferWithRequestBuilder(includeOfferLocations: includeOfferLocations, title: title, barcodeType: barcodeType, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, active: active, deviceId: deviceId, accountId: accountId, tags: tags, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Offer
-     - POST /api/{version}/retailer/offer/create
+     - POST /retailer/offer/create
      - Create an offer and assign it to the provided retailer locations.
-     - parameter version: (path)  
      - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
      - parameter title: (query) The title (255 char limit) 
      - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -380,11 +373,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerOfferResponse> 
      */
-    open class func createOfferWithRequestBuilder(version: Double, includeOfferLocations: Bool, title: String, barcodeType: BarcodeType_createOffer, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: OfferType_createOffer, specialOfferType: SpecialOfferType_createOffer, offerVisibility: OfferVisibility_createOffer, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_createOffer? = nil, conditionType: ConditionType_createOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_createOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_createOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOfferWithRequestBuilder(includeOfferLocations: Bool, title: String, barcodeType: BarcodeType_createOffer, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: OfferType_createOffer, specialOfferType: SpecialOfferType_createOffer, offerVisibility: OfferVisibility_createOffer, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_createOffer? = nil, conditionType: ConditionType_createOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_createOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_createOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
+        let localVariablePath = "/retailer/offer/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -492,33 +482,28 @@ open class OfferAPI {
     /**
      Delete Offer
      
-     - parameter version: (path)  
      - parameter offerId: (query) The ID of the offer to be deleted 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteOffer(version: Double, offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteOfferWithRequestBuilder(version: version, offerId: offerId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteOffer(offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteOfferWithRequestBuilder(offerId: offerId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Offer
-     - POST /api/{version}/retailer/offer/delete
+     - POST /retailer/offer/delete
      - Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     - parameter version: (path)  
      - parameter offerId: (query) The ID of the offer to be deleted 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteOfferWithRequestBuilder(version: Double, offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteOfferWithRequestBuilder(offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/offer/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -543,33 +528,28 @@ open class OfferAPI {
     /**
      Delete Offer Location
      
-     - parameter version: (path)  
      - parameter offerLocationId: (query) The ID of the offer location to be deleted 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer location. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteOfferLocation(version: Double, offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteOfferLocationWithRequestBuilder(version: version, offerLocationId: offerLocationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteOfferLocation(offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteOfferLocationWithRequestBuilder(offerLocationId: offerLocationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Offer Location
-     - POST /api/{version}/retailer/offer/location/delete
+     - POST /retailer/offer/location/delete
      - Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     - parameter version: (path)  
      - parameter offerLocationId: (query) The ID of the offer location to be deleted 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer location. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteOfferLocationWithRequestBuilder(version: Double, offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/location/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteOfferLocationWithRequestBuilder(offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/offer/location/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -594,7 +574,6 @@ open class OfferAPI {
     /**
      Get Offer
      
-     - parameter version: (path)  
      - parameter offerId: (query) The id of the offer 
      - parameter includeOfferLocations: (query)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -602,15 +581,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerOfferResponse
      */
-    open class func getOffer(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
-        return try await getOfferWithRequestBuilder(version: version, offerId: offerId, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getOffer(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
+        return try await getOfferWithRequestBuilder(offerId: offerId, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offer
-     - GET /api/{version}/retailer/offer/get
+     - GET /retailer/offer/get
      - Gets the details of an offer that the user has access to.
-     - parameter version: (path)  
      - parameter offerId: (query) The id of the offer 
      - parameter includeOfferLocations: (query)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -618,11 +596,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerOfferResponse> 
      */
-    open class func getOfferWithRequestBuilder(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferWithRequestBuilder(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
+        let localVariablePath = "/retailer/offer/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -648,7 +623,6 @@ open class OfferAPI {
     /**
      Get Offer
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
      - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
      - parameter offerId: (query) The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -662,15 +636,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferResponse
      */
-    open class func getOfferDetails(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
-        return try await getOfferDetailsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, distance: distance, latitude: latitude, longitude: longitude, includeOfferLocations: includeOfferLocations, includeRetailerLocations: includeRetailerLocations, includeChildOffers: includeChildOffers, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferDetails(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferResponse {
+        return try await getOfferDetailsWithRequestBuilder(deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, distance: distance, latitude: latitude, longitude: longitude, includeOfferLocations: includeOfferLocations, includeRetailerLocations: includeRetailerLocations, includeChildOffers: includeChildOffers, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offer
-     - GET /api/{version}/offer/get
+     - GET /offer/get
      - Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
      - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
      - parameter offerId: (query) The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -684,11 +657,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferResponse> 
      */
-    open class func getOfferDetailsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
-        var localVariablePath = "/api/{version}/offer/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferDetailsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferResponse> {
+        let localVariablePath = "/offer/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -728,7 +698,6 @@ open class OfferAPI {
     /**
      Get Offers (Counts)
      
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of where the search will center at 
      - parameter longitude: (query) The longitude of where the search will center at 
      - parameter searchRange: (query) The range of the search (optional, default to 5)
@@ -736,15 +705,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ListCountResponse
      */
-    open class func getOfferListCounts(version: Double, latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: DistanceUnit_getOfferListCounts? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListCountResponse {
-        return try await getOfferListCountsWithRequestBuilder(version: version, latitude: latitude, longitude: longitude, searchRange: searchRange, distanceUnit: distanceUnit, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferListCounts(latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: DistanceUnit_getOfferListCounts? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListCountResponse {
+        return try await getOfferListCountsWithRequestBuilder(latitude: latitude, longitude: longitude, searchRange: searchRange, distanceUnit: distanceUnit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offers (Counts)
-     - GET /api/{version}/offer/lists/count
+     - GET /offer/lists/count
      - Gets the offer list counts.
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of where the search will center at 
      - parameter longitude: (query) The longitude of where the search will center at 
      - parameter searchRange: (query) The range of the search (optional, default to 5)
@@ -752,11 +720,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ListCountResponse> 
      */
-    open class func getOfferListCountsWithRequestBuilder(version: Double, latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: DistanceUnit_getOfferListCounts? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListCountResponse> {
-        var localVariablePath = "/api/{version}/offer/lists/count"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferListCountsWithRequestBuilder(latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: DistanceUnit_getOfferListCounts? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListCountResponse> {
+        let localVariablePath = "/offer/lists/count"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -782,31 +747,26 @@ open class OfferAPI {
     /**
      Get Offer Location
      
-     - parameter version: (path)  
      - parameter offerLocationId: (query) the id of the offer location to get (optional)
      - parameter udid: (query) the UDID of the device (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferShortResponse
      */
-    open class func getOfferLocation(version: Double, offerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferShortResponse {
-        return try await getOfferLocationWithRequestBuilder(version: version, offerLocationId: offerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferLocation(offerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferShortResponse {
+        return try await getOfferLocationWithRequestBuilder(offerLocationId: offerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offer Location
-     - GET /api/{version}/offer/location/get
+     - GET /offer/location/get
      - Gets the offer location by offer location id or udid (of a device)
-     - parameter version: (path)  
      - parameter offerLocationId: (query) the id of the offer location to get (optional)
      - parameter udid: (query) the UDID of the device (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferShortResponse> 
      */
-    open class func getOfferLocationWithRequestBuilder(version: Double, offerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferShortResponse> {
-        var localVariablePath = "/api/{version}/offer/location/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferLocationWithRequestBuilder(offerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferShortResponse> {
+        let localVariablePath = "/offer/location/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -891,7 +851,6 @@ open class OfferAPI {
     /**
      Search Offer Locations
      
-     - parameter version: (path)  
      - parameter sortField: (query) The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
      - parameter descending: (query) The order to return the results. Default is false, which will return the results in ascending order. 
      - parameter start: (query) The index into the record set to start with. Default is 0. 
@@ -915,15 +874,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferShortResponse]
      */
-    open class func getOfferLocationsForRetailers(version: Double, sortField: SortField_getOfferLocationsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: OfferType_getOfferLocationsForRetailers? = nil, specialOfferType: SpecialOfferType_getOfferLocationsForRetailers? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOfferLocationsForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferShortResponse] {
-        return try await getOfferLocationsForRetailersWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, includeRetailerLocation: includeRetailerLocation, deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerType: offerType, specialOfferType: specialOfferType, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferLocationsForRetailers(sortField: SortField_getOfferLocationsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: OfferType_getOfferLocationsForRetailers? = nil, specialOfferType: SpecialOfferType_getOfferLocationsForRetailers? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOfferLocationsForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferShortResponse] {
+        return try await getOfferLocationsForRetailersWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, includeRetailerLocation: includeRetailerLocation, deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerType: offerType, specialOfferType: specialOfferType, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offer Locations
-     - GET /api/{version}/retailer/offer/location/search
+     - GET /retailer/offer/location/search
      - Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     - parameter version: (path)  
      - parameter sortField: (query) The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
      - parameter descending: (query) The order to return the results. Default is false, which will return the results in ascending order. 
      - parameter start: (query) The index into the record set to start with. Default is 0. 
@@ -947,11 +905,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferShortResponse]> 
      */
-    open class func getOfferLocationsForRetailersWithRequestBuilder(version: Double, sortField: SortField_getOfferLocationsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: OfferType_getOfferLocationsForRetailers? = nil, specialOfferType: SpecialOfferType_getOfferLocationsForRetailers? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOfferLocationsForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferShortResponse]> {
-        var localVariablePath = "/api/{version}/retailer/offer/location/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferLocationsForRetailersWithRequestBuilder(sortField: SortField_getOfferLocationsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: OfferType_getOfferLocationsForRetailers? = nil, specialOfferType: SpecialOfferType_getOfferLocationsForRetailers? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOfferLocationsForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferShortResponse]> {
+        let localVariablePath = "/retailer/offer/location/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1088,7 +1043,6 @@ open class OfferAPI {
     /**
      Search Offers
      
-     - parameter version: (path)  
      - parameter offerVisibility: (query)  
      - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY 
      - parameter descending: (query) The order to return the search results 
@@ -1123,15 +1077,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferResponse]
      */
-    open class func getOffersForRetailers(version: Double, offerVisibility: OfferVisibility_getOffersForRetailers, sortField: SortField_getOffersForRetailers, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: CouponType_getOffersForRetailers? = nil, offerType: OfferType_getOffersForRetailers? = nil, offerTypes: String? = nil, specialOfferType: SpecialOfferType_getOffersForRetailers? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOffersForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferResponse] {
-        return try await getOffersForRetailersWithRequestBuilder(version: version, offerVisibility: offerVisibility, sortField: sortField, descending: descending, start: start, limit: limit, availableOnly: availableOnly, activeOnly: activeOnly, includeCategories: includeCategories, includeFilters: includeFilters, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, categoryIds: categoryIds, filterIds: filterIds, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, couponType: couponType, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, i: i, l: l, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, apiConfiguration: apiConfiguration).execute().body
+    open class func getOffersForRetailers(offerVisibility: OfferVisibility_getOffersForRetailers, sortField: SortField_getOffersForRetailers, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: CouponType_getOffersForRetailers? = nil, offerType: OfferType_getOffersForRetailers? = nil, offerTypes: String? = nil, specialOfferType: SpecialOfferType_getOffersForRetailers? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOffersForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferResponse] {
+        return try await getOffersForRetailersWithRequestBuilder(offerVisibility: offerVisibility, sortField: sortField, descending: descending, start: start, limit: limit, availableOnly: availableOnly, activeOnly: activeOnly, includeCategories: includeCategories, includeFilters: includeFilters, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, categoryIds: categoryIds, filterIds: filterIds, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, couponType: couponType, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, i: i, l: l, barcodeType: barcodeType, barcodeEntry: barcodeEntry, isbn: isbn, asin: asin, deviceStatus: deviceStatus, needsNotificationSent: needsNotificationSent, lastNotificationSent: lastNotificationSent, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offers
-     - GET /api/{version}/retailer/offer/search
+     - GET /retailer/offer/search
      - Searches on offers that the account has access to.
-     - parameter version: (path)  
      - parameter offerVisibility: (query)  
      - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY 
      - parameter descending: (query) The order to return the search results 
@@ -1166,11 +1119,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferResponse]> 
      */
-    open class func getOffersForRetailersWithRequestBuilder(version: Double, offerVisibility: OfferVisibility_getOffersForRetailers, sortField: SortField_getOffersForRetailers, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: CouponType_getOffersForRetailers? = nil, offerType: OfferType_getOffersForRetailers? = nil, offerTypes: String? = nil, specialOfferType: SpecialOfferType_getOffersForRetailers? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOffersForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferResponse]> {
-        var localVariablePath = "/api/{version}/retailer/offer/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOffersForRetailersWithRequestBuilder(offerVisibility: OfferVisibility_getOffersForRetailers, sortField: SortField_getOffersForRetailers, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: CouponType_getOffersForRetailers? = nil, offerType: OfferType_getOffersForRetailers? = nil, offerTypes: String? = nil, specialOfferType: SpecialOfferType_getOffersForRetailers? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: DeviceStatus_getOffersForRetailers? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferResponse]> {
+        let localVariablePath = "/retailer/offer/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1223,7 +1173,6 @@ open class OfferAPI {
     /**
      Update Offer Transaction
      
-     - parameter version: (path)  
      - parameter offerTransactionId: (query) the OfferTransaction ID of the transaction being redeemed 
      - parameter status: (query) the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1232,15 +1181,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func redeemOfferTransaction(version: Double, offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await redeemOfferTransactionWithRequestBuilder(version: version, offerTransactionId: offerTransactionId, status: status, deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func redeemOfferTransaction(offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await redeemOfferTransactionWithRequestBuilder(offerTransactionId: offerTransactionId, status: status, deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Offer Transaction
-     - POST /api/{version}/retailer/offer/transaction/update
+     - POST /retailer/offer/transaction/update
      - Redeems an offer.
-     - parameter version: (path)  
      - parameter offerTransactionId: (query) the OfferTransaction ID of the transaction being redeemed 
      - parameter status: (query) the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -1249,11 +1197,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func redeemOfferTransactionWithRequestBuilder(version: Double, offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/transaction/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func redeemOfferTransactionWithRequestBuilder(offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/offer/transaction/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1349,7 +1294,6 @@ open class OfferAPI {
     /**
      Search Offer Transactions
      
-     - parameter version: (path)  
      - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
      - parameter descending: (query) Determines whether the results are in descending order 
      - parameter start: (query) The start index for pagination 
@@ -1377,15 +1321,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferTransactionResponse]
      */
-    open class func searchOfferTransactionsForRetailers(version: Double, sortField: SortField_searchOfferTransactionsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: CouponType_searchOfferTransactionsForRetailers? = nil, offerType: OfferType_searchOfferTransactionsForRetailers? = nil, specialOfferType: SpecialOfferType_searchOfferTransactionsForRetailers? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
-        return try await searchOfferTransactionsForRetailersWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerId: offerId, offerLocationId: offerLocationId, redeemed: redeemed, reservationsOnly: reservationsOnly, couponType: couponType, offerType: offerType, specialOfferType: specialOfferType, customerAccountIds: customerAccountIds, categoryIds: categoryIds, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, i: i, l: l, apiConfiguration: apiConfiguration).execute().body
+    open class func searchOfferTransactionsForRetailers(sortField: SortField_searchOfferTransactionsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: CouponType_searchOfferTransactionsForRetailers? = nil, offerType: OfferType_searchOfferTransactionsForRetailers? = nil, specialOfferType: SpecialOfferType_searchOfferTransactionsForRetailers? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
+        return try await searchOfferTransactionsForRetailersWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerId: retailerId, retailerLocationId: retailerLocationId, offerId: offerId, offerLocationId: offerLocationId, redeemed: redeemed, reservationsOnly: reservationsOnly, couponType: couponType, offerType: offerType, specialOfferType: specialOfferType, customerAccountIds: customerAccountIds, categoryIds: categoryIds, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, i: i, l: l, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offer Transactions
-     - GET /api/{version}/retailer/offer/transaction/search
+     - GET /retailer/offer/transaction/search
      - Searches on offer transactions for offers that the account has access to.
-     - parameter version: (path)  
      - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
      - parameter descending: (query) Determines whether the results are in descending order 
      - parameter start: (query) The start index for pagination 
@@ -1413,11 +1356,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferTransactionResponse]> 
      */
-    open class func searchOfferTransactionsForRetailersWithRequestBuilder(version: Double, sortField: SortField_searchOfferTransactionsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: CouponType_searchOfferTransactionsForRetailers? = nil, offerType: OfferType_searchOfferTransactionsForRetailers? = nil, specialOfferType: SpecialOfferType_searchOfferTransactionsForRetailers? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
-        var localVariablePath = "/api/{version}/retailer/offer/transaction/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchOfferTransactionsForRetailersWithRequestBuilder(sortField: SortField_searchOfferTransactionsForRetailers, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: CouponType_searchOfferTransactionsForRetailers? = nil, offerType: OfferType_searchOfferTransactionsForRetailers? = nil, specialOfferType: SpecialOfferType_searchOfferTransactionsForRetailers? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
+        let localVariablePath = "/retailer/offer/transaction/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1506,7 +1446,6 @@ open class OfferAPI {
     /**
      Search Offers
      
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of where the search will center at 
      - parameter longitude: (query) The longitude of where the search will center at 
      - parameter recommendationType: (query) The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available 
@@ -1541,15 +1480,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferListResponse
      */
-    open class func searchOffersForConsumer(version: Double, latitude: Double, longitude: Double, recommendationType: RecommendationType_searchOffersForConsumer, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: DistanceUnit_searchOffersForConsumer, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: GroupBy_searchOffersForConsumer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
-        return try await searchOffersForConsumerWithRequestBuilder(version: version, latitude: latitude, longitude: longitude, recommendationType: recommendationType, locationId: locationId, start: start, limit: limit, maxRecommendations: maxRecommendations, distanceUnit: distanceUnit, appKey: appKey, deviceId: deviceId, accountId: accountId, searchRange: searchRange, tags: tags, supportedPostalCodes: supportedPostalCodes, keyword: keyword, categories: categories, filters: filters, offerTypes: offerTypes, type: type, sortField: sortField, recommendOfferIds: recommendOfferIds, retailerLocationIds: retailerLocationIds, offerId: offerId, includeMission: includeMission, includeCategories: includeCategories, includeFilters: includeFilters, includeExpired: includeExpired, includeFavorite: includeFavorite, closestOfferOnly: closestOfferOnly, searchExpression: searchExpression, groupBy: groupBy, apiConfiguration: apiConfiguration).execute().body
+    open class func searchOffersForConsumer(latitude: Double, longitude: Double, recommendationType: RecommendationType_searchOffersForConsumer, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: DistanceUnit_searchOffersForConsumer, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: GroupBy_searchOffersForConsumer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
+        return try await searchOffersForConsumerWithRequestBuilder(latitude: latitude, longitude: longitude, recommendationType: recommendationType, locationId: locationId, start: start, limit: limit, maxRecommendations: maxRecommendations, distanceUnit: distanceUnit, appKey: appKey, deviceId: deviceId, accountId: accountId, searchRange: searchRange, tags: tags, supportedPostalCodes: supportedPostalCodes, keyword: keyword, categories: categories, filters: filters, offerTypes: offerTypes, type: type, sortField: sortField, recommendOfferIds: recommendOfferIds, retailerLocationIds: retailerLocationIds, offerId: offerId, includeMission: includeMission, includeCategories: includeCategories, includeFilters: includeFilters, includeExpired: includeExpired, includeFavorite: includeFavorite, closestOfferOnly: closestOfferOnly, searchExpression: searchExpression, groupBy: groupBy, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offers
-     - GET /api/{version}/offer/lists
+     - GET /offer/lists
      - Searches for offers as a consumer.
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of where the search will center at 
      - parameter longitude: (query) The longitude of where the search will center at 
      - parameter recommendationType: (query) The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available 
@@ -1584,11 +1522,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferListResponse> 
      */
-    open class func searchOffersForConsumerWithRequestBuilder(version: Double, latitude: Double, longitude: Double, recommendationType: RecommendationType_searchOffersForConsumer, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: DistanceUnit_searchOffersForConsumer, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: GroupBy_searchOffersForConsumer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
-        var localVariablePath = "/api/{version}/offer/lists"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchOffersForConsumerWithRequestBuilder(latitude: Double, longitude: Double, recommendationType: RecommendationType_searchOffersForConsumer, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: DistanceUnit_searchOffersForConsumer, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: GroupBy_searchOffersForConsumer? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
+        let localVariablePath = "/offer/lists"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1641,31 +1576,26 @@ open class OfferAPI {
     /**
      Get Offers (Top)
      
-     - parameter version: (path)  
      - parameter start: (query) The index into the record set to start with. Default is 0. (optional, default to 0)
      - parameter limit: (query) The total number of record to return. Default id 20. (optional, default to 20)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferListResponse
      */
-    open class func topOfferTransactions(version: Double, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
-        return try await topOfferTransactionsWithRequestBuilder(version: version, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func topOfferTransactions(start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferListResponse {
+        return try await topOfferTransactionsWithRequestBuilder(start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offers (Top)
-     - GET /api/{version}/offer/top
+     - GET /offer/top
      - Gets the top active offers.
-     - parameter version: (path)  
      - parameter start: (query) The index into the record set to start with. Default is 0. (optional, default to 0)
      - parameter limit: (query) The total number of record to return. Default id 20. (optional, default to 20)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferListResponse> 
      */
-    open class func topOfferTransactionsWithRequestBuilder(version: Double, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
-        var localVariablePath = "/api/{version}/offer/top"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func topOfferTransactionsWithRequestBuilder(start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferListResponse> {
+        let localVariablePath = "/offer/top"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1818,7 +1748,6 @@ open class OfferAPI {
     /**
      Update Offer
      
-     - parameter version: (path)  
      - parameter offerId: (query) The offer to update 
      - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -1909,15 +1838,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerOfferResponse
      */
-    open class func updateOffer(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateOffer? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: OfferType_updateOffer? = nil, specialOfferType: SpecialOfferType_updateOffer? = nil, offerVisibility: OfferVisibility_updateOffer? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_updateOffer? = nil, conditionType: ConditionType_updateOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_updateOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_updateOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
-        return try await updateOfferWithRequestBuilder(version: version, offerId: offerId, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, tags: tags, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
+    open class func updateOffer(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateOffer? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: OfferType_updateOffer? = nil, specialOfferType: SpecialOfferType_updateOffer? = nil, offerVisibility: OfferVisibility_updateOffer? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_updateOffer? = nil, conditionType: ConditionType_updateOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_updateOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_updateOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerOfferResponse {
+        return try await updateOfferWithRequestBuilder(offerId: offerId, includeOfferLocations: includeOfferLocations, deviceId: deviceId, accountId: accountId, parentOfferId: parentOfferId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, tags: tags, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, externalId: externalId, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, offerType: offerType, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, brand: brand, productType: productType, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, department: department, features: features, minimumPrice: minimumPrice, width: width, height: height, depth: depth, weight: weight, unit: unit, studio: studio, parentalRating: parentalRating, publishDate: publishDate, availabilityDate: availabilityDate, sizeId: sizeId, listingId: listingId, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, rebootTimeHour: rebootTimeHour, rebootTimeMinute: rebootTimeMinute, idleTimeoutInSecond: idleTimeoutInSecond, serialNumber: serialNumber, udid: udid, deviceType: deviceType, devicePower: devicePower, deviceInterference: deviceInterference, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Offer
-     - POST /api/{version}/retailer/offer/update
+     - POST /retailer/offer/update
      - Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     - parameter version: (path)  
      - parameter offerId: (query) The offer to update 
      - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -2008,11 +1936,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerOfferResponse> 
      */
-    open class func updateOfferWithRequestBuilder(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateOffer? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: OfferType_updateOffer? = nil, specialOfferType: SpecialOfferType_updateOffer? = nil, offerVisibility: OfferVisibility_updateOffer? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_updateOffer? = nil, conditionType: ConditionType_updateOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_updateOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_updateOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateOfferWithRequestBuilder(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateOffer? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: OfferType_updateOffer? = nil, specialOfferType: SpecialOfferType_updateOffer? = nil, offerVisibility: OfferVisibility_updateOffer? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: ProductType_updateOffer? = nil, conditionType: ConditionType_updateOffer? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: Unit_updateOffer? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: MediaType_updateOffer? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerOfferResponse> {
+        let localVariablePath = "/retailer/offer/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2121,7 +2046,6 @@ open class OfferAPI {
     /**
      Activate Offer
      
-     - parameter version: (path)  
      - parameter offerIds: (query) Comma separated list of offer ids 
      - parameter active: (query) Determines whether to make the offer active as well 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -2129,15 +2053,14 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateOfferStatus(version: Double, offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateOfferStatusWithRequestBuilder(version: version, offerIds: offerIds, active: active, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func updateOfferStatus(offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateOfferStatusWithRequestBuilder(offerIds: offerIds, active: active, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Activate Offer
-     - POST /api/{version}/retailer/offer/status
+     - POST /retailer/offer/status
      - Sets the activated date on offers. This will make offers visible for consumers.
-     - parameter version: (path)  
      - parameter offerIds: (query) Comma separated list of offer ids 
      - parameter active: (query) Determines whether to make the offer active as well 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -2145,11 +2068,8 @@ open class OfferAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateOfferStatusWithRequestBuilder(version: Double, offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/offer/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateOfferStatusWithRequestBuilder(offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/offer/status"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

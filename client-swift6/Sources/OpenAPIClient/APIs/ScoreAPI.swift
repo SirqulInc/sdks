@@ -12,7 +12,6 @@ open class ScoreAPI {
     /**
      Create Score
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to save the score for. 
      - parameter points: (query) The score 
@@ -26,15 +25,14 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ScoreResponse
      */
-    open class func createScore(version: Double, accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ScoreResponse {
-        return try await createScoreWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, points: points, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, timeTaken: timeTaken, highest: highest, apiConfiguration: apiConfiguration).execute().body
+    open class func createScore(accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ScoreResponse {
+        return try await createScoreWithRequestBuilder(accountId: accountId, appKey: appKey, points: points, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, timeTaken: timeTaken, highest: highest, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Score
-     - POST /api/{version}/score/create
+     - POST /score/create
      - Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to save the score for. 
      - parameter points: (query) The score 
@@ -48,11 +46,8 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ScoreResponse> 
      */
-    open class func createScoreWithRequestBuilder(version: Double, accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ScoreResponse> {
-        var localVariablePath = "/api/{version}/score/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createScoreWithRequestBuilder(accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ScoreResponse> {
+        let localVariablePath = "/score/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -84,7 +79,6 @@ open class ScoreAPI {
     /**
      Get Score
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to get the level for. 
      - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -97,15 +91,14 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ScoreResponse
      */
-    open class func getScore(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ScoreResponse {
-        return try await getScoreWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreObjectType: scoreObjectType, scoreStatus: scoreStatus, apiConfiguration: apiConfiguration).execute().body
+    open class func getScore(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ScoreResponse {
+        return try await getScoreWithRequestBuilder(accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreObjectType: scoreObjectType, scoreStatus: scoreStatus, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Score
-     - GET /api/{version}/score/get
+     - GET /score/get
      - Get the high score for an item.  Pass in the full path IDs for the score.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to get the level for. 
      - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -118,11 +111,8 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ScoreResponse> 
      */
-    open class func getScoreWithRequestBuilder(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ScoreResponse> {
-        var localVariablePath = "/api/{version}/score/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getScoreWithRequestBuilder(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ScoreResponse> {
+        let localVariablePath = "/score/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -153,7 +143,6 @@ open class ScoreAPI {
     /**
      Search Score
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to get the level for. 
      - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -164,15 +153,14 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ScoreResponse]
      */
-    open class func searchScores(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ScoreResponse] {
-        return try await searchScoresWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchScores(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ScoreResponse] {
+        return try await searchScoresWithRequestBuilder(accountId: accountId, appKey: appKey, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Score
-     - GET /api/{version}/score/search
+     - GET /score/search
      - Search the scores for an item.  Pass in the full path IDs for the scores.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) The game application key to get the level for. 
      - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -183,11 +171,8 @@ open class ScoreAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ScoreResponse]> 
      */
-    open class func searchScoresWithRequestBuilder(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ScoreResponse]> {
-        var localVariablePath = "/api/{version}/score/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchScoresWithRequestBuilder(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ScoreResponse]> {
+        let localVariablePath = "/score/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

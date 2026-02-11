@@ -12,7 +12,6 @@ open class AccountAPI {
     /**
      Search Accounts by Location
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter q: (query) Deprecated - legacy query parameter (optional)
@@ -50,15 +49,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: UserLocationSearchResponse
      */
-    open class func accountLocationSearch(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserLocationSearchResponse {
-        return try await accountLocationSearchWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, postalCode: postalCode, latitude: latitude, longitude: longitude, appKey: appKey, range: range, locationLastUpdated: locationLastUpdated, gender: gender, minAge: minAge, maxAge: maxAge, companionshipIndex: companionshipIndex, i: i, start: start, l: l, limit: limit, searchMode: searchMode, sortField: sortField, descending: descending, roles: roles, tags: tags, experience: experience, categoryIds: categoryIds, audienceIds: audienceIds, audienceOperator: audienceOperator, updateCurrentLocation: updateCurrentLocation, updatePreferredSettings: updatePreferredSettings, showExactLocations: showExactLocations, showConnectionToSearcher: showConnectionToSearcher, flagCountMinimum: flagCountMinimum, verifiedUserOnly: verifiedUserOnly, contentAdminOnly: contentAdminOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func accountLocationSearch(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserLocationSearchResponse {
+        return try await accountLocationSearchWithRequestBuilder(deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, postalCode: postalCode, latitude: latitude, longitude: longitude, appKey: appKey, range: range, locationLastUpdated: locationLastUpdated, gender: gender, minAge: minAge, maxAge: maxAge, companionshipIndex: companionshipIndex, i: i, start: start, l: l, limit: limit, searchMode: searchMode, sortField: sortField, descending: descending, roles: roles, tags: tags, experience: experience, categoryIds: categoryIds, audienceIds: audienceIds, audienceOperator: audienceOperator, updateCurrentLocation: updateCurrentLocation, updatePreferredSettings: updatePreferredSettings, showExactLocations: showExactLocations, showConnectionToSearcher: showConnectionToSearcher, flagCountMinimum: flagCountMinimum, verifiedUserOnly: verifiedUserOnly, contentAdminOnly: contentAdminOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Accounts by Location
-     - GET /api/{version}/account/search
+     - GET /account/search
      - Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter q: (query) Deprecated - legacy query parameter (optional)
@@ -96,11 +94,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<UserLocationSearchResponse> 
      */
-    open class func accountLocationSearchWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserLocationSearchResponse> {
-        var localVariablePath = "/api/{version}/account/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func accountLocationSearchWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserLocationSearchResponse> {
+        let localVariablePath = "/account/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -156,7 +151,6 @@ open class AccountAPI {
     /**
      Block Account
      
-     - parameter version: (path)  
      - parameter accountIdBeingBlocked: (query) The id of the account to be blocked/unblocked 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -167,15 +161,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func blockAccount(version: Double, accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await blockAccountWithRequestBuilder(version: version, accountIdBeingBlocked: accountIdBeingBlocked, deviceId: deviceId, accountId: accountId, blockFlagValue: blockFlagValue, removeFromGroupsIfBlocked: removeFromGroupsIfBlocked, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func blockAccount(accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await blockAccountWithRequestBuilder(accountIdBeingBlocked: accountIdBeingBlocked, deviceId: deviceId, accountId: accountId, blockFlagValue: blockFlagValue, removeFromGroupsIfBlocked: removeFromGroupsIfBlocked, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Block Account
-     - POST /api/{version}/account/block
+     - POST /account/block
      - Moves or removes an account into the user's blocked group.
-     - parameter version: (path)  
      - parameter accountIdBeingBlocked: (query) The id of the account to be blocked/unblocked 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -186,11 +179,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func blockAccountWithRequestBuilder(version: Double, accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/block"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func blockAccountWithRequestBuilder(accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/block"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -219,7 +209,6 @@ open class AccountAPI {
     /**
      Create Account
      
-     - parameter version: (path)  
      - parameter username: (query) The access token to authenticate with (ex: username) 
      - parameter password: (query) The secret to authenticate with (ex: password) 
      - parameter name: (query) The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -295,15 +284,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountLoginResponse
      */
-    open class func createAccount(version: Double, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
-        return try await createAccountWithRequestBuilder(version: version, username: username, password: password, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceId: deviceId, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, streetAddress: streetAddress, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, inviteToken: inviteToken, referralAccountId: referralAccountId, sendValidation: sendValidation, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, audienceIdsToAdd: audienceIdsToAdd, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, locationVisibility: locationVisibility, homeLatitude: homeLatitude, homeLongitude: homeLongitude, appNickname: appNickname, personalAudienceId: personalAudienceId, apiConfiguration: apiConfiguration).execute().body
+    open class func createAccount(username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
+        return try await createAccountWithRequestBuilder(username: username, password: password, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceId: deviceId, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, streetAddress: streetAddress, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, inviteToken: inviteToken, referralAccountId: referralAccountId, sendValidation: sendValidation, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, audienceIdsToAdd: audienceIdsToAdd, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, locationVisibility: locationVisibility, homeLatitude: homeLatitude, homeLongitude: homeLongitude, appNickname: appNickname, personalAudienceId: personalAudienceId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Account
-     - POST /api/{version}/account/create
+     - POST /account/create
      - Create a new account by role.
-     - parameter version: (path)  
      - parameter username: (query) The access token to authenticate with (ex: username) 
      - parameter password: (query) The secret to authenticate with (ex: password) 
      - parameter name: (query) The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -379,11 +367,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountLoginResponse> 
      */
-    open class func createAccountWithRequestBuilder(version: Double, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
-        var localVariablePath = "/api/{version}/account/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createAccountWithRequestBuilder(username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
+        let localVariablePath = "/account/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -477,7 +462,6 @@ open class AccountAPI {
     /**
      Update Account
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) The account id used to edit another person&#39;s account (optional)
@@ -563,15 +547,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileInfoResponse
      */
-    open class func editAccount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileInfoResponse {
-        return try await editAccountWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, role: role, assetId: assetId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, gender: gender, age: age, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, makeProfileInfoPublic: makeProfileInfoPublic, makeGameInfoPublic: makeGameInfoPublic, makeFriendsInfoPublic: makeFriendsInfoPublic, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, platforms: platforms, tags: tags, aboutUs: aboutUs, matchToken: matchToken, gameExperience: gameExperience, categories: categories, categoryIds: categoryIds, responseFilters: responseFilters, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, showOthersExactLocation: showOthersExactLocation, acceptedTerms: acceptedTerms, locationVisibility: locationVisibility, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, returnProfile: returnProfile, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, appNickname: appNickname, personalAudienceId: personalAudienceId, nonGuestUsername: nonGuestUsername, apiConfiguration: apiConfiguration).execute().body
+    open class func editAccount(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileInfoResponse {
+        return try await editAccountWithRequestBuilder(deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, role: role, assetId: assetId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, gender: gender, age: age, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, makeProfileInfoPublic: makeProfileInfoPublic, makeGameInfoPublic: makeGameInfoPublic, makeFriendsInfoPublic: makeFriendsInfoPublic, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, platforms: platforms, tags: tags, aboutUs: aboutUs, matchToken: matchToken, gameExperience: gameExperience, categories: categories, categoryIds: categoryIds, responseFilters: responseFilters, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, showOthersExactLocation: showOthersExactLocation, acceptedTerms: acceptedTerms, locationVisibility: locationVisibility, appBlob: appBlob, appEnablePush: appEnablePush, appEnableSMS: appEnableSMS, appEnableEmail: appEnableEmail, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, returnProfile: returnProfile, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, appNickname: appNickname, personalAudienceId: personalAudienceId, nonGuestUsername: nonGuestUsername, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Account
-     - POST /api/{version}/account/profile/update
+     - POST /account/profile/update
      - Edit the user's profile information
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) The account id used to edit another person&#39;s account (optional)
@@ -657,11 +640,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileInfoResponse> 
      */
-    open class func editAccountWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileInfoResponse> {
-        var localVariablePath = "/api/{version}/account/profile/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func editAccountWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileInfoResponse> {
+        let localVariablePath = "/account/profile/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -765,7 +745,6 @@ open class AccountAPI {
     /**
      Update Username and Email
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter emailAddress: (query) the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -773,15 +752,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func editUsername(version: Double, deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await editUsernameWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, emailAddress: emailAddress, username: username, apiConfiguration: apiConfiguration).execute().body
+    open class func editUsername(deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await editUsernameWithRequestBuilder(deviceId: deviceId, accountId: accountId, emailAddress: emailAddress, username: username, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Username and Email
-     - POST /api/{version}/account/username/update
+     - POST /account/username/update
      - Update account's own username and/or emailAddress
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter emailAddress: (query) the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -789,11 +767,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func editUsernameWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/username/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func editUsernameWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/username/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -819,7 +794,6 @@ open class AccountAPI {
     /**
      Get Account
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) Return Nulls (optional, default to false)
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -835,15 +809,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func getAccount(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await getAccountWithRequestBuilder(version: version, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, responseFilters: responseFilters, gameType: gameType, appKey: appKey, purchaseType: purchaseType, updateViewedDate: updateViewedDate, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getAccount(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await getAccountWithRequestBuilder(returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, responseFilters: responseFilters, gameType: gameType, appKey: appKey, purchaseType: purchaseType, updateViewedDate: updateViewedDate, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Account
-     - GET /api/{version}/account/profile/get
+     - GET /account/profile/get
      - Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-     - parameter version: (path)  
      - parameter returnNulls: (query) Return Nulls (optional, default to false)
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -859,11 +832,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func getAccountWithRequestBuilder(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/account/profile/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAccountWithRequestBuilder(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/account/profile/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -897,7 +867,6 @@ open class AccountAPI {
     /**
      Get Profile Assets
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) Determines whether to return null fields in the response (optional, default to false)
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -915,15 +884,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssetListResponse
      */
-    open class func getProfileAssets(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetListResponse {
-        return try await getProfileAssetsWithRequestBuilder(version: version, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, ownerId: ownerId, mediaTypes: mediaTypes, mimeTypes: mimeTypes, sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getProfileAssets(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetListResponse {
+        return try await getProfileAssetsWithRequestBuilder(returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, ownerId: ownerId, mediaTypes: mediaTypes, mimeTypes: mimeTypes, sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Profile Assets
-     - GET /api/{version}/account/profile/assets
+     - GET /account/profile/assets
      - Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     - parameter version: (path)  
      - parameter returnNulls: (query) Determines whether to return null fields in the response (optional, default to false)
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -941,11 +909,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssetListResponse> 
      */
-    open class func getProfileAssetsWithRequestBuilder(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetListResponse> {
-        var localVariablePath = "/api/{version}/account/profile/assets"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getProfileAssetsWithRequestBuilder(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetListResponse> {
+        let localVariablePath = "/account/profile/assets"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -981,7 +946,6 @@ open class AccountAPI {
     /**
      Search Accounts
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key (optional)
      - parameter retrieveType: (query) one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -996,15 +960,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getReferralList(version: Double, accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getReferralListWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, retrieveType: retrieveType, levelLimit: levelLimit, ancestorLevelLimit: ancestorLevelLimit, childrenLevelLimit: childrenLevelLimit, ancestorListStart: ancestorListStart, ancestorListLimit: ancestorListLimit, childrenListStart: childrenListStart, childrenListLimit: childrenListLimit, childrenChildren: childrenChildren, apiConfiguration: apiConfiguration).execute().body
+    open class func getReferralList(accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getReferralListWithRequestBuilder(accountId: accountId, appKey: appKey, retrieveType: retrieveType, levelLimit: levelLimit, ancestorLevelLimit: ancestorLevelLimit, childrenLevelLimit: childrenLevelLimit, ancestorListStart: ancestorListStart, ancestorListLimit: ancestorListLimit, childrenListStart: childrenListStart, childrenListLimit: childrenListLimit, childrenChildren: childrenChildren, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Accounts
-     - GET /api/{version}/account/referral/list
+     - GET /account/referral/list
      - Gets a user's account profile and their referral List.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key (optional)
      - parameter retrieveType: (query) one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -1019,11 +982,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getReferralListWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/account/referral/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getReferralListWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/account/referral/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1056,7 +1016,6 @@ open class AccountAPI {
     /**
      Get Account Settings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The current latitude of the user (optional)
@@ -1064,15 +1023,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: UserSettingsResponse
      */
-    open class func getSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserSettingsResponse {
-        return try await getSettingsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getSettings(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserSettingsResponse {
+        return try await getSettingsWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Account Settings
-     - GET /api/{version}/account/settings/get
+     - GET /account/settings/get
      - Get the account settings for a user
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The current latitude of the user (optional)
@@ -1080,11 +1038,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<UserSettingsResponse> 
      */
-    open class func getSettingsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserSettingsResponse> {
-        var localVariablePath = "/api/{version}/account/settings/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSettingsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserSettingsResponse> {
+        let localVariablePath = "/account/settings/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1110,7 +1065,6 @@ open class AccountAPI {
     /**
      Login as Account
      
-     - parameter version: (path)  
      - parameter accessToken: (query)  
      - parameter appKey: (query)  
      - parameter deviceId: (query)  (optional)
@@ -1125,15 +1079,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func loginDelegate(version: Double, accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await loginDelegateWithRequestBuilder(version: version, accessToken: accessToken, appKey: appKey, deviceId: deviceId, accessTokenSecret: accessTokenSecret, delegatedAccountId: delegatedAccountId, delegatedUsername: delegatedUsername, networkUID: networkUID, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func loginDelegate(accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await loginDelegateWithRequestBuilder(accessToken: accessToken, appKey: appKey, deviceId: deviceId, accessTokenSecret: accessTokenSecret, delegatedAccountId: delegatedAccountId, delegatedUsername: delegatedUsername, networkUID: networkUID, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login as Account
-     - POST /api/{version}/account/login/delegate
+     - POST /account/login/delegate
      - A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     - parameter version: (path)  
      - parameter accessToken: (query)  
      - parameter appKey: (query)  
      - parameter deviceId: (query)  (optional)
@@ -1148,11 +1101,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func loginDelegateWithRequestBuilder(version: Double, accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/account/login/delegate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func loginDelegateWithRequestBuilder(accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/account/login/delegate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1185,7 +1135,6 @@ open class AccountAPI {
     /**
      Login Account
      
-     - parameter version: (path)  
      - parameter accessToken: (query) The access token to authenticate with (ex: username or fb token) 
      - parameter networkUID: (query) The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  
      - parameter appKey: (query) The application key 
@@ -1202,15 +1151,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func loginGeneral(version: Double, accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await loginGeneralWithRequestBuilder(version: version, accessToken: accessToken, networkUID: networkUID, appKey: appKey, deviceId: deviceId, deviceIdType: deviceIdType, accessTokenSecret: accessTokenSecret, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, emailMatch: emailMatch, chosenAccountId: chosenAccountId, thirdPartyCredentialId: thirdPartyCredentialId, apiConfiguration: apiConfiguration).execute().body
+    open class func loginGeneral(accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await loginGeneralWithRequestBuilder(accessToken: accessToken, networkUID: networkUID, appKey: appKey, deviceId: deviceId, deviceIdType: deviceIdType, accessTokenSecret: accessTokenSecret, ageRestriction: ageRestriction, responseFilters: responseFilters, latitude: latitude, longitude: longitude, emailMatch: emailMatch, chosenAccountId: chosenAccountId, thirdPartyCredentialId: thirdPartyCredentialId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Account
-     - POST /api/{version}/account/login
+     - POST /account/login
      - General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     - parameter version: (path)  
      - parameter accessToken: (query) The access token to authenticate with (ex: username or fb token) 
      - parameter networkUID: (query) The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  
      - parameter appKey: (query) The application key 
@@ -1227,11 +1175,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func loginGeneralWithRequestBuilder(version: Double, accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/account/login"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func loginGeneralWithRequestBuilder(accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/account/login"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1266,7 +1211,6 @@ open class AccountAPI {
     /**
      Login Account (Username)
      
-     - parameter version: (path)  
      - parameter username: (query) the user&#39;s email address they used to sign-up 
      - parameter password: (query) the password 
      - parameter deviceId: (query) the device id (optional)
@@ -1280,15 +1224,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func loginUsername(version: Double, username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await loginUsernameWithRequestBuilder(version: version, username: username, password: password, deviceId: deviceId, latitude: latitude, longitude: longitude, app: app, gameType: gameType, appKey: appKey, returnProfile: returnProfile, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
+    open class func loginUsername(username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await loginUsernameWithRequestBuilder(username: username, password: password, deviceId: deviceId, latitude: latitude, longitude: longitude, app: app, gameType: gameType, appKey: appKey, returnProfile: returnProfile, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Account (Username)
-     - POST /api/{version}/account/get
+     - POST /account/get
      - Login to system with an account
-     - parameter version: (path)  
      - parameter username: (query) the user&#39;s email address they used to sign-up 
      - parameter password: (query) the password 
      - parameter deviceId: (query) the device id (optional)
@@ -1302,11 +1245,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func loginUsernameWithRequestBuilder(version: Double, username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/account/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func loginUsernameWithRequestBuilder(username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/account/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1338,7 +1278,6 @@ open class AccountAPI {
     /**
      Logout Account
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter deviceIdType: (query) Device Id Type (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -1347,15 +1286,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func logout(version: Double, deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await logoutWithRequestBuilder(version: version, deviceId: deviceId, deviceIdType: deviceIdType, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func logout(deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await logoutWithRequestBuilder(deviceId: deviceId, deviceIdType: deviceIdType, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Logout Account
-     - POST /api/{version}/account/logout
+     - POST /account/logout
      - Cleans up the users data for logging out.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter deviceIdType: (query) Device Id Type (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -1364,11 +1302,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func logoutWithRequestBuilder(version: Double, deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/logout"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func logoutWithRequestBuilder(deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/logout"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1395,7 +1330,6 @@ open class AccountAPI {
     /**
      Merge Account
      
-     - parameter version: (path)  
      - parameter mergeAccountId: (query) The id of the account to being merged 
      - parameter appKey: (query) The application key 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -1403,15 +1337,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func mergeAccount(version: Double, mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await mergeAccountWithRequestBuilder(version: version, mergeAccountId: mergeAccountId, appKey: appKey, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func mergeAccount(mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await mergeAccountWithRequestBuilder(mergeAccountId: mergeAccountId, appKey: appKey, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Merge Account
-     - POST /api/{version}/account/merge
+     - POST /account/merge
      - Merges the analytics, achievements, leaderboards of two accounts.
-     - parameter version: (path)  
      - parameter mergeAccountId: (query) The id of the account to being merged 
      - parameter appKey: (query) The application key 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -1419,11 +1352,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func mergeAccountWithRequestBuilder(version: Double, mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/merge"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func mergeAccountWithRequestBuilder(mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/merge"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1449,7 +1379,6 @@ open class AccountAPI {
     /**
      Update Password
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account to update 
      - parameter oldPassword: (query) The current password, used to validate access 
      - parameter newPassword: (query) The new password to set, cannot be empty 
@@ -1457,15 +1386,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func passwordChange(version: Double, accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await passwordChangeWithRequestBuilder(version: version, accountId: accountId, oldPassword: oldPassword, newPassword: newPassword, confirmPassword: confirmPassword, apiConfiguration: apiConfiguration).execute().body
+    open class func passwordChange(accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await passwordChangeWithRequestBuilder(accountId: accountId, oldPassword: oldPassword, newPassword: newPassword, confirmPassword: confirmPassword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Password
-     - POST /api/{version}/account/passwordchange
+     - POST /account/passwordchange
      - Update the account password.
-     - parameter version: (path)  
      - parameter accountId: (query) The account to update 
      - parameter oldPassword: (query) The current password, used to validate access 
      - parameter newPassword: (query) The new password to set, cannot be empty 
@@ -1473,11 +1401,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func passwordChangeWithRequestBuilder(version: Double, accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/passwordchange"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func passwordChangeWithRequestBuilder(accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/passwordchange"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1503,33 +1428,28 @@ open class AccountAPI {
     /**
      Reset Password
      
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter password: (query) The new password to set, cannot be empty 
      - parameter confirm: (query) The new password to confirm, must match newPassword 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func passwordReset(version: Double, token: String, password: String, confirm: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await passwordResetWithRequestBuilder(version: version, token: token, password: password, confirm: confirm, apiConfiguration: apiConfiguration).execute().body
+    open class func passwordReset(token: String, password: String, confirm: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await passwordResetWithRequestBuilder(token: token, password: password, confirm: confirm, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Reset Password
-     - POST /api/{version}/account/passwordreset
+     - POST /account/passwordreset
      - Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter password: (query) The new password to set, cannot be empty 
      - parameter confirm: (query) The new password to confirm, must match newPassword 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func passwordResetWithRequestBuilder(version: Double, token: String, password: String, confirm: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/passwordreset"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func passwordResetWithRequestBuilder(token: String, password: String, confirm: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/passwordreset"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1554,7 +1474,6 @@ open class AccountAPI {
     /**
      Request Password Reset
      
-     - parameter version: (path)  
      - parameter email: (query) The email/username of the account 
      - parameter from: (query) this is the sender email (optional, default to "Sirqul")
      - parameter domain: (query) this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -1563,15 +1482,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func requestPasswordReset(version: Double, email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await requestPasswordResetWithRequestBuilder(version: version, email: email, from: from, domain: domain, subUrl: subUrl, referer: referer, apiConfiguration: apiConfiguration).execute().body
+    open class func requestPasswordReset(email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await requestPasswordResetWithRequestBuilder(email: email, from: from, domain: domain, subUrl: subUrl, referer: referer, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Request Password Reset
-     - POST /api/{version}/account/requestpasswordreset
+     - POST /account/requestpasswordreset
      - Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     - parameter version: (path)  
      - parameter email: (query) The email/username of the account 
      - parameter from: (query) this is the sender email (optional, default to "Sirqul")
      - parameter domain: (query) this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -1580,11 +1498,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func requestPasswordResetWithRequestBuilder(version: Double, email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/requestpasswordreset"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func requestPasswordResetWithRequestBuilder(email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/requestpasswordreset"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1611,29 +1526,24 @@ open class AccountAPI {
     /**
      Send Validation Request
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func requestValidateAccount(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await requestValidateAccountWithRequestBuilder(version: version, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func requestValidateAccount(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await requestValidateAccountWithRequestBuilder(accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send Validation Request
-     - POST /api/{version}/account/requestValidateAccount
+     - POST /account/requestValidateAccount
      - Send an email to validate a user's account.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func requestValidateAccountWithRequestBuilder(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/requestValidateAccount"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func requestValidateAccountWithRequestBuilder(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/requestValidateAccount"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1676,7 +1586,6 @@ open class AccountAPI {
     /**
      Search Accounts
      
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account requesting 
      - parameter appKey: (query) The application key 
      - parameter keyword: (query) The keyword for for querying the account (optional)
@@ -1698,15 +1607,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ProfileResponse]
      */
-    open class func searchAccounts(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: Gender_searchAccounts? = nil, gameExperience: GameExperience_searchAccounts? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ProfileResponse] {
-        return try await searchAccountsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, keyword: keyword, latitude: latitude, longitude: longitude, radius: radius, gender: gender, gameExperience: gameExperience, age: age, categoryIds: categoryIds, returnNulls: returnNulls, responseFilters: responseFilters, purchaseType: purchaseType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAccounts(accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: Gender_searchAccounts? = nil, gameExperience: GameExperience_searchAccounts? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ProfileResponse] {
+        return try await searchAccountsWithRequestBuilder(accountId: accountId, appKey: appKey, keyword: keyword, latitude: latitude, longitude: longitude, radius: radius, gender: gender, gameExperience: gameExperience, age: age, categoryIds: categoryIds, returnNulls: returnNulls, responseFilters: responseFilters, purchaseType: purchaseType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Accounts
-     - GET /api/{version}/account/profile/search
+     - GET /account/profile/search
      - Search for account profiles.
-     - parameter version: (path)  
      - parameter accountId: (query) The id of the account requesting 
      - parameter appKey: (query) The application key 
      - parameter keyword: (query) The keyword for for querying the account (optional)
@@ -1728,11 +1636,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ProfileResponse]> 
      */
-    open class func searchAccountsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: Gender_searchAccounts? = nil, gameExperience: GameExperience_searchAccounts? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ProfileResponse]> {
-        var localVariablePath = "/api/{version}/account/profile/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAccountsWithRequestBuilder(accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: Gender_searchAccounts? = nil, gameExperience: GameExperience_searchAccounts? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ProfileResponse]> {
+        let localVariablePath = "/account/profile/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1772,7 +1677,6 @@ open class AccountAPI {
     /**
      Login Account (Encrypted Username)
      
-     - parameter version: (path)  
      - parameter username: (query) The user&#39;s encrypted email address they used to sign-up 
      - parameter password: (query) The encrypted password 
      - parameter gameType: (query) The application key 
@@ -1785,15 +1689,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func secureLogin(version: Double, username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await secureLoginWithRequestBuilder(version: version, username: username, password: password, gameType: gameType, deviceId: deviceId, charsetName: charsetName, latitude: latitude, longitude: longitude, returnProfile: returnProfile, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
+    open class func secureLogin(username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await secureLoginWithRequestBuilder(username: username, password: password, gameType: gameType, deviceId: deviceId, charsetName: charsetName, latitude: latitude, longitude: longitude, returnProfile: returnProfile, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Account (Encrypted Username)
-     - POST /api/{version}/account/login/validate
+     - POST /account/login/validate
      - ogin with encrypted user-name and password.
-     - parameter version: (path)  
      - parameter username: (query) The user&#39;s encrypted email address they used to sign-up 
      - parameter password: (query) The encrypted password 
      - parameter gameType: (query) The application key 
@@ -1806,11 +1709,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func secureLoginWithRequestBuilder(version: Double, username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/account/login/validate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func secureLoginWithRequestBuilder(username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/account/login/validate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1841,7 +1741,6 @@ open class AccountAPI {
     /**
      Create Account (Encrypted Username)
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id 
      - parameter username: (query) The encrypted email of the user, this is what will be used when they login 
      - parameter password: (query) The encrypted password of the user 
@@ -1906,15 +1805,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileInfoResponse
      */
-    open class func secureSignup(version: Double, deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileInfoResponse {
-        return try await secureSignupWithRequestBuilder(version: version, deviceId: deviceId, username: username, password: password, name: name, inviteToken: inviteToken, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, address: address, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, charsetName: charsetName, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, apiConfiguration: apiConfiguration).execute().body
+    open class func secureSignup(deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileInfoResponse {
+        return try await secureSignupWithRequestBuilder(deviceId: deviceId, username: username, password: password, name: name, inviteToken: inviteToken, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, deviceIdType: deviceIdType, emailAddress: emailAddress, assetId: assetId, address: address, zipcode: zipcode, gender: gender, birthday: birthday, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, role: role, platforms: platforms, tags: tags, aboutUs: aboutUs, gameExperience: gameExperience, categoryIds: categoryIds, hometown: hometown, height: height, heightIndex: heightIndex, ethnicity: ethnicity, bodyType: bodyType, maritalStatus: maritalStatus, children: children, religion: religion, education: education, educationIndex: educationIndex, smoke: smoke, drink: drink, companionship: companionship, companionshipIndex: companionshipIndex, preferredMinAge: preferredMinAge, preferredMaxAge: preferredMaxAge, preferredMinHeight: preferredMinHeight, preferredMaxHeight: preferredMaxHeight, preferredGender: preferredGender, preferredEducation: preferredEducation, preferredEducationIndex: preferredEducationIndex, preferredBodyType: preferredBodyType, preferredEthnicity: preferredEthnicity, preferredLocation: preferredLocation, preferredLocationRange: preferredLocationRange, latitude: latitude, longitude: longitude, acceptedTerms: acceptedTerms, charsetName: charsetName, gameType: gameType, appKey: appKey, appVersion: appVersion, responseType: responseType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Account (Encrypted Username)
-     - POST /api/{version}/account/create/validate
+     - POST /account/create/validate
      - Create a new account by role (with encrypted user-name and password)
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id 
      - parameter username: (query) The encrypted email of the user, this is what will be used when they login 
      - parameter password: (query) The encrypted password of the user 
@@ -1979,11 +1877,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileInfoResponse> 
      */
-    open class func secureSignupWithRequestBuilder(version: Double, deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileInfoResponse> {
-        var localVariablePath = "/api/{version}/account/create/validate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func secureSignupWithRequestBuilder(deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileInfoResponse> {
+        let localVariablePath = "/account/create/validate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2066,7 +1961,6 @@ open class AccountAPI {
     /**
      Save Match Token
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter matchToken: (query) A string of numbers (optional)
@@ -2077,15 +1971,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func setMatchToken(version: Double, deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await setMatchTokenWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, matchToken: matchToken, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func setMatchToken(deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await setMatchTokenWithRequestBuilder(deviceId: deviceId, accountId: accountId, matchToken: matchToken, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Save Match Token
-     - POST /api/{version}/consumer/profile/matchToken
+     - POST /consumer/profile/matchToken
      - Save user's match token to be used for profile match making
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter matchToken: (query) A string of numbers (optional)
@@ -2096,11 +1989,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func setMatchTokenWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/profile/matchToken"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func setMatchTokenWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/profile/matchToken"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2129,7 +2019,6 @@ open class AccountAPI {
     /**
      Update Account Active Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
      - parameter connectionAccountId: (query) The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) 
      - parameter active: (query) true will activate the user and false will deactivate 
@@ -2138,15 +2027,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateActveStatus(version: Double, accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateActveStatusWithRequestBuilder(version: version, accountId: accountId, connectionAccountId: connectionAccountId, active: active, deviceId: deviceId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func updateActveStatus(accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateActveStatusWithRequestBuilder(accountId: accountId, connectionAccountId: connectionAccountId, active: active, deviceId: deviceId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Account Active Status
-     - POST /api/{version}/account/active/update
+     - POST /account/active/update
      - Activate or deactivate an account (requires appropriate permissions).
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
      - parameter connectionAccountId: (query) The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) 
      - parameter active: (query) true will activate the user and false will deactivate 
@@ -2155,11 +2043,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateActveStatusWithRequestBuilder(version: Double, accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/active/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateActveStatusWithRequestBuilder(accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/active/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2186,7 +2071,6 @@ open class AccountAPI {
     /**
      Update Location
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The current latitude of the user (optional)
@@ -2195,15 +2079,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateLocation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateLocationWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, clientTime: clientTime, apiConfiguration: apiConfiguration).execute().body
+    open class func updateLocation(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateLocationWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, clientTime: clientTime, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Location
-     - POST /api/{version}/account/location/update
+     - POST /account/location/update
      - Update the account location
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The current latitude of the user (optional)
@@ -2212,11 +2095,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateLocationWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/location/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateLocationWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/location/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2243,7 +2123,6 @@ open class AccountAPI {
     /**
      Update Account Settings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter blockedNotifications: (query) The notifications to be blocked (optional)
@@ -2259,15 +2138,14 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: UserSettingsResponse
      */
-    open class func updateSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserSettingsResponse {
-        return try await updateSettingsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, blockedNotifications: blockedNotifications, suggestionMethod: suggestionMethod, suggestionCount: suggestionCount, suggestionTimeFrame: suggestionTimeFrame, showOthersExactLocation: showOthersExactLocation, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, favoriteVisibility: favoriteVisibility, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func updateSettings(deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> UserSettingsResponse {
+        return try await updateSettingsWithRequestBuilder(deviceId: deviceId, accountId: accountId, blockedNotifications: blockedNotifications, suggestionMethod: suggestionMethod, suggestionCount: suggestionCount, suggestionTimeFrame: suggestionTimeFrame, showOthersExactLocation: showOthersExactLocation, showAsZipcode: showAsZipcode, showExactLocation: showExactLocation, favoriteVisibility: favoriteVisibility, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Account Settings
-     - POST /api/{version}/account/settings/update
+     - POST /account/settings/update
      - Update the account settings for a user
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter blockedNotifications: (query) The notifications to be blocked (optional)
@@ -2283,11 +2161,8 @@ open class AccountAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<UserSettingsResponse> 
      */
-    open class func updateSettingsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserSettingsResponse> {
-        var localVariablePath = "/api/{version}/account/settings/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateSettingsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<UserSettingsResponse> {
+        let localVariablePath = "/account/settings/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2321,29 +2196,24 @@ open class AccountAPI {
     /**
      Save Validation Status
      
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountLoginResponse
      */
-    open class func validateAccountSignup(version: Double, token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
-        return try await validateAccountSignupWithRequestBuilder(version: version, token: token, apiConfiguration: apiConfiguration).execute().body
+    open class func validateAccountSignup(token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountLoginResponse {
+        return try await validateAccountSignupWithRequestBuilder(token: token, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Save Validation Status
-     - POST /api/{version}/account/validateAccountSignup
+     - POST /account/validateAccountSignup
      - Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountLoginResponse> 
      */
-    open class func validateAccountSignupWithRequestBuilder(version: Double, token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
-        var localVariablePath = "/api/{version}/account/validateAccountSignup"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func validateAccountSignupWithRequestBuilder(token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountLoginResponse> {
+        let localVariablePath = "/account/validateAccountSignup"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2366,29 +2236,24 @@ open class AccountAPI {
     /**
      Validate Password Reset Token
      
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func validatePasswordReset(version: Double, token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await validatePasswordResetWithRequestBuilder(version: version, token: token, apiConfiguration: apiConfiguration).execute().body
+    open class func validatePasswordReset(token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await validatePasswordResetWithRequestBuilder(token: token, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Validate Password Reset Token
-     - POST /api/{version}/account/validatepasswordreset
+     - POST /account/validatepasswordreset
      - Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     - parameter version: (path)  
      - parameter token: (query) The token associated with the account to update, good for 24 hours 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func validatePasswordResetWithRequestBuilder(version: Double, token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/account/validatepasswordreset"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func validatePasswordResetWithRequestBuilder(token: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/account/validatepasswordreset"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

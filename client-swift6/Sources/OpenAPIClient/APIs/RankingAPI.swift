@@ -12,7 +12,6 @@ open class RankingAPI {
     /**
      Search Historical Rankings
      
-     - parameter version: (path)  
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter rankType: (query) the rank type to return 
      - parameter startDate: (query) timestamp in milliseconds to filter results with 
@@ -26,15 +25,14 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RankFullResponse
      */
-    open class func getHistoricalRankings(version: Double, appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RankFullResponse {
-        return try await getHistoricalRankingsWithRequestBuilder(version: version, appKey: appKey, rankType: rankType, startDate: startDate, endDate: endDate, deviceId: deviceId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getHistoricalRankings(appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RankFullResponse {
+        return try await getHistoricalRankingsWithRequestBuilder(appKey: appKey, rankType: rankType, startDate: startDate, endDate: endDate, deviceId: deviceId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Historical Rankings
-     - GET /api/{version}/ranking/historical/search
+     - GET /ranking/historical/search
      - Get historical leaderboard rankings by time-frame.
-     - parameter version: (path)  
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter rankType: (query) the rank type to return 
      - parameter startDate: (query) timestamp in milliseconds to filter results with 
@@ -48,11 +46,8 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RankFullResponse> 
      */
-    open class func getHistoricalRankingsWithRequestBuilder(version: Double, appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RankFullResponse> {
-        var localVariablePath = "/api/{version}/ranking/historical/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getHistoricalRankingsWithRequestBuilder(appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RankFullResponse> {
+        let localVariablePath = "/ranking/historical/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -84,7 +79,6 @@ open class RankingAPI {
     /**
      Search Rankings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter gameType: (query) This parameter is deprecated. (optional)
@@ -106,15 +100,14 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RankFullResponse
      */
-    open class func getRankings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RankFullResponse {
-        return try await getRankingsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, q: q, keyword: keyword, rankType: rankType, leaderboardMode: leaderboardMode, withinAccountIds: withinAccountIds, returnUserRank: returnUserRank, albumId: albumId, audienceId: audienceId, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getRankings(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RankFullResponse {
+        return try await getRankingsWithRequestBuilder(deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, q: q, keyword: keyword, rankType: rankType, leaderboardMode: leaderboardMode, withinAccountIds: withinAccountIds, returnUserRank: returnUserRank, albumId: albumId, audienceId: audienceId, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Rankings
-     - GET /api/{version}/ranking/search
+     - GET /ranking/search
      - Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter gameType: (query) This parameter is deprecated. (optional)
@@ -136,11 +129,8 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RankFullResponse> 
      */
-    open class func getRankingsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RankFullResponse> {
-        var localVariablePath = "/api/{version}/ranking/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRankingsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RankFullResponse> {
+        let localVariablePath = "/ranking/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -180,7 +170,6 @@ open class RankingAPI {
     /**
      Get Personal Rankings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (optional)
      - parameter appKey: (query) the application key for filtering results by application (required) (optional)
@@ -195,15 +184,14 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: JSONValue
      */
-    open class func getUserRank(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
-        return try await getUserRankWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, rankType: rankType, returnUserRank: returnUserRank, leaderboardMode: leaderboardMode, sortField: sortField, keyword: keyword, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserRank(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
+        return try await getUserRankWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, rankType: rankType, returnUserRank: returnUserRank, leaderboardMode: leaderboardMode, sortField: sortField, keyword: keyword, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Personal Rankings
-     - POST /api/{version}/ranking/personal/ranks
+     - POST /ranking/personal/ranks
      - Returns the user's ranks for one or more rank types and modes.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (optional)
      - parameter appKey: (query) the application key for filtering results by application (required) (optional)
@@ -218,11 +206,8 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func getUserRankWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
-        var localVariablePath = "/api/{version}/ranking/personal/ranks"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserRankWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
+        let localVariablePath = "/ranking/personal/ranks"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -255,7 +240,6 @@ open class RankingAPI {
     /**
      Override User Rank
      
-     - parameter version: (path)  
      - parameter accountId: (query) the logged in user&#39;s account id (must have permissions to manage data for the application) 
      - parameter ownerAccountId: (query) the end user&#39;s account id to override 
      - parameter appKey: (query) the application key the leaderboard is for 
@@ -281,15 +265,14 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func overrideUserRank(version: Double, accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await overrideUserRankWithRequestBuilder(version: version, accountId: accountId, ownerAccountId: ownerAccountId, appKey: appKey, rankType: rankType, totalScore: totalScore, totalCount: totalCount, totalTime: totalTime, dailyScore: dailyScore, dailyCount: dailyCount, dailyTime: dailyTime, weeklyScore: weeklyScore, weeklyCount: weeklyCount, weeklyTime: weeklyTime, monthlyScore: monthlyScore, monthlyCount: monthlyCount, monthlyTime: monthlyTime, topScore: topScore, lowestScore: lowestScore, streakCount: streakCount, streakBestCount: streakBestCount, startDate: startDate, endDate: endDate, apiConfiguration: apiConfiguration).execute().body
+    open class func overrideUserRank(accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await overrideUserRankWithRequestBuilder(accountId: accountId, ownerAccountId: ownerAccountId, appKey: appKey, rankType: rankType, totalScore: totalScore, totalCount: totalCount, totalTime: totalTime, dailyScore: dailyScore, dailyCount: dailyCount, dailyTime: dailyTime, weeklyScore: weeklyScore, weeklyCount: weeklyCount, weeklyTime: weeklyTime, monthlyScore: monthlyScore, monthlyCount: monthlyCount, monthlyTime: monthlyTime, topScore: topScore, lowestScore: lowestScore, streakCount: streakCount, streakBestCount: streakBestCount, startDate: startDate, endDate: endDate, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Override User Rank
-     - POST /api/{version}/ranking/override
+     - POST /ranking/override
      - Allows an admin of an application to override a user's scores for a leaderboard.
-     - parameter version: (path)  
      - parameter accountId: (query) the logged in user&#39;s account id (must have permissions to manage data for the application) 
      - parameter ownerAccountId: (query) the end user&#39;s account id to override 
      - parameter appKey: (query) the application key the leaderboard is for 
@@ -315,11 +298,8 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func overrideUserRankWithRequestBuilder(version: Double, accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/ranking/override"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func overrideUserRankWithRequestBuilder(accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/ranking/override"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -363,7 +343,6 @@ open class RankingAPI {
     /**
      Update Ranking
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS 
@@ -377,15 +356,14 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateRankings(version: Double, accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateRankingsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, rankType: rankType, increment: increment, timeIncrement: timeIncrement, tag: tag, startDate: startDate, endDate: endDate, updateGlobal: updateGlobal, createLeaderboard: createLeaderboard, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRankings(accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateRankingsWithRequestBuilder(accountId: accountId, appKey: appKey, rankType: rankType, increment: increment, timeIncrement: timeIncrement, tag: tag, startDate: startDate, endDate: endDate, updateGlobal: updateGlobal, createLeaderboard: createLeaderboard, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Ranking
-     - POST /api/{version}/ranking/update
+     - POST /ranking/update
      - Update the rank value 
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS 
@@ -399,11 +377,8 @@ open class RankingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateRankingsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/ranking/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRankingsWithRequestBuilder(accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/ranking/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

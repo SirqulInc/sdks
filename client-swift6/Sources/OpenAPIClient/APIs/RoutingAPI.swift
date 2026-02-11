@@ -12,29 +12,24 @@ open class RoutingAPI {
     /**
      Compute Route
      
-     - parameter version: (path)  
      - parameter data: (query) Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RoutingListResponse
      */
-    open class func computeRouting(version: Double, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RoutingListResponse {
-        return try await computeRoutingWithRequestBuilder(version: version, data: data, apiConfiguration: apiConfiguration).execute().body
+    open class func computeRouting(data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RoutingListResponse {
+        return try await computeRoutingWithRequestBuilder(data: data, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Compute Route
-     - POST /api/{version}/routing/compute
+     - POST /routing/compute
      - This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     - parameter version: (path)  
      - parameter data: (query) Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RoutingListResponse> 
      */
-    open class func computeRoutingWithRequestBuilder(version: Double, data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RoutingListResponse> {
-        var localVariablePath = "/api/{version}/routing/compute"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func computeRoutingWithRequestBuilder(data: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RoutingListResponse> {
+        let localVariablePath = "/routing/compute"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

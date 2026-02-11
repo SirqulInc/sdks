@@ -12,29 +12,24 @@ open class AssetAPI {
     /**
      Download Asset
      
-     - parameter version: (path)  
      - parameter filename: (path) the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func assetDownload(version: Double, filename: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await assetDownloadWithRequestBuilder(version: version, filename: filename, apiConfiguration: apiConfiguration).execute().body
+    open class func assetDownload(filename: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await assetDownloadWithRequestBuilder(filename: filename, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Download Asset
-     - GET /api/{version}/asset/download/{filename}
+     - GET /asset/download/{filename}
      - Downloads an asset from the server for assets that have been uploaded to the server.
-     - parameter version: (path)  
      - parameter filename: (path) the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func assetDownloadWithRequestBuilder(version: Double, filename: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/asset/download/{filename}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assetDownloadWithRequestBuilder(filename: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        var localVariablePath = "/asset/download/{filename}"
         let filenamePreEscape = "\(APIHelper.mapValueToPathItem(filename))"
         let filenamePostEscape = filenamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{filename}", with: filenamePostEscape, options: .literal, range: nil)
@@ -80,7 +75,6 @@ open class AssetAPI {
     /**
      Convert Offer to Creative
      
-     - parameter version: (path)  
      - parameter offerId: (query) offer id used for inserting offer text/flavor 
      - parameter adSize: (query) the ad size used for selecting a format for the creative image 
      - parameter creativeId: (query) used for inserting the newly created image into (optional)
@@ -91,15 +85,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssetShortResponse
      */
-    open class func assetMorph(version: Double, offerId: Int64, adSize: AdSize_assetMorph, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetShortResponse {
-        return try await assetMorphWithRequestBuilder(version: version, offerId: offerId, adSize: adSize, creativeId: creativeId, width: width, height: height, backgroundSize: backgroundSize, template: template, apiConfiguration: apiConfiguration).execute().body
+    open class func assetMorph(offerId: Int64, adSize: AdSize_assetMorph, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetShortResponse {
+        return try await assetMorphWithRequestBuilder(offerId: offerId, adSize: adSize, creativeId: creativeId, width: width, height: height, backgroundSize: backgroundSize, template: template, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Convert Offer to Creative
-     - POST /api/{version}/asset/morph
+     - POST /asset/morph
      - Converts an offer image + text into a creative image.
-     - parameter version: (path)  
      - parameter offerId: (query) offer id used for inserting offer text/flavor 
      - parameter adSize: (query) the ad size used for selecting a format for the creative image 
      - parameter creativeId: (query) used for inserting the newly created image into (optional)
@@ -110,11 +103,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssetShortResponse> 
      */
-    open class func assetMorphWithRequestBuilder(version: Double, offerId: Int64, adSize: AdSize_assetMorph, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetShortResponse> {
-        var localVariablePath = "/api/{version}/asset/morph"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assetMorphWithRequestBuilder(offerId: Int64, adSize: AdSize_assetMorph, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetShortResponse> {
+        let localVariablePath = "/asset/morph"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -143,7 +133,6 @@ open class AssetAPI {
     /**
      Create Asset
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) to return nulls (optional)
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -181,15 +170,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssetResponse
      */
-    open class func createAsset(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetResponse {
-        return try await createAssetWithRequestBuilder(version: version, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, addToDefaultAlbum: addToDefaultAlbum, addToMediaLibrary: addToMediaLibrary, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, app: app, appKey: appKey, searchTags: searchTags, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createAsset(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetResponse {
+        return try await createAssetWithRequestBuilder(returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, addToDefaultAlbum: addToDefaultAlbum, addToMediaLibrary: addToMediaLibrary, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, app: app, appKey: appKey, searchTags: searchTags, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Asset
-     - POST /api/{version}/asset/create
+     - POST /asset/create
      - Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     - parameter version: (path)  
      - parameter returnNulls: (query) to return nulls (optional)
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -227,11 +215,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssetResponse> 
      */
-    open class func createAssetWithRequestBuilder(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetResponse> {
-        var localVariablePath = "/api/{version}/asset/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createAssetWithRequestBuilder(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetResponse> {
+        let localVariablePath = "/asset/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -287,7 +272,6 @@ open class AssetAPI {
     /**
      Delete Asset
      
-     - parameter version: (path)  
      - parameter assetId: (query) the id of the asset to delete 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -296,15 +280,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteAsset(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteAssetWithRequestBuilder(version: version, assetId: assetId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteAsset(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteAssetWithRequestBuilder(assetId: assetId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Asset
-     - POST /api/{version}/asset/delete
+     - POST /asset/delete
      - Delete an asset.
-     - parameter version: (path)  
      - parameter assetId: (query) the id of the asset to delete 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -313,11 +296,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteAssetWithRequestBuilder(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/asset/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteAssetWithRequestBuilder(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/asset/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -344,7 +324,6 @@ open class AssetAPI {
     /**
      Get Asset
      
-     - parameter version: (path)  
      - parameter assetId: (query) the asset ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -352,15 +331,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssetFullResponse
      */
-    open class func getAsset(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetFullResponse {
-        return try await getAssetWithRequestBuilder(version: version, assetId: assetId, deviceId: deviceId, accountId: accountId, noteDescending: noteDescending, apiConfiguration: apiConfiguration).execute().body
+    open class func getAsset(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssetFullResponse {
+        return try await getAssetWithRequestBuilder(assetId: assetId, deviceId: deviceId, accountId: accountId, noteDescending: noteDescending, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Asset
-     - GET /api/{version}/asset/get
+     - GET /asset/get
      - Gets the full asset response including attached likes and notes.
-     - parameter version: (path)  
      - parameter assetId: (query) the asset ID 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -368,11 +346,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssetFullResponse> 
      */
-    open class func getAssetWithRequestBuilder(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetFullResponse> {
-        var localVariablePath = "/api/{version}/asset/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAssetWithRequestBuilder(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssetFullResponse> {
+        let localVariablePath = "/asset/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -398,7 +373,6 @@ open class AssetAPI {
     /**
      Remove Asset from Collection
      
-     - parameter version: (path)  
      - parameter assetId: (query) the id of the asset to remove 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -410,15 +384,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeAsset(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeAssetWithRequestBuilder(version: version, assetId: assetId, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, removeFromDefaultAlbums: removeFromDefaultAlbums, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeAsset(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeAssetWithRequestBuilder(assetId: assetId, deviceId: deviceId, accountId: accountId, albumId: albumId, collectionId: collectionId, removeFromDefaultAlbums: removeFromDefaultAlbums, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Asset from Collection
-     - POST /api/{version}/asset/remove
+     - POST /asset/remove
      - Remove assets from collections
-     - parameter version: (path)  
      - parameter assetId: (query) the id of the asset to remove 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -430,11 +403,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeAssetWithRequestBuilder(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/asset/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeAssetWithRequestBuilder(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/asset/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -464,7 +434,6 @@ open class AssetAPI {
     /**
      Search Assets
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter albumIds: (query) comma separated list of album ids to search on (optional)
@@ -492,15 +461,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AssetResponse]
      */
-    open class func searchAssets(version: Double, deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssetResponse] {
-        return try await searchAssetsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, albumIds: albumIds, assetIds: assetIds, appKey: appKey, mediaType: mediaType, mimeType: mimeType, keyword: keyword, versionCode: versionCode, versionName: versionName, updatedSince: updatedSince, updatedBefore: updatedBefore, sortField: sortField, descending: descending, searchMediaLibrary: searchMediaLibrary, filterByBillable: filterByBillable, activeOnly: activeOnly, returnApp: returnApp, start: start, limit: limit, searchMode: searchMode, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAssets(deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssetResponse] {
+        return try await searchAssetsWithRequestBuilder(deviceId: deviceId, accountId: accountId, albumIds: albumIds, assetIds: assetIds, appKey: appKey, mediaType: mediaType, mimeType: mimeType, keyword: keyword, versionCode: versionCode, versionName: versionName, updatedSince: updatedSince, updatedBefore: updatedBefore, sortField: sortField, descending: descending, searchMediaLibrary: searchMediaLibrary, filterByBillable: filterByBillable, activeOnly: activeOnly, returnApp: returnApp, start: start, limit: limit, searchMode: searchMode, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Assets
-     - GET /api/{version}/asset/search
+     - GET /asset/search
      - Searches for assets
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
      - parameter albumIds: (query) comma separated list of album ids to search on (optional)
@@ -528,11 +496,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AssetResponse]> 
      */
-    open class func searchAssetsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssetResponse]> {
-        var localVariablePath = "/api/{version}/asset/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAssetsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssetResponse]> {
+        let localVariablePath = "/asset/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -578,7 +543,6 @@ open class AssetAPI {
     /**
      Update Asset
      
-     - parameter version: (path)  
      - parameter assetId: (query) the ID of the asset to update 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -613,15 +577,14 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateAsset(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateAssetWithRequestBuilder(version: version, assetId: assetId, deviceId: deviceId, accountId: accountId, albumId: albumId, attachedAssetId: attachedAssetId, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, searchTags: searchTags, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func updateAsset(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateAssetWithRequestBuilder(assetId: assetId, deviceId: deviceId, accountId: accountId, albumId: albumId, attachedAssetId: attachedAssetId, versionCode: versionCode, versionName: versionName, metaData: metaData, caption: caption, assetType: assetType, approvalStatus: approvalStatus, assignedAccountId: assignedAccountId, media: media, mediaUrl: mediaUrl, mediaString: mediaString, mediaStringFileName: mediaStringFileName, mediaStringContentType: mediaStringContentType, mediaHeight: mediaHeight, mediaWidth: mediaWidth, attachedMedia: attachedMedia, attachedMediaUrl: attachedMediaUrl, attachedMediaString: attachedMediaString, attachedMediaStringFileName: attachedMediaStringFileName, attachedMediaStringContentType: attachedMediaStringContentType, attachedMediaHeight: attachedMediaHeight, attachedMediaWidth: attachedMediaWidth, locationDescription: locationDescription, searchTags: searchTags, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Asset
-     - POST /api/{version}/asset/update
+     - POST /asset/update
      - Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     - parameter version: (path)  
      - parameter assetId: (query) the ID of the asset to update 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -656,11 +619,8 @@ open class AssetAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateAssetWithRequestBuilder(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/asset/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateAssetWithRequestBuilder(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: URL? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: URL? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/asset/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

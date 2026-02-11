@@ -12,33 +12,28 @@ open class OptimizeAPI {
     /**
      Get Optimization Result
      
-     - parameter version: (path)  
      - parameter batchID: (path) The batchID for getting the import status of. 
      - parameter start: (query) The start index for pagination 
      - parameter limit: (query) The limit for pagination 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [String: ShipmentOrder]
      */
-    open class func getOptimizationResult(version: Double, batchID: String, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [String: ShipmentOrder] {
-        return try await getOptimizationResultWithRequestBuilder(version: version, batchID: batchID, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getOptimizationResult(batchID: String, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [String: ShipmentOrder] {
+        return try await getOptimizationResultWithRequestBuilder(batchID: batchID, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Optimization Result
-     - GET /api/{version}/optimize/result/{batchID}
+     - GET /optimize/result/{batchID}
      - Get the results of the import batch.
-     - parameter version: (path)  
      - parameter batchID: (path) The batchID for getting the import status of. 
      - parameter start: (query) The start index for pagination 
      - parameter limit: (query) The limit for pagination 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[String: ShipmentOrder]> 
      */
-    open class func getOptimizationResultWithRequestBuilder(version: Double, batchID: String, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[String: ShipmentOrder]> {
-        var localVariablePath = "/api/{version}/optimize/result/{batchID}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOptimizationResultWithRequestBuilder(batchID: String, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[String: ShipmentOrder]> {
+        var localVariablePath = "/optimize/result/{batchID}"
         let batchIDPreEscape = "\(APIHelper.mapValueToPathItem(batchID))"
         let batchIDPostEscape = batchIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{batchID}", with: batchIDPostEscape, options: .literal, range: nil)
@@ -65,29 +60,24 @@ open class OptimizeAPI {
     /**
      Request Optimization
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ImportStatuses
      */
-    open class func requestOptimization(version: Double, body: Orders? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ImportStatuses {
-        return try await requestOptimizationWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func requestOptimization(body: Orders? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ImportStatuses {
+        return try await requestOptimizationWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Request Optimization
-     - POST /api/{version}/optimize/request
+     - POST /optimize/request
      - Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ImportStatuses> 
      */
-    open class func requestOptimizationWithRequestBuilder(version: Double, body: Orders? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ImportStatuses> {
-        var localVariablePath = "/api/{version}/optimize/request"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func requestOptimizationWithRequestBuilder(body: Orders? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ImportStatuses> {
+        let localVariablePath = "/optimize/request"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 

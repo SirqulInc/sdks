@@ -12,7 +12,6 @@ open class NoteAPI {
     /**
      Batch Note Operation
      
-     - parameter version: (path)  
      - parameter notableId: (query) The id of the notable object the batch operation will affect 
      - parameter notableType: (query) The notable object type (for example ALBUM, ASSET, OFFER, etc.) 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -21,15 +20,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func batchOperation(version: Double, notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await batchOperationWithRequestBuilder(version: version, notableId: notableId, notableType: notableType, deviceId: deviceId, accountId: accountId, batchOperation: batchOperation, apiConfiguration: apiConfiguration).execute().body
+    open class func batchOperation(notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await batchOperationWithRequestBuilder(notableId: notableId, notableType: notableType, deviceId: deviceId, accountId: accountId, batchOperation: batchOperation, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Batch Note Operation
-     - POST /api/{version}/note/batch
+     - POST /note/batch
      - Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     - parameter version: (path)  
      - parameter notableId: (query) The id of the notable object the batch operation will affect 
      - parameter notableType: (query) The notable object type (for example ALBUM, ASSET, OFFER, etc.) 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -38,11 +36,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func batchOperationWithRequestBuilder(version: Double, notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/note/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func batchOperationWithRequestBuilder(notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/note/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -69,7 +64,6 @@ open class NoteAPI {
     /**
      Create Note
      
-     - parameter version: (path)  
      - parameter comment: (query) The message the user wishes to leave a comment on 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -115,15 +109,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NoteResponse
      */
-    open class func createNote(version: Double, comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NoteResponse {
-        return try await createNoteWithRequestBuilder(version: version, comment: comment, deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, receiverAccountIds: receiverAccountIds, returnFullResponse: returnFullResponse, initializeAsset: initializeAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createNote(comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NoteResponse {
+        return try await createNoteWithRequestBuilder(comment: comment, deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, receiverAccountIds: receiverAccountIds, returnFullResponse: returnFullResponse, initializeAsset: initializeAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Note
-     - POST /api/{version}/note/create
+     - POST /note/create
      - This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     - parameter version: (path)  
      - parameter comment: (query) The message the user wishes to leave a comment on 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -169,11 +162,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NoteResponse> 
      */
-    open class func createNoteWithRequestBuilder(version: Double, comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NoteResponse> {
-        var localVariablePath = "/api/{version}/note/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createNoteWithRequestBuilder(comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NoteResponse> {
+        let localVariablePath = "/note/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -237,7 +227,6 @@ open class NoteAPI {
     /**
      Delete Note
      
-     - parameter version: (path)  
      - parameter noteId: (query) The ID of the note to delete 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -247,15 +236,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteNoteWithRequestBuilder(version: version, noteId: noteId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteNoteWithRequestBuilder(noteId: noteId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Note
-     - POST /api/{version}/note/delete
+     - POST /note/delete
      - Sets a comment (note) as deleted.
-     - parameter version: (path)  
      - parameter noteId: (query) The ID of the note to delete 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -265,11 +253,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteNoteWithRequestBuilder(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/note/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteNoteWithRequestBuilder(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/note/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -297,7 +282,6 @@ open class NoteAPI {
     /**
      Get Note
      
-     - parameter version: (path)  
      - parameter noteId: (query) the id of the note to get 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -305,15 +289,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getNoteWithRequestBuilder(version: version, noteId: noteId, deviceId: deviceId, accountId: accountId, returnFullResponse: returnFullResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getNoteWithRequestBuilder(noteId: noteId, deviceId: deviceId, accountId: accountId, returnFullResponse: returnFullResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Note
-     - POST /api/{version}/note/get
+     - POST /note/get
      - Get for a note based on its Id.
-     - parameter version: (path)  
      - parameter noteId: (query) the id of the note to get 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -321,11 +304,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getNoteWithRequestBuilder(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/note/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getNoteWithRequestBuilder(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/note/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -369,7 +349,6 @@ open class NoteAPI {
     /**
      Search Notes
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter notableType: (query) The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -390,15 +369,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [NoteResponse]
      */
-    open class func searchNotes(version: Double, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SortField_searchNotes? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [NoteResponse] {
-        return try await searchNotesWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteTypes: noteTypes, appKey: appKey, keyword: keyword, flagCountMinimum: flagCountMinimum, flagsExceedThreshold: flagsExceedThreshold, includeInactive: includeInactive, sortField: sortField, descending: descending, returnFullResponse: returnFullResponse, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchNotes(deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SortField_searchNotes? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [NoteResponse] {
+        return try await searchNotesWithRequestBuilder(deviceId: deviceId, accountId: accountId, notableType: notableType, notableId: notableId, noteTypes: noteTypes, appKey: appKey, keyword: keyword, flagCountMinimum: flagCountMinimum, flagsExceedThreshold: flagsExceedThreshold, includeInactive: includeInactive, sortField: sortField, descending: descending, returnFullResponse: returnFullResponse, updatedSince: updatedSince, updatedBefore: updatedBefore, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Notes
-     - POST /api/{version}/note/search
+     - POST /note/search
      - Search for notes on a notable object.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter notableType: (query) The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -419,11 +397,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[NoteResponse]> 
      */
-    open class func searchNotesWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SortField_searchNotes? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[NoteResponse]> {
-        var localVariablePath = "/api/{version}/note/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchNotesWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SortField_searchNotes? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[NoteResponse]> {
+        let localVariablePath = "/note/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -462,7 +437,6 @@ open class NoteAPI {
     /**
      Update Note
      
-     - parameter version: (path)  
      - parameter noteId: (query) The id of the note, used when editing a comment 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -507,15 +481,14 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NoteResponse
      */
-    open class func updateNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NoteResponse {
-        return try await updateNoteWithRequestBuilder(version: version, noteId: noteId, deviceId: deviceId, accountId: accountId, comment: comment, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, active: active, updateAsset: updateAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, apiConfiguration: apiConfiguration).execute().body
+    open class func updateNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NoteResponse {
+        return try await updateNoteWithRequestBuilder(noteId: noteId, deviceId: deviceId, accountId: accountId, comment: comment, noteType: noteType, assetIds: assetIds, tags: tags, permissionableType: permissionableType, permissionableId: permissionableId, appKey: appKey, locationDescription: locationDescription, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, active: active, updateAsset: updateAsset, assetReturnNulls: assetReturnNulls, assetAlbumId: assetAlbumId, assetCollectionId: assetCollectionId, assetAddToDefaultAlbum: assetAddToDefaultAlbum, assetAddToMediaLibrary: assetAddToMediaLibrary, assetVersionCode: assetVersionCode, assetVersionName: assetVersionName, assetMetaData: assetMetaData, assetCaption: assetCaption, assetMedia: assetMedia, assetMediaUrl: assetMediaUrl, assetMediaString: assetMediaString, assetMediaStringFileName: assetMediaStringFileName, assetMediaStringContentType: assetMediaStringContentType, assetAttachedMedia: assetAttachedMedia, assetAttachedMediaUrl: assetAttachedMediaUrl, assetAttachedMediaString: assetAttachedMediaString, assetAttachedMediaStringFileName: assetAttachedMediaStringFileName, assetAttachedMediaStringContentType: assetAttachedMediaStringContentType, assetLocationDescription: assetLocationDescription, assetApp: assetApp, assetSearchTags: assetSearchTags, assetLatitude: assetLatitude, assetLongitude: assetLongitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Note
-     - POST /api/{version}/note/update
+     - POST /note/update
      - Update an existing comment (note). Only the creator of the note have permission to update.
-     - parameter version: (path)  
      - parameter noteId: (query) The id of the note, used when editing a comment 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -560,11 +533,8 @@ open class NoteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NoteResponse> 
      */
-    open class func updateNoteWithRequestBuilder(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NoteResponse> {
-        var localVariablePath = "/api/{version}/note/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateNoteWithRequestBuilder(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: URL? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: URL? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NoteResponse> {
+        let localVariablePath = "/note/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

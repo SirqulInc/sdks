@@ -12,7 +12,6 @@ open class GameAPI {
     /**
      Create a Game
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter appKey: (query) The game application key to save the level for. (optional)
      - parameter title: (query) Title of the game. (optional)
@@ -23,15 +22,14 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameResponse
      */
-    open class func createGame(version: Double, accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
-        return try await createGameWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func createGame(accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
+        return try await createGameWithRequestBuilder(accountId: accountId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create a Game
-     - POST /api/{version}/game/create
+     - POST /game/create
      - Create a Game.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter appKey: (query) The game application key to save the level for. (optional)
      - parameter title: (query) Title of the game. (optional)
@@ -42,11 +40,8 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameResponse> 
      */
-    open class func createGameWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
-        var localVariablePath = "/api/{version}/game/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createGameWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
+        let localVariablePath = "/game/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,31 +70,26 @@ open class GameAPI {
     /**
      Delete a Game
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter gameId: (query) the updating game&#39;s id. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteGame(version: Double, accountId: Int64, gameId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteGameWithRequestBuilder(version: version, accountId: accountId, gameId: gameId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteGame(accountId: Int64, gameId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteGameWithRequestBuilder(accountId: accountId, gameId: gameId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete a Game
-     - POST /api/{version}/game/delete
+     - POST /game/delete
      - Delete a game.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter gameId: (query) the updating game&#39;s id. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteGameWithRequestBuilder(version: Double, accountId: Int64, gameId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/game/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteGameWithRequestBuilder(accountId: Int64, gameId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/game/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -123,33 +113,28 @@ open class GameAPI {
     /**
      Get a Game by id
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter gameId: (query) the updating game&#39;s id. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameResponse
      */
-    open class func getGame(version: Double, accountId: Int64, gameId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
-        return try await getGameWithRequestBuilder(version: version, accountId: accountId, gameId: gameId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func getGame(accountId: Int64, gameId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
+        return try await getGameWithRequestBuilder(accountId: accountId, gameId: gameId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get a Game by id
-     - GET /api/{version}/game/get
+     - GET /game/get
      - Get a Game by id.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter gameId: (query) the updating game&#39;s id. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameResponse> 
      */
-    open class func getGameWithRequestBuilder(version: Double, accountId: Int64, gameId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
-        var localVariablePath = "/api/{version}/game/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGameWithRequestBuilder(accountId: Int64, gameId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
+        let localVariablePath = "/game/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -174,7 +159,6 @@ open class GameAPI {
     /**
      Search a Game
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter start: (query) Start the result set at some index. 
@@ -186,15 +170,14 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameResponse
      */
-    open class func searchGames(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
-        return try await searchGamesWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, start: start, limit: limit, keyword: keyword, appVersion: appVersion, includeGameData: includeGameData, includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
+    open class func searchGames(accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
+        return try await searchGamesWithRequestBuilder(accountId: accountId, appKey: appKey, start: start, limit: limit, keyword: keyword, appVersion: appVersion, includeGameData: includeGameData, includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search a Game
-     - GET /api/{version}/game/search
+     - GET /game/search
      - Get a list of games for an application, just those the account has permissions to view.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter start: (query) Start the result set at some index. 
@@ -206,11 +189,8 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameResponse> 
      */
-    open class func searchGamesWithRequestBuilder(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
-        var localVariablePath = "/api/{version}/game/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchGamesWithRequestBuilder(accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
+        let localVariablePath = "/game/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -240,7 +220,6 @@ open class GameAPI {
     /**
      Update a Game
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter gameId: (query) the updating game&#39;s id (optional)
      - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -252,15 +231,14 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameResponse
      */
-    open class func updateGame(version: Double, accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
-        return try await updateGameWithRequestBuilder(version: version, accountId: accountId, gameId: gameId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateGame(accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameResponse {
+        return try await updateGameWithRequestBuilder(accountId: accountId, gameId: gameId, appKey: appKey, title: title, description: description, metaData: metaData, packIds: packIds, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update a Game
-     - POST /api/{version}/game/update
+     - POST /game/update
      - Update a Game
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. (optional)
      - parameter gameId: (query) the updating game&#39;s id (optional)
      - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -272,11 +250,8 @@ open class GameAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameResponse> 
      */
-    open class func updateGameWithRequestBuilder(version: Double, accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
-        var localVariablePath = "/api/{version}/game/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateGameWithRequestBuilder(accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameResponse> {
+        let localVariablePath = "/game/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

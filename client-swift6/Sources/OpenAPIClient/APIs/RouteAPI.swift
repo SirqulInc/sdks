@@ -12,29 +12,24 @@ open class RouteAPI {
     /**
      Approve Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to approve 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func approveRoute(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await approveRouteWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func approveRoute(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await approveRouteWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Approve Route
-     - POST /api/{version}/route/{routeId}/approve
+     - POST /route/{routeId}/approve
      - Approve a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to approve 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func approveRouteWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}/approve"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func approveRouteWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}/approve"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -57,31 +52,26 @@ open class RouteAPI {
     /**
      Copy Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to duplicate 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func copyRoute(version: Double, routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await copyRouteWithRequestBuilder(version: version, routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func copyRoute(routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await copyRouteWithRequestBuilder(routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Copy Route
-     - POST /api/{version}/route/{routeId}/copy
+     - POST /route/{routeId}/copy
      - Make an copy of the given route with optional overriding properties
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to duplicate 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func copyRouteWithRequestBuilder(version: Double, routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}/copy"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func copyRouteWithRequestBuilder(routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}/copy"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -104,29 +94,24 @@ open class RouteAPI {
     /**
      Create Route
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func createRoute(version: Double, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await createRouteWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createRoute(body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await createRouteWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Route
-     - POST /api/{version}/route
+     - POST /route
      - Create new route
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func createRouteWithRequestBuilder(version: Double, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRouteWithRequestBuilder(body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        let localVariablePath = "/route"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -146,29 +131,24 @@ open class RouteAPI {
     /**
      Update Route Directions
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to update directions for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Direction]
      */
-    open class func createRouteDirections(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Direction] {
-        return try await createRouteDirectionsWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func createRouteDirections(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Direction] {
+        return try await createRouteDirectionsWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Route Directions
-     - PUT /api/{version}/route/{routeId}/directions
+     - PUT /route/{routeId}/directions
      - Regenerate the directions of a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to update directions for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Direction]> 
      */
-    open class func createRouteDirectionsWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Direction]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/directions"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRouteDirectionsWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Direction]> {
+        var localVariablePath = "/route/{routeId}/directions"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -191,29 +171,24 @@ open class RouteAPI {
     /**
      Create Route Polyline
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to create a polyline for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func createRoutePolyline(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await createRoutePolylineWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func createRoutePolyline(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await createRoutePolylineWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Route Polyline
-     - PUT /api/{version}/route/{routeId}/polyline
+     - PUT /route/{routeId}/polyline
      - Update the polyline of the requested route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to create a polyline for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func createRoutePolylineWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}/polyline"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRoutePolylineWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}/polyline"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -236,29 +211,24 @@ open class RouteAPI {
     /**
      Delete Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteRoute(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteRouteWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRoute(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteRouteWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Route
-     - DELETE /api/{version}/route/{routeId}
+     - DELETE /route/{routeId}
      - Delete an existing route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteRouteWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/route/{routeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRouteWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/route/{routeId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -281,29 +251,24 @@ open class RouteAPI {
     /**
      Disapprove Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to reject 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func disapproveRoute(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await disapproveRouteWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func disapproveRoute(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await disapproveRouteWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Disapprove Route
-     - POST /api/{version}/route/{routeId}/disapprove
+     - POST /route/{routeId}/disapprove
      - Disapprove a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to reject 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func disapproveRouteWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}/disapprove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func disapproveRouteWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}/disapprove"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -326,31 +291,26 @@ open class RouteAPI {
     /**
      Get Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get 
      - parameter showInheritedProperties: (query) return inherited properties from parent or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func getRoute(version: Double, routeId: Int64, showInheritedProperties: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await getRouteWithRequestBuilder(version: version, routeId: routeId, showInheritedProperties: showInheritedProperties, apiConfiguration: apiConfiguration).execute().body
+    open class func getRoute(routeId: Int64, showInheritedProperties: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await getRouteWithRequestBuilder(routeId: routeId, showInheritedProperties: showInheritedProperties, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route
-     - GET /api/{version}/route/{routeId}
+     - GET /route/{routeId}
      - Get an existing route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get 
      - parameter showInheritedProperties: (query) return inherited properties from parent or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func getRouteWithRequestBuilder(version: Double, routeId: Int64, showInheritedProperties: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteWithRequestBuilder(routeId: Int64, showInheritedProperties: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -376,29 +336,24 @@ open class RouteAPI {
     /**
      Get Route Directions
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get directions for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Direction]
      */
-    open class func getRouteDirections(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Direction] {
-        return try await getRouteDirectionsWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRouteDirections(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Direction] {
+        return try await getRouteDirectionsWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route Directions
-     - GET /api/{version}/route/{routeId}/directions
+     - GET /route/{routeId}/directions
      - Get the directions of a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get directions for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Direction]> 
      */
-    open class func getRouteDirectionsWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Direction]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/directions"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteDirectionsWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Direction]> {
+        var localVariablePath = "/route/{routeId}/directions"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -421,29 +376,24 @@ open class RouteAPI {
     /**
      Get Route Shipments
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get shipments for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Shipment]
      */
-    open class func getRouteShipments(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
-        return try await getRouteShipmentsWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRouteShipments(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
+        return try await getRouteShipmentsWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route Shipments
-     - GET /api/{version}/route/{routeId}/shipments
+     - GET /route/{routeId}/shipments
      - Get the shipments on the requested route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get shipments for 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Shipment]> 
      */
-    open class func getRouteShipmentsWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/shipments"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteShipmentsWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
+        var localVariablePath = "/route/{routeId}/shipments"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -466,31 +416,26 @@ open class RouteAPI {
     /**
      Get Route Stop
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get stops for 
      - parameter stopId: (path) the id of the specific stop on the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Stop
      */
-    open class func getRouteStop(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
-        return try await getRouteStopWithRequestBuilder(version: version, routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRouteStop(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
+        return try await getRouteStopWithRequestBuilder(routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route Stop
-     - GET /api/{version}/route/{routeId}/stop/{stopId}
+     - GET /route/{routeId}/stop/{stopId}
      - Get the specific stop on a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to get stops for 
      - parameter stopId: (path) the id of the specific stop on the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Stop> 
      */
-    open class func getRouteStopWithRequestBuilder(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stop/{stopId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteStopWithRequestBuilder(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
+        var localVariablePath = "/route/{routeId}/stop/{stopId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -516,31 +461,26 @@ open class RouteAPI {
     /**
      Get Route Stops
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter confirmedOnly: (query) only get stops that have been confirmed or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Stop]
      */
-    open class func getRouteStops(version: Double, routeId: Int64, confirmedOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
-        return try await getRouteStopsWithRequestBuilder(version: version, routeId: routeId, confirmedOnly: confirmedOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func getRouteStops(routeId: Int64, confirmedOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
+        return try await getRouteStopsWithRequestBuilder(routeId: routeId, confirmedOnly: confirmedOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route Stops
-     - GET /api/{version}/route/{routeId}/stops
+     - GET /route/{routeId}/stops
      - The stops of the route requested
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter confirmedOnly: (query) only get stops that have been confirmed or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Stop]> 
      */
-    open class func getRouteStopsWithRequestBuilder(version: Double, routeId: Int64, confirmedOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stops"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteStopsWithRequestBuilder(routeId: Int64, confirmedOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
+        var localVariablePath = "/route/{routeId}/stops"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -566,31 +506,26 @@ open class RouteAPI {
     /**
      Get Shipments At Stop
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter stopId: (path) the id of the stop to get shipments on 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Shipment]
      */
-    open class func getShipmentsAtStop(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
-        return try await getShipmentsAtStopWithRequestBuilder(version: version, routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
+    open class func getShipmentsAtStop(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Shipment] {
+        return try await getShipmentsAtStopWithRequestBuilder(routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Shipments At Stop
-     - GET /api/{version}/route/{routeId}/stop/{stopId}/shipments
+     - GET /route/{routeId}/stop/{stopId}/shipments
      - Get the list of shipments on the requested route at a stop
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter stopId: (path) the id of the stop to get shipments on 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Shipment]> 
      */
-    open class func getShipmentsAtStopWithRequestBuilder(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stop/{stopId}/shipments"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getShipmentsAtStopWithRequestBuilder(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Shipment]> {
+        var localVariablePath = "/route/{routeId}/stop/{stopId}/shipments"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -616,29 +551,24 @@ open class RouteAPI {
     /**
      Optimize Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to optimize 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func optimizeRoute(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await optimizeRouteWithRequestBuilder(version: version, routeId: routeId, apiConfiguration: apiConfiguration).execute().body
+    open class func optimizeRoute(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await optimizeRouteWithRequestBuilder(routeId: routeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Optimize Route
-     - POST /api/{version}/route/{routeId}/optimize
+     - POST /route/{routeId}/optimize
      - Optimize a route. The optimization method based on how the server is configured.
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to optimize 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func optimizeRouteWithRequestBuilder(version: Double, routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/route/{routeId}/optimize"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func optimizeRouteWithRequestBuilder(routeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/route/{routeId}/optimize"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -661,31 +591,26 @@ open class RouteAPI {
     /**
      Delete Stop
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter stopId: (path) the id of the specific stop to delete on the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func removeStop(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await removeStopWithRequestBuilder(version: version, routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
+    open class func removeStop(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await removeStopWithRequestBuilder(routeId: routeId, stopId: stopId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Stop
-     - DELETE /api/{version}/route/{routeId}/stop/{stopId}
+     - DELETE /route/{routeId}/stop/{stopId}
      - Delete a stop on a route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter stopId: (path) the id of the specific stop to delete on the route 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func removeStopWithRequestBuilder(version: Double, routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stop/{stopId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeStopWithRequestBuilder(routeId: Int64, stopId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/route/{routeId}/stop/{stopId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -711,31 +636,26 @@ open class RouteAPI {
     /**
      Reorder Route Stops
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Stop]
      */
-    open class func reorderRouteStopsPatch(version: Double, routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
-        return try await reorderRouteStopsPatchWithRequestBuilder(version: version, routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func reorderRouteStopsPatch(routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
+        return try await reorderRouteStopsPatchWithRequestBuilder(routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Reorder Route Stops
-     - PATCH /api/{version}/route/{routeId}/stops/reorder
+     - PATCH /route/{routeId}/stops/reorder
      - Reordering the stops on the route with and update route distance, time, direction, and polyline
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Stop]> 
      */
-    open class func reorderRouteStopsPatchWithRequestBuilder(version: Double, routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stops/reorder"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func reorderRouteStopsPatchWithRequestBuilder(routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
+        var localVariablePath = "/route/{routeId}/stops/reorder"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -758,31 +678,26 @@ open class RouteAPI {
     /**
      Reorder Route Stops
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Stop]
      */
-    open class func reorderRouteStopsPost(version: Double, routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
-        return try await reorderRouteStopsPostWithRequestBuilder(version: version, routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func reorderRouteStopsPost(routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Stop] {
+        return try await reorderRouteStopsPostWithRequestBuilder(routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Reorder Route Stops
-     - POST /api/{version}/route/{routeId}/stops/reorder
+     - POST /route/{routeId}/stops/reorder
      - Reordering the stops on the route with and update route distance, time, direction, and polyline
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Stop]> 
      */
-    open class func reorderRouteStopsPostWithRequestBuilder(version: Double, routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stops/reorder"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func reorderRouteStopsPostWithRequestBuilder(routeId: Int64, body: [Stop]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Stop]> {
+        var localVariablePath = "/route/{routeId}/stops/reorder"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -805,7 +720,6 @@ open class RouteAPI {
     /**
      Search Routes
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -830,15 +744,14 @@ open class RouteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Route]
      */
-    open class func searchRoutes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Route] {
-        return try await searchRoutesWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, includesEmpty: includesEmpty, rootOnly: rootOnly, showInheritedProperties: showInheritedProperties, hubId: hubId, programId: programId, scheduledStart: scheduledStart, scheduledEnd: scheduledEnd, updatedStart: updatedStart, updatedEnd: updatedEnd, featured: featured, seatCount: seatCount, approved: approved, started: started, completed: completed, valid: valid, parentId: parentId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRoutes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Route] {
+        return try await searchRoutesWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, includesEmpty: includesEmpty, rootOnly: rootOnly, showInheritedProperties: showInheritedProperties, hubId: hubId, programId: programId, scheduledStart: scheduledStart, scheduledEnd: scheduledEnd, updatedStart: updatedStart, updatedEnd: updatedEnd, featured: featured, seatCount: seatCount, approved: approved, started: started, completed: completed, valid: valid, parentId: parentId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Routes
-     - GET /api/{version}/route
+     - GET /route
      - Search for routes.
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -863,11 +776,8 @@ open class RouteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Route]> 
      */
-    open class func searchRoutesWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Route]> {
-        var localVariablePath = "/api/{version}/route"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRoutesWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Route]> {
+        let localVariablePath = "/route"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -910,31 +820,26 @@ open class RouteAPI {
     /**
      Set Driver
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the route 
      - parameter driverId: (path) the id of the driver 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func setDriver(version: Double, id: Int64, driverId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await setDriverWithRequestBuilder(version: version, id: id, driverId: driverId, apiConfiguration: apiConfiguration).execute().body
+    open class func setDriver(id: Int64, driverId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await setDriverWithRequestBuilder(id: id, driverId: driverId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Set Driver
-     - POST /api/{version}/route/{id}/driver/{driverId}
+     - POST /route/{id}/driver/{driverId}
      - Update the driver of the route.
-     - parameter version: (path)  
      - parameter id: (path) the id of the route 
      - parameter driverId: (path) the id of the driver 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func setDriverWithRequestBuilder(version: Double, id: Int64, driverId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/route/{id}/driver/{driverId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func setDriverWithRequestBuilder(id: Int64, driverId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/route/{id}/driver/{driverId}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -960,31 +865,26 @@ open class RouteAPI {
     /**
      Update Route
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Route
      */
-    open class func updateRoute(version: Double, routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
-        return try await updateRouteWithRequestBuilder(version: version, routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRoute(routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Route {
+        return try await updateRouteWithRequestBuilder(routeId: routeId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Route
-     - PUT /api/{version}/route/{routeId}
+     - PUT /route/{routeId}
      - Update an existing route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Route> 
      */
-    open class func updateRouteWithRequestBuilder(version: Double, routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
-        var localVariablePath = "/api/{version}/route/{routeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRouteWithRequestBuilder(routeId: Int64, body: Route? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Route> {
+        var localVariablePath = "/route/{routeId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)
@@ -1007,33 +907,28 @@ open class RouteAPI {
     /**
      Update Route Stop
      
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to update stops for 
      - parameter stopId: (path) the id of the specific stop to update on the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateRouteStop(version: Double, routeId: Int64, stopId: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateRouteStopWithRequestBuilder(version: version, routeId: routeId, stopId: stopId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRouteStop(routeId: Int64, stopId: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateRouteStopWithRequestBuilder(routeId: routeId, stopId: stopId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Route Stop
-     - PUT /api/{version}/route/{routeId}/stop/{stopId}
+     - PUT /route/{routeId}/stop/{stopId}
      - Update a stop on a specified route
-     - parameter version: (path)  
      - parameter routeId: (path) the id of the route to update stops for 
      - parameter stopId: (path) the id of the specific stop to update on the route 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateRouteStopWithRequestBuilder(version: Double, routeId: Int64, stopId: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/route/{routeId}/stop/{stopId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRouteStopWithRequestBuilder(routeId: Int64, stopId: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/route/{routeId}/stop/{stopId}"
         let routeIdPreEscape = "\(APIHelper.mapValueToPathItem(routeId))"
         let routeIdPostEscape = routeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeId}", with: routeIdPostEscape, options: .literal, range: nil)

@@ -12,33 +12,28 @@ open class SubscriptionAPI {
     /**
      Create Subscription
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the create, must be the responsible manager 
      - parameter planId: (query) The plan to subscribe to, if null use default plan (optional)
      - parameter promoCode: (query) Set a promo code for a discount. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SubscriptionResponse
      */
-    open class func createSubscription(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
-        return try await createSubscriptionWithRequestBuilder(version: version, accountId: accountId, planId: planId, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
+    open class func createSubscription(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
+        return try await createSubscriptionWithRequestBuilder(accountId: accountId, planId: planId, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Subscription
-     - POST /api/{version}/subscription/create
+     - POST /subscription/create
      - Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the create, must be the responsible manager 
      - parameter planId: (query) The plan to subscribe to, if null use default plan (optional)
      - parameter promoCode: (query) Set a promo code for a discount. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SubscriptionResponse> 
      */
-    open class func createSubscriptionWithRequestBuilder(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
-        var localVariablePath = "/api/{version}/subscription/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createSubscriptionWithRequestBuilder(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
+        let localVariablePath = "/subscription/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -63,29 +58,24 @@ open class SubscriptionAPI {
     /**
      Delete Subscription
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must be the responsible manager 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteSubscription(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteSubscriptionWithRequestBuilder(version: version, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteSubscription(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteSubscriptionWithRequestBuilder(accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Subscription
-     - POST /api/{version}/subscription/delete
+     - POST /subscription/delete
      - Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must be the responsible manager 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteSubscriptionWithRequestBuilder(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/subscription/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteSubscriptionWithRequestBuilder(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/subscription/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -108,29 +98,24 @@ open class SubscriptionAPI {
     /**
      Get Subscription
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the lookup 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SubscriptionResponse
      */
-    open class func getSubscription(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
-        return try await getSubscriptionWithRequestBuilder(version: version, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getSubscription(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
+        return try await getSubscriptionWithRequestBuilder(accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Subscription
-     - GET /api/{version}/subscription/get
+     - GET /subscription/get
      - Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the lookup 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SubscriptionResponse> 
      */
-    open class func getSubscriptionWithRequestBuilder(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
-        var localVariablePath = "/api/{version}/subscription/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSubscriptionWithRequestBuilder(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
+        let localVariablePath = "/subscription/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -153,29 +138,24 @@ open class SubscriptionAPI {
     /**
      Get Subscription Plan
      
-     - parameter version: (path)  
      - parameter planId: (query) The ID of the plan to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SubscriptionPlanResponse
      */
-    open class func getSubscriptionPlan(version: Double, planId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionPlanResponse {
-        return try await getSubscriptionPlanWithRequestBuilder(version: version, planId: planId, apiConfiguration: apiConfiguration).execute().body
+    open class func getSubscriptionPlan(planId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionPlanResponse {
+        return try await getSubscriptionPlanWithRequestBuilder(planId: planId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Subscription Plan
-     - GET /api/{version}/subscription/plan/get
+     - GET /subscription/plan/get
      - Get the matched subscription plan
-     - parameter version: (path)  
      - parameter planId: (query) The ID of the plan to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SubscriptionPlanResponse> 
      */
-    open class func getSubscriptionPlanWithRequestBuilder(version: Double, planId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionPlanResponse> {
-        var localVariablePath = "/api/{version}/subscription/plan/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSubscriptionPlanWithRequestBuilder(planId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionPlanResponse> {
+        let localVariablePath = "/subscription/plan/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -198,31 +178,26 @@ open class SubscriptionAPI {
     /**
      List Subscription Plans
      
-     - parameter version: (path)  
      - parameter visible: (query) Include visible only (true), hidden only (false), or all (null) (optional)
      - parameter role: (query) The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [SubscriptionPlanResponse]
      */
-    open class func getSubscriptionPlans(version: Double, visible: Bool? = nil, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [SubscriptionPlanResponse] {
-        return try await getSubscriptionPlansWithRequestBuilder(version: version, visible: visible, role: role, apiConfiguration: apiConfiguration).execute().body
+    open class func getSubscriptionPlans(visible: Bool? = nil, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [SubscriptionPlanResponse] {
+        return try await getSubscriptionPlansWithRequestBuilder(visible: visible, role: role, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Subscription Plans
-     - GET /api/{version}/subscription/plan/list
+     - GET /subscription/plan/list
      - Get the matched subscription plan
-     - parameter version: (path)  
      - parameter visible: (query) Include visible only (true), hidden only (false), or all (null) (optional)
      - parameter role: (query) The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[SubscriptionPlanResponse]> 
      */
-    open class func getSubscriptionPlansWithRequestBuilder(version: Double, visible: Bool? = nil, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[SubscriptionPlanResponse]> {
-        var localVariablePath = "/api/{version}/subscription/plan/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSubscriptionPlansWithRequestBuilder(visible: Bool? = nil, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[SubscriptionPlanResponse]> {
+        let localVariablePath = "/subscription/plan/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -246,7 +221,6 @@ open class SubscriptionAPI {
     /**
      Get Subscription Usage
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the lookup 
      - parameter applicationId: (query) Get for just 1 application instead of the BillableEntity (optional)
      - parameter start: (query) The start time frame (optional)
@@ -254,15 +228,14 @@ open class SubscriptionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationUsageResponse
      */
-    open class func getSubscriptionUsage(version: Double, accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationUsageResponse {
-        return try await getSubscriptionUsageWithRequestBuilder(version: version, accountId: accountId, applicationId: applicationId, start: start, end: end, apiConfiguration: apiConfiguration).execute().body
+    open class func getSubscriptionUsage(accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationUsageResponse {
+        return try await getSubscriptionUsageWithRequestBuilder(accountId: accountId, applicationId: applicationId, start: start, end: end, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Subscription Usage
-     - GET /api/{version}/subscription/usage/get
+     - GET /subscription/usage/get
      - Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the lookup 
      - parameter applicationId: (query) Get for just 1 application instead of the BillableEntity (optional)
      - parameter start: (query) The start time frame (optional)
@@ -270,11 +243,8 @@ open class SubscriptionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationUsageResponse> 
      */
-    open class func getSubscriptionUsageWithRequestBuilder(version: Double, accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationUsageResponse> {
-        var localVariablePath = "/api/{version}/subscription/usage/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSubscriptionUsageWithRequestBuilder(accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationUsageResponse> {
+        let localVariablePath = "/subscription/usage/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -300,7 +270,6 @@ open class SubscriptionAPI {
     /**
      Update Subscription
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the update, must be the responsible manager 
      - parameter planId: (query) The plan to subscribe to (optional)
      - parameter promoCode: (query) Set a promo code for a discount. (optional)
@@ -308,15 +277,14 @@ open class SubscriptionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SubscriptionResponse
      */
-    open class func updateSubscription(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
-        return try await updateSubscriptionWithRequestBuilder(version: version, accountId: accountId, planId: planId, promoCode: promoCode, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateSubscription(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SubscriptionResponse {
+        return try await updateSubscriptionWithRequestBuilder(accountId: accountId, planId: planId, promoCode: promoCode, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Subscription
-     - POST /api/{version}/subscription/update
+     - POST /subscription/update
      - Updates the subscription for the billable entity for an account
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the update, must be the responsible manager 
      - parameter planId: (query) The plan to subscribe to (optional)
      - parameter promoCode: (query) Set a promo code for a discount. (optional)
@@ -324,11 +292,8 @@ open class SubscriptionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SubscriptionResponse> 
      */
-    open class func updateSubscriptionWithRequestBuilder(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
-        var localVariablePath = "/api/{version}/subscription/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateSubscriptionWithRequestBuilder(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SubscriptionResponse> {
+        let localVariablePath = "/subscription/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

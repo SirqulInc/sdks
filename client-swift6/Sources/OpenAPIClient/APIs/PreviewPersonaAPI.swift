@@ -12,7 +12,6 @@ open class PreviewPersonaAPI {
     /**
      Create Persona
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter title: (query) the title of the persona 
      - parameter previewAccounts: (query) the accounts that are able to preview from this persona (optional)
@@ -25,15 +24,14 @@ open class PreviewPersonaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PreviewPersonaResponse
      */
-    open class func createPersona(version: Double, accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
-        return try await createPersonaWithRequestBuilder(version: version, accountId: accountId, title: title, previewAccounts: previewAccounts, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createPersona(accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
+        return try await createPersonaWithRequestBuilder(accountId: accountId, title: title, previewAccounts: previewAccounts, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Persona
-     - POST /api/{version}/persona/create
+     - POST /persona/create
      - Creates a new persona. If the given params are null those attributes will be override by null.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter title: (query) the title of the persona 
      - parameter previewAccounts: (query) the accounts that are able to preview from this persona (optional)
@@ -46,11 +44,8 @@ open class PreviewPersonaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PreviewPersonaResponse> 
      */
-    open class func createPersonaWithRequestBuilder(version: Double, accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
-        var localVariablePath = "/api/{version}/persona/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createPersonaWithRequestBuilder(accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
+        let localVariablePath = "/persona/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -81,31 +76,26 @@ open class PreviewPersonaAPI {
     /**
      Delete Persona
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter personaId: (query) the id of the persona to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deletePersona(version: Double, accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deletePersonaWithRequestBuilder(version: version, accountId: accountId, personaId: personaId, apiConfiguration: apiConfiguration).execute().body
+    open class func deletePersona(accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deletePersonaWithRequestBuilder(accountId: accountId, personaId: personaId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Persona
-     - POST /api/{version}/persona/delete
+     - POST /persona/delete
      - Mark the persona for deletion.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter personaId: (query) the id of the persona to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deletePersonaWithRequestBuilder(version: Double, accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/persona/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deletePersonaWithRequestBuilder(accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/persona/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,31 +119,26 @@ open class PreviewPersonaAPI {
     /**
      Get Persona
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter personaId: (query) the persona ID of the persona 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PreviewPersonaResponse
      */
-    open class func getPersonaList(version: Double, accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
-        return try await getPersonaListWithRequestBuilder(version: version, accountId: accountId, personaId: personaId, apiConfiguration: apiConfiguration).execute().body
+    open class func getPersonaList(accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
+        return try await getPersonaListWithRequestBuilder(accountId: accountId, personaId: personaId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Persona
-     - GET /api/{version}/persona/get
+     - GET /persona/get
      - Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter personaId: (query) the persona ID of the persona 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PreviewPersonaResponse> 
      */
-    open class func getPersonaListWithRequestBuilder(version: Double, accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
-        var localVariablePath = "/api/{version}/persona/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPersonaListWithRequestBuilder(accountId: Int64, personaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
+        let localVariablePath = "/persona/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -177,33 +162,28 @@ open class PreviewPersonaAPI {
     /**
      Search Personas
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter start: (query) the start index for pagination 
      - parameter limit: (query) the limit for pagination (There is a hard limit of 100) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PreviewPersonaResponse
      */
-    open class func searchPersona(version: Double, accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
-        return try await searchPersonaWithRequestBuilder(version: version, accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPersona(accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
+        return try await searchPersonaWithRequestBuilder(accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Personas
-     - GET /api/{version}/persona/search
+     - GET /persona/search
      - Search for persona that the account owns by the given account ID.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter start: (query) the start index for pagination 
      - parameter limit: (query) the limit for pagination (There is a hard limit of 100) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PreviewPersonaResponse> 
      */
-    open class func searchPersonaWithRequestBuilder(version: Double, accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
-        var localVariablePath = "/api/{version}/persona/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPersonaWithRequestBuilder(accountId: Int64, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
+        let localVariablePath = "/persona/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -228,7 +208,6 @@ open class PreviewPersonaAPI {
     /**
      Update Persona
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter personaId: (query) the persona ID of the persona to update 
      - parameter title: (query) the title of the persona (optional)
@@ -243,15 +222,14 @@ open class PreviewPersonaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PreviewPersonaResponse
      */
-    open class func updatePersona(version: Double, accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
-        return try await updatePersonaWithRequestBuilder(version: version, accountId: accountId, personaId: personaId, title: title, previewAccounts: previewAccounts, active: active, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func updatePersona(accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PreviewPersonaResponse {
+        return try await updatePersonaWithRequestBuilder(accountId: accountId, personaId: personaId, title: title, previewAccounts: previewAccounts, active: active, date: date, age: age, gender: gender, gameExperienceLevel: gameExperienceLevel, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Persona
-     - POST /api/{version}/persona/update
+     - POST /persona/update
      - Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter personaId: (query) the persona ID of the persona to update 
      - parameter title: (query) the title of the persona (optional)
@@ -266,11 +244,8 @@ open class PreviewPersonaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PreviewPersonaResponse> 
      */
-    open class func updatePersonaWithRequestBuilder(version: Double, accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
-        var localVariablePath = "/api/{version}/persona/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updatePersonaWithRequestBuilder(accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PreviewPersonaResponse> {
+        let localVariablePath = "/persona/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

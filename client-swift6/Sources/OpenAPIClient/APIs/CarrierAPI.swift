@@ -12,7 +12,6 @@ open class CarrierAPI {
     /**
      Search Carriers
      
-     - parameter version: (path)  
      - parameter keyword: (query) The keyword to search on (optional)
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order (optional, default to false)
      - parameter start: (query) The start index for pagination (optional, default to 0)
@@ -21,15 +20,14 @@ open class CarrierAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [CellCarrierResponse]
      */
-    open class func searchCarriers(version: Double, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CellCarrierResponse] {
-        return try await searchCarriersWithRequestBuilder(version: version, keyword: keyword, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchCarriers(keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CellCarrierResponse] {
+        return try await searchCarriersWithRequestBuilder(keyword: keyword, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Carriers
-     - GET /api/{version}/carrier/search
+     - GET /carrier/search
      - Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     - parameter version: (path)  
      - parameter keyword: (query) The keyword to search on (optional)
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order (optional, default to false)
      - parameter start: (query) The start index for pagination (optional, default to 0)
@@ -38,11 +36,8 @@ open class CarrierAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[CellCarrierResponse]> 
      */
-    open class func searchCarriersWithRequestBuilder(version: Double, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CellCarrierResponse]> {
-        var localVariablePath = "/api/{version}/carrier/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchCarriersWithRequestBuilder(keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CellCarrierResponse]> {
+        let localVariablePath = "/carrier/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

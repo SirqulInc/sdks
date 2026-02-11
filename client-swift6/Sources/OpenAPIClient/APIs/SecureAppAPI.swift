@@ -59,7 +59,6 @@ open class SecureAppAPI {
     /**
      Create Secure Application
      
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter keyCert: (query)  
@@ -73,15 +72,14 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func createSecureApplication(version: Double, accountId: Int64, appKey: String, keyCert: URL, trustStore: URL, username: String, password: String, active: Bool? = nil, biometricType: BiometricType_createSecureApplication? = nil, biometricPosition: BiometricPosition_createSecureApplication? = nil, biometricPosition2: BiometricPosition2_createSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await createSecureApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, keyCert: keyCert, trustStore: trustStore, username: username, password: password, active: active, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, apiConfiguration: apiConfiguration).execute().body
+    open class func createSecureApplication(accountId: Int64, appKey: String, keyCert: URL, trustStore: URL, username: String, password: String, active: Bool? = nil, biometricType: BiometricType_createSecureApplication? = nil, biometricPosition: BiometricPosition_createSecureApplication? = nil, biometricPosition2: BiometricPosition2_createSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await createSecureApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, keyCert: keyCert, trustStore: trustStore, username: username, password: password, active: active, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Secure Application
-     - POST /api/{version}/secure/application/create
+     - POST /secure/application/create
      - Create a secure application record.
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter keyCert: (query)  
@@ -95,11 +93,8 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func createSecureApplicationWithRequestBuilder(version: Double, accountId: Int64, appKey: String, keyCert: URL, trustStore: URL, username: String, password: String, active: Bool? = nil, biometricType: BiometricType_createSecureApplication? = nil, biometricPosition: BiometricPosition_createSecureApplication? = nil, biometricPosition2: BiometricPosition2_createSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/secure/application/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createSecureApplicationWithRequestBuilder(accountId: Int64, appKey: String, keyCert: URL, trustStore: URL, username: String, password: String, active: Bool? = nil, biometricType: BiometricType_createSecureApplication? = nil, biometricPosition: BiometricPosition_createSecureApplication? = nil, biometricPosition2: BiometricPosition2_createSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/secure/application/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -131,31 +126,26 @@ open class SecureAppAPI {
     /**
      Delete Secure Application
      
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteSecureApplication(version: Double, accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteSecureApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteSecureApplication(accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteSecureApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Secure Application
-     - POST /api/{version}/secure/application/delete
+     - POST /secure/application/delete
      - Delete a secure application record.
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteSecureApplicationWithRequestBuilder(version: Double, accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/secure/application/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteSecureApplicationWithRequestBuilder(accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/secure/application/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -179,7 +169,6 @@ open class SecureAppAPI {
     /**
      Login Clear
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application making the request, defines what type and position is required to make a secure login the request. 
      - parameter biometricFile: (query) The data file used to perform authentication 
      - parameter deviceId: (query) The unique id of the device making the request (optional)
@@ -192,15 +181,14 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func loginSecure(version: Double, appKey: String, biometricFile: URL, deviceId: String? = nil, biometricFile2: URL? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await loginSecureWithRequestBuilder(version: version, appKey: appKey, biometricFile: biometricFile, deviceId: deviceId, biometricFile2: biometricFile2, ageRestriction: ageRestriction, returnProfile: returnProfile, responseFilters: responseFilters, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func loginSecure(appKey: String, biometricFile: URL, deviceId: String? = nil, biometricFile2: URL? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await loginSecureWithRequestBuilder(appKey: appKey, biometricFile: biometricFile, deviceId: deviceId, biometricFile2: biometricFile2, ageRestriction: ageRestriction, returnProfile: returnProfile, responseFilters: responseFilters, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Clear
-     - POST /api/{version}/secure/login
+     - POST /secure/login
      - Login via Clear.me. Creates a new account if logging in for the first time.
-     - parameter version: (path)  
      - parameter appKey: (query) The application making the request, defines what type and position is required to make a secure login the request. 
      - parameter biometricFile: (query) The data file used to perform authentication 
      - parameter deviceId: (query) The unique id of the device making the request (optional)
@@ -213,11 +201,8 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func loginSecureWithRequestBuilder(version: Double, appKey: String, biometricFile: URL, deviceId: String? = nil, biometricFile2: URL? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/secure/login"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func loginSecureWithRequestBuilder(appKey: String, biometricFile: URL, deviceId: String? = nil, biometricFile2: URL? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/secure/login"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -248,29 +233,24 @@ open class SecureAppAPI {
     /**
      Purchase Clear
      
-     - parameter version: (path)  
      - parameter body: (body) The payment request object 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func purchaseSecure(version: Double, body: PaymentRequest, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await purchaseSecureWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func purchaseSecure(body: PaymentRequest, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await purchaseSecureWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Purchase Clear
-     - POST /api/{version}/secure/purchase
+     - POST /secure/purchase
      - Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     - parameter version: (path)  
      - parameter body: (body) The payment request object 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func purchaseSecureWithRequestBuilder(version: Double, body: PaymentRequest, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/secure/purchase"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func purchaseSecureWithRequestBuilder(body: PaymentRequest, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/secure/purchase"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -290,31 +270,26 @@ open class SecureAppAPI {
     /**
      Rest Secure Application
      
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func resetSecure(version: Double, accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await resetSecureWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func resetSecure(accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await resetSecureWithRequestBuilder(accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Rest Secure Application
-     - POST /api/{version}/secure/application/reset
+     - POST /secure/application/reset
      - Reset a secure application client.
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func resetSecureWithRequestBuilder(version: Double, accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/secure/application/reset"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func resetSecureWithRequestBuilder(accountId: Int64, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/secure/application/reset"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -385,7 +360,6 @@ open class SecureAppAPI {
     /**
      Update Secure Application
      
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter active: (query)  (optional)
@@ -399,15 +373,14 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateSecureApplication(version: Double, accountId: Int64, appKey: String, active: Bool? = nil, keyCert: URL? = nil, trustStore: URL? = nil, username: String? = nil, password: String? = nil, biometricType: BiometricType_updateSecureApplication? = nil, biometricPosition: BiometricPosition_updateSecureApplication? = nil, biometricPosition2: BiometricPosition2_updateSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateSecureApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, active: active, keyCert: keyCert, trustStore: trustStore, username: username, password: password, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, apiConfiguration: apiConfiguration).execute().body
+    open class func updateSecureApplication(accountId: Int64, appKey: String, active: Bool? = nil, keyCert: URL? = nil, trustStore: URL? = nil, username: String? = nil, password: String? = nil, biometricType: BiometricType_updateSecureApplication? = nil, biometricPosition: BiometricPosition_updateSecureApplication? = nil, biometricPosition2: BiometricPosition2_updateSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateSecureApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, active: active, keyCert: keyCert, trustStore: trustStore, username: username, password: password, biometricType: biometricType, biometricPosition: biometricPosition, biometricPosition2: biometricPosition2, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Secure Application
-     - POST /api/{version}/secure/application/update
+     - POST /secure/application/update
      - Update a secure application record.
-     - parameter version: (path)  
      - parameter accountId: (query) The unique id of the user making the request 
      - parameter appKey: (query) The application to secure 
      - parameter active: (query)  (optional)
@@ -421,11 +394,8 @@ open class SecureAppAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateSecureApplicationWithRequestBuilder(version: Double, accountId: Int64, appKey: String, active: Bool? = nil, keyCert: URL? = nil, trustStore: URL? = nil, username: String? = nil, password: String? = nil, biometricType: BiometricType_updateSecureApplication? = nil, biometricPosition: BiometricPosition_updateSecureApplication? = nil, biometricPosition2: BiometricPosition2_updateSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/secure/application/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateSecureApplicationWithRequestBuilder(accountId: Int64, appKey: String, active: Bool? = nil, keyCert: URL? = nil, trustStore: URL? = nil, username: String? = nil, password: String? = nil, biometricType: BiometricType_updateSecureApplication? = nil, biometricPosition: BiometricPosition_updateSecureApplication? = nil, biometricPosition2: BiometricPosition2_updateSecureApplication? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/secure/application/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

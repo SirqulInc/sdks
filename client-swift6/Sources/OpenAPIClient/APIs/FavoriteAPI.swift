@@ -12,7 +12,6 @@ open class FavoriteAPI {
     /**
      Create Favorite
      
-     - parameter version: (path)  
      - parameter favoritableId: (query) The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} 
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} 
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
@@ -22,15 +21,14 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WrappedResponse
      */
-    open class func addFavorite(version: Double, favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedResponse {
-        return try await addFavoriteWithRequestBuilder(version: version, favoritableId: favoritableId, favoritableType: favoritableType, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addFavorite(favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedResponse {
+        return try await addFavoriteWithRequestBuilder(favoritableId: favoritableId, favoritableType: favoritableType, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Favorite
-     - POST /api/{version}/favorite/create
+     - POST /favorite/create
      - Adds an offer, offer location, retailer location, or category to your favorites.
-     - parameter version: (path)  
      - parameter favoritableId: (query) The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} 
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} 
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
@@ -40,11 +38,8 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WrappedResponse> 
      */
-    open class func addFavoriteWithRequestBuilder(version: Double, favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedResponse> {
-        var localVariablePath = "/api/{version}/favorite/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addFavoriteWithRequestBuilder(favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedResponse> {
+        let localVariablePath = "/favorite/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -72,7 +67,6 @@ open class FavoriteAPI {
     /**
      Delete Favorite
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
      - parameter favoriteId: (query) The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -81,15 +75,14 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteFavorite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteFavoriteWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, favoriteId: favoriteId, favoritableId: favoritableId, favoritableType: favoritableType, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteFavorite(deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteFavoriteWithRequestBuilder(deviceId: deviceId, accountId: accountId, favoriteId: favoriteId, favoritableId: favoritableId, favoritableType: favoritableType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Favorite
-     - POST /api/{version}/favorite/delete
+     - POST /favorite/delete
      - Removes a favorited item from the user's favorites list.
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
      - parameter favoriteId: (query) The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -98,11 +91,8 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteFavoriteWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/favorite/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteFavoriteWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/favorite/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,7 +119,6 @@ open class FavoriteAPI {
     /**
      Get Favorite
      
-     - parameter version: (path)  
      - parameter favoriteId: (query) The ID of the favorite reference record 
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
@@ -138,15 +127,14 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WrappedResponse
      */
-    open class func getFavorite(version: Double, favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedResponse {
-        return try await getFavoriteWithRequestBuilder(version: version, favoriteId: favoriteId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getFavorite(favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WrappedResponse {
+        return try await getFavoriteWithRequestBuilder(favoriteId: favoriteId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Favorite
-     - GET /api/{version}/favorite/get
+     - GET /favorite/get
      - Retrieves a single favorited item.
-     - parameter version: (path)  
      - parameter favoriteId: (query) The ID of the favorite reference record 
      - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
@@ -155,11 +143,8 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WrappedResponse> 
      */
-    open class func getFavoriteWithRequestBuilder(version: Double, favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedResponse> {
-        var localVariablePath = "/api/{version}/favorite/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getFavoriteWithRequestBuilder(favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WrappedResponse> {
+        let localVariablePath = "/favorite/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -199,7 +184,6 @@ open class FavoriteAPI {
     /**
      Search Favorites
      
-     - parameter version: (path)  
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
      - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, DISPLAY} 
      - parameter descending: (query) Determines whether the results are in descending order 
@@ -217,15 +201,14 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SearchResponse
      */
-    open class func searchFavorites(version: Double, favoritableType: String, sortField: SortField_searchFavorites, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
-        return try await searchFavoritesWithRequestBuilder(version: version, favoritableType: favoritableType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnFullResponse: returnFullResponse, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, secondaryType: secondaryType, keyword: keyword, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func searchFavorites(favoritableType: String, sortField: SortField_searchFavorites, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SearchResponse {
+        return try await searchFavoritesWithRequestBuilder(favoritableType: favoritableType, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, returnFullResponse: returnFullResponse, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, secondaryType: secondaryType, keyword: keyword, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Favorites
-     - GET /api/{version}/favorite/search
+     - GET /favorite/search
      - Searches on the user's favorites.
-     - parameter version: (path)  
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
      - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, DISPLAY} 
      - parameter descending: (query) Determines whether the results are in descending order 
@@ -243,11 +226,8 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SearchResponse> 
      */
-    open class func searchFavoritesWithRequestBuilder(version: Double, favoritableType: String, sortField: SortField_searchFavorites, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
-        var localVariablePath = "/api/{version}/favorite/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchFavoritesWithRequestBuilder(favoritableType: String, sortField: SortField_searchFavorites, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SearchResponse> {
+        let localVariablePath = "/favorite/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -283,7 +263,6 @@ open class FavoriteAPI {
     /**
      Who has Favorited
      
-     - parameter version: (path)  
      - parameter favoritableId: (query) The ID of the favoritableType to search on 
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
      - parameter start: (query) The start index for pagination 
@@ -296,15 +275,14 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AccountResponse]
      */
-    open class func whoHasFavorited(version: Double, favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountResponse] {
-        return try await whoHasFavoritedWithRequestBuilder(version: version, favoritableId: favoritableId, favoritableType: favoritableType, start: start, limit: limit, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func whoHasFavorited(favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountResponse] {
+        return try await whoHasFavoritedWithRequestBuilder(favoritableId: favoritableId, favoritableType: favoritableType, start: start, limit: limit, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Who has Favorited
-     - GET /api/{version}/favorite/whois
+     - GET /favorite/whois
      - Searches for everyone that has favorited an item
-     - parameter version: (path)  
      - parameter favoritableId: (query) The ID of the favoritableType to search on 
      - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
      - parameter start: (query) The start index for pagination 
@@ -317,11 +295,8 @@ open class FavoriteAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AccountResponse]> 
      */
-    open class func whoHasFavoritedWithRequestBuilder(version: Double, favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountResponse]> {
-        var localVariablePath = "/api/{version}/favorite/whois"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func whoHasFavoritedWithRequestBuilder(favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountResponse]> {
+        let localVariablePath = "/favorite/whois"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

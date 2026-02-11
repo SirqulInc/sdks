@@ -12,7 +12,6 @@ open class EmployeeAPI {
     /**
      Assign Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter managerAccountId: (query) The account id of the manager to assign under 
      - parameter employeeAccountId: (query) The account id of the user to be assigned as employee 
@@ -20,15 +19,14 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EmployeeResponse
      */
-    open class func assignEmployee(version: Double, accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
-        return try await assignEmployeeWithRequestBuilder(version: version, accountId: accountId, managerAccountId: managerAccountId, employeeAccountId: employeeAccountId, role: role, apiConfiguration: apiConfiguration).execute().body
+    open class func assignEmployee(accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
+        return try await assignEmployeeWithRequestBuilder(accountId: accountId, managerAccountId: managerAccountId, employeeAccountId: employeeAccountId, role: role, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Assign Employee
-     - POST /api/{version}/employee/assign
+     - POST /employee/assign
      - Assign An existing account to be an employee
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter managerAccountId: (query) The account id of the manager to assign under 
      - parameter employeeAccountId: (query) The account id of the user to be assigned as employee 
@@ -36,11 +34,8 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EmployeeResponse> 
      */
-    open class func assignEmployeeWithRequestBuilder(version: Double, accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
-        var localVariablePath = "/api/{version}/employee/assign"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignEmployeeWithRequestBuilder(accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
+        let localVariablePath = "/employee/assign"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -66,7 +61,6 @@ open class EmployeeAPI {
     /**
      Assign Employee to Location
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter retailerLocationId: (query) The retailer location to apply the change to 
      - parameter employeeAccountId: (query) The account id of the user to apply the change to (optional)
@@ -74,15 +68,14 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func assignToLocationEmployee(version: Double, accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await assignToLocationEmployeeWithRequestBuilder(version: version, accountId: accountId, retailerLocationId: retailerLocationId, employeeAccountId: employeeAccountId, assign: assign, apiConfiguration: apiConfiguration).execute().body
+    open class func assignToLocationEmployee(accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await assignToLocationEmployeeWithRequestBuilder(accountId: accountId, retailerLocationId: retailerLocationId, employeeAccountId: employeeAccountId, assign: assign, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Assign Employee to Location
-     - POST /api/{version}/employee/assignToLocation
+     - POST /employee/assignToLocation
      - Assign or unassign the account to a retailer location.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter retailerLocationId: (query) The retailer location to apply the change to 
      - parameter employeeAccountId: (query) The account id of the user to apply the change to (optional)
@@ -90,11 +83,8 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func assignToLocationEmployeeWithRequestBuilder(version: Double, accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/employee/assignToLocation"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignToLocationEmployeeWithRequestBuilder(accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/employee/assignToLocation"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,7 +119,6 @@ open class EmployeeAPI {
     /**
      Create Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter managerAccountId: (query) The account id of the manager to assign under 
      - parameter username: (query) The username/email for the new user. This must be unique across the entire the system. 
@@ -163,15 +152,14 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EmployeeResponse
      */
-    open class func createEmployee(version: Double, accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: Gender_createEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
-        return try await createEmployeeWithRequestBuilder(version: version, accountId: accountId, managerAccountId: managerAccountId, username: username, password: password, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, aboutUs: aboutUs, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, apiConfiguration: apiConfiguration).execute().body
+    open class func createEmployee(accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: Gender_createEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
+        return try await createEmployeeWithRequestBuilder(accountId: accountId, managerAccountId: managerAccountId, username: username, password: password, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, aboutUs: aboutUs, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Employee
-     - POST /api/{version}/employee/create
+     - POST /employee/create
      - Create a new account record with the provided information.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter managerAccountId: (query) The account id of the manager to assign under 
      - parameter username: (query) The username/email for the new user. This must be unique across the entire the system. 
@@ -205,11 +193,8 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EmployeeResponse> 
      */
-    open class func createEmployeeWithRequestBuilder(version: Double, accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: Gender_createEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
-        var localVariablePath = "/api/{version}/employee/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createEmployeeWithRequestBuilder(accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: Gender_createEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
+        let localVariablePath = "/employee/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -261,31 +246,26 @@ open class EmployeeAPI {
     /**
      Delete Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter employeeAccountId: (query) the id of the employee to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteEmployeeWithRequestBuilder(version: version, accountId: accountId, employeeAccountId: employeeAccountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteEmployee(accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteEmployeeWithRequestBuilder(accountId: accountId, employeeAccountId: employeeAccountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Employee
-     - POST /api/{version}/employee/delete
+     - POST /employee/delete
      - Set the deleted date field which marks the record as deleted.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter employeeAccountId: (query) the id of the employee to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteEmployeeWithRequestBuilder(version: Double, accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/employee/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteEmployeeWithRequestBuilder(accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/employee/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -309,33 +289,28 @@ open class EmployeeAPI {
     /**
      Get Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of logged in user 
      - parameter employeeAccountId: (query) the id of the employee account to get 
      - parameter settingsAppKey: (query) Determines whether to return the application settings for the employee for a particular application (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EmployeeResponse
      */
-    open class func getEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
-        return try await getEmployeeWithRequestBuilder(version: version, accountId: accountId, employeeAccountId: employeeAccountId, settingsAppKey: settingsAppKey, apiConfiguration: apiConfiguration).execute().body
+    open class func getEmployee(accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
+        return try await getEmployeeWithRequestBuilder(accountId: accountId, employeeAccountId: employeeAccountId, settingsAppKey: settingsAppKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Employee
-     - POST /api/{version}/employee/get
+     - POST /employee/get
      - Get the account record for the account id provided.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of logged in user 
      - parameter employeeAccountId: (query) the id of the employee account to get 
      - parameter settingsAppKey: (query) Determines whether to return the application settings for the employee for a particular application (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EmployeeResponse> 
      */
-    open class func getEmployeeWithRequestBuilder(version: Double, accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
-        var localVariablePath = "/api/{version}/employee/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getEmployeeWithRequestBuilder(accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
+        let localVariablePath = "/employee/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -377,7 +352,6 @@ open class EmployeeAPI {
     /**
      Search Employees
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter role: (query) The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      - parameter retailerId: (query) Filters employees by retailer (optional)
@@ -398,15 +372,14 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [EmployeeResponse]
      */
-    open class func searchEmployees(version: Double, accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SortField_searchEmployees? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [EmployeeResponse] {
-        return try await searchEmployeesWithRequestBuilder(version: version, accountId: accountId, role: role, retailerId: retailerId, retailerLocationId: retailerLocationId, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, activeOnly: activeOnly, managedOnly: managedOnly, settingsAppKey: settingsAppKey, categoryIds: categoryIds, query: query, apiConfiguration: apiConfiguration).execute().body
+    open class func searchEmployees(accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SortField_searchEmployees? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [EmployeeResponse] {
+        return try await searchEmployeesWithRequestBuilder(accountId: accountId, role: role, retailerId: retailerId, retailerLocationId: retailerLocationId, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, activeOnly: activeOnly, managedOnly: managedOnly, settingsAppKey: settingsAppKey, categoryIds: categoryIds, query: query, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Employees
-     - POST /api/{version}/employee/search
+     - POST /employee/search
      - Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter role: (query) The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      - parameter retailerId: (query) Filters employees by retailer (optional)
@@ -427,11 +400,8 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[EmployeeResponse]> 
      */
-    open class func searchEmployeesWithRequestBuilder(version: Double, accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SortField_searchEmployees? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[EmployeeResponse]> {
-        var localVariablePath = "/api/{version}/employee/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchEmployeesWithRequestBuilder(accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SortField_searchEmployees? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[EmployeeResponse]> {
+        let localVariablePath = "/employee/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -470,31 +440,26 @@ open class EmployeeAPI {
     /**
      Unassign Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter employeeAccountId: (query) The account id of the user to be unassigned 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EmployeeResponse
      */
-    open class func unassignEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
-        return try await unassignEmployeeWithRequestBuilder(version: version, accountId: accountId, employeeAccountId: employeeAccountId, apiConfiguration: apiConfiguration).execute().body
+    open class func unassignEmployee(accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
+        return try await unassignEmployeeWithRequestBuilder(accountId: accountId, employeeAccountId: employeeAccountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Unassign Employee
-     - POST /api/{version}/employee/unassign
+     - POST /employee/unassign
      - Unassign An existing account to be an employee
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter employeeAccountId: (query) The account id of the user to be unassigned 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EmployeeResponse> 
      */
-    open class func unassignEmployeeWithRequestBuilder(version: Double, accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
-        var localVariablePath = "/api/{version}/employee/unassign"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func unassignEmployeeWithRequestBuilder(accountId: Int64, employeeAccountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
+        let localVariablePath = "/employee/unassign"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -527,7 +492,6 @@ open class EmployeeAPI {
     /**
      Update Employee
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter employeeAccountId: (query) the id of the employee account 
      - parameter managerAccountId: (query) The account id of the manager to assign under (optional)
@@ -561,15 +525,14 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: EmployeeResponse
      */
-    open class func updateEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: Gender_updateEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
-        return try await updateEmployeeWithRequestBuilder(version: version, accountId: accountId, employeeAccountId: employeeAccountId, managerAccountId: managerAccountId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, active: active, password: password, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, apiConfiguration: apiConfiguration).execute().body
+    open class func updateEmployee(accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: Gender_updateEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EmployeeResponse {
+        return try await updateEmployeeWithRequestBuilder(accountId: accountId, employeeAccountId: employeeAccountId, managerAccountId: managerAccountId, name: name, prefixName: prefixName, firstName: firstName, middleName: middleName, lastName: lastName, suffixName: suffixName, title: title, assetId: assetId, gender: gender, homePhone: homePhone, cellPhone: cellPhone, cellPhoneCarrier: cellPhoneCarrier, businessPhone: businessPhone, emailAddress: emailAddress, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, zipcode: zipcode, country: country, role: role, active: active, password: password, retailerLocationIds: retailerLocationIds, settingsAppKey: settingsAppKey, appBlob: appBlob, assignedDeviceId: assignedDeviceId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Employee
-     - POST /api/{version}/employee/update
+     - POST /employee/update
      - Update the account record with the provided information.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter employeeAccountId: (query) the id of the employee account 
      - parameter managerAccountId: (query) The account id of the manager to assign under (optional)
@@ -603,11 +566,8 @@ open class EmployeeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EmployeeResponse> 
      */
-    open class func updateEmployeeWithRequestBuilder(version: Double, accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: Gender_updateEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
-        var localVariablePath = "/api/{version}/employee/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateEmployeeWithRequestBuilder(accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: Gender_updateEmployee? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EmployeeResponse> {
+        let localVariablePath = "/employee/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

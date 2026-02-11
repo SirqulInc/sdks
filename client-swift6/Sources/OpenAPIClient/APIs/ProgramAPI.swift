@@ -12,29 +12,24 @@ open class ProgramAPI {
     /**
      Create Program
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Program
      */
-    open class func createProgram(version: Double, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
-        return try await createProgramWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createProgram(body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
+        return try await createProgramWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Program
-     - POST /api/{version}/program
+     - POST /program
      - Create a new program
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Program> 
      */
-    open class func createProgramWithRequestBuilder(version: Double, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
-        var localVariablePath = "/api/{version}/program"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createProgramWithRequestBuilder(body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
+        let localVariablePath = "/program"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class ProgramAPI {
     /**
      Delete Program
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteProgram(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteProgramWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteProgram(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteProgramWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Program
-     - DELETE /api/{version}/program/{id}
+     - DELETE /program/{id}
      - Delete an existing program
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteProgramWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/program/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteProgramWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/program/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -99,29 +89,24 @@ open class ProgramAPI {
     /**
      Get Program
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Program
      */
-    open class func getProgram(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
-        return try await getProgramWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func getProgram(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
+        return try await getProgramWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Program
-     - GET /api/{version}/program/{id}
+     - GET /program/{id}
      - Get an existing program
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Program> 
      */
-    open class func getProgramWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
-        var localVariablePath = "/api/{version}/program/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getProgramWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
+        var localVariablePath = "/program/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -144,31 +129,26 @@ open class ProgramAPI {
     /**
      Update Program
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Program
      */
-    open class func postProgram(version: Double, id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
-        return try await postProgramWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func postProgram(id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
+        return try await postProgramWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Program
-     - POST /api/{version}/program/{id}
+     - POST /program/{id}
      - Update an existing program
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Program> 
      */
-    open class func postProgramWithRequestBuilder(version: Double, id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
-        var localVariablePath = "/api/{version}/program/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func postProgramWithRequestBuilder(id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
+        var localVariablePath = "/program/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -191,31 +171,26 @@ open class ProgramAPI {
     /**
      Update Program
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Program
      */
-    open class func putProgram(version: Double, id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
-        return try await putProgramWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func putProgram(id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Program {
+        return try await putProgramWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Program
-     - PUT /api/{version}/program/{id}
+     - PUT /program/{id}
      - Update an existing program
-     - parameter version: (path)  
      - parameter id: (path) the id of the program 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Program> 
      */
-    open class func putProgramWithRequestBuilder(version: Double, id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
-        var localVariablePath = "/api/{version}/program/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func putProgramWithRequestBuilder(id: Int64, body: Program? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Program> {
+        var localVariablePath = "/program/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -238,7 +213,6 @@ open class ProgramAPI {
     /**
      Search Programs
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -248,15 +222,14 @@ open class ProgramAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Program]
      */
-    open class func searchPrograms(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Program] {
-        return try await searchProgramsWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPrograms(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Program] {
+        return try await searchProgramsWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Programs
-     - GET /api/{version}/program
+     - GET /program
      - Search for programs
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -266,11 +239,8 @@ open class ProgramAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Program]> 
      */
-    open class func searchProgramsWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Program]> {
-        var localVariablePath = "/api/{version}/program"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchProgramsWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Program]> {
+        let localVariablePath = "/program"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

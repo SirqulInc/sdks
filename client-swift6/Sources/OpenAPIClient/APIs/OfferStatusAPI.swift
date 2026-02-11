@@ -12,7 +12,6 @@ open class OfferStatusAPI {
     /**
      Create Offer Status
      
-     - parameter version: (path)  
      - parameter name: (query) The name of the status 
      - parameter code: (query) The status code, must be unique  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -26,15 +25,14 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferTransactionStatusResponse
      */
-    open class func createOfferTransactionStatus(version: Double, name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
-        return try await createOfferTransactionStatusWithRequestBuilder(version: version, name: name, code: code, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, description: description, role: role, active: active, applicationIds: applicationIds, apiConfiguration: apiConfiguration).execute().body
+    open class func createOfferTransactionStatus(name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
+        return try await createOfferTransactionStatusWithRequestBuilder(name: name, code: code, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, description: description, role: role, active: active, applicationIds: applicationIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Offer Status
-     - POST /api/{version}/offer/status/create
+     - POST /offer/status/create
      - Create an offer status record
-     - parameter version: (path)  
      - parameter name: (query) The name of the status 
      - parameter code: (query) The status code, must be unique  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -48,11 +46,8 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferTransactionStatusResponse> 
      */
-    open class func createOfferTransactionStatusWithRequestBuilder(version: Double, name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
-        var localVariablePath = "/api/{version}/offer/status/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOfferTransactionStatusWithRequestBuilder(name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
+        let localVariablePath = "/offer/status/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -84,7 +79,6 @@ open class OfferStatusAPI {
     /**
      Delete Offer Status
      
-     - parameter version: (path)  
      - parameter statusId: (query) The id of the record to delete 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -93,15 +87,14 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteOfferTransactionStatus(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteOfferTransactionStatusWithRequestBuilder(version: version, statusId: statusId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteOfferTransactionStatus(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteOfferTransactionStatusWithRequestBuilder(statusId: statusId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Offer Status
-     - POST /api/{version}/offer/status/delete
+     - POST /offer/status/delete
      - Mark an offer status record as deleted
-     - parameter version: (path)  
      - parameter statusId: (query) The id of the record to delete 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -110,11 +103,8 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteOfferTransactionStatusWithRequestBuilder(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/offer/status/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteOfferTransactionStatusWithRequestBuilder(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/offer/status/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -141,7 +131,6 @@ open class OfferStatusAPI {
     /**
      Get Offer Status
      
-     - parameter version: (path)  
      - parameter statusId: (query) The id of the record to get  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -150,15 +139,14 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferTransactionStatusResponse
      */
-    open class func getOfferTransactionStatus(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
-        return try await getOfferTransactionStatusWithRequestBuilder(version: version, statusId: statusId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferTransactionStatus(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
+        return try await getOfferTransactionStatusWithRequestBuilder(statusId: statusId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offer Status
-     - GET /api/{version}/offer/status/get
+     - GET /offer/status/get
      - Get an offer status record
-     - parameter version: (path)  
      - parameter statusId: (query) The id of the record to get  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -167,11 +155,8 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferTransactionStatusResponse> 
      */
-    open class func getOfferTransactionStatusWithRequestBuilder(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
-        var localVariablePath = "/api/{version}/offer/status/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferTransactionStatusWithRequestBuilder(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
+        let localVariablePath = "/offer/status/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -214,7 +199,6 @@ open class OfferStatusAPI {
     /**
      Search Offer Status
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -230,15 +214,14 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferTransactionStatusResponse]
      */
-    open class func searchOfferTransactionStatuses(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SortField_searchOfferTransactionStatuses? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionStatusResponse] {
-        return try await searchOfferTransactionStatusesWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, role: role, appKey: appKey, sortField: sortField, descending: descending, start: start, limit: limit, includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
+    open class func searchOfferTransactionStatuses(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SortField_searchOfferTransactionStatuses? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionStatusResponse] {
+        return try await searchOfferTransactionStatusesWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, keyword: keyword, role: role, appKey: appKey, sortField: sortField, descending: descending, start: start, limit: limit, includeInactive: includeInactive, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offer Status
-     - GET /api/{version}/offer/status/search
+     - GET /offer/status/search
      - Search for the available offer statuses
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -254,11 +237,8 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferTransactionStatusResponse]> 
      */
-    open class func searchOfferTransactionStatusesWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SortField_searchOfferTransactionStatuses? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionStatusResponse]> {
-        var localVariablePath = "/api/{version}/offer/status/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchOfferTransactionStatusesWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SortField_searchOfferTransactionStatuses? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionStatusResponse]> {
+        let localVariablePath = "/offer/status/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -292,7 +272,6 @@ open class OfferStatusAPI {
     /**
      Update Offer Status
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -307,15 +286,14 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferTransactionStatusResponse
      */
-    open class func updateOfferTransactionStatus(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
-        return try await updateOfferTransactionStatusWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, statusId: statusId, name: name, description: description, code: code, role: role, active: active, applicationIds: applicationIds, apiConfiguration: apiConfiguration).execute().body
+    open class func updateOfferTransactionStatus(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionStatusResponse {
+        return try await updateOfferTransactionStatusWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, statusId: statusId, name: name, description: description, code: code, role: role, active: active, applicationIds: applicationIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Offer Status
-     - POST /api/{version}/offer/status/update
+     - POST /offer/status/update
      - Update an offer status record
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -330,11 +308,8 @@ open class OfferStatusAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferTransactionStatusResponse> 
      */
-    open class func updateOfferTransactionStatusWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
-        var localVariablePath = "/api/{version}/offer/status/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateOfferTransactionStatusWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionStatusResponse> {
+        let localVariablePath = "/offer/status/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

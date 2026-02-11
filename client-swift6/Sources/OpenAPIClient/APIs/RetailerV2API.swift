@@ -12,7 +12,6 @@ open class RetailerV2API {
     /**
      Get Retailer
      
-     - parameter version: (path)  
      - parameter retailerId: (query) the id of the retailer 
      - parameter activeOnly: (query) whether to return results that are active only or all 
      - parameter keyword: (query) the keyword to search on to get retailer (optional)
@@ -22,15 +21,14 @@ open class RetailerV2API {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getRetaokiler(version: Double, retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getRetaokilerWithRequestBuilder(version: version, retailerId: retailerId, activeOnly: activeOnly, keyword: keyword, sortField: sortField, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getRetaokiler(retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getRetaokilerWithRequestBuilder(retailerId: retailerId, activeOnly: activeOnly, keyword: keyword, sortField: sortField, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Retailer
-     - GET /api/{version}/retailer
+     - GET /retailer
      - Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     - parameter version: (path)  
      - parameter retailerId: (query) the id of the retailer 
      - parameter activeOnly: (query) whether to return results that are active only or all 
      - parameter keyword: (query) the keyword to search on to get retailer (optional)
@@ -40,11 +38,8 @@ open class RetailerV2API {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getRetaokilerWithRequestBuilder(version: Double, retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRetaokilerWithRequestBuilder(retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

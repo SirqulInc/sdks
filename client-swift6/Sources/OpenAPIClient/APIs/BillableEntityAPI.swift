@@ -12,7 +12,6 @@ open class BillableEntityAPI {
     /**
      Create Billable
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -28,15 +27,14 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BillableEntityResponse
      */
-    open class func createBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
-        return try await createBillableEntityWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, apiConfiguration: apiConfiguration).execute().body
+    open class func createBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
+        return try await createBillableEntityWithRequestBuilder(deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Billable
-     - POST /api/{version}/billable/create
+     - POST /billable/create
      - reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -52,11 +50,8 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BillableEntityResponse> 
      */
-    open class func createBillableEntityWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
-        var localVariablePath = "/api/{version}/billable/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createBillableEntityWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
+        let localVariablePath = "/billable/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -90,31 +85,26 @@ open class BillableEntityAPI {
     /**
      Delete Billable
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the billable entity. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteBillableEntityWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteBillableEntityWithRequestBuilder(deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Billable
-     - POST /api/{version}/billable/delete
+     - POST /billable/delete
      - Mark the billable as deleted
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the billable entity. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteBillableEntityWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/billable/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteBillableEntityWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/billable/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -138,7 +128,6 @@ open class BillableEntityAPI {
     /**
      Get Billable
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter includeCounts: (query) Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -146,15 +135,14 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BillableEntityResponse
      */
-    open class func getBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
-        return try await getBillableEntityWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, includePayments: includePayments, apiConfiguration: apiConfiguration).execute().body
+    open class func getBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
+        return try await getBillableEntityWithRequestBuilder(deviceId: deviceId, accountId: accountId, includeCounts: includeCounts, includePayments: includePayments, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Billable
-     - GET /api/{version}/billable/get
+     - GET /billable/get
      - Used to determine the associated BillableEntity of an account
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter includeCounts: (query) Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -162,11 +150,8 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BillableEntityResponse> 
      */
-    open class func getBillableEntityWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
-        var localVariablePath = "/api/{version}/billable/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBillableEntityWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
+        let localVariablePath = "/billable/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -192,7 +177,6 @@ open class BillableEntityAPI {
     /**
      Update Billable
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -208,15 +192,14 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BillableEntityResponse
      */
-    open class func updateBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
-        return try await updateBillableEntityWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, apiConfiguration: apiConfiguration).execute().body
+    open class func updateBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BillableEntityResponse {
+        return try await updateBillableEntityWithRequestBuilder(deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Billable
-     - POST /api/{version}/billable/update
+     - POST /billable/update
      - Updates the billable record for an account
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -232,11 +215,8 @@ open class BillableEntityAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BillableEntityResponse> 
      */
-    open class func updateBillableEntityWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
-        var localVariablePath = "/api/{version}/billable/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateBillableEntityWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BillableEntityResponse> {
+        let localVariablePath = "/billable/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

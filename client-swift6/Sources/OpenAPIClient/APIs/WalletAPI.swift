@@ -12,7 +12,6 @@ open class WalletAPI {
     /**
      Create Wallet Offers
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -27,15 +26,14 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferTransactionResponse]
      */
-    open class func createOfferTransaction(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
-        return try await createOfferTransactionWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, status: status, apiConfiguration: apiConfiguration).execute().body
+    open class func createOfferTransaction(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
+        return try await createOfferTransactionWithRequestBuilder(deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, status: status, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Wallet Offers
-     - POST /api/{version}/wallet/create
+     - POST /wallet/create
      - Adds offers to the wallet
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -50,11 +48,8 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferTransactionResponse]> 
      */
-    open class func createOfferTransactionWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
-        var localVariablePath = "/api/{version}/wallet/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOfferTransactionWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
+        let localVariablePath = "/wallet/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -87,33 +82,28 @@ open class WalletAPI {
     /**
      Delete Wallet Offer
      
-     - parameter version: (path)  
      - parameter transactionId: (query) The offer transaction id to remove 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteOfferTransaction(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteOfferTransactionWithRequestBuilder(version: version, transactionId: transactionId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteOfferTransaction(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteOfferTransactionWithRequestBuilder(transactionId: transactionId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Wallet Offer
-     - POST /api/{version}/wallet/delete
+     - POST /wallet/delete
      - Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     - parameter version: (path)  
      - parameter transactionId: (query) The offer transaction id to remove 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteOfferTransactionWithRequestBuilder(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/wallet/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteOfferTransactionWithRequestBuilder(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/wallet/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -138,7 +128,6 @@ open class WalletAPI {
     /**
      Get Wallet Offer
      
-     - parameter version: (path)  
      - parameter transactionId: (query) The offer transaction id to get details of 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -149,14 +138,13 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferTransactionResponse
      */
-    open class func getOfferTransaction(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionResponse {
-        return try await getOfferTransactionWithRequestBuilder(version: version, transactionId: transactionId, deviceId: deviceId, accountId: accountId, includeMission: includeMission, latitude: latitude, longitude: longitude, returnFullResponse: returnFullResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getOfferTransaction(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionResponse {
+        return try await getOfferTransactionWithRequestBuilder(transactionId: transactionId, deviceId: deviceId, accountId: accountId, includeMission: includeMission, latitude: latitude, longitude: longitude, returnFullResponse: returnFullResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Wallet Offer
-     - GET /api/{version}/wallet/get
-     - parameter version: (path)  
+     - GET /wallet/get
      - parameter transactionId: (query) The offer transaction id to get details of 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -167,11 +155,8 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferTransactionResponse> 
      */
-    open class func getOfferTransactionWithRequestBuilder(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionResponse> {
-        var localVariablePath = "/api/{version}/wallet/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOfferTransactionWithRequestBuilder(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionResponse> {
+        let localVariablePath = "/wallet/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -200,7 +185,6 @@ open class WalletAPI {
     /**
      Preview Wallet Offers
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -214,15 +198,14 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferTransactionResponse]
      */
-    open class func previewOfferTransaction(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
-        return try await previewOfferTransactionWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func previewOfferTransaction(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
+        return try await previewOfferTransactionWithRequestBuilder(deviceId: deviceId, accountId: accountId, offerId: offerId, offerLocationId: offerLocationId, offerCart: offerCart, promoCode: promoCode, currencyType: currencyType, usePoints: usePoints, metaData: metaData, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Preview Wallet Offers
-     - POST /api/{version}/wallet/preview
+     - POST /wallet/preview
      - Preview the final cost of a transaction without charging the user
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -236,11 +219,8 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferTransactionResponse]> 
      */
-    open class func previewOfferTransactionWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
-        var localVariablePath = "/api/{version}/wallet/preview"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func previewOfferTransactionWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
+        let localVariablePath = "/wallet/preview"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -315,7 +295,6 @@ open class WalletAPI {
     /**
      Search Wallet Offers
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter keyword: (query) The keyword to search for (optional)
@@ -360,15 +339,14 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OfferTransactionResponse]
      */
-    open class func searchOfferTransactions(version: Double, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: OfferType_searchOfferTransactions? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SortField_searchOfferTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
-        return try await searchOfferTransactionsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerIds: retailerIds, retailerLocationId: retailerLocationId, retailerLocationIds: retailerLocationIds, excludeRetailerLocationIds: excludeRetailerLocationIds, offerId: offerId, offerIds: offerIds, offerLocationId: offerLocationId, offerLocationIds: offerLocationIds, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, filterByParentOffer: filterByParentOffer, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, redeemed: redeemed, statuses: statuses, reservationsOnly: reservationsOnly, activeOnly: activeOnly, returnFullResponse: returnFullResponse, recurringStartedSince: recurringStartedSince, recurringStartedBefore: recurringStartedBefore, recurringExpirationSince: recurringExpirationSince, recurringExpirationBefore: recurringExpirationBefore, apiConfiguration: apiConfiguration).execute().body
+    open class func searchOfferTransactions(deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: OfferType_searchOfferTransactions? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SortField_searchOfferTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OfferTransactionResponse] {
+        return try await searchOfferTransactionsWithRequestBuilder(deviceId: deviceId, accountId: accountId, keyword: keyword, retailerId: retailerId, retailerIds: retailerIds, retailerLocationId: retailerLocationId, retailerLocationIds: retailerLocationIds, excludeRetailerLocationIds: excludeRetailerLocationIds, offerId: offerId, offerIds: offerIds, offerLocationId: offerLocationId, offerLocationIds: offerLocationIds, offerType: offerType, offerTypes: offerTypes, specialOfferType: specialOfferType, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, filterByParentOffer: filterByParentOffer, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, redeemed: redeemed, statuses: statuses, reservationsOnly: reservationsOnly, activeOnly: activeOnly, returnFullResponse: returnFullResponse, recurringStartedSince: recurringStartedSince, recurringStartedBefore: recurringStartedBefore, recurringExpirationSince: recurringExpirationSince, recurringExpirationBefore: recurringExpirationBefore, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Wallet Offers
-     - GET /api/{version}/wallet/search
+     - GET /wallet/search
      - Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter keyword: (query) The keyword to search for (optional)
@@ -413,11 +391,8 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OfferTransactionResponse]> 
      */
-    open class func searchOfferTransactionsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: OfferType_searchOfferTransactions? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SortField_searchOfferTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
-        var localVariablePath = "/api/{version}/wallet/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchOfferTransactionsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: OfferType_searchOfferTransactions? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SortField_searchOfferTransactions? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OfferTransactionResponse]> {
+        let localVariablePath = "/wallet/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -480,7 +455,6 @@ open class WalletAPI {
     /**
      Update Wallet Offer
      
-     - parameter version: (path)  
      - parameter transactionId: (query) The offer transaction id to remove 
      - parameter status: (query) The status value to change to (0 or 1) 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -497,15 +471,14 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OfferTransactionResponse
      */
-    open class func updateOfferTransaction(version: Double, transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionResponse {
-        return try await updateOfferTransactionWithRequestBuilder(version: version, transactionId: transactionId, status: status, deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, currencyType: currencyType, usePoints: usePoints, appKey: appKey, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, exceptionMembershipOfferIds: exceptionMembershipOfferIds, apiConfiguration: apiConfiguration).execute().body
+    open class func updateOfferTransaction(transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OfferTransactionResponse {
+        return try await updateOfferTransactionWithRequestBuilder(transactionId: transactionId, status: status, deviceId: deviceId, accountId: accountId, offerLocationId: offerLocationId, currencyType: currencyType, usePoints: usePoints, appKey: appKey, latitude: latitude, longitude: longitude, metaData: metaData, returnFullResponse: returnFullResponse, exceptionMembershipOfferIds: exceptionMembershipOfferIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Wallet Offer
-     - POST /api/{version}/wallet/update
+     - POST /wallet/update
      - Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     - parameter version: (path)  
      - parameter transactionId: (query) The offer transaction id to remove 
      - parameter status: (query) The status value to change to (0 or 1) 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -522,11 +495,8 @@ open class WalletAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OfferTransactionResponse> 
      */
-    open class func updateOfferTransactionWithRequestBuilder(version: Double, transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionResponse> {
-        var localVariablePath = "/api/{version}/wallet/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateOfferTransactionWithRequestBuilder(transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OfferTransactionResponse> {
+        let localVariablePath = "/wallet/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

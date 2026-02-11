@@ -12,7 +12,6 @@ open class LocationAPI {
     /**
      Create Trilateration Data with File
      
-     - parameter version: (path)  
      - parameter udid: (query) The unique identifier of the source device 
      - parameter sourceTime: (query) The current timestamp of the source device (optional)
      - parameter minimumSampleSize: (query) the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -21,15 +20,14 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func cacheTrilaterationData(version: Double, udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await cacheTrilaterationDataWithRequestBuilder(version: version, udid: udid, sourceTime: sourceTime, minimumSampleSize: minimumSampleSize, data: data, dataFile: dataFile, apiConfiguration: apiConfiguration).execute().body
+    open class func cacheTrilaterationData(udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await cacheTrilaterationDataWithRequestBuilder(udid: udid, sourceTime: sourceTime, minimumSampleSize: minimumSampleSize, data: data, dataFile: dataFile, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Trilateration Data with File
-     - POST /api/{version}/location/trilaterate/cache
+     - POST /location/trilaterate/cache
      - Creates trilateration samples for a source device (i.e. a router).
-     - parameter version: (path)  
      - parameter udid: (query) The unique identifier of the source device 
      - parameter sourceTime: (query) The current timestamp of the source device (optional)
      - parameter minimumSampleSize: (query) the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -38,11 +36,8 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func cacheTrilaterationDataWithRequestBuilder(version: Double, udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/location/trilaterate/cache"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func cacheTrilaterationDataWithRequestBuilder(udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/location/trilaterate/cache"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -69,29 +64,24 @@ open class LocationAPI {
     /**
      Create Trilateration Data with Rest
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func cacheTrilaterationDataGzip(version: Double, body: TrilatCacheRequest? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await cacheTrilaterationDataGzipWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func cacheTrilaterationDataGzip(body: TrilatCacheRequest? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await cacheTrilaterationDataGzipWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Trilateration Data with Rest
-     - POST /api/{version}/location/trilaterate/cache/submit
+     - POST /location/trilaterate/cache/submit
      - Creates trilateration samples for a source device (i.e. a router).
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func cacheTrilaterationDataGzipWithRequestBuilder(version: Double, body: TrilatCacheRequest? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/location/trilaterate/cache/submit"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func cacheTrilaterationDataGzipWithRequestBuilder(body: TrilatCacheRequest? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/location/trilaterate/cache/submit"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -111,29 +101,24 @@ open class LocationAPI {
     /**
      Get Location by IP
      
-     - parameter version: (path)  
      - parameter ip: (query) the ip address of the client device (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CoordsResponse
      */
-    open class func getLocationByIp(version: Double, ip: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CoordsResponse {
-        return try await getLocationByIpWithRequestBuilder(version: version, ip: ip, apiConfiguration: apiConfiguration).execute().body
+    open class func getLocationByIp(ip: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CoordsResponse {
+        return try await getLocationByIpWithRequestBuilder(ip: ip, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Location by IP
-     - GET /api/{version}/location/ip
+     - GET /location/ip
      - Get location information based on an IP address.
-     - parameter version: (path)  
      - parameter ip: (query) the ip address of the client device (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CoordsResponse> 
      */
-    open class func getLocationByIpWithRequestBuilder(version: Double, ip: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CoordsResponse> {
-        var localVariablePath = "/api/{version}/location/ip"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getLocationByIpWithRequestBuilder(ip: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CoordsResponse> {
+        let localVariablePath = "/location/ip"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -156,7 +141,6 @@ open class LocationAPI {
     /**
      Get Location by Trilateration
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account making the request, if provided the last know location will be updated (optional)
      - parameter latitude: (query) The known GPS latitude to compare to the calculated version (optional)
      - parameter longitude: (query) The known GPS longitude to compare to the calculated version (optional)
@@ -165,15 +149,14 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GeoPointResponse
      */
-    open class func getLocationByTrilateration(version: Double, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GeoPointResponse {
-        return try await getLocationByTrilaterationWithRequestBuilder(version: version, accountId: accountId, latitude: latitude, longitude: longitude, data: data, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
+    open class func getLocationByTrilateration(accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GeoPointResponse {
+        return try await getLocationByTrilaterationWithRequestBuilder(accountId: accountId, latitude: latitude, longitude: longitude, data: data, responseFilters: responseFilters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Location by Trilateration
-     - GET /api/{version}/account/location/trilaterate
+     - GET /account/location/trilaterate
      - Send in device data and calculate a position based on signal strengths.
-     - parameter version: (path)  
      - parameter accountId: (query) The account making the request, if provided the last know location will be updated (optional)
      - parameter latitude: (query) The known GPS latitude to compare to the calculated version (optional)
      - parameter longitude: (query) The known GPS longitude to compare to the calculated version (optional)
@@ -182,11 +165,8 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GeoPointResponse> 
      */
-    open class func getLocationByTrilaterationWithRequestBuilder(version: Double, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GeoPointResponse> {
-        var localVariablePath = "/api/{version}/account/location/trilaterate"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getLocationByTrilaterationWithRequestBuilder(accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GeoPointResponse> {
+        let localVariablePath = "/account/location/trilaterate"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -213,7 +193,6 @@ open class LocationAPI {
     /**
      Search Regions or Postal Codes
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (optional)
      - parameter accountId: (query) the account id (optional)
      - parameter currentlatitude: (query) This parameter is deprecated. (optional)
@@ -236,15 +215,14 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: LocationSearchResponse
      */
-    open class func getLocations(version: Double, deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LocationSearchResponse {
-        return try await getLocationsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, currentlatitude: currentlatitude, currentlongitude: currentlongitude, currentLatitude: currentLatitude, currentLongitude: currentLongitude, query: query, zipcode: zipcode, zipCode: zipCode, selectedMaplatitude: selectedMaplatitude, selectedMaplongitude: selectedMaplongitude, selectedMapLatitude: selectedMapLatitude, selectedMapLongitude: selectedMapLongitude, searchRange: searchRange, useGeocode: useGeocode, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getLocations(deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> LocationSearchResponse {
+        return try await getLocationsWithRequestBuilder(deviceId: deviceId, accountId: accountId, currentlatitude: currentlatitude, currentlongitude: currentlongitude, currentLatitude: currentLatitude, currentLongitude: currentLongitude, query: query, zipcode: zipcode, zipCode: zipCode, selectedMaplatitude: selectedMaplatitude, selectedMaplongitude: selectedMaplongitude, selectedMapLatitude: selectedMapLatitude, selectedMapLongitude: selectedMapLongitude, searchRange: searchRange, useGeocode: useGeocode, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Regions or Postal Codes
-     - GET /api/{version}/location/search
+     - GET /location/search
      - Searches geographic locations by proximity via address or keyword.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (optional)
      - parameter accountId: (query) the account id (optional)
      - parameter currentlatitude: (query) This parameter is deprecated. (optional)
@@ -267,11 +245,8 @@ open class LocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LocationSearchResponse> 
      */
-    open class func getLocationsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LocationSearchResponse> {
-        var localVariablePath = "/api/{version}/location/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getLocationsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<LocationSearchResponse> {
+        let localVariablePath = "/location/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

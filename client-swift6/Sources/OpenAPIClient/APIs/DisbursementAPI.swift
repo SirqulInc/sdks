@@ -12,29 +12,24 @@ open class DisbursementAPI {
     /**
      Check Disbursements
      
-     - parameter version: (path)  
      - parameter disbursementId: (query) the ID of the disbursement being checked on 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: DisbursementResponse
      */
-    open class func checkDisbursements(version: Double, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
-        return try await checkDisbursementsWithRequestBuilder(version: version, disbursementId: disbursementId, apiConfiguration: apiConfiguration).execute().body
+    open class func checkDisbursements(disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
+        return try await checkDisbursementsWithRequestBuilder(disbursementId: disbursementId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Check Disbursements
-     - GET /api/{version}/disbursement/check
+     - GET /disbursement/check
      - Checks the status of a captured disbrusement to see if it has been settled.
-     - parameter version: (path)  
      - parameter disbursementId: (query) the ID of the disbursement being checked on 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DisbursementResponse> 
      */
-    open class func checkDisbursementsWithRequestBuilder(version: Double, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
-        var localVariablePath = "/api/{version}/disbursement/check"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func checkDisbursementsWithRequestBuilder(disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
+        let localVariablePath = "/disbursement/check"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -66,7 +61,6 @@ open class DisbursementAPI {
     /**
      Create Disbursement
      
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the logging in user (must be an EXECUTIVE account) 
      - parameter receiverAccountId: (query) the ID of the account receiving the disbursement 
      - parameter originalSenderAccountId: (query) the ID of the original sender account 
@@ -80,15 +74,14 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: DisbursementResponse
      */
-    open class func createDisbursement(version: Double, accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: Provider_createDisbursement, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
-        return try await createDisbursementWithRequestBuilder(version: version, accountId: accountId, receiverAccountId: receiverAccountId, originalSenderAccountId: originalSenderAccountId, amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, introspectionParams: introspectionParams, apiConfiguration: apiConfiguration).execute().body
+    open class func createDisbursement(accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: Provider_createDisbursement, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
+        return try await createDisbursementWithRequestBuilder(accountId: accountId, receiverAccountId: receiverAccountId, originalSenderAccountId: originalSenderAccountId, amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, introspectionParams: introspectionParams, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Disbursement
-     - POST /api/{version}/disbursement/create
+     - POST /disbursement/create
      - Creates a Disbursement for sending money to a retailer
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the logging in user (must be an EXECUTIVE account) 
      - parameter receiverAccountId: (query) the ID of the account receiving the disbursement 
      - parameter originalSenderAccountId: (query) the ID of the original sender account 
@@ -102,11 +95,8 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DisbursementResponse> 
      */
-    open class func createDisbursementWithRequestBuilder(version: Double, accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: Provider_createDisbursement, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
-        var localVariablePath = "/api/{version}/disbursement/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createDisbursementWithRequestBuilder(accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: Provider_createDisbursement, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
+        let localVariablePath = "/disbursement/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -138,31 +128,26 @@ open class DisbursementAPI {
     /**
      Get Disbursement
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter disbursementId: (query) the id of the disbursement 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: DisbursementResponse
      */
-    open class func getDisbursement(version: Double, accountId: Int64, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
-        return try await getDisbursementWithRequestBuilder(version: version, accountId: accountId, disbursementId: disbursementId, apiConfiguration: apiConfiguration).execute().body
+    open class func getDisbursement(accountId: Int64, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
+        return try await getDisbursementWithRequestBuilder(accountId: accountId, disbursementId: disbursementId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Disbursement
-     - GET /api/{version}/disbursement/get
+     - GET /disbursement/get
      - Get Disbursement details
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter disbursementId: (query) the id of the disbursement 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DisbursementResponse> 
      */
-    open class func getDisbursementWithRequestBuilder(version: Double, accountId: Int64, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
-        var localVariablePath = "/api/{version}/disbursement/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getDisbursementWithRequestBuilder(accountId: Int64, disbursementId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
+        let localVariablePath = "/disbursement/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -186,7 +171,6 @@ open class DisbursementAPI {
     /**
      Search Disbursements
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter receiverAccountId: (query) filter results by the id of the account receiving the disbursement (optional)
      - parameter statuses: (query) comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -200,15 +184,14 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [DisbursementResponse]
      */
-    open class func searchDisbursements(version: Double, accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [DisbursementResponse] {
-        return try await searchDisbursementsWithRequestBuilder(version: version, accountId: accountId, receiverAccountId: receiverAccountId, statuses: statuses, providers: providers, beforeDate: beforeDate, afterDate: afterDate, start: start, limit: limit, activeOnly: activeOnly, externalId: externalId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchDisbursements(accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [DisbursementResponse] {
+        return try await searchDisbursementsWithRequestBuilder(accountId: accountId, receiverAccountId: receiverAccountId, statuses: statuses, providers: providers, beforeDate: beforeDate, afterDate: afterDate, start: start, limit: limit, activeOnly: activeOnly, externalId: externalId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Disbursements
-     - GET /api/{version}/disbursement/search
+     - GET /disbursement/search
      - Search Disbursements
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter receiverAccountId: (query) filter results by the id of the account receiving the disbursement (optional)
      - parameter statuses: (query) comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -222,11 +205,8 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[DisbursementResponse]> 
      */
-    open class func searchDisbursementsWithRequestBuilder(version: Double, accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[DisbursementResponse]> {
-        var localVariablePath = "/api/{version}/disbursement/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchDisbursementsWithRequestBuilder(accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[DisbursementResponse]> {
+        let localVariablePath = "/disbursement/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -267,7 +247,6 @@ open class DisbursementAPI {
     /**
      Update Disbursement
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter disbursementId: (query) the id of the disbursement being updated 
      - parameter amount: (query) the disbursement dollar amount being updated (optional)
@@ -281,15 +260,14 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: DisbursementResponse
      */
-    open class func updateDisbursement(version: Double, accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: Provider_updateDisbursement? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
-        return try await updateDisbursementWithRequestBuilder(version: version, accountId: accountId, disbursementId: disbursementId, amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, retry: retry, introspectionParams: introspectionParams, apiConfiguration: apiConfiguration).execute().body
+    open class func updateDisbursement(accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: Provider_updateDisbursement? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> DisbursementResponse {
+        return try await updateDisbursementWithRequestBuilder(accountId: accountId, disbursementId: disbursementId, amount: amount, provider: provider, scheduledDate: scheduledDate, title: title, comment: comment, externalId: externalId, retry: retry, introspectionParams: introspectionParams, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Disbursement
-     - POST /api/{version}/disbursement/update
+     - POST /disbursement/update
      - Update Disbursement
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter disbursementId: (query) the id of the disbursement being updated 
      - parameter amount: (query) the disbursement dollar amount being updated (optional)
@@ -303,11 +281,8 @@ open class DisbursementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<DisbursementResponse> 
      */
-    open class func updateDisbursementWithRequestBuilder(version: Double, accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: Provider_updateDisbursement? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
-        var localVariablePath = "/api/{version}/disbursement/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateDisbursementWithRequestBuilder(accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: Provider_updateDisbursement? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<DisbursementResponse> {
+        let localVariablePath = "/disbursement/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

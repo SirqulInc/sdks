@@ -12,7 +12,6 @@ open class AMQPAPI {
     /**
      Create Consumer
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
      - parameter name: (query) The name of the queue to connect to 
      - parameter hostname: (query) The hostname of the server the queue is hosted on 
@@ -30,15 +29,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func consumerCreate(version: Double, appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await consumerCreateWithRequestBuilder(version: version, appKey: appKey, name: name, hostname: hostname, username: username, password: password, dataMapping: dataMapping, deviceId: deviceId, accountId: accountId, port: port, virtualHost: virtualHost, exchanger: exchanger, exchangerType: exchangerType, workers: workers, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
+    open class func consumerCreate(appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await consumerCreateWithRequestBuilder(appKey: appKey, name: name, hostname: hostname, username: username, password: password, dataMapping: dataMapping, deviceId: deviceId, accountId: accountId, port: port, virtualHost: virtualHost, exchanger: exchanger, exchangerType: exchangerType, workers: workers, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Consumer
-     - POST /api/{version}/queue/consumer/create
+     - POST /queue/consumer/create
      - Create a connection to an existing amqp queue and register as a consumer.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
      - parameter name: (query) The name of the queue to connect to 
      - parameter hostname: (query) The hostname of the server the queue is hosted on 
@@ -56,11 +54,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func consumerCreateWithRequestBuilder(version: Double, appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/consumer/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func consumerCreateWithRequestBuilder(appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/consumer/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -96,7 +91,6 @@ open class AMQPAPI {
     /**
      Update Consumer
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
      - parameter queueId: (query) The queue to update 
      - parameter dataMapping: (query) The data mapping information in the format of AMQPRequest 
@@ -106,15 +100,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func consumerUpdate(version: Double, appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await consumerUpdateWithRequestBuilder(version: version, appKey: appKey, queueId: queueId, dataMapping: dataMapping, deviceId: deviceId, accountId: accountId, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
+    open class func consumerUpdate(appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await consumerUpdateWithRequestBuilder(appKey: appKey, queueId: queueId, dataMapping: dataMapping, deviceId: deviceId, accountId: accountId, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Consumer
-     - POST /api/{version}/queue/consumer/update
+     - POST /queue/consumer/update
      - Update an existing amqp queue's data mapping.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
      - parameter queueId: (query) The queue to update 
      - parameter dataMapping: (query) The data mapping information in the format of AMQPRequest 
@@ -124,11 +117,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func consumerUpdateWithRequestBuilder(version: Double, appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/consumer/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func consumerUpdateWithRequestBuilder(appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/consumer/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -156,7 +146,6 @@ open class AMQPAPI {
     /**
      Create Queue
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key unique to each application. 
      - parameter name: (query) The name of the queue to create 
      - parameter deviceId: (query) The client deviceID (optional)
@@ -172,15 +161,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func queueCreate(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await queueCreateWithRequestBuilder(version: version, appKey: appKey, name: name, deviceId: deviceId, accountId: accountId, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
+    open class func queueCreate(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await queueCreateWithRequestBuilder(appKey: appKey, name: name, deviceId: deviceId, accountId: accountId, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Queue
-     - POST /api/{version}/queue/create
+     - POST /queue/create
      - Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key unique to each application. 
      - parameter name: (query) The name of the queue to create 
      - parameter deviceId: (query) The client deviceID (optional)
@@ -196,11 +184,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func queueCreateWithRequestBuilder(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queueCreateWithRequestBuilder(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -234,33 +219,28 @@ open class AMQPAPI {
     /**
      Delete Queue
      
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to find 
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func queueDelete(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await queueDeleteWithRequestBuilder(version: version, queueId: queueId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func queueDelete(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await queueDeleteWithRequestBuilder(queueId: queueId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Queue
-     - POST /api/{version}/queue/delete
+     - POST /queue/delete
      - Delete the stored queue record and close any active connections to the AMQP servers.
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to find 
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func queueDeleteWithRequestBuilder(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/queue/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queueDeleteWithRequestBuilder(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/queue/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -285,7 +265,6 @@ open class AMQPAPI {
     /**
      Get Queue
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
      - parameter queueId: (query) The id of the queue to find (optional)
@@ -296,15 +275,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func queueGet(version: Double, deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await queueGetWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, apiConfiguration: apiConfiguration).execute().body
+    open class func queueGet(deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await queueGetWithRequestBuilder(deviceId: deviceId, accountId: accountId, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Queue
-     - GET /api/{version}/queue/get
+     - GET /queue/get
      - Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     - parameter version: (path)  
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
      - parameter queueId: (query) The id of the queue to find (optional)
@@ -315,11 +293,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func queueGetWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queueGetWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -348,7 +323,6 @@ open class AMQPAPI {
     /**
      Publish Queue
      
-     - parameter version: (path)  
      - parameter message: (query) The payload to send to the queue 
      - parameter queueId: (query) The id of the queue to publish to (optional)
      - parameter appKey: (query) The application key the queue was assigned to (optional)
@@ -358,15 +332,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func queuePublish(version: Double, message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await queuePublishWithRequestBuilder(version: version, message: message, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, apiConfiguration: apiConfiguration).execute().body
+    open class func queuePublish(message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await queuePublishWithRequestBuilder(message: message, queueId: queueId, appKey: appKey, name: name, hostname: hostname, virtualHost: virtualHost, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Publish Queue
-     - POST /api/{version}/queue/publish
+     - POST /queue/publish
      - Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     - parameter version: (path)  
      - parameter message: (query) The payload to send to the queue 
      - parameter queueId: (query) The id of the queue to publish to (optional)
      - parameter appKey: (query) The application key the queue was assigned to (optional)
@@ -376,11 +349,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func queuePublishWithRequestBuilder(version: Double, message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/queue/publish"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queuePublishWithRequestBuilder(message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/queue/publish"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -408,7 +378,6 @@ open class AMQPAPI {
     /**
      Search Queue
      
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to find (optional)
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -418,15 +387,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func queueSearch(version: Double, queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await queueSearchWithRequestBuilder(version: version, queueId: queueId, deviceId: deviceId, accountId: accountId, name: name, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func queueSearch(queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await queueSearchWithRequestBuilder(queueId: queueId, deviceId: deviceId, accountId: accountId, name: name, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Queue
-     - GET /api/{version}/queue/search
+     - GET /queue/search
      - Get the queues setup for the BillableEntity's applications.
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to find (optional)
      - parameter deviceId: (query) The client device ID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -436,11 +404,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func queueSearchWithRequestBuilder(version: Double, queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queueSearchWithRequestBuilder(queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -468,7 +433,6 @@ open class AMQPAPI {
     /**
      Update Queue
      
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to update 
      - parameter deviceId: (query) The client deviceID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -484,15 +448,14 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QueueResponse
      */
-    open class func queueUpdate(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
-        return try await queueUpdateWithRequestBuilder(version: version, queueId: queueId, deviceId: deviceId, accountId: accountId, appKey: appKey, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
+    open class func queueUpdate(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QueueResponse {
+        return try await queueUpdateWithRequestBuilder(queueId: queueId, deviceId: deviceId, accountId: accountId, appKey: appKey, workers: workers, analyticTags: analyticTags, hostname: hostname, port: port, username: username, password: password, virtualHost: virtualHost, useSSL: useSSL, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Queue
-     - POST /api/{version}/queue/update
+     - POST /queue/update
      - Update the basic AMQP queue.
-     - parameter version: (path)  
      - parameter queueId: (query) The id of the queue to update 
      - parameter deviceId: (query) The client deviceID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -508,11 +471,8 @@ open class AMQPAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QueueResponse> 
      */
-    open class func queueUpdateWithRequestBuilder(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
-        var localVariablePath = "/api/{version}/queue/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func queueUpdateWithRequestBuilder(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QueueResponse> {
+        let localVariablePath = "/queue/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -12,7 +12,6 @@ open class WeatherAPI {
     /**
      Search Weather
      
-     - parameter version: (path)  
      - parameter regionId: (query) Region Id (optional)
      - parameter latitude: (query) Latitude (optional)
      - parameter longitude: (query) Longitude (optional)
@@ -20,15 +19,14 @@ open class WeatherAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WeatherResponse
      */
-    open class func searchWeather(version: Double, regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WeatherResponse {
-        return try await searchWeatherWithRequestBuilder(version: version, regionId: regionId, latitude: latitude, longitude: longitude, timezoneOffset: timezoneOffset, apiConfiguration: apiConfiguration).execute().body
+    open class func searchWeather(regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WeatherResponse {
+        return try await searchWeatherWithRequestBuilder(regionId: regionId, latitude: latitude, longitude: longitude, timezoneOffset: timezoneOffset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Weather
-     - GET /api/{version}/weather/search
+     - GET /weather/search
      - Search the weather forcast for the next 5 days
-     - parameter version: (path)  
      - parameter regionId: (query) Region Id (optional)
      - parameter latitude: (query) Latitude (optional)
      - parameter longitude: (query) Longitude (optional)
@@ -36,11 +34,8 @@ open class WeatherAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WeatherResponse> 
      */
-    open class func searchWeatherWithRequestBuilder(version: Double, regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WeatherResponse> {
-        var localVariablePath = "/api/{version}/weather/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchWeatherWithRequestBuilder(regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WeatherResponse> {
+        let localVariablePath = "/weather/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

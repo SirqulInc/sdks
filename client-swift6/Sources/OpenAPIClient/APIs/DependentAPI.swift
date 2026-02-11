@@ -12,31 +12,26 @@ open class DependentAPI {
     /**
      Create Dependent
      
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account to create a dependent for 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func create(version: Double, accountId: Int64, body: Account? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await createWithRequestBuilder(version: version, accountId: accountId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func create(accountId: Int64, body: Account? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await createWithRequestBuilder(accountId: accountId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Dependent
-     - PUT /api/{version}/cargo/dependent/{accountId}
+     - PUT /cargo/dependent/{accountId}
      - Create dependent of the account
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account to create a dependent for 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func createWithRequestBuilder(version: Double, accountId: Int64, body: Account? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/cargo/dependent/{accountId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createWithRequestBuilder(accountId: Int64, body: Account? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        var localVariablePath = "/cargo/dependent/{accountId}"
         let accountIdPreEscape = "\(APIHelper.mapValueToPathItem(accountId))"
         let accountIdPostEscape = accountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{accountId}", with: accountIdPostEscape, options: .literal, range: nil)
@@ -59,29 +54,24 @@ open class DependentAPI {
     /**
      Get dependent list of an account
      
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account to get a list of dependents 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getDependents(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getDependentsWithRequestBuilder(version: version, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getDependents(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getDependentsWithRequestBuilder(accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get dependent list of an account
-     - GET /api/{version}/cargo/dependent/{accountId}
+     - GET /cargo/dependent/{accountId}
      - Get the dependent list of an account
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account to get a list of dependents 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getDependentsWithRequestBuilder(version: Double, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/cargo/dependent/{accountId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getDependentsWithRequestBuilder(accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        var localVariablePath = "/cargo/dependent/{accountId}"
         let accountIdPreEscape = "\(APIHelper.mapValueToPathItem(accountId))"
         let accountIdPostEscape = accountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{accountId}", with: accountIdPostEscape, options: .literal, range: nil)
@@ -104,31 +94,26 @@ open class DependentAPI {
     /**
      Delete Dependent
      
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account tied to the dependent 
      - parameter dependentId: (path) the id of the dependent to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func removeDependent(version: Double, accountId: Int64, dependentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await removeDependentWithRequestBuilder(version: version, accountId: accountId, dependentId: dependentId, apiConfiguration: apiConfiguration).execute().body
+    open class func removeDependent(accountId: Int64, dependentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await removeDependentWithRequestBuilder(accountId: accountId, dependentId: dependentId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Dependent
-     - DELETE /api/{version}/cargo/dependent/{accountId}
+     - DELETE /cargo/dependent/{accountId}
      - Delete the Dependent
-     - parameter version: (path)  
      - parameter accountId: (path) the id of the parent account tied to the dependent 
      - parameter dependentId: (path) the id of the dependent to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func removeDependentWithRequestBuilder(version: Double, accountId: Int64, dependentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/cargo/dependent/{accountId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeDependentWithRequestBuilder(accountId: Int64, dependentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/cargo/dependent/{accountId}"
         let accountIdPreEscape = "\(APIHelper.mapValueToPathItem(accountId))"
         let accountIdPostEscape = accountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{accountId}", with: accountIdPostEscape, options: .literal, range: nil)

@@ -12,33 +12,28 @@ open class ParticipantsAPI {
     /**
      Process All Participant Feeds
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter appKey: (query) The application key used to identify the application (optional)
      - parameter useShortNameAsID: (query) Whether to use short name as the participant ID (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func processAllParticipants(version: Double, accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await processAllParticipantsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, useShortNameAsID: useShortNameAsID, apiConfiguration: apiConfiguration).execute().body
+    open class func processAllParticipants(accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await processAllParticipantsWithRequestBuilder(accountId: accountId, appKey: appKey, useShortNameAsID: useShortNameAsID, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Process All Participant Feeds
-     - POST /api/{version}/participant/process/all
+     - POST /participant/process/all
      - Processes all supported participant feeds.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter appKey: (query) The application key used to identify the application (optional)
      - parameter useShortNameAsID: (query) Whether to use short name as the participant ID (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func processAllParticipantsWithRequestBuilder(version: Double, accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/participant/process/all"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func processAllParticipantsWithRequestBuilder(accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/participant/process/all"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -63,7 +58,6 @@ open class ParticipantsAPI {
     /**
      Process Participants Feed
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter league: (query) The league identifier to process 
      - parameter appKey: (query) The application key used to identify the application (optional)
@@ -72,15 +66,14 @@ open class ParticipantsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func processParticipants(version: Double, accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await processParticipantsWithRequestBuilder(version: version, accountId: accountId, league: league, appKey: appKey, useShortNameAsID: useShortNameAsID, file: file, apiConfiguration: apiConfiguration).execute().body
+    open class func processParticipants(accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await processParticipantsWithRequestBuilder(accountId: accountId, league: league, appKey: appKey, useShortNameAsID: useShortNameAsID, file: file, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Process Participants Feed
-     - POST /api/{version}/participant/process
+     - POST /participant/process
      - Processes a participant feed or uploaded file for a specific league.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter league: (query) The league identifier to process 
      - parameter appKey: (query) The application key used to identify the application (optional)
@@ -89,11 +82,8 @@ open class ParticipantsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func processParticipantsWithRequestBuilder(version: Double, accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/participant/process"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func processParticipantsWithRequestBuilder(accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/participant/process"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

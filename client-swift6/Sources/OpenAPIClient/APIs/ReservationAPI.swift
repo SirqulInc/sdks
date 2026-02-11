@@ -12,7 +12,6 @@ open class ReservationAPI {
     /**
      Create Reservation
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter startDate: (query) The start date (optional)
@@ -24,15 +23,14 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func createReservation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await createReservationWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, offerId: offerId, offerLocationId: offerLocationId, appKey: appKey, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createReservation(deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await createReservationWithRequestBuilder(deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, offerId: offerId, offerLocationId: offerLocationId, appKey: appKey, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Reservation
-     - POST /api/{version}/reservation/create
+     - POST /reservation/create
      - Creates a reservation on an offer object
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter startDate: (query) The start date (optional)
@@ -44,11 +42,8 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func createReservationWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/reservation/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createReservationWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/reservation/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -78,33 +73,28 @@ open class ReservationAPI {
     /**
      Delete Reservation
      
-     - parameter version: (path)  
      - parameter reservationId: (query) The reservation id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteReservation(version: Double, reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteReservationWithRequestBuilder(version: version, reservationId: reservationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteReservation(reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteReservationWithRequestBuilder(reservationId: reservationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Reservation
-     - POST /api/{version}/reservation/delete
+     - POST /reservation/delete
      - Deleted a reservation on a reservation object
-     - parameter version: (path)  
      - parameter reservationId: (query) The reservation id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteReservationWithRequestBuilder(version: Double, reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/reservation/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteReservationWithRequestBuilder(reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/reservation/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -173,7 +163,6 @@ open class ReservationAPI {
     /**
      Update Availability
      
-     - parameter version: (path)  
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the type of reservation 
      - parameter deviceId: (query) the device id of the reservation (optional)
@@ -183,14 +172,13 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AvailabilityResponse]
      */
-    open class func reservableAvailability(version: Double, reservableId: Int64, reservableType: ReservableType_reservableAvailability, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AvailabilityResponse] {
-        return try await reservableAvailabilityWithRequestBuilder(version: version, reservableId: reservableId, reservableType: reservableType, deviceId: deviceId, accountId: accountId, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
+    open class func reservableAvailability(reservableId: Int64, reservableType: ReservableType_reservableAvailability, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AvailabilityResponse] {
+        return try await reservableAvailabilityWithRequestBuilder(reservableId: reservableId, reservableType: reservableType, deviceId: deviceId, accountId: accountId, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Availability
-     - POST /api/{version}/reservable/availability/update
-     - parameter version: (path)  
+     - POST /reservable/availability/update
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the type of reservation 
      - parameter deviceId: (query) the device id of the reservation (optional)
@@ -200,11 +188,8 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AvailabilityResponse]> 
      */
-    open class func reservableAvailabilityWithRequestBuilder(version: Double, reservableId: Int64, reservableType: ReservableType_reservableAvailability, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AvailabilityResponse]> {
-        var localVariablePath = "/api/{version}/reservable/availability/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func reservableAvailabilityWithRequestBuilder(reservableId: Int64, reservableType: ReservableType_reservableAvailability, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AvailabilityResponse]> {
+        let localVariablePath = "/reservable/availability/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -276,7 +261,6 @@ open class ReservationAPI {
     /**
      Search Availability
      
-     - parameter version: (path)  
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the reservable type 
      - parameter deviceId: (query) the device ID that the reservation is on (optional)
@@ -288,14 +272,13 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AvailabilityResponse]
      */
-    open class func searchAvailability(version: Double, reservableId: Int64, reservableType: ReservableType_searchAvailability, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AvailabilityResponse] {
-        return try await searchAvailabilityWithRequestBuilder(version: version, reservableId: reservableId, reservableType: reservableType, deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAvailability(reservableId: Int64, reservableType: ReservableType_searchAvailability, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AvailabilityResponse] {
+        return try await searchAvailabilityWithRequestBuilder(reservableId: reservableId, reservableType: reservableType, deviceId: deviceId, accountId: accountId, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Availability
-     - GET /api/{version}/reservable/availability/search
-     - parameter version: (path)  
+     - GET /reservable/availability/search
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the reservable type 
      - parameter deviceId: (query) the device ID that the reservation is on (optional)
@@ -307,11 +290,8 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AvailabilityResponse]> 
      */
-    open class func searchAvailabilityWithRequestBuilder(version: Double, reservableId: Int64, reservableType: ReservableType_searchAvailability, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AvailabilityResponse]> {
-        var localVariablePath = "/api/{version}/reservable/availability/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAvailabilityWithRequestBuilder(reservableId: Int64, reservableType: ReservableType_searchAvailability, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AvailabilityResponse]> {
+        let localVariablePath = "/reservable/availability/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -385,7 +365,6 @@ open class ReservationAPI {
     /**
      Search Reservations
      
-     - parameter version: (path)  
      - parameter deviceId: (query) Device Id (optional)
      - parameter appKey: (query) Appilcation Key (optional)
      - parameter accountId: (query) the id of the logged in user (optional)
@@ -400,14 +379,13 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ReservationResponse]
      */
-    open class func searchReservations(version: Double, deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: ReservableType_searchReservations? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ReservationResponse] {
-        return try await searchReservationsWithRequestBuilder(version: version, deviceId: deviceId, appKey: appKey, accountId: accountId, filterAccountId: filterAccountId, reservableId: reservableId, reservableType: reservableType, keyword: keyword, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchReservations(deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: ReservableType_searchReservations? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ReservationResponse] {
+        return try await searchReservationsWithRequestBuilder(deviceId: deviceId, appKey: appKey, accountId: accountId, filterAccountId: filterAccountId, reservableId: reservableId, reservableType: reservableType, keyword: keyword, startDate: startDate, endDate: endDate, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Reservations
-     - GET /api/{version}/reservation/search
-     - parameter version: (path)  
+     - GET /reservation/search
      - parameter deviceId: (query) Device Id (optional)
      - parameter appKey: (query) Appilcation Key (optional)
      - parameter accountId: (query) the id of the logged in user (optional)
@@ -422,11 +400,8 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ReservationResponse]> 
      */
-    open class func searchReservationsWithRequestBuilder(version: Double, deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: ReservableType_searchReservations? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ReservationResponse]> {
-        var localVariablePath = "/api/{version}/reservation/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchReservationsWithRequestBuilder(deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: ReservableType_searchReservations? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ReservationResponse]> {
+        let localVariablePath = "/reservation/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -503,7 +478,6 @@ open class ReservationAPI {
     /**
      Search Schedule
      
-     - parameter version: (path)  
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the reservation type 
      - parameter startDate: (query) the start date of the reservation 
@@ -514,14 +488,13 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [TimeSlotResponse]
      */
-    open class func searchSchedule(version: Double, reservableId: Int64, reservableType: ReservableType_searchSchedule, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TimeSlotResponse] {
-        return try await searchScheduleWithRequestBuilder(version: version, reservableId: reservableId, reservableType: reservableType, startDate: startDate, endDate: endDate, deviceId: deviceId, accountId: accountId, timeBucketMins: timeBucketMins, apiConfiguration: apiConfiguration).execute().body
+    open class func searchSchedule(reservableId: Int64, reservableType: ReservableType_searchSchedule, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TimeSlotResponse] {
+        return try await searchScheduleWithRequestBuilder(reservableId: reservableId, reservableType: reservableType, startDate: startDate, endDate: endDate, deviceId: deviceId, accountId: accountId, timeBucketMins: timeBucketMins, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Schedule
-     - GET /api/{version}/reservable/schedule/search
-     - parameter version: (path)  
+     - GET /reservable/schedule/search
      - parameter reservableId: (query) the id of the reservation 
      - parameter reservableType: (query) the reservation type 
      - parameter startDate: (query) the start date of the reservation 
@@ -532,11 +505,8 @@ open class ReservationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[TimeSlotResponse]> 
      */
-    open class func searchScheduleWithRequestBuilder(version: Double, reservableId: Int64, reservableType: ReservableType_searchSchedule, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TimeSlotResponse]> {
-        var localVariablePath = "/api/{version}/reservable/schedule/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchScheduleWithRequestBuilder(reservableId: Int64, reservableType: ReservableType_searchSchedule, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TimeSlotResponse]> {
+        let localVariablePath = "/reservable/schedule/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

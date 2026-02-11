@@ -12,7 +12,6 @@ open class TicketAPI {
     /**
      Get Ticket Count
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the id of the device that owns the tickets (optional)
      - parameter accountId: (query) the id of the account that owns the tickets (optional)
      - parameter gameType: (query) this is deprecated. (optional)
@@ -21,15 +20,14 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CountResponse
      */
-    open class func getTicketCount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
-        return try await getTicketCountWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, ticketType: ticketType, apiConfiguration: apiConfiguration).execute().body
+    open class func getTicketCount(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
+        return try await getTicketCountWithRequestBuilder(deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, ticketType: ticketType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Ticket Count
-     - GET /api/{version}/ticket/count
+     - GET /ticket/count
      - Gets the ticket count.
-     - parameter version: (path)  
      - parameter deviceId: (query) the id of the device that owns the tickets (optional)
      - parameter accountId: (query) the id of the account that owns the tickets (optional)
      - parameter gameType: (query) this is deprecated. (optional)
@@ -38,11 +36,8 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CountResponse> 
      */
-    open class func getTicketCountWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
-        var localVariablePath = "/api/{version}/ticket/count"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTicketCountWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
+        let localVariablePath = "/ticket/count"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -69,7 +64,6 @@ open class TicketAPI {
     /**
      Get Ticket List
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the id of the device that owns the tickets (optional)
      - parameter accountId: (query) the id of the account that owns the tickets (optional)
      - parameter ticketObjectType: (query) comma separated list of TicketObjectType (optional)
@@ -82,15 +76,14 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TicketListResponse
      */
-    open class func getTicketList(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TicketListResponse {
-        return try await getTicketListWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, ticketObjectType: ticketObjectType, actionType: actionType, ticketIds: ticketIds, objectIds: objectIds, receiptTokens: receiptTokens, gameType: gameType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func getTicketList(deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TicketListResponse {
+        return try await getTicketListWithRequestBuilder(deviceId: deviceId, accountId: accountId, ticketObjectType: ticketObjectType, actionType: actionType, ticketIds: ticketIds, objectIds: objectIds, receiptTokens: receiptTokens, gameType: gameType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Ticket List
-     - GET /api/{version}/ticket/getList
+     - GET /ticket/getList
      - Gets the list of tickets.
-     - parameter version: (path)  
      - parameter deviceId: (query) the id of the device that owns the tickets (optional)
      - parameter accountId: (query) the id of the account that owns the tickets (optional)
      - parameter ticketObjectType: (query) comma separated list of TicketObjectType (optional)
@@ -103,11 +96,8 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TicketListResponse> 
      */
-    open class func getTicketListWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TicketListResponse> {
-        var localVariablePath = "/api/{version}/ticket/getList"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTicketListWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TicketListResponse> {
+        let localVariablePath = "/ticket/getList"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -138,7 +128,6 @@ open class TicketAPI {
     /**
      Gift Tickets
      
-     - parameter version: (path)  
      - parameter receiverAccountId: (query) the id of the account receiving the tickets 
      - parameter ticketId: (query) the id of the tickets 
      - parameter deviceId: (query) the id of the device (optional)
@@ -150,15 +139,14 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func giftPurchase(version: Double, receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await giftPurchaseWithRequestBuilder(version: version, receiverAccountId: receiverAccountId, ticketId: ticketId, deviceId: deviceId, accountId: accountId, assetId: assetId, customMessage: customMessage, gameType: gameType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func giftPurchase(receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await giftPurchaseWithRequestBuilder(receiverAccountId: receiverAccountId, ticketId: ticketId, deviceId: deviceId, accountId: accountId, assetId: assetId, customMessage: customMessage, gameType: gameType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Gift Tickets
-     - POST /api/{version}/purchase/gift
+     - POST /purchase/gift
      - Gift tickets to another user.
-     - parameter version: (path)  
      - parameter receiverAccountId: (query) the id of the account receiving the tickets 
      - parameter ticketId: (query) the id of the tickets 
      - parameter deviceId: (query) the id of the device (optional)
@@ -170,11 +158,8 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func giftPurchaseWithRequestBuilder(version: Double, receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/purchase/gift"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func giftPurchaseWithRequestBuilder(receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/purchase/gift"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -204,7 +189,6 @@ open class TicketAPI {
     /**
      Save Ticket
      
-     - parameter version: (path)  
      - parameter actionType: (query) the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER 
      - parameter ticketObjectType: (query) the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM 
      - parameter returnNulls: (query) whether to return nulls or not (optional)
@@ -226,15 +210,14 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func saveTicket(version: Double, actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await saveTicketWithRequestBuilder(version: version, actionType: actionType, ticketObjectType: ticketObjectType, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, receiptData: receiptData, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, apiConfiguration: apiConfiguration).execute().body
+    open class func saveTicket(actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await saveTicketWithRequestBuilder(actionType: actionType, ticketObjectType: ticketObjectType, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, receiptData: receiptData, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Save Ticket
-     - POST /api/{version}/ticket/save
+     - POST /ticket/save
      - Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     - parameter version: (path)  
      - parameter actionType: (query) the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER 
      - parameter ticketObjectType: (query) the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM 
      - parameter returnNulls: (query) whether to return nulls or not (optional)
@@ -256,11 +239,8 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func saveTicketWithRequestBuilder(version: Double, actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/ticket/save"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func saveTicketWithRequestBuilder(actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/ticket/save"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -300,7 +280,6 @@ open class TicketAPI {
     /**
      Save Ticket with Reciept
      
-     - parameter version: (path)  
      - parameter actionType: (query) the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } 
      - parameter ticketObjectType: (query) the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} 
      - parameter receiptData: (query) the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. 
@@ -322,15 +301,14 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func saveTicketViaFileUpload(version: Double, actionType: String, ticketObjectType: String, receiptData: URL, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await saveTicketViaFileUploadWithRequestBuilder(version: version, actionType: actionType, ticketObjectType: ticketObjectType, receiptData: receiptData, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, apiConfiguration: apiConfiguration).execute().body
+    open class func saveTicketViaFileUpload(actionType: String, ticketObjectType: String, receiptData: URL, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await saveTicketViaFileUploadWithRequestBuilder(actionType: actionType, ticketObjectType: ticketObjectType, receiptData: receiptData, returnNulls: returnNulls, deviceId: deviceId, accountId: accountId, gameType: gameType, appKey: appKey, objectId: objectId, purchaseCode: purchaseCode, receiptToken: receiptToken, count: count, ticketType: ticketType, purchaseProvider: purchaseProvider, purchaseType: purchaseType, returnProfileResponse: returnProfileResponse, includeProfileResponse: includeProfileResponse, appVersion: appVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Save Ticket with Reciept
-     - POST /api/{version}/ticket/save/fileUpload
+     - POST /ticket/save/fileUpload
      - Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     - parameter version: (path)  
      - parameter actionType: (query) the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } 
      - parameter ticketObjectType: (query) the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} 
      - parameter receiptData: (query) the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. 
@@ -352,11 +330,8 @@ open class TicketAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func saveTicketViaFileUploadWithRequestBuilder(version: Double, actionType: String, ticketObjectType: String, receiptData: URL, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/ticket/save/fileUpload"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func saveTicketViaFileUploadWithRequestBuilder(actionType: String, ticketObjectType: String, receiptData: URL, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/ticket/save/fileUpload"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -396,27 +371,22 @@ open class TicketAPI {
     /**
      Get Ticket Offers
      
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TicketOfferResponse
      */
-    open class func ticketOffers(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TicketOfferResponse {
-        return try await ticketOffersWithRequestBuilder(version: version, apiConfiguration: apiConfiguration).execute().body
+    open class func ticketOffers(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TicketOfferResponse {
+        return try await ticketOffersWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Ticket Offers
-     - GET /api/{version}/ticket/ticketoffers
+     - GET /ticket/ticketoffers
      - Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TicketOfferResponse> 
      */
-    open class func ticketOffersWithRequestBuilder(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TicketOfferResponse> {
-        var localVariablePath = "/api/{version}/ticket/ticketoffers"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func ticketOffersWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TicketOfferResponse> {
+        let localVariablePath = "/ticket/ticketoffers"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

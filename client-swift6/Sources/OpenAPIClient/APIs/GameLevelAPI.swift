@@ -12,7 +12,6 @@ open class GameLevelAPI {
     /**
      Create Game Level
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the level. 
      - parameter gameData: (query) The game level data: xml, json, or other text based format. 
@@ -42,15 +41,14 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameLevelResponse
      */
-    open class func createGameLevel(version: Double, accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
-        return try await createGameLevelWithRequestBuilder(version: version, accountId: accountId, name: name, gameData: gameData, gameDataSuffix: gameDataSuffix, appKey: appKey, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createGameLevel(accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
+        return try await createGameLevelWithRequestBuilder(accountId: accountId, name: name, gameData: gameData, gameDataSuffix: gameDataSuffix, appKey: appKey, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Game Level
-     - POST /api/{version}/level/create
+     - POST /level/create
      - Create a game level. Currently does NOT support game objects.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the level. 
      - parameter gameData: (query) The game level data: xml, json, or other text based format. 
@@ -80,11 +78,8 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameLevelResponse> 
      */
-    open class func createGameLevelWithRequestBuilder(version: Double, accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
-        var localVariablePath = "/api/{version}/level/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createGameLevelWithRequestBuilder(accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
+        let localVariablePath = "/level/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -132,31 +127,26 @@ open class GameLevelAPI {
     /**
      Delete Game Level
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) The id of the level to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteGameLevel(version: Double, accountId: Int64, levelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteGameLevelWithRequestBuilder(version: version, accountId: accountId, levelId: levelId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteGameLevel(accountId: Int64, levelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteGameLevelWithRequestBuilder(accountId: accountId, levelId: levelId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Game Level
-     - POST /api/{version}/level/delete
+     - POST /level/delete
      - Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) The id of the level to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteGameLevelWithRequestBuilder(version: Double, accountId: Int64, levelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/level/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteGameLevelWithRequestBuilder(accountId: Int64, levelId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/level/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -180,33 +170,28 @@ open class GameLevelAPI {
     /**
      Get Game Level
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) The id of the level to return. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameLevelResponse
      */
-    open class func getGameLevel(version: Double, accountId: Int64, levelId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
-        return try await getGameLevelWithRequestBuilder(version: version, accountId: accountId, levelId: levelId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
+    open class func getGameLevel(accountId: Int64, levelId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
+        return try await getGameLevelWithRequestBuilder(accountId: accountId, levelId: levelId, includeGameData: includeGameData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Game Level
-     - GET /api/{version}/level/get
+     - GET /level/get
      - Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) The id of the level to return. 
      - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameLevelResponse> 
      */
-    open class func getGameLevelWithRequestBuilder(version: Double, accountId: Int64, levelId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
-        var localVariablePath = "/api/{version}/level/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGameLevelWithRequestBuilder(accountId: Int64, levelId: Int64, includeGameData: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
+        let localVariablePath = "/level/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -231,7 +216,6 @@ open class GameLevelAPI {
     /**
      Search Game Levels
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter keyword: (query) Match the keyword to the owner name or level name. (optional)
@@ -245,15 +229,14 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameLevelListResponse
      */
-    open class func getGameLevelsByApplication(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelListResponse {
-        return try await getGameLevelsByApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, appVersion: appVersion, includeGameData: includeGameData, filters: filters, apiConfiguration: apiConfiguration).execute().body
+    open class func getGameLevelsByApplication(accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelListResponse {
+        return try await getGameLevelsByApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, appVersion: appVersion, includeGameData: includeGameData, filters: filters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Game Levels
-     - GET /api/{version}/level/search
+     - GET /level/search
      - Get a list of levels for an application, just those the account has permissions to view.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter keyword: (query) Match the keyword to the owner name or level name. (optional)
@@ -267,11 +250,8 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameLevelListResponse> 
      */
-    open class func getGameLevelsByApplicationWithRequestBuilder(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelListResponse> {
-        var localVariablePath = "/api/{version}/level/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGameLevelsByApplicationWithRequestBuilder(accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelListResponse> {
+        let localVariablePath = "/level/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -331,7 +311,6 @@ open class GameLevelAPI {
     /**
      Search Game Level by Billable Entity
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter appKey: (query) the application key (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -343,15 +322,14 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameLevelResponse
      */
-    open class func getGameLevelsByBillableEntity(version: Double, accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: SortField_getGameLevelsByBillableEntity? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
-        return try await getGameLevelsByBillableEntityWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getGameLevelsByBillableEntity(accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: SortField_getGameLevelsByBillableEntity? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
+        return try await getGameLevelsByBillableEntityWithRequestBuilder(accountId: accountId, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Game Level by Billable Entity
-     - GET /api/{version}/level/searchByBillableEntity
+     - GET /level/searchByBillableEntity
      - Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter appKey: (query) the application key (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -363,11 +341,8 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameLevelResponse> 
      */
-    open class func getGameLevelsByBillableEntityWithRequestBuilder(version: Double, accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: SortField_getGameLevelsByBillableEntity? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
-        var localVariablePath = "/api/{version}/level/searchByBillableEntity"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getGameLevelsByBillableEntityWithRequestBuilder(accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: SortField_getGameLevelsByBillableEntity? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
+        let localVariablePath = "/level/searchByBillableEntity"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -397,31 +372,26 @@ open class GameLevelAPI {
     /**
      Get Level Questions
      
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to get questions from 
      - parameter accountId: (query) the id of the logged in user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QuestionResponse
      */
-    open class func getQuestionsInLevel(version: Double, levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
-        return try await getQuestionsInLevelWithRequestBuilder(version: version, levelId: levelId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getQuestionsInLevel(levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
+        return try await getQuestionsInLevelWithRequestBuilder(levelId: levelId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Level Questions
-     - GET /api/{version}/level/questions/get
+     - GET /level/questions/get
      - Get questions within a level.
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to get questions from 
      - parameter accountId: (query) the id of the logged in user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QuestionResponse> 
      */
-    open class func getQuestionsInLevelWithRequestBuilder(version: Double, levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
-        var localVariablePath = "/api/{version}/level/questions/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getQuestionsInLevelWithRequestBuilder(levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
+        let localVariablePath = "/level/questions/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -445,31 +415,26 @@ open class GameLevelAPI {
     /**
      Get Level Words
      
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to get words for 
      - parameter accountId: (query) the id of the logged in user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WordzWordResponse
      */
-    open class func getWordsInLevel(version: Double, levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
-        return try await getWordsInLevelWithRequestBuilder(version: version, levelId: levelId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getWordsInLevel(levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
+        return try await getWordsInLevelWithRequestBuilder(levelId: levelId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Level Words
-     - GET /api/{version}/level/words/get
+     - GET /level/words/get
      - Get words within a level.
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to get words for 
      - parameter accountId: (query) the id of the logged in user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WordzWordResponse> 
      */
-    open class func getWordsInLevelWithRequestBuilder(version: Double, levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
-        var localVariablePath = "/api/{version}/level/words/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getWordsInLevelWithRequestBuilder(levelId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
+        let localVariablePath = "/level/words/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -493,7 +458,6 @@ open class GameLevelAPI {
     /**
      Update Game Level
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) If update then include the level Id. 
      - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -524,15 +488,14 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: GameLevelResponse
      */
-    open class func updateGameLevel(version: Double, accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
-        return try await updateGameLevelWithRequestBuilder(version: version, accountId: accountId, levelId: levelId, appKey: appKey, name: name, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, gameData: gameData, gameDataSuffix: gameDataSuffix, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateGameLevel(accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> GameLevelResponse {
+        return try await updateGameLevelWithRequestBuilder(accountId: accountId, levelId: levelId, appKey: appKey, name: name, description: description, difficulty: difficulty, appVersion: appVersion, assetImageId: assetImageId, assetIconId: assetIconId, gameData: gameData, gameDataSuffix: gameDataSuffix, visibility: visibility, friendGroup: friendGroup, connectionIds: connectionIds, connectionGroupIds: connectionGroupIds, balance: balance, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, tutorialTitle: tutorialTitle, tutorialMessage: tutorialMessage, tutorialAlignment: tutorialAlignment, tutorialImageAssetId: tutorialImageAssetId, offerId: offerId, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Game Level
-     - POST /api/{version}/level/update
+     - POST /level/update
      - Update a game level. Currently does NOT support game objects.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter levelId: (query) If update then include the level Id. 
      - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -563,11 +526,8 @@ open class GameLevelAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GameLevelResponse> 
      */
-    open class func updateGameLevelWithRequestBuilder(version: Double, accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
-        var localVariablePath = "/api/{version}/level/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateGameLevelWithRequestBuilder(accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<GameLevelResponse> {
+        let localVariablePath = "/level/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -616,33 +576,28 @@ open class GameLevelAPI {
     /**
      Update Level Questions
      
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to update questions on 
      - parameter accountId: (query) the id of the logged in user 
      - parameter questionIds: (query) the IDs of the questions to update 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateQuestionsInLevel(version: Double, levelId: Int64, accountId: Int64, questionIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateQuestionsInLevelWithRequestBuilder(version: version, levelId: levelId, accountId: accountId, questionIds: questionIds, apiConfiguration: apiConfiguration).execute().body
+    open class func updateQuestionsInLevel(levelId: Int64, accountId: Int64, questionIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateQuestionsInLevelWithRequestBuilder(levelId: levelId, accountId: accountId, questionIds: questionIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Level Questions
-     - POST /api/{version}/level/questions/update
+     - POST /level/questions/update
      - Updates a level with question game objects.
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to update questions on 
      - parameter accountId: (query) the id of the logged in user 
      - parameter questionIds: (query) the IDs of the questions to update 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateQuestionsInLevelWithRequestBuilder(version: Double, levelId: Int64, accountId: Int64, questionIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/level/questions/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateQuestionsInLevelWithRequestBuilder(levelId: Int64, accountId: Int64, questionIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/level/questions/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -667,33 +622,28 @@ open class GameLevelAPI {
     /**
      Update Level Words
      
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to update words for 
      - parameter accountId: (query) the id of the logged in user 
      - parameter wordIds: (query) the ids of the words to update for the level 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateWordsInLevel(version: Double, levelId: Int64, accountId: Int64, wordIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateWordsInLevelWithRequestBuilder(version: version, levelId: levelId, accountId: accountId, wordIds: wordIds, apiConfiguration: apiConfiguration).execute().body
+    open class func updateWordsInLevel(levelId: Int64, accountId: Int64, wordIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateWordsInLevelWithRequestBuilder(levelId: levelId, accountId: accountId, wordIds: wordIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Level Words
-     - POST /api/{version}/level/words/update
+     - POST /level/words/update
      - Updates a level with word game objects.
-     - parameter version: (path)  
      - parameter levelId: (query) the id of the level to update words for 
      - parameter accountId: (query) the id of the logged in user 
      - parameter wordIds: (query) the ids of the words to update for the level 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateWordsInLevelWithRequestBuilder(version: Double, levelId: Int64, accountId: Int64, wordIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/level/words/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateWordsInLevelWithRequestBuilder(levelId: Int64, accountId: Int64, wordIds: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/level/words/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

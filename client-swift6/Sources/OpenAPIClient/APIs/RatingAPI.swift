@@ -12,7 +12,6 @@ open class RatingAPI {
     /**
      Create Rating
      
-     - parameter version: (path)  
      - parameter ratableType: (query) The ratable object type {RETAILER_LOCATION} 
      - parameter ratableId: (query) The id of the ratable object 
      - parameter ratingValue: (query) The integer value of 0-100 
@@ -27,15 +26,14 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RatingResponse
      */
-    open class func createRating(version: Double, ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RatingResponse {
-        return try await createRatingWithRequestBuilder(version: version, ratableType: ratableType, ratableId: ratableId, ratingValue: ratingValue, deviceId: deviceId, accountId: accountId, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createRating(ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RatingResponse {
+        return try await createRatingWithRequestBuilder(ratableType: ratableType, ratableId: ratableId, ratingValue: ratingValue, deviceId: deviceId, accountId: accountId, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Rating
-     - POST /api/{version}/rating/create
+     - POST /rating/create
      - This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     - parameter version: (path)  
      - parameter ratableType: (query) The ratable object type {RETAILER_LOCATION} 
      - parameter ratableId: (query) The id of the ratable object 
      - parameter ratingValue: (query) The integer value of 0-100 
@@ -50,11 +48,8 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RatingResponse> 
      */
-    open class func createRatingWithRequestBuilder(version: Double, ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RatingResponse> {
-        var localVariablePath = "/api/{version}/rating/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRatingWithRequestBuilder(ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RatingResponse> {
+        let localVariablePath = "/rating/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -87,33 +82,28 @@ open class RatingAPI {
     /**
      Delete Rating
      
-     - parameter version: (path)  
      - parameter ratingId: (query) The ID of the rating to delete 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteRating(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteRatingWithRequestBuilder(version: version, ratingId: ratingId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRating(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteRatingWithRequestBuilder(ratingId: ratingId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Rating
-     - POST /api/{version}/rating/delete
+     - POST /rating/delete
      - Sets a rating as deleted.
-     - parameter version: (path)  
      - parameter ratingId: (query) The ID of the rating to delete 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteRatingWithRequestBuilder(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/rating/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRatingWithRequestBuilder(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/rating/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -169,7 +159,6 @@ open class RatingAPI {
     /**
      Search Location Rating Indexes
      
-     - parameter version: (path)  
      - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
      - parameter keyword: (query) The keyword used to search (optional)
      - parameter locationType: (query) The type of location to filter the results by (optional)
@@ -190,15 +179,14 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RatingIndexResponse]
      */
-    open class func searchLocationRatingIndexes(version: Double, categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SortField_searchLocationRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: DistanceUnit_searchLocationRatingIndexes? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingIndexResponse] {
-        return try await searchLocationRatingIndexesWithRequestBuilder(version: version, categoryIds: categoryIds, keyword: keyword, locationType: locationType, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, latitude: latitude, longitude: longitude, returnOverallRating: returnOverallRating, distanceUnit: distanceUnit, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, apiConfiguration: apiConfiguration).execute().body
+    open class func searchLocationRatingIndexes(categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SortField_searchLocationRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: DistanceUnit_searchLocationRatingIndexes? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingIndexResponse] {
+        return try await searchLocationRatingIndexesWithRequestBuilder(categoryIds: categoryIds, keyword: keyword, locationType: locationType, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, latitude: latitude, longitude: longitude, returnOverallRating: returnOverallRating, distanceUnit: distanceUnit, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Location Rating Indexes
-     - GET /api/{version}/location/rating/index/search
+     - GET /location/rating/index/search
      - Search for retailer locations by averages near you.
-     - parameter version: (path)  
      - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
      - parameter keyword: (query) The keyword used to search (optional)
      - parameter locationType: (query) The type of location to filter the results by (optional)
@@ -219,11 +207,8 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RatingIndexResponse]> 
      */
-    open class func searchLocationRatingIndexesWithRequestBuilder(version: Double, categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SortField_searchLocationRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: DistanceUnit_searchLocationRatingIndexes? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingIndexResponse]> {
-        var localVariablePath = "/api/{version}/location/rating/index/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchLocationRatingIndexesWithRequestBuilder(categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SortField_searchLocationRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: DistanceUnit_searchLocationRatingIndexes? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingIndexResponse]> {
+        let localVariablePath = "/location/rating/index/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -329,7 +314,6 @@ open class RatingAPI {
     /**
      Search Rating Indexes
      
-     - parameter version: (path)  
      - parameter ratableType: (query) Filter results by a ratable type {RETAILER_LOCATION} 
      - parameter ratableIds: (query) Comma separated list of ratable ids to filter the resuts by (optional)
      - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
@@ -346,15 +330,14 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RatingIndexResponse]
      */
-    open class func searchRatingIndexes(version: Double, ratableType: RatableType_searchRatingIndexes, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SortField_searchRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingIndexResponse] {
-        return try await searchRatingIndexesWithRequestBuilder(version: version, ratableType: ratableType, ratableIds: ratableIds, categoryIds: categoryIds, secondaryType: secondaryType, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, returnRatable: returnRatable, returnOverallRating: returnOverallRating, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRatingIndexes(ratableType: RatableType_searchRatingIndexes, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SortField_searchRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingIndexResponse] {
+        return try await searchRatingIndexesWithRequestBuilder(ratableType: ratableType, ratableIds: ratableIds, categoryIds: categoryIds, secondaryType: secondaryType, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, latitude: latitude, longitude: longitude, returnRatable: returnRatable, returnOverallRating: returnOverallRating, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Rating Indexes
-     - GET /api/{version}/rating/index/search
+     - GET /rating/index/search
      - Search for ratable items by averages.
-     - parameter version: (path)  
      - parameter ratableType: (query) Filter results by a ratable type {RETAILER_LOCATION} 
      - parameter ratableIds: (query) Comma separated list of ratable ids to filter the resuts by (optional)
      - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
@@ -371,11 +354,8 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RatingIndexResponse]> 
      */
-    open class func searchRatingIndexesWithRequestBuilder(version: Double, ratableType: RatableType_searchRatingIndexes, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SortField_searchRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingIndexResponse]> {
-        var localVariablePath = "/api/{version}/rating/index/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRatingIndexesWithRequestBuilder(ratableType: RatableType_searchRatingIndexes, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SortField_searchRatingIndexes? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingIndexResponse]> {
+        let localVariablePath = "/rating/index/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -431,7 +411,6 @@ open class RatingAPI {
     /**
      Search Ratings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter filterAccountId: (query) Filter results for a particular account (optional)
@@ -446,15 +425,14 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RatingResponse]
      */
-    open class func searchRatings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SortField_searchRatings? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingResponse] {
-        return try await searchRatingsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, filterAccountId: filterAccountId, ratableType: ratableType, ratableId: ratableId, categoryIds: categoryIds, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRatings(deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SortField_searchRatings? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RatingResponse] {
+        return try await searchRatingsWithRequestBuilder(deviceId: deviceId, accountId: accountId, filterAccountId: filterAccountId, ratableType: ratableType, ratableId: ratableId, categoryIds: categoryIds, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Ratings
-     - GET /api/{version}/rating/search
+     - GET /rating/search
      - Search for ratings on a ratable object.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter filterAccountId: (query) Filter results for a particular account (optional)
@@ -469,11 +447,8 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RatingResponse]> 
      */
-    open class func searchRatingsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SortField_searchRatings? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingResponse]> {
-        var localVariablePath = "/api/{version}/rating/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRatingsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SortField_searchRatings? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RatingResponse]> {
+        let localVariablePath = "/rating/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -506,7 +481,6 @@ open class RatingAPI {
     /**
      Update Rating
      
-     - parameter version: (path)  
      - parameter ratingId: (query) The id of the rating (Note: this is not the ratable object id) 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -520,15 +494,14 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RatingResponse
      */
-    open class func updateRating(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RatingResponse {
-        return try await updateRatingWithRequestBuilder(version: version, ratingId: ratingId, deviceId: deviceId, accountId: accountId, ratingValue: ratingValue, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRating(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RatingResponse {
+        return try await updateRatingWithRequestBuilder(ratingId: ratingId, deviceId: deviceId, accountId: accountId, ratingValue: ratingValue, categoryId: categoryId, display: display, description: description, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Rating
-     - POST /api/{version}/rating/update
+     - POST /rating/update
      - Update an existing rating. Only the creator of the rating have permission to update.
-     - parameter version: (path)  
      - parameter ratingId: (query) The id of the rating (Note: this is not the ratable object id) 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -542,11 +515,8 @@ open class RatingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RatingResponse> 
      */
-    open class func updateRatingWithRequestBuilder(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RatingResponse> {
-        var localVariablePath = "/api/{version}/rating/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRatingWithRequestBuilder(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RatingResponse> {
+        let localVariablePath = "/rating/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

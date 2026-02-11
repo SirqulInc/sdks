@@ -12,7 +12,6 @@ open class ListingAPI {
     /**
      Create Listing
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user&#39;s account ID 
      - parameter name: (query) the name of the listing 
      - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -30,15 +29,14 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ListingFullResponse
      */
-    open class func createListing(version: Double, accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
-        return try await createListingWithRequestBuilder(version: version, accountId: accountId, name: name, filterIds: filterIds, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func createListing(accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
+        return try await createListingWithRequestBuilder(accountId: accountId, name: name, filterIds: filterIds, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Listing
-     - POST /api/{version}/listing/create
+     - POST /listing/create
      - Creates a listing.
-     - parameter version: (path)  
      - parameter accountId: (query) the user&#39;s account ID 
      - parameter name: (query) the name of the listing 
      - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -56,11 +54,8 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ListingFullResponse> 
      */
-    open class func createListingWithRequestBuilder(version: Double, accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
-        var localVariablePath = "/api/{version}/listing/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createListingWithRequestBuilder(accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
+        let localVariablePath = "/listing/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -96,31 +91,26 @@ open class ListingAPI {
     /**
      Delete Listing
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter listingId: (query) the id of the listing to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteListing(version: Double, accountId: Int64, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteListingWithRequestBuilder(version: version, accountId: accountId, listingId: listingId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteListing(accountId: Int64, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteListingWithRequestBuilder(accountId: accountId, listingId: listingId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Listing
-     - POST /api/{version}/listing/delete
+     - POST /listing/delete
      - Delete a listing.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter listingId: (query) the id of the listing to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteListingWithRequestBuilder(version: Double, accountId: Int64, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/listing/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteListingWithRequestBuilder(accountId: Int64, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/listing/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -144,29 +134,24 @@ open class ListingAPI {
     /**
      Get Listing
      
-     - parameter version: (path)  
      - parameter listingId: (query) the id of the listing to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ListingFullResponse
      */
-    open class func getListing(version: Double, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
-        return try await getListingWithRequestBuilder(version: version, listingId: listingId, apiConfiguration: apiConfiguration).execute().body
+    open class func getListing(listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
+        return try await getListingWithRequestBuilder(listingId: listingId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Listing
-     - GET /api/{version}/listing/get
+     - GET /listing/get
      - Get a listing by id.
-     - parameter version: (path)  
      - parameter listingId: (query) the id of the listing to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ListingFullResponse> 
      */
-    open class func getListingWithRequestBuilder(version: Double, listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
-        var localVariablePath = "/api/{version}/listing/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getListingWithRequestBuilder(listingId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
+        let localVariablePath = "/listing/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -189,7 +174,6 @@ open class ListingAPI {
     /**
      Search Listings
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter keyword: (query) search the event name and description for this keyword (optional)
      - parameter start: (query) the record to begin the return set on (optional, default to 0)
@@ -208,15 +192,14 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ListingResponse]
      */
-    open class func searchListing(version: Double, accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ListingResponse] {
-        return try await searchListingWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, start: start, limit: limit, activeOnly: activeOnly, latitude: latitude, longitude: longitude, startDate: startDate, endDate: endDate, categoryIds: categoryIds, filterIds: filterIds, useListingOrderIds: useListingOrderIds, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchListing(accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ListingResponse] {
+        return try await searchListingWithRequestBuilder(accountId: accountId, keyword: keyword, start: start, limit: limit, activeOnly: activeOnly, latitude: latitude, longitude: longitude, startDate: startDate, endDate: endDate, categoryIds: categoryIds, filterIds: filterIds, useListingOrderIds: useListingOrderIds, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Listings
-     - GET /api/{version}/listing/search
+     - GET /listing/search
      - Search for event listings from the start time to end time
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter keyword: (query) search the event name and description for this keyword (optional)
      - parameter start: (query) the record to begin the return set on (optional, default to 0)
@@ -235,11 +218,8 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ListingResponse]> 
      */
-    open class func searchListingWithRequestBuilder(version: Double, accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ListingResponse]> {
-        var localVariablePath = "/api/{version}/listing/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchListingWithRequestBuilder(accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ListingResponse]> {
+        let localVariablePath = "/listing/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -276,7 +256,6 @@ open class ListingAPI {
     /**
      Summary Listing
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter startDate: (query) the start date to search from (optional)
      - parameter categoryIds: (query) the list of categories to search on (optional)
@@ -285,15 +264,14 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ListingGroupResponse]
      */
-    open class func summaryListing(version: Double, accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ListingGroupResponse] {
-        return try await summaryListingWithRequestBuilder(version: version, accountId: accountId, startDate: startDate, categoryIds: categoryIds, daysToInclude: daysToInclude, useListingOrderIds: useListingOrderIds, apiConfiguration: apiConfiguration).execute().body
+    open class func summaryListing(accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ListingGroupResponse] {
+        return try await summaryListingWithRequestBuilder(accountId: accountId, startDate: startDate, categoryIds: categoryIds, daysToInclude: daysToInclude, useListingOrderIds: useListingOrderIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Summary Listing
-     - GET /api/{version}/listing/summary
+     - GET /listing/summary
      - Search for a list of summary listings from the start time up to 8 days out.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter startDate: (query) the start date to search from (optional)
      - parameter categoryIds: (query) the list of categories to search on (optional)
@@ -302,11 +280,8 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ListingGroupResponse]> 
      */
-    open class func summaryListingWithRequestBuilder(version: Double, accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ListingGroupResponse]> {
-        var localVariablePath = "/api/{version}/listing/summary"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func summaryListingWithRequestBuilder(accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ListingGroupResponse]> {
+        let localVariablePath = "/listing/summary"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -333,7 +308,6 @@ open class ListingAPI {
     /**
      Update Listing
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user&#39;s account ID 
      - parameter listingId: (query) the listing to update 
      - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -352,15 +326,14 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ListingFullResponse
      */
-    open class func updateListing(version: Double, accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
-        return try await updateListingWithRequestBuilder(version: version, accountId: accountId, listingId: listingId, filterIds: filterIds, name: name, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
+    open class func updateListing(accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ListingFullResponse {
+        return try await updateListingWithRequestBuilder(accountId: accountId, listingId: listingId, filterIds: filterIds, name: name, description: description, start: start, end: end, locationName: locationName, locationDescription: locationDescription, isPrivate: isPrivate, externalId: externalId, externalId2: externalId2, externalGroupId: externalGroupId, active: active, metaData: metaData, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Listing
-     - POST /api/{version}/listing/update
+     - POST /listing/update
      - Updates a listing.
-     - parameter version: (path)  
      - parameter accountId: (query) the user&#39;s account ID 
      - parameter listingId: (query) the listing to update 
      - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -379,11 +352,8 @@ open class ListingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ListingFullResponse> 
      */
-    open class func updateListingWithRequestBuilder(version: Double, accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
-        var localVariablePath = "/api/{version}/listing/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateListingWithRequestBuilder(accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ListingFullResponse> {
+        let localVariablePath = "/listing/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -52,7 +52,6 @@ open class ApplicationAPI {
     /**
      Create Application
      
-     - parameter version: (path)  
      - parameter appName: (query) The name of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -135,15 +134,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationResponse
      */
-    open class func createApplication(version: Double, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_createApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_createApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_createApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
-        return try await createApplicationWithRequestBuilder(version: version, appName: appName, deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, apiConfiguration: apiConfiguration).execute().body
+    open class func createApplication(appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_createApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_createApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_createApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
+        return try await createApplicationWithRequestBuilder(appName: appName, deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Application
-     - POST /api/{version}/application/create
+     - POST /application/create
      - Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     - parameter version: (path)  
      - parameter appName: (query) The name of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -226,11 +224,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationResponse> 
      */
-    open class func createApplicationWithRequestBuilder(version: Double, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_createApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_createApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_createApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
-        var localVariablePath = "/api/{version}/application/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createApplicationWithRequestBuilder(appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_createApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_createApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_createApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
+        let localVariablePath = "/application/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -354,7 +349,6 @@ open class ApplicationAPI {
     /**
      Create Ad Placement
      
-     - parameter version: (path)  
      - parameter appKey: (query) The appKey of the application the ad placement is for 
      - parameter size: (query) The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -369,15 +363,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PlacementResponse
      */
-    open class func createApplicationPlacement(version: Double, appKey: String, size: Size_createApplicationPlacement, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
-        return try await createApplicationPlacementWithRequestBuilder(version: version, appKey: appKey, size: size, deviceId: deviceId, accountId: accountId, name: name, description: description, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createApplicationPlacement(appKey: String, size: Size_createApplicationPlacement, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
+        return try await createApplicationPlacementWithRequestBuilder(appKey: appKey, size: size, deviceId: deviceId, accountId: accountId, name: name, description: description, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Ad Placement
-     - POST /api/{version}/application/placement/create
+     - POST /application/placement/create
      - Creates a new ad placement for an application.
-     - parameter version: (path)  
      - parameter appKey: (query) The appKey of the application the ad placement is for 
      - parameter size: (query) The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -392,11 +385,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PlacementResponse> 
      */
-    open class func createApplicationPlacementWithRequestBuilder(version: Double, appKey: String, size: Size_createApplicationPlacement, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
-        var localVariablePath = "/api/{version}/application/placement/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createApplicationPlacementWithRequestBuilder(appKey: String, size: Size_createApplicationPlacement, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
+        let localVariablePath = "/application/placement/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -429,31 +419,26 @@ open class ApplicationAPI {
     /**
      Delete Application
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
      - parameter appKey: (query) The key of the application to be deleted (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteApplication(version: Double, accountId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteApplication(accountId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Application
-     - POST /api/{version}/application/delete
+     - POST /application/delete
      - Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
      - parameter appKey: (query) The key of the application to be deleted (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteApplicationWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/application/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteApplicationWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/application/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -477,33 +462,28 @@ open class ApplicationAPI {
     /**
      Delete Ad Placement
      
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement to delete, the user must have rights to the application the ad placement is for 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PlacementResponse
      */
-    open class func deleteApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
-        return try await deleteApplicationPlacementWithRequestBuilder(version: version, placementId: placementId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
+        return try await deleteApplicationPlacementWithRequestBuilder(placementId: placementId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Ad Placement
-     - POST /api/{version}/application/placement/delete
+     - POST /application/placement/delete
      - Deletes an ad placement for an application.
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement to delete, the user must have rights to the application the ad placement is for 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PlacementResponse> 
      */
-    open class func deleteApplicationPlacementWithRequestBuilder(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
-        var localVariablePath = "/api/{version}/application/placement/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteApplicationPlacementWithRequestBuilder(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
+        let localVariablePath = "/application/placement/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -528,31 +508,26 @@ open class ApplicationAPI {
     /**
      Get Application
      
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application (optional)
      - parameter applicationId: (query) Application Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationResponse
      */
-    open class func getApplication(version: Double, appKey: String? = nil, applicationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
-        return try await getApplicationWithRequestBuilder(version: version, appKey: appKey, applicationId: applicationId, apiConfiguration: apiConfiguration).execute().body
+    open class func getApplication(appKey: String? = nil, applicationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
+        return try await getApplicationWithRequestBuilder(appKey: appKey, applicationId: applicationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Application
-     - GET /api/{version}/application/get
+     - GET /application/get
      - Get a specific application by appKey
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application (optional)
      - parameter applicationId: (query) Application Id (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationResponse> 
      */
-    open class func getApplicationWithRequestBuilder(version: Double, appKey: String? = nil, applicationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
-        var localVariablePath = "/api/{version}/application/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getApplicationWithRequestBuilder(appKey: String? = nil, applicationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
+        let localVariablePath = "/application/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -576,33 +551,28 @@ open class ApplicationAPI {
     /**
      Get Ad Placement
      
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PlacementResponse
      */
-    open class func getApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
-        return try await getApplicationPlacementWithRequestBuilder(version: version, placementId: placementId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
+        return try await getApplicationPlacementWithRequestBuilder(placementId: placementId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Ad Placement
-     - GET /api/{version}/application/placement/get
+     - GET /application/placement/get
      - Get details of an ad placement
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PlacementResponse> 
      */
-    open class func getApplicationPlacementWithRequestBuilder(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
-        var localVariablePath = "/api/{version}/application/placement/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getApplicationPlacementWithRequestBuilder(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
+        let localVariablePath = "/application/placement/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -627,27 +597,22 @@ open class ApplicationAPI {
     /**
      Get API versions
      
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func getApplicationVersions(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await getApplicationVersionsWithRequestBuilder(version: version, apiConfiguration: apiConfiguration).execute().body
+    open class func getApplicationVersions(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await getApplicationVersionsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get API versions
-     - GET /api/{version}/application/versions
+     - GET /application/versions
      - Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     - parameter version: (path)  
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func getApplicationVersionsWithRequestBuilder(version: Double, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/application/versions"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getApplicationVersionsWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/application/versions"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -667,7 +632,6 @@ open class ApplicationAPI {
     /**
      Search Application Users
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter q: (query) Q (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -679,15 +643,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AccountListResponse
      */
-    open class func getUniqueUsersByApp(version: Double, appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountListResponse {
-        return try await getUniqueUsersByAppWithRequestBuilder(version: version, appKey: appKey, q: q, keyword: keyword, since: since, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getUniqueUsersByApp(appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AccountListResponse {
+        return try await getUniqueUsersByAppWithRequestBuilder(appKey: appKey, q: q, keyword: keyword, since: since, i: i, start: start, l: l, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Application Users
-     - GET /api/{version}/application/users
+     - GET /application/users
      - Get a list of users per application
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter q: (query) Q (optional)
      - parameter keyword: (query) The keyword used to search (optional)
@@ -699,11 +662,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AccountListResponse> 
      */
-    open class func getUniqueUsersByAppWithRequestBuilder(version: Double, appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountListResponse> {
-        var localVariablePath = "/api/{version}/application/users"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUniqueUsersByAppWithRequestBuilder(appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AccountListResponse> {
+        let localVariablePath = "/application/users"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -763,7 +723,6 @@ open class ApplicationAPI {
     /**
      List Applications
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the application owner/manager (optional)
      - parameter q: (query) Q (optional)
      - parameter keyword: (query) The keyword used to search for title, about, and description fields (optional)
@@ -787,15 +746,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ApplicationShortResponse]
      */
-    open class func listApplications(version: Double, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: SortField_listApplications? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationShortResponse] {
-        return try await listApplicationsWithRequestBuilder(version: version, accountId: accountId, q: q, keyword: keyword, platforms: platforms, deviceIds: deviceIds, deviceVersions: deviceVersions, categoryIds: categoryIds, sortField: sortField, hasAds: hasAds, publicNotifications: publicNotifications, filterBillable: filterBillable, filterContentAdmin: filterContentAdmin, descending: descending, i: i, start: start, l: l, limit: limit, applicationIds: applicationIds, hasObjectStore: hasObjectStore, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func listApplications(accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: SortField_listApplications? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationShortResponse] {
+        return try await listApplicationsWithRequestBuilder(accountId: accountId, q: q, keyword: keyword, platforms: platforms, deviceIds: deviceIds, deviceVersions: deviceVersions, categoryIds: categoryIds, sortField: sortField, hasAds: hasAds, publicNotifications: publicNotifications, filterBillable: filterBillable, filterContentAdmin: filterContentAdmin, descending: descending, i: i, start: start, l: l, limit: limit, applicationIds: applicationIds, hasObjectStore: hasObjectStore, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Applications
-     - GET /api/{version}/application/list
+     - GET /application/list
      - List active applications matching the criteria (as a consumer)
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the application owner/manager (optional)
      - parameter q: (query) Q (optional)
      - parameter keyword: (query) The keyword used to search for title, about, and description fields (optional)
@@ -819,11 +777,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ApplicationShortResponse]> 
      */
-    open class func listApplicationsWithRequestBuilder(version: Double, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: SortField_listApplications? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationShortResponse]> {
-        var localVariablePath = "/api/{version}/application/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listApplicationsWithRequestBuilder(accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: SortField_listApplications? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationShortResponse]> {
+        let localVariablePath = "/application/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -865,7 +820,6 @@ open class ApplicationAPI {
     /**
      Search for Ad Placements
      
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -874,15 +828,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PlacementResponse]
      */
-    open class func searchApplicationPlacement(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PlacementResponse] {
-        return try await searchApplicationPlacementWithRequestBuilder(version: version, appKey: appKey, deviceId: deviceId, accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchApplicationPlacement(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PlacementResponse] {
+        return try await searchApplicationPlacementWithRequestBuilder(appKey: appKey, deviceId: deviceId, accountId: accountId, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search for Ad Placements
-     - GET /api/{version}/application/placement/search
+     - GET /application/placement/search
      - Searches placements for an application.
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -891,11 +844,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PlacementResponse]> 
      */
-    open class func searchApplicationPlacementWithRequestBuilder(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PlacementResponse]> {
-        var localVariablePath = "/api/{version}/application/placement/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchApplicationPlacementWithRequestBuilder(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PlacementResponse]> {
+        let localVariablePath = "/application/placement/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -922,7 +872,6 @@ open class ApplicationAPI {
     /**
      Search for Application Settings
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) The account id used to view another person&#39;s account (optional)
@@ -934,15 +883,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationSettingsResponse
      */
-    open class func searchApplicationSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationSettingsResponse {
-        return try await searchApplicationSettingsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchApplicationSettings(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationSettingsResponse {
+        return try await searchApplicationSettingsWithRequestBuilder(deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search for Application Settings
-     - GET /api/{version}/application/settings/search
+     - GET /application/settings/search
      - Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) The account id used to view another person&#39;s account (optional)
@@ -954,11 +902,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationSettingsResponse> 
      */
-    open class func searchApplicationSettingsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationSettingsResponse> {
-        var localVariablePath = "/api/{version}/application/settings/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchApplicationSettingsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationSettingsResponse> {
+        let localVariablePath = "/application/settings/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1018,7 +963,6 @@ open class ApplicationAPI {
     /**
      Search Applications
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The location of the device (optional)
@@ -1038,15 +982,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ApplicationResponse]
      */
-    open class func searchApplications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SortField_searchApplications? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationResponse] {
-        return try await searchApplicationsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, q: q, keyword: keyword, qSearchFields: qSearchFields, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, hasAds: hasAds, publicNotifications: publicNotifications, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchApplications(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SortField_searchApplications? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationResponse] {
+        return try await searchApplicationsWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, q: q, keyword: keyword, qSearchFields: qSearchFields, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, hasAds: hasAds, publicNotifications: publicNotifications, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Applications
-     - GET /api/{version}/application/search
+     - GET /application/search
      - Search for applications matching the criteria that the logged in user has access to
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) The location of the device (optional)
@@ -1066,11 +1009,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ApplicationResponse]> 
      */
-    open class func searchApplicationsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SortField_searchApplications? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationResponse]> {
-        var localVariablePath = "/api/{version}/application/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchApplicationsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SortField_searchApplications? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationResponse]> {
+        let localVariablePath = "/application/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1148,7 +1088,6 @@ open class ApplicationAPI {
     /**
      Update Application
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key for updating an existing application 
      - parameter appName: (query) The name of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1232,15 +1171,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationResponse
      */
-    open class func updateApplication(version: Double, appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_updateApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_updateApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_updateApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
-        return try await updateApplicationWithRequestBuilder(version: version, appKey: appKey, appName: appName, deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, apiConfiguration: apiConfiguration).execute().body
+    open class func updateApplication(appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_updateApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_updateApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_updateApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationResponse {
+        return try await updateApplicationWithRequestBuilder(appKey: appKey, appName: appName, deviceId: deviceId, accountId: accountId, about: about, bundleId: bundleId, appIconAssetId: appIconAssetId, appLogoAssetId: appLogoAssetId, facebookAppId: facebookAppId, facebookAppSecret: facebookAppSecret, googleApiKey: googleApiKey, updateEULADate: updateEULADate, eulaVersion: eulaVersion, landingPageUrl: landingPageUrl, showInActivities: showInActivities, activityDescription: activityDescription, inviteWelcomeText: inviteWelcomeText, invitePageUrl: invitePageUrl, urlScheme: urlScheme, platforms: platforms, downloadUrls: downloadUrls, categoryIds: categoryIds, scoringType: scoringType, hintCost: hintCost, maxScore: maxScore, ticketsPerPoint: ticketsPerPoint, hasGameData: hasGameData, publicNotifications: publicNotifications, useMatchingAlgorithm: useMatchingAlgorithm, globalTickets: globalTickets, buildVersion: buildVersion, apiVersion: apiVersion, placementName: placementName, placementDescription: placementDescription, placementSize: placementSize, placementHeight: placementHeight, placementWidth: placementWidth, placementRefreshInterval: placementRefreshInterval, createObjectStore: createObjectStore, publicContentApproval: publicContentApproval, productionMode: productionMode, minimumSessionLength: minimumSessionLength, sessionGapLength: sessionGapLength, localAdsEnabled: localAdsEnabled, sqootApiKey: sqootApiKey, trilatProcessingType: trilatProcessingType, maxSampleSize: maxSampleSize, minRSSI: minRSSI, modules: modules, authorizedCount: authorizedCount, authorizedServers: authorizedServers, defaultTimezone: defaultTimezone, smtpPass: smtpPass, metaData: metaData, placementMetaData: placementMetaData, ipsFloor: ipsFloor, enableAPNSBadge: enableAPNSBadge, includeInReport: includeInReport, defaultAppFilterId: defaultAppFilterId, enableWelcomeEmail: enableWelcomeEmail, appleAppId: appleAppId, appleTeamId: appleTeamId, appleAuthKeyId: appleAuthKeyId, appleAuthKey: appleAuthKey, appleIssuerId: appleIssuerId, appStoreKeyId: appStoreKeyId, appStoreKey: appStoreKey, googlePrivateKeyFile: googlePrivateKeyFile, authorizeNetApiKey: authorizeNetApiKey, authorizeNetTransactionKey: authorizeNetTransactionKey, emailSender: emailSender, smtpUser: smtpUser, smtpHost: smtpHost, vatomBusinessId: vatomBusinessId, vatomRestClientId: vatomRestClientId, vatomRestSecretKey: vatomRestSecretKey, twilioAccountSID: twilioAccountSID, twilioAuthToken: twilioAuthToken, twilioSenderPhoneNumber: twilioSenderPhoneNumber, openAISecretKey: openAISecretKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Application
-     - POST /api/{version}/application/update
+     - POST /application/update
      - Update an application record
-     - parameter version: (path)  
      - parameter appKey: (query) The application key for updating an existing application 
      - parameter appName: (query) The name of the application 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1324,11 +1262,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationResponse> 
      */
-    open class func updateApplicationWithRequestBuilder(version: Double, appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_updateApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_updateApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_updateApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
-        var localVariablePath = "/api/{version}/application/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateApplicationWithRequestBuilder(appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: ScoringType_updateApplication? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: PlacementSize_updateApplication? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: TrilatProcessingType_updateApplication? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: URL? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: URL? = nil, googlePrivateKeyFile: URL? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationResponse> {
+        let localVariablePath = "/application/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1430,33 +1365,28 @@ open class ApplicationAPI {
     /**
      Change Appliation Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. 
      - parameter appKey: (query) The key of the application to be deleted 
      - parameter active: (query) If true then set to active, false otherwise 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateApplicationActive(version: Double, accountId: Int64, appKey: String, active: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateApplicationActiveWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateApplicationActive(accountId: Int64, appKey: String, active: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateApplicationActiveWithRequestBuilder(accountId: accountId, appKey: appKey, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Change Appliation Status
-     - POST /api/{version}/application/active
+     - POST /application/active
      - Set the application's active flag to true/false. This effectively activates or deactivates the application.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. 
      - parameter appKey: (query) The key of the application to be deleted 
      - parameter active: (query) If true then set to active, false otherwise 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateApplicationActiveWithRequestBuilder(version: Double, accountId: Int64, appKey: String, active: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/application/active"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateApplicationActiveWithRequestBuilder(accountId: Int64, appKey: String, active: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/application/active"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1504,7 +1434,6 @@ open class ApplicationAPI {
     /**
      Update Ad Placement
      
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement to update, the user must have rights to the application the ad placement is for 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -1519,15 +1448,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PlacementResponse
      */
-    open class func updateApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: Size_updateApplicationPlacement? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
-        return try await updateApplicationPlacementWithRequestBuilder(version: version, placementId: placementId, deviceId: deviceId, accountId: accountId, name: name, description: description, size: size, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: Size_updateApplicationPlacement? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlacementResponse {
+        return try await updateApplicationPlacementWithRequestBuilder(placementId: placementId, deviceId: deviceId, accountId: accountId, name: name, description: description, size: size, height: height, width: width, refreshInterval: refreshInterval, defaultImageId: defaultImageId, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Ad Placement
-     - POST /api/{version}/application/placement/update
+     - POST /application/placement/update
      - Updates an ad placement for an application.
-     - parameter version: (path)  
      - parameter placementId: (query) The id of the placement to update, the user must have rights to the application the ad placement is for 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -1542,11 +1470,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PlacementResponse> 
      */
-    open class func updateApplicationPlacementWithRequestBuilder(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: Size_updateApplicationPlacement? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
-        var localVariablePath = "/api/{version}/application/placement/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateApplicationPlacementWithRequestBuilder(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: Size_updateApplicationPlacement? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PlacementResponse> {
+        let localVariablePath = "/application/placement/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1579,7 +1504,6 @@ open class ApplicationAPI {
     /**
      Create Application Certificate
      
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application 
      - parameter deviceId: (query) Device Id (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
@@ -1587,15 +1511,14 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func uploadApplicationCertificate(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await uploadApplicationCertificateWithRequestBuilder(version: version, appKey: appKey, deviceId: deviceId, accountId: accountId, certificate: certificate, apiConfiguration: apiConfiguration).execute().body
+    open class func uploadApplicationCertificate(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await uploadApplicationCertificateWithRequestBuilder(appKey: appKey, deviceId: deviceId, accountId: accountId, certificate: certificate, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Application Certificate
-     - POST /api/{version}/application/certificate/create
+     - POST /application/certificate/create
      - Uploads a certificate for an application that the user has access to.
-     - parameter version: (path)  
      - parameter appKey: (query) The key of the application 
      - parameter deviceId: (query) Device Id (optional)
      - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
@@ -1603,11 +1526,8 @@ open class ApplicationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func uploadApplicationCertificateWithRequestBuilder(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/application/certificate/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func uploadApplicationCertificateWithRequestBuilder(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: URL? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/application/certificate/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

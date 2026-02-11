@@ -12,29 +12,24 @@ open class ActivityAPI {
     /**
      Create an entity reference.
      
-     - parameter version: (path)  
      - parameter body: (body) The entity reference object 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ActivityResponse
      */
-    open class func createEntityReference(version: Double, body: EntityReference, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ActivityResponse {
-        return try await createEntityReferenceWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createEntityReference(body: EntityReference, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ActivityResponse {
+        return try await createEntityReferenceWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create an entity reference.
-     - POST /api/{version}/entity/reference
+     - POST /entity/reference
      - Creates a reference for an entity for syncing data between servers.
-     - parameter version: (path)  
      - parameter body: (body) The entity reference object 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ActivityResponse> 
      */
-    open class func createEntityReferenceWithRequestBuilder(version: Double, body: EntityReference, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ActivityResponse> {
-        var localVariablePath = "/api/{version}/entity/reference"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createEntityReferenceWithRequestBuilder(body: EntityReference, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ActivityResponse> {
+        let localVariablePath = "/entity/reference"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 

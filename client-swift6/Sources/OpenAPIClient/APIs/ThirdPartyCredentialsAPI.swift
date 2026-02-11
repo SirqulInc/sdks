@@ -12,7 +12,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Create Credential
      
-     - parameter version: (path)  
      - parameter thirdPartyId: (query) the third party user account id 
      - parameter thirdPartyToken: (query) the access token to authenticate with (ex: username or fb token or phone number) 
      - parameter networkUID: (query) the access provider to authenticate against 
@@ -33,15 +32,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func createCredential(version: Double, thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await createCredentialWithRequestBuilder(version: version, thirdPartyId: thirdPartyId, thirdPartyToken: thirdPartyToken, networkUID: networkUID, appKey: appKey, accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyName: thirdPartyName, emailAddress: emailAddress, signinOnlyMode: signinOnlyMode, responseFilters: responseFilters, latitude: latitude, longitude: longitude, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, apiConfiguration: apiConfiguration).execute().body
+    open class func createCredential(thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await createCredentialWithRequestBuilder(thirdPartyId: thirdPartyId, thirdPartyToken: thirdPartyToken, networkUID: networkUID, appKey: appKey, accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyName: thirdPartyName, emailAddress: emailAddress, signinOnlyMode: signinOnlyMode, responseFilters: responseFilters, latitude: latitude, longitude: longitude, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Credential
-     - POST /api/{version}/thirdparty/credential/create
+     - POST /thirdparty/credential/create
      - This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     - parameter version: (path)  
      - parameter thirdPartyId: (query) the third party user account id 
      - parameter thirdPartyToken: (query) the access token to authenticate with (ex: username or fb token or phone number) 
      - parameter networkUID: (query) the access provider to authenticate against 
@@ -62,11 +60,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func createCredentialWithRequestBuilder(version: Double, thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createCredentialWithRequestBuilder(thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/thirdparty/credential/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -105,7 +100,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Create Network
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter name: (query) The name of the network 
      - parameter enableIntrospection: (query) Whether the network uses introspection calls 
@@ -126,15 +120,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ThirdPartyNetworkResponse
      */
-    open class func createNetwork(version: Double, accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
-        return try await createNetworkWithRequestBuilder(version: version, accountId: accountId, name: name, enableIntrospection: enableIntrospection, description: description, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createNetwork(accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
+        return try await createNetworkWithRequestBuilder(accountId: accountId, name: name, enableIntrospection: enableIntrospection, description: description, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Network
-     - POST /api/{version}/thirdparty/network/create
+     - POST /thirdparty/network/create
      - Creates a custom third party network.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter name: (query) The name of the network 
      - parameter enableIntrospection: (query) Whether the network uses introspection calls 
@@ -155,11 +148,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ThirdPartyNetworkResponse> 
      */
-    open class func createNetworkWithRequestBuilder(version: Double, accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/network/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createNetworkWithRequestBuilder(accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
+        let localVariablePath = "/thirdparty/network/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -197,7 +187,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Delete Credential
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter networkUID: (query) The third party network identifier 
      - parameter thirdPartyId: (query) The third party user id 
@@ -205,15 +194,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteCredential(version: Double, accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteCredentialWithRequestBuilder(version: version, accountId: accountId, networkUID: networkUID, thirdPartyId: thirdPartyId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteCredential(accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteCredentialWithRequestBuilder(accountId: accountId, networkUID: networkUID, thirdPartyId: thirdPartyId, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Credential
-     - POST /api/{version}/thirdparty/credential/delete
+     - POST /thirdparty/credential/delete
      - Delete a third party network on a Sirqul account.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter networkUID: (query) The third party network identifier 
      - parameter thirdPartyId: (query) The third party user id 
@@ -221,11 +209,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteCredentialWithRequestBuilder(version: Double, accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteCredentialWithRequestBuilder(accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/thirdparty/credential/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -251,31 +236,26 @@ open class ThirdPartyCredentialsAPI {
     /**
      Delete Network
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteNetwork(version: Double, accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteNetworkWithRequestBuilder(version: version, accountId: accountId, networkUID: networkUID, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteNetwork(accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteNetworkWithRequestBuilder(accountId: accountId, networkUID: networkUID, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Network
-     - POST /api/{version}/thirdparty/network/delete
+     - POST /thirdparty/network/delete
      - Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteNetworkWithRequestBuilder(version: Double, accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/network/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteNetworkWithRequestBuilder(accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/thirdparty/network/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -299,7 +279,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Get Credential
      
-     - parameter version: (path)  
      - parameter networkUID: (query) the access provider to authenticate against 
      - parameter appKey: (query) the application key 
      - parameter accountId: (query) the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -318,15 +297,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func getCredential(version: Double, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await getCredentialWithRequestBuilder(version: version, networkUID: networkUID, appKey: appKey, accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyCredentialId: thirdPartyCredentialId, thirdPartyToken: thirdPartyToken, thirdPartySecret: thirdPartySecret, createNewAccount: createNewAccount, responseFilters: responseFilters, latitude: latitude, longitude: longitude, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getCredential(networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await getCredentialWithRequestBuilder(networkUID: networkUID, appKey: appKey, accountId: accountId, deviceId: deviceId, sessionId: sessionId, thirdPartyCredentialId: thirdPartyCredentialId, thirdPartyToken: thirdPartyToken, thirdPartySecret: thirdPartySecret, createNewAccount: createNewAccount, responseFilters: responseFilters, latitude: latitude, longitude: longitude, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, referralAccountId: referralAccountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Credential
-     - POST /api/{version}/thirdparty/credential/get
+     - POST /thirdparty/credential/get
      - Gets the account information given a third party token.
-     - parameter version: (path)  
      - parameter networkUID: (query) the access provider to authenticate against 
      - parameter appKey: (query) the application key 
      - parameter accountId: (query) the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -345,11 +323,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func getCredentialWithRequestBuilder(version: Double, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCredentialWithRequestBuilder(networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/thirdparty/credential/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -386,31 +361,26 @@ open class ThirdPartyCredentialsAPI {
     /**
      Get Network
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ThirdPartyNetworkResponse
      */
-    open class func getNetwork(version: Double, accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
-        return try await getNetworkWithRequestBuilder(version: version, accountId: accountId, networkUID: networkUID, apiConfiguration: apiConfiguration).execute().body
+    open class func getNetwork(accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
+        return try await getNetworkWithRequestBuilder(accountId: accountId, networkUID: networkUID, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Network
-     - GET /api/{version}/thirdparty/network/get
+     - GET /thirdparty/network/get
      - Get the details of a third party network. Only the network owners and managers have access to this.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ThirdPartyNetworkResponse> 
      */
-    open class func getNetworkWithRequestBuilder(version: Double, accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/network/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getNetworkWithRequestBuilder(accountId: Int64, networkUID: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
+        let localVariablePath = "/thirdparty/network/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -434,7 +404,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Search Credentials
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter keyword: (query) The keyword used to search on the third party name and network string (optional)
      - parameter networkUID: (query) The network UID to filter results with (optional)
@@ -444,15 +413,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ThirdPartyCredentialResponse]
      */
-    open class func searchCredentials(version: Double, accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ThirdPartyCredentialResponse] {
-        return try await searchCredentialsWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, networkUID: networkUID, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchCredentials(accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ThirdPartyCredentialResponse] {
+        return try await searchCredentialsWithRequestBuilder(accountId: accountId, keyword: keyword, networkUID: networkUID, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Credentials
-     - GET /api/{version}/thirdparty/credential/search
+     - GET /thirdparty/credential/search
      - Search on a user's linked third party networks.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter keyword: (query) The keyword used to search on the third party name and network string (optional)
      - parameter networkUID: (query) The network UID to filter results with (optional)
@@ -462,11 +430,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ThirdPartyCredentialResponse]> 
      */
-    open class func searchCredentialsWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ThirdPartyCredentialResponse]> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchCredentialsWithRequestBuilder(accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ThirdPartyCredentialResponse]> {
+        let localVariablePath = "/thirdparty/credential/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -511,7 +476,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Search Networks
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter sortField: (query) The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME 
      - parameter descending: (query) The order to return the search results 
@@ -523,15 +487,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ThirdPartyNetworkShortResponse]
      */
-    open class func searchNetworks(version: Double, accountId: Int64, sortField: SortField_searchNetworks, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ThirdPartyNetworkShortResponse] {
-        return try await searchNetworksWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, filterBillable: filterBillable, apiConfiguration: apiConfiguration).execute().body
+    open class func searchNetworks(accountId: Int64, sortField: SortField_searchNetworks, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ThirdPartyNetworkShortResponse] {
+        return try await searchNetworksWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, keyword: keyword, filterBillable: filterBillable, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Networks
-     - GET /api/{version}/thirdparty/network/search
+     - GET /thirdparty/network/search
      - Search on supported third party networks and custom networks from external users.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter sortField: (query) The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME 
      - parameter descending: (query) The order to return the search results 
@@ -543,11 +506,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ThirdPartyNetworkShortResponse]> 
      */
-    open class func searchNetworksWithRequestBuilder(version: Double, accountId: Int64, sortField: SortField_searchNetworks, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ThirdPartyNetworkShortResponse]> {
-        var localVariablePath = "/api/{version}/thirdparty/network/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchNetworksWithRequestBuilder(accountId: Int64, sortField: SortField_searchNetworks, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ThirdPartyNetworkShortResponse]> {
+        let localVariablePath = "/thirdparty/network/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -577,7 +537,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Send MFA Challenge
      
-     - parameter version: (path)  
      - parameter networkUID: (query) the third party network provider that has MFA enabled 
      - parameter appKey: (query) the application key 
      - parameter thirdPartyToken: (query) the access token to authenticate with (optional)
@@ -586,15 +545,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func sendMFAChallenge(version: Double, networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await sendMFAChallengeWithRequestBuilder(version: version, networkUID: networkUID, appKey: appKey, thirdPartyToken: thirdPartyToken, thirdPartyCredentialId: thirdPartyCredentialId, deviceId: deviceId, apiConfiguration: apiConfiguration).execute().body
+    open class func sendMFAChallenge(networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await sendMFAChallengeWithRequestBuilder(networkUID: networkUID, appKey: appKey, thirdPartyToken: thirdPartyToken, thirdPartyCredentialId: thirdPartyCredentialId, deviceId: deviceId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send MFA Challenge
-     - POST /api/{version}/thirdparty/credential/mfa/send
+     - POST /thirdparty/credential/mfa/send
      - Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     - parameter version: (path)  
      - parameter networkUID: (query) the third party network provider that has MFA enabled 
      - parameter appKey: (query) the application key 
      - parameter thirdPartyToken: (query) the access token to authenticate with (optional)
@@ -603,11 +561,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func sendMFAChallengeWithRequestBuilder(version: Double, networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/mfa/send"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sendMFAChallengeWithRequestBuilder(networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/thirdparty/credential/mfa/send"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -634,7 +589,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Update Credential
      
-     - parameter version: (path)  
      - parameter networkUID: (query) the access provider to authenticate against 
      - parameter thirdPartyId: (query) the third party user account id 
      - parameter appKey: (query) the application key 
@@ -647,15 +601,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func updateCredential(version: Double, networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await updateCredentialWithRequestBuilder(version: version, networkUID: networkUID, thirdPartyId: thirdPartyId, appKey: appKey, deviceId: deviceId, thirdPartyName: thirdPartyName, thirdPartyToken: thirdPartyToken, responseFilters: responseFilters, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, apiConfiguration: apiConfiguration).execute().body
+    open class func updateCredential(networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await updateCredentialWithRequestBuilder(networkUID: networkUID, thirdPartyId: thirdPartyId, appKey: appKey, deviceId: deviceId, thirdPartyName: thirdPartyName, thirdPartyToken: thirdPartyToken, responseFilters: responseFilters, metaData: metaData, thirdPartyRefreshToken: thirdPartyRefreshToken, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Credential
-     - POST /api/{version}/thirdparty/credential/update
+     - POST /thirdparty/credential/update
      - Updates a third-party login for an account.
-     - parameter version: (path)  
      - parameter networkUID: (query) the access provider to authenticate against 
      - parameter thirdPartyId: (query) the third party user account id 
      - parameter appKey: (query) the application key 
@@ -668,11 +621,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func updateCredentialWithRequestBuilder(version: Double, networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/credential/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateCredentialWithRequestBuilder(networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/thirdparty/credential/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -703,7 +653,6 @@ open class ThirdPartyCredentialsAPI {
     /**
      Update Network
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter name: (query) The name of the network (optional)
@@ -725,15 +674,14 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ThirdPartyNetworkResponse
      */
-    open class func updateNetwork(version: Double, accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
-        return try await updateNetworkWithRequestBuilder(version: version, accountId: accountId, networkUID: networkUID, name: name, description: description, enableIntrospection: enableIntrospection, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateNetwork(accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThirdPartyNetworkResponse {
+        return try await updateNetworkWithRequestBuilder(accountId: accountId, networkUID: networkUID, name: name, description: description, enableIntrospection: enableIntrospection, introspectionMethod: introspectionMethod, introspectionURL: introspectionURL, introspectionParams: introspectionParams, requiredRootField: requiredRootField, enableMFA: enableMFA, sizeMFA: sizeMFA, shelfLifeMFA: shelfLifeMFA, oauthTokenURL: oauthTokenURL, oauthPrivateKey: oauthPrivateKey, oauthPublicKey: oauthPublicKey, oauthClientId: oauthClientId, oauthSecretKey: oauthSecretKey, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Network
-     - POST /api/{version}/thirdparty/network/update
+     - POST /thirdparty/network/update
      - Updates a custom third party network. Only the network owners and managers have access to this.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id making the request 
      - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
      - parameter name: (query) The name of the network (optional)
@@ -755,11 +703,8 @@ open class ThirdPartyCredentialsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ThirdPartyNetworkResponse> 
      */
-    open class func updateNetworkWithRequestBuilder(version: Double, accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
-        var localVariablePath = "/api/{version}/thirdparty/network/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateNetworkWithRequestBuilder(accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: URL? = nil, oauthPublicKey: URL? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThirdPartyNetworkResponse> {
+        let localVariablePath = "/thirdparty/network/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 

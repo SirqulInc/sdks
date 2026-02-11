@@ -12,7 +12,6 @@ open class NotificationAPI {
     /**
      Create Notification Template
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter conduit: (query) Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. 
      - parameter title: (query) title of the notification template 
@@ -23,15 +22,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationTemplateResponse
      */
-    open class func createNotificationTemplate(version: Double, accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
-        return try await createNotificationTemplateWithRequestBuilder(version: version, accountId: accountId, conduit: conduit, title: title, body: body, appKey: appKey, event: event, tags: tags, apiConfiguration: apiConfiguration).execute().body
+    open class func createNotificationTemplate(accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
+        return try await createNotificationTemplateWithRequestBuilder(accountId: accountId, conduit: conduit, title: title, body: body, appKey: appKey, event: event, tags: tags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Notification Template
-     - POST /api/{version}/notification/template/create
+     - POST /notification/template/create
      - Create a notification template. Developers will only be able to create notification templates for their own applications.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter conduit: (query) Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. 
      - parameter title: (query) title of the notification template 
@@ -42,11 +40,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationTemplateResponse> 
      */
-    open class func createNotificationTemplateWithRequestBuilder(version: Double, accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
-        var localVariablePath = "/api/{version}/notification/template/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createNotificationTemplateWithRequestBuilder(accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
+        let localVariablePath = "/notification/template/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,33 +70,28 @@ open class NotificationAPI {
     /**
      Create or update blocked notification settings
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter data: (query) batch data payload (application specific) 
      - parameter accountId: (query) the account id of the user (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BlockedNotificationResponse
      */
-    open class func createOrUpdateBlockedNotifications(version: Double, appKey: String, data: String, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BlockedNotificationResponse {
-        return try await createOrUpdateBlockedNotificationsWithRequestBuilder(version: version, appKey: appKey, data: data, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func createOrUpdateBlockedNotifications(appKey: String, data: String, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BlockedNotificationResponse {
+        return try await createOrUpdateBlockedNotificationsWithRequestBuilder(appKey: appKey, data: data, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create or update blocked notification settings
-     - POST /api/{version}/notification/blocked/batch
+     - POST /notification/blocked/batch
      - Create or update blocked notification settings
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter data: (query) batch data payload (application specific) 
      - parameter accountId: (query) the account id of the user (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BlockedNotificationResponse> 
      */
-    open class func createOrUpdateBlockedNotificationsWithRequestBuilder(version: Double, appKey: String, data: String, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BlockedNotificationResponse> {
-        var localVariablePath = "/api/{version}/notification/blocked/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOrUpdateBlockedNotificationsWithRequestBuilder(appKey: String, data: String, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BlockedNotificationResponse> {
+        let localVariablePath = "/notification/blocked/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -126,31 +116,26 @@ open class NotificationAPI {
     /**
      Delete Notification Template
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter notificationTemplateId: (query) the id of the notification template to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationTemplateResponse
      */
-    open class func deleteNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
-        return try await deleteNotificationTemplateWithRequestBuilder(version: version, accountId: accountId, notificationTemplateId: notificationTemplateId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteNotificationTemplate(accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
+        return try await deleteNotificationTemplateWithRequestBuilder(accountId: accountId, notificationTemplateId: notificationTemplateId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Notification Template
-     - POST /api/{version}/notification/template/delete
+     - POST /notification/template/delete
      - Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter notificationTemplateId: (query) the id of the notification template to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationTemplateResponse> 
      */
-    open class func deleteNotificationTemplateWithRequestBuilder(version: Double, accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
-        var localVariablePath = "/api/{version}/notification/template/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteNotificationTemplateWithRequestBuilder(accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
+        let localVariablePath = "/notification/template/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -174,31 +159,26 @@ open class NotificationAPI {
     /**
      Get Notification Template
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter notificationTemplateId: (query) the id of the notification template to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationTemplateResponse
      */
-    open class func getNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
-        return try await getNotificationTemplateWithRequestBuilder(version: version, accountId: accountId, notificationTemplateId: notificationTemplateId, apiConfiguration: apiConfiguration).execute().body
+    open class func getNotificationTemplate(accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
+        return try await getNotificationTemplateWithRequestBuilder(accountId: accountId, notificationTemplateId: notificationTemplateId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Notification Template
-     - GET /api/{version}/notification/template/get
+     - GET /notification/template/get
      - Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter notificationTemplateId: (query) the id of the notification template to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationTemplateResponse> 
      */
-    open class func getNotificationTemplateWithRequestBuilder(version: Double, accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
-        var localVariablePath = "/api/{version}/notification/template/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getNotificationTemplateWithRequestBuilder(accountId: Int64, notificationTemplateId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
+        let localVariablePath = "/notification/template/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -222,7 +202,6 @@ open class NotificationAPI {
     /**
      Get Notifications
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) the account id used to view another person&#39;s notifications (optional)
@@ -247,15 +226,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationMessageListResponse
      */
-    open class func getNotifications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationMessageListResponse {
-        return try await getNotificationsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, eventType: eventType, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, actionCategory: actionCategory, conduits: conduits, keyword: keyword, returnReadMessages: returnReadMessages, markAsRead: markAsRead, fromDate: fromDate, latitude: latitude, longitude: longitude, returnSent: returnSent, ignoreFlagged: ignoreFlagged, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getNotifications(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationMessageListResponse {
+        return try await getNotificationsWithRequestBuilder(deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, appKey: appKey, eventType: eventType, contentIds: contentIds, contentTypes: contentTypes, parentIds: parentIds, parentTypes: parentTypes, actionCategory: actionCategory, conduits: conduits, keyword: keyword, returnReadMessages: returnReadMessages, markAsRead: markAsRead, fromDate: fromDate, latitude: latitude, longitude: longitude, returnSent: returnSent, ignoreFlagged: ignoreFlagged, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Notifications
-     - GET /api/{version}/notification/search
+     - GET /notification/search
      - Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) the account id used to view another person&#39;s notifications (optional)
@@ -280,11 +258,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationMessageListResponse> 
      */
-    open class func getNotificationsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationMessageListResponse> {
-        var localVariablePath = "/api/{version}/notification/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getNotificationsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationMessageListResponse> {
+        let localVariablePath = "/notification/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -338,7 +313,6 @@ open class NotificationAPI {
     /**
      Register Notification Token
      
-     - parameter version: (path)  
      - parameter token: (query) A token that is generated by the device to sign requests for the notification service providers 
      - parameter pushType: (query) The type of push notification. Possible values include: APNS, GCM 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -352,15 +326,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func registerNotificationToken(version: Double, token: String, pushType: PushType_registerNotificationToken, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await registerNotificationTokenWithRequestBuilder(version: version, token: token, pushType: pushType, deviceId: deviceId, accountId: accountId, environment: environment, appKey: appKey, gameType: gameType, active: active, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func registerNotificationToken(token: String, pushType: PushType_registerNotificationToken, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await registerNotificationTokenWithRequestBuilder(token: token, pushType: pushType, deviceId: deviceId, accountId: accountId, environment: environment, appKey: appKey, gameType: gameType, active: active, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Register Notification Token
-     - POST /api/{version}/notification/token
+     - POST /notification/token
      - Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     - parameter version: (path)  
      - parameter token: (query) A token that is generated by the device to sign requests for the notification service providers 
      - parameter pushType: (query) The type of push notification. Possible values include: APNS, GCM 
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -374,11 +347,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func registerNotificationTokenWithRequestBuilder(version: Double, token: String, pushType: PushType_registerNotificationToken, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/notification/token"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func registerNotificationTokenWithRequestBuilder(token: String, pushType: PushType_registerNotificationToken, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/notification/token"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -410,7 +380,6 @@ open class NotificationAPI {
     /**
      Search on the user's blocked notification settings
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter accountId: (query) the account id of the user (optional)
      - parameter searchTags: (query) search tags to filter results (optional)
@@ -426,15 +395,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BlockedNotificationResponse
      */
-    open class func searchBlockedNotifications(version: Double, appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BlockedNotificationResponse {
-        return try await searchBlockedNotificationsWithRequestBuilder(version: version, appKey: appKey, accountId: accountId, searchTags: searchTags, events: events, conduits: conduits, customTypes: customTypes, contentTypes: contentTypes, contentIds: contentIds, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchBlockedNotifications(appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BlockedNotificationResponse {
+        return try await searchBlockedNotificationsWithRequestBuilder(appKey: appKey, accountId: accountId, searchTags: searchTags, events: events, conduits: conduits, customTypes: customTypes, contentTypes: contentTypes, contentIds: contentIds, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search on the user's blocked notification settings
-     - GET /api/{version}/notification/blocked/search
+     - GET /notification/blocked/search
      - Search on the user's blocked notification settings
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter accountId: (query) the account id of the user (optional)
      - parameter searchTags: (query) search tags to filter results (optional)
@@ -450,11 +418,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BlockedNotificationResponse> 
      */
-    open class func searchBlockedNotificationsWithRequestBuilder(version: Double, appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BlockedNotificationResponse> {
-        var localVariablePath = "/api/{version}/notification/blocked/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchBlockedNotificationsWithRequestBuilder(appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BlockedNotificationResponse> {
+        let localVariablePath = "/notification/blocked/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -488,7 +453,6 @@ open class NotificationAPI {
     /**
      Search Notification Templates
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter sortField: (query) Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. 
      - parameter descending: (query) Specified whether the results are returned in descending or ascending order. 
@@ -503,15 +467,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationTemplateResponse
      */
-    open class func searchNotificationTemplate(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
-        return try await searchNotificationTemplateWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, appKey: appKey, event: event, conduit: conduit, globalOnly: globalOnly, reservedOnly: reservedOnly, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func searchNotificationTemplate(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
+        return try await searchNotificationTemplateWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, appKey: appKey, event: event, conduit: conduit, globalOnly: globalOnly, reservedOnly: reservedOnly, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Notification Templates
-     - GET /api/{version}/notification/template/search
+     - GET /notification/template/search
      - Search for notification templates on owned applications.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter sortField: (query) Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. 
      - parameter descending: (query) Specified whether the results are returned in descending or ascending order. 
@@ -526,11 +489,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationTemplateResponse> 
      */
-    open class func searchNotificationTemplateWithRequestBuilder(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
-        var localVariablePath = "/api/{version}/notification/template/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchNotificationTemplateWithRequestBuilder(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
+        let localVariablePath = "/notification/template/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -580,7 +540,6 @@ open class NotificationAPI {
     /**
      Search for Recipients
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} 
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -597,15 +556,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [NotificationRecipientResponse]
      */
-    open class func searchRecipients(version: Double, sortField: SortField_searchRecipients, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [NotificationRecipientResponse] {
-        return try await searchRecipientsWithRequestBuilder(version: version, sortField: sortField, deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, recipientAccountIds: recipientAccountIds, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRecipients(sortField: SortField_searchRecipients, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [NotificationRecipientResponse] {
+        return try await searchRecipientsWithRequestBuilder(sortField: sortField, deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, recipientAccountIds: recipientAccountIds, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search for Recipients
-     - GET /api/{version}/notification/recipient/search
+     - GET /notification/recipient/search
      - Search for application users to send notifications.
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} 
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -622,11 +580,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[NotificationRecipientResponse]> 
      */
-    open class func searchRecipientsWithRequestBuilder(version: Double, sortField: SortField_searchRecipients, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[NotificationRecipientResponse]> {
-        var localVariablePath = "/api/{version}/notification/recipient/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRecipientsWithRequestBuilder(sortField: SortField_searchRecipients, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[NotificationRecipientResponse]> {
+        let localVariablePath = "/notification/recipient/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -661,7 +616,6 @@ open class NotificationAPI {
     /**
      Search for Recipients (Counts/Grouped)
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -677,15 +631,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationRecipientResponseListResponse
      */
-    open class func searchRecipientsCount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationRecipientResponseListResponse {
-        return try await searchRecipientsCountWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRecipientsCount(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationRecipientResponseListResponse {
+        return try await searchRecipientsCountWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, conduit: conduit, keyword: keyword, audienceId: audienceId, audienceIds: audienceIds, connectionGroupIds: connectionGroupIds, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search for Recipients (Counts/Grouped)
-     - GET /api/{version}/notification/recipient/search/count
+     - GET /notification/recipient/search/count
      - Search for application users to send notifications (count/grouped variant).
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -701,11 +654,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationRecipientResponseListResponse> 
      */
-    open class func searchRecipientsCountWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationRecipientResponseListResponse> {
-        var localVariablePath = "/api/{version}/notification/recipient/search/count"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRecipientsCountWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationRecipientResponseListResponse> {
+        let localVariablePath = "/notification/recipient/search/count"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -739,7 +689,6 @@ open class NotificationAPI {
     /**
      Send Batch Notifications
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the application owner/manager 
      - parameter appKey: (query) The application key for updating an existing application 
      - parameter customMessage: (query) Message string that will be displayed in on the notification 
@@ -752,15 +701,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func sendBatchNotifications(version: Double, accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await sendBatchNotificationsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, customMessage: customMessage, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, apiConfiguration: apiConfiguration).execute().body
+    open class func sendBatchNotifications(accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await sendBatchNotificationsWithRequestBuilder(accountId: accountId, appKey: appKey, customMessage: customMessage, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send Batch Notifications
-     - POST /api/{version}/notification/batch
+     - POST /notification/batch
      - Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the application owner/manager 
      - parameter appKey: (query) The application key for updating an existing application 
      - parameter customMessage: (query) Message string that will be displayed in on the notification 
@@ -773,11 +721,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func sendBatchNotificationsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/notification/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sendBatchNotificationsWithRequestBuilder(accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/notification/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -808,7 +753,6 @@ open class NotificationAPI {
     /**
      Send Custom Notifications
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter receiverAccountIds: (query) comma separated list of account IDs that will receive the notification (optional)
@@ -830,15 +774,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func sendCustomNotifications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await sendCustomNotificationsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, receiverAccountIds: receiverAccountIds, includeFriendGroup: includeFriendGroup, appKey: appKey, gameType: gameType, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, actionCategory: actionCategory, subject: subject, customMessage: customMessage, friendOnlyAPNS: friendOnlyAPNS, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func sendCustomNotifications(deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await sendCustomNotificationsWithRequestBuilder(deviceId: deviceId, accountId: accountId, receiverAccountIds: receiverAccountIds, includeFriendGroup: includeFriendGroup, appKey: appKey, gameType: gameType, conduit: conduit, contentId: contentId, contentName: contentName, contentType: contentType, parentId: parentId, parentType: parentType, actionCategory: actionCategory, subject: subject, customMessage: customMessage, friendOnlyAPNS: friendOnlyAPNS, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send Custom Notifications
-     - POST /api/{version}/notification/custom
+     - POST /notification/custom
      - Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     - parameter version: (path)  
      - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter receiverAccountIds: (query) comma separated list of account IDs that will receive the notification (optional)
@@ -860,11 +803,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func sendCustomNotificationsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/notification/custom"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sendCustomNotificationsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/notification/custom"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -904,7 +844,6 @@ open class NotificationAPI {
     /**
      Update Notification Template
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter notificationTemplateId: (query) The notification template ID to update. 
      - parameter title: (query) The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -913,15 +852,14 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: NotificationTemplateResponse
      */
-    open class func updateNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
-        return try await updateNotificationTemplateWithRequestBuilder(version: version, accountId: accountId, notificationTemplateId: notificationTemplateId, title: title, body: body, tags: tags, apiConfiguration: apiConfiguration).execute().body
+    open class func updateNotificationTemplate(accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> NotificationTemplateResponse {
+        return try await updateNotificationTemplateWithRequestBuilder(accountId: accountId, notificationTemplateId: notificationTemplateId, title: title, body: body, tags: tags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Notification Template
-     - POST /api/{version}/notification/template/update
+     - POST /notification/template/update
      - Update a notification template. Developers will only be able to update notification templates for their own applications.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user. 
      - parameter notificationTemplateId: (query) The notification template ID to update. 
      - parameter title: (query) The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -930,11 +868,8 @@ open class NotificationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<NotificationTemplateResponse> 
      */
-    open class func updateNotificationTemplateWithRequestBuilder(version: Double, accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
-        var localVariablePath = "/api/{version}/notification/template/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateNotificationTemplateWithRequestBuilder(accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<NotificationTemplateResponse> {
+        let localVariablePath = "/notification/template/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

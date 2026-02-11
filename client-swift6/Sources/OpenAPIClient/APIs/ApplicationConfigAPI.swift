@@ -12,7 +12,6 @@ open class ApplicationConfigAPI {
     /**
      Create AppConfig
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter appKey: (query) The application key that the newly created applicationConfig will be associated to 
      - parameter configVersion: (query) The application configuration, has to be unique within the application 
@@ -23,15 +22,14 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationConfigResponse
      */
-    open class func createApplicationConfig(version: Double, accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
-        return try await createApplicationConfigWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
+    open class func createApplicationConfig(accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
+        return try await createApplicationConfigWithRequestBuilder(accountId: accountId, appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create AppConfig
-     - POST /api/{version}/appconfig/create
+     - POST /appconfig/create
      - Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter appKey: (query) The application key that the newly created applicationConfig will be associated to 
      - parameter configVersion: (query) The application configuration, has to be unique within the application 
@@ -42,11 +40,8 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationConfigResponse> 
      */
-    open class func createApplicationConfigWithRequestBuilder(version: Double, accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
-        var localVariablePath = "/api/{version}/appconfig/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createApplicationConfigWithRequestBuilder(accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
+        let localVariablePath = "/appconfig/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,31 +70,26 @@ open class ApplicationConfigAPI {
     /**
      Delete AppConfig
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteApplicationConfig(version: Double, accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteApplicationConfigWithRequestBuilder(version: version, accountId: accountId, configId: configId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteApplicationConfig(accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteApplicationConfigWithRequestBuilder(accountId: accountId, configId: configId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete AppConfig
-     - POST /api/{version}/appconfig/delete
+     - POST /appconfig/delete
      - Mark the application configuration for deletion.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteApplicationConfigWithRequestBuilder(version: Double, accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/appconfig/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteApplicationConfigWithRequestBuilder(accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/appconfig/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -123,31 +113,26 @@ open class ApplicationConfigAPI {
     /**
      Get AppConfig
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationConfigResponse
      */
-    open class func getApplicationConfig(version: Double, accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
-        return try await getApplicationConfigWithRequestBuilder(version: version, accountId: accountId, configId: configId, apiConfiguration: apiConfiguration).execute().body
+    open class func getApplicationConfig(accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
+        return try await getApplicationConfigWithRequestBuilder(accountId: accountId, configId: configId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get AppConfig
-     - GET /api/{version}/appconfig/get
+     - GET /appconfig/get
      - Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationConfigResponse> 
      */
-    open class func getApplicationConfigWithRequestBuilder(version: Double, accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
-        var localVariablePath = "/api/{version}/appconfig/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getApplicationConfigWithRequestBuilder(accountId: Int64, configId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
+        let localVariablePath = "/appconfig/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -171,7 +156,6 @@ open class ApplicationConfigAPI {
     /**
      Get AppConfig by Version
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter configVersion: (query) The version of the application configuration 
      - parameter retailerId: (query) Only returns the config that matches the given retailer (optional)
@@ -181,15 +165,14 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationConfigResponse
      */
-    open class func getApplicationConfigByConfigVersion(version: Double, appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
-        return try await getApplicationConfigByConfigVersionWithRequestBuilder(version: version, appKey: appKey, configVersion: configVersion, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, allowOlderVersions: allowOlderVersions, apiConfiguration: apiConfiguration).execute().body
+    open class func getApplicationConfigByConfigVersion(appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
+        return try await getApplicationConfigByConfigVersionWithRequestBuilder(appKey: appKey, configVersion: configVersion, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, allowOlderVersions: allowOlderVersions, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get AppConfig by Version
-     - GET /api/{version}/appconfig/getbyversion
+     - GET /appconfig/getbyversion
      - Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     - parameter version: (path)  
      - parameter appKey: (query) The application key 
      - parameter configVersion: (query) The version of the application configuration 
      - parameter retailerId: (query) Only returns the config that matches the given retailer (optional)
@@ -199,11 +182,8 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationConfigResponse> 
      */
-    open class func getApplicationConfigByConfigVersionWithRequestBuilder(version: Double, appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
-        var localVariablePath = "/api/{version}/appconfig/getbyversion"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getApplicationConfigByConfigVersionWithRequestBuilder(appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
+        let localVariablePath = "/appconfig/getbyversion"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -231,7 +211,6 @@ open class ApplicationConfigAPI {
     /**
      Search AppConfigs
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter appKey: (query) The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      - parameter retailerId: (query) Only returns the configs that matches the given retailer (optional)
@@ -245,15 +224,14 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ApplicationConfigResponse]
      */
-    open class func searchApplicationConfig(version: Double, accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationConfigResponse] {
-        return try await searchApplicationConfigWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, configVersion: configVersion, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchApplicationConfig(accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ApplicationConfigResponse] {
+        return try await searchApplicationConfigWithRequestBuilder(accountId: accountId, appKey: appKey, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, configVersion: configVersion, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search AppConfigs
-     - GET /api/{version}/appconfig/search
+     - GET /appconfig/search
      - Gets all versions of application configurations in a particular app by the given appKey.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter appKey: (query) The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      - parameter retailerId: (query) Only returns the configs that matches the given retailer (optional)
@@ -267,11 +245,8 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ApplicationConfigResponse]> 
      */
-    open class func searchApplicationConfigWithRequestBuilder(version: Double, accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationConfigResponse]> {
-        var localVariablePath = "/api/{version}/appconfig/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchApplicationConfigWithRequestBuilder(accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ApplicationConfigResponse]> {
+        let localVariablePath = "/appconfig/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -303,7 +278,6 @@ open class ApplicationConfigAPI {
     /**
      Update AppConfig
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration to update 
      - parameter appKey: (query) The application key that the updated applicationConfig will be associated to (optional)
@@ -315,15 +289,14 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ApplicationConfigResponse
      */
-    open class func updateApplicationConfig(version: Double, accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
-        return try await updateApplicationConfigWithRequestBuilder(version: version, accountId: accountId, configId: configId, appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
+    open class func updateApplicationConfig(accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ApplicationConfigResponse {
+        return try await updateApplicationConfigWithRequestBuilder(accountId: accountId, configId: configId, appKey: appKey, configVersion: configVersion, assetId: assetId, retailerId: retailerId, retailerLocationId: retailerLocationId, udid: udid, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update AppConfig
-     - POST /api/{version}/appconfig/update
+     - POST /appconfig/update
      - pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-     - parameter version: (path)  
      - parameter accountId: (query) The account ID of the user 
      - parameter configId: (query) The config ID of the application configuration to update 
      - parameter appKey: (query) The application key that the updated applicationConfig will be associated to (optional)
@@ -335,11 +308,8 @@ open class ApplicationConfigAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ApplicationConfigResponse> 
      */
-    open class func updateApplicationConfigWithRequestBuilder(version: Double, accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
-        var localVariablePath = "/api/{version}/appconfig/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateApplicationConfigWithRequestBuilder(accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ApplicationConfigResponse> {
+        let localVariablePath = "/appconfig/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

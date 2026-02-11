@@ -12,7 +12,6 @@ open class TrackingAPI {
     /**
      Create Batch Tracking
      
-     - parameter version: (path)  
      - parameter data: (query) JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -23,15 +22,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Leg]
      */
-    open class func batchSaveTracking(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Leg] {
-        return try await batchSaveTrackingWithRequestBuilder(version: version, data: data, deviceId: deviceId, accountId: accountId, generateAccounts: generateAccounts, updateAccountLocations: updateAccountLocations, defaultTag: defaultTag, slaveUID: slaveUID, apiConfiguration: apiConfiguration).execute().body
+    open class func batchSaveTracking(data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Leg] {
+        return try await batchSaveTrackingWithRequestBuilder(data: data, deviceId: deviceId, accountId: accountId, generateAccounts: generateAccounts, updateAccountLocations: updateAccountLocations, defaultTag: defaultTag, slaveUID: slaveUID, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Batch Tracking
-     - POST /api/{version}/tracking/batch/create
+     - POST /tracking/batch/create
      - Batch create tracking legs
-     - parameter version: (path)  
      - parameter data: (query) JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -42,11 +40,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Leg]> 
      */
-    open class func batchSaveTrackingWithRequestBuilder(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Leg]> {
-        var localVariablePath = "/api/{version}/tracking/batch/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func batchSaveTrackingWithRequestBuilder(data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Leg]> {
+        let localVariablePath = "/tracking/batch/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -92,7 +87,6 @@ open class TrackingAPI {
     /**
      Get Predicted Locations
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
      - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -105,15 +99,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PredictedLocationResponse
      */
-    open class func getPredictedLocations(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: DistanceUnit_getPredictedLocations? = nil, searchRange: Double? = nil, sortOrder: SortOrder_getPredictedLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PredictedLocationResponse {
-        return try await getPredictedLocationsWithRequestBuilder(version: version, accountId: accountId, latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, threshold: threshold, distanceUnit: distanceUnit, searchRange: searchRange, sortOrder: sortOrder, apiConfiguration: apiConfiguration).execute().body
+    open class func getPredictedLocations(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: DistanceUnit_getPredictedLocations? = nil, searchRange: Double? = nil, sortOrder: SortOrder_getPredictedLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PredictedLocationResponse {
+        return try await getPredictedLocationsWithRequestBuilder(accountId: accountId, latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, threshold: threshold, distanceUnit: distanceUnit, searchRange: searchRange, sortOrder: sortOrder, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Predicted Locations
-     - GET /api/{version}/tracking/predicted/get
+     - GET /tracking/predicted/get
      - Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
      - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -126,11 +119,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PredictedLocationResponse> 
      */
-    open class func getPredictedLocationsWithRequestBuilder(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: DistanceUnit_getPredictedLocations? = nil, searchRange: Double? = nil, sortOrder: SortOrder_getPredictedLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PredictedLocationResponse> {
-        var localVariablePath = "/api/{version}/tracking/predicted/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPredictedLocationsWithRequestBuilder(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: DistanceUnit_getPredictedLocations? = nil, searchRange: Double? = nil, sortOrder: SortOrder_getPredictedLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PredictedLocationResponse> {
+        let localVariablePath = "/tracking/predicted/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -161,33 +151,28 @@ open class TrackingAPI {
     /**
      Get Tracking Path
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter startStepId: (query) The stepId to begin from 
      - parameter endStepId: (query) The stepId to end with 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [StepResponse]
      */
-    open class func getPredictedPath(version: Double, accountId: Int64, startStepId: Int64, endStepId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [StepResponse] {
-        return try await getPredictedPathWithRequestBuilder(version: version, accountId: accountId, startStepId: startStepId, endStepId: endStepId, apiConfiguration: apiConfiguration).execute().body
+    open class func getPredictedPath(accountId: Int64, startStepId: Int64, endStepId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [StepResponse] {
+        return try await getPredictedPathWithRequestBuilder(accountId: accountId, startStepId: startStepId, endStepId: endStepId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Tracking Path
-     - GET /api/{version}/tracking/path/get
+     - GET /tracking/path/get
      - Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter startStepId: (query) The stepId to begin from 
      - parameter endStepId: (query) The stepId to end with 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[StepResponse]> 
      */
-    open class func getPredictedPathWithRequestBuilder(version: Double, accountId: Int64, startStepId: Int64, endStepId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[StepResponse]> {
-        var localVariablePath = "/api/{version}/tracking/path/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPredictedPathWithRequestBuilder(accountId: Int64, startStepId: Int64, endStepId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[StepResponse]> {
+        let localVariablePath = "/tracking/path/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -220,7 +205,6 @@ open class TrackingAPI {
     /**
      Search Preferred Locations
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
      - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -235,15 +219,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PreferredLocationResponse]
      */
-    open class func getPreferredLocations(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: DistanceUnit_getPreferredLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PreferredLocationResponse] {
-        return try await getPreferredLocationsWithRequestBuilder(version: version, accountId: accountId, latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, distanceUnit: distanceUnit, apiConfiguration: apiConfiguration).execute().body
+    open class func getPreferredLocations(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: DistanceUnit_getPreferredLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PreferredLocationResponse] {
+        return try await getPreferredLocationsWithRequestBuilder(accountId: accountId, latitude: latitude, longitude: longitude, dateCheck: dateCheck, hourCheck: hourCheck, sortField: sortField, descending: descending, start: start, limit: limit, searchRange: searchRange, distanceUnit: distanceUnit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Preferred Locations
-     - GET /api/{version}/tracking/preferred/search
+     - GET /tracking/preferred/search
      - Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the customer 
      - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
      - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -258,11 +241,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PreferredLocationResponse]> 
      */
-    open class func getPreferredLocationsWithRequestBuilder(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: DistanceUnit_getPreferredLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PreferredLocationResponse]> {
-        var localVariablePath = "/api/{version}/tracking/preferred/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPreferredLocationsWithRequestBuilder(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: DistanceUnit_getPreferredLocations? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PreferredLocationResponse]> {
+        let localVariablePath = "/tracking/preferred/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -295,7 +275,6 @@ open class TrackingAPI {
     /**
      Search Tracking
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter ownerId: (query) the account id of the person the user wants to tracking data for (optional)
@@ -307,15 +286,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [LegResponse]
      */
-    open class func getTrackingLegs(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [LegResponse] {
-        return try await getTrackingLegsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, ownerId: ownerId, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, getLastPoint: getLastPoint, apiConfiguration: apiConfiguration).execute().body
+    open class func getTrackingLegs(deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [LegResponse] {
+        return try await getTrackingLegsWithRequestBuilder(deviceId: deviceId, accountId: accountId, ownerId: ownerId, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, getLastPoint: getLastPoint, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tracking
-     - GET /api/{version}/tracking/search
+     - GET /tracking/search
      - Retrieve tracking data to be able to show where a user has been.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter ownerId: (query) the account id of the person the user wants to tracking data for (optional)
@@ -327,11 +305,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[LegResponse]> 
      */
-    open class func getTrackingLegsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[LegResponse]> {
-        var localVariablePath = "/api/{version}/tracking/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTrackingLegsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[LegResponse]> {
+        let localVariablePath = "/tracking/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -361,7 +336,6 @@ open class TrackingAPI {
     /**
      Create Tracking Leg
      
-     - parameter version: (path)  
      - parameter startLat: (query) the latitude of the first point 
      - parameter startLng: (query) the longitude of the first point 
      - parameter startDate: (query) the start date (in UTC milliseconds) of the first point 
@@ -377,15 +351,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func saveTrackingLeg(version: Double, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await saveTrackingLegWithRequestBuilder(version: version, startLat: startLat, startLng: startLng, startDate: startDate, endLat: endLat, endLng: endLng, endDate: endDate, deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, steps: steps, tags: tags, apiConfiguration: apiConfiguration).execute().body
+    open class func saveTrackingLeg(startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await saveTrackingLegWithRequestBuilder(startLat: startLat, startLng: startLng, startDate: startDate, endLat: endLat, endLng: endLng, endDate: endDate, deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, steps: steps, tags: tags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Tracking Leg
-     - POST /api/{version}/tracking/leg/create
+     - POST /tracking/leg/create
      - Send tracking points to be able to generate pathing data
-     - parameter version: (path)  
      - parameter startLat: (query) the latitude of the first point 
      - parameter startLng: (query) the longitude of the first point 
      - parameter startDate: (query) the start date (in UTC milliseconds) of the first point 
@@ -401,11 +374,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func saveTrackingLegWithRequestBuilder(version: Double, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tracking/leg/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func saveTrackingLegWithRequestBuilder(startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tracking/leg/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -439,7 +409,6 @@ open class TrackingAPI {
     /**
      Create Tracking Step
      
-     - parameter version: (path)  
      - parameter legId: (query) the leg to add the step to 
      - parameter startLat: (query) the latitude of the first point 
      - parameter startLng: (query) the longitude of the first point 
@@ -454,15 +423,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func saveTrackingStep(version: Double, legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await saveTrackingStepWithRequestBuilder(version: version, legId: legId, startLat: startLat, startLng: startLng, startDate: startDate, endLat: endLat, endLng: endLng, endDate: endDate, deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, apiConfiguration: apiConfiguration).execute().body
+    open class func saveTrackingStep(legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await saveTrackingStepWithRequestBuilder(legId: legId, startLat: startLat, startLng: startLng, startDate: startDate, endLat: endLat, endLng: endLng, endDate: endDate, deviceId: deviceId, accountId: accountId, distance: distance, duration: duration, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Tracking Step
-     - POST /api/{version}/tracking/step/create
+     - POST /tracking/step/create
      - Send tracking points to be able to generate pathing data
-     - parameter version: (path)  
      - parameter legId: (query) the leg to add the step to 
      - parameter startLat: (query) the latitude of the first point 
      - parameter startLng: (query) the longitude of the first point 
@@ -477,11 +445,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func saveTrackingStepWithRequestBuilder(version: Double, legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/tracking/step/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func saveTrackingStepWithRequestBuilder(legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/tracking/step/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -514,7 +479,6 @@ open class TrackingAPI {
     /**
      List Tracking
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter keyword: (query) Used for LIKE search of first or last name on the acocunt (optional)
      - parameter startDate: (query) Range to begin in UTC milliseconds (optional)
@@ -532,15 +496,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AccountMiniResponse]
      */
-    open class func searchAccountsWithTrackingLegs(version: Double, accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountMiniResponse] {
-        return try await searchAccountsWithTrackingLegsWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, startDate: startDate, endDate: endDate, tags: tags, audienceIds: audienceIds, latitude: latitude, longitude: longitude, range: range, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAccountsWithTrackingLegs(accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountMiniResponse] {
+        return try await searchAccountsWithTrackingLegsWithRequestBuilder(accountId: accountId, keyword: keyword, startDate: startDate, endDate: endDate, tags: tags, audienceIds: audienceIds, latitude: latitude, longitude: longitude, range: range, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Tracking
-     - GET /api/{version}/tracking/list
+     - GET /tracking/list
      - Search for all accounts that have tracking legs data by the given constraints.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user 
      - parameter keyword: (query) Used for LIKE search of first or last name on the acocunt (optional)
      - parameter startDate: (query) Range to begin in UTC milliseconds (optional)
@@ -558,11 +521,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AccountMiniResponse]> 
      */
-    open class func searchAccountsWithTrackingLegsWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountMiniResponse]> {
-        var localVariablePath = "/api/{version}/tracking/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAccountsWithTrackingLegsWithRequestBuilder(accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountMiniResponse]> {
+        let localVariablePath = "/tracking/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -598,7 +558,6 @@ open class TrackingAPI {
     /**
      Search Tracking (Billable)
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id to search tracking for 
      - parameter appKey: (query) The application key 
      - parameter trackingDeviceId: (query) The id of the tracking device (optional)
@@ -610,15 +569,14 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [LegResponse]
      */
-    open class func searchTrackingLegs(version: Double, accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [LegResponse] {
-        return try await searchTrackingLegsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTrackingLegs(accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [LegResponse] {
+        return try await searchTrackingLegsWithRequestBuilder(accountId: accountId, appKey: appKey, trackingDeviceId: trackingDeviceId, startDate: startDate, endDate: endDate, tags: tags, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tracking (Billable)
-     - GET /api/{version}/tracking/searchByBillable
+     - GET /tracking/searchByBillable
      - Retrieve tracking data for billable/account scoped queries.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id to search tracking for 
      - parameter appKey: (query) The application key 
      - parameter trackingDeviceId: (query) The id of the tracking device (optional)
@@ -630,11 +588,8 @@ open class TrackingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[LegResponse]> 
      */
-    open class func searchTrackingLegsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[LegResponse]> {
-        var localVariablePath = "/api/{version}/tracking/searchByBillable"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTrackingLegsWithRequestBuilder(accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[LegResponse]> {
+        let localVariablePath = "/tracking/searchByBillable"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

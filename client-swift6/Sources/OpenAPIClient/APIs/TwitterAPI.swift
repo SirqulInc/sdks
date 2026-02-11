@@ -12,29 +12,24 @@ open class TwitterAPI {
     /**
      Authorize Twitter
      
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func authorizeTwitter(version: Double, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await authorizeTwitterWithRequestBuilder(version: version, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func authorizeTwitter(appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await authorizeTwitterWithRequestBuilder(appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Authorize Twitter
-     - POST /api/{version}/twitter/authorize
+     - POST /twitter/authorize
      - Makes an authorization call to twitter for a user to login and allow any app permissions.
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func authorizeTwitterWithRequestBuilder(version: Double, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/twitter/authorize"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func authorizeTwitterWithRequestBuilder(appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/twitter/authorize"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -57,7 +52,6 @@ open class TwitterAPI {
     /**
      Login Twitter
      
-     - parameter version: (path)  
      - parameter accessToken: (query) The access token 
      - parameter accessTokenSecret: (query) The secret access token 
      - parameter appKey: (query) The application key 
@@ -68,15 +62,14 @@ open class TwitterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ProfileResponse
      */
-    open class func loginTwitter(version: Double, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
-        return try await loginTwitterWithRequestBuilder(version: version, accessToken: accessToken, accessTokenSecret: accessTokenSecret, appKey: appKey, responseFilters: responseFilters, deviceId: deviceId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func loginTwitter(accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ProfileResponse {
+        return try await loginTwitterWithRequestBuilder(accessToken: accessToken, accessTokenSecret: accessTokenSecret, appKey: appKey, responseFilters: responseFilters, deviceId: deviceId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Login Twitter
-     - POST /api/{version}/twitter/login
+     - POST /twitter/login
      - Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     - parameter version: (path)  
      - parameter accessToken: (query) The access token 
      - parameter accessTokenSecret: (query) The secret access token 
      - parameter appKey: (query) The application key 
@@ -87,11 +80,8 @@ open class TwitterAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ProfileResponse> 
      */
-    open class func loginTwitterWithRequestBuilder(version: Double, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
-        var localVariablePath = "/api/{version}/twitter/login"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func loginTwitterWithRequestBuilder(accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ProfileResponse> {
+        let localVariablePath = "/twitter/login"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

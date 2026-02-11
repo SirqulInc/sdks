@@ -12,7 +12,6 @@ open class PostalCodeAPI {
     /**
      Create Postal Code
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter code: (query) the postal code 
      - parameter latitude: (query) the latitude of the postal code 
@@ -23,15 +22,14 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PostalCodeResponse
      */
-    open class func createPostalCode(version: Double, accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
-        return try await createPostalCodeWithRequestBuilder(version: version, accountId: accountId, code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createPostalCode(accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
+        return try await createPostalCodeWithRequestBuilder(accountId: accountId, code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Postal Code
-     - POST /api/{version}/postalCode/create
+     - POST /postalCode/create
      - Create a Postal Code
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter code: (query) the postal code 
      - parameter latitude: (query) the latitude of the postal code 
@@ -42,11 +40,8 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PostalCodeResponse> 
      */
-    open class func createPostalCodeWithRequestBuilder(version: Double, accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
-        var localVariablePath = "/api/{version}/postalCode/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createPostalCodeWithRequestBuilder(accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
+        let localVariablePath = "/postalCode/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,31 +70,26 @@ open class PostalCodeAPI {
     /**
      Delete Postal Code
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter postalCodeId: (query) the id of the postal code to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deletePostalCode(version: Double, accountId: Int64, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deletePostalCodeWithRequestBuilder(version: version, accountId: accountId, postalCodeId: postalCodeId, apiConfiguration: apiConfiguration).execute().body
+    open class func deletePostalCode(accountId: Int64, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deletePostalCodeWithRequestBuilder(accountId: accountId, postalCodeId: postalCodeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Postal Code
-     - POST /api/{version}/postalCode/delete
+     - POST /postalCode/delete
      - Delete a Postal Code
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter postalCodeId: (query) the id of the postal code to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deletePostalCodeWithRequestBuilder(version: Double, accountId: Int64, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/postalCode/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deletePostalCodeWithRequestBuilder(accountId: Int64, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/postalCode/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -123,29 +113,24 @@ open class PostalCodeAPI {
     /**
      Get Postal Code
      
-     - parameter version: (path)  
      - parameter postalCodeId: (query) the id of the postal code to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PostalCodeResponse
      */
-    open class func getPostalCode(version: Double, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
-        return try await getPostalCodeWithRequestBuilder(version: version, postalCodeId: postalCodeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getPostalCode(postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
+        return try await getPostalCodeWithRequestBuilder(postalCodeId: postalCodeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Postal Code
-     - GET /api/{version}/postalCode/get
+     - GET /postalCode/get
      - Get a Postal Code
-     - parameter version: (path)  
      - parameter postalCodeId: (query) the id of the postal code to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PostalCodeResponse> 
      */
-    open class func getPostalCodeWithRequestBuilder(version: Double, postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
-        var localVariablePath = "/api/{version}/postalCode/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPostalCodeWithRequestBuilder(postalCodeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
+        let localVariablePath = "/postalCode/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -168,7 +153,6 @@ open class PostalCodeAPI {
     /**
      Search Postal Codes
      
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort the results on 
      - parameter descending: (query) whether to order results in ascending or descending order 
      - parameter latitude: (query) the latitude of the postal code to search on (optional)
@@ -180,15 +164,14 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PostalCodeResponse]
      */
-    open class func getPostalCodes(version: Double, sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PostalCodeResponse] {
-        return try await getPostalCodesWithRequestBuilder(version: version, sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, keyword: keyword, miles: miles, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func getPostalCodes(sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PostalCodeResponse] {
+        return try await getPostalCodesWithRequestBuilder(sortField: sortField, descending: descending, latitude: latitude, longitude: longitude, keyword: keyword, miles: miles, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Postal Codes
-     - GET /api/{version}/postalCode/search
+     - GET /postalCode/search
      - Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort the results on 
      - parameter descending: (query) whether to order results in ascending or descending order 
      - parameter latitude: (query) the latitude of the postal code to search on (optional)
@@ -200,11 +183,8 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PostalCodeResponse]> 
      */
-    open class func getPostalCodesWithRequestBuilder(version: Double, sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PostalCodeResponse]> {
-        var localVariablePath = "/api/{version}/postalCode/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPostalCodesWithRequestBuilder(sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PostalCodeResponse]> {
+        let localVariablePath = "/postalCode/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -234,7 +214,6 @@ open class PostalCodeAPI {
     /**
      Update Postal Code
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter postalCodeId: (query) the id of the postal code to update 
      - parameter code: (query) the postal code to update (optional)
@@ -246,15 +225,14 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PostalCodeResponse
      */
-    open class func updatePostalCode(version: Double, accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
-        return try await updatePostalCodeWithRequestBuilder(version: version, accountId: accountId, postalCodeId: postalCodeId, code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updatePostalCode(accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PostalCodeResponse {
+        return try await updatePostalCodeWithRequestBuilder(accountId: accountId, postalCodeId: postalCodeId, code: code, latitude: latitude, longitude: longitude, stateCode: stateCode, city: city, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Postal Code
-     - POST /api/{version}/postalCode/update
+     - POST /postalCode/update
      - Update a Postal Code
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter postalCodeId: (query) the id of the postal code to update 
      - parameter code: (query) the postal code to update (optional)
@@ -266,11 +244,8 @@ open class PostalCodeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PostalCodeResponse> 
      */
-    open class func updatePostalCodeWithRequestBuilder(version: Double, accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
-        var localVariablePath = "/api/{version}/postalCode/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updatePostalCodeWithRequestBuilder(accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PostalCodeResponse> {
+        let localVariablePath = "/postalCode/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

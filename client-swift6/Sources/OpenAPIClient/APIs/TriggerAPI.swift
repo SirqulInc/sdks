@@ -21,7 +21,6 @@ open class TriggerAPI {
     /**
      Create Trigger
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user 
      - parameter name: (query) The name of the trigger 
      - parameter appKey: (query) The application to target (optional)
@@ -38,15 +37,14 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TriggerResponse
      */
-    open class func createTrigger(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_createTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
-        return try await createTriggerWithRequestBuilder(version: version, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createTrigger(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_createTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
+        return try await createTriggerWithRequestBuilder(accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Trigger
-     - POST /api/{version}/trigger/create
+     - POST /trigger/create
      - Create a trigger
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user 
      - parameter name: (query) The name of the trigger 
      - parameter appKey: (query) The application to target (optional)
@@ -63,11 +61,8 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TriggerResponse> 
      */
-    open class func createTriggerWithRequestBuilder(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_createTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
-        var localVariablePath = "/api/{version}/trigger/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createTriggerWithRequestBuilder(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_createTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
+        let localVariablePath = "/trigger/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -102,31 +97,26 @@ open class TriggerAPI {
     /**
      Delete Trigger
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter triggerId: (query) The id of the trigger to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteTrigger(version: Double, accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteTriggerWithRequestBuilder(version: version, accountId: accountId, triggerId: triggerId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteTrigger(accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteTriggerWithRequestBuilder(accountId: accountId, triggerId: triggerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Trigger
-     - POST /api/{version}/trigger/delete
+     - POST /trigger/delete
      - Mark a trigger as deleted.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter triggerId: (query) The id of the trigger to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteTriggerWithRequestBuilder(version: Double, accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/trigger/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteTriggerWithRequestBuilder(accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/trigger/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -150,31 +140,26 @@ open class TriggerAPI {
     /**
      Get Trigger
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter triggerId: (query) The id of the Trigger to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TriggerResponse
      */
-    open class func getTrigger(version: Double, accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
-        return try await getTriggerWithRequestBuilder(version: version, accountId: accountId, triggerId: triggerId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTrigger(accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
+        return try await getTriggerWithRequestBuilder(accountId: accountId, triggerId: triggerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Trigger
-     - GET /api/{version}/trigger/get
+     - GET /trigger/get
      - Get a trigger
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter triggerId: (query) The id of the Trigger to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TriggerResponse> 
      */
-    open class func getTriggerWithRequestBuilder(version: Double, accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
-        var localVariablePath = "/api/{version}/trigger/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTriggerWithRequestBuilder(accountId: Int64, triggerId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
+        let localVariablePath = "/trigger/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -198,7 +183,6 @@ open class TriggerAPI {
     /**
      Search Triggers
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
      - parameter filter: (query) A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -214,15 +198,14 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [TriggerResponse]
      */
-    open class func searchTriggers(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TriggerResponse] {
-        return try await searchTriggersWithRequestBuilder(version: version, accountId: accountId, groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTriggers(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TriggerResponse] {
+        return try await searchTriggersWithRequestBuilder(accountId: accountId, groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Triggers
-     - GET /api/{version}/trigger/search
+     - GET /trigger/search
      - Search for triggers
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
      - parameter filter: (query) A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -238,11 +221,8 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[TriggerResponse]> 
      */
-    open class func searchTriggersWithRequestBuilder(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TriggerResponse]> {
-        var localVariablePath = "/api/{version}/trigger/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTriggersWithRequestBuilder(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TriggerResponse]> {
+        let localVariablePath = "/trigger/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -285,7 +265,6 @@ open class TriggerAPI {
     /**
      Update Trigger
      
-     - parameter version: (path)  
      - parameter triggerId: (query) The trigger to update 
      - parameter accountId: (query) The logged in user 
      - parameter name: (query) The name of the trigger (optional)
@@ -303,15 +282,14 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TriggerResponse
      */
-    open class func updateTrigger(version: Double, triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_updateTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
-        return try await updateTriggerWithRequestBuilder(version: version, triggerId: triggerId, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTrigger(triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_updateTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TriggerResponse {
+        return try await updateTriggerWithRequestBuilder(triggerId: triggerId, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, conditionalInput: conditionalInput, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Trigger
-     - POST /api/{version}/trigger/update
+     - POST /trigger/update
      - Update a trigger
-     - parameter version: (path)  
      - parameter triggerId: (query) The trigger to update 
      - parameter accountId: (query) The logged in user 
      - parameter name: (query) The name of the trigger (optional)
@@ -329,11 +307,8 @@ open class TriggerAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TriggerResponse> 
      */
-    open class func updateTriggerWithRequestBuilder(version: Double, triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_updateTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
-        var localVariablePath = "/api/{version}/trigger/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTriggerWithRequestBuilder(triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: Visibility_updateTrigger? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TriggerResponse> {
+        let localVariablePath = "/trigger/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

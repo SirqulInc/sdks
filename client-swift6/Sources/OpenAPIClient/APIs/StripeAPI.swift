@@ -12,31 +12,26 @@ open class StripeAPI {
     /**
      Create Stripe Checkout Session
      
-     - parameter version: (path)  
      - parameter appKey: (query) Sirqul Application Key 
      - parameter stripeParameters: (query) Stripe Parameters 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func createStripeCheckoutSession(version: Double, appKey: String, stripeParameters: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await createStripeCheckoutSessionWithRequestBuilder(version: version, appKey: appKey, stripeParameters: stripeParameters, apiConfiguration: apiConfiguration).execute().body
+    open class func createStripeCheckoutSession(appKey: String, stripeParameters: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await createStripeCheckoutSessionWithRequestBuilder(appKey: appKey, stripeParameters: stripeParameters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Stripe Checkout Session
-     - POST /api/{version}/stripe/checkout/session/create
+     - POST /stripe/checkout/session/create
      - Create a Stripe checkout session
-     - parameter version: (path)  
      - parameter appKey: (query) Sirqul Application Key 
      - parameter stripeParameters: (query) Stripe Parameters 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func createStripeCheckoutSessionWithRequestBuilder(version: Double, appKey: String, stripeParameters: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/stripe/checkout/session/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createStripeCheckoutSessionWithRequestBuilder(appKey: String, stripeParameters: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/stripe/checkout/session/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

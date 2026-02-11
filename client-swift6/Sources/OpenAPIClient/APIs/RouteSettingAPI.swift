@@ -12,29 +12,24 @@ open class RouteSettingAPI {
     /**
      Create Route Setting
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RouteSettings
      */
-    open class func createRouteSettings(version: Double, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
-        return try await createRouteSettingsWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createRouteSettings(body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
+        return try await createRouteSettingsWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Route Setting
-     - POST /api/{version}/route/setting
+     - POST /route/setting
      - Create a new route setting
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RouteSettings> 
      */
-    open class func createRouteSettingsWithRequestBuilder(version: Double, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
-        var localVariablePath = "/api/{version}/route/setting"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRouteSettingsWithRequestBuilder(body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
+        let localVariablePath = "/route/setting"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class RouteSettingAPI {
     /**
      Delete Route Setting
      
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route setting to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: JSONValue
      */
-    open class func deleteRouteSettings(version: Double, routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
-        return try await deleteRouteSettingsWithRequestBuilder(version: version, routeSettingsId: routeSettingsId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRouteSettings(routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> JSONValue {
+        return try await deleteRouteSettingsWithRequestBuilder(routeSettingsId: routeSettingsId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Route Setting
-     - DELETE /api/{version}/route/setting/{routeSettingsId}
+     - DELETE /route/setting/{routeSettingsId}
      - Delete an existing route setting
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route setting to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func deleteRouteSettingsWithRequestBuilder(version: Double, routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
-        var localVariablePath = "/api/{version}/route/setting/{routeSettingsId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRouteSettingsWithRequestBuilder(routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<JSONValue> {
+        var localVariablePath = "/route/setting/{routeSettingsId}"
         let routeSettingsIdPreEscape = "\(APIHelper.mapValueToPathItem(routeSettingsId))"
         let routeSettingsIdPostEscape = routeSettingsIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeSettingsId}", with: routeSettingsIdPostEscape, options: .literal, range: nil)
@@ -99,29 +89,24 @@ open class RouteSettingAPI {
     /**
      Get Route Setting
      
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route settings to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RouteSettings
      */
-    open class func getRouteSettings(version: Double, routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
-        return try await getRouteSettingsWithRequestBuilder(version: version, routeSettingsId: routeSettingsId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRouteSettings(routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
+        return try await getRouteSettingsWithRequestBuilder(routeSettingsId: routeSettingsId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Route Setting
-     - GET /api/{version}/route/setting/{routeSettingsId}
+     - GET /route/setting/{routeSettingsId}
      - Get an existing route settings
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route settings to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RouteSettings> 
      */
-    open class func getRouteSettingsWithRequestBuilder(version: Double, routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
-        var localVariablePath = "/api/{version}/route/setting/{routeSettingsId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRouteSettingsWithRequestBuilder(routeSettingsId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
+        var localVariablePath = "/route/setting/{routeSettingsId}"
         let routeSettingsIdPreEscape = "\(APIHelper.mapValueToPathItem(routeSettingsId))"
         let routeSettingsIdPostEscape = routeSettingsIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeSettingsId}", with: routeSettingsIdPostEscape, options: .literal, range: nil)
@@ -144,7 +129,6 @@ open class RouteSettingAPI {
     /**
      Search Route Settings
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -156,15 +140,14 @@ open class RouteSettingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RouteSettings]
      */
-    open class func searchRouteSettings(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RouteSettings] {
-        return try await searchRouteSettingsWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, hubId: hubId, programId: programId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRouteSettings(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RouteSettings] {
+        return try await searchRouteSettingsWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, hubId: hubId, programId: programId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Route Settings
-     - GET /api/{version}/route/setting
+     - GET /route/setting
      - Search for route settings
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -176,11 +159,8 @@ open class RouteSettingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RouteSettings]> 
      */
-    open class func searchRouteSettingsWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RouteSettings]> {
-        var localVariablePath = "/api/{version}/route/setting"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRouteSettingsWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RouteSettings]> {
+        let localVariablePath = "/route/setting"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -210,31 +190,26 @@ open class RouteSettingAPI {
     /**
      Update Route Setting
      
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route settings to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RouteSettings
      */
-    open class func updateRouteSettings(version: Double, routeSettingsId: Int64, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
-        return try await updateRouteSettingsWithRequestBuilder(version: version, routeSettingsId: routeSettingsId, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRouteSettings(routeSettingsId: Int64, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RouteSettings {
+        return try await updateRouteSettingsWithRequestBuilder(routeSettingsId: routeSettingsId, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Route Setting
-     - PUT /api/{version}/route/setting/{routeSettingsId}
+     - PUT /route/setting/{routeSettingsId}
      - Update an existing route setting
-     - parameter version: (path)  
      - parameter routeSettingsId: (path) the id of the route settings to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RouteSettings> 
      */
-    open class func updateRouteSettingsWithRequestBuilder(version: Double, routeSettingsId: Int64, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
-        var localVariablePath = "/api/{version}/route/setting/{routeSettingsId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRouteSettingsWithRequestBuilder(routeSettingsId: Int64, body: RouteSettings? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RouteSettings> {
+        var localVariablePath = "/route/setting/{routeSettingsId}"
         let routeSettingsIdPreEscape = "\(APIHelper.mapValueToPathItem(routeSettingsId))"
         let routeSettingsIdPostEscape = routeSettingsIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{routeSettingsId}", with: routeSettingsIdPostEscape, options: .literal, range: nil)

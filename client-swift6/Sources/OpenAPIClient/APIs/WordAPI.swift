@@ -12,7 +12,6 @@ open class WordAPI {
     /**
      Create Word
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter word: (query) The text of the word. 
      - parameter definition: (query) The definition of the word. 
@@ -25,15 +24,14 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WordzWordResponse
      */
-    open class func createWord(version: Double, accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
-        return try await createWordWithRequestBuilder(version: version, accountId: accountId, word: word, definition: definition, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, assetId: assetId, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func createWord(accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
+        return try await createWordWithRequestBuilder(accountId: accountId, word: word, definition: definition, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, assetId: assetId, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Word
-     - POST /api/{version}/game/word/create
+     - POST /game/word/create
      - Create a word by the given params.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter word: (query) The text of the word. 
      - parameter definition: (query) The definition of the word. 
@@ -46,11 +44,8 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WordzWordResponse> 
      */
-    open class func createWordWithRequestBuilder(version: Double, accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
-        var localVariablePath = "/api/{version}/game/word/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createWordWithRequestBuilder(accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
+        let localVariablePath = "/game/word/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -81,31 +76,26 @@ open class WordAPI {
     /**
      Delete Word
      
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to delete. 
      - parameter accountId: (query) The account vor validating permission 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteWord(version: Double, wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteWordWithRequestBuilder(version: version, wordId: wordId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteWord(wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteWordWithRequestBuilder(wordId: wordId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Word
-     - DELETE /api/{version}/game/word/delete
+     - DELETE /game/word/delete
      - Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to delete. 
      - parameter accountId: (query) The account vor validating permission 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteWordWithRequestBuilder(version: Double, wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/game/word/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteWordWithRequestBuilder(wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/game/word/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,31 +119,26 @@ open class WordAPI {
     /**
      Get Word
      
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to get. 
      - parameter accountId: (query) The logged in user. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WordzWordResponse
      */
-    open class func getWord(version: Double, wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
-        return try await getWordWithRequestBuilder(version: version, wordId: wordId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getWord(wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
+        return try await getWordWithRequestBuilder(wordId: wordId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Word
-     - GET /api/{version}/game/word/get
+     - GET /game/word/get
      - Get a word by the given id.
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to get. 
      - parameter accountId: (query) The logged in user. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WordzWordResponse> 
      */
-    open class func getWordWithRequestBuilder(version: Double, wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
-        var localVariablePath = "/api/{version}/game/word/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getWordWithRequestBuilder(wordId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
+        let localVariablePath = "/game/word/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -177,7 +162,6 @@ open class WordAPI {
     /**
      Search Words
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -188,15 +172,14 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [WordzWordResponse]
      */
-    open class func getWords(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [WordzWordResponse] {
-        return try await getWordsWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func getWords(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [WordzWordResponse] {
+        return try await getWordsWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Words
-     - GET /api/{version}/game/word/search
+     - GET /game/word/search
      - Search for words by the given params.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -207,11 +190,8 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[WordzWordResponse]> 
      */
-    open class func getWordsWithRequestBuilder(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[WordzWordResponse]> {
-        var localVariablePath = "/api/{version}/game/word/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getWordsWithRequestBuilder(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[WordzWordResponse]> {
+        let localVariablePath = "/game/word/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -240,7 +220,6 @@ open class WordAPI {
     /**
      Update Word
      
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to update. 
      - parameter accountId: (query) The logged in user. 
      - parameter ticketCount: (query) The number of tickets to reward 
@@ -254,15 +233,14 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: WordzWordResponse
      */
-    open class func updateWord(version: Double, wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
-        return try await updateWordWithRequestBuilder(version: version, wordId: wordId, accountId: accountId, ticketCount: ticketCount, wordText: wordText, definition: definition, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func updateWord(wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> WordzWordResponse {
+        return try await updateWordWithRequestBuilder(wordId: wordId, accountId: accountId, ticketCount: ticketCount, wordText: wordText, definition: definition, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Word
-     - POST /api/{version}/game/word/update
+     - POST /game/word/update
      - Update a word by the given params.
-     - parameter version: (path)  
      - parameter wordId: (query) The id of the word to update. 
      - parameter accountId: (query) The logged in user. 
      - parameter ticketCount: (query) The number of tickets to reward 
@@ -276,11 +254,8 @@ open class WordAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<WordzWordResponse> 
      */
-    open class func updateWordWithRequestBuilder(version: Double, wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
-        var localVariablePath = "/api/{version}/game/word/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateWordWithRequestBuilder(wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<WordzWordResponse> {
+        let localVariablePath = "/game/word/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -73,7 +73,6 @@ open class MediaAPI {
     /**
      Create Media
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter title: (query) The title (255 char limit) 
      - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -134,15 +133,14 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MediaOfferResponse
      */
-    open class func createMedia(version: Double, accountId: Int64, title: String, barcodeType: BarcodeType_createMedia, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: SpecialOfferType_createMedia, offerVisibility: OfferVisibility_createMedia, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_createMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: MediaType_createMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
-        return try await createMediaWithRequestBuilder(version: version, accountId: accountId, title: title, barcodeType: barcodeType, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, specialOfferType: specialOfferType, offerVisibility: offerVisibility, active: active, retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, parentalRating: parentalRating, availabilityDate: availabilityDate, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
+    open class func createMedia(accountId: Int64, title: String, barcodeType: BarcodeType_createMedia, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: SpecialOfferType_createMedia, offerVisibility: OfferVisibility_createMedia, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_createMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: MediaType_createMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
+        return try await createMediaWithRequestBuilder(accountId: accountId, title: title, barcodeType: barcodeType, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, specialOfferType: specialOfferType, offerVisibility: offerVisibility, active: active, retailerLocationIds: retailerLocationIds, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, ticketPriceType: ticketPriceType, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, categoryIds: categoryIds, filterIds: filterIds, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, parentalRating: parentalRating, availabilityDate: availabilityDate, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Media
-     - POST /api/{version}/media/create
+     - POST /media/create
      - Create a media offering.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the logged in user 
      - parameter title: (query) The title (255 char limit) 
      - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -203,11 +201,8 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MediaOfferResponse> 
      */
-    open class func createMediaWithRequestBuilder(version: Double, accountId: Int64, title: String, barcodeType: BarcodeType_createMedia, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: SpecialOfferType_createMedia, offerVisibility: OfferVisibility_createMedia, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_createMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: MediaType_createMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
-        var localVariablePath = "/api/{version}/media/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createMediaWithRequestBuilder(accountId: Int64, title: String, barcodeType: BarcodeType_createMedia, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: SpecialOfferType_createMedia, offerVisibility: OfferVisibility_createMedia, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_createMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: MediaType_createMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
+        let localVariablePath = "/media/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -286,31 +281,26 @@ open class MediaAPI {
     /**
      Delete Media
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter mediaId: (query) the ID of the media to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteMedia(version: Double, accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteMediaWithRequestBuilder(version: version, accountId: accountId, mediaId: mediaId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteMedia(accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteMediaWithRequestBuilder(accountId: accountId, mediaId: mediaId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Media
-     - POST /api/{version}/media/delete
+     - POST /media/delete
      - Delete a media offering that the user has permissions to.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter mediaId: (query) the ID of the media to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteMediaWithRequestBuilder(version: Double, accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/media/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteMediaWithRequestBuilder(accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/media/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -334,31 +324,26 @@ open class MediaAPI {
     /**
      Media Get
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter mediaId: (query) the id of the media to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MediaOfferResponse
      */
-    open class func getMedia(version: Double, accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
-        return try await getMediaWithRequestBuilder(version: version, accountId: accountId, mediaId: mediaId, apiConfiguration: apiConfiguration).execute().body
+    open class func getMedia(accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
+        return try await getMediaWithRequestBuilder(accountId: accountId, mediaId: mediaId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Media Get
-     - GET /api/{version}/media/get
+     - GET /media/get
      - Get a media offering.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter mediaId: (query) the id of the media to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MediaOfferResponse> 
      */
-    open class func getMediaWithRequestBuilder(version: Double, accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
-        var localVariablePath = "/api/{version}/media/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getMediaWithRequestBuilder(accountId: Int64, mediaId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
+        let localVariablePath = "/media/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -419,7 +404,6 @@ open class MediaAPI {
     /**
      Search Media
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter activeOnly: (query) Return only active results 
      - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE 
@@ -432,15 +416,14 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MediaOfferResponse]
      */
-    open class func searchMedia(version: Double, accountId: Int64, activeOnly: Bool, sortField: SortField_searchMedia, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MediaOfferResponse] {
-        return try await searchMediaWithRequestBuilder(version: version, accountId: accountId, activeOnly: activeOnly, sortField: sortField, descending: descending, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchMedia(accountId: Int64, activeOnly: Bool, sortField: SortField_searchMedia, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MediaOfferResponse] {
+        return try await searchMediaWithRequestBuilder(accountId: accountId, activeOnly: activeOnly, sortField: sortField, descending: descending, keyword: keyword, categoryIds: categoryIds, filterIds: filterIds, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Media
-     - GET /api/{version}/media/search
+     - GET /media/search
      - Searches on events that the account has access to.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter activeOnly: (query) Return only active results 
      - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE 
@@ -453,11 +436,8 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MediaOfferResponse]> 
      */
-    open class func searchMediaWithRequestBuilder(version: Double, accountId: Int64, activeOnly: Bool, sortField: SortField_searchMedia, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MediaOfferResponse]> {
-        var localVariablePath = "/api/{version}/media/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchMediaWithRequestBuilder(accountId: Int64, activeOnly: Bool, sortField: SortField_searchMedia, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MediaOfferResponse]> {
+        let localVariablePath = "/media/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -549,7 +529,6 @@ open class MediaAPI {
     /**
      Update Media
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) 
      - parameter mediaId: (query)  
      - parameter retailerLocationIds: (query) Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -612,15 +591,14 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MediaOfferResponse
      */
-    open class func updateMedia(version: Double, accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateMedia? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: SpecialOfferType_updateMedia? = nil, offerVisibility: OfferVisibility_updateMedia? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_updateMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: MediaType_updateMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
-        return try await updateMediaWithRequestBuilder(version: version, accountId: accountId, mediaId: mediaId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, availabilityDate: availabilityDate, parentalRating: parentalRating, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
+    open class func updateMedia(accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateMedia? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: SpecialOfferType_updateMedia? = nil, offerVisibility: OfferVisibility_updateMedia? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_updateMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: MediaType_updateMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MediaOfferResponse {
+        return try await updateMediaWithRequestBuilder(accountId: accountId, mediaId: mediaId, retailerLocationIds: retailerLocationIds, offerLocations: offerLocations, title: title, subTitle: subTitle, details: details, subDetails: subDetails, finePrint: finePrint, barcodeType: barcodeType, barcodeEntry: barcodeEntry, externalRedeemOptions: externalRedeemOptions, externalUrl: externalUrl, ticketsRewardType: ticketsRewardType, ticketsReward: ticketsReward, activated: activated, expires: expires, noExpiration: noExpiration, availableLimit: availableLimit, availableLimitPerUser: availableLimitPerUser, addedLimit: addedLimit, viewLimit: viewLimit, maxPrints: maxPrints, ticketPriceType: ticketPriceType, ticketPrice: ticketPrice, fullPrice: fullPrice, discountPrice: discountPrice, showRemaining: showRemaining, showRedeemed: showRedeemed, replaced: replaced, featured: featured, specialOfferType: specialOfferType, offerVisibility: offerVisibility, categoryIds: categoryIds, filterIds: filterIds, active: active, barcodeAssetId: barcodeAssetId, imageAssetId: imageAssetId, imageAssetId1: imageAssetId1, imageAssetId2: imageAssetId2, imageAssetId3: imageAssetId3, imageAssetId4: imageAssetId4, imageAssetId5: imageAssetId5, publisher: publisher, redeemableStart: redeemableStart, redeemableEnd: redeemableEnd, conditionType: conditionType, isbn: isbn, asin: asin, catalogNumbers: catalogNumbers, availabilityDate: availabilityDate, parentalRating: parentalRating, mediaType: mediaType, duration: duration, author: author, releaseDate: releaseDate, collectionIds: collectionIds, availability: availability, availabilitySummary: availabilitySummary, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Media
-     - POST /api/{version}/media/update
+     - POST /media/update
      - Update a media offering.
-     - parameter version: (path)  
      - parameter accountId: (query) The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) 
      - parameter mediaId: (query)  
      - parameter retailerLocationIds: (query) Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -683,11 +661,8 @@ open class MediaAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MediaOfferResponse> 
      */
-    open class func updateMediaWithRequestBuilder(version: Double, accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateMedia? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: SpecialOfferType_updateMedia? = nil, offerVisibility: OfferVisibility_updateMedia? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_updateMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: MediaType_updateMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
-        var localVariablePath = "/api/{version}/media/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateMediaWithRequestBuilder(accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: BarcodeType_updateMedia? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: SpecialOfferType_updateMedia? = nil, offerVisibility: OfferVisibility_updateMedia? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: ConditionType_updateMedia? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: MediaType_updateMedia? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MediaOfferResponse> {
+        let localVariablePath = "/media/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

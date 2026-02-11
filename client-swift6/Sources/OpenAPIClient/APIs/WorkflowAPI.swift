@@ -12,7 +12,6 @@ open class WorkflowAPI {
     /**
      Run Workflow
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter workflowId: (query) the workflow to run 
      - parameter skuId: (query) this runs a particular sku on the workflow (optional)
@@ -21,15 +20,14 @@ open class WorkflowAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func runWorkflow(version: Double, accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await runWorkflowWithRequestBuilder(version: version, accountId: accountId, workflowId: workflowId, skuId: skuId, versionCode: versionCode, parameters: parameters, apiConfiguration: apiConfiguration).execute().body
+    open class func runWorkflow(accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await runWorkflowWithRequestBuilder(accountId: accountId, workflowId: workflowId, skuId: skuId, versionCode: versionCode, parameters: parameters, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Run Workflow
-     - POST /api/{version}/workflow/run
+     - POST /workflow/run
      - Runs a published executable workflow
-     - parameter version: (path)  
      - parameter accountId: (query) the account ID of the user 
      - parameter workflowId: (query) the workflow to run 
      - parameter skuId: (query) this runs a particular sku on the workflow (optional)
@@ -38,11 +36,8 @@ open class WorkflowAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func runWorkflowWithRequestBuilder(version: Double, accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/workflow/run"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func runWorkflowWithRequestBuilder(accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/workflow/run"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

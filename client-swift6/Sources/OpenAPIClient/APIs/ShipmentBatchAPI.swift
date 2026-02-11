@@ -12,29 +12,24 @@ open class ShipmentBatchAPI {
     /**
      Create Shipment Batch
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ShipmentBatch
      */
-    open class func createShipmentBatch(version: Double, body: ShipmentBatch? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ShipmentBatch {
-        return try await createShipmentBatchWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createShipmentBatch(body: ShipmentBatch? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ShipmentBatch {
+        return try await createShipmentBatchWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Shipment Batch
-     - POST /api/{version}/shipment/batch
+     - POST /shipment/batch
      - Create a new shipment batch
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ShipmentBatch> 
      */
-    open class func createShipmentBatchWithRequestBuilder(version: Double, body: ShipmentBatch? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ShipmentBatch> {
-        var localVariablePath = "/api/{version}/shipment/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createShipmentBatchWithRequestBuilder(body: ShipmentBatch? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ShipmentBatch> {
+        let localVariablePath = "/shipment/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class ShipmentBatchAPI {
     /**
      Delete Shipment Batch
      
-     - parameter version: (path)  
      - parameter batchId: (path) the id of the shipment batch to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteShipmentBatch(version: Double, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteShipmentBatchWithRequestBuilder(version: version, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteShipmentBatch(batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteShipmentBatchWithRequestBuilder(batchId: batchId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Shipment Batch
-     - DELETE /api/{version}/shipment/batch/{batchId}
+     - DELETE /shipment/batch/{batchId}
      - Search for shipment batches
-     - parameter version: (path)  
      - parameter batchId: (path) the id of the shipment batch to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteShipmentBatchWithRequestBuilder(version: Double, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/shipment/batch/{batchId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteShipmentBatchWithRequestBuilder(batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/shipment/batch/{batchId}"
         let batchIdPreEscape = "\(APIHelper.mapValueToPathItem(batchId))"
         let batchIdPostEscape = batchIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{batchId}", with: batchIdPostEscape, options: .literal, range: nil)
@@ -99,29 +89,24 @@ open class ShipmentBatchAPI {
     /**
      Get Shipment Batch
      
-     - parameter version: (path)  
      - parameter batchId: (path) the id of the shipment batch to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ShipmentBatch
      */
-    open class func getShipmentBatch(version: Double, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ShipmentBatch {
-        return try await getShipmentBatchWithRequestBuilder(version: version, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
+    open class func getShipmentBatch(batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ShipmentBatch {
+        return try await getShipmentBatchWithRequestBuilder(batchId: batchId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Shipment Batch
-     - GET /api/{version}/shipment/batch/{batchId}
+     - GET /shipment/batch/{batchId}
      - Get an existing shipment batch
-     - parameter version: (path)  
      - parameter batchId: (path) the id of the shipment batch to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ShipmentBatch> 
      */
-    open class func getShipmentBatchWithRequestBuilder(version: Double, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ShipmentBatch> {
-        var localVariablePath = "/api/{version}/shipment/batch/{batchId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getShipmentBatchWithRequestBuilder(batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ShipmentBatch> {
+        var localVariablePath = "/shipment/batch/{batchId}"
         let batchIdPreEscape = "\(APIHelper.mapValueToPathItem(batchId))"
         let batchIdPostEscape = batchIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{batchId}", with: batchIdPostEscape, options: .literal, range: nil)
@@ -144,7 +129,6 @@ open class ShipmentBatchAPI {
     /**
      Get Shipment Batch Status
      
-     - parameter version: (path)  
      - parameter batchId: (path) The id of the requested shipment batch 
      - parameter accountId: (query) the id of the logged in user 
      - parameter sortField: (query) The field to sort by 
@@ -160,15 +144,14 @@ open class ShipmentBatchAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ShipmentImportStatus]
      */
-    open class func getShipmentBatchStatus(version: Double, batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ShipmentImportStatus] {
-        return try await getShipmentBatchStatusWithRequestBuilder(version: version, batchId: batchId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, valid: valid, started: started, completed: completed, hasShipment: hasShipment, hasRoute: hasRoute, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func getShipmentBatchStatus(batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ShipmentImportStatus] {
+        return try await getShipmentBatchStatusWithRequestBuilder(batchId: batchId, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, valid: valid, started: started, completed: completed, hasShipment: hasShipment, hasRoute: hasRoute, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Shipment Batch Status
-     - GET /api/{version}/shipment/batch/{batchId}/status
+     - GET /shipment/batch/{batchId}/status
      - Get the import status list of the import shipment batch
-     - parameter version: (path)  
      - parameter batchId: (path) The id of the requested shipment batch 
      - parameter accountId: (query) the id of the logged in user 
      - parameter sortField: (query) The field to sort by 
@@ -184,11 +167,8 @@ open class ShipmentBatchAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ShipmentImportStatus]> 
      */
-    open class func getShipmentBatchStatusWithRequestBuilder(version: Double, batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ShipmentImportStatus]> {
-        var localVariablePath = "/api/{version}/shipment/batch/{batchId}/status"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getShipmentBatchStatusWithRequestBuilder(batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ShipmentImportStatus]> {
+        var localVariablePath = "/shipment/batch/{batchId}/status"
         let batchIdPreEscape = "\(APIHelper.mapValueToPathItem(batchId))"
         let batchIdPostEscape = batchIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{batchId}", with: batchIdPostEscape, options: .literal, range: nil)
@@ -224,7 +204,6 @@ open class ShipmentBatchAPI {
     /**
      Search Shipment Batch
      
-     - parameter version: (path)  
      - parameter hubId: (query) The associated service hub 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -233,15 +212,14 @@ open class ShipmentBatchAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ShipmentBatch]
      */
-    open class func searchShipmentBatch(version: Double, hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ShipmentBatch] {
-        return try await searchShipmentBatchWithRequestBuilder(version: version, hubId: hubId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchShipmentBatch(hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ShipmentBatch] {
+        return try await searchShipmentBatchWithRequestBuilder(hubId: hubId, sortField: sortField, descending: descending, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Shipment Batch
-     - GET /api/{version}/shipment/batch
+     - GET /shipment/batch
      - Search for shipment batches
-     - parameter version: (path)  
      - parameter hubId: (query) The associated service hub 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -250,11 +228,8 @@ open class ShipmentBatchAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ShipmentBatch]> 
      */
-    open class func searchShipmentBatchWithRequestBuilder(version: Double, hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ShipmentBatch]> {
-        var localVariablePath = "/api/{version}/shipment/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchShipmentBatchWithRequestBuilder(hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ShipmentBatch]> {
+        let localVariablePath = "/shipment/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

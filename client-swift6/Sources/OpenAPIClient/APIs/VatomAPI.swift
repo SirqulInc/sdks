@@ -12,33 +12,28 @@ open class VatomAPI {
     /**
      Create following
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func createFollowing(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await createFollowingWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func createFollowing(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await createFollowingWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create following
-     - POST /api/{version}/vatom/me/rels/following/create
+     - POST /vatom/me/rels/following/create
      - Create following.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func createFollowingWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/rels/following/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createFollowingWithRequestBuilder(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/rels/following/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -63,7 +58,6 @@ open class VatomAPI {
     /**
      Create Vatom Space
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -71,15 +65,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func createSpace(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await createSpaceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func createSpace(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await createSpaceWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Vatom Space
-     - POST /api/{version}/vatom/b/spaces/create
+     - POST /vatom/b/spaces/create
      - Create a Vatom space.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -87,11 +80,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func createSpaceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/spaces/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createSpaceWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/spaces/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -117,7 +107,6 @@ open class VatomAPI {
     /**
      Create Vatom Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -125,15 +114,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func createVatomEvent(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await createVatomEventWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func createVatomEvent(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await createVatomEventWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Vatom Event
-     - POST /api/{version}/vatom/b/events/create
+     - POST /vatom/b/events/create
      - Create a Vatom event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -141,11 +129,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func createVatomEventWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createVatomEventWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -171,33 +156,28 @@ open class VatomAPI {
     /**
      Delete following
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomRelsKey: (query) Vatom Rels Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteFollowing(version: Double, accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteFollowingWithRequestBuilder(version: version, accountId: accountId, vatomRelsKey: vatomRelsKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteFollowing(accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteFollowingWithRequestBuilder(accountId: accountId, vatomRelsKey: vatomRelsKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete following
-     - POST /api/{version}/vatom/me/rels/following/delete
+     - POST /vatom/me/rels/following/delete
      - Delete following.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomRelsKey: (query) Vatom Rels Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteFollowingWithRequestBuilder(version: Double, accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/rels/following/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteFollowingWithRequestBuilder(accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/rels/following/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -222,7 +202,6 @@ open class VatomAPI {
     /**
      Reset All Points Balance
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -230,15 +209,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deletePointsBalance(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deletePointsBalanceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func deletePointsBalance(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deletePointsBalanceWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Reset All Points Balance
-     - POST /api/{version}/vatom/b/campaign/points/delete
+     - POST /vatom/b/campaign/points/delete
      - Reset All Points Balance.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -246,11 +224,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deletePointsBalanceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign/points/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deletePointsBalanceWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign/points/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -276,7 +251,6 @@ open class VatomAPI {
     /**
      Delete Vatom Space
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -284,15 +258,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteSpaceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteSpace(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteSpaceWithRequestBuilder(accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Vatom Space
-     - POST /api/{version}/vatom/b/spaces/delete
+     - POST /vatom/b/spaces/delete
      - Delete a Vatom space.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -300,11 +273,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteSpaceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/spaces/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteSpaceWithRequestBuilder(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/spaces/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -330,7 +300,6 @@ open class VatomAPI {
     /**
      Delete Vatom Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -338,15 +307,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteVatomEventWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteVatomEventWithRequestBuilder(accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Vatom Event
-     - POST /api/{version}/vatom/b/events/delete
+     - POST /vatom/b/events/delete
      - Delete a Vatom event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -354,11 +322,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteVatomEventWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteVatomEventWithRequestBuilder(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -384,33 +349,28 @@ open class VatomAPI {
     /**
      Delete Vatom NFT
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteVatomNFT(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteVatomNFTWithRequestBuilder(version: version, accountId: accountId, vatomId: vatomId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteVatomNFT(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteVatomNFTWithRequestBuilder(accountId: accountId, vatomId: vatomId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Vatom NFT
-     - POST /api/{version}/vatom/vatoms/delete
+     - POST /vatom/vatoms/delete
      - Delete Vatom NFT
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteVatomNFTWithRequestBuilder(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/vatoms/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteVatomNFTWithRequestBuilder(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/vatoms/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -435,7 +395,6 @@ open class VatomAPI {
     /**
      Execute Action on NFT
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -443,15 +402,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func executeActionOnNFT(version: Double, accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await executeActionOnNFTWithRequestBuilder(version: version, accountId: accountId, vatomId: vatomId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func executeActionOnNFT(accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await executeActionOnNFTWithRequestBuilder(accountId: accountId, vatomId: vatomId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Execute Action on NFT
-     - POST /api/{version}/vatom/vatoms/execute-action
+     - POST /vatom/vatoms/execute-action
      - Execute Action on NFT.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -459,11 +417,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func executeActionOnNFTWithRequestBuilder(version: Double, accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/vatoms/execute-action"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func executeActionOnNFTWithRequestBuilder(accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/vatoms/execute-action"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -489,33 +444,28 @@ open class VatomAPI {
     /**
      Search Vatom Geo Map
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func geomapSearch(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await geomapSearchWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func geomapSearch(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await geomapSearchWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Vatom Geo Map
-     - GET /api/{version}/vatom/vatoms/geo-map/search
+     - GET /vatom/vatoms/geo-map/search
      - Search Vatom Geo Map
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func geomapSearchWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/vatoms/geo-map/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func geomapSearchWithRequestBuilder(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/vatoms/geo-map/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -540,33 +490,28 @@ open class VatomAPI {
     /**
      Get Vatom Business Behaviors
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getBusinessBehaviors(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getBusinessBehaviorsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getBusinessBehaviors(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getBusinessBehaviorsWithRequestBuilder(accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Business Behaviors
-     - GET /api/{version}/vatom/b/behaviors
+     - GET /vatom/b/behaviors
      - Gets the behaviors of a business.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getBusinessBehaviorsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/behaviors"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBusinessBehaviorsWithRequestBuilder(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/behaviors"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -591,33 +536,28 @@ open class VatomAPI {
     /**
      Get the coins for a Business
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getBusinessCoinsBalance(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getBusinessCoinsBalanceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getBusinessCoinsBalance(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getBusinessCoinsBalanceWithRequestBuilder(accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get the coins for a Business
-     - GET /api/{version}/vatom/b/coins/get
+     - GET /vatom/b/coins/get
      - Get the coins for a Businesss.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getBusinessCoinsBalanceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/coins/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBusinessCoinsBalanceWithRequestBuilder(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/coins/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -642,31 +582,26 @@ open class VatomAPI {
     /**
      Get the user business ids
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getBusinessIds(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getBusinessIdsWithRequestBuilder(version: version, accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getBusinessIds(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getBusinessIdsWithRequestBuilder(accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get the user business ids
-     - GET /api/{version}/vatom/me/businesses
+     - GET /vatom/me/businesses
      - Get the business ids the logged in user has access to.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getBusinessIdsWithRequestBuilder(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/businesses"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBusinessIdsWithRequestBuilder(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/businesses"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -690,7 +625,6 @@ open class VatomAPI {
     /**
      Get Vatom Business Info
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -698,15 +632,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getBusinessInfo(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getBusinessInfoWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getBusinessInfo(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getBusinessInfoWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Business Info
-     - GET /api/{version}/vatom/b/get
+     - GET /vatom/b/get
      - Gets the business info tied to this account.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -714,11 +647,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getBusinessInfoWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBusinessInfoWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -744,33 +674,28 @@ open class VatomAPI {
     /**
      Get Vatom Business Users
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getBusinessUsers(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getBusinessUsersWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getBusinessUsers(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getBusinessUsersWithRequestBuilder(accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Business Users
-     - GET /api/{version}/vatom/b/users
+     - GET /vatom/b/users
      - Gets the users of a business.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getBusinessUsersWithRequestBuilder(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/users"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBusinessUsersWithRequestBuilder(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/users"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -795,7 +720,6 @@ open class VatomAPI {
     /**
      Get Campaign Group Entities
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -803,15 +727,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getCampaignGroupEntities(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getCampaignGroupEntitiesWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getCampaignGroupEntities(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getCampaignGroupEntitiesWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Campaign Group Entities
-     - GET /api/{version}/vatom/b/campaign-groups/entities
+     - GET /vatom/b/campaign-groups/entities
      - Get campaign group entities.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -819,11 +742,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getCampaignGroupEntitiesWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign-groups/entities"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCampaignGroupEntitiesWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign-groups/entities"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -849,7 +769,6 @@ open class VatomAPI {
     /**
      Get Campaign Group Rules
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -857,15 +776,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getCampaignGroupRules(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getCampaignGroupRulesWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getCampaignGroupRules(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getCampaignGroupRulesWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Campaign Group Rules
-     - GET /api/{version}/vatom/b/campaign-groups/rules
+     - GET /vatom/b/campaign-groups/rules
      - Get campaign group rules.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -873,11 +791,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getCampaignGroupRulesWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign-groups/rules"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCampaignGroupRulesWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign-groups/rules"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -903,7 +818,6 @@ open class VatomAPI {
     /**
      Get Campaign Group Stats
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -911,15 +825,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getCampaignGroupStats(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getCampaignGroupStatsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getCampaignGroupStats(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getCampaignGroupStatsWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Campaign Group Stats
-     - GET /api/{version}/vatom/b/campaign-groups/stats
+     - GET /vatom/b/campaign-groups/stats
      - Get campaign group stats.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -927,11 +840,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getCampaignGroupStatsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign-groups/stats"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCampaignGroupStatsWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign-groups/stats"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -957,7 +867,6 @@ open class VatomAPI {
     /**
      Get Campaign Info
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -965,15 +874,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getCampaignInfo(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getCampaignInfoWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getCampaignInfo(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getCampaignInfoWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Campaign Info
-     - GET /api/{version}/vatom/b/campaign-groups/get
+     - GET /vatom/b/campaign-groups/get
      - Gets the info on a campaign.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -981,11 +889,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getCampaignInfoWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign-groups/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCampaignInfoWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign-groups/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1011,7 +916,6 @@ open class VatomAPI {
     /**
      Get Vatom Event Guest List
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -1019,15 +923,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getEventGuestList(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getEventGuestListWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getEventGuestList(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getEventGuestListWithRequestBuilder(accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Event Guest List
-     - GET /api/{version}/vatom/b/events/guests/get
+     - GET /vatom/b/events/guests/get
      - Gets the guest list of an event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -1035,11 +938,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getEventGuestListWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/guests/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getEventGuestListWithRequestBuilder(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/guests/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1065,33 +965,28 @@ open class VatomAPI {
     /**
      Get Vatom User's Inventory
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getInventory(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getInventoryWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getInventory(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getInventoryWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom User's Inventory
-     - GET /api/{version}/vatom/me/inventory
+     - GET /vatom/me/inventory
      - Gets the logged in user's Vatom Inventory.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getInventoryWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/inventory"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getInventoryWithRequestBuilder(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/inventory"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1116,31 +1011,26 @@ open class VatomAPI {
     /**
      Get following
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getMyFollowing(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getMyFollowingWithRequestBuilder(version: version, accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getMyFollowing(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getMyFollowingWithRequestBuilder(accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get following
-     - GET /api/{version}/vatom/me/rels/following
+     - GET /vatom/me/rels/following
      - Get following.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getMyFollowingWithRequestBuilder(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/rels/following"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getMyFollowingWithRequestBuilder(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/rels/following"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1164,7 +1054,6 @@ open class VatomAPI {
     /**
      Get Points Balance
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -1172,15 +1061,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getPointsBalance(version: Double, accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getPointsBalanceWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getPointsBalance(accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getPointsBalanceWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Points Balance
-     - GET /api/{version}/vatom/u/campaign/points/get
+     - GET /vatom/u/campaign/points/get
      - Gets the points balance of a Vatom user.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -1188,11 +1076,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getPointsBalanceWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/u/campaign/points/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPointsBalanceWithRequestBuilder(accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/u/campaign/points/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1218,7 +1103,6 @@ open class VatomAPI {
     /**
      Get Points Balance as Business
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomUserId: (query) Vatom User Id 
@@ -1227,15 +1111,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getPointsBalanceAsBusiness(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getPointsBalanceAsBusinessWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getPointsBalanceAsBusiness(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getPointsBalanceAsBusinessWithRequestBuilder(accountId: accountId, appKey: appKey, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Points Balance as Business
-     - GET /api/{version}/vatom/b/campaign/u/points/get
+     - GET /vatom/b/campaign/u/points/get
      - Gets the points balance of a Vatom user.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomUserId: (query) Vatom User Id 
@@ -1244,11 +1127,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getPointsBalanceAsBusinessWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign/u/points/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPointsBalanceAsBusinessWithRequestBuilder(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign/u/points/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1275,7 +1155,6 @@ open class VatomAPI {
     /**
      Get Vatom Space
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -1283,15 +1162,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getSpaceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getSpace(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getSpaceWithRequestBuilder(accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Space
-     - GET /api/{version}/vatom/b/spaces/get
+     - GET /vatom/b/spaces/get
      - Gets the details of a space.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -1299,11 +1177,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getSpaceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/spaces/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getSpaceWithRequestBuilder(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/spaces/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1329,7 +1204,6 @@ open class VatomAPI {
     /**
      Get the coins for a user (as a Business)
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -1337,15 +1211,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserCoinsAsBusinessWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserCoinsAsBusinessWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get the coins for a user (as a Business)
-     - GET /api/{version}/vatom/b/users/coins/get
+     - GET /vatom/b/users/coins/get
      - Get the coins for a user (as a Business).
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -1353,11 +1226,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserCoinsAsBusinessWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/users/coins/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserCoinsAsBusinessWithRequestBuilder(accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/users/coins/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1383,7 +1253,6 @@ open class VatomAPI {
     /**
      Gets the coins balance for a Vatom User
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1391,15 +1260,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserCoinsBalance(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserCoinsBalanceWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserCoinsBalance(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserCoinsBalanceWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Gets the coins balance for a Vatom User
-     - GET /api/{version}/vatom/u/coins/get
+     - GET /vatom/u/coins/get
      - Gets the coins balance for a Vatom User.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1407,11 +1275,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserCoinsBalanceWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/u/coins/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserCoinsBalanceWithRequestBuilder(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/u/coins/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1437,33 +1302,28 @@ open class VatomAPI {
     /**
      Get user followers
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserFollowers(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserFollowersWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserFollowers(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserFollowersWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get user followers
-     - GET /api/{version}/vatom/users/rels/followers
+     - GET /vatom/users/rels/followers
      - Get user followers.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserFollowersWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/users/rels/followers"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserFollowersWithRequestBuilder(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/users/rels/followers"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1488,33 +1348,28 @@ open class VatomAPI {
     /**
      Get user following
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserFollowing(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserFollowingWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserFollowing(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserFollowingWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get user following
-     - GET /api/{version}/vatom/users/rels/following
+     - GET /vatom/users/rels/following
      - Get user following.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserFollowingWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/users/rels/following"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserFollowingWithRequestBuilder(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/users/rels/following"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1539,33 +1394,28 @@ open class VatomAPI {
     /**
      Get User Info
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserInfo(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserInfoWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserInfo(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserInfoWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get User Info
-     - GET /api/{version}/vatom/user/get
+     - GET /vatom/user/get
      - Get a User's Info.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserInfoWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/user/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserInfoWithRequestBuilder(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/user/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1590,31 +1440,26 @@ open class VatomAPI {
     /**
      Get Vatom User Profile
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getUserProfile(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getUserProfileWithRequestBuilder(version: version, accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserProfile(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getUserProfileWithRequestBuilder(accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom User Profile
-     - GET /api/{version}/vatom/me/get
+     - GET /vatom/me/get
      - Gets the logged in user's profile in Vatom.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getUserProfileWithRequestBuilder(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserProfileWithRequestBuilder(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1638,7 +1483,6 @@ open class VatomAPI {
     /**
      Get Vatom Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -1646,15 +1490,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getVatomEventWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getVatomEventWithRequestBuilder(accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom Event
-     - GET /api/{version}/vatom/b/events/get
+     - GET /vatom/b/events/get
      - Gets the details of a event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -1662,11 +1505,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getVatomEventWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getVatomEventWithRequestBuilder(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1692,33 +1532,28 @@ open class VatomAPI {
     /**
      Get Vatom NFT Details
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func getVatomNFT(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await getVatomNFTWithRequestBuilder(version: version, accountId: accountId, vatomId: vatomId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func getVatomNFT(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await getVatomNFTWithRequestBuilder(accountId: accountId, vatomId: vatomId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vatom NFT Details
-     - GET /api/{version}/vatom/vatoms/get
+     - GET /vatom/vatoms/get
      - Get Vatom NFT Details
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func getVatomNFTWithRequestBuilder(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/vatoms/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getVatomNFTWithRequestBuilder(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/vatoms/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1743,7 +1578,6 @@ open class VatomAPI {
     /**
      List Vatom Communities
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1751,15 +1585,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func listCommunities(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await listCommunitiesWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func listCommunities(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await listCommunitiesWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Vatom Communities
-     - GET /api/{version}/vatom/b/communities/search
+     - GET /vatom/b/communities/search
      - Gets the communities tied to a business.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1767,11 +1600,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func listCommunitiesWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/communities/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listCommunitiesWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/communities/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1797,7 +1627,6 @@ open class VatomAPI {
     /**
      List Vatom Events
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1805,15 +1634,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func listEvents(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await listEventsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func listEvents(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await listEventsWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Vatom Events
-     - GET /api/{version}/vatom/b/events/search
+     - GET /vatom/b/events/search
      - Gets the events tied to a business.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1821,11 +1649,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func listEventsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listEventsWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1851,7 +1676,6 @@ open class VatomAPI {
     /**
      List Vatom Spaces
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1859,15 +1683,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func listSpaces(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await listSpacesWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func listSpaces(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await listSpacesWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Vatom Spaces
-     - GET /api/{version}/vatom/b/spaces/search
+     - GET /vatom/b/spaces/search
      - Gets the spaces tied to a business.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1875,11 +1698,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func listSpacesWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/spaces/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listSpacesWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/spaces/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1905,7 +1725,6 @@ open class VatomAPI {
     /**
      List Coin Transactions for a Vatom User
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1913,15 +1732,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func listUserCoinTransactions(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await listUserCoinTransactionsWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func listUserCoinTransactions(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await listUserCoinTransactionsWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Coin Transactions for a Vatom User
-     - GET /api/{version}/vatom/u/coins/txns/search
+     - GET /vatom/u/coins/txns/search
      - Gets the logged in user's Vatom coin transactions.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
@@ -1929,11 +1747,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func listUserCoinTransactionsWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/u/coins/txns/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listUserCoinTransactionsWithRequestBuilder(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/u/coins/txns/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -1959,7 +1774,6 @@ open class VatomAPI {
     /**
      List coin transactions for a user (as a Business)
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -1968,15 +1782,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func listUserCoinTransactionsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await listUserCoinTransactionsAsBusinessWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func listUserCoinTransactionsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await listUserCoinTransactionsAsBusinessWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List coin transactions for a user (as a Business)
-     - GET /api/{version}/vatom/b/users/coins/txns/search
+     - GET /vatom/b/users/coins/txns/search
      - List coin transactions for a user (as a Business).
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -1985,11 +1798,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func listUserCoinTransactionsAsBusinessWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/users/coins/txns/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listUserCoinTransactionsAsBusinessWithRequestBuilder(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/users/coins/txns/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2016,7 +1826,6 @@ open class VatomAPI {
     /**
      Perform Action on NFT
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter vatomAction: (query) Vatom Action 
@@ -2025,15 +1834,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func performActionOnNFT(version: Double, accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await performActionOnNFTWithRequestBuilder(version: version, accountId: accountId, vatomId: vatomId, vatomAction: vatomAction, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func performActionOnNFT(accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await performActionOnNFTWithRequestBuilder(accountId: accountId, vatomId: vatomId, vatomAction: vatomAction, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Perform Action on NFT
-     - POST /api/{version}/vatom/me/vatoms/actions
+     - POST /vatom/me/vatoms/actions
      - Perform Action on NFT.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomId: (query) Vatom NFT Id 
      - parameter vatomAction: (query) Vatom Action 
@@ -2042,11 +1850,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func performActionOnNFTWithRequestBuilder(version: Double, accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/vatoms/actions"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func performActionOnNFTWithRequestBuilder(accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/vatoms/actions"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2073,7 +1878,6 @@ open class VatomAPI {
     /**
      Redeem NFT
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2081,15 +1885,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func redeemNFT(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await redeemNFTWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func redeemNFT(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await redeemNFTWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Redeem NFT
-     - POST /api/{version}/vatom/b/redemptions
+     - POST /vatom/b/redemptions
      - Redeem an NFT.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2097,11 +1900,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func redeemNFTWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/redemptions"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func redeemNFTWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/redemptions"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2127,7 +1927,6 @@ open class VatomAPI {
     /**
      Redeem the coins for a user (as a Business)
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -2136,15 +1935,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func redeemUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await redeemUserCoinsAsBusinessWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func redeemUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await redeemUserCoinsAsBusinessWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Redeem the coins for a user (as a Business)
-     - POST /api/{version}/vatom/b/users/coins/redeem
+     - POST /vatom/b/users/coins/redeem
      - Redeem the coins for a user (as a Business).
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -2153,11 +1951,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func redeemUserCoinsAsBusinessWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/users/coins/redeem"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func redeemUserCoinsAsBusinessWithRequestBuilder(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/users/coins/redeem"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2184,33 +1979,28 @@ open class VatomAPI {
     /**
      Search for Vatom Businesses
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func searchBusinesses(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await searchBusinessesWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func searchBusinesses(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await searchBusinessesWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search for Vatom Businesses
-     - GET /api/{version}/vatom/b/search
+     - GET /vatom/b/search
      - Searches for Vatom businesses.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func searchBusinessesWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchBusinessesWithRequestBuilder(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2235,33 +2025,28 @@ open class VatomAPI {
     /**
      Search Campaign Groups
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func searchCampaignGroups(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await searchCampaignGroupsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func searchCampaignGroups(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await searchCampaignGroupsWithRequestBuilder(accountId: accountId, appKey: appKey, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Campaign Groups
-     - GET /api/{version}/vatom/b/campaign-groups/search
+     - GET /vatom/b/campaign-groups/search
      - Search campaign groups.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func searchCampaignGroupsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign-groups/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchCampaignGroupsWithRequestBuilder(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign-groups/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2286,31 +2071,26 @@ open class VatomAPI {
     /**
      Search User Identities
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func searchIdentities(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await searchIdentitiesWithRequestBuilder(version: version, accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func searchIdentities(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await searchIdentitiesWithRequestBuilder(accountId: accountId, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search User Identities
-     - GET /api/{version}/vatom/me/identities/search
+     - GET /vatom/me/identities/search
      - Search User Identities.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func searchIdentitiesWithRequestBuilder(version: Double, accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/identities/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchIdentitiesWithRequestBuilder(accountId: Int64, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/identities/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2334,33 +2114,28 @@ open class VatomAPI {
     /**
      Search Vatom User's Inventory
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func searchInventory(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await searchInventoryWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func searchInventory(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await searchInventoryWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Vatom User's Inventory
-     - GET /api/{version}/vatom/user-inventory/search
+     - GET /vatom/user-inventory/search
      - Searches the logged in user's Vatom Inventory.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters (optional)
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func searchInventoryWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/user-inventory/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchInventoryWithRequestBuilder(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/user-inventory/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2385,7 +2160,6 @@ open class VatomAPI {
     /**
      Send NFT
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -2394,15 +2168,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func sendNFT(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await sendNFTWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func sendNFT(accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await sendNFTWithRequestBuilder(accountId: accountId, appKey: appKey, vatomCampaignId: vatomCampaignId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Send NFT
-     - POST /api/{version}/vatom/b/campaigns/send
+     - POST /vatom/b/campaigns/send
      - Send an NFT.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomCampaignId: (query) Vatom Campaign Id 
@@ -2411,11 +2184,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func sendNFTWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaigns/send"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func sendNFTWithRequestBuilder(accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaigns/send"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2442,7 +2212,6 @@ open class VatomAPI {
     /**
      Set Points Balance as Business
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomUserId: (query) Vatom User Id 
@@ -2452,15 +2221,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func setPointsBalanceAsBusiness(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await setPointsBalanceAsBusinessWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func setPointsBalanceAsBusiness(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await setPointsBalanceAsBusinessWithRequestBuilder(accountId: accountId, appKey: appKey, vatomUserId: vatomUserId, vatomCampaignId: vatomCampaignId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Set Points Balance as Business
-     - POST /api/{version}/vatom/b/campaign/u/points/update
+     - POST /vatom/b/campaign/u/points/update
      - Sets the points balance of a Vatom user.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomUserId: (query) Vatom User Id 
@@ -2470,11 +2238,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func setPointsBalanceAsBusinessWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/campaign/u/points/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func setPointsBalanceAsBusinessWithRequestBuilder(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/campaign/u/points/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2502,7 +2267,6 @@ open class VatomAPI {
     /**
      Transfer coins from Vatom Users
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2510,15 +2274,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func transferUserCoins(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await transferUserCoinsWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func transferUserCoins(accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await transferUserCoinsWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Transfer coins from Vatom Users
-     - POST /api/{version}/vatom/u/coins/transfer
+     - POST /vatom/u/coins/transfer
      - Transfer coins from Vatom Users.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2526,11 +2289,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func transferUserCoinsWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/u/coins/transfer"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func transferUserCoinsWithRequestBuilder(accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/u/coins/transfer"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2556,7 +2316,6 @@ open class VatomAPI {
     /**
      Fund coins for a Business
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2564,15 +2323,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateBusinessCoins(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateBusinessCoinsWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateBusinessCoins(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateBusinessCoinsWithRequestBuilder(accountId: accountId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Fund coins for a Business
-     - POST /api/{version}/vatom/b/coins/update
+     - POST /vatom/b/coins/update
      - Fund/update coins for a Businesss.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomParameters: (query) Vatom Parameters 
@@ -2580,11 +2338,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateBusinessCoinsWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/coins/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateBusinessCoinsWithRequestBuilder(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/coins/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2610,7 +2365,6 @@ open class VatomAPI {
     /**
      Update Vatom Event Guest List
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -2619,15 +2373,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateEventGuestList(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateEventGuestListWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateEventGuestList(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateEventGuestListWithRequestBuilder(accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Vatom Event Guest List
-     - POST /api/{version}/vatom/b/events/guests/update
+     - POST /vatom/b/events/guests/update
      - Update the guest list of an event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -2636,11 +2389,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateEventGuestListWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/guests/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateEventGuestListWithRequestBuilder(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/guests/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2667,7 +2417,6 @@ open class VatomAPI {
     /**
      Update Vatom Space
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -2676,15 +2425,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateSpaceWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateSpace(accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateSpaceWithRequestBuilder(accountId: accountId, appKey: appKey, vatomSpaceId: vatomSpaceId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Vatom Space
-     - POST /api/{version}/vatom/b/spaces/update
+     - POST /vatom/b/spaces/update
      - Update a Vatom space.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomSpaceId: (query) Vatom Space Id 
@@ -2693,11 +2441,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateSpaceWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/spaces/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateSpaceWithRequestBuilder(accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/spaces/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2724,7 +2469,6 @@ open class VatomAPI {
     /**
      Update the coins for a user (as a Business)
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -2733,15 +2477,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateUserCoinsAsBusinessWithRequestBuilder(version: version, accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateUserCoinsAsBusinessWithRequestBuilder(accountId: accountId, vatomUserId: vatomUserId, appKey: appKey, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update the coins for a user (as a Business)
-     - POST /api/{version}/vatom/b/users/coins/update
+     - POST /vatom/b/users/coins/update
      - Update the coins for a user (as a Business).
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomUserId: (query) Vatom User Id 
      - parameter appKey: (query) Sirqul Application Key 
@@ -2750,11 +2493,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateUserCoinsAsBusinessWithRequestBuilder(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/users/coins/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateUserCoinsAsBusinessWithRequestBuilder(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/users/coins/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2781,33 +2521,28 @@ open class VatomAPI {
     /**
      Update Vatom User Profile
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateUserProfile(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateUserProfileWithRequestBuilder(version: version, accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateUserProfile(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateUserProfileWithRequestBuilder(accountId: accountId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Vatom User Profile
-     - POST /api/{version}/vatom/me/update
+     - POST /vatom/me/update
      - Gets the logged in user's profile in Vatom.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter vatomParameters: (query) Vatom Parameters 
      - parameter returnRawResponse: (query) Return raw response (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateUserProfileWithRequestBuilder(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/me/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateUserProfileWithRequestBuilder(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/me/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -2832,7 +2567,6 @@ open class VatomAPI {
     /**
      Update Vatom Event
      
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -2841,15 +2575,14 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func updateVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await updateVatomEventWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func updateVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await updateVatomEventWithRequestBuilder(accountId: accountId, appKey: appKey, vatomEventId: vatomEventId, vatomParameters: vatomParameters, returnRawResponse: returnRawResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Vatom Event
-     - POST /api/{version}/vatom/b/events/update
+     - POST /vatom/b/events/update
      - Update a Vatom event.
-     - parameter version: (path)  
      - parameter accountId: (query) Sirqul Account Id 
      - parameter appKey: (query) Sirqul Application Key 
      - parameter vatomEventId: (query) Vatom Event Id 
@@ -2858,11 +2591,8 @@ open class VatomAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func updateVatomEventWithRequestBuilder(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vatom/b/events/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateVatomEventWithRequestBuilder(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        let localVariablePath = "/vatom/b/events/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

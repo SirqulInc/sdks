@@ -39,7 +39,6 @@ open class PurchaseItemAPI {
     /**
      Create Purchase
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key that the purchase can be used in 
      - parameter name: (query) The name of the purchase item 
      - parameter purchaseType: (query) The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; 
@@ -63,15 +62,14 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PurchaseItemFullResponse
      */
-    open class func createPurchaseItem(version: Double, appKey: String, name: String, purchaseType: PurchaseType_createPurchaseItem, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_createPurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
-        return try await createPurchaseItemWithRequestBuilder(version: version, appKey: appKey, name: name, purchaseType: purchaseType, deviceId: deviceId, accountId: accountId, description: description, tickets: tickets, price: price, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func createPurchaseItem(appKey: String, name: String, purchaseType: PurchaseType_createPurchaseItem, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_createPurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
+        return try await createPurchaseItemWithRequestBuilder(appKey: appKey, name: name, purchaseType: purchaseType, deviceId: deviceId, accountId: accountId, description: description, tickets: tickets, price: price, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Purchase
-     - POST /api/{version}/purchase/create
+     - POST /purchase/create
      - Creates a purchase item for in app purchases
-     - parameter version: (path)  
      - parameter appKey: (query) The application key that the purchase can be used in 
      - parameter name: (query) The name of the purchase item 
      - parameter purchaseType: (query) The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; 
@@ -95,11 +93,8 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PurchaseItemFullResponse> 
      */
-    open class func createPurchaseItemWithRequestBuilder(version: Double, appKey: String, name: String, purchaseType: PurchaseType_createPurchaseItem, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_createPurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
-        var localVariablePath = "/api/{version}/purchase/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createPurchaseItemWithRequestBuilder(appKey: String, name: String, purchaseType: PurchaseType_createPurchaseItem, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_createPurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
+        let localVariablePath = "/purchase/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -141,33 +136,28 @@ open class PurchaseItemAPI {
     /**
      Delete Purchase
      
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deletePurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deletePurchaseItemWithRequestBuilder(version: version, purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deletePurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deletePurchaseItemWithRequestBuilder(purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Purchase
-     - POST /api/{version}/purchase/delete
+     - POST /purchase/delete
      - Marks the purchase item as deleted
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deletePurchaseItemWithRequestBuilder(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/purchase/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deletePurchaseItemWithRequestBuilder(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/purchase/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -192,33 +182,28 @@ open class PurchaseItemAPI {
     /**
      Get Purchase
      
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PurchaseItemFullResponse
      */
-    open class func getPurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
-        return try await getPurchaseItemWithRequestBuilder(version: version, purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getPurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
+        return try await getPurchaseItemWithRequestBuilder(purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Purchase
-     - GET /api/{version}/purchase/get
+     - GET /purchase/get
      - Get detailed information about a purchase item
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PurchaseItemFullResponse> 
      */
-    open class func getPurchaseItemWithRequestBuilder(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
-        var localVariablePath = "/api/{version}/purchase/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getPurchaseItemWithRequestBuilder(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
+        let localVariablePath = "/purchase/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -267,7 +252,6 @@ open class PurchaseItemAPI {
     /**
      Search Purchases
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key to filter results by application (optional)
@@ -283,15 +267,14 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PurchaseItemResponse]
      */
-    open class func searchPurchaseItems(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SortField_searchPurchaseItems? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PurchaseItemResponse] {
-        return try await searchPurchaseItemsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, filterByBillable: filterByBillable, purchaseType: purchaseType, serviceAction: serviceAction, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPurchaseItems(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SortField_searchPurchaseItems? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PurchaseItemResponse] {
+        return try await searchPurchaseItemsWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, filterByBillable: filterByBillable, purchaseType: purchaseType, serviceAction: serviceAction, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Purchases
-     - GET /api/{version}/purchase/search
+     - GET /purchase/search
      - Search for purchasable items from the system
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) The application key to filter results by application (optional)
@@ -307,11 +290,8 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PurchaseItemResponse]> 
      */
-    open class func searchPurchaseItemsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SortField_searchPurchaseItems? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PurchaseItemResponse]> {
-        var localVariablePath = "/api/{version}/purchase/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPurchaseItemsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SortField_searchPurchaseItems? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[PurchaseItemResponse]> {
+        let localVariablePath = "/purchase/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -372,7 +352,6 @@ open class PurchaseItemAPI {
     /**
      Update Purchase
      
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -397,15 +376,14 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PurchaseItemFullResponse
      */
-    open class func updatePurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: PurchaseType_updatePurchaseItem? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_updatePurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
-        return try await updatePurchaseItemWithRequestBuilder(version: version, purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, name: name, description: description, tickets: tickets, price: price, purchaseType: purchaseType, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func updatePurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: PurchaseType_updatePurchaseItem? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_updatePurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemFullResponse {
+        return try await updatePurchaseItemWithRequestBuilder(purchaseItemId: purchaseItemId, deviceId: deviceId, accountId: accountId, name: name, description: description, tickets: tickets, price: price, purchaseType: purchaseType, purchaseCode: purchaseCode, secretKey: secretKey, purchaseLimit: purchaseLimit, serviceAction: serviceAction, coverAssetId: coverAssetId, promoAssetId: promoAssetId, giftable: giftable, assetable: assetable, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, offerLocationId: offerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Purchase
-     - POST /api/{version}/purchase/update
+     - POST /purchase/update
      - Updates a purchase item for in app purchases
-     - parameter version: (path)  
      - parameter purchaseItemId: (query) The purchase item id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -430,11 +408,8 @@ open class PurchaseItemAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PurchaseItemFullResponse> 
      */
-    open class func updatePurchaseItemWithRequestBuilder(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: PurchaseType_updatePurchaseItem? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_updatePurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
-        var localVariablePath = "/api/{version}/purchase/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updatePurchaseItemWithRequestBuilder(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: PurchaseType_updatePurchaseItem? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: ServiceAction_updatePurchaseItem? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemFullResponse> {
+        let localVariablePath = "/purchase/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

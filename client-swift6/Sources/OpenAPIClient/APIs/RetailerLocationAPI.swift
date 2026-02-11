@@ -12,7 +12,6 @@ open class RetailerLocationAPI {
     /**
      Create Retailer Location (Consumer)
      
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter name: (query) The name of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -45,15 +44,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerLocationResponse
      */
-    open class func createRetailerLocationConsumer(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
-        return try await createRetailerLocationConsumerWithRequestBuilder(version: version, appKey: appKey, name: name, deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, tags: tags, logoAssetId: logoAssetId, picture1AssetId: picture1AssetId, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, metaData: metaData, publicLocation: publicLocation, active: active, locationType: locationType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createRetailerLocationConsumer(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
+        return try await createRetailerLocationConsumerWithRequestBuilder(appKey: appKey, name: name, deviceId: deviceId, accountId: accountId, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, tags: tags, logoAssetId: logoAssetId, picture1AssetId: picture1AssetId, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, metaData: metaData, publicLocation: publicLocation, active: active, locationType: locationType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Retailer Location (Consumer)
-     - POST /api/{version}/location/create
+     - POST /location/create
      - Creates a location record for an application that can support crowd sourced locations.
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter name: (query) The name of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -86,11 +84,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerLocationResponse> 
      */
-    open class func createRetailerLocationConsumerWithRequestBuilder(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
-        var localVariablePath = "/api/{version}/location/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRetailerLocationConsumerWithRequestBuilder(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
+        let localVariablePath = "/location/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -151,7 +146,6 @@ open class RetailerLocationAPI {
     /**
      Create Retailer Location
      
-     - parameter version: (path)  
      - parameter retailerId: (query) The ID of the retailer 
      - parameter name: (query) The name of the retailer location 
      - parameter streetAddress: (query) The street address of the retailer location 
@@ -194,15 +188,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerLocationResponse
      */
-    open class func createRetailerLocations(version: Double, retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_createRetailerLocations? = nil, responseIncludes: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
-        return try await createRetailerLocationsWithRequestBuilder(version: version, retailerId: retailerId, name: name, streetAddress: streetAddress, city: city, state: state, postalCode: postalCode, deviceId: deviceId, accountId: accountId, streetAddress2: streetAddress2, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, responseIncludes: responseIncludes, apiConfiguration: apiConfiguration).execute().body
+    open class func createRetailerLocations(retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_createRetailerLocations? = nil, responseIncludes: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
+        return try await createRetailerLocationsWithRequestBuilder(retailerId: retailerId, name: name, streetAddress: streetAddress, city: city, state: state, postalCode: postalCode, deviceId: deviceId, accountId: accountId, streetAddress2: streetAddress2, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, responseIncludes: responseIncludes, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Retailer Location
-     - POST /api/{version}/retailer/location/create
+     - POST /retailer/location/create
      - Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     - parameter version: (path)  
      - parameter retailerId: (query) The ID of the retailer 
      - parameter name: (query) The name of the retailer location 
      - parameter streetAddress: (query) The street address of the retailer location 
@@ -245,11 +238,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerLocationResponse> 
      */
-    open class func createRetailerLocationsWithRequestBuilder(version: Double, retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_createRetailerLocations? = nil, responseIncludes: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
-        var localVariablePath = "/api/{version}/retailer/location/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRetailerLocationsWithRequestBuilder(retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_createRetailerLocations? = nil, responseIncludes: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
+        let localVariablePath = "/retailer/location/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -310,33 +300,28 @@ open class RetailerLocationAPI {
     /**
      Delete Retailer Location
      
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (optional)
      - parameter accountId: (query) the id of the logged in user (optional)
      - parameter retailerLocationId: (query) the id of the retailer location to delete (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteRetailerLocation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteRetailerLocationWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, retailerLocationId: retailerLocationId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteRetailerLocation(deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteRetailerLocationWithRequestBuilder(deviceId: deviceId, accountId: accountId, retailerLocationId: retailerLocationId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Retailer Location
-     - POST /api/{version}/retailer/location/delete
+     - POST /retailer/location/delete
      - Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     - parameter version: (path)  
      - parameter deviceId: (query) the device id (optional)
      - parameter accountId: (query) the id of the logged in user (optional)
      - parameter retailerLocationId: (query) the id of the retailer location to delete (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteRetailerLocationWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/retailer/location/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteRetailerLocationWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/retailer/location/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -361,7 +346,6 @@ open class RetailerLocationAPI {
     /**
      Get Retailer Location
      
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The ID of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -369,15 +353,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerLocationResponse
      */
-    open class func getRetailerLocation(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
-        return try await getRetailerLocationWithRequestBuilder(version: version, retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, retailerLocationToken: retailerLocationToken, apiConfiguration: apiConfiguration).execute().body
+    open class func getRetailerLocation(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
+        return try await getRetailerLocationWithRequestBuilder(retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, retailerLocationToken: retailerLocationToken, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Retailer Location
-     - GET /api/{version}/retailer/location/get
+     - GET /retailer/location/get
      - Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The ID of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -385,11 +368,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerLocationResponse> 
      */
-    open class func getRetailerLocationWithRequestBuilder(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
-        var localVariablePath = "/api/{version}/retailer/location/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRetailerLocationWithRequestBuilder(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
+        let localVariablePath = "/retailer/location/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -415,33 +395,28 @@ open class RetailerLocationAPI {
     /**
      Get Retailer Location (Consumer)
      
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The retailer location id 
      - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
      - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerLocationResponse
      */
-    open class func getRetailerLocationConsumer(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
-        return try await getRetailerLocationConsumerWithRequestBuilder(version: version, retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getRetailerLocationConsumer(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
+        return try await getRetailerLocationConsumerWithRequestBuilder(retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Retailer Location (Consumer)
-     - GET /api/{version}/location/get
+     - GET /location/get
      - Gets the details of a retailer location as a consumer.
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The retailer location id 
      - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
      - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerLocationResponse> 
      */
-    open class func getRetailerLocationConsumerWithRequestBuilder(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
-        var localVariablePath = "/api/{version}/location/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getRetailerLocationConsumerWithRequestBuilder(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
+        let localVariablePath = "/location/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -474,7 +449,6 @@ open class RetailerLocationAPI {
     /**
      Distance Search Retailer Locations (Indexed)
      
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude to center the search on 
      - parameter longitude: (query) The longitude to center the search on 
      - parameter searchRange: (query) The search range in the distanceUnit specified; default is MILES. 
@@ -512,15 +486,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RetailerLocationResponse]
      */
-    open class func indexedRetailerLocationDistanceSearch(version: Double, latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: DistanceUnit_indexedRetailerLocationDistanceSearch? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
-        return try await indexedRetailerLocationDistanceSearchWithRequestBuilder(version: version, latitude: latitude, longitude: longitude, searchRange: searchRange, start: start, limit: limit, accountId: accountId, address: address, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, distanceUnit: distanceUnit, returnFavorited: returnFavorited, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
+    open class func indexedRetailerLocationDistanceSearch(latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: DistanceUnit_indexedRetailerLocationDistanceSearch? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
+        return try await indexedRetailerLocationDistanceSearchWithRequestBuilder(latitude: latitude, longitude: longitude, searchRange: searchRange, start: start, limit: limit, accountId: accountId, address: address, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, distanceUnit: distanceUnit, returnFavorited: returnFavorited, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Distance Search Retailer Locations (Indexed)
-     - GET /api/{version}/retailer/location/idistancesearch
+     - GET /retailer/location/idistancesearch
      - Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude to center the search on 
      - parameter longitude: (query) The longitude to center the search on 
      - parameter searchRange: (query) The search range in the distanceUnit specified; default is MILES. 
@@ -558,11 +531,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RetailerLocationResponse]> 
      */
-    open class func indexedRetailerLocationDistanceSearchWithRequestBuilder(version: Double, latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: DistanceUnit_indexedRetailerLocationDistanceSearch? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
-        var localVariablePath = "/api/{version}/retailer/location/idistancesearch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func indexedRetailerLocationDistanceSearchWithRequestBuilder(latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: DistanceUnit_indexedRetailerLocationDistanceSearch? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
+        let localVariablePath = "/retailer/location/idistancesearch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -618,7 +588,6 @@ open class RetailerLocationAPI {
     /**
      Keyword Search Retailer Locations (Indexed)
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter start: (query) The start index for pagination (optional)
      - parameter limit: (query) The limit for pagination (optional)
@@ -650,15 +619,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RetailerLocationResponse]
      */
-    open class func indexedRetailerLocationSearch(version: Double, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
-        return try await indexedRetailerLocationSearchWithRequestBuilder(version: version, accountId: accountId, start: start, limit: limit, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
+    open class func indexedRetailerLocationSearch(accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
+        return try await indexedRetailerLocationSearchWithRequestBuilder(accountId: accountId, start: start, limit: limit, hasOffers: hasOffers, categories: categories, filters: filters, audiences: audiences, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, tags: tags, locationType: locationType, sortField: sortField, descending: descending, q: q, keyword: keyword, keywordOperator: keywordOperator, searchExpression: searchExpression, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, returnExternalCategoryData: returnExternalCategoryData, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Keyword Search Retailer Locations (Indexed)
-     - GET /api/{version}/retailer/location/isearch
+     - GET /retailer/location/isearch
      - Retailer location (faster) indexed search. This searches all retailer locations.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user (optional)
      - parameter start: (query) The start index for pagination (optional)
      - parameter limit: (query) The limit for pagination (optional)
@@ -690,11 +658,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RetailerLocationResponse]> 
      */
-    open class func indexedRetailerLocationSearchWithRequestBuilder(version: Double, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
-        var localVariablePath = "/api/{version}/retailer/location/isearch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func indexedRetailerLocationSearchWithRequestBuilder(accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
+        let localVariablePath = "/retailer/location/isearch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -767,7 +732,6 @@ open class RetailerLocationAPI {
     /**
      Search Retailer Locations (Owned)
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter q: (query) This parameter is deprecated. (optional)
@@ -796,15 +760,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [RetailerLocationResponse]
      */
-    open class func searchRetailerLocations(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SortField_searchRetailerLocations? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
-        return try await searchRetailerLocationsWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, locationType: locationType, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, showPublicLocations: showPublicLocations, activeOnly: activeOnly, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
+    open class func searchRetailerLocations(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SortField_searchRetailerLocations? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [RetailerLocationResponse] {
+        return try await searchRetailerLocationsWithRequestBuilder(deviceId: deviceId, accountId: accountId, q: q, keyword: keyword, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, locationType: locationType, sortField: sortField, descending: descending, i: i, start: start, l: l, limit: limit, showPublicLocations: showPublicLocations, activeOnly: activeOnly, returnRetailer: returnRetailer, returnAssets: returnAssets, returnOffers: returnOffers, returnCategories: returnCategories, returnFilters: returnFilters, returnAudiences: returnAudiences, returnQrCode: returnQrCode, includeFavorite: includeFavorite, includeLiked: includeLiked, includeRating: includeRating, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Retailer Locations (Owned)
-     - GET /api/{version}/retailer/location/search
+     - GET /retailer/location/search
      - Searches on retailer locations that the account has access to.
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter q: (query) This parameter is deprecated. (optional)
@@ -833,11 +796,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[RetailerLocationResponse]> 
      */
-    open class func searchRetailerLocationsWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SortField_searchRetailerLocations? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
-        var localVariablePath = "/api/{version}/retailer/location/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchRetailerLocationsWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SortField_searchRetailerLocations? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[RetailerLocationResponse]> {
+        let localVariablePath = "/retailer/location/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -894,7 +854,6 @@ open class RetailerLocationAPI {
     /**
      Update Retailer Location
      
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The ID of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -939,15 +898,14 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RetailerLocationResponse
      */
-    open class func updateRetailerLocations(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_updateRetailerLocations? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
-        return try await updateRetailerLocationsWithRequestBuilder(version: version, retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, metaData: metaData, paymentProvider: paymentProvider, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, tags: tags, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRetailerLocations(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_updateRetailerLocations? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> RetailerLocationResponse {
+        return try await updateRetailerLocationsWithRequestBuilder(retailerLocationId: retailerLocationId, deviceId: deviceId, accountId: accountId, name: name, streetAddress: streetAddress, streetAddress2: streetAddress2, city: city, state: state, postalCode: postalCode, country: country, businessPhone: businessPhone, businessPhoneExt: businessPhoneExt, website: website, email: email, internalId: internalId, detailsHeader: detailsHeader, detailsBody: detailsBody, hours: hours, logo: logo, logoAssetId: logoAssetId, picture1: picture1, picture1AssetId: picture1AssetId, picture2: picture2, picture2AssetId: picture2AssetId, categoryIds: categoryIds, filterIds: filterIds, latitude: latitude, longitude: longitude, building: building, googlePlaceId: googlePlaceId, yelpId: yelpId, metaData: metaData, paymentProvider: paymentProvider, active: active, publicLocation: publicLocation, locationType: locationType, audienceIds: audienceIds, audienceIdsToAdd: audienceIdsToAdd, audienceIdsToRemove: audienceIdsToRemove, responseFormat: responseFormat, tags: tags, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Retailer Location
-     - POST /api/{version}/retailer/location/update
+     - POST /retailer/location/update
      - Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     - parameter version: (path)  
      - parameter retailerLocationId: (query) The ID of the retailer location 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -992,11 +950,8 @@ open class RetailerLocationAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RetailerLocationResponse> 
      */
-    open class func updateRetailerLocationsWithRequestBuilder(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_updateRetailerLocations? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
-        var localVariablePath = "/api/{version}/retailer/location/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRetailerLocationsWithRequestBuilder(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: URL? = nil, logoAssetId: Int64? = nil, picture1: URL? = nil, picture1AssetId: Int64? = nil, picture2: URL? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: ResponseFormat_updateRetailerLocations? = nil, tags: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<RetailerLocationResponse> {
+        let localVariablePath = "/retailer/location/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

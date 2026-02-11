@@ -12,7 +12,6 @@ open class MissionAPI {
     /**
      Create Mission
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The title of the mission 
      - parameter description: (query) The description of the mission (optional)
@@ -42,15 +41,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func createMission(version: Double, accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await createMissionWithRequestBuilder(version: version, accountId: accountId, title: title, description: description, subType: subType, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, missionTask: missionTask, formatType: formatType, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, metaData: metaData, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, apiConfiguration: apiConfiguration).execute().body
+    open class func createMission(accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await createMissionWithRequestBuilder(accountId: accountId, title: title, description: description, subType: subType, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, missionTask: missionTask, formatType: formatType, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, metaData: metaData, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Mission
-     - POST /api/{version}/mission/create
+     - POST /mission/create
      - Create a user defined mission.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter title: (query) The title of the mission 
      - parameter description: (query) The description of the mission (optional)
@@ -80,11 +78,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func createMissionWithRequestBuilder(version: Double, accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createMissionWithRequestBuilder(accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -132,31 +127,26 @@ open class MissionAPI {
     /**
      Delete Mission
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteMission(version: Double, accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteMissionWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteMission(accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteMissionWithRequestBuilder(accountId: accountId, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Mission
-     - POST /api/{version}/mission/delete
+     - POST /mission/delete
      - Delete a mission.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter missionId: (query) the id of the mission to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteMissionWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/mission/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteMissionWithRequestBuilder(accountId: Int64, missionId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/mission/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -180,7 +170,6 @@ open class MissionAPI {
     /**
      Find Missions
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
      - parameter suffix: (query) The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      - parameter type: (query) The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -203,15 +192,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func findMissions(version: Double, appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await findMissionsWithRequestBuilder(version: version, appKey: appKey, suffix: suffix, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, randomize: randomize, targetedAdsOnly: targetedAdsOnly, missionIds: missionIds, audienceOperator: audienceOperator, apiConfiguration: apiConfiguration).execute().body
+    open class func findMissions(appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await findMissionsWithRequestBuilder(appKey: appKey, suffix: suffix, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, randomize: randomize, targetedAdsOnly: targetedAdsOnly, missionIds: missionIds, audienceOperator: audienceOperator, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Find Missions
-     - GET /api/{version}/mission/find
+     - GET /mission/find
      - Get a set of ad filtered by the parameters provided.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
      - parameter suffix: (query) The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      - parameter type: (query) The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -234,11 +222,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func findMissionsWithRequestBuilder(version: Double, appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/find"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func findMissionsWithRequestBuilder(appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/find"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -279,33 +264,28 @@ open class MissionAPI {
     /**
      Get Mission
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The id of the mission to return. 
      - parameter returnCreative: (query) Return creatives associated with the mission when true (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func getMission(version: Double, accountId: Int64, missionId: Int64, returnCreative: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await getMissionWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, returnCreative: returnCreative, apiConfiguration: apiConfiguration).execute().body
+    open class func getMission(accountId: Int64, missionId: Int64, returnCreative: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await getMissionWithRequestBuilder(accountId: accountId, missionId: missionId, returnCreative: returnCreative, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Mission
-     - GET /api/{version}/mission/get
+     - GET /mission/get
      - Get a mission.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The id of the mission to return. 
      - parameter returnCreative: (query) Return creatives associated with the mission when true (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func getMissionWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, returnCreative: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getMissionWithRequestBuilder(accountId: Int64, missionId: Int64, returnCreative: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -353,7 +333,6 @@ open class MissionAPI {
     /**
      Import Mission
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter latitude: (query) The current location of the requesting device 
      - parameter longitude: (query) The current location of the requesting device 
@@ -365,15 +344,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func importMission(version: Double, accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: AdSize_importMission? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await importMissionWithRequestBuilder(version: version, accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, keyword: keyword, start: start, limit: limit, adSize: adSize, apiConfiguration: apiConfiguration).execute().body
+    open class func importMission(accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: AdSize_importMission? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await importMissionWithRequestBuilder(accountId: accountId, latitude: latitude, longitude: longitude, appKey: appKey, keyword: keyword, start: start, limit: limit, adSize: adSize, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Import Mission
-     - POST /api/{version}/mission/import
+     - POST /mission/import
      - Create a mission using a source item such as an offer location.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter latitude: (query) The current location of the requesting device 
      - parameter longitude: (query) The current location of the requesting device 
@@ -385,11 +363,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func importMissionWithRequestBuilder(version: Double, accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: AdSize_importMission? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/mission/import"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func importMissionWithRequestBuilder(accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: AdSize_importMission? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/mission/import"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -419,33 +394,28 @@ open class MissionAPI {
     /**
      Search Mission Formats
      
-     - parameter version: (path)  
      - parameter start: (query) The starting index in the result set to return. Default is 0. 
      - parameter limit: (query) The total number of records to return. Default is 20. 
      - parameter activeOnly: (query) Determines whether to return only active results. Default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MissionFormatResponse]
      */
-    open class func searchMissionFormats(version: Double, start: Int, limit: Int, activeOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionFormatResponse] {
-        return try await searchMissionFormatsWithRequestBuilder(version: version, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchMissionFormats(start: Int, limit: Int, activeOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionFormatResponse] {
+        return try await searchMissionFormatsWithRequestBuilder(start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Mission Formats
-     - GET /api/{version}/mission/format/search
+     - GET /mission/format/search
      - Searches on pre-defined mission formats
-     - parameter version: (path)  
      - parameter start: (query) The starting index in the result set to return. Default is 0. 
      - parameter limit: (query) The total number of records to return. Default is 20. 
      - parameter activeOnly: (query) Determines whether to return only active results. Default is false. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MissionFormatResponse]> 
      */
-    open class func searchMissionFormatsWithRequestBuilder(version: Double, start: Int, limit: Int, activeOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionFormatResponse]> {
-        var localVariablePath = "/api/{version}/mission/format/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchMissionFormatsWithRequestBuilder(start: Int, limit: Int, activeOnly: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionFormatResponse]> {
+        let localVariablePath = "/mission/format/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -470,7 +440,6 @@ open class MissionAPI {
     /**
      Search Missions
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) Filter by keyword (optional)
      - parameter subType: (query) Custom string client apps can use for searching/filtering missions (optional)
@@ -485,15 +454,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MissionResponse]
      */
-    open class func searchMissions(version: Double, accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
-        return try await searchMissionsWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, subType: subType, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, apiConfiguration: apiConfiguration).execute().body
+    open class func searchMissions(accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
+        return try await searchMissionsWithRequestBuilder(accountId: accountId, keyword: keyword, subType: subType, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Missions
-     - GET /api/{version}/mission/search
+     - GET /mission/search
      - Get the list missions available to the account.  
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) Filter by keyword (optional)
      - parameter subType: (query) Custom string client apps can use for searching/filtering missions (optional)
@@ -508,11 +476,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MissionResponse]> 
      */
-    open class func searchMissionsWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
-        var localVariablePath = "/api/{version}/mission/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchMissionsWithRequestBuilder(accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
+        let localVariablePath = "/mission/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -545,7 +510,6 @@ open class MissionAPI {
     /**
      Search Missions by Billable Entity
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) Filter by keyword (optional)
      - parameter start: (query) The index into the record set to start with. Default is 0. (optional)
@@ -559,15 +523,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MissionResponse]
      */
-    open class func searchMissionsByBillableEntity(version: Double, accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
-        return try await searchMissionsByBillableEntityWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, apiConfiguration: apiConfiguration).execute().body
+    open class func searchMissionsByBillableEntity(accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
+        return try await searchMissionsByBillableEntityWithRequestBuilder(accountId: accountId, keyword: keyword, start: start, limit: limit, includeGameData: includeGameData, includeAudiences: includeAudiences, includeInactive: includeInactive, suffix: suffix, sortField: sortField, descending: descending, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Missions by Billable Entity
-     - GET /api/{version}/mission/searchByBillableEntity
+     - GET /mission/searchByBillableEntity
      - Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter keyword: (query) Filter by keyword (optional)
      - parameter start: (query) The index into the record set to start with. Default is 0. (optional)
@@ -581,11 +544,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MissionResponse]> 
      */
-    open class func searchMissionsByBillableEntityWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
-        var localVariablePath = "/api/{version}/mission/searchByBillableEntity"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchMissionsByBillableEntityWithRequestBuilder(accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
+        let localVariablePath = "/mission/searchByBillableEntity"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -617,7 +577,6 @@ open class MissionAPI {
     /**
      Update Mission
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The id of the mission to update. 
      - parameter title: (query) The title of the mission (optional)
@@ -646,15 +605,14 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: MissionResponse
      */
-    open class func updateMission(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
-        return try await updateMissionWithRequestBuilder(version: version, accountId: accountId, missionId: missionId, title: title, description: description, subType: subType, metaData: metaData, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, apiConfiguration: apiConfiguration).execute().body
+    open class func updateMission(accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> MissionResponse {
+        return try await updateMissionWithRequestBuilder(accountId: accountId, missionId: missionId, title: title, description: description, subType: subType, metaData: metaData, startDate: startDate, endDate: endDate, active: active, gameLevelIds: gameLevelIds, creativeIds: creativeIds, audienceIds: audienceIds, offerId: offerId, balance: balance, advancedReporting: advancedReporting, allocateTickets: allocateTickets, ticketCount: ticketCount, ticketType: ticketType, points: points, applicationIds: applicationIds, devices: devices, deviceIds: deviceIds, deviceVersions: deviceVersions, locations: locations, radius: radius, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Mission
-     - POST /api/{version}/mission/update
+     - POST /mission/update
      - Update a mission.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter missionId: (query) The id of the mission to update. 
      - parameter title: (query) The title of the mission (optional)
@@ -683,11 +641,8 @@ open class MissionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MissionResponse> 
      */
-    open class func updateMissionWithRequestBuilder(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
-        var localVariablePath = "/api/{version}/mission/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateMissionWithRequestBuilder(accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<MissionResponse> {
+        let localVariablePath = "/mission/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

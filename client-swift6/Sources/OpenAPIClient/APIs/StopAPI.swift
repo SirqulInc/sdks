@@ -12,29 +12,24 @@ open class StopAPI {
     /**
      Get Stop
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the stop to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Stop
      */
-    open class func getStop(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
-        return try await getStopWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func getStop(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
+        return try await getStopWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Stop
-     - GET /api/{version}/stop/{id}
+     - GET /stop/{id}
      - Get an existing stop
-     - parameter version: (path)  
      - parameter id: (path) the id of the stop to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Stop> 
      */
-    open class func getStopWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
-        var localVariablePath = "/api/{version}/stop/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getStopWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
+        var localVariablePath = "/stop/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -57,31 +52,26 @@ open class StopAPI {
     /**
      Update Stop
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the stop to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Stop
      */
-    open class func updateStop(version: Double, id: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
-        return try await updateStopWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateStop(id: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Stop {
+        return try await updateStopWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Stop
-     - PUT /api/{version}/stop/{id}
+     - PUT /stop/{id}
      - Update an existing stop
-     - parameter version: (path)  
      - parameter id: (path) the id of the stop to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Stop> 
      */
-    open class func updateStopWithRequestBuilder(version: Double, id: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
-        var localVariablePath = "/api/{version}/stop/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateStopWithRequestBuilder(id: Int64, body: Stop? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Stop> {
+        var localVariablePath = "/stop/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

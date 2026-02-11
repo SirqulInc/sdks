@@ -12,31 +12,26 @@ open class CreativeAPI {
     /**
      Add Preview
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter creativeId: (query) The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func addPreview(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await addPreviewWithRequestBuilder(version: version, accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
+    open class func addPreview(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await addPreviewWithRequestBuilder(accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add Preview
-     - POST /api/{version}/creative/addpreview
+     - POST /creative/addpreview
      - Enable this ad for preview for this account.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter creativeId: (query) The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func addPreviewWithRequestBuilder(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/creative/addpreview"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addPreviewWithRequestBuilder(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/creative/addpreview"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -60,7 +55,6 @@ open class CreativeAPI {
     /**
      Find Missions
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
      - parameter randomize: (query) return a random set of results, default is true. If false returns in nature order. 
      - parameter targetedAdsOnly: (query) return only ads targets to the specific app, no global ads. 
@@ -80,15 +74,14 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [MissionResponse]
      */
-    open class func adsFind(version: Double, appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
-        return try await adsFindWithRequestBuilder(version: version, appKey: appKey, randomize: randomize, targetedAdsOnly: targetedAdsOnly, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, missionIds: missionIds, apiConfiguration: apiConfiguration).execute().body
+    open class func adsFind(appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [MissionResponse] {
+        return try await adsFindWithRequestBuilder(appKey: appKey, randomize: randomize, targetedAdsOnly: targetedAdsOnly, type: type, accountId: accountId, appVersion: appVersion, latitude: latitude, longitude: longitude, device: device, deviceIdentifier: deviceIdentifier, deviceVersion: deviceVersion, start: start, limit: limit, includeAudiences: includeAudiences, allocatesTickets: allocatesTickets, missionIds: missionIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Find Missions
-     - GET /api/{version}/ads/find
+     - GET /ads/find
      - Get a set of ad filtered by the parameters provided.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
      - parameter randomize: (query) return a random set of results, default is true. If false returns in nature order. 
      - parameter targetedAdsOnly: (query) return only ads targets to the specific app, no global ads. 
@@ -108,11 +101,8 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[MissionResponse]> 
      */
-    open class func adsFindWithRequestBuilder(version: Double, appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
-        var localVariablePath = "/api/{version}/ads/find"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func adsFindWithRequestBuilder(appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[MissionResponse]> {
+        let localVariablePath = "/ads/find"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -150,7 +140,6 @@ open class CreativeAPI {
     /**
      Create Creative
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the level. 
      - parameter active: (query) If true set the game level as active. Default is false. 
@@ -169,15 +158,14 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CreativeResponse
      */
-    open class func createCreative(version: Double, accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
-        return try await createCreativeWithRequestBuilder(version: version, accountId: accountId, name: name, active: active, waitForAsset: waitForAsset, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, referenceId: referenceId, appVersion: appVersion, missionId: missionId, offerId: offerId, apiConfiguration: apiConfiguration).execute().body
+    open class func createCreative(accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
+        return try await createCreativeWithRequestBuilder(accountId: accountId, name: name, active: active, waitForAsset: waitForAsset, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, referenceId: referenceId, appVersion: appVersion, missionId: missionId, offerId: offerId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Creative
-     - POST /api/{version}/creative/create
+     - POST /creative/create
      - Create a creative
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the level. 
      - parameter active: (query) If true set the game level as active. Default is false. 
@@ -196,11 +184,8 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CreativeResponse> 
      */
-    open class func createCreativeWithRequestBuilder(version: Double, accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
-        var localVariablePath = "/api/{version}/creative/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createCreativeWithRequestBuilder(accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
+        let localVariablePath = "/creative/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -237,31 +222,26 @@ open class CreativeAPI {
     /**
      Delete Creative
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter creativeId: (query) the id of the creative to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteCreative(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteCreativeWithRequestBuilder(version: version, accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteCreative(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteCreativeWithRequestBuilder(accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Creative
-     - POST /api/{version}/creative/delete
+     - POST /creative/delete
      - Delete a creative
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter creativeId: (query) the id of the creative to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteCreativeWithRequestBuilder(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/creative/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteCreativeWithRequestBuilder(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/creative/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -285,31 +265,26 @@ open class CreativeAPI {
     /**
      Get Creative
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter creativeId: (query) the ID of the creative to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CreativeResponse
      */
-    open class func getCreative(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
-        return try await getCreativeWithRequestBuilder(version: version, accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getCreative(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
+        return try await getCreativeWithRequestBuilder(accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Creative
-     - GET /api/{version}/creative/get
+     - GET /creative/get
      - Get a creative
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter creativeId: (query) the ID of the creative to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CreativeResponse> 
      */
-    open class func getCreativeWithRequestBuilder(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
-        var localVariablePath = "/api/{version}/creative/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCreativeWithRequestBuilder(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
+        let localVariablePath = "/creative/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -333,7 +308,6 @@ open class CreativeAPI {
     /**
      Search Creatives
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter start: (query) Start the result set at some index. 
@@ -343,15 +317,14 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [CreativeResponse]
      */
-    open class func getCreativesByApplication(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CreativeResponse] {
-        return try await getCreativesByApplicationWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, start: start, limit: limit, missionId: missionId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func getCreativesByApplication(accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [CreativeResponse] {
+        return try await getCreativesByApplicationWithRequestBuilder(accountId: accountId, appKey: appKey, start: start, limit: limit, missionId: missionId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Creatives
-     - GET /api/{version}/creative/search
+     - GET /creative/search
      - Get a list of levels for an application, just those the account has permissions to view.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter appKey: (query) the application key 
      - parameter start: (query) Start the result set at some index. 
@@ -361,11 +334,8 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[CreativeResponse]> 
      */
-    open class func getCreativesByApplicationWithRequestBuilder(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CreativeResponse]> {
-        var localVariablePath = "/api/{version}/creative/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getCreativesByApplicationWithRequestBuilder(accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[CreativeResponse]> {
+        let localVariablePath = "/creative/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -393,31 +363,26 @@ open class CreativeAPI {
     /**
      Remove Preview
      
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the logged in user 
      - parameter creativeId: (query) the ID of the creative to remove preview 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removePreview(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removePreviewWithRequestBuilder(version: version, accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
+    open class func removePreview(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removePreviewWithRequestBuilder(accountId: accountId, creativeId: creativeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove Preview
-     - POST /api/{version}/creative/removepreview
+     - POST /creative/removepreview
      - Remove this ad for preview for this account.
-     - parameter version: (path)  
      - parameter accountId: (query) the ID of the logged in user 
      - parameter creativeId: (query) the ID of the creative to remove preview 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removePreviewWithRequestBuilder(version: Double, accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/creative/removepreview"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removePreviewWithRequestBuilder(accountId: Int64, creativeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/creative/removepreview"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -441,7 +406,6 @@ open class CreativeAPI {
     /**
      Update Creative
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter creativeId: (query) the creative Id to upate. 
      - parameter name: (query) The name of the level. (optional)
@@ -459,15 +423,14 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CreativeResponse
      */
-    open class func updateCreative(version: Double, accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
-        return try await updateCreativeWithRequestBuilder(version: version, accountId: accountId, creativeId: creativeId, name: name, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, active: active, referenceId: referenceId, appVersion: appVersion, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
+    open class func updateCreative(accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CreativeResponse {
+        return try await updateCreativeWithRequestBuilder(accountId: accountId, creativeId: creativeId, name: name, description: description, assetImageId: assetImageId, action: action, data: data, suffix: suffix, type: type, balance: balance, active: active, referenceId: referenceId, appVersion: appVersion, missionId: missionId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Creative
-     - POST /api/{version}/creative/update
+     - POST /creative/update
      - Update a creative
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter creativeId: (query) the creative Id to upate. 
      - parameter name: (query) The name of the level. (optional)
@@ -485,11 +448,8 @@ open class CreativeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CreativeResponse> 
      */
-    open class func updateCreativeWithRequestBuilder(version: Double, accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
-        var localVariablePath = "/api/{version}/creative/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateCreativeWithRequestBuilder(accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CreativeResponse> {
+        let localVariablePath = "/creative/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

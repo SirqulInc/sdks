@@ -12,7 +12,6 @@ open class AppDataAPI {
     /**
      Get App Data
      
-     - parameter version: (path)  
      - parameter start: (query) start the search results at a record. 
      - parameter limit: (query) limit the search results to some number. 
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
@@ -41,15 +40,14 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AppResponse
      */
-    open class func getAppData(version: Double, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AppResponse {
-        return try await getAppDataWithRequestBuilder(version: version, start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, apiConfiguration: apiConfiguration).execute().body
+    open class func getAppData(start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AppResponse {
+        return try await getAppDataWithRequestBuilder(start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get App Data
-     - GET /api/{version}/app/get
+     - GET /app/get
      - Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     - parameter version: (path)  
      - parameter start: (query) start the search results at a record. 
      - parameter limit: (query) limit the search results to some number. 
      - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
@@ -78,11 +76,8 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AppResponse> 
      */
-    open class func getAppDataWithRequestBuilder(version: Double, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AppResponse> {
-        var localVariablePath = "/api/{version}/app/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAppDataWithRequestBuilder(start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AppResponse> {
+        let localVariablePath = "/app/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,7 +124,6 @@ open class AppDataAPI {
     /**
      Create App Data
      
-     - parameter version: (path)  
      - parameter gameType: (query) the game to retrieve the data for, use your application key. 
      - parameter start: (query) start the search results at a record. 
      - parameter limit: (query) limit the search results to some number. 
@@ -159,15 +153,14 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AppResponse
      */
-    open class func postAppData(version: Double, gameType: String, start: Int, limit: Int, data: String, deviceId: String? = nil, accountId: Int64? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AppResponse {
-        return try await postAppDataWithRequestBuilder(version: version, gameType: gameType, start: start, limit: limit, data: data, deviceId: deviceId, accountId: accountId, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, apiConfiguration: apiConfiguration).execute().body
+    open class func postAppData(gameType: String, start: Int, limit: Int, data: String, deviceId: String? = nil, accountId: Int64? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AppResponse {
+        return try await postAppDataWithRequestBuilder(gameType: gameType, start: start, limit: limit, data: data, deviceId: deviceId, accountId: accountId, includeGameData: includeGameData, q: q, keyword: keyword, sortField: sortField, descending: descending, i: i, l: l, gameObjectCount: gameObjectCount, filter: filter, dateCreated: dateCreated, ownerId: ownerId, missionIds: missionIds, gameIds: gameIds, packIds: packIds, gameLevelIds: gameLevelIds, appVersion: appVersion, includeHigherVersionPacks: includeHigherVersionPacks, includeHigherVersionLevels: includeHigherVersionLevels, responseGroups: responseGroups, purchaseType: purchaseType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create App Data
-     - POST /api/{version}/app/post
+     - POST /app/post
      - Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     - parameter version: (path)  
      - parameter gameType: (query) the game to retrieve the data for, use your application key. 
      - parameter start: (query) start the search results at a record. 
      - parameter limit: (query) limit the search results to some number. 
@@ -197,11 +190,8 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AppResponse> 
      */
-    open class func postAppDataWithRequestBuilder(version: Double, gameType: String, start: Int, limit: Int, data: String, deviceId: String? = nil, accountId: Int64? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AppResponse> {
-        var localVariablePath = "/api/{version}/app/post"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func postAppDataWithRequestBuilder(gameType: String, start: Int, limit: Int, data: String, deviceId: String? = nil, accountId: Int64? = nil, includeGameData: Bool? = nil, q: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, l: Int? = nil, gameObjectCount: Bool? = nil, filter: String? = nil, dateCreated: Int64? = nil, ownerId: Int64? = nil, missionIds: String? = nil, gameIds: String? = nil, packIds: String? = nil, gameLevelIds: String? = nil, appVersion: String? = nil, includeHigherVersionPacks: Bool? = nil, includeHigherVersionLevels: Bool? = nil, responseGroups: String? = nil, purchaseType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AppResponse> {
+        let localVariablePath = "/app/post"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -249,7 +239,6 @@ open class AppDataAPI {
     /**
      Regenerate App Data
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter appKey: (query) process a specific application, if null process all apps with caches (optional)
      - parameter buildVersion: (query) create a specific version, if null use current version. Be careful if processing all (optional)
@@ -257,15 +246,14 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func regenAppData(version: Double, accountId: Int64? = nil, appKey: String? = nil, buildVersion: String? = nil, apiVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await regenAppDataWithRequestBuilder(version: version, accountId: accountId, appKey: appKey, buildVersion: buildVersion, apiVersion: apiVersion, apiConfiguration: apiConfiguration).execute().body
+    open class func regenAppData(accountId: Int64? = nil, appKey: String? = nil, buildVersion: String? = nil, apiVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await regenAppDataWithRequestBuilder(accountId: accountId, appKey: appKey, buildVersion: buildVersion, apiVersion: apiVersion, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Regenerate App Data
-     - POST /api/{version}/app/regen
+     - POST /app/regen
      - Regenerate the app data cache for apps
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (optional)
      - parameter appKey: (query) process a specific application, if null process all apps with caches (optional)
      - parameter buildVersion: (query) create a specific version, if null use current version. Be careful if processing all (optional)
@@ -273,11 +261,8 @@ open class AppDataAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func regenAppDataWithRequestBuilder(version: Double, accountId: Int64? = nil, appKey: String? = nil, buildVersion: String? = nil, apiVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/app/regen"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func regenAppDataWithRequestBuilder(accountId: Int64? = nil, appKey: String? = nil, buildVersion: String? = nil, apiVersion: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/app/regen"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -21,7 +21,6 @@ open class ThemeDescriptorAPI {
     /**
      Create/Update Theme
      
-     - parameter version: (path)  
      - parameter publicRead: (query) determines whether the theme&#39;s participants have read permissions 
      - parameter publicWrite: (query) determines whether the theme&#39;s participants have write permissions 
      - parameter publicDelete: (query) determines whether the theme&#39;s participants have delete permissions 
@@ -52,15 +51,14 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ThemeDescriptorResponse
      */
-    open class func addOrUpdateThemeDescriptor(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateThemeDescriptor, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: URL? = nil, sceneAtlasImage: URL? = nil, bgImage: URL? = nil, bgSound: URL? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThemeDescriptorResponse {
-        return try await addOrUpdateThemeDescriptorWithRequestBuilder(version: version, publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, visibility: visibility, includeFriendGroup: includeFriendGroup, completeWithDefaultValues: completeWithDefaultValues, deviceId: deviceId, accountId: accountId, gameType: gameType, themeDescriptorId: themeDescriptorId, title: title, description: description, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, appVersion: appVersion, colorValueJson: colorValueJson, stringReplacerJson: stringReplacerJson, customJsonObjects: customJsonObjects, iconImage: iconImage, sceneAtlasImage: sceneAtlasImage, bgImage: bgImage, bgSound: bgSound, musicSelection: musicSelection, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func addOrUpdateThemeDescriptor(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateThemeDescriptor, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: URL? = nil, sceneAtlasImage: URL? = nil, bgImage: URL? = nil, bgSound: URL? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ThemeDescriptorResponse {
+        return try await addOrUpdateThemeDescriptorWithRequestBuilder(publicRead: publicRead, publicWrite: publicWrite, publicDelete: publicDelete, publicAdd: publicAdd, visibility: visibility, includeFriendGroup: includeFriendGroup, completeWithDefaultValues: completeWithDefaultValues, deviceId: deviceId, accountId: accountId, gameType: gameType, themeDescriptorId: themeDescriptorId, title: title, description: description, connectionIdsToAdd: connectionIdsToAdd, connectionGroupIdsToAdd: connectionGroupIdsToAdd, appVersion: appVersion, colorValueJson: colorValueJson, stringReplacerJson: stringReplacerJson, customJsonObjects: customJsonObjects, iconImage: iconImage, sceneAtlasImage: sceneAtlasImage, bgImage: bgImage, bgSound: bgSound, musicSelection: musicSelection, locationDescription: locationDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create/Update Theme
-     - POST /api/{version}/consumer/theme
+     - POST /consumer/theme
      - Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     - parameter version: (path)  
      - parameter publicRead: (query) determines whether the theme&#39;s participants have read permissions 
      - parameter publicWrite: (query) determines whether the theme&#39;s participants have write permissions 
      - parameter publicDelete: (query) determines whether the theme&#39;s participants have delete permissions 
@@ -91,11 +89,8 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ThemeDescriptorResponse> 
      */
-    open class func addOrUpdateThemeDescriptorWithRequestBuilder(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateThemeDescriptor, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: URL? = nil, sceneAtlasImage: URL? = nil, bgImage: URL? = nil, bgSound: URL? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThemeDescriptorResponse> {
-        var localVariablePath = "/api/{version}/consumer/theme"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addOrUpdateThemeDescriptorWithRequestBuilder(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: Visibility_addOrUpdateThemeDescriptor, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: URL? = nil, sceneAtlasImage: URL? = nil, bgImage: URL? = nil, bgSound: URL? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ThemeDescriptorResponse> {
+        let localVariablePath = "/consumer/theme"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -144,7 +139,6 @@ open class ThemeDescriptorAPI {
     /**
      Get Theme
      
-     - parameter version: (path)  
      - parameter themeDescriptorId: (query) the theme id 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -154,15 +148,14 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PurchaseItemListResponse
      */
-    open class func getThemeDescriptor(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemListResponse {
-        return try await getThemeDescriptorWithRequestBuilder(version: version, themeDescriptorId: themeDescriptorId, deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getThemeDescriptor(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemListResponse {
+        return try await getThemeDescriptorWithRequestBuilder(themeDescriptorId: themeDescriptorId, deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Theme
-     - GET /api/{version}/consumer/theme/get
+     - GET /consumer/theme/get
      - Gets a theme.
-     - parameter version: (path)  
      - parameter themeDescriptorId: (query) the theme id 
      - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -172,11 +165,8 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PurchaseItemListResponse> 
      */
-    open class func getThemeDescriptorWithRequestBuilder(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemListResponse> {
-        var localVariablePath = "/api/{version}/consumer/theme/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getThemeDescriptorWithRequestBuilder(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemListResponse> {
+        let localVariablePath = "/consumer/theme/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -204,7 +194,6 @@ open class ThemeDescriptorAPI {
     /**
      Search Themes
      
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of Ownership 
      - parameter sortField: (query) the field to sort by. See ThemeDescriptorApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -226,15 +215,14 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PurchaseItemListResponse
      */
-    open class func getThemeDescriptors(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemListResponse {
-        return try await getThemeDescriptorsWithRequestBuilder(version: version, filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, appVersion: appVersion, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getThemeDescriptors(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PurchaseItemListResponse {
+        return try await getThemeDescriptorsWithRequestBuilder(filter: filter, sortField: sortField, descending: descending, start: start, limit: limit, deviceId: deviceId, accountId: accountId, gameType: gameType, contestType: contestType, ownerId: ownerId, q: q, keyword: keyword, i: i, l: l, dateCreated: dateCreated, appVersion: appVersion, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Themes
-     - GET /api/{version}/consumer/theme/search
+     - GET /consumer/theme/search
      - Searches for themes.
-     - parameter version: (path)  
      - parameter filter: (query) a comma separated list of Ownership 
      - parameter sortField: (query) the field to sort by. See ThemeDescriptorApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -256,11 +244,8 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PurchaseItemListResponse> 
      */
-    open class func getThemeDescriptorsWithRequestBuilder(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemListResponse> {
-        var localVariablePath = "/api/{version}/consumer/theme/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getThemeDescriptorsWithRequestBuilder(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PurchaseItemListResponse> {
+        let localVariablePath = "/consumer/theme/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -300,7 +285,6 @@ open class ThemeDescriptorAPI {
     /**
      Delete Theme
      
-     - parameter version: (path)  
      - parameter themeDescriptorId: (query) the theme id to remove 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -310,15 +294,14 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeThemeDescriptor(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeThemeDescriptorWithRequestBuilder(version: version, themeDescriptorId: themeDescriptorId, deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func removeThemeDescriptor(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeThemeDescriptorWithRequestBuilder(themeDescriptorId: themeDescriptorId, deviceId: deviceId, accountId: accountId, gameType: gameType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Theme
-     - POST /api/{version}/consumer/theme/remove
+     - POST /consumer/theme/remove
      - Removes a theme.
-     - parameter version: (path)  
      - parameter themeDescriptorId: (query) the theme id to remove 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -328,11 +311,8 @@ open class ThemeDescriptorAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeThemeDescriptorWithRequestBuilder(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/theme/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeThemeDescriptorWithRequestBuilder(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/theme/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

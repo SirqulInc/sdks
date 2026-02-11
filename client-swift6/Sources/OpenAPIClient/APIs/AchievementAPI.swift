@@ -12,7 +12,6 @@ open class AchievementAPI {
     /**
      Searches an Achievement Tier
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) the application key (optional)
@@ -27,15 +26,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementTierResponse
      */
-    open class func apiVersionAchievementTierSearchPost(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
-        return try await apiVersionAchievementTierSearchPostWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, sortField: sortField, descending: descending, descendingGoal: descendingGoal, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func achievementTierSearchPost(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
+        return try await achievementTierSearchPostWithRequestBuilder(deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, sortField: sortField, descending: descending, descendingGoal: descendingGoal, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Searches an Achievement Tier
-     - POST /api/{version}/achievement/tier/search
+     - POST /achievement/tier/search
      - Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter appKey: (query) the application key (optional)
@@ -50,11 +48,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementTierResponse> 
      */
-    open class func apiVersionAchievementTierSearchPostWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
-        var localVariablePath = "/api/{version}/achievement/tier/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func achievementTierSearchPostWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
+        let localVariablePath = "/achievement/tier/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -87,7 +82,6 @@ open class AchievementAPI {
     /**
      Create Achievement
      
-     - parameter version: (path)  
      - parameter appKey: (query) the application key the achievement is for 
      - parameter title: (query) the title of the achievement (255 character limit) 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -104,15 +98,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementResponse
      */
-    open class func createAchievement(version: Double, appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementResponse {
-        return try await createAchievementWithRequestBuilder(version: version, appKey: appKey, title: title, deviceId: deviceId, accountId: accountId, analyticsTag: analyticsTag, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, maxIncrement: maxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, apiConfiguration: apiConfiguration).execute().body
+    open class func createAchievement(appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementResponse {
+        return try await createAchievementWithRequestBuilder(appKey: appKey, title: title, deviceId: deviceId, accountId: accountId, analyticsTag: analyticsTag, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, maxIncrement: maxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Achievement
-     - POST /api/{version}/achievement/create
+     - POST /achievement/create
      - Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter appKey: (query) the application key the achievement is for 
      - parameter title: (query) the title of the achievement (255 character limit) 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -129,11 +122,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementResponse> 
      */
-    open class func createAchievementWithRequestBuilder(version: Double, appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementResponse> {
-        var localVariablePath = "/api/{version}/achievement/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createAchievementWithRequestBuilder(appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementResponse> {
+        let localVariablePath = "/achievement/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -168,7 +158,6 @@ open class AchievementAPI {
     /**
      Create Achievement Tier
      
-     - parameter version: (path)  
      - parameter achievementId: (query) the achievement id for adding a new tier 
      - parameter scoreAllInstances: (query) score all instances 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -186,15 +175,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementTierResponse
      */
-    open class func createAchievementTier(version: Double, achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
-        return try await createAchievementTierWithRequestBuilder(version: version, achievementId: achievementId, scoreAllInstances: scoreAllInstances, deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, apiConfiguration: apiConfiguration).execute().body
+    open class func createAchievementTier(achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
+        return try await createAchievementTierWithRequestBuilder(achievementId: achievementId, scoreAllInstances: scoreAllInstances, deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Achievement Tier
-     - POST /api/{version}/achievement/tier/create
+     - POST /achievement/tier/create
      - Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter achievementId: (query) the achievement id for adding a new tier 
      - parameter scoreAllInstances: (query) score all instances 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -212,11 +200,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementTierResponse> 
      */
-    open class func createAchievementTierWithRequestBuilder(version: Double, achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
-        var localVariablePath = "/api/{version}/achievement/tier/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createAchievementTierWithRequestBuilder(achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
+        let localVariablePath = "/achievement/tier/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -252,31 +237,26 @@ open class AchievementAPI {
     /**
      Delete Achievement
      
-     - parameter version: (path)  
      - parameter achievementId: (query) The ID of the achievement 
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteAchievement(version: Double, achievementId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteAchievementWithRequestBuilder(version: version, achievementId: achievementId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteAchievement(achievementId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteAchievementWithRequestBuilder(achievementId: achievementId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Achievement
-     - POST /api/{version}/achievement/delete
+     - POST /achievement/delete
      - Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     - parameter version: (path)  
      - parameter achievementId: (query) The ID of the achievement 
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteAchievementWithRequestBuilder(version: Double, achievementId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/achievement/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteAchievementWithRequestBuilder(achievementId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/achievement/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -300,31 +280,26 @@ open class AchievementAPI {
     /**
      Delete Achievement Tier
      
-     - parameter version: (path)  
      - parameter achievementTierId: (query) the achievement id for deletion 
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteAchievementTier(version: Double, achievementTierId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteAchievementTierWithRequestBuilder(version: version, achievementTierId: achievementTierId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteAchievementTier(achievementTierId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteAchievementTierWithRequestBuilder(achievementTierId: achievementTierId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Achievement Tier
-     - POST /api/{version}/achievement/tier/delete
+     - POST /achievement/tier/delete
      - Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     - parameter version: (path)  
      - parameter achievementTierId: (query) the achievement id for deletion 
      - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteAchievementTierWithRequestBuilder(version: Double, achievementTierId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/achievement/tier/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteAchievementTierWithRequestBuilder(achievementTierId: Int64, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/achievement/tier/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -348,7 +323,6 @@ open class AchievementAPI {
     /**
      Get Achievement
      
-     - parameter version: (path)  
      - parameter achievementId: (query) The ID of the achievement 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -356,15 +330,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementTierResponse
      */
-    open class func getAchievement(version: Double, achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
-        return try await getAchievementWithRequestBuilder(version: version, achievementId: achievementId, deviceId: deviceId, accountId: accountId, achievementType: achievementType, apiConfiguration: apiConfiguration).execute().body
+    open class func getAchievement(achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
+        return try await getAchievementWithRequestBuilder(achievementId: achievementId, deviceId: deviceId, accountId: accountId, achievementType: achievementType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Achievement
-     - GET /api/{version}/achievement/get
+     - GET /achievement/get
      - Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter achievementId: (query) The ID of the achievement 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -372,11 +345,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementTierResponse> 
      */
-    open class func getAchievementWithRequestBuilder(version: Double, achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
-        var localVariablePath = "/api/{version}/achievement/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAchievementWithRequestBuilder(achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
+        let localVariablePath = "/achievement/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -402,31 +372,26 @@ open class AchievementAPI {
     /**
      Gets an achievement tier
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
      - parameter achievementTierId: (query) the achievement tier id that is being retrieved 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementTierResponse
      */
-    open class func getAchievementTier(version: Double, accountId: Int64, achievementTierId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
-        return try await getAchievementTierWithRequestBuilder(version: version, accountId: accountId, achievementTierId: achievementTierId, apiConfiguration: apiConfiguration).execute().body
+    open class func getAchievementTier(accountId: Int64, achievementTierId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
+        return try await getAchievementTierWithRequestBuilder(accountId: accountId, achievementTierId: achievementTierId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Gets an achievement tier
-     - POST /api/{version}/achievement/tier/get
+     - POST /achievement/tier/get
      - Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
      - parameter achievementTierId: (query) the achievement tier id that is being retrieved 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementTierResponse> 
      */
-    open class func getAchievementTierWithRequestBuilder(version: Double, accountId: Int64, achievementTierId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
-        var localVariablePath = "/api/{version}/achievement/tier/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getAchievementTierWithRequestBuilder(accountId: Int64, achievementTierId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
+        let localVariablePath = "/achievement/tier/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -450,7 +415,6 @@ open class AchievementAPI {
     /**
      Get Achievement Progress
      
-     - parameter version: (path)  
      - parameter returnNulls: (query) determines whether to return null fields in the response 
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter includeUndiscovered: (query) determines whether to return achievements that the user has not discovered yet 
@@ -465,15 +429,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AchievementProgressResponse]
      */
-    open class func getUserAchievements(version: Double, returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementProgressResponse] {
-        return try await getUserAchievementsWithRequestBuilder(version: version, returnNulls: returnNulls, appKey: appKey, includeUndiscovered: includeUndiscovered, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, rankType: rankType, achievementType: achievementType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getUserAchievements(returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementProgressResponse] {
+        return try await getUserAchievementsWithRequestBuilder(returnNulls: returnNulls, appKey: appKey, includeUndiscovered: includeUndiscovered, deviceId: deviceId, accountId: accountId, connectionAccountEmail: connectionAccountEmail, connectionAccountId: connectionAccountId, rankType: rankType, achievementType: achievementType, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Achievement Progress
-     - GET /api/{version}/achievement/progress/get
+     - GET /achievement/progress/get
      - Gets a list of user achievements.
-     - parameter version: (path)  
      - parameter returnNulls: (query) determines whether to return null fields in the response 
      - parameter appKey: (query) the application key for filtering results by application 
      - parameter includeUndiscovered: (query) determines whether to return achievements that the user has not discovered yet 
@@ -488,11 +451,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AchievementProgressResponse]> 
      */
-    open class func getUserAchievementsWithRequestBuilder(version: Double, returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementProgressResponse]> {
-        var localVariablePath = "/api/{version}/achievement/progress/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getUserAchievementsWithRequestBuilder(returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementProgressResponse]> {
+        let localVariablePath = "/achievement/progress/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -525,29 +485,24 @@ open class AchievementAPI {
     /**
      List Achievement Tags
      
-     - parameter version: (path)  
      - parameter appKey: (query) filter results by application key (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func listAchievementTags(version: Double, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await listAchievementTagsWithRequestBuilder(version: version, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func listAchievementTags(appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await listAchievementTagsWithRequestBuilder(appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Achievement Tags
-     - GET /api/{version}/achievement/tag/list
+     - GET /achievement/tag/list
      - List achievement tags by application
-     - parameter version: (path)  
      - parameter appKey: (query) filter results by application key (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func listAchievementTagsWithRequestBuilder(version: Double, appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/achievement/tag/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listAchievementTagsWithRequestBuilder(appKey: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/achievement/tag/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -587,7 +542,6 @@ open class AchievementAPI {
     /**
      List Achievements
      
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by. See AchievementApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) the start index for pagination 
@@ -602,15 +556,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AchievementShortResponse]
      */
-    open class func listAchievements(version: Double, sortField: SortField_listAchievements, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementShortResponse] {
-        return try await listAchievementsWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, apiConfiguration: apiConfiguration).execute().body
+    open class func listAchievements(sortField: SortField_listAchievements, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementShortResponse] {
+        return try await listAchievementsWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, deviceId: deviceId, accountId: accountId, appKey: appKey, keyword: keyword, achievementType: achievementType, rankType: rankType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List Achievements
-     - GET /api/{version}/achievement/list
+     - GET /achievement/list
      - List achievements by billable.
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by. See AchievementApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) the start index for pagination 
@@ -625,11 +578,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AchievementShortResponse]> 
      */
-    open class func listAchievementsWithRequestBuilder(version: Double, sortField: SortField_listAchievements, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementShortResponse]> {
-        var localVariablePath = "/api/{version}/achievement/list"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func listAchievementsWithRequestBuilder(sortField: SortField_listAchievements, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementShortResponse]> {
+        let localVariablePath = "/achievement/list"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -679,7 +629,6 @@ open class AchievementAPI {
     /**
      Search Achievements
      
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter sortField: (query) the field to sort by. See AchievementApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -695,15 +644,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AchievementShortResponse]
      */
-    open class func searchAchievements(version: Double, appKey: String, sortField: SortField_searchAchievements, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementShortResponse] {
-        return try await searchAchievementsWithRequestBuilder(version: version, appKey: appKey, sortField: sortField, descending: descending, includeTiers: includeTiers, includeInactiveTiers: includeInactiveTiers, start: start, limit: limit, deviceId: deviceId, accountId: accountId, keyword: keyword, achievementType: achievementType, rankType: rankType, apiConfiguration: apiConfiguration).execute().body
+    open class func searchAchievements(appKey: String, sortField: SortField_searchAchievements, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AchievementShortResponse] {
+        return try await searchAchievementsWithRequestBuilder(appKey: appKey, sortField: sortField, descending: descending, includeTiers: includeTiers, includeInactiveTiers: includeInactiveTiers, start: start, limit: limit, deviceId: deviceId, accountId: accountId, keyword: keyword, achievementType: achievementType, rankType: rankType, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Achievements
-     - GET /api/{version}/achievement/search
+     - GET /achievement/search
      - Searches achievements by application for consumers.
-     - parameter version: (path)  
      - parameter appKey: (query) the application key 
      - parameter sortField: (query) the field to sort by. See AchievementApiMap 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -719,11 +667,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AchievementShortResponse]> 
      */
-    open class func searchAchievementsWithRequestBuilder(version: Double, appKey: String, sortField: SortField_searchAchievements, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementShortResponse]> {
-        var localVariablePath = "/api/{version}/achievement/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchAchievementsWithRequestBuilder(appKey: String, sortField: SortField_searchAchievements, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AchievementShortResponse]> {
+        let localVariablePath = "/achievement/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -757,7 +702,6 @@ open class AchievementAPI {
     /**
      Update Achievement
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter achievementId: (query) the achievement ID for updating an existing achievement (optional)
@@ -776,15 +720,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementResponse
      */
-    open class func updateAchievement(version: Double, deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementResponse {
-        return try await updateAchievementWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, achievementId: achievementId, analyticsTag: analyticsTag, title: title, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, nullMinIncrement: nullMinIncrement, maxIncrement: maxIncrement, nullMaxIncrement: nullMaxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, apiConfiguration: apiConfiguration).execute().body
+    open class func updateAchievement(deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementResponse {
+        return try await updateAchievementWithRequestBuilder(deviceId: deviceId, accountId: accountId, achievementId: achievementId, analyticsTag: analyticsTag, title: title, description: description, rankType: rankType, rankIncrement: rankIncrement, minIncrement: minIncrement, nullMinIncrement: nullMinIncrement, maxIncrement: maxIncrement, nullMaxIncrement: nullMaxIncrement, validate: validate, active: active, triggerDefinition: triggerDefinition, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Achievement
-     - POST /api/{version}/achievement/update
+     - POST /achievement/update
      - Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter achievementId: (query) the achievement ID for updating an existing achievement (optional)
@@ -803,11 +746,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementResponse> 
      */
-    open class func updateAchievementWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementResponse> {
-        var localVariablePath = "/api/{version}/achievement/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateAchievementWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementResponse> {
+        let localVariablePath = "/achievement/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -844,7 +784,6 @@ open class AchievementAPI {
     /**
      Update Achievement Tier
      
-     - parameter version: (path)  
      - parameter achievementTierId: (query) the achievement tier id for updating 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -862,15 +801,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AchievementTierResponse
      */
-    open class func updateAchievementTier(version: Double, achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
-        return try await updateAchievementTierWithRequestBuilder(version: version, achievementTierId: achievementTierId, deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreAllInstances: scoreAllInstances, apiConfiguration: apiConfiguration).execute().body
+    open class func updateAchievementTier(achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AchievementTierResponse {
+        return try await updateAchievementTierWithRequestBuilder(achievementTierId: achievementTierId, deviceId: deviceId, accountId: accountId, icon: icon, iconAssetId: iconAssetId, title: title, description: description, goalCount: goalCount, missionId: missionId, gameId: gameId, packId: packId, gameLevelId: gameLevelId, gameObjectId: gameObjectId, scoreAllInstances: scoreAllInstances, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Achievement Tier
-     - POST /api/{version}/achievement/tier/update
+     - POST /achievement/tier/update
      - Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     - parameter version: (path)  
      - parameter achievementTierId: (query) the achievement tier id for updating 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -888,11 +826,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AchievementTierResponse> 
      */
-    open class func updateAchievementTierWithRequestBuilder(version: Double, achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
-        var localVariablePath = "/api/{version}/achievement/tier/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateAchievementTierWithRequestBuilder(achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: URL? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AchievementTierResponse> {
+        let localVariablePath = "/achievement/tier/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -928,7 +863,6 @@ open class AchievementAPI {
     /**
      Update Achievement Progress
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter achievementId: (query) the achievement id (achievementId or tag required) (optional)
      - parameter tag: (query) the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -940,15 +874,14 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func updateUserAchievement(version: Double, accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await updateUserAchievementWithRequestBuilder(version: version, accountId: accountId, achievementId: achievementId, tag: tag, customId: customId, increment: increment, startDate: startDate, endDate: endDate, returnProgress: returnProgress, apiConfiguration: apiConfiguration).execute().body
+    open class func updateUserAchievement(accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await updateUserAchievementWithRequestBuilder(accountId: accountId, achievementId: achievementId, tag: tag, customId: customId, increment: increment, startDate: startDate, endDate: endDate, returnProgress: returnProgress, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Achievement Progress
-     - POST /api/{version}/achievement/progress/update
+     - POST /achievement/progress/update
      - Update user achievement progress.
-     - parameter version: (path)  
      - parameter accountId: (query) the account id of the user 
      - parameter achievementId: (query) the achievement id (achievementId or tag required) (optional)
      - parameter tag: (query) the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -960,11 +893,8 @@ open class AchievementAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func updateUserAchievementWithRequestBuilder(version: Double, accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/achievement/progress/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateUserAchievementWithRequestBuilder(accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/achievement/progress/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

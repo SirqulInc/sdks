@@ -12,7 +12,6 @@ open class QuestionAPI {
     /**
      Create Question
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter question: (query) the text of the question 
      - parameter answers: (query) &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  
@@ -27,15 +26,14 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QuestionResponse
      */
-    open class func createQuestion(version: Double, accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
-        return try await createQuestionWithRequestBuilder(version: version, accountId: accountId, question: question, answers: answers, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, tags: tags, videoURL: videoURL, assetId: assetId, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func createQuestion(accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
+        return try await createQuestionWithRequestBuilder(accountId: accountId, question: question, answers: answers, active: active, allocateTickets: allocateTickets, ticketCount: ticketCount, tags: tags, videoURL: videoURL, assetId: assetId, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Question
-     - POST /api/{version}/game/question/create
+     - POST /game/question/create
      - Create a question and related answers by the given params.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter question: (query) the text of the question 
      - parameter answers: (query) &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  
@@ -50,11 +48,8 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QuestionResponse> 
      */
-    open class func createQuestionWithRequestBuilder(version: Double, accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
-        var localVariablePath = "/api/{version}/game/question/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createQuestionWithRequestBuilder(accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
+        let localVariablePath = "/game/question/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -87,31 +82,26 @@ open class QuestionAPI {
     /**
      Delete Question
      
-     - parameter version: (path)  
      - parameter questionId: (query) the id of the question to delete 
      - parameter accountId: (query) the id of the account that can execute this request 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteQuestion(version: Double, questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteQuestionWithRequestBuilder(version: version, questionId: questionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteQuestion(questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteQuestionWithRequestBuilder(questionId: questionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Question
-     - POST /api/{version}/game/question/delete
+     - POST /game/question/delete
      - Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     - parameter version: (path)  
      - parameter questionId: (query) the id of the question to delete 
      - parameter accountId: (query) the id of the account that can execute this request 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteQuestionWithRequestBuilder(version: Double, questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/game/question/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteQuestionWithRequestBuilder(questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/game/question/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -135,31 +125,26 @@ open class QuestionAPI {
     /**
      Get Question
      
-     - parameter version: (path)  
      - parameter questionId: (query) the id of the question to get 
      - parameter accountId: (query) the id of the account that can make this request 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QuestionResponse
      */
-    open class func getQuestion(version: Double, questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
-        return try await getQuestionWithRequestBuilder(version: version, questionId: questionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getQuestion(questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
+        return try await getQuestionWithRequestBuilder(questionId: questionId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Question
-     - GET /api/{version}/game/question/get
+     - GET /game/question/get
      - Get a question by the given id.
-     - parameter version: (path)  
      - parameter questionId: (query) the id of the question to get 
      - parameter accountId: (query) the id of the account that can make this request 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QuestionResponse> 
      */
-    open class func getQuestionWithRequestBuilder(version: Double, questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
-        var localVariablePath = "/api/{version}/game/question/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getQuestionWithRequestBuilder(questionId: Int64, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
+        let localVariablePath = "/game/question/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -183,7 +168,6 @@ open class QuestionAPI {
     /**
      Search Questions
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -194,15 +178,14 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [QuestionResponse]
      */
-    open class func searchQuestions(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [QuestionResponse] {
-        return try await searchQuestionsWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func searchQuestions(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [QuestionResponse] {
+        return try await searchQuestionsWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Questions
-     - GET /api/{version}/game/question/search
+     - GET /game/question/search
      - Search for questions by the given params.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter sortField: (query) The column to sort the search on 
      - parameter descending: (query) The order to return the search results 
@@ -213,11 +196,8 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[QuestionResponse]> 
      */
-    open class func searchQuestionsWithRequestBuilder(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[QuestionResponse]> {
-        var localVariablePath = "/api/{version}/game/question/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchQuestionsWithRequestBuilder(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[QuestionResponse]> {
+        let localVariablePath = "/game/question/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -246,7 +226,6 @@ open class QuestionAPI {
     /**
      Update Question
      
-     - parameter version: (path)  
      - parameter questionId: (query) The id of the question to update. 
      - parameter accountId: (query) The logged in user. 
      - parameter ticketCount: (query) The number of tickets to reward 
@@ -262,15 +241,14 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: QuestionResponse
      */
-    open class func updateQuestion(version: Double, questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
-        return try await updateQuestionWithRequestBuilder(version: version, questionId: questionId, accountId: accountId, ticketCount: ticketCount, question: question, answers: answers, tags: tags, videoURL: videoURL, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
+    open class func updateQuestion(questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> QuestionResponse {
+        return try await updateQuestionWithRequestBuilder(questionId: questionId, accountId: accountId, ticketCount: ticketCount, question: question, answers: answers, tags: tags, videoURL: videoURL, assetId: assetId, active: active, allocateTickets: allocateTickets, ticketType: ticketType, points: points, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Question
-     - POST /api/{version}/game/question/update
+     - POST /game/question/update
      - Update a question and related answers.
-     - parameter version: (path)  
      - parameter questionId: (query) The id of the question to update. 
      - parameter accountId: (query) The logged in user. 
      - parameter ticketCount: (query) The number of tickets to reward 
@@ -286,11 +264,8 @@ open class QuestionAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<QuestionResponse> 
      */
-    open class func updateQuestionWithRequestBuilder(version: Double, questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
-        var localVariablePath = "/api/{version}/game/question/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateQuestionWithRequestBuilder(questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<QuestionResponse> {
+        let localVariablePath = "/game/question/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

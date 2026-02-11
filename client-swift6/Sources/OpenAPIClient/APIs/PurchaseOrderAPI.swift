@@ -25,7 +25,6 @@ open class PurchaseOrderAPI {
     /**
      Create Order
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -41,15 +40,14 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderResponse
      */
-    open class func createOrder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_createOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
-        return try await createOrderWithRequestBuilder(version: version, appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
+    open class func createOrder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_createOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
+        return try await createOrderWithRequestBuilder(appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Order
-     - POST /api/{version}/order/create
+     - POST /order/create
      - Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -65,11 +63,8 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderResponse> 
      */
-    open class func createOrderWithRequestBuilder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_createOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
-        var localVariablePath = "/api/{version}/order/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createOrderWithRequestBuilder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_createOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
+        let localVariablePath = "/order/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -103,33 +98,28 @@ open class PurchaseOrderAPI {
     /**
      Delete Order
      
-     - parameter version: (path)  
      - parameter orderId: (query) Order Id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteOrder(version: Double, orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteOrderWithRequestBuilder(version: version, orderId: orderId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteOrder(orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteOrderWithRequestBuilder(orderId: orderId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Order
-     - POST /api/{version}/order/delete
+     - POST /order/delete
      - Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     - parameter version: (path)  
      - parameter orderId: (query) Order Id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteOrderWithRequestBuilder(version: Double, orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/order/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteOrderWithRequestBuilder(orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/order/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -154,7 +144,6 @@ open class PurchaseOrderAPI {
     /**
      Get Order
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter orderId: (query) The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -162,15 +151,14 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderResponse
      */
-    open class func getOrder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
-        return try await getOrderWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, orderId: orderId, externalOrderId: externalOrderId, apiConfiguration: apiConfiguration).execute().body
+    open class func getOrder(deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
+        return try await getOrderWithRequestBuilder(deviceId: deviceId, accountId: accountId, orderId: orderId, externalOrderId: externalOrderId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Order
-     - GET /api/{version}/order/get
+     - GET /order/get
      - Get an order record
-     - parameter version: (path)  
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter orderId: (query) The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -178,11 +166,8 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderResponse> 
      */
-    open class func getOrderWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
-        var localVariablePath = "/api/{version}/order/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getOrderWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
+        let localVariablePath = "/order/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -221,7 +206,6 @@ open class PurchaseOrderAPI {
     /**
      Preview Order
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) A JSON list of items to purchase 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -237,15 +221,14 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderResponse
      */
-    open class func previewOrder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_previewOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
-        return try await previewOrderWithRequestBuilder(version: version, appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
+    open class func previewOrder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_previewOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
+        return try await previewOrderWithRequestBuilder(appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalOrderId: externalOrderId, externalPaymentId: externalPaymentId, remoteRefType: remoteRefType, externalDate: externalDate, promoCode: promoCode, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Preview Order
-     - POST /api/{version}/order/preview
+     - POST /order/preview
      - Previews a purchase to see the total cost before making it.
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) A JSON list of items to purchase 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -261,11 +244,8 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderResponse> 
      */
-    open class func previewOrderWithRequestBuilder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_previewOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
-        var localVariablePath = "/api/{version}/order/preview"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func previewOrderWithRequestBuilder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_previewOrder? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
+        let localVariablePath = "/order/preview"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -299,7 +279,6 @@ open class PurchaseOrderAPI {
     /**
      Search Orders
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -334,15 +313,14 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [OrderResponse]
      */
-    open class func searchOrders(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OrderResponse] {
-        return try await searchOrdersWithRequestBuilder(version: version, appKey: appKey, deviceId: deviceId, accountId: accountId, start: start, limit: limit, descending: descending, activeOnly: activeOnly, ignoreCustomerFilter: ignoreCustomerFilter, orderItemTypes: orderItemTypes, orderItemIds: orderItemIds, orderCustomTypes: orderCustomTypes, orderCustomIds: orderCustomIds, sortField: sortField, offerTypes: offerTypes, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, offerIds: offerIds, offerLocationIds: offerLocationIds, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, statuses: statuses, keyword: keyword, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, apiConfiguration: apiConfiguration).execute().body
+    open class func searchOrders(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [OrderResponse] {
+        return try await searchOrdersWithRequestBuilder(appKey: appKey, deviceId: deviceId, accountId: accountId, start: start, limit: limit, descending: descending, activeOnly: activeOnly, ignoreCustomerFilter: ignoreCustomerFilter, orderItemTypes: orderItemTypes, orderItemIds: orderItemIds, orderCustomTypes: orderCustomTypes, orderCustomIds: orderCustomIds, sortField: sortField, offerTypes: offerTypes, specialOfferTypes: specialOfferTypes, categoryIds: categoryIds, filterIds: filterIds, offerAudienceIds: offerAudienceIds, transactionAudienceIds: transactionAudienceIds, offerIds: offerIds, offerLocationIds: offerLocationIds, retailerIds: retailerIds, retailerLocationIds: retailerLocationIds, statuses: statuses, keyword: keyword, redeemableStartDate: redeemableStartDate, redeemableEndDate: redeemableEndDate, startedSince: startedSince, startedBefore: startedBefore, endedSince: endedSince, endedBefore: endedBefore, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Orders
-     - GET /api/{version}/order/search
+     - GET /order/search
      - Search on active orders by customer
-     - parameter version: (path)  
      - parameter appKey: (query) The application requesting the purchase 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -377,11 +355,8 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[OrderResponse]> 
      */
-    open class func searchOrdersWithRequestBuilder(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OrderResponse]> {
-        var localVariablePath = "/api/{version}/order/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchOrdersWithRequestBuilder(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[OrderResponse]> {
+        let localVariablePath = "/order/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -447,7 +422,6 @@ open class PurchaseOrderAPI {
     /**
      Update Order
      
-     - parameter version: (path)  
      - parameter orderId: (query) The order to add the purchase to, leave null for new order. 
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
@@ -462,15 +436,14 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: OrderResponse
      */
-    open class func updateOrder(version: Double, orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_updateOrder? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
-        return try await updateOrderWithRequestBuilder(version: version, orderId: orderId, appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, paymentTransactionId: paymentTransactionId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalPaymentId: externalPaymentId, externalDate: externalDate, apiConfiguration: apiConfiguration).execute().body
+    open class func updateOrder(orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_updateOrder? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> OrderResponse {
+        return try await updateOrderWithRequestBuilder(orderId: orderId, appKey: appKey, cart: cart, deviceId: deviceId, accountId: accountId, paymentTransactionId: paymentTransactionId, description: description, currencyType: currencyType, paymentMethodId: paymentMethodId, externalPaymentId: externalPaymentId, externalDate: externalDate, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Order
-     - POST /api/{version}/order/update
+     - POST /order/update
      - Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     - parameter version: (path)  
      - parameter orderId: (query) The order to add the purchase to, leave null for new order. 
      - parameter appKey: (query) The application requesting the purchase 
      - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
@@ -485,11 +458,8 @@ open class PurchaseOrderAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<OrderResponse> 
      */
-    open class func updateOrderWithRequestBuilder(version: Double, orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_updateOrder? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
-        var localVariablePath = "/api/{version}/order/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateOrderWithRequestBuilder(orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: CurrencyType_updateOrder? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<OrderResponse> {
+        let localVariablePath = "/order/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

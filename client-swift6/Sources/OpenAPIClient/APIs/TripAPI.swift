@@ -12,29 +12,24 @@ open class TripAPI {
     /**
      Create Trip
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func createTrip(version: Double, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await createTripWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createTrip(body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await createTripWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Trip
-     - POST /api/{version}/trip
+     - POST /trip
      - Create a new trip
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func createTripWithRequestBuilder(version: Double, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createTripWithRequestBuilder(body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        let localVariablePath = "/trip"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -54,29 +49,24 @@ open class TripAPI {
     /**
      Delete Trip
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func delete(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func delete(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Trip
-     - DELETE /api/{version}/trip/{id}
+     - DELETE /trip/{id}
      - Delete an existing trip
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/trip/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/trip/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -99,31 +89,26 @@ open class TripAPI {
     /**
      Set Trip Preference Driver
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func driveTrip(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await driveTripWithRequestBuilder(version: version, id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
+    open class func driveTrip(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await driveTripWithRequestBuilder(id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Set Trip Preference Driver
-     - POST /api/{version}/trip/{id}/drive
+     - POST /trip/{id}/drive
      - Update trip preference to drive, also create a route and assign the trip to the route
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func driveTripWithRequestBuilder(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}/drive"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func driveTripWithRequestBuilder(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}/drive"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -149,31 +134,26 @@ open class TripAPI {
     /**
      Set Trip Preference Flexible
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func flexibleTrip(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await flexibleTripWithRequestBuilder(version: version, id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
+    open class func flexibleTrip(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await flexibleTripWithRequestBuilder(id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Set Trip Preference Flexible
-     - POST /api/{version}/trip/{id}/flexible
+     - POST /trip/{id}/flexible
      - Update trip preference to flexible.
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func flexibleTripWithRequestBuilder(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}/flexible"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func flexibleTripWithRequestBuilder(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}/flexible"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -199,29 +179,24 @@ open class TripAPI {
     /**
      Get Trip
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func getTrip(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await getTripWithRequestBuilder(version: version, id: id, apiConfiguration: apiConfiguration).execute().body
+    open class func getTrip(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await getTripWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Trip
-     - GET /api/{version}/trip/{id}
+     - GET /trip/{id}
      - Get an existing trip
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func getTripWithRequestBuilder(version: Double, id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTripWithRequestBuilder(id: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -244,7 +219,6 @@ open class TripAPI {
     /**
      Get Trip Matches
      
-     - parameter version: (path)  
      - parameter id: (path) The id The id of the trip to search for matches for 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -256,15 +230,14 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func getTripMatches(version: Double, id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await getTripMatchesWithRequestBuilder(version: version, id: id, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, apiConfiguration: apiConfiguration).execute().body
+    open class func getTripMatches(id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await getTripMatchesWithRequestBuilder(id: id, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Trip Matches
-     - GET /api/{version}/trip/{id}/match
+     - GET /trip/{id}/match
      - Get matching trips of specific trip
-     - parameter version: (path)  
      - parameter id: (path) The id The id of the trip to search for matches for 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -276,11 +249,8 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func getTripMatchesWithRequestBuilder(version: Double, id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip/{id}/match"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTripMatchesWithRequestBuilder(id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        var localVariablePath = "/trip/{id}/match"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -312,33 +282,28 @@ open class TripAPI {
     /**
      Process Trip Matches
      
-     - parameter version: (path)  
      - parameter startDate: (query) The lower bound date to process matchings (optional)
      - parameter endDate: (query) The upper bound date to process matchings (optional)
      - parameter tripId: (query) the id of the trip to process (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func processTripMatches(version: Double, startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await processTripMatchesWithRequestBuilder(version: version, startDate: startDate, endDate: endDate, tripId: tripId, apiConfiguration: apiConfiguration).execute().body
+    open class func processTripMatches(startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await processTripMatchesWithRequestBuilder(startDate: startDate, endDate: endDate, tripId: tripId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Process Trip Matches
-     - POST /api/{version}/trip/match/process
+     - POST /trip/match/process
      - Process trip matching, assign trips with no route to matched trips with route.
-     - parameter version: (path)  
      - parameter startDate: (query) The lower bound date to process matchings (optional)
      - parameter endDate: (query) The upper bound date to process matchings (optional)
      - parameter tripId: (query) the id of the trip to process (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func processTripMatchesWithRequestBuilder(version: Double, startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip/match/process"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func processTripMatchesWithRequestBuilder(startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        let localVariablePath = "/trip/match/process"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -363,31 +328,26 @@ open class TripAPI {
     /**
      Set Trip Preference Rider
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func ride(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await rideWithRequestBuilder(version: version, id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
+    open class func ride(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await rideWithRequestBuilder(id: id, recurrence: recurrence, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Set Trip Preference Rider
-     - POST /api/{version}/trip/{id}/ride
+     - POST /trip/{id}/ride
      - Update trip preference to ride.
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func rideWithRequestBuilder(version: Double, id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}/ride"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func rideWithRequestBuilder(id: Int64, recurrence: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}/ride"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -413,7 +373,6 @@ open class TripAPI {
     /**
      Search Trips
      
-     - parameter version: (path)  
      - parameter accountId: (query) The owner of the trips 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -426,15 +385,14 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func search(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await searchWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, startDate: startDate, endDate: endDate, hasNotifications: hasNotifications, apiConfiguration: apiConfiguration).execute().body
+    open class func search(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await searchWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, startDate: startDate, endDate: endDate, hasNotifications: hasNotifications, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Trips
-     - GET /api/{version}/trip
+     - GET /trip
      - Search for trips
-     - parameter version: (path)  
      - parameter accountId: (query) The owner of the trips 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -447,11 +405,8 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func searchWithRequestBuilder(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchWithRequestBuilder(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        let localVariablePath = "/trip"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -482,7 +437,6 @@ open class TripAPI {
     /**
      Search Trips
      
-     - parameter version: (path)  
      - parameter accountId: (query) The owner of the trips 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -496,15 +450,14 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func searchTrips(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await searchTripsWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, startDate: startDate, endDate: endDate, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTrips(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await searchTripsWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, startDate: startDate, endDate: endDate, matchedHasRoute: matchedHasRoute, matchedHasDriver: matchedHasDriver, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Trips
-     - GET /api/{version}/trip/match
+     - GET /trip/match
      - Search for trips with matching information.
-     - parameter version: (path)  
      - parameter accountId: (query) The owner of the trips 
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -518,11 +471,8 @@ open class TripAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func searchTripsWithRequestBuilder(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip/match"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTripsWithRequestBuilder(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        let localVariablePath = "/trip/match"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -554,30 +504,25 @@ open class TripAPI {
     /**
      Update Trip Locations
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to update locations for 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func updateLocations(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await updateLocationsWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateLocations(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await updateLocationsWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Trip Locations
-     - POST /api/{version}/trip/{id}/locations
-     - parameter version: (path)  
+     - POST /trip/{id}/locations
      - parameter id: (path) the id of the trip to update locations for 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func updateLocationsWithRequestBuilder(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}/locations"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateLocationsWithRequestBuilder(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}/locations"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -600,30 +545,25 @@ open class TripAPI {
     /**
      Update Recurrence Locations
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func updateRecurrenceLocations(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await updateRecurrenceLocationsWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRecurrenceLocations(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await updateRecurrenceLocationsWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Recurrence Locations
-     - POST /api/{version}/trip/{id}/locations/recurrence
-     - parameter version: (path)  
+     - POST /trip/{id}/locations/recurrence
      - parameter id: (path) the id of the trip 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func updateRecurrenceLocationsWithRequestBuilder(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip/{id}/locations/recurrence"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRecurrenceLocationsWithRequestBuilder(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        var localVariablePath = "/trip/{id}/locations/recurrence"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -646,30 +586,25 @@ open class TripAPI {
     /**
      Update Recurrence Shipments
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [Trip]
      */
-    open class func updateRecurrenceShipments(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
-        return try await updateRecurrenceShipmentsWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateRecurrenceShipments(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [Trip] {
+        return try await updateRecurrenceShipmentsWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Recurrence Shipments
-     - POST /api/{version}/trip/{id}/shipments/recurrence
-     - parameter version: (path)  
+     - POST /trip/{id}/shipments/recurrence
      - parameter id: (path) the id of the trip 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[Trip]> 
      */
-    open class func updateRecurrenceShipmentsWithRequestBuilder(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
-        var localVariablePath = "/api/{version}/trip/{id}/shipments/recurrence"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateRecurrenceShipmentsWithRequestBuilder(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[Trip]> {
+        var localVariablePath = "/trip/{id}/shipments/recurrence"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -692,30 +627,25 @@ open class TripAPI {
     /**
      Update Trip Shipments
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip shipments to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func updateShipments(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await updateShipmentsWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateShipments(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await updateShipmentsWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Trip Shipments
-     - POST /api/{version}/trip/{id}/shipments
-     - parameter version: (path)  
+     - POST /trip/{id}/shipments
      - parameter id: (path) the id of the trip shipments to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func updateShipmentsWithRequestBuilder(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}/shipments"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateShipmentsWithRequestBuilder(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}/shipments"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -738,31 +668,26 @@ open class TripAPI {
     /**
      Update Trip
      
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func updateTrip(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await updateTripWithRequestBuilder(version: version, id: id, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTrip(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await updateTripWithRequestBuilder(id: id, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Trip
-     - PUT /api/{version}/trip/{id}
+     - PUT /trip/{id}
      - Update an existing trip. Does not support recurring trip update.
-     - parameter version: (path)  
      - parameter id: (path) the id of the trip to update 
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func updateTripWithRequestBuilder(version: Double, id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/{id}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTripWithRequestBuilder(id: Int64, body: Trip? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        var localVariablePath = "/trip/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -785,31 +710,26 @@ open class TripAPI {
     /**
      Trip Notifications
      
-     - parameter version: (path)  
      - parameter id: (query) the id of the trip 
      - parameter notifications: (query) the notifications to update on the trip (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Trip
      */
-    open class func updateTripNotifications(version: Double, id: Int64, notifications: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
-        return try await updateTripNotificationsWithRequestBuilder(version: version, id: id, notifications: notifications, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTripNotifications(id: Int64, notifications: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> Trip {
+        return try await updateTripNotificationsWithRequestBuilder(id: id, notifications: notifications, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Trip Notifications
-     - POST /api/{version}/trip/notifications
+     - POST /trip/notifications
      - Update the trip notifications
-     - parameter version: (path)  
      - parameter id: (query) the id of the trip 
      - parameter notifications: (query) the notifications to update on the trip (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Trip> 
      */
-    open class func updateTripNotificationsWithRequestBuilder(version: Double, id: Int64, notifications: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
-        var localVariablePath = "/api/{version}/trip/notifications"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTripNotificationsWithRequestBuilder(id: Int64, notifications: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Trip> {
+        let localVariablePath = "/trip/notifications"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

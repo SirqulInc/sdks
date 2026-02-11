@@ -12,33 +12,28 @@ open class TerritoryAPI {
     /**
      Create Territory
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the territory 
      - parameter active: (query) If true set the game level as active. Default is true. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TerritoryResponse
      */
-    open class func createTerritory(version: Double, accountId: Int64, name: String, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
-        return try await createTerritoryWithRequestBuilder(version: version, accountId: accountId, name: name, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createTerritory(accountId: Int64, name: String, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
+        return try await createTerritoryWithRequestBuilder(accountId: accountId, name: name, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Territory
-     - POST /api/{version}/territory/create
+     - POST /territory/create
      - Creates a territory.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the territory 
      - parameter active: (query) If true set the game level as active. Default is true. (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TerritoryResponse> 
      */
-    open class func createTerritoryWithRequestBuilder(version: Double, accountId: Int64, name: String, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
-        var localVariablePath = "/api/{version}/territory/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createTerritoryWithRequestBuilder(accountId: Int64, name: String, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
+        let localVariablePath = "/territory/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -63,31 +58,26 @@ open class TerritoryAPI {
     /**
      Delete Territory
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter territoryId: (query) the id of the territory to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteTerritory(version: Double, accountId: Int64, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteTerritoryWithRequestBuilder(version: version, accountId: accountId, territoryId: territoryId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteTerritory(accountId: Int64, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteTerritoryWithRequestBuilder(accountId: accountId, territoryId: territoryId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Territory
-     - POST /api/{version}/territory/delete
+     - POST /territory/delete
      - Deletes a territory.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter territoryId: (query) the id of the territory to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteTerritoryWithRequestBuilder(version: Double, accountId: Int64, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/territory/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteTerritoryWithRequestBuilder(accountId: Int64, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/territory/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -111,29 +101,24 @@ open class TerritoryAPI {
     /**
      Get Territory
      
-     - parameter version: (path)  
      - parameter territoryId: (query) the id of the territory to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TerritoryResponse
      */
-    open class func getTerritory(version: Double, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
-        return try await getTerritoryWithRequestBuilder(version: version, territoryId: territoryId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTerritory(territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
+        return try await getTerritoryWithRequestBuilder(territoryId: territoryId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Territory
-     - GET /api/{version}/territory/get
+     - GET /territory/get
      - Get a territory.
-     - parameter version: (path)  
      - parameter territoryId: (query) the id of the territory to get 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TerritoryResponse> 
      */
-    open class func getTerritoryWithRequestBuilder(version: Double, territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
-        var localVariablePath = "/api/{version}/territory/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTerritoryWithRequestBuilder(territoryId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
+        let localVariablePath = "/territory/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -166,7 +151,6 @@ open class TerritoryAPI {
     /**
      Search Territories
      
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
      - parameter keyword: (query) Return results that match this keyword. (optional)
@@ -175,15 +159,14 @@ open class TerritoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [TerritoryResponse]
      */
-    open class func searchTerritories(version: Double, sortField: SortField_searchTerritories, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TerritoryResponse] {
-        return try await searchTerritoriesWithRequestBuilder(version: version, sortField: sortField, descending: descending, keyword: keyword, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTerritories(sortField: SortField_searchTerritories, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TerritoryResponse] {
+        return try await searchTerritoriesWithRequestBuilder(sortField: sortField, descending: descending, keyword: keyword, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Territories
-     - GET /api/{version}/territory/search
+     - GET /territory/search
      - Searches on territories.
-     - parameter version: (path)  
      - parameter sortField: (query) the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
      - parameter keyword: (query) Return results that match this keyword. (optional)
@@ -192,11 +175,8 @@ open class TerritoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[TerritoryResponse]> 
      */
-    open class func searchTerritoriesWithRequestBuilder(version: Double, sortField: SortField_searchTerritories, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TerritoryResponse]> {
-        var localVariablePath = "/api/{version}/territory/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTerritoriesWithRequestBuilder(sortField: SortField_searchTerritories, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TerritoryResponse]> {
+        let localVariablePath = "/territory/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -223,7 +203,6 @@ open class TerritoryAPI {
     /**
      Update Territory
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter territoryId: (query) the id of the territory to update 
      - parameter name: (query) The name of the territory (optional)
@@ -231,15 +210,14 @@ open class TerritoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TerritoryResponse
      */
-    open class func updateTerritory(version: Double, accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
-        return try await updateTerritoryWithRequestBuilder(version: version, accountId: accountId, territoryId: territoryId, name: name, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTerritory(accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TerritoryResponse {
+        return try await updateTerritoryWithRequestBuilder(accountId: accountId, territoryId: territoryId, name: name, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Territory
-     - POST /api/{version}/territory/update
+     - POST /territory/update
      - Updates a territory.
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter territoryId: (query) the id of the territory to update 
      - parameter name: (query) The name of the territory (optional)
@@ -247,11 +225,8 @@ open class TerritoryAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TerritoryResponse> 
      */
-    open class func updateTerritoryWithRequestBuilder(version: Double, accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
-        var localVariablePath = "/api/{version}/territory/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTerritoryWithRequestBuilder(accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TerritoryResponse> {
+        let localVariablePath = "/territory/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

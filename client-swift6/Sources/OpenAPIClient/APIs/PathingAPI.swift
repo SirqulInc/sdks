@@ -20,7 +20,6 @@ open class PathingAPI {
     /**
      Calculate Path
      
-     - parameter version: (path)  
      - parameter data: (query) the data to with start, end point and exclusion points 
      - parameter units: (query) the system of measurement for directions: {METRIC, IMPERIAL} 
      - parameter reducePath: (query) determines whether to reduce the path to go in diagonal lines 
@@ -28,15 +27,14 @@ open class PathingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PathingResponse
      */
-    open class func computePath(version: Double, data: String, units: Units_computePath, reducePath: Bool, directions: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PathingResponse {
-        return try await computePathWithRequestBuilder(version: version, data: data, units: units, reducePath: reducePath, directions: directions, apiConfiguration: apiConfiguration).execute().body
+    open class func computePath(data: String, units: Units_computePath, reducePath: Bool, directions: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PathingResponse {
+        return try await computePathWithRequestBuilder(data: data, units: units, reducePath: reducePath, directions: directions, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Calculate Path
-     - GET /api/{version}/pathing/compute
+     - GET /pathing/compute
      - Calculates the shortest path from point to point on a grid
-     - parameter version: (path)  
      - parameter data: (query) the data to with start, end point and exclusion points 
      - parameter units: (query) the system of measurement for directions: {METRIC, IMPERIAL} 
      - parameter reducePath: (query) determines whether to reduce the path to go in diagonal lines 
@@ -44,11 +42,8 @@ open class PathingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PathingResponse> 
      */
-    open class func computePathWithRequestBuilder(version: Double, data: String, units: Units_computePath, reducePath: Bool, directions: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PathingResponse> {
-        var localVariablePath = "/api/{version}/pathing/compute"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func computePathWithRequestBuilder(data: String, units: Units_computePath, reducePath: Bool, directions: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PathingResponse> {
+        let localVariablePath = "/pathing/compute"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -12,7 +12,6 @@ open class FlagAPI {
     /**
      Create Flag
      
-     - parameter version: (path)  
      - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
      - parameter flagableId: (query) The flagable object id 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -23,15 +22,14 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func createFlag(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await createFlagWithRequestBuilder(version: version, flagableType: flagableType, flagableId: flagableId, deviceId: deviceId, accountId: accountId, flagDescription: flagDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func createFlag(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await createFlagWithRequestBuilder(flagableType: flagableType, flagableId: flagableId, deviceId: deviceId, accountId: accountId, flagDescription: flagDescription, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Flag
-     - POST /api/{version}/flag/create
+     - POST /flag/create
      - Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     - parameter version: (path)  
      - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
      - parameter flagableId: (query) The flagable object id 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -42,11 +40,8 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func createFlagWithRequestBuilder(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/flag/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createFlagWithRequestBuilder(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/flag/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -75,7 +70,6 @@ open class FlagAPI {
     /**
      Delete Flag
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter itemBeingFlaggedType: (query) This parameter is deprecated. (optional)
@@ -85,15 +79,14 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteFlag(version: Double, deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteFlagWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, itemBeingFlaggedType: itemBeingFlaggedType, itemBeingFlaggedId: itemBeingFlaggedId, flagableType: flagableType, flagableId: flagableId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteFlag(deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteFlagWithRequestBuilder(deviceId: deviceId, accountId: accountId, itemBeingFlaggedType: itemBeingFlaggedType, itemBeingFlaggedId: itemBeingFlaggedId, flagableType: flagableType, flagableId: flagableId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Flag
-     - POST /api/{version}/flag/delete
+     - POST /flag/delete
      - Deletes a flag.
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      - parameter itemBeingFlaggedType: (query) This parameter is deprecated. (optional)
@@ -103,11 +96,8 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteFlagWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/flag/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteFlagWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/flag/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -135,7 +125,6 @@ open class FlagAPI {
     /**
      Get Flag
      
-     - parameter version: (path)  
      - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
      - parameter flagableId: (query) The flagable object id 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -145,15 +134,14 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: FlagResponse
      */
-    open class func getFlag(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FlagResponse {
-        return try await getFlagWithRequestBuilder(version: version, flagableType: flagableType, flagableId: flagableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getFlag(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> FlagResponse {
+        return try await getFlagWithRequestBuilder(flagableType: flagableType, flagableId: flagableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Flag
-     - GET /api/{version}/flag/get
+     - GET /flag/get
      - Gets the details on whether the user has flagged a particular flagable object.
-     - parameter version: (path)  
      - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
      - parameter flagableId: (query) The flagable object id 
      - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -163,11 +151,8 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<FlagResponse> 
      */
-    open class func getFlagWithRequestBuilder(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FlagResponse> {
-        var localVariablePath = "/api/{version}/flag/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getFlagWithRequestBuilder(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<FlagResponse> {
+        let localVariablePath = "/flag/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -195,31 +180,26 @@ open class FlagAPI {
     /**
      Get Flag Threshold
      
-     - parameter version: (path)  
      - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
      - parameter appKey: (query) The application key 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CountResponse
      */
-    open class func getFlagThreshold(version: Double, itemBeingFlaggedType: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
-        return try await getFlagThresholdWithRequestBuilder(version: version, itemBeingFlaggedType: itemBeingFlaggedType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
+    open class func getFlagThreshold(itemBeingFlaggedType: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
+        return try await getFlagThresholdWithRequestBuilder(itemBeingFlaggedType: itemBeingFlaggedType, appKey: appKey, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Flag Threshold
-     - GET /api/{version}/flag/threshold/get
+     - GET /flag/threshold/get
      - Get the flag threshold value on an object type for a particular application.
-     - parameter version: (path)  
      - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
      - parameter appKey: (query) The application key 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CountResponse> 
      */
-    open class func getFlagThresholdWithRequestBuilder(version: Double, itemBeingFlaggedType: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
-        var localVariablePath = "/api/{version}/flag/threshold/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getFlagThresholdWithRequestBuilder(itemBeingFlaggedType: String, appKey: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
+        let localVariablePath = "/flag/threshold/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -243,7 +223,6 @@ open class FlagAPI {
     /**
      Update Flag Threshold
      
-     - parameter version: (path)  
      - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
      - parameter threshold: (query) The threshold value 
      - parameter appKey: (query) The application key 
@@ -252,15 +231,14 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: CountResponse
      */
-    open class func updateFlagThreshold(version: Double, itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
-        return try await updateFlagThresholdWithRequestBuilder(version: version, itemBeingFlaggedType: itemBeingFlaggedType, threshold: threshold, appKey: appKey, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func updateFlagThreshold(itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CountResponse {
+        return try await updateFlagThresholdWithRequestBuilder(itemBeingFlaggedType: itemBeingFlaggedType, threshold: threshold, appKey: appKey, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Flag Threshold
-     - POST /api/{version}/flag/threshold/update
+     - POST /flag/threshold/update
      - Update the flag threshold on an object type for a particular application.
-     - parameter version: (path)  
      - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
      - parameter threshold: (query) The threshold value 
      - parameter appKey: (query) The application key 
@@ -269,11 +247,8 @@ open class FlagAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<CountResponse> 
      */
-    open class func updateFlagThresholdWithRequestBuilder(version: Double, itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
-        var localVariablePath = "/api/{version}/flag/threshold/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateFlagThresholdWithRequestBuilder(itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CountResponse> {
+        let localVariablePath = "/flag/threshold/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

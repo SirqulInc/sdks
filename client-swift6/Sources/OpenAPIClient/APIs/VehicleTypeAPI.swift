@@ -12,31 +12,26 @@ open class VehicleTypeAPI {
     /**
      Create Vehicle Type
      
-     - parameter version: (path)  
      - parameter vehicleType: (query) A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: VehicleType
      */
-    open class func createVehicleType(version: Double, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
-        return try await createVehicleTypeWithRequestBuilder(version: version, vehicleType: vehicleType, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createVehicleType(vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
+        return try await createVehicleTypeWithRequestBuilder(vehicleType: vehicleType, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Vehicle Type
-     - POST /api/{version}/vehicle/type
+     - POST /vehicle/type
      - Create a new vehicle type
-     - parameter version: (path)  
      - parameter vehicleType: (query) A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<VehicleType> 
      */
-    open class func createVehicleTypeWithRequestBuilder(version: Double, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
-        var localVariablePath = "/api/{version}/vehicle/type"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createVehicleTypeWithRequestBuilder(vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
+        let localVariablePath = "/vehicle/type"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -59,29 +54,24 @@ open class VehicleTypeAPI {
     /**
      Delete Vehicle Type
      
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the requested vehicle type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: Void
      */
-    open class func deleteVehicleType(version: Double, vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
-        return try await deleteVehicleTypeWithRequestBuilder(version: version, vehicleTypeId: vehicleTypeId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteVehicleType(vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) {
+        return try await deleteVehicleTypeWithRequestBuilder(vehicleTypeId: vehicleTypeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Vehicle Type
-     - DELETE /api/{version}/vehicle/type/{vehicleTypeId}
+     - DELETE /vehicle/type/{vehicleTypeId}
      - Delete a vehicle type
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the requested vehicle type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<Void> 
      */
-    open class func deleteVehicleTypeWithRequestBuilder(version: Double, vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteVehicleTypeWithRequestBuilder(vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<Void> {
+        var localVariablePath = "/vehicle/type/{vehicleTypeId}"
         let vehicleTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(vehicleTypeId))"
         let vehicleTypeIdPostEscape = vehicleTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vehicleTypeId}", with: vehicleTypeIdPostEscape, options: .literal, range: nil)
@@ -104,29 +94,24 @@ open class VehicleTypeAPI {
     /**
      Get Vehicle Type
      
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the requested vehicle type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: VehicleType
      */
-    open class func getVehicleType(version: Double, vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
-        return try await getVehicleTypeWithRequestBuilder(version: version, vehicleTypeId: vehicleTypeId, apiConfiguration: apiConfiguration).execute().body
+    open class func getVehicleType(vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
+        return try await getVehicleTypeWithRequestBuilder(vehicleTypeId: vehicleTypeId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Vehicle Type
-     - GET /api/{version}/vehicle/type/{vehicleTypeId}
+     - GET /vehicle/type/{vehicleTypeId}
      - Get a vehicle type
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the requested vehicle type 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<VehicleType> 
      */
-    open class func getVehicleTypeWithRequestBuilder(version: Double, vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
-        var localVariablePath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getVehicleTypeWithRequestBuilder(vehicleTypeId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
+        var localVariablePath = "/vehicle/type/{vehicleTypeId}"
         let vehicleTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(vehicleTypeId))"
         let vehicleTypeIdPostEscape = vehicleTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vehicleTypeId}", with: vehicleTypeIdPostEscape, options: .literal, range: nil)
@@ -149,7 +134,6 @@ open class VehicleTypeAPI {
     /**
      Search Vehicle Type
      
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -160,15 +144,14 @@ open class VehicleTypeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [VehicleType]
      */
-    open class func searchVehicleTypes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [VehicleType] {
-        return try await searchVehicleTypesWithRequestBuilder(version: version, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, retailerId: retailerId, hubId: hubId, apiConfiguration: apiConfiguration).execute().body
+    open class func searchVehicleTypes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [VehicleType] {
+        return try await searchVehicleTypesWithRequestBuilder(sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, retailerId: retailerId, hubId: hubId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Vehicle Type
-     - GET /api/{version}/vehicle/type
+     - GET /vehicle/type
      - Search for types of vehicles
-     - parameter version: (path)  
      - parameter sortField: (query) The field to sort by 
      - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
      - parameter start: (query) The start index for pagination 
@@ -179,11 +162,8 @@ open class VehicleTypeAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[VehicleType]> 
      */
-    open class func searchVehicleTypesWithRequestBuilder(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[VehicleType]> {
-        var localVariablePath = "/api/{version}/vehicle/type"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchVehicleTypesWithRequestBuilder(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[VehicleType]> {
+        let localVariablePath = "/vehicle/type"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -212,33 +192,28 @@ open class VehicleTypeAPI {
     /**
      Update Vehicle Type
      
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the vehicle type to update 
      - parameter vehicleType: (query) The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: VehicleType
      */
-    open class func updateVehicleType(version: Double, vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
-        return try await updateVehicleTypeWithRequestBuilder(version: version, vehicleTypeId: vehicleTypeId, vehicleType: vehicleType, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func updateVehicleType(vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> VehicleType {
+        return try await updateVehicleTypeWithRequestBuilder(vehicleTypeId: vehicleTypeId, vehicleType: vehicleType, body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Vehicle Type
-     - PUT /api/{version}/vehicle/type/{vehicleTypeId}
+     - PUT /vehicle/type/{vehicleTypeId}
      - Update a vehicle type
-     - parameter version: (path)  
      - parameter vehicleTypeId: (path) The id of the vehicle type to update 
      - parameter vehicleType: (query) The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<VehicleType> 
      */
-    open class func updateVehicleTypeWithRequestBuilder(version: Double, vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
-        var localVariablePath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateVehicleTypeWithRequestBuilder(vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<VehicleType> {
+        var localVariablePath = "/vehicle/type/{vehicleTypeId}"
         let vehicleTypeIdPreEscape = "\(APIHelper.mapValueToPathItem(vehicleTypeId))"
         let vehicleTypeIdPostEscape = vehicleTypeIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{vehicleTypeId}", with: vehicleTypeIdPostEscape, options: .literal, range: nil)

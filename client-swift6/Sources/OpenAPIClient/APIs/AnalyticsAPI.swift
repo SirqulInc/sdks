@@ -12,33 +12,28 @@ open class AnalyticsAPI {
     /**
      Get User Activity
      
-     - parameter version: (path)  
      - parameter start: (query) The start of the pagination 
      - parameter limit: (query) The limit of the pagination 
      - parameter accountId: (query) the account id of the user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [UserActivityResponse]
      */
-    open class func activities(version: Double, start: Int, limit: Int, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserActivityResponse] {
-        return try await activitiesWithRequestBuilder(version: version, start: start, limit: limit, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func activities(start: Int, limit: Int, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserActivityResponse] {
+        return try await activitiesWithRequestBuilder(start: start, limit: limit, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get User Activity
-     - GET /api/{version}/analytics/useractivity
+     - GET /analytics/useractivity
      - Get an activity feed by user.
-     - parameter version: (path)  
      - parameter start: (query) The start of the pagination 
      - parameter limit: (query) The limit of the pagination 
      - parameter accountId: (query) the account id of the user 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[UserActivityResponse]> 
      */
-    open class func activitiesWithRequestBuilder(version: Double, start: Int, limit: Int, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserActivityResponse]> {
-        var localVariablePath = "/api/{version}/analytics/useractivity"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func activitiesWithRequestBuilder(start: Int, limit: Int, accountId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserActivityResponse]> {
+        let localVariablePath = "/analytics/useractivity"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -237,7 +232,6 @@ open class AnalyticsAPI {
     /**
      Get Aggregated Filtered Usage
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -272,15 +266,14 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ChartData
      */
-    open class func aggregatedFilteredUsage(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: GroupByRoot_aggregatedFilteredUsage? = nil, groupBy: GroupBy_aggregatedFilteredUsage? = nil, distinctCount: DistinctCount_aggregatedFilteredUsage? = nil, sortField: SortField_aggregatedFilteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_aggregatedFilteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ChartData {
-        return try await aggregatedFilteredUsageWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, groupByRoot: groupByRoot, groupBy: groupBy, distinctCount: distinctCount, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func aggregatedFilteredUsage(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: GroupByRoot_aggregatedFilteredUsage? = nil, groupBy: GroupBy_aggregatedFilteredUsage? = nil, distinctCount: DistinctCount_aggregatedFilteredUsage? = nil, sortField: SortField_aggregatedFilteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_aggregatedFilteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ChartData {
+        return try await aggregatedFilteredUsageWithRequestBuilder(deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, groupByRoot: groupByRoot, groupBy: groupBy, distinctCount: distinctCount, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Aggregated Filtered Usage
-     - GET /api/{version}/analytics/aggregatedFilteredUsage
+     - GET /analytics/aggregatedFilteredUsage
      - Query analytics to get data used for nested graphs and charts
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -315,11 +308,8 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ChartData> 
      */
-    open class func aggregatedFilteredUsageWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: GroupByRoot_aggregatedFilteredUsage? = nil, groupBy: GroupBy_aggregatedFilteredUsage? = nil, distinctCount: DistinctCount_aggregatedFilteredUsage? = nil, sortField: SortField_aggregatedFilteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_aggregatedFilteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ChartData> {
-        var localVariablePath = "/api/{version}/analytics/aggregatedFilteredUsage"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func aggregatedFilteredUsageWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: GroupByRoot_aggregatedFilteredUsage? = nil, groupBy: GroupBy_aggregatedFilteredUsage? = nil, distinctCount: DistinctCount_aggregatedFilteredUsage? = nil, sortField: SortField_aggregatedFilteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_aggregatedFilteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ChartData> {
+        let localVariablePath = "/analytics/aggregatedFilteredUsage"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -546,7 +536,6 @@ open class AnalyticsAPI {
     /**
      Get Filtered Usage
      
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -589,15 +578,14 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ChartData
      */
-    open class func filteredUsage(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: GroupBy_filteredUsage? = nil, distinctCount: DistinctCount_filteredUsage? = nil, sumColumn: SumColumn_filteredUsage? = nil, sortField: SortField_filteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_filteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ChartData {
-        return try await filteredUsageWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, customId: customId, customType: customType, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, customMessage: customMessage, customMessage2: customMessage2, groupBy: groupBy, distinctCount: distinctCount, sumColumn: sumColumn, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func filteredUsage(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: GroupBy_filteredUsage? = nil, distinctCount: DistinctCount_filteredUsage? = nil, sumColumn: SumColumn_filteredUsage? = nil, sortField: SortField_filteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_filteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ChartData {
+        return try await filteredUsageWithRequestBuilder(deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, startDate: startDate, endDate: endDate, deviceType: deviceType, device: device, deviceOS: deviceOS, gender: gender, ageGroup: ageGroup, country: country, state: state, city: city, zip: zip, model: model, tag: tag, userAccountId: userAccountId, userAccountDisplay: userAccountDisplay, userAccountUsername: userAccountUsername, customId: customId, customType: customType, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, customMessage: customMessage, customMessage2: customMessage2, groupBy: groupBy, distinctCount: distinctCount, sumColumn: sumColumn, sortField: sortField, descending: descending, hideUnknown: hideUnknown, responseFormat: responseFormat, l: l, limit: limit, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Filtered Usage
-     - GET /api/{version}/analytics/filteredUsage
+     - GET /analytics/filteredUsage
      - Query analytics to get data used for graphs and charts
-     - parameter version: (path)  
      - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -640,11 +628,8 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ChartData> 
      */
-    open class func filteredUsageWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: GroupBy_filteredUsage? = nil, distinctCount: DistinctCount_filteredUsage? = nil, sumColumn: SumColumn_filteredUsage? = nil, sortField: SortField_filteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_filteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ChartData> {
-        var localVariablePath = "/api/{version}/analytics/filteredUsage"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func filteredUsageWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: GroupBy_filteredUsage? = nil, distinctCount: DistinctCount_filteredUsage? = nil, sumColumn: SumColumn_filteredUsage? = nil, sortField: SortField_filteredUsage? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: ResponseFormat_filteredUsage? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ChartData> {
+        let localVariablePath = "/analytics/filteredUsage"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -705,7 +690,6 @@ open class AnalyticsAPI {
     /**
      Create Usage Record
      
-     - parameter version: (path)  
      - parameter tag: (query) The tag to apply: the name of the action or thing being logged. 
      - parameter deviceId: (query) The client deviceID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -740,15 +724,14 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func usage(version: Double, tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await usageWithRequestBuilder(version: version, tag: tag, deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, appVersion: appVersion, device: device, deviceType: deviceType, deviceOS: deviceOS, model: model, latitude: latitude, longitude: longitude, customId: customId, customType: customType, achievementIncrement: achievementIncrement, city: city, state: state, country: country, zip: zip, locationDescription: locationDescription, clientTime: clientTime, errorMessage: errorMessage, ip: ip, userAgent: userAgent, backgroundEvent: backgroundEvent, customMessage: customMessage, customMessage2: customMessage2, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, apiConfiguration: apiConfiguration).execute().body
+    open class func usage(tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await usageWithRequestBuilder(tag: tag, deviceId: deviceId, accountId: accountId, applicationId: applicationId, appKey: appKey, appVersion: appVersion, device: device, deviceType: deviceType, deviceOS: deviceOS, model: model, latitude: latitude, longitude: longitude, customId: customId, customType: customType, achievementIncrement: achievementIncrement, city: city, state: state, country: country, zip: zip, locationDescription: locationDescription, clientTime: clientTime, errorMessage: errorMessage, ip: ip, userAgent: userAgent, backgroundEvent: backgroundEvent, customMessage: customMessage, customMessage2: customMessage2, customValue: customValue, customValue2: customValue2, customLong: customLong, customLong2: customLong2, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Usage Record
-     - POST /api/{version}/analytics/usage
+     - POST /analytics/usage
      - Record an analytic record for a known state within the application.
-     - parameter version: (path)  
      - parameter tag: (query) The tag to apply: the name of the action or thing being logged. 
      - parameter deviceId: (query) The client deviceID (optional)
      - parameter accountId: (query) The logged in user ID (optional)
@@ -783,11 +766,8 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func usageWithRequestBuilder(version: Double, tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/analytics/usage"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func usageWithRequestBuilder(tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/analytics/usage"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -840,7 +820,6 @@ open class AnalyticsAPI {
     /**
      Create Multiple Usage Records
      
-     - parameter version: (path)  
      - parameter appKey: (query) The application key unique to each application. 
      - parameter device: (query) The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) 
      - parameter data: (query) The analytic data AnalyticListResponse 
@@ -855,15 +834,14 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func usageBatch(version: Double, appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await usageBatchWithRequestBuilder(version: version, appKey: appKey, device: device, data: data, deviceId: deviceId, accountId: accountId, appVersion: appVersion, deviceType: deviceType, deviceOS: deviceOS, model: model, updateRanking: updateRanking, returnSummaryResponse: returnSummaryResponse, apiConfiguration: apiConfiguration).execute().body
+    open class func usageBatch(appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await usageBatchWithRequestBuilder(appKey: appKey, device: device, data: data, deviceId: deviceId, accountId: accountId, appVersion: appVersion, deviceType: deviceType, deviceOS: deviceOS, model: model, updateRanking: updateRanking, returnSummaryResponse: returnSummaryResponse, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Multiple Usage Records
-     - POST /api/{version}/analytics/usage/batch
+     - POST /analytics/usage/batch
      - Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     - parameter version: (path)  
      - parameter appKey: (query) The application key unique to each application. 
      - parameter device: (query) The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) 
      - parameter data: (query) The analytic data AnalyticListResponse 
@@ -878,11 +856,8 @@ open class AnalyticsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func usageBatchWithRequestBuilder(version: Double, appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/analytics/usage/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func usageBatchWithRequestBuilder(appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/analytics/usage/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

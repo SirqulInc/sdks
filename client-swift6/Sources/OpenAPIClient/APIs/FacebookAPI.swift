@@ -12,7 +12,6 @@ open class FacebookAPI {
     /**
      Get Facebook Token
      
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) used to update the user&#39;s current location (optional)
@@ -20,15 +19,14 @@ open class FacebookAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TokenResponse
      */
-    open class func getToken(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TokenResponse {
-        return try await getTokenWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func getToken(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TokenResponse {
+        return try await getTokenWithRequestBuilder(deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Facebook Token
-     - GET /api/{version}/facebook/getfbtoken
+     - GET /facebook/getfbtoken
      - Gets a user's Facebook token.
-     - parameter version: (path)  
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
      - parameter latitude: (query) used to update the user&#39;s current location (optional)
@@ -36,11 +34,8 @@ open class FacebookAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TokenResponse> 
      */
-    open class func getTokenWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TokenResponse> {
-        var localVariablePath = "/api/{version}/facebook/getfbtoken"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTokenWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TokenResponse> {
+        let localVariablePath = "/facebook/getfbtoken"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -66,7 +61,6 @@ open class FacebookAPI {
     /**
      Post to Facebook
      
-     - parameter version: (path)  
      - parameter event: (query) the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -80,15 +74,14 @@ open class FacebookAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func graphInterface(version: Double, event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await graphInterfaceWithRequestBuilder(version: version, event: event, deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, assetId: assetId, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func graphInterface(event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await graphInterfaceWithRequestBuilder(event: event, deviceId: deviceId, accountId: accountId, permissionableType: permissionableType, permissionableId: permissionableId, assetId: assetId, gameType: gameType, appKey: appKey, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Post to Facebook
-     - POST /api/{version}/facebook/graph
+     - POST /facebook/graph
      - Make Facebook posts on behalf of the user.
-     - parameter version: (path)  
      - parameter event: (query) the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} 
      - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -102,11 +95,8 @@ open class FacebookAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func graphInterfaceWithRequestBuilder(version: Double, event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/facebook/graph"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func graphInterfaceWithRequestBuilder(event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/facebook/graph"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

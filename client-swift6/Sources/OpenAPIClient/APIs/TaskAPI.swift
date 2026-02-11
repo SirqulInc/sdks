@@ -21,7 +21,6 @@ open class TaskAPI {
     /**
      Create Task
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the task 
      - parameter appKey: (query) The application to target (optional)
@@ -37,15 +36,14 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TaskResponse
      */
-    open class func createTask(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_createTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
-        return try await createTaskWithRequestBuilder(version: version, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func createTask(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_createTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
+        return try await createTaskWithRequestBuilder(accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Task
-     - POST /api/{version}/task/create
+     - POST /task/create
      - Create a Task
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the task 
      - parameter appKey: (query) The application to target (optional)
@@ -61,11 +59,8 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TaskResponse> 
      */
-    open class func createTaskWithRequestBuilder(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_createTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
-        var localVariablePath = "/api/{version}/task/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createTaskWithRequestBuilder(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_createTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
+        let localVariablePath = "/task/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -99,31 +94,26 @@ open class TaskAPI {
     /**
      Delete Task
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter taskId: (query) The id of the Task to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteTask(version: Double, accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteTaskWithRequestBuilder(version: version, accountId: accountId, taskId: taskId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteTask(accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteTaskWithRequestBuilder(accountId: accountId, taskId: taskId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Task
-     - POST /api/{version}/task/delete
+     - POST /task/delete
      - Delete a Task
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter taskId: (query) The id of the Task to delete. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteTaskWithRequestBuilder(version: Double, accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/task/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteTaskWithRequestBuilder(accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/task/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -147,31 +137,26 @@ open class TaskAPI {
     /**
      Get Task
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter taskId: (query) The id of the Task to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TaskResponse
      */
-    open class func getTask(version: Double, accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
-        return try await getTaskWithRequestBuilder(version: version, accountId: accountId, taskId: taskId, apiConfiguration: apiConfiguration).execute().body
+    open class func getTask(accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
+        return try await getTaskWithRequestBuilder(accountId: accountId, taskId: taskId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Task
-     - GET /api/{version}/task/get
+     - GET /task/get
      - Get a Task
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter taskId: (query) The id of the Task to return. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TaskResponse> 
      */
-    open class func getTaskWithRequestBuilder(version: Double, accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
-        var localVariablePath = "/api/{version}/task/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getTaskWithRequestBuilder(accountId: Int64, taskId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
+        let localVariablePath = "/task/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -195,7 +180,6 @@ open class TaskAPI {
     /**
      Search Tasks
      
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
      - parameter filter: (query) A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -211,15 +195,14 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [TaskResponse]
      */
-    open class func searchTasks(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TaskResponse] {
-        return try await searchTasksWithRequestBuilder(version: version, accountId: accountId, groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
+    open class func searchTasks(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [TaskResponse] {
+        return try await searchTasksWithRequestBuilder(accountId: accountId, groupingId: groupingId, filter: filter, statuses: statuses, templateTypes: templateTypes, appKey: appKey, keyword: keyword, sortField: sortField, descending: descending, start: start, limit: limit, activeOnly: activeOnly, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Tasks
-     - GET /api/{version}/task/search
+     - GET /task/search
      - Search on Tasks
-     - parameter version: (path)  
      - parameter accountId: (query) The logged in user. 
      - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
      - parameter filter: (query) A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -235,11 +218,8 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[TaskResponse]> 
      */
-    open class func searchTasksWithRequestBuilder(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TaskResponse]> {
-        var localVariablePath = "/api/{version}/task/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchTasksWithRequestBuilder(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[TaskResponse]> {
+        let localVariablePath = "/task/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -282,7 +262,6 @@ open class TaskAPI {
     /**
      Update Task
      
-     - parameter version: (path)  
      - parameter taskId: (query) Task Id 
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the task (optional)
@@ -299,15 +278,14 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: TaskResponse
      */
-    open class func updateTask(version: Double, taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_updateTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
-        return try await updateTaskWithRequestBuilder(version: version, taskId: taskId, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func updateTask(taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_updateTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> TaskResponse {
+        return try await updateTaskWithRequestBuilder(taskId: taskId, accountId: accountId, name: name, appKey: appKey, groupingId: groupingId, endpointURL: endpointURL, payload: payload, scheduledDate: scheduledDate, startDate: startDate, endDate: endDate, cronExpression: cronExpression, visibility: visibility, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Task
-     - POST /api/{version}/task/update
+     - POST /task/update
      - Update a Task
-     - parameter version: (path)  
      - parameter taskId: (query) Task Id 
      - parameter accountId: (query) The logged in user. 
      - parameter name: (query) The name of the task (optional)
@@ -324,11 +302,8 @@ open class TaskAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<TaskResponse> 
      */
-    open class func updateTaskWithRequestBuilder(version: Double, taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_updateTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
-        var localVariablePath = "/api/{version}/task/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateTaskWithRequestBuilder(taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: Visibility_updateTask? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<TaskResponse> {
+        let localVariablePath = "/task/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

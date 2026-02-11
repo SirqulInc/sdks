@@ -25,7 +25,6 @@ open class ReportingAPI {
     /**
      Create Offline Report
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user for passing account related params 
      - parameter status: (query) the status of the report 
      - parameter previewLimit: (query) the limit on how much you can preview of the batch report 
@@ -40,15 +39,14 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ReportBatchResponse
      */
-    open class func createBatch(version: Double, accountId: Int64, status: Status_createBatch, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportBatchResponse {
-        return try await createBatchWithRequestBuilder(version: version, accountId: accountId, status: status, previewLimit: previewLimit, appKey: appKey, endpoint: endpoint, parameters: parameters, name: name, startDate: startDate, endDate: endDate, description: description, pageUrl: pageUrl, apiConfiguration: apiConfiguration).execute().body
+    open class func createBatch(accountId: Int64, status: Status_createBatch, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportBatchResponse {
+        return try await createBatchWithRequestBuilder(accountId: accountId, status: status, previewLimit: previewLimit, appKey: appKey, endpoint: endpoint, parameters: parameters, name: name, startDate: startDate, endDate: endDate, description: description, pageUrl: pageUrl, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Offline Report
-     - POST /api/{version}/report/batch/create
+     - POST /report/batch/create
      - Create an entry for the batch for offline report
-     - parameter version: (path)  
      - parameter accountId: (query) The account id of the user for passing account related params 
      - parameter status: (query) the status of the report 
      - parameter previewLimit: (query) the limit on how much you can preview of the batch report 
@@ -63,11 +61,8 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ReportBatchResponse> 
      */
-    open class func createBatchWithRequestBuilder(version: Double, accountId: Int64, status: Status_createBatch, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportBatchResponse> {
-        var localVariablePath = "/api/{version}/report/batch/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createBatchWithRequestBuilder(accountId: Int64, status: Status_createBatch, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportBatchResponse> {
+        let localVariablePath = "/report/batch/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -100,29 +95,24 @@ open class ReportingAPI {
     /**
      Create Offline Report
      
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ReportRegionLegSummaryBatchResponse
      */
-    open class func createRegionLegSummaryBatch(version: Double, body: [RegionLegSummary]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportRegionLegSummaryBatchResponse {
-        return try await createRegionLegSummaryBatchWithRequestBuilder(version: version, body: body, apiConfiguration: apiConfiguration).execute().body
+    open class func createRegionLegSummaryBatch(body: [RegionLegSummary]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportRegionLegSummaryBatchResponse {
+        return try await createRegionLegSummaryBatchWithRequestBuilder(body: body, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Offline Report
-     - POST /api/{version}/report/region/summary/batch
+     - POST /report/region/summary/batch
      - Create an entry for the batch for offline report
-     - parameter version: (path)  
      - parameter body: (body)  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ReportRegionLegSummaryBatchResponse> 
      */
-    open class func createRegionLegSummaryBatchWithRequestBuilder(version: Double, body: [RegionLegSummary]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportRegionLegSummaryBatchResponse> {
-        var localVariablePath = "/api/{version}/report/region/summary/batch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createRegionLegSummaryBatchWithRequestBuilder(body: [RegionLegSummary]? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportRegionLegSummaryBatchResponse> {
+        let localVariablePath = "/report/region/summary/batch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body, codableHelper: apiConfiguration.codableHelper)
 
@@ -142,31 +132,26 @@ open class ReportingAPI {
     /**
      Delete Offline Report
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter batchId: (query) the id of the batch to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteBatch(version: Double, accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteBatchWithRequestBuilder(version: version, accountId: accountId, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteBatch(accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteBatchWithRequestBuilder(accountId: accountId, batchId: batchId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Offline Report
-     - POST /api/{version}/report/batch/delete
+     - POST /report/batch/delete
      - Deletes a batch report.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account 
      - parameter batchId: (query) the id of the batch to delete 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteBatchWithRequestBuilder(version: Double, accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/report/batch/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteBatchWithRequestBuilder(accountId: Int64, batchId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/report/batch/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -190,33 +175,28 @@ open class ReportingAPI {
     /**
      Get Offline Report
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter batchId: (query) returned by /report/batch/create 
      - parameter allResults: (query) whether to return all batch results or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ReportBatchResponse
      */
-    open class func getReportBatch(version: Double, accountId: Int64, batchId: Int64, allResults: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportBatchResponse {
-        return try await getReportBatchWithRequestBuilder(version: version, accountId: accountId, batchId: batchId, allResults: allResults, apiConfiguration: apiConfiguration).execute().body
+    open class func getReportBatch(accountId: Int64, batchId: Int64, allResults: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportBatchResponse {
+        return try await getReportBatchWithRequestBuilder(accountId: accountId, batchId: batchId, allResults: allResults, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Offline Report
-     - GET /api/{version}/report/batch/get
+     - GET /report/batch/get
      - Checks status of batch report.
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the logged in user 
      - parameter batchId: (query) returned by /report/batch/create 
      - parameter allResults: (query) whether to return all batch results or not 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ReportBatchResponse> 
      */
-    open class func getReportBatchWithRequestBuilder(version: Double, accountId: Int64, batchId: Int64, allResults: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportBatchResponse> {
-        var localVariablePath = "/api/{version}/report/batch/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getReportBatchWithRequestBuilder(accountId: Int64, batchId: Int64, allResults: Bool, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportBatchResponse> {
+        let localVariablePath = "/report/batch/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -251,7 +231,6 @@ open class ReportingAPI {
     /**
      Run Report
      
-     - parameter version: (path)  
      - parameter desc: (query) If true then descending order, false is ascending 
      - parameter accountId: (query) The account id of the user for passing account related params (optional)
      - parameter query: (query) The named identifier of the query (optional)
@@ -263,15 +242,14 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: ReportResponse
      */
-    open class func runReport(version: Double, desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: ResponseFormat_runReport? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportResponse {
-        return try await runReportWithRequestBuilder(version: version, desc: desc, accountId: accountId, query: query, parameters: parameters, order: order, start: start, limit: limit, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
+    open class func runReport(desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: ResponseFormat_runReport? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> ReportResponse {
+        return try await runReportWithRequestBuilder(desc: desc, accountId: accountId, query: query, parameters: parameters, order: order, start: start, limit: limit, responseFormat: responseFormat, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Run Report
-     - POST /api/{version}/report/run
+     - POST /report/run
      -  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-     - parameter version: (path)  
      - parameter desc: (query) If true then descending order, false is ascending 
      - parameter accountId: (query) The account id of the user for passing account related params (optional)
      - parameter query: (query) The named identifier of the query (optional)
@@ -283,11 +261,8 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ReportResponse> 
      */
-    open class func runReportWithRequestBuilder(version: Double, desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: ResponseFormat_runReport? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportResponse> {
-        var localVariablePath = "/api/{version}/report/run"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func runReportWithRequestBuilder(desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: ResponseFormat_runReport? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<ReportResponse> {
+        let localVariablePath = "/report/run"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -330,7 +305,6 @@ open class ReportingAPI {
     /**
      Search Offline Reports
      
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account logged in 
      - parameter start: (query) the start of the index and/or pagination 
      - parameter limit: (query) the limit of the index and/or pagination 
@@ -343,15 +317,14 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [ReportBatchResponse]
      */
-    open class func searchBatch(version: Double, accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: Status_searchBatch? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ReportBatchResponse] {
-        return try await searchBatchWithRequestBuilder(version: version, accountId: accountId, start: start, limit: limit, names: names, appKey: appKey, status: status, globalAppSearch: globalAppSearch, startDate: startDate, endDate: endDate, apiConfiguration: apiConfiguration).execute().body
+    open class func searchBatch(accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: Status_searchBatch? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [ReportBatchResponse] {
+        return try await searchBatchWithRequestBuilder(accountId: accountId, start: start, limit: limit, names: names, appKey: appKey, status: status, globalAppSearch: globalAppSearch, startDate: startDate, endDate: endDate, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Offline Reports
-     - GET /api/{version}/report/batch/search
+     - GET /report/batch/search
      - Retrieves batches for a user..
-     - parameter version: (path)  
      - parameter accountId: (query) the id of the account logged in 
      - parameter start: (query) the start of the index and/or pagination 
      - parameter limit: (query) the limit of the index and/or pagination 
@@ -364,11 +337,8 @@ open class ReportingAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[ReportBatchResponse]> 
      */
-    open class func searchBatchWithRequestBuilder(version: Double, accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: Status_searchBatch? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ReportBatchResponse]> {
-        var localVariablePath = "/api/{version}/report/batch/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchBatchWithRequestBuilder(accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: Status_searchBatch? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[ReportBatchResponse]> {
+        let localVariablePath = "/report/batch/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

@@ -12,7 +12,6 @@ open class BidAPI {
     /**
      Create Bid
      
-     - parameter version: (path)  
      - parameter biddableType: (query) A biddable object type. Possible values include: CREATIVE (ads). 
      - parameter biddableId: (query) The id of the biddable object 
      - parameter amountPerView: (query) The bid amount for views. For ads, this is the amount that will be taken for each impression. 
@@ -24,15 +23,14 @@ open class BidAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BidResponse
      */
-    open class func createBid(version: Double, biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
-        return try await createBidWithRequestBuilder(version: version, biddableType: biddableType, biddableId: biddableId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func createBid(biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
+        return try await createBidWithRequestBuilder(biddableType: biddableType, biddableId: biddableId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Bid
-     - POST /api/{version}/bid/create
+     - POST /bid/create
      - Creates a bid on a biddable object
-     - parameter version: (path)  
      - parameter biddableType: (query) A biddable object type. Possible values include: CREATIVE (ads). 
      - parameter biddableId: (query) The id of the biddable object 
      - parameter amountPerView: (query) The bid amount for views. For ads, this is the amount that will be taken for each impression. 
@@ -44,11 +42,8 @@ open class BidAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BidResponse> 
      */
-    open class func createBidWithRequestBuilder(version: Double, biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
-        var localVariablePath = "/api/{version}/bid/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func createBidWithRequestBuilder(biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
+        let localVariablePath = "/bid/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -78,33 +73,28 @@ open class BidAPI {
     /**
      Delete Bid
      
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func deleteBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await deleteBidWithRequestBuilder(version: version, bidId: bidId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func deleteBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await deleteBidWithRequestBuilder(bidId: bidId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Bid
-     - POST /api/{version}/bid/delete
+     - POST /bid/delete
      - Deleted a bid on a biddable object
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func deleteBidWithRequestBuilder(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/bid/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func deleteBidWithRequestBuilder(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/bid/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -129,33 +119,28 @@ open class BidAPI {
     /**
      Get Bid
      
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BidResponse
      */
-    open class func getBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
-        return try await getBidWithRequestBuilder(version: version, bidId: bidId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
+    open class func getBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
+        return try await getBidWithRequestBuilder(bidId: bidId, deviceId: deviceId, accountId: accountId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Bid
-     - GET /api/{version}/bid/get
+     - GET /bid/get
      - Get the bid details of a biddable object
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BidResponse> 
      */
-    open class func getBidWithRequestBuilder(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
-        var localVariablePath = "/api/{version}/bid/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func getBidWithRequestBuilder(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
+        let localVariablePath = "/bid/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -180,7 +165,6 @@ open class BidAPI {
     /**
      Update Bid
      
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -191,15 +175,14 @@ open class BidAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: BidResponse
      */
-    open class func updateBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
-        return try await updateBidWithRequestBuilder(version: version, bidId: bidId, deviceId: deviceId, accountId: accountId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, apiConfiguration: apiConfiguration).execute().body
+    open class func updateBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> BidResponse {
+        return try await updateBidWithRequestBuilder(bidId: bidId, deviceId: deviceId, accountId: accountId, amountPerView: amountPerView, amountPerAction: amountPerAction, budgetAmount: budgetAmount, budgetSchedule: budgetSchedule, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Bid
-     - POST /api/{version}/bid/update
+     - POST /bid/update
      - Updates a bid on a biddable object
-     - parameter version: (path)  
      - parameter bidId: (query) The bid id 
      - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -210,11 +193,8 @@ open class BidAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<BidResponse> 
      */
-    open class func updateBidWithRequestBuilder(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
-        var localVariablePath = "/api/{version}/bid/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func updateBidWithRequestBuilder(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<BidResponse> {
+        let localVariablePath = "/bid/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

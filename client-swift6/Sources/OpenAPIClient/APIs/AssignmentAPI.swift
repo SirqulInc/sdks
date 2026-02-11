@@ -12,31 +12,26 @@ open class AssignmentAPI {
     /**
      Search Assignment Assignees
      
-     - parameter version: (path)  
      - parameter accountId: (query) The account id sending the request 
      - parameter keyword: (query) The keyword to filter the returned results (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AccountMiniResponse]
      */
-    open class func assigmentAssigneeAccountSearch(version: Double, accountId: Int64, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountMiniResponse] {
-        return try await assigmentAssigneeAccountSearchWithRequestBuilder(version: version, accountId: accountId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func assigmentAssigneeAccountSearch(accountId: Int64, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AccountMiniResponse] {
+        return try await assigmentAssigneeAccountSearchWithRequestBuilder(accountId: accountId, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Assignment Assignees
-     - GET /api/{version}/assignment/assignee/search
+     - GET /assignment/assignee/search
      - Search for avaiable users for creating or updating assignment.
-     - parameter version: (path)  
      - parameter accountId: (query) The account id sending the request 
      - parameter keyword: (query) The keyword to filter the returned results (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AccountMiniResponse]> 
      */
-    open class func assigmentAssigneeAccountSearchWithRequestBuilder(version: Double, accountId: Int64, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountMiniResponse]> {
-        var localVariablePath = "/api/{version}/assignment/assignee/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assigmentAssigneeAccountSearchWithRequestBuilder(accountId: Int64, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AccountMiniResponse]> {
+        let localVariablePath = "/assignment/assignee/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -60,7 +55,6 @@ open class AssignmentAPI {
     /**
      Create Assignment
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter name: (query) the name for the assignment 
      - parameter assigneeAccountId: (query) the account id to assign to 
@@ -71,15 +65,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentResponse
      */
-    open class func assignmentCreate(version: Double, accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
-        return try await assignmentCreateWithRequestBuilder(version: version, accountId: accountId, name: name, assigneeAccountId: assigneeAccountId, description: description, retailerLocationId: retailerLocationId, tags: tags, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentCreate(accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
+        return try await assignmentCreateWithRequestBuilder(accountId: accountId, name: name, assigneeAccountId: assigneeAccountId, description: description, retailerLocationId: retailerLocationId, tags: tags, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Assignment
-     - POST /api/{version}/assignment/create
+     - POST /assignment/create
      - Create an assignment.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter name: (query) the name for the assignment 
      - parameter assigneeAccountId: (query) the account id to assign to 
@@ -90,11 +83,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentResponse> 
      */
-    open class func assignmentCreateWithRequestBuilder(version: Double, accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
-        var localVariablePath = "/api/{version}/assignment/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentCreateWithRequestBuilder(accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
+        let localVariablePath = "/assignment/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -123,31 +113,26 @@ open class AssignmentAPI {
     /**
      Delete Assignment
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func assignmentDelete(version: Double, accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await assignmentDeleteWithRequestBuilder(version: version, accountId: accountId, assignmentId: assignmentId, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentDelete(accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await assignmentDeleteWithRequestBuilder(accountId: accountId, assignmentId: assignmentId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Delete Assignment
-     - POST /api/{version}/assignment/delete
+     - POST /assignment/delete
      - Delete an assignment.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func assignmentDeleteWithRequestBuilder(version: Double, accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/assignment/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentDeleteWithRequestBuilder(accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/assignment/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -171,31 +156,26 @@ open class AssignmentAPI {
     /**
      Get Assignment
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentResponse
      */
-    open class func assignmentGet(version: Double, accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
-        return try await assignmentGetWithRequestBuilder(version: version, accountId: accountId, assignmentId: assignmentId, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentGet(accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
+        return try await assignmentGetWithRequestBuilder(accountId: accountId, assignmentId: assignmentId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Assignment
-     - GET /api/{version}/assignment/get
+     - GET /assignment/get
      - Get the details of an assignment.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentResponse> 
      */
-    open class func assignmentGetWithRequestBuilder(version: Double, accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
-        var localVariablePath = "/api/{version}/assignment/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentGetWithRequestBuilder(accountId: Int64, assignmentId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
+        let localVariablePath = "/assignment/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -248,7 +228,6 @@ open class AssignmentAPI {
     /**
      Search Assignments
      
-     - parameter version: (path)  
      - parameter accountId: (query) the account sending the request 
      - parameter sortField: (query) sort by table field 
      - parameter descending: (query) return results in descending order or not 
@@ -263,15 +242,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AssignmentResponse]
      */
-    open class func assignmentSearch(version: Double, accountId: Int64, sortField: SortField_assignmentSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: CurrentStatusType_assignmentSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssignmentResponse] {
-        return try await assignmentSearchWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, creatorAccountId: creatorAccountId, assigneeAccountIds: assigneeAccountIds, retailerLocationIds: retailerLocationIds, currentStatusType: currentStatusType, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentSearch(accountId: Int64, sortField: SortField_assignmentSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: CurrentStatusType_assignmentSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssignmentResponse] {
+        return try await assignmentSearchWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, creatorAccountId: creatorAccountId, assigneeAccountIds: assigneeAccountIds, retailerLocationIds: retailerLocationIds, currentStatusType: currentStatusType, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Assignments
-     - GET /api/{version}/assignment/search
+     - GET /assignment/search
      - Search for assignments by the given parameters.
-     - parameter version: (path)  
      - parameter accountId: (query) the account sending the request 
      - parameter sortField: (query) sort by table field 
      - parameter descending: (query) return results in descending order or not 
@@ -286,11 +264,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AssignmentResponse]> 
      */
-    open class func assignmentSearchWithRequestBuilder(version: Double, accountId: Int64, sortField: SortField_assignmentSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: CurrentStatusType_assignmentSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssignmentResponse]> {
-        var localVariablePath = "/api/{version}/assignment/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentSearchWithRequestBuilder(accountId: Int64, sortField: SortField_assignmentSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: CurrentStatusType_assignmentSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssignmentResponse]> {
+        let localVariablePath = "/assignment/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -374,7 +349,6 @@ open class AssignmentAPI {
     /**
      Create Assignment Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -389,15 +363,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentStatusResponse
      */
-    open class func assignmentStatusCreate(version: Double, accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusCreate? = nil, connection: Connection_assignmentStatusCreate? = nil, method: Method_assignmentStatusCreate? = nil, status: Status_assignmentStatusCreate? = nil, closure: Closure_assignmentStatusCreate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
-        return try await assignmentStatusCreateWithRequestBuilder(version: version, accountId: accountId, assignmentId: assignmentId, scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentStatusCreate(accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusCreate? = nil, connection: Connection_assignmentStatusCreate? = nil, method: Method_assignmentStatusCreate? = nil, status: Status_assignmentStatusCreate? = nil, closure: Closure_assignmentStatusCreate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
+        return try await assignmentStatusCreateWithRequestBuilder(accountId: accountId, assignmentId: assignmentId, scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Create Assignment Status
-     - POST /api/{version}/assignment/status/create
+     - POST /assignment/status/create
      - Create an assignment status.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -412,11 +385,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentStatusResponse> 
      */
-    open class func assignmentStatusCreateWithRequestBuilder(version: Double, accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusCreate? = nil, connection: Connection_assignmentStatusCreate? = nil, method: Method_assignmentStatusCreate? = nil, status: Status_assignmentStatusCreate? = nil, closure: Closure_assignmentStatusCreate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
-        var localVariablePath = "/api/{version}/assignment/status/create"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentStatusCreateWithRequestBuilder(accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusCreate? = nil, connection: Connection_assignmentStatusCreate? = nil, method: Method_assignmentStatusCreate? = nil, status: Status_assignmentStatusCreate? = nil, closure: Closure_assignmentStatusCreate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
+        let localVariablePath = "/assignment/status/create"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -449,31 +419,26 @@ open class AssignmentAPI {
     /**
      Deletes Assignment Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func assignmentStatusDelete(version: Double, accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await assignmentStatusDeleteWithRequestBuilder(version: version, accountId: accountId, assignmentStatusId: assignmentStatusId, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentStatusDelete(accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await assignmentStatusDeleteWithRequestBuilder(accountId: accountId, assignmentStatusId: assignmentStatusId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Deletes Assignment Status
-     - POST /api/{version}/assignment/status/delete
+     - POST /assignment/status/delete
      - Deletes an assignment status.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func assignmentStatusDeleteWithRequestBuilder(version: Double, accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/assignment/status/delete"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentStatusDeleteWithRequestBuilder(accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/assignment/status/delete"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -497,31 +462,26 @@ open class AssignmentAPI {
     /**
      Get Assignment Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentStatusResponse
      */
-    open class func assignmentStatusGet(version: Double, accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
-        return try await assignmentStatusGetWithRequestBuilder(version: version, accountId: accountId, assignmentStatusId: assignmentStatusId, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentStatusGet(accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
+        return try await assignmentStatusGetWithRequestBuilder(accountId: accountId, assignmentStatusId: assignmentStatusId, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Get Assignment Status
-     - GET /api/{version}/assignment/status/get
+     - GET /assignment/status/get
      - Get an assignment status.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentStatusResponse> 
      */
-    open class func assignmentStatusGetWithRequestBuilder(version: Double, accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
-        var localVariablePath = "/api/{version}/assignment/status/get"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentStatusGetWithRequestBuilder(accountId: Int64, assignmentStatusId: Int64, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
+        let localVariablePath = "/assignment/status/get"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -582,7 +542,6 @@ open class AssignmentAPI {
     /**
      Search Assignment Statuses
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter sortField: (query) the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -598,15 +557,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [AssignmentStatusResponse]
      */
-    open class func assignmentStatusSearch(version: Double, accountId: Int64, sortField: SortField_assignmentStatusSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: StatusType_assignmentStatusSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssignmentStatusResponse] {
-        return try await assignmentStatusSearchWithRequestBuilder(version: version, accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, assignmentId: assignmentId, creatorAccountId: creatorAccountId, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, statusType: statusType, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentStatusSearch(accountId: Int64, sortField: SortField_assignmentStatusSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: StatusType_assignmentStatusSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [AssignmentStatusResponse] {
+        return try await assignmentStatusSearchWithRequestBuilder(accountId: accountId, sortField: sortField, descending: descending, activeOnly: activeOnly, start: start, limit: limit, assignmentId: assignmentId, creatorAccountId: creatorAccountId, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, statusType: statusType, keyword: keyword, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Assignment Statuses
-     - GET /api/{version}/assignment/status/search
+     - GET /assignment/status/search
      - Search on assignment statuses.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter sortField: (query) the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP 
      - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -622,11 +580,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[AssignmentStatusResponse]> 
      */
-    open class func assignmentStatusSearchWithRequestBuilder(version: Double, accountId: Int64, sortField: SortField_assignmentStatusSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: StatusType_assignmentStatusSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssignmentStatusResponse]> {
-        var localVariablePath = "/api/{version}/assignment/status/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentStatusSearchWithRequestBuilder(accountId: Int64, sortField: SortField_assignmentStatusSearch, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: StatusType_assignmentStatusSearch? = nil, keyword: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[AssignmentStatusResponse]> {
+        let localVariablePath = "/assignment/status/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -711,7 +666,6 @@ open class AssignmentAPI {
     /**
      Update Assignment Status
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -726,15 +680,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentStatusResponse
      */
-    open class func assignmentStatusUpdate(version: Double, accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusUpdate? = nil, connection: Connection_assignmentStatusUpdate? = nil, method: Method_assignmentStatusUpdate? = nil, status: Status_assignmentStatusUpdate? = nil, closure: Closure_assignmentStatusUpdate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
-        return try await assignmentStatusUpdateWithRequestBuilder(version: version, accountId: accountId, assignmentStatusId: assignmentStatusId, scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentStatusUpdate(accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusUpdate? = nil, connection: Connection_assignmentStatusUpdate? = nil, method: Method_assignmentStatusUpdate? = nil, status: Status_assignmentStatusUpdate? = nil, closure: Closure_assignmentStatusUpdate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentStatusResponse {
+        return try await assignmentStatusUpdateWithRequestBuilder(accountId: accountId, assignmentStatusId: assignmentStatusId, scheduledNotificationId: scheduledNotificationId, toDo: toDo, connection: connection, method: method, status: status, closure: closure, message: message, followUp: followUp, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Assignment Status
-     - POST /api/{version}/assignment/status/update
+     - POST /assignment/status/update
      - Updates an assignment status.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentStatusId: (query) the assignment status id 
      - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -749,11 +702,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentStatusResponse> 
      */
-    open class func assignmentStatusUpdateWithRequestBuilder(version: Double, accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusUpdate? = nil, connection: Connection_assignmentStatusUpdate? = nil, method: Method_assignmentStatusUpdate? = nil, status: Status_assignmentStatusUpdate? = nil, closure: Closure_assignmentStatusUpdate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
-        var localVariablePath = "/api/{version}/assignment/status/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentStatusUpdateWithRequestBuilder(accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: ToDo_assignmentStatusUpdate? = nil, connection: Connection_assignmentStatusUpdate? = nil, method: Method_assignmentStatusUpdate? = nil, status: Status_assignmentStatusUpdate? = nil, closure: Closure_assignmentStatusUpdate? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentStatusResponse> {
+        let localVariablePath = "/assignment/status/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -786,7 +736,6 @@ open class AssignmentAPI {
     /**
      Update Assignment
      
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter name: (query) the name of the assignment (optional)
@@ -798,15 +747,14 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: AssignmentResponse
      */
-    open class func assignmentUpdate(version: Double, accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
-        return try await assignmentUpdateWithRequestBuilder(version: version, accountId: accountId, assignmentId: assignmentId, name: name, description: description, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, tags: tags, active: active, apiConfiguration: apiConfiguration).execute().body
+    open class func assignmentUpdate(accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> AssignmentResponse {
+        return try await assignmentUpdateWithRequestBuilder(accountId: accountId, assignmentId: assignmentId, name: name, description: description, assigneeAccountId: assigneeAccountId, retailerLocationId: retailerLocationId, tags: tags, active: active, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Update Assignment
-     - POST /api/{version}/assignment/update
+     - POST /assignment/update
      - Updates an assignment.
-     - parameter version: (path)  
      - parameter accountId: (query) the user account id 
      - parameter assignmentId: (query) the assignment id 
      - parameter name: (query) the name of the assignment (optional)
@@ -818,11 +766,8 @@ open class AssignmentAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<AssignmentResponse> 
      */
-    open class func assignmentUpdateWithRequestBuilder(version: Double, accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
-        var localVariablePath = "/api/{version}/assignment/update"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func assignmentUpdateWithRequestBuilder(accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<AssignmentResponse> {
+        let localVariablePath = "/assignment/update"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

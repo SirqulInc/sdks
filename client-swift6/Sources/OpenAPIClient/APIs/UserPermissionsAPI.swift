@@ -25,7 +25,6 @@ open class UserPermissionsAPI {
     /**
      Add User
      
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type of the object 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -46,15 +45,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func addUsersToPermissionable(version: Double, permissionableType: PermissionableType_addUsersToPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await addUsersToPermissionableWithRequestBuilder(version: version, permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, pending: pending, admin: admin, includeFriendGroup: includeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, apiConfiguration: apiConfiguration).execute().body
+    open class func addUsersToPermissionable(permissionableType: PermissionableType_addUsersToPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await addUsersToPermissionableWithRequestBuilder(permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, read: read, write: write, delete: delete, add: add, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, pending: pending, admin: admin, includeFriendGroup: includeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Add User
-     - POST /api/{version}/consumer/permissions/add
+     - POST /consumer/permissions/add
      - Adds a user to a permissionable object.
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type of the object 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -75,11 +73,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func addUsersToPermissionableWithRequestBuilder(version: Double, permissionableType: PermissionableType_addUsersToPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/permissions/add"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func addUsersToPermissionableWithRequestBuilder(permissionableType: PermissionableType_addUsersToPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/permissions/add"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -141,7 +136,6 @@ open class UserPermissionsAPI {
     /**
      Approve Permissionable
      
-     - parameter version: (path)  
      - parameter permissionableType: (query) The permissionable type of the object 
      - parameter permissionableId: (query) The id of the permissionable object 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -150,15 +144,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func approvePermissionable(version: Double, permissionableType: PermissionableType_approvePermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approvePermissionable? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await approvePermissionableWithRequestBuilder(version: version, permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, apiConfiguration: apiConfiguration).execute().body
+    open class func approvePermissionable(permissionableType: PermissionableType_approvePermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approvePermissionable? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await approvePermissionableWithRequestBuilder(permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, approvalStatus: approvalStatus, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Approve Permissionable
-     - POST /api/{version}/permissionable/approve
+     - POST /permissionable/approve
      - Sets the approval status of a permissionable object.
-     - parameter version: (path)  
      - parameter permissionableType: (query) The permissionable type of the object 
      - parameter permissionableId: (query) The id of the permissionable object 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -167,11 +160,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func approvePermissionableWithRequestBuilder(version: Double, permissionableType: PermissionableType_approvePermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approvePermissionable? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/permissionable/approve"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func approvePermissionableWithRequestBuilder(permissionableType: PermissionableType_approvePermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovalStatus_approvePermissionable? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/permissionable/approve"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -198,7 +188,6 @@ open class UserPermissionsAPI {
     /**
      Leave
      
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type PermissionableType 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -208,15 +197,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func leaveFromPermissionable(version: Double, permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await leaveFromPermissionableWithRequestBuilder(version: version, permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
+    open class func leaveFromPermissionable(permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await leaveFromPermissionableWithRequestBuilder(permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, latitude: latitude, longitude: longitude, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Leave
-     - POST /api/{version}/consumer/permissions/leave
+     - POST /consumer/permissions/leave
      - Used when the user wants to leave from someone else's permissionable object
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type PermissionableType 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -226,11 +214,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func leaveFromPermissionableWithRequestBuilder(version: Double, permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/permissions/leave"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func leaveFromPermissionableWithRequestBuilder(permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/permissions/leave"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -271,7 +256,6 @@ open class UserPermissionsAPI {
     /**
      Remove User
      
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type of the object 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -286,15 +270,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: SirqulResponse
      */
-    open class func removeUsersFromPermissionable(version: Double, permissionableType: PermissionableType_removeUsersFromPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
-        return try await removeUsersFromPermissionableWithRequestBuilder(version: version, permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, removeFriendGroup: removeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, apiConfiguration: apiConfiguration).execute().body
+    open class func removeUsersFromPermissionable(permissionableType: PermissionableType_removeUsersFromPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> SirqulResponse {
+        return try await removeUsersFromPermissionableWithRequestBuilder(permissionableType: permissionableType, permissionableId: permissionableId, deviceId: deviceId, accountId: accountId, connectionIds: connectionIds, connectionAccountIds: connectionAccountIds, connectionGroupIds: connectionGroupIds, removeFriendGroup: removeFriendGroup, latitude: latitude, longitude: longitude, audienceIds: audienceIds, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Remove User
-     - POST /api/{version}/consumer/permissions/remove
+     - POST /consumer/permissions/remove
      - Used to remove someone (assuming they have permission) from a permissionable object
-     - parameter version: (path)  
      - parameter permissionableType: (query) the permissionable type of the object 
      - parameter permissionableId: (query) the id of the permissionable object 
      - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -309,11 +292,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<SirqulResponse> 
      */
-    open class func removeUsersFromPermissionableWithRequestBuilder(version: Double, permissionableType: PermissionableType_removeUsersFromPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
-        var localVariablePath = "/api/{version}/consumer/permissions/remove"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func removeUsersFromPermissionableWithRequestBuilder(permissionableType: PermissionableType_removeUsersFromPermissionable, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<SirqulResponse> {
+        let localVariablePath = "/consumer/permissions/remove"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -359,7 +339,6 @@ open class UserPermissionsAPI {
     /**
      Search Permissionables
      
-     - parameter version: (path)  
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) Filter results for a specific user account (optional)
@@ -376,15 +355,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [UserPermissionsResponse]
      */
-    open class func searchPermissionables(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionables? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserPermissionsResponse] {
-        return try await searchPermissionablesWithRequestBuilder(version: version, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, keyword: keyword, sortField: sortField, descending: descending, pending: pending, admin: admin, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPermissionables(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionables? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserPermissionsResponse] {
+        return try await searchPermissionablesWithRequestBuilder(deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, keyword: keyword, sortField: sortField, descending: descending, pending: pending, admin: admin, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Permissionables
-     - GET /api/{version}/permissions/search
+     - GET /permissions/search
      - Search on UserPermissions
-     - parameter version: (path)  
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
      - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
      - parameter connectionAccountId: (query) Filter results for a specific user account (optional)
@@ -401,11 +379,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[UserPermissionsResponse]> 
      */
-    open class func searchPermissionablesWithRequestBuilder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionables? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserPermissionsResponse]> {
-        var localVariablePath = "/api/{version}/permissions/search"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPermissionablesWithRequestBuilder(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionables? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserPermissionsResponse]> {
+        let localVariablePath = "/permissions/search"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
@@ -453,7 +428,6 @@ open class UserPermissionsAPI {
     /**
      Search Permissionables by Distnace
      
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of the current account 
      - parameter longitude: (query) The longitude of the current account 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -471,15 +445,14 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [UserPermissionsResponse]
      */
-    open class func searchPermissionablesFollowingDistance(version: Double, latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionablesFollowingDistance? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserPermissionsResponse] {
-        return try await searchPermissionablesFollowingDistanceWithRequestBuilder(version: version, latitude: latitude, longitude: longitude, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, searchRange: searchRange, keyword: keyword, pending: pending, admin: admin, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
+    open class func searchPermissionablesFollowingDistance(latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionablesFollowingDistance? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> [UserPermissionsResponse] {
+        return try await searchPermissionablesFollowingDistanceWithRequestBuilder(latitude: latitude, longitude: longitude, deviceId: deviceId, accountId: accountId, connectionAccountId: connectionAccountId, connectionAccountIds: connectionAccountIds, permissionableType: permissionableType, permissionableId: permissionableId, searchRange: searchRange, keyword: keyword, pending: pending, admin: admin, start: start, limit: limit, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      Search Permissionables by Distnace
-     - GET /api/{version}/permissions/distancesearch
+     - GET /permissions/distancesearch
      - Search on UserPermissions by distance
-     - parameter version: (path)  
      - parameter latitude: (query) The latitude of the current account 
      - parameter longitude: (query) The longitude of the current account 
      - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -497,11 +470,8 @@ open class UserPermissionsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[UserPermissionsResponse]> 
      */
-    open class func searchPermissionablesFollowingDistanceWithRequestBuilder(version: Double, latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionablesFollowingDistance? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserPermissionsResponse]> {
-        var localVariablePath = "/api/{version}/permissions/distancesearch"
-        let versionPreEscape = "\(APIHelper.mapValueToPathItem(version))"
-        let versionPostEscape = versionPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{version}", with: versionPostEscape, options: .literal, range: nil)
+    open class func searchPermissionablesFollowingDistanceWithRequestBuilder(latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: PermissionableType_searchPermissionablesFollowingDistance? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<[UserPermissionsResponse]> {
+        let localVariablePath = "/permissions/distancesearch"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 
